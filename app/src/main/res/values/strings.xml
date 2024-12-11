@@ -50,6 +50,8 @@
     <string name="Settings_Enter_Pin">Enter PIN</string>
     <string name="pin">PIN</string>
     <string name="pin_repeat">Repeat PIN</string>
+    <string name="pin_mismatch">The PINs do not match!</string>
+    <string name="pin_match_command_keyword">The PIN must not equal one of the commands!</string>
     <string name="Settings_FMDCommand_Description">The command used to communicate with the FMD.</string>
     <string name="Toast_Empty_FMDCommand">Empty command not allowed, using default.</string>
     <string name="Settings_Ringer_Tone_Description">Select a ringtone that will be played when "fmd ring" is sent.</string>
