@@ -7,15 +7,16 @@ import android.telephony.SmsManager
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
+import de.nulide.findmydevice.commands.ParserResult
 import de.nulide.findmydevice.permissions.SmsPermission
 import de.nulide.findmydevice.ui.settings.AllowlistActivity
 
 
 class SmsTransport(
     private val context: Context,
-    private val destination: String,
+    private val phoneNumber: String,
     private val subscriptionId: Int
-) : Transport<String>(destination) {
+) : Transport<String>(phoneNumber) {
 
     @get:DrawableRes
     override val icon = R.drawable.ic_sms
@@ -38,7 +39,7 @@ class SmsTransport(
         activity.startActivity(Intent(context, AllowlistActivity::class.java))
     })
 
-    override fun getDestinationString() = destination
+    override fun getDestinationString() = phoneNumber
 
     override fun send(context: Context, msg: String) {
         super.send(context, msg)
@@ -59,10 +60,10 @@ class SmsTransport(
         }
 
         if (msg.length <= 160) {
-            smsManager.sendTextMessage(destination, null, msg, null, null)
+            smsManager.sendTextMessage(phoneNumber, null, msg, null, null)
         } else {
             val parts = smsManager.divideMessage(msg)
-            smsManager.sendMultipartTextMessage(destination, null, parts, null, null)
+            smsManager.sendMultipartTextMessage(phoneNumber, null, parts, null, null)
         }
     }
 }
