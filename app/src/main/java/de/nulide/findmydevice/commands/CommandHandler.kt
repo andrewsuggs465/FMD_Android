@@ -57,40 +57,39 @@ class CommandHandler<T>
             "Handling command '$rawCommand' from source '${transport.getDestinationString()}'"
         )
 
-        val args = rawCommand.split(" ").filter { it.isNotBlank() }.toMutableList()
         val settings = SettingsRepository.getInstance(context)
         val fmdTriggerWord = settings.get(Settings.SET_FMD_COMMAND) as String
+        val expectedPinHash = settings.get(Settings.SET_PIN) as String
 
-        if (args.isEmpty()) {
-            context.log().w(TAG, "Cannot handle: args is empty.")
-            return
-        }
-        if (args[0].lowercase() != fmdTriggerWord.lowercase()) {
-            context.log().w(
-                TAG,
-                "Not handling: '${args[0]}' does not match trigger word '${fmdTriggerWord}'"
-            )
-            return
-        }
+        val cmds = availableCommands(context)
+        val parser =
+            CommandParser(fmdTriggerWord, expectedPinHash, HelpCommand(cmds, context), cmds)
+        val parsed = parser.parse(rawCommand)
 
-        if (showUsageNotification) {
-            showUsageNotification(context, rawCommand)
-        }
+        when (parsed) {
+            is ParserResult.Success -> {
+                context.log().d(TAG, "Executing command: ${parsed.command.keyword}")
+                if (showUsageNotification) {
+                    showUsageNotification(context, rawCommand)
+                }
+                parsed.command.execute(parsed.args, transport, coroutineScope, job)
+            }
 
-        if (args.size == 1) {
-            // no argument ==> show help
-            args.add("help")
-        }
+            is ParserResult.Empty -> {
+                context.log().w(TAG, "Cannot handle: args is empty.")
+            }
 
-        // run the command
-        for (cmd in availableCommands(context)) {
-            if (args[1].lowercase() == cmd.keyword.lowercase()) {
-                context.log().d(TAG, "Executing command: ${cmd.keyword}")
-                cmd.execute(args, transport, coroutineScope, job)
-                return
+            is ParserResult.TriggerWordMismatch -> {
+                context.log().w(
+                    TAG,
+                    "Not handling: '${parsed.actual}' does not match trigger word '${parsed.expected}'"
+                )
+            }
+
+            is ParserResult.UnknownCommand -> {
+                context.log().w(TAG, "No command found that matches '${parsed.commandKeyword}'")
             }
         }
-        context.log().w(TAG, "No command found that matches '${args[1]}'")
     }
 
     private fun showUsageNotification(context: Context, rawCommand: String) {

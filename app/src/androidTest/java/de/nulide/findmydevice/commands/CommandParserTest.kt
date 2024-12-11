@@ -1,0 +1,135 @@
+package de.nulide.findmydevice.commands
+
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
+import org.junit.Assert.*
+import org.junit.Test
+import org.junit.runner.RunWith
+
+
+@RunWith(AndroidJUnit4::class)
+class CommandParserTest {
+
+    // All the possible branches in the CommandParser should have a test
+
+    @Test
+    fun testEmpty() {
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+
+        val cmds = availableCommands(appContext)
+        val helpCommand = HelpCommand(cmds, appContext)
+
+        val parser = CommandParser("fmd", "", helpCommand, availableCommands(appContext))
+        val actual = parser.parse("")
+
+        assertTrue(actual is ParserResult.Empty)
+    }
+
+    @Test
+    fun testTriggerWordMismatch() {
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+
+        val cmds = availableCommands(appContext)
+        val helpCommand = HelpCommand(cmds, appContext)
+
+        val parser = CommandParser("fmd", "", helpCommand, availableCommands(appContext))
+        val actual = parser.parse("fmdev locate")
+        val expected = ParserResult.TriggerWordMismatch("fmdev", "fmd")
+
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun testUnknownCommand() {
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+
+        val cmds = availableCommands(appContext)
+        val helpCommand = HelpCommand(cmds, appContext)
+
+        val parser = CommandParser("fmd", "", helpCommand, availableCommands(appContext))
+        val actual = parser.parse("fmd nonexistent")
+        val expected = ParserResult.UnknownCommand("nonexistent")
+
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun testBasic() {
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+
+        val cmds = availableCommands(appContext)
+        val helpCommand = HelpCommand(cmds, appContext)
+
+        val parser = CommandParser("fmd", "", helpCommand, availableCommands(appContext))
+        val actual = parser.parse("fmd locate gps")
+
+        assertTrue(actual is ParserResult.Success)
+        actual as ParserResult.Success
+
+        assertEquals("locate", actual.command.keyword)
+        assertEquals(listOf("gps"), actual.args)
+        assertEquals(null, actual.pin)
+    }
+
+    @Test
+    fun testPin() {
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+
+        val cmds = availableCommands(appContext)
+        val helpCommand = HelpCommand(cmds, appContext)
+
+        val expectedPinHash =
+            "\$argon2id\$v=19\$m=131072,t=1,p=4\$GXrLoiiczcr4GsPmp6+muQ\$vWpZS6b8Ee+Gfjp02nVJJf3imwqFkONA05Pu9YoGtoo"
+        val parser =
+            CommandParser("fmd", expectedPinHash, helpCommand, availableCommands(appContext))
+        val actual = parser.parse("""fmd "horse battery staple" ring""")
+
+        assertTrue(actual is ParserResult.Success)
+        actual as ParserResult.Success
+
+        assertEquals("ring", actual.command.keyword)
+        assertEquals(emptyList<String>(), actual.args)
+        assertEquals("horse battery staple", actual.pin)
+    }
+
+    @Test
+    fun testHelp() {
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+
+        val cmds = availableCommands(appContext)
+        val helpCommand = HelpCommand(cmds, appContext)
+
+        val parser = CommandParser("fmd", "", helpCommand, availableCommands(appContext))
+        val actual = parser.parse("fmd") // no command
+
+        assertTrue(actual is ParserResult.Success)
+        actual as ParserResult.Success
+
+        assertEquals("help", actual.command.keyword)
+        assertEquals(emptyList<String>(), actual.args)
+        assertEquals(null, actual.pin)
+    }
+
+    @Test
+    fun testHelpWithPin() {
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+
+        val cmds = availableCommands(appContext)
+        val helpCommand = HelpCommand(cmds, appContext)
+
+        val expectedPinHash =
+            "\$argon2id\$v=19\$m=131072,t=1,p=4\$GXrLoiiczcr4GsPmp6+muQ\$vWpZS6b8Ee+Gfjp02nVJJf3imwqFkONA05Pu9YoGtoo"
+        val parser =
+            CommandParser("fmd", expectedPinHash, helpCommand, availableCommands(appContext))
+        val actual = parser.parse("""fmd "horse battery staple" """) // no command, just pin
+
+        assertTrue(actual is ParserResult.Success)
+        actual as ParserResult.Success
+
+        assertEquals("help", actual.command.keyword)
+        assertEquals(emptyList<String>(), actual.args)
+        assertEquals("horse battery staple", actual.pin)
+    }
+
+
+}
