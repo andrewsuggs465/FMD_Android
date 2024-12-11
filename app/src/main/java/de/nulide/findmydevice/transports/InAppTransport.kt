@@ -52,9 +52,10 @@ class InAppTransport(
             val copyIntent = Intent(context, CopyInAppTextReceiver::class.java)
             copyIntent.putExtra(EXTRA_TEXT_TO_COPY, msg)
 
+            val requestCode = (0..900_000).random()
             val copyPendingIntent = PendingIntent.getBroadcast(
                 context,
-                57568,
+                requestCode,
                 copyIntent,
                 PendingIntent.FLAG_IMMUTABLE
             )
