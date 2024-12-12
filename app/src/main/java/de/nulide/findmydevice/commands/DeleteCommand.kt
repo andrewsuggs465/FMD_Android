@@ -2,7 +2,6 @@ package de.nulide.findmydevice.commands
 
 import android.app.admin.DevicePolicyManager
 import android.content.Context
-import android.os.Build
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
@@ -52,8 +51,8 @@ class DeleteCommand(context: Context) : Command(context) {
 
         if (args.isEmpty()) {
             val triggerWord = settings.get(Settings.SET_FMD_COMMAND) as String
-            val usage = "$triggerWord delete [pwd]"
-            val msg = context.getString(R.string.cmd_delete_response_pwd_missing, usage)
+            val fullUsage = "$triggerWord $usage"
+            val msg = context.getString(R.string.cmd_delete_response_pwd_missing, fullUsage)
             context.log().i(TAG, msg)
             transport.send(context, msg)
             job?.jobFinished()
