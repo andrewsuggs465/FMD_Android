@@ -23,6 +23,7 @@ import de.nulide.findmydevice.net.MinRequiredVersionResult;
 import de.nulide.findmydevice.permissions.PermissionsUtilKt;
 import de.nulide.findmydevice.receiver.PushReceiver;
 import de.nulide.findmydevice.services.FMDServerLocationUploadService;
+import de.nulide.findmydevice.services.FmdServerConnectivityCheckService;
 import de.nulide.findmydevice.services.TempContactExpiredService;
 import de.nulide.findmydevice.ui.home.CommandListFragment;
 import de.nulide.findmydevice.ui.home.TransportListFragment;
@@ -125,9 +126,11 @@ public class MainActivity extends FmdActivity {
 
         if (settings.serverAccountExists()) {
             FMDServerLocationUploadService.scheduleJob(this, 0);
+            FmdServerConnectivityCheckService.scheduleJob(this);
         } else {
             // just in case it was still running
             FMDServerLocationUploadService.cancelJob(this);
+            FmdServerConnectivityCheckService.cancelJob(this);
         }
         TempContactExpiredService.scheduleJob(this, 0);
         invalidateOptionsMenu();

@@ -188,6 +188,62 @@
                 android:ems="10"
                 android:text="@string/Settings_FMDServer_Push_Open_UP" />
 
+            <!-- Connectivity Check -->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                style="@style/FMD.Text.SectionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@string/Settings_FMDServer_Check_Interval_Title" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@string/Settings_FMDServer_Check_Interval_Description" />
+
+            <EditText
+                android:id="@+id/editTextCheckInterval"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="8"
+                tools:text="4" />
+
+            <TextView
+                style="@style/FMD.Text.SectionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@string/Settings_FMDServer_Check_Notify_After_Title" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@string/Settings_FMDServer_Check_Notify_After_Description" />
+
+            <EditText
+                android:id="@+id/editTextNotifyAfterTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="8"
+                tools:text="36" />
+
+            <!-- Background Location Upload-->
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -211,17 +267,11 @@
                 android:id="@+id/editTextFMDServerUpdateTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_normal"
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:maxLength="8"
-                android:text="0" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="@dimen/margin_normal"
-                android:background="?android:attr/listDivider" />
+                tools:text="60" />
 
             <TextView
                 style="@style/FMD.Text.SectionTitle"

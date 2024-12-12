@@ -7,6 +7,7 @@ import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.services.FMDServerLocationUploadService
 import de.nulide.findmydevice.services.FmdBatteryLowService
+import de.nulide.findmydevice.services.FmdServerConnectivityCheckService
 import de.nulide.findmydevice.services.ServerVersionCheckService
 import de.nulide.findmydevice.services.TempContactExpiredService
 import de.nulide.findmydevice.ui.onboarding.UpdateboardingModernCryptoActivity
@@ -37,6 +38,7 @@ class BootReceiver : BroadcastReceiver() {
 
             if (settings.serverAccountExists()) {
                 FMDServerLocationUploadService.scheduleJob(context, 0)
+                FmdServerConnectivityCheckService.scheduleJob(context);
                 ServerVersionCheckService.scheduleJobNow(context)
                 PushReceiver.registerWithUnifiedPush(context)
             }

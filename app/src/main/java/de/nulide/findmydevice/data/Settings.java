@@ -36,6 +36,9 @@ public class Settings extends HashMap<Integer, Object> {
     //public static final int SET_FMD_CRYPT_NEW_SALT = 112;
     public static final int SET_UPDATEBOARDING_MODERN_CRYPTO_COMPLETED = 113;
 
+    public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS = 201;
+    public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS = 202;
+    public static final int SET_FMD_SERVER_LAST_CONNECTIVITY_UNIX_TIME = 203;
 
     public static final int SET_FIRST_TIME_WHITELIST = 301;
     public static final int SET_FIRST_TIME_CONTACT_ADDED = 302;
@@ -109,6 +112,13 @@ public class Settings extends HashMap<Integer, Object> {
                     return VAL_THEME_FOLLOW_SYSTEM;
                 case SET_DYNAMIC_COLORS:
                     return false;
+
+                case SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS:
+                    return 0L;
+                case SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS:
+                    return 36L;
+                case SET_FMD_SERVER_LAST_CONNECTIVITY_UNIX_TIME:
+                    return 0L;
             }
         }
         return "";
