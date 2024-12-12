@@ -48,7 +48,8 @@ class TemporaryAllowlistRepository private constructor(private val context: Cont
     }
 
     private fun saveList() {
-        val raw = gson.toJson(list)
+        val copiedList = list.clone()
+        val raw = gson.toJson(copiedList)
         val file = File(context.filesDir, TEMP_ALLOWLIST_FILENAME)
         file.writeText(raw)
     }
@@ -88,7 +89,6 @@ class TemporaryAllowlistRepository private constructor(private val context: Cont
     /**
      * Removes all entries that have expired from the temporary allowlist.
      */
-    @Synchronized
     fun removeExpired(): List<Pair<String, Int>> {
         val toRemove = mutableListOf<TempAllowedNumber>()
         for (ele in list) {
