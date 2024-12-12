@@ -255,4 +255,6 @@
     <string name="crashed_title">Hlášení o pádu</string>
     <string name="server_version_upgrade_required_title">Vyžadována aktualizace serveru FMD</string>
     <string name="server_version_upgrade_required_text">Server FMD, který používáte, má verzi {CURRENT}, ale tato aplikace vyžaduje alespoň {MIN}. Ovládání zařízení prostřednictvím serveru FMD již nemusí fungovat. Prosíme, aktualizujte svůj server.</string>
+    <string name="log_view_clear_confirm">Opravdu chcete vymazat všechny protokoly?</string>
+    <string name="log_view_clear">Vymazat protokoly</string>
 </resources>
