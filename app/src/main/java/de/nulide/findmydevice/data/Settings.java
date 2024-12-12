@@ -83,9 +83,10 @@ public class Settings extends HashMap<Integer, Object> {
                     return 60;
                 //case SET_INTRODUCTION_VERSION:
                 case SET_FMDSMS_COUNTER:
-                case SET_FMDSERVER_LOCATION_TYPE:
                 case SET_SET_VERSION:
                     return 0;
+                case SET_FMDSERVER_LOCATION_TYPE:
+                    return 3;
                 case SET_RINGER_TONE:
                     return RingerUtils.getDefaultRingtoneAsString();
                 case SET_PIN:
