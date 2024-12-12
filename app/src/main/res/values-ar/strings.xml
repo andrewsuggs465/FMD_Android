@@ -78,7 +78,7 @@
     <string name="MH_Pin_Accepted">تم قبول الرقم السري!</string>
     <string name="LockScreen_Backbutton_pressed">رسالة شاشة القفل: تم الضغط على زر الرجوع.</string>
     <string name="LockScreen_Usage_detectd">رسالة قفل الشاشة: تم اكتشاف الاستخدام.</string>
-    <string name="ringer_stop_ringing">توقف عن الرنين</string>
+    <string name="ringer_stop_ringing">ايقاف الرنين</string>
     <string name="cmd_locate_response_location_off">عذرًا، تم إيقاف GPS.</string>
     <string name="Settings_FMDServer_Push_Description_Missing">يتطلب إرسال الأوامر من خادم FMD إلى جهازك تطبيق موزع UnifiedPush. قم بتثبيت واحد، ثم عد إلى هنا. سيتم اكتشافه تلقائيًا.</string>
     <string name="Permission_POST_NOTIFICATIONS">سوف يرسل لك FMD أحيانًا إشعارات، على سبيل المثال لتحذيرك من أن شخصًا ما يحدد موقع جهازك.</string>
