@@ -255,4 +255,6 @@
     <string name="server_version_upgrade_required_title">Atualização do FMD Server necessária</string>
     <string name="server_version_upgrade_required_text">O Servidor FMD que você está usando está na versão {CURRENT}, mas o app requer que esteja no mínimo na {MIN}. Pode ser que controlar seu dispositivo pelo Servidor FMD não funcione mais. Por favor atualize seu servidor.</string>
     <string name="crashed_title">Relatório de Erro</string>
+    <string name="log_view_clear_confirm">Você deseja realmente excluir todos os itens dos registros?</string>
+    <string name="log_view_clear">Limpar Registros</string>
 </resources>
