@@ -7,6 +7,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.robj.notificationhelperlibrary.utils.NotificationUtils
 import de.nulide.findmydevice.R
+import de.nulide.findmydevice.commands.ParserResult
 import de.nulide.findmydevice.permissions.NotificationAccessPermission
 import de.nulide.findmydevice.utils.log
 
@@ -35,6 +36,10 @@ class NotificationReplyTransport(
     override val requiredPermissions = listOf(NotificationAccessPermission())
 
     override fun getDestinationString() = destination?.packageName ?: "Notification Response"
+
+    override fun isAllowed(parsed: ParserResult.Success): Boolean {
+        return parsed.pin != null
+    }
 
     override fun send(context: Context, msg: String) {
         super.send(context, msg)

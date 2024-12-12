@@ -42,7 +42,7 @@ class LockCommand(context: Context) : Command(context) {
             context.getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
         devicePolicyManager.lockNow()
 
-        var customMessage = args.subList(2, args.size).joinToString(" ")
+        var customMessage = args.joinToString(" ")
 
         if (customMessage.isEmpty()) {
             customMessage = settings.get(Settings.SET_LOCKSCREEN_MESSAGE) as String

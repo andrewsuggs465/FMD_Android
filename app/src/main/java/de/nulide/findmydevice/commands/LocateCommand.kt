@@ -40,7 +40,7 @@ class LocateCommand(context: Context) : Command(context) {
         job: FmdJobService?,
     ) {
         // ignore everything except the first option (if it exists)
-        val option = args.getOrElse(2) { "all" }
+        val option = args.getOrElse(0) { "all" }
 
         // fmd locate last
         if (args.contains("last")) {

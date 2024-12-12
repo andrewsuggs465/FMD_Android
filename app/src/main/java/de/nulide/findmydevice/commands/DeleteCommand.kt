@@ -50,7 +50,7 @@ class DeleteCommand(context: Context) : Command(context) {
             return
         }
 
-        if (args.size < 3) {
+        if (args.isEmpty()) {
             val triggerWord = settings.get(Settings.SET_FMD_COMMAND) as String
             val usage = "$triggerWord delete [pwd]"
             val msg = context.getString(R.string.cmd_delete_response_pwd_missing, usage)
@@ -59,8 +59,7 @@ class DeleteCommand(context: Context) : Command(context) {
             job?.jobFinished()
             return
         }
-        // the args were previously split by space => restore the spaces
-        val pwd = args.subList(2, args.size).joinToString(" ")
+        val pwd = args[0]
 
         if (!CypherUtils.checkPasswordForFmdPin(settings.get(Settings.SET_PIN) as String, pwd)) {
             val msg = context.getString(R.string.cmd_delete_response_pwd_wrong)

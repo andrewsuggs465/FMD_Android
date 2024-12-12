@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.annotation.CallSuper
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import de.nulide.findmydevice.commands.ParserResult
 import de.nulide.findmydevice.locationproviders.LocationProvider
 import de.nulide.findmydevice.permissions.Permission
 import de.nulide.findmydevice.utils.Utils
@@ -50,6 +51,11 @@ abstract class Transport<DestinationType>(
     }
 
     abstract fun getDestinationString(): String
+
+    /**
+     * Whether this transport instance is allowed to execute the command from the [ParserResult].
+     */
+    abstract fun isAllowed(parsed: ParserResult.Success): Boolean
 
     @CallSuper
     open fun send(context: Context, msg: String) {

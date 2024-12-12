@@ -4,7 +4,6 @@ import android.provider.Telephony
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import de.nulide.findmydevice.commands.CommandHandler
-import de.nulide.findmydevice.commands.CommandHandler.Companion.checkAndRemovePin
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.receiver.BatteryLowReceiver
@@ -51,22 +50,19 @@ class ThirdPartyAccessService : NotificationListenerService() {
         }
 
         val messageChars = sbn.notification.extras.getCharSequence("android.text") ?: return
-        var message = messageChars.toString().lowercase()
+        val message = messageChars.toString()
 
-        val fmdTriggerWord = (settings.get(Settings.SET_FMD_COMMAND) as String).lowercase()
-        if (message.contains(fmdTriggerWord)) {
-            val newMessage = checkAndRemovePin(settings, message)
-            if (newMessage == null) {
-                // TODO: wrong PIN!
-                return
-            }
-            message = newMessage
-
-            val transport = NotificationReplyTransport(sbn)
-            val commandHandler = CommandHandler(transport, coroutineScope, null)
-            commandHandler.execute(this, message)
-
-            cancelNotification(sbn.key)
+        // Early sanity check + abort
+        val fmdTriggerWord = (settings.get(Settings.SET_FMD_COMMAND) as String)
+        if (!message.startsWith(fmdTriggerWord, ignoreCase = true)) {
+            return
         }
+
+        val transport = NotificationReplyTransport(sbn)
+        val commandHandler = CommandHandler(transport, coroutineScope, null)
+        commandHandler.execute(this, message)
+
+        // TODO: only cancel if we replied
+        //cancelNotification(sbn.key)
     }
 }

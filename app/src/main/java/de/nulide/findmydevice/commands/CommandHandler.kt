@@ -35,6 +35,8 @@ fun availableCommands(context: Context): List<Command> {
  * CommandHandler is the entry point for taking a string,
  * mapping it to a Command, and executing the command.
  *
+ * Access control is done internally, after parsing the command.
+ *
  * @param job
  * An optional FmdJobService that is running this command, and its JobParameters.
  * If this is non-null, the Command should call job.jobFinished() when it is done.
@@ -49,7 +51,7 @@ class CommandHandler<T>
 ) {
 
     /**
-     * Executes commands of the form "triggerWord command options", e.g. "fmd locate cell"
+     * Parses and executes a command of the form "triggerWord command options", e.g. "fmd locate cell"
      */
     fun execute(context: Context, rawCommand: String) {
         context.log().d(
@@ -69,6 +71,10 @@ class CommandHandler<T>
         when (parsed) {
             is ParserResult.Success -> {
                 context.log().d(TAG, "Executing command: ${parsed.command.keyword}")
+                if (!transport.isAllowed(parsed)) {
+                    context.log().e(TAG, "Aborting, the transport denied the access.")
+                    return
+                }
                 if (showUsageNotification) {
                     showUsageNotification(context, rawCommand)
                 }

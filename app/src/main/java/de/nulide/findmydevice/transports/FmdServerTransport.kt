@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
+import de.nulide.findmydevice.commands.ParserResult
 import de.nulide.findmydevice.net.FMDServerApiRepoSpec
 import de.nulide.findmydevice.net.FMDServerApiRepository
 import de.nulide.findmydevice.permissions.Permission
@@ -44,6 +45,10 @@ class FmdServerTransport(
     })
 
     override fun getDestinationString() = destination
+
+    override fun isAllowed(parsed: ParserResult.Success): Boolean {
+        return true
+    }
 
     @SuppressLint("MissingSuperCall")
     override fun send(context: Context, msg: String) {
