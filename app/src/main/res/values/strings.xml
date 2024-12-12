@@ -184,6 +184,7 @@
     <string name="cmd_delete_response_disabled">Cannot delete: delete command is not enabled in settings.</string>
     <string name="cmd_delete_response_pwd_missing">Cannot delete: missing password. Usage: %s.</string>
     <string name="cmd_delete_response_pwd_wrong">Cannot delete: wrong password.</string>
+    <string name="cmd_delete_response_dry_run">Dry run successful, skipping the actual device deletion.</string>
     <string name="cmd_delete_response_failed">Failed to delete device due to an exception.</string>
     <string name="cmd_delete_response_success">The device should now be deleted. Goodbye!</string>
 

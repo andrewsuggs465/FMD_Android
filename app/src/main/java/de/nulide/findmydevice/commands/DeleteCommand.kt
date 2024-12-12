@@ -23,7 +23,7 @@ class DeleteCommand(context: Context) : Command(context) {
     }
 
     override val keyword = "delete"
-    override val usage = "delete <pin>"
+    override val usage = "delete <pin> [dryrun]"
 
     @get:DrawableRes
     override val icon = R.drawable.ic_delete_outline
@@ -62,6 +62,15 @@ class DeleteCommand(context: Context) : Command(context) {
 
         if (!CypherUtils.checkPasswordForFmdPin(settings.get(Settings.SET_PIN) as String, pwd)) {
             val msg = context.getString(R.string.cmd_delete_response_pwd_wrong)
+            context.log().i(TAG, msg)
+            transport.send(context, msg)
+            job?.jobFinished()
+            return
+        }
+
+        // Be defensive, match anything that might look right
+        if (args.getOrNull(1)?.contains("dry") == true) {
+            val msg = context.getString(R.string.cmd_delete_response_dry_run)
             context.log().i(TAG, msg)
             transport.send(context, msg)
             job?.jobFinished()
