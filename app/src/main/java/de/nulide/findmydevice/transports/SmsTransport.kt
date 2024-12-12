@@ -74,11 +74,10 @@ class SmsTransport(
             if (parsed.pin != null) {
                 context.log().i(TAG, "$phoneNumber used FMD via PIN")
                 send(context, context.getString(R.string.MH_Pin_Accepted))
-                // TODO: translate
                 Notifications.notify(
                     context,
-                    "Pin",
-                    "The pin was used by the following number: $phoneNumber\nPlease change the Pin!",
+                    context.getString(R.string.usage_notification_pin_title),
+                    context.getString(R.string.usage_notification_pin_text, phoneNumber),
                     Notifications.CHANNEL_PIN
                 )
 

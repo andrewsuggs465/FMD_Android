@@ -292,6 +292,8 @@
     <string name="usage_notification_title">Command executed</string>
     <string name="usage_notification_text">The command \"%s\" was executed.</string>
     <string name="usage_notification_text_source">The command \"%1$s\" was executed by \"%2$s\".</string>
+    <string name="usage_notification_pin_title">FMD PIN used</string>
+    <string name="usage_notification_pin_text">The PIN was used by this number: \"%s\". It is recommended to change the PIN.</string>
 
     <!-- Setup Warnings -->
     <string name="setup_warnings_title">Setup Warnings</string>
