@@ -255,4 +255,6 @@
     <string name="crashed_title">Informe de errores</string>
     <string name="server_version_upgrade_required_title">Se requiere actualización del servidor FMD</string>
     <string name="server_version_upgrade_required_text">El servidor FMD que estás usando tiene la versión {CURRENT}, pero esta aplicación requiere al menos {MIN}. Es posible que el control de tu dispositivo a través del servidor FMD ya no funcione. Actualiza tu servidor.</string>
+    <string name="log_view_clear">Borrar registros</string>
+    <string name="log_view_clear_confirm">¿Realmente quieres borrar todas las entradas del registro?</string>
 </resources>
