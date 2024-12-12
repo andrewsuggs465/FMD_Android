@@ -238,4 +238,6 @@
     <string name="crashed_title">Foutrapportage</string>
     <string name="server_version_upgrade_required_text">De FMD-server die je gebruikt heeft versie {CURRENT}, maar deze app vereist minimaal {MIN}. Het opvragen van jouw apparaat via FMD Server werkt mogelijk niet meer. Jouw server heeft een upgrade nodig.</string>
     <string name="server_version_upgrade_required_title">Upgrade van de FMD-server vereist</string>
+    <string name="log_view_clear">Logboeken wissen</string>
+    <string name="log_view_clear_confirm">Wil je echt alle logboekvermeldingen wissen?</string>
 </resources>
