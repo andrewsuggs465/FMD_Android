@@ -225,6 +225,17 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         )
     }
 
+    fun checkConnection(
+        onResponse: Response.Listener<String>,
+        onError: Response.ErrorListener,
+    ) {
+        // TODO: dedicated connectivity check endpoint that doesn't return data
+        // Previously, we used getAccessToken for the connectivity check.
+        // However, that doesn't work when the account is locked.
+        // We need an endpoint that we can access with the cached access token.
+        doRequestWithCachedToken(this::getPublicKey, onResponse, onError)
+    }
+
     fun getPrivateKey(
         accessToken: String,
         onResponse: Response.Listener<String>,

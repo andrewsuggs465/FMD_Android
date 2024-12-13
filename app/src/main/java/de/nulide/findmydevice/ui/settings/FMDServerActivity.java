@@ -349,8 +349,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     private void checkConnection() {
         TextView textViewConnectionStatus = findViewById(R.id.textViewConnectionStatus);
 
-        // Check if we can connect to the server and can log in (i.e., get an access token)
-        fmdServerRepo.getAccessToken(
+        fmdServerRepo.checkConnection(
                 response -> {
                     settings.set(
                             Settings.SET_FMD_SERVER_LAST_CONNECTIVITY_UNIX_TIME,
