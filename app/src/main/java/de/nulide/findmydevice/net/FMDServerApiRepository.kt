@@ -7,6 +7,7 @@ import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
+import de.nulide.findmydevice.data.EncryptedSettingsRepository
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.utils.CypherUtils
@@ -53,6 +54,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
     private var baseUrl = ""
     private val queue: RequestQueue = PatchedVolley.newRequestQueue(spec.context)
     private val settingsRepo = SettingsRepository.getInstance(context)
+    private val encryptedSettingsRepo = EncryptedSettingsRepository.getInstance(context)
 
     init {
         loadBaseUrl()
@@ -153,8 +155,6 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         queue.add(request)
     }
 
-    // TODO: cache access tokens for 5 mins (or whatever their validity period) to avoid unnecessary renewals
-
     fun getAccessToken(
         onResponse: Response.Listener<String>,
         onError: Response.ErrorListener,
@@ -199,21 +199,12 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         queue.add(request)
     }
 
-    private fun getCachedAccessToken(): String {
-        // TODO: get from EncryptedSharedPrefs
-        return ""
-    }
-
-    private fun setCachedAccessToken(newToken: String) {
-        // TODO: set to EncryptedSharedPrefs
-    }
-
     fun <T> doRequestWithCachedToken(
         doRequest: (String, Response.Listener<T>, Response.ErrorListener) -> Unit,
         onResponse: Response.Listener<T>,
         onError: Response.ErrorListener,
     ) {
-        val accessToken = getCachedAccessToken()
+        val accessToken = encryptedSettingsRepo.getCachedAccessToken()
         doRequest(
             accessToken,
             onResponse,
@@ -223,7 +214,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
                 getAccessToken(
                     { newAccessToken ->
                         // If refreshing succeeds, store it and retry the original request
-                        setCachedAccessToken(newAccessToken)
+                        encryptedSettingsRepo.setCachedAccessToken(newAccessToken)
                         doRequest(newAccessToken, onResponse, onError)
                     },
                     // If refreshing fails, use the original error handler
@@ -309,6 +300,8 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         getSalt(userId, onError = onError, onResponse = { salt ->
             val hashedPW = CypherUtils.hashPasswordForLogin(password, salt)
             getAccessToken(userId, hashedPW, onError = onError, onResponse = { accessToken ->
+                encryptedSettingsRepo.setCachedAccessToken(accessToken)
+
                 getPrivateKey(accessToken, onError = onError, onResponse = { privateKey ->
                     getPublicKey(accessToken, onError = onError, onResponse = { publicKey ->
                         settingsRepo.apply {
