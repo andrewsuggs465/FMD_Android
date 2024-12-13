@@ -343,6 +343,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             Method.POST, baseUrl + URL_DEVICE, jsonObject,
             { _ ->
                 settingsRepo.removeServerAccount()
+                encryptedSettingsRepo.setCachedAccessToken("")
                 onResponse.onResponse(Unit)
             },
             { error ->

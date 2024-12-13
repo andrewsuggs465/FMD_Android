@@ -27,6 +27,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.security.PrivateKey;
 
 import de.nulide.findmydevice.R;
+import de.nulide.findmydevice.data.EncryptedSettingsRepository;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.net.FMDServerApiRepoSpec;
@@ -244,6 +245,9 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
                 .setMessage(R.string.Settings_FMDServer_Logout_Text)
                 .setPositiveButton(getString(R.string.Ok), (dialog, whichButton) -> {
                     settings.removeServerAccount();
+                    // TODO: API to invalidate access tokens. Maybe combine with session management.
+                    EncryptedSettingsRepository encryptedSettingsRepo = EncryptedSettingsRepository.Companion.getInstance(context);
+                    encryptedSettingsRepo.setCachedAccessToken("");
                     FMDServerLocationUploadService.cancelJob(this);
                     FmdServerConnectivityCheckService.cancelJob(this);
                     finish();
