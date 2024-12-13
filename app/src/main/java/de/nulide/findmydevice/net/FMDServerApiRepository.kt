@@ -199,6 +199,40 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         queue.add(request)
     }
 
+    private fun getCachedAccessToken(): String {
+        // TODO: get from EncryptedSharedPrefs
+        return ""
+    }
+
+    private fun setCachedAccessToken(newToken: String) {
+        // TODO: set to EncryptedSharedPrefs
+    }
+
+    fun <T> doRequestWithCachedToken(
+        doRequest: (String, Response.Listener<T>, Response.ErrorListener) -> Unit,
+        onResponse: Response.Listener<T>,
+        onError: Response.ErrorListener,
+    ) {
+        val accessToken = getCachedAccessToken()
+        doRequest(
+            accessToken,
+            onResponse,
+            { error ->
+                // Try to refresh the access token
+                context.log().i(TAG, "Refreshing access token")
+                getAccessToken(
+                    { newAccessToken ->
+                        // If refreshing succeeds, store it and retry the original request
+                        setCachedAccessToken(newAccessToken)
+                        doRequest(newAccessToken, onResponse, onError)
+                    },
+                    // If refreshing fails, use the original error handler
+                    onError,
+                )
+            },
+        )
+    }
+
     fun getPrivateKey(
         accessToken: String,
         onResponse: Response.Listener<String>,
@@ -294,66 +328,84 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         onResponse: Response.Listener<Unit>,
         onError: Response.ErrorListener,
     ) {
-        getAccessToken(onError = onError, onResponse = { accessToken ->
-            val jsonObject = JSONObject()
-            try {
-                jsonObject.put("IDT", accessToken)
-                jsonObject.put("Data", "")
-            } catch (e: JSONException) {
-                e.printStackTrace()
-            }
+        doRequestWithCachedToken(this::unregisterInternal, onResponse, onError)
+    }
 
-            val request = JsonObjectRequest(
-                // XXX: This should be a dedicated /deleteDevice endpoint
-                Method.POST, baseUrl + URL_DEVICE, jsonObject,
-                { _ -> onResponse.onResponse(Unit) },
-                { error ->
-                    // FIXME: The server returns an empty body which cannot be parsed to JSON.
-                    // The best solution would be for the access token to be passed as a header rather then a body
-                    // FIXME: also the server does not explicitly return a 200, so e.g. nginx closes the connection with 499
-                    if (error.cause is JSONException || error.networkResponse.statusCode == 499) {
-                        // request was actually successful, just deserialising failed
-                        // only clear if request is successful
-                        settingsRepo.removeServerAccount()
-                        onResponse.onResponse(Unit)
-                    } else {
-                        onError.onErrorResponse(error)
-                    }
-                },
-            )
-            queue.add(request)
-        })
+    private fun unregisterInternal(
+        accessToken: String,
+        onResponse: Response.Listener<Unit>,
+        onError: Response.ErrorListener,
+    ) {
+        val jsonObject = JSONObject()
+        try {
+            jsonObject.put("IDT", accessToken)
+            jsonObject.put("Data", "")
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+        val request = JsonObjectRequest(
+            // XXX: This should be a dedicated /deleteDevice endpoint
+            Method.POST, baseUrl + URL_DEVICE, jsonObject,
+            { _ -> onResponse.onResponse(Unit) },
+            { error ->
+                // FIXME: The server returns an empty body which cannot be parsed to JSON.
+                // The best solution would be for the access token to be passed as a header rather then a body
+                // FIXME: also the server does not explicitly return a 200, so e.g. nginx closes the connection with 499
+                if (error.cause is JSONException || error.networkResponse.statusCode == 499) {
+                    // request was actually successful, just deserialising failed
+                    // only clear if request is successful
+                    settingsRepo.removeServerAccount()
+                    onResponse.onResponse(Unit)
+                } else {
+                    onError.onErrorResponse(error)
+                }
+            },
+        )
+        queue.add(request)
     }
 
     fun registerPushEndpoint(
         endpoint: String,
         onError: Response.ErrorListener,
     ) {
-        context.log().i(TAG, "Registering push endpoint $endpoint")
-        getAccessToken(onError = onError, onResponse = { accessToken ->
-            val jsonObject = JSONObject()
-            try {
-                jsonObject.put("IDT", accessToken)
-                jsonObject.put("Data", endpoint)
-            } catch (e: JSONException) {
-                e.printStackTrace()
-            }
+        doRequestWithCachedToken<Unit>(
+            doRequest = { accessToken, _, onError2 ->
+                registerPushEndpointInternal(accessToken, endpoint, onError2)
+            },
+            onResponse = { _ -> },
+            onError,
+        )
+    }
 
-            val request = JsonObjectRequest(
-                Method.PUT, baseUrl + URL_PUSH, jsonObject,
-                { _ -> },
-                { error ->
-                    // FIXME: The server returns an empty body which cannot be parsed to JSON.
-                    // The best solution would be for the access token to be passed as a header rather then a body
-                    if (error.cause is JSONException) {
-                        // request was actually successful, just deserialising failed
-                    } else {
-                        onError.onErrorResponse(error)
-                    }
+    fun registerPushEndpointInternal(
+        accessToken: String,
+        endpoint: String,
+        onError: Response.ErrorListener,
+    ) {
+        context.log().i(TAG, "Registering push endpoint $endpoint")
+        val jsonObject = JSONObject()
+        try {
+            jsonObject.put("IDT", accessToken)
+            jsonObject.put("Data", endpoint)
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+        val request = JsonObjectRequest(
+            Method.PUT, baseUrl + URL_PUSH, jsonObject,
+            { _ -> },
+            { error ->
+                // FIXME: The server returns an empty body which cannot be parsed to JSON.
+                // The best solution would be for the access token to be passed as a header rather then a body
+                if (error.cause is JSONException) {
+                    // request was actually successful, just deserialising failed
+                } else {
+                    onError.onErrorResponse(error)
                 }
-            )
-            queue.add(request)
-        })
+            }
+        )
+        queue.add(request)
     }
 
     fun changePassword(
@@ -362,62 +414,82 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         onResponse: Response.Listener<Unit>,
         onError: Response.ErrorListener,
     ) {
-        getAccessToken(onError = onError, onResponse = { accessToken ->
-            val jsonObject = JSONObject()
-            try {
-                jsonObject.put("IDT", accessToken)
-                jsonObject.put("hashedPassword", newHashedPW)
-                jsonObject.put("privkey", newPrivKey)
-            } catch (e: JSONException) {
-                e.printStackTrace()
-            }
+        doRequestWithCachedToken(
+            doRequest = { accessToken, onResponse2, onError2 ->
+                changePasswordInternal(accessToken, newHashedPW, newPrivKey, onResponse2, onError2)
+            },
+            onResponse,
+            onError,
+        )
+    }
 
-            val request = JsonObjectRequest(
-                Method.POST, baseUrl + URL_PASSWORD, jsonObject,
-                { response ->
-                    if (response.has("Data")) {
-                        settingsRepo.set(Settings.SET_FMD_CRYPT_PRIVKEY, newPrivKey)
-                        settingsRepo.set(Settings.SET_FMD_CRYPT_HPW, newHashedPW)
-                        onResponse.onResponse(Unit)
-                    } else {
-                        onError.onErrorResponse(VolleyError("change password response has no Data field"))
-                    }
-                },
-                onError,
-            )
-            queue.add(request)
-        })
+    fun changePasswordInternal(
+        accessToken: String,
+        newHashedPW: String,
+        newPrivKey: String,
+        onResponse: Response.Listener<Unit>,
+        onError: Response.ErrorListener,
+    ) {
+        val jsonObject = JSONObject()
+        try {
+            jsonObject.put("IDT", accessToken)
+            jsonObject.put("hashedPassword", newHashedPW)
+            jsonObject.put("privkey", newPrivKey)
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+        val request = JsonObjectRequest(
+            Method.POST, baseUrl + URL_PASSWORD, jsonObject,
+            { response ->
+                if (response.has("Data")) {
+                    settingsRepo.set(Settings.SET_FMD_CRYPT_PRIVKEY, newPrivKey)
+                    settingsRepo.set(Settings.SET_FMD_CRYPT_HPW, newHashedPW)
+                    onResponse.onResponse(Unit)
+                } else {
+                    onError.onErrorResponse(VolleyError("change password response has no Data field"))
+                }
+            },
+            onError,
+        )
+        queue.add(request)
     }
 
     fun getCommand(
         onResponse: Response.Listener<String>,
         onError: Response.ErrorListener,
     ) {
-        getAccessToken(onError = onError, onResponse = { accessToken ->
-            val jsonObject = JSONObject()
-            try {
-                jsonObject.put("IDT", accessToken)
-                jsonObject.put("Data", "")
-            } catch (e: JSONException) {
-                e.printStackTrace()
-            }
+        doRequestWithCachedToken<String>(this::getCommandInternal, onResponse, onError)
+    }
 
-            val request = JsonObjectRequest(
-                // XXX: This should be GET (or POST-as-GET) instead of PUT
-                Method.PUT, baseUrl + URL_COMMAND, jsonObject,
-                { response ->
-                    try {
-                        val command = response["Data"] as String
-                        onResponse.onResponse(command)
-                    } catch (e: JSONException) {
-                        e.printStackTrace()
-                        onError.onErrorResponse(VolleyError("get command response has no Data field"))
-                    }
-                },
-                onError,
-            )
-            queue.add(request)
-        })
+    fun getCommandInternal(
+        accessToken: String,
+        onResponse: Response.Listener<String>,
+        onError: Response.ErrorListener,
+    ) {
+        val jsonObject = JSONObject()
+        try {
+            jsonObject.put("IDT", accessToken)
+            jsonObject.put("Data", "")
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+        val request = JsonObjectRequest(
+            // XXX: This should be GET (or POST-as-GET) instead of PUT
+            Method.PUT, baseUrl + URL_COMMAND, jsonObject,
+            { response ->
+                try {
+                    val command = response["Data"] as String
+                    onResponse.onResponse(command)
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                    onError.onErrorResponse(VolleyError("get command response has no Data field"))
+                }
+            },
+            onError,
+        )
+        queue.add(request)
     }
 
     /**
@@ -433,27 +505,39 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             context.log().e(TAG, "Public key was null")
             return
         }
-        val msgBytes = CypherUtils.encryptWithKey(publicKey, picture)
-        val msg = CypherUtils.encodeBase64(msgBytes)
+        val dataBytes = CypherUtils.encryptWithKey(publicKey, picture)
+        val dataBase64 = CypherUtils.encodeBase64(dataBytes)
 
         val onError = { error: VolleyError -> error.printStackTrace() }
 
-        getAccessToken(onError = onError, onResponse = { accessToken ->
-            val jsonObject = JSONObject()
-            try {
-                jsonObject.put("IDT", accessToken)
-                jsonObject.put("Data", msg)
-            } catch (e: JSONException) {
-                e.printStackTrace()
-            }
+        doRequestWithCachedToken<Unit>(
+            doRequest = { accessToken, _, onError2 ->
+                sendPictureInternal(accessToken, dataBase64, onError2)
+            },
+            { _ -> },
+            onError,
+        )
+    }
 
-            val request = JsonObjectRequest(
-                Method.POST, baseUrl + URL_PICTURE, jsonObject,
-                { _ -> },
-                onError,
-            )
-            queue.add(request)
-        })
+    fun sendPictureInternal(
+        accessToken: String,
+        encryptedPicture: String,
+        onError: Response.ErrorListener,
+    ) {
+        val jsonObject = JSONObject()
+        try {
+            jsonObject.put("IDT", accessToken)
+            jsonObject.put("Data", encryptedPicture)
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+        val request = JsonObjectRequest(
+            Method.POST, baseUrl + URL_PICTURE, jsonObject,
+            { _ -> },
+            onError,
+        )
+        queue.add(request)
     }
 
     /**
@@ -486,25 +570,37 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         val encryptedLocationBytes = CypherUtils.encryptWithKey(publicKey, jsonSerialised)
         val encryptedLocation = CypherUtils.encodeBase64(encryptedLocationBytes)
 
-        // Send payload
         val onError = { error: VolleyError -> error.printStackTrace() }
 
-        getAccessToken(onError = onError, onResponse = { accessToken ->
-            val jsonObject = JSONObject()
-            try {
-                jsonObject.put("IDT", accessToken)
-                jsonObject.put("Data", encryptedLocation)
-            } catch (e: JSONException) {
-                e.printStackTrace()
-            }
+        // Send payload
+        doRequestWithCachedToken<Unit>(
+            doRequest = { accessToken, _, onError2 ->
+                sendLocationInternal(accessToken, encryptedLocation, onError2)
+            },
+            { _ -> },
+            onError,
+        )
+    }
 
-            val request = JsonObjectRequest(
-                Method.POST, baseUrl + URL_LOCATION, jsonObject,
-                { _ -> },
-                onError,
-            )
-            queue.add(request)
-        })
+    fun sendLocationInternal(
+        accessToken: String,
+        encryptedLocation: String,
+        onError: Response.ErrorListener,
+    ) {
+        val jsonObject = JSONObject()
+        try {
+            jsonObject.put("IDT", accessToken)
+            jsonObject.put("Data", encryptedLocation)
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+        val request = JsonObjectRequest(
+            Method.POST, baseUrl + URL_LOCATION, jsonObject,
+            { _ -> },
+            onError,
+        )
+        queue.add(request)
     }
 
 }
