@@ -45,6 +45,8 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         private const val URL_PUBKEY = "/pubKey"
         private const val URL_PASSWORD = "/password"
         private const val URL_VERSION = "/version"
+
+        private const val ACCESS_TOKEN_VALIDITY_SECS = 7 * 24 * 60 * 60 // 1 week
     }
 
     private val context = spec.context
@@ -175,6 +177,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         try {
             jsonObject.put("IDT", userId)
             jsonObject.put("Data", hashedPW)
+            jsonObject.put("SessionDurationSeconds", ACCESS_TOKEN_VALIDITY_SECS)
         } catch (e: JSONException) {
             e.printStackTrace()
         }
