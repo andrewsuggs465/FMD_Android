@@ -34,6 +34,10 @@ public class FMDServerCommandDownloadService extends FmdJobService {
 
         settingsRepo = SettingsRepository.Companion.getInstance(this);
 
+        if (!settingsRepo.serverAccountExists()) {
+            return false;
+        }
+
         FmdLogKt.log(this).d(TAG, "Downloading remote command");
         FMDServerApiRepository fmdServerRepo = FMDServerApiRepository.Companion.getInstance(new FMDServerApiRepoSpec(this));
         fmdServerRepo.getCommand(this::onResponse, Throwable::printStackTrace);
