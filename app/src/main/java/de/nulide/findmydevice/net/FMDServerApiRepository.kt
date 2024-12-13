@@ -338,22 +338,16 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             e.printStackTrace()
         }
 
-        val request = JsonObjectRequest(
+        val request = JsonPostRequest(
             // XXX: This should be a dedicated /deleteDevice endpoint
             Method.POST, baseUrl + URL_DEVICE, jsonObject,
-            { _ -> onResponse.onResponse(Unit) },
+            { _ ->
+                settingsRepo.removeServerAccount()
+                onResponse.onResponse(Unit)
+            },
             { error ->
-                // FIXME: The server returns an empty body which cannot be parsed to JSON.
-                // The best solution would be for the access token to be passed as a header rather then a body
-                // FIXME: also the server does not explicitly return a 200, so e.g. nginx closes the connection with 499
-                if (error.cause is JSONException || error.networkResponse.statusCode == 499) {
-                    // request was actually successful, just deserialising failed
-                    // only clear if request is successful
-                    settingsRepo.removeServerAccount()
-                    onResponse.onResponse(Unit)
-                } else {
-                    onError.onErrorResponse(error)
-                }
+                context.log().w(TAG, "unregisterInternal: ${error.stackTraceToString()}")
+                onError.onErrorResponse(error)
             },
         )
         queue.add(request)
@@ -386,17 +380,12 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             e.printStackTrace()
         }
 
-        val request = JsonObjectRequest(
+        val request = JsonPostRequest(
             Method.PUT, baseUrl + URL_PUSH, jsonObject,
             { _ -> },
             { error ->
-                // FIXME: The server returns an empty body which cannot be parsed to JSON.
-                // The best solution would be for the access token to be passed as a header rather then a body
-                if (error.cause is JSONException) {
-                    // request was actually successful, just deserialising failed
-                } else {
-                    onError.onErrorResponse(error)
-                }
+                context.log().w(TAG, "registerPushEndpointInternal: ${error.stackTraceToString()}")
+                onError.onErrorResponse(error)
             }
         )
         queue.add(request)
@@ -526,7 +515,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             e.printStackTrace()
         }
 
-        val request = JsonObjectRequest(
+        val request = JsonPostRequest(
             Method.POST, baseUrl + URL_PICTURE, jsonObject,
             { _ -> },
             onError,
@@ -589,7 +578,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             e.printStackTrace()
         }
 
-        val request = JsonObjectRequest(
+        val request = JsonPostRequest(
             Method.POST, baseUrl + URL_LOCATION, jsonObject,
             { _ -> },
             onError,
