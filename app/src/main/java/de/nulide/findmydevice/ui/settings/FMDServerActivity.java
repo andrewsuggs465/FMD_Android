@@ -250,6 +250,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
                     encryptedSettingsRepo.setCachedAccessToken("");
                     FMDServerLocationUploadService.cancelJob(this);
                     FmdServerConnectivityCheckService.cancelJob(this);
+                    PushReceiver.unregisterWithUnifiedPush(this);
                     finish();
                 })
                 .setNegativeButton(getString(R.string.cancel), null)
@@ -334,6 +335,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         showLoadingIndicator(context);
         FMDServerLocationUploadService.cancelJob(context);
         FmdServerConnectivityCheckService.cancelJob(context);
+        PushReceiver.unregisterWithUnifiedPush(context);
         fmdServerRepo.unregister(
                 response -> {
                     loadingDialog.cancel();
