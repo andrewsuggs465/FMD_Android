@@ -115,10 +115,11 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             { response: JSONObject ->
                 try {
                     settingsRepo.set(Settings.SET_FMDSERVER_ID, response["DeviceId"])
+                    onResponse.onResponse(Unit)
                 } catch (e: JSONException) {
-                    e.printStackTrace()
+                    context.log().w(TAG, "registerAccount: ${e.stackTraceToString()}")
+                    onError.onErrorResponse(VolleyError("Response has no DeviceId field"))
                 }
-                onResponse.onResponse(Unit)
             },
             onError,
         )
@@ -146,7 +147,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
                     val salt = response["Data"] as String
                     onResponse.onResponse(salt)
                 } catch (e: JSONException) {
-                    e.printStackTrace()
+                    context.log().w(TAG, "getSalt: ${e.stackTraceToString()}")
                     onError.onErrorResponse(VolleyError("Salt response has no Data field"))
                 }
             },
@@ -190,7 +191,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
                     val accessToken = response["Data"] as String
                     onResponse.onResponse(accessToken)
                 } catch (e: JSONException) {
-                    e.printStackTrace()
+                    context.log().w(TAG, "getAccessToken: ${e.stackTraceToString()}")
                     onError.onErrorResponse(VolleyError("Access Token response has no Data field"))
                 }
             },
@@ -245,7 +246,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
                     val privateKey = response["Data"] as String
                     onResponse.onResponse(privateKey)
                 } catch (e: JSONException) {
-                    e.printStackTrace()
+                    context.log().w(TAG, "getPrivateKey: ${e.stackTraceToString()}")
                     onError.onErrorResponse(VolleyError("Private Key response has no Data field"))
                 }
             },
@@ -275,7 +276,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
                     val publicKey = response["Data"] as String
                     onResponse.onResponse(publicKey)
                 } catch (e: JSONException) {
-                    e.printStackTrace()
+                    context.log().w(TAG, "getPublicKey: ${e.stackTraceToString()}")
                     onError.onErrorResponse(VolleyError("Public Key response has no Data field"))
                 }
             },
@@ -476,7 +477,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
                     val command = response["Data"] as String
                     onResponse.onResponse(command)
                 } catch (e: JSONException) {
-                    e.printStackTrace()
+                    context.log().w(TAG, "getCommandInternal: ${e.stackTraceToString()}")
                     onError.onErrorResponse(VolleyError("get command response has no Data field"))
                 }
             },
