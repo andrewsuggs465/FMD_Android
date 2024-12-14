@@ -38,7 +38,7 @@ class HelpCommand(
         reply.appendLine(context.getString(R.string.cmd_help_message_start))
         reply.appendLine()
         for (cmd in availableCommands) {
-            reply.appendLine("${cmd.keyword} - ${context.getString(cmd.shortDescription)}")
+            reply.appendLine("${cmd.usage} - ${context.getString(cmd.shortDescription)}")
         }
         transport.send(context, reply.toString())
         job?.jobFinished()
