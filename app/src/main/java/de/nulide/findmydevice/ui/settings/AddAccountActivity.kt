@@ -28,6 +28,7 @@ import de.nulide.findmydevice.net.MinRequiredVersionResult
 import de.nulide.findmydevice.net.isMinRequiredVersion
 import de.nulide.findmydevice.receiver.PushReceiver
 import de.nulide.findmydevice.services.FMDServerLocationUploadService
+import de.nulide.findmydevice.services.FmdServerConnectivityCheckService
 import de.nulide.findmydevice.ui.FmdActivity
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeAppBar
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeScrollView
@@ -254,7 +255,13 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                 return@runOnUiThread
             }
 
+            settingsRepo.set(
+                Settings.SET_FMD_SERVER_LAST_CONNECTIVITY_UNIX_TIME,
+                System.currentTimeMillis()
+            )
+
             FMDServerLocationUploadService.scheduleJob(context, 0)
+            FmdServerConnectivityCheckService.scheduleJob(context)
             PushReceiver.registerWithUnifiedPush(context)
 
             val fmdServerActivityIntent = Intent(context, FMDServerActivity::class.java)

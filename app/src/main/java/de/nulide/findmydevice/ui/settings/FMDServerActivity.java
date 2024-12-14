@@ -35,6 +35,7 @@ import de.nulide.findmydevice.permissions.NotificationAccessPermission;
 import de.nulide.findmydevice.receiver.PushReceiver;
 import de.nulide.findmydevice.services.FMDServerLocationUploadService;
 import de.nulide.findmydevice.services.FmdBatteryLowService;
+import de.nulide.findmydevice.services.FmdServerConnectivityCheckService;
 import de.nulide.findmydevice.ui.FmdActivity;
 import de.nulide.findmydevice.ui.home.PermissionView;
 import de.nulide.findmydevice.utils.CypherUtils;
@@ -48,6 +49,8 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
     private TextView textViewPushHelp;
 
+    private EditText editTextCheckInterval;
+    private EditText editTextNotifyAfterTime;
     private EditText editTextFMDServerUpdateTime;
 
     private CheckBox checkBoxFMDServerGPS;
@@ -88,8 +91,16 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
         findViewById(R.id.buttonOpenUnifiedPush).setOnClickListener(this::onOpenUnifiedPushClicked);
 
+        editTextCheckInterval = findViewById(R.id.editTextCheckInterval);
+        editTextCheckInterval.setText(settings.get(Settings.SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS).toString());
+        editTextCheckInterval.addTextChangedListener(this);
+
+        editTextNotifyAfterTime = findViewById(R.id.editTextNotifyAfterTime);
+        editTextNotifyAfterTime.setText(settings.get(Settings.SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS).toString());
+        editTextNotifyAfterTime.addTextChangedListener(this);
+
         editTextFMDServerUpdateTime = findViewById(R.id.editTextFMDServerUpdateTime);
-        editTextFMDServerUpdateTime.setText(((Integer) settings.get(Settings.SET_FMDSERVER_UPDATE_TIME)).toString());
+        editTextFMDServerUpdateTime.setText(settings.get(Settings.SET_FMDSERVER_UPDATE_TIME).toString());
         editTextFMDServerUpdateTime.addTextChangedListener(this);
 
         checkBoxFMDServerGPS = findViewById(R.id.checkBoxFMDServerGPS);
@@ -176,11 +187,27 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
     @Override
     public void afterTextChanged(Editable edited) {
-        if (edited == editTextFMDServerUpdateTime.getText()) {
-            if (edited.toString().isEmpty()) {
-                settings.set(Settings.SET_FMDSERVER_UPDATE_TIME, 60);
-            } else {
-                settings.set(Settings.SET_FMDSERVER_UPDATE_TIME, Integer.parseInt(editTextFMDServerUpdateTime.getText().toString()));
+        if (edited == editTextCheckInterval.getText()) {
+            String string = edited.toString();
+            if (!string.isEmpty()) {
+                long value = Long.parseLong(string);
+                settings.set(Settings.SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS, value);
+
+                if (value > 0) {
+                    FmdServerConnectivityCheckService.scheduleJob(this);
+                } else {
+                    FmdServerConnectivityCheckService.cancelJob(this);
+                }
+            }
+        } else if (edited == editTextNotifyAfterTime.getText()) {
+            String string = edited.toString();
+            if (!string.isEmpty()) {
+                settings.set(Settings.SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS, Long.parseLong(string));
+            }
+        } else if (edited == editTextFMDServerUpdateTime.getText()) {
+            String string = edited.toString();
+            if (!string.isEmpty()) {
+                settings.set(Settings.SET_FMDSERVER_UPDATE_TIME, Integer.parseInt(string));
             }
         }
     }
@@ -218,6 +245,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
                 .setPositiveButton(getString(R.string.Ok), (dialog, whichButton) -> {
                     settings.removeServerAccount();
                     FMDServerLocationUploadService.cancelJob(this);
+                    FmdServerConnectivityCheckService.cancelJob(this);
                     finish();
                 })
                 .setNegativeButton(getString(R.string.cancel), null)
@@ -301,6 +329,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     private void runDelete() {
         showLoadingIndicator(context);
         FMDServerLocationUploadService.cancelJob(context);
+        FmdServerConnectivityCheckService.cancelJob(context);
         fmdServerRepo.unregister(
                 response -> {
                     loadingDialog.cancel();
@@ -319,6 +348,11 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         // Check if we can connect to the server and can log in (i.e., get an access token)
         fmdServerRepo.getAccessToken(
                 response -> {
+                    settings.set(
+                            Settings.SET_FMD_SERVER_LAST_CONNECTIVITY_UNIX_TIME,
+                            System.currentTimeMillis()
+                    );
+
                     textViewConnectionStatus.setText(R.string.Settings_FMD_Server_Connection_Status_Success);
                     textViewConnectionStatus.setTextColor(ContextCompat.getColor(this, R.color.md_theme_primary));
                     textViewConnectionStatus.setOnClickListener(v -> {
