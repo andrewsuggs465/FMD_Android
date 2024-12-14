@@ -1,5 +1,6 @@
 package de.nulide.findmydevice.ui.settings;
 
+import static de.nulide.findmydevice.commands.CommandHandlerKt.availableCommands;
 import static de.nulide.findmydevice.ui.UiUtil.setupEdgeToEdgeAppBar;
 import static de.nulide.findmydevice.ui.UiUtil.setupEdgeToEdgeScrollView;
 
@@ -144,13 +145,21 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
                                 settings.set(Settings.SET_PIN, "");
                                 buttonEnterPin.setBackgroundColor(colorDisabled);
                                 buttonEnterPin.setTextColor(textColorDisabled);
+                            }
+                            // The PIN must not match a command keyword.
+                            // Otherwise, we cannot (easily) distinguish between the PIN and the command.
+                            // Also, it would be a weak PIN anyway.
+                            else if (
+                                    availableCommands(context).stream().anyMatch(cmd -> cmd.getKeyword().equals(pin))
+                            ) {
+                                Toast.makeText(context, R.string.pin_match_command_keyword, Toast.LENGTH_LONG).show();
                             } else {
                                 settings.set(Settings.SET_PIN, CypherUtils.hashPasswordForFmdPin(pin));
                                 buttonEnterPin.setBackgroundColor(colorEnabled);
                                 buttonEnterPin.setTextColor(textColorEnabled);
                             }
                         } else {
-                            Toast.makeText(context, "PINs do not match", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context, R.string.pin_mismatch, Toast.LENGTH_LONG).show();
                         }
                     }
                 })
