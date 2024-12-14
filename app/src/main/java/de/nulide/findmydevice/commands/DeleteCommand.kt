@@ -2,7 +2,6 @@ package de.nulide.findmydevice.commands
 
 import android.app.admin.DevicePolicyManager
 import android.content.Context
-import android.os.Build
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
@@ -24,7 +23,7 @@ class DeleteCommand(context: Context) : Command(context) {
     }
 
     override val keyword = "delete"
-    override val usage = "delete <pin>"
+    override val usage = "delete <pin> [dryrun]"
 
     @get:DrawableRes
     override val icon = R.drawable.ic_delete_outline
@@ -50,20 +49,28 @@ class DeleteCommand(context: Context) : Command(context) {
             return
         }
 
-        if (args.size < 3) {
+        if (args.isEmpty()) {
             val triggerWord = settings.get(Settings.SET_FMD_COMMAND) as String
-            val usage = "$triggerWord delete [pwd]"
-            val msg = context.getString(R.string.cmd_delete_response_pwd_missing, usage)
+            val fullUsage = "$triggerWord $usage"
+            val msg = context.getString(R.string.cmd_delete_response_pwd_missing, fullUsage)
             context.log().i(TAG, msg)
             transport.send(context, msg)
             job?.jobFinished()
             return
         }
-        // the args were previously split by space => restore the spaces
-        val pwd = args.subList(2, args.size).joinToString(" ")
+        val pwd = args[0]
 
         if (!CypherUtils.checkPasswordForFmdPin(settings.get(Settings.SET_PIN) as String, pwd)) {
             val msg = context.getString(R.string.cmd_delete_response_pwd_wrong)
+            context.log().i(TAG, msg)
+            transport.send(context, msg)
+            job?.jobFinished()
+            return
+        }
+
+        // Be defensive, match anything that might look right
+        if (args.getOrNull(1)?.contains("dry") == true) {
+            val msg = context.getString(R.string.cmd_delete_response_dry_run)
             context.log().i(TAG, msg)
             transport.send(context, msg)
             job?.jobFinished()

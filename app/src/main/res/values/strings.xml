@@ -188,6 +188,7 @@
     <string name="cmd_delete_response_disabled">Cannot delete: delete command is not enabled in settings.</string>
     <string name="cmd_delete_response_pwd_missing">Cannot delete: missing password. Usage: %s.</string>
     <string name="cmd_delete_response_pwd_wrong">Cannot delete: wrong password.</string>
+    <string name="cmd_delete_response_dry_run">Dry run successful, skipping the actual device deletion.</string>
     <string name="cmd_delete_response_failed">Failed to delete device due to an exception.</string>
     <string name="cmd_delete_response_success">The device should now be deleted. Goodbye!</string>
 
@@ -295,6 +296,8 @@
     <string name="usage_notification_title">Command executed</string>
     <string name="usage_notification_text">The command \"%s\" was executed.</string>
     <string name="usage_notification_text_source">The command \"%1$s\" was executed by \"%2$s\".</string>
+    <string name="usage_notification_pin_title">FMD PIN used</string>
+    <string name="usage_notification_pin_text">The PIN was used by this number: \"%s\". It is recommended to change the PIN.</string>
 
     <!-- Setup Warnings -->
     <string name="setup_warnings_title">Setup Warnings</string>

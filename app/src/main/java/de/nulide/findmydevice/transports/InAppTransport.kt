@@ -13,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.commands.CommandHandler
+import de.nulide.findmydevice.commands.ParserResult
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.permissions.PostNotificationsPermission
@@ -42,6 +43,10 @@ class InAppTransport(
         })
 
     override fun getDestinationString(): String = context.getString(R.string.transport_inapp_title)
+
+    override fun isAllowed(parsed: ParserResult.Success): Boolean {
+        return true
+    }
 
     override fun send(context: Context, msg: String) {
         super.send(context, msg)
