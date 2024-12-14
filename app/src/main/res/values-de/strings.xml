@@ -272,4 +272,6 @@
     <string name="crashed_title">Absturzbericht</string>
     <string name="server_version_upgrade_required_title">FMD Server muss geupdated werden</string>
     <string name="server_version_upgrade_required_text">Der genutzte FMD Server ist Version {CURRENT}, aber diese App benötigt mindestens {MIN}. Die Steuerung dieses Geräts mit diesem Server könnte beeinträchtigt sein. Bitte den Server updaten.</string>
+    <string name="log_view_clear_confirm">Möchtest du wirklich alle Protokolleinträge löschen?</string>
+    <string name="log_view_clear">Protokolle löschen</string>
 </resources>

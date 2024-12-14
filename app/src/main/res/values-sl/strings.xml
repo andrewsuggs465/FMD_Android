@@ -255,4 +255,6 @@
     <string name="server_version_upgrade_required_title">Zahtevana je nadgradnja FMD strežnika</string>
     <string name="crashed_title">Poročilo o zrušitvi</string>
     <string name="server_version_upgrade_required_text">Različica FMD strežnika, ki ga uporabljate, je {CURRENT}. Ta aplikacija pa zahteva vsaj različico {MIN}. Upravljanje vaše naprave prek FMD strežnika morda ne bo več delovalo. Prosim, nadgradite svoj FMD strežnik.</string>
+    <string name="log_view_clear">Izbriši dnevniške zapise</string>
+    <string name="log_view_clear_confirm">Ali želite izbrisati vse dnevniške zapise?</string>
 </resources>

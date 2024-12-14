@@ -243,4 +243,6 @@
     <string name="Notification_FAIL">Virheet</string>
     <string name="Notification_Fail_Description">Ilmoitukset toimintojen, kuten palvelimelle yhdistämisen, epäonnistuessa</string>
     <string name="missing_permissions_description">Seuraavat käyttöoikeudet vaaditaan FMD:n käyttöön.</string>
+    <string name="log_view_clear">Tyhjennä lokit</string>
+    <string name="log_view_clear_confirm">Haluatko todella poistaa kaikki lokimerkinnät?</string>
 </resources>
