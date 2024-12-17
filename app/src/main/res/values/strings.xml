@@ -112,6 +112,8 @@
     <string name="Settings_FMDServer_Login">Login</string>
     <string name="Settings_FMDServer_Register">Register</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Privacy Policy</string>
+    <string name="server_fmd_id" translatable="false">FMD ID</string>
+    <string name="server_fmd_id_hint">The FMD ID identifies your account on the FMD Server. Leave this empty to let the server generate an ID. Note that the FMD ID is stored in plaintext on the server, i.e., the server administrator can see it.</string>
     <string name="password">Password</string>
     <string name="Settings_FMDServer_Error_id_or_pw_empty">The FMD ID and password must not be empty.</string>
     <string name="registration_token">Registration Token</string>

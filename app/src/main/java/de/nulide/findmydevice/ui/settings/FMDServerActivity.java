@@ -259,7 +259,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         View registerLayout = inflater.inflate(R.layout.dialog_password_change, null);
         alert.setView(registerLayout);
         EditText oldPasswordInput = registerLayout.findViewById(R.id.editTextFMDOldPassword);
-        EditText passwordInput = registerLayout.findViewById(R.id.editTextFMDPassword);
+        EditText passwordInput = registerLayout.findViewById(R.id.editTextPassword);
         EditText passwordInputCheck = registerLayout.findViewById(R.id.editTextFMDPasswordCheck);
         alert.setView(registerLayout);
 

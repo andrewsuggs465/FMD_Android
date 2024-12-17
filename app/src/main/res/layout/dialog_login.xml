@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_normal"
                 android:autofillHints="username"
-                android:hint="FMD ID"
+                android:hint="@string/server_fmd_id"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -32,7 +32,7 @@
             app:passwordToggleEnabled="true">
 
             <EditText
-                android:id="@+id/editTextFMDPassword"
+                android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="password"
