@@ -131,5 +131,22 @@ class CommandParserTest {
         assertEquals("horse battery staple", actual.pin)
     }
 
+    @Test
+    fun testCaseInsensitivity() {
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+
+        val cmds = availableCommands(appContext)
+        val helpCommand = HelpCommand(cmds, appContext)
+
+        val parser = CommandParser("fmd", "", helpCommand, availableCommands(appContext))
+        val actual = parser.parse("FMD LoCaTe gps")
+
+        assertTrue(actual is ParserResult.Success)
+        actual as ParserResult.Success
+
+        assertEquals("locate", actual.command.keyword)
+        assertEquals(listOf("gps"), actual.args)
+        assertEquals(null, actual.pin)
+    }
 
 }
