@@ -10,6 +10,8 @@ import de.nulide.findmydevice.utils.CypherUtils
 import de.nulide.findmydevice.utils.Notifications
 import de.nulide.findmydevice.utils.log
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 // Order matters for the home screen
@@ -54,6 +56,12 @@ class CommandHandler<T>
      * Parses and executes a command of the form "triggerWord command options", e.g. "fmd locate cell"
      */
     fun execute(context: Context, rawCommand: String) {
+        coroutineScope.launch(Dispatchers.Default) {
+            executeSuspend(context, rawCommand)
+        }
+    }
+
+    suspend fun executeSuspend(context: Context, rawCommand: String) {
         context.log().d(
             TAG,
             "Handling command '$rawCommand' from source '${transport.getDestinationString()}'"
