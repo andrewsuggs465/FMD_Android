@@ -6,6 +6,7 @@ import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.permissions.DoNotDisturbAccessPermission
 import de.nulide.findmydevice.permissions.OverlayPermission
+import de.nulide.findmydevice.permissions.Permission
 import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.RingerUtils
@@ -25,10 +26,9 @@ class RingCommand(context: Context) : Command(context) {
 
     override val longDescription = null
 
+    // DNDAccess is required for changing the alarm mode and volume
     // TODO(#145): Implement this without needing the overlay permission
-    override val requiredPermissions = listOf(OverlayPermission())
-
-    override val optionalPermissions = listOf(DoNotDisturbAccessPermission())
+    override val requiredPermissions = listOf(DoNotDisturbAccessPermission(), OverlayPermission())
 
     override fun <T> executeInternal(
         args: List<String>,
