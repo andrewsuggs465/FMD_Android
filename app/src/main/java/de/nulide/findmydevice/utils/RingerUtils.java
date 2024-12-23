@@ -13,13 +13,6 @@ import de.nulide.findmydevice.ui.RingerActivity;
 
 public class RingerUtils {
 
-    public static void ring(Context context, int duration){
-        Intent ringerActivity = new Intent(context, RingerActivity.class);
-        ringerActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        ringerActivity.putExtra(RingerActivity.RING_DURATION, duration);
-        context.startActivity(ringerActivity);
-    }
-
     public static Ringtone getRingtone(Context context, String ringtone) {
         AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
         audioManager.setStreamVolume(AudioManager.STREAM_ALARM, audioManager.getStreamMaxVolume(AudioManager.STREAM_ALARM), 0);

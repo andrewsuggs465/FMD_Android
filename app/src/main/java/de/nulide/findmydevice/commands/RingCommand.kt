@@ -6,12 +6,14 @@ import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.permissions.DoNotDisturbAccessPermission
 import de.nulide.findmydevice.permissions.OverlayPermission
-import de.nulide.findmydevice.permissions.Permission
 import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
-import de.nulide.findmydevice.utils.RingerUtils
+import de.nulide.findmydevice.ui.RingerActivity
 import kotlinx.coroutines.CoroutineScope
 
+
+const val RING_DURATION_DEFAULT_SECS = 30
+const val RING_DURATION_LONG_SECS = 180
 
 class RingCommand(context: Context) : Command(context) {
 
@@ -38,15 +40,15 @@ class RingCommand(context: Context) : Command(context) {
     ) {
         val firstArg = args.getOrElse(0) { "" }
 
-        var duration = 30
+        var duration = RING_DURATION_DEFAULT_SECS
         if (firstArg == "long") {
-            duration = 180
+            duration = RING_DURATION_LONG_SECS
         } else if (firstArg.isNotEmpty()) {
             firstArg.toIntOrNull()?.let {
                 duration = it
             }
         }
-        RingerUtils.ring(context, duration)
+        RingerActivity.newInstance(context, duration)
         transport.send(context, context.getString(R.string.cmd_ring_response))
         job?.jobFinished()
     }
