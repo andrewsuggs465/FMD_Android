@@ -2,23 +2,24 @@ package de.nulide.findmydevice.ui
 
 import android.content.Context
 import android.content.Intent
+import android.media.Ringtone
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Button
+import androidx.lifecycle.lifecycleScope
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.commands.RING_DURATION_DEFAULT_SECS
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
-import de.nulide.findmydevice.tasks.RingerTimerTask
 import de.nulide.findmydevice.utils.RingerUtils
-import java.util.Timer
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 const val EXTRA_RING_DURATION: String = "EXTRA_RING_DURATION"
 
 class RingerActivity : FmdActivity() {
-
-    private var ringerTask: RingerTimerTask? = null
 
     companion object {
         fun newInstance(context: Context, duration: Int) {
@@ -30,6 +31,8 @@ class RingerActivity : FmdActivity() {
         }
     }
 
+    private var ringtone: Ringtone? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ring)
@@ -40,21 +43,18 @@ class RingerActivity : FmdActivity() {
                     WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
         )
 
+        val buttonStopRinging = findViewById<Button>(R.id.buttonStopRinging)
+        buttonStopRinging.setOnClickListener { stopRinging() }
+
         val settings = SettingsRepository.Companion.getInstance(this)
-        val ringtone =
-            RingerUtils.getRingtone(this, settings.get(Settings.SET_RINGER_TONE) as String)
+        ringtone = RingerUtils.getRingtone(this, settings.get(Settings.SET_RINGER_TONE) as String)
 
         val bundle = intent.extras
         val durationSec: Int = bundle?.getInt(EXTRA_RING_DURATION) ?: RING_DURATION_DEFAULT_SECS
-        val durationPeriod = durationSec * 100L
 
-        val t = Timer()
-        ringerTask = RingerTimerTask(t, ringtone, this)
-        t.schedule(ringerTask, 0, durationPeriod)
-        ringtone.play()
-
-        val buttonStopRinging = findViewById<Button>(R.id.buttonStopRinging)
-        buttonStopRinging.setOnClickListener { stopRinging() }
+        lifecycleScope.launch(Dispatchers.Default) {
+            startRinging(durationSec)
+        }
     }
 
     override fun onBackPressed() {
@@ -62,8 +62,19 @@ class RingerActivity : FmdActivity() {
         stopRinging()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        ringtone?.stop()
+    }
+
+    suspend fun startRinging(durationSec: Int) {
+        ringtone?.play()
+        delay(durationSec * 1000L)
+        stopRinging()
+    }
+
     private fun stopRinging() {
-        ringerTask?.stop()
+        ringtone?.stop()
         finish()
     }
 }
