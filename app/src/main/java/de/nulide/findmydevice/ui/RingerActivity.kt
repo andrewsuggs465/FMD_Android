@@ -2,6 +2,7 @@ package de.nulide.findmydevice.ui
 
 import android.content.Context
 import android.content.Intent
+import android.media.AudioManager
 import android.media.Ringtone
 import android.os.Bundle
 import android.view.WindowManager
@@ -34,6 +35,9 @@ class RingerActivity : FmdActivity() {
 
     private var ringtone: Ringtone? = null
 
+    private var oldRingerMode: Int? = null
+    private var oldAlarmVolume: Int? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ring)
@@ -45,7 +49,7 @@ class RingerActivity : FmdActivity() {
         )
 
         val buttonStopRinging = findViewById<Button>(R.id.buttonStopRinging)
-        buttonStopRinging.setOnClickListener { stopRinging() }
+        buttonStopRinging.setOnClickListener { finish() }
 
         val settings = SettingsRepository.Companion.getInstance(this)
         ringtone = RingerUtils.getRingtone(this, settings.get(Settings.SET_RINGER_TONE) as String)
@@ -61,24 +65,41 @@ class RingerActivity : FmdActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        stopRinging()
-    }
-
     override fun onDestroy() {
         super.onDestroy()
+
         ringtone?.stop()
+        resetVolume()
     }
 
-    suspend fun startRinging(durationSec: Int) {
+    private suspend fun startRinging(durationSec: Int) {
+        raiseVolume()
         ringtone?.play()
+
         delay(durationSec * 1000L)
-        stopRinging()
+
+        finish()
     }
 
-    private fun stopRinging() {
-        ringtone?.stop()
-        finish()
+    private fun raiseVolume() {
+        val audioManager = this.getSystemService(AUDIO_SERVICE) as AudioManager
+
+        oldRingerMode = audioManager.ringerMode
+        oldAlarmVolume = audioManager.getStreamVolume(AudioManager.STREAM_ALARM)
+
+        audioManager.ringerMode = AudioManager.RINGER_MODE_NORMAL
+        val maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_ALARM)
+        audioManager.setStreamVolume(AudioManager.STREAM_ALARM, maxVolume, 0)
+    }
+
+    private fun resetVolume() {
+        val audioManager = this.getSystemService(AUDIO_SERVICE) as AudioManager
+
+        oldRingerMode?.let {
+            audioManager.ringerMode = it
+        }
+        oldAlarmVolume?.let {
+            audioManager.setStreamVolume(AudioManager.STREAM_ALARM, it, 0)
+        }
     }
 }
