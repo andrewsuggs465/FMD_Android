@@ -13,7 +13,8 @@ import kotlinx.coroutines.CoroutineScope
 
 
 const val RING_DURATION_DEFAULT_SECS = 30
-const val RING_DURATION_LONG_SECS = 180
+const val RING_DURATION_LONG_SECS = 3 * 60
+const val RING_DURATION_MAX_SECS = 5 * 60
 
 class RingCommand(context: Context) : Command(context) {
 

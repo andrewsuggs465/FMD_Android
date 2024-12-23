@@ -9,6 +9,7 @@ import android.widget.Button
 import androidx.lifecycle.lifecycleScope
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.commands.RING_DURATION_DEFAULT_SECS
+import de.nulide.findmydevice.commands.RING_DURATION_MAX_SECS
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.utils.RingerUtils
@@ -50,7 +51,10 @@ class RingerActivity : FmdActivity() {
         ringtone = RingerUtils.getRingtone(this, settings.get(Settings.SET_RINGER_TONE) as String)
 
         val bundle = intent.extras
-        val durationSec: Int = bundle?.getInt(EXTRA_RING_DURATION) ?: RING_DURATION_DEFAULT_SECS
+        var durationSec: Int = bundle?.getInt(EXTRA_RING_DURATION) ?: RING_DURATION_DEFAULT_SECS
+        if (durationSec > RING_DURATION_MAX_SECS) {
+            durationSec = RING_DURATION_MAX_SECS
+        }
 
         lifecycleScope.launch(Dispatchers.Default) {
             startRinging(durationSec)
