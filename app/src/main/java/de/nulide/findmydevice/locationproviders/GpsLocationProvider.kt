@@ -93,22 +93,32 @@ class GpsLocationProvider<T>(
         return def
     }
 
+    private val MAX_DURATION_MILLIS = 5 * 30 * 1000L
+    private val UPDATE_INTERVAL_MILLIS = 2 * 1000L
+
     @SuppressLint("MissingPermission")
     @RequiresApi(Build.VERSION_CODES.S)
     private fun getAndSendLocationAndroid12() {
-        val FIVE_MINS_MILLIS = 300_000L
-        val locationRequest = LocationRequest.Builder(2000L)
+        val start = System.currentTimeMillis()
+
+        val locationRequest = LocationRequest.Builder(UPDATE_INTERVAL_MILLIS)
             .setQuality(LocationRequest.QUALITY_HIGH_ACCURACY)
-            .setDurationMillis(FIVE_MINS_MILLIS) // timeout before it fails
+            .setDurationMillis(MAX_DURATION_MILLIS + 5 * 1000L) // timeout before it stops
             .build()
         val consumer = { location: Location? ->
+            // This lambda is invoked every UPDATE_INTERVAL_MILLIS, possibly with "null"
+            // if a location is not yet known.
             if (location != null) {
                 onLocationChanged(location)
             } else {
-                // Fall back to getting the last known location.
-                // The last location known by the LocationManager may still be newer
-                // than the last location known by FMD.
-                getLastKnownLocation(true)
+                val delta = System.currentTimeMillis() - start
+                if (delta > MAX_DURATION_MILLIS) {
+                    // Fall back to getting the last known location.
+                    // The last location known by the LocationManager may still be newer
+                    // than the last location known by FMD.
+                    getLastKnownLocation(true)
+                }
+                // if MAX_DURATION_MILLIS is not yet reached, just wait until the next interval
             }
         }
         locationManager.getCurrentLocation(
