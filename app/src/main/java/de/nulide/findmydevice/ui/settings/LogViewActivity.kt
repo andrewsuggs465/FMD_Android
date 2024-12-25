@@ -11,6 +11,9 @@ import de.nulide.findmydevice.data.LogRepository
 import de.nulide.findmydevice.ui.FmdActivity
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeAppBar
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeScrollView
+import de.nulide.findmydevice.utils.writeAsJson
+import de.nulide.findmydevice.utils.writeToUri
+import java.io.OutputStreamWriter
 
 
 private const val EXPORT_REQ_CODE = 30
@@ -75,7 +78,9 @@ class LogViewActivity : FmdActivity() {
             if (data != null) {
                 val uri = data.data
                 if (uri != null) {
-                    repo.writeToUri(this, uri)
+                    writeToUri(this, uri) { outputStream ->
+                        writeAsJson(OutputStreamWriter(outputStream), repo.list)
+                    }
                 }
             }
         }

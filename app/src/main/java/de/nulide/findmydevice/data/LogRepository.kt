@@ -1,7 +1,6 @@
 package de.nulide.findmydevice.data
 
 import android.content.Context
-import android.net.Uri
 import android.os.Build
 import android.util.Log
 import com.google.gson.Gson
@@ -9,7 +8,6 @@ import com.google.gson.JsonSyntaxException
 import com.google.gson.stream.JsonReader
 import de.nulide.findmydevice.data.UncaughtExceptionHandler.Companion.CRASH_MSG_HEADER
 import de.nulide.findmydevice.utils.SingletonHolder
-import de.nulide.findmydevice.utils.writeToUri
 import java.io.File
 import java.io.FileReader
 import java.time.LocalDateTime
@@ -109,9 +107,5 @@ class LogRepository private constructor(private val context: Context) {
             }
         }
         return null
-    }
-
-    fun writeToUri(context: Context, uri: Uri) {
-        writeToUri(context, uri, list)
     }
 }

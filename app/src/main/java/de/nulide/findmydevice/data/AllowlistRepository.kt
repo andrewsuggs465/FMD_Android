@@ -7,10 +7,12 @@ import com.google.gson.stream.JsonReader
 import de.nulide.findmydevice.utils.SingletonHolder
 import java.io.File
 import java.io.FileReader
+import java.io.InputStream
+import java.io.InputStreamReader
 import java.util.LinkedList
 
 
-private const val ALLOWLIST_FILENAME = "whitelist.json"
+const val ALLOWLIST_FILENAME = "whitelist.json"
 
 
 class AllowlistModel : LinkedList<Contact>()
@@ -22,7 +24,8 @@ class AllowlistRepository private constructor(private val context: Context) {
 
     private val gson = Gson()
 
-    val list: AllowlistModel
+    var list: AllowlistModel
+        private set
 
     init {
         val file = File(context.filesDir, ALLOWLIST_FILENAME)
@@ -38,6 +41,12 @@ class AllowlistRepository private constructor(private val context: Context) {
         val raw = gson.toJson(copiedList)
         val file = File(context.filesDir, ALLOWLIST_FILENAME)
         file.writeText(raw)
+    }
+
+    fun importFromStream(inputStream: InputStream) {
+        val reader = JsonReader(InputStreamReader(inputStream))
+        list = gson.fromJson(reader, AllowlistModel::class.java) ?: AllowlistModel()
+        saveList()
     }
 
     fun contains(c: Contact): Boolean {
