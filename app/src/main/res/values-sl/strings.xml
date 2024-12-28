@@ -26,7 +26,7 @@
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">To bo izbrisalo vse vaše podatke iz FMD strežnika! Ste prepričani?</string>
     <string name="Settings_FMDServer_Push_Description_Available">Registracija za sprejemanje potisnih obvestil je bila uspešna.</string>
     <string name="Settings_FMDServer_Push_Open_UP">Odpri spletno stran UnifiedPush</string>
-    <string name="Settings_FMDServer_Update_Interval_Title">Interval posodabljanja</string>
+    <string name="Settings_FMDServer_Update_Interval_Title">Interval posodabljanja v ozadju</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD posodobi lokacijo vaše naprave vsakih n minut.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Vir lokacije</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Posodobi lokacijo ob nizki ravni baterije</string>
@@ -257,4 +257,15 @@
     <string name="server_version_upgrade_required_text">Različica FMD strežnika, ki ga uporabljate, je {CURRENT}. Ta aplikacija pa zahteva vsaj različico {MIN}. Upravljanje vaše naprave prek FMD strežnika morda ne bo več delovalo. Prosim, nadgradite svoj FMD strežnik.</string>
     <string name="log_view_clear">Izbriši dnevniške zapise</string>
     <string name="log_view_clear_confirm">Ali želite izbrisati vse dnevniške zapise?</string>
+    <string name="Settings_FMDServer_Check_Interval_Description">Aplikacija FMD preverja povezljivost s FMD strežnikom vsakih X ur. Če želite onemogočiti preverjanje povezljivosti, vrednost nastavite na 0.</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Description">Aplikacija FMD vas bo obvestila, če je bila zadnja uspešna povezava s FMD strežnikom pred več kot X urami. Če pa je preverjanje povezljivosti onemogočeno, obvestil ne boste prejemali.</string>
+    <string name="Settings_FMDServer_Check_Interval_Title">Interval preverjanja povezljivosti</string>
+    <string name="usage_notification_pin_title">Uporabljena je bil FMD PIN koda</string>
+    <string name="usage_notification_pin_text">Kodo PIN je uporabila ta številka: \"%s\". Priporočljivo je, da spremenite PIN.</string>
+    <string name="cmd_delete_response_dry_run">Poskusno izvajanje ukaza je bilo uspešno, naprava ni bila dejansko izbrisana.</string>
+    <string name="pin_mismatch">PIN-a se ne ujemata!</string>
+    <string name="pin_match_command_keyword">PIN ne sme biti enak kot eden izmed ukazov!</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Title">Največji dovoljeni čas brez povezljivosti</string>
+    <string name="server_connectivity_lost_title">Povezava s FMD strežnikom je izgubljena</string>
+    <string name="server_connectivity_lost_text">FMD strežnik ni več dosegljiv. Zadnja uspešna povezava je bila ob %s.</string>
 </resources>
