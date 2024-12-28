@@ -27,7 +27,7 @@
     <string name="Settings_FMDServer_Push_Description_Missing">Zum Befehl vo FMD Server a dis Gerät zschicke bruchts en UnifiedPush-Verteiler-App. Installier eini und chum dahii zrugg. Sie wird automatisch erkennt.</string>
     <string name="Settings_FMDServer_Push_Description_Available">Erfolgriich für Push-Mitteilige registriert.</string>
     <string name="Settings_FMDServer_Push_Open_UP">UnifiedPush-Websiite öffne</string>
-    <string name="Settings_FMDServer_Update_Interval_Title">Update-Intervall</string>
+    <string name="Settings_FMDServer_Update_Interval_Title">Intervall vom Standortupload im Hintergrund</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD ladet din Standort alli X Minute ufe.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Standort-Quelle</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Bi niedrigem Akkustand ufelade</string>
@@ -122,7 +122,7 @@
     <string name="Settings_Enter_Pin">PIN iigäh</string>
     <string name="Settings_Export">Iistellige Exportiere</string>
     <string name="Settings_About">Über</string>
-    <string name="Settings_Logs">Logs</string>
+    <string name="Settings_Logs">Protokoll</string>
     <string name="Settings_FMDServer_Info">Mit FMD Server chasch Befehl übers Internet schicke, vom Server ad App. Du chasch au de Standort vom Gerät ufere Karte gse oder d Bilder wos Gerät gmacht het aaluege. En Self-Hosting-Aaleitig hets uf de Websiite.</string>
     <string name="Settings_FMDServer_Location_Type_Description">D Quell(e) vo wo de Standort regelmässig im Hintegrund ufeglade wird.
 \nFalls du keini uswählsch wird kein Standort ufeglade. (Du chasch wiiterhin en Upload übers Webinterface erzwinge. Dafür bruchts Push.)</string>
@@ -248,4 +248,20 @@
     <string name="appearance_dynamic_colors">Dynamische Farbe</string>
     <string name="appearance_theme_dark">Dunkel</string>
     <string name="Settings_FMDServer_Logout_Text">Wotscht du dich würklich us dinem FMD Server-Account uslogge?</string>
+    <string name="log_view_clear">Protokoll lösche</string>
+    <string name="server_version_upgrade_required_title">FMD Server muss updated werde</string>
+    <string name="server_version_upgrade_required_text">De genutzti FMD Server isch Version {CURRENT}, aber d App brucht mindestens {MIN}. Di Stürig vom Gerät mit dem Server chönnti beiiträchtigt si. Bitte de Server update.</string>
+    <string name="crashed_title">Absturzbericht</string>
+    <string name="Settings_FMDServer_Check_Interval_Title">Verbindigsprüefigs-Intervall</string>
+    <string name="Settings_FMDServer_Check_Interval_Description">FMD prüeft d Verbindig zum FMD-Server alli X Stunde. Setz de Wert uf 0, zumd Verbindigsprüefig deaktiviere.</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Title">Maximal zuelässigi Ziit ohni Verbindig</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Description">FMD wird dich benachrichtige, wenn di letscht erfolgriich Verbindig zum FMD-Server me als X Stunde zruggliit. Das het kei Uswirkige, wenn d Verbindigsprüefig deaktiviert isch.</string>
+    <string name="server_connectivity_lost_title">FMD-Server-Verbindig verlore</string>
+    <string name="server_connectivity_lost_text">De FMD-Server chan nüme erreicht werde. Di letscht erfolgriich Verbindig isch am %s gsi.</string>
+    <string name="log_view_clear_confirm">Wotscht würkli alli Protokolliiträg lösche?</string>
+    <string name="cmd_delete_response_dry_run">Testlauf erfolgriich, die eigentlichi Gerätlöschig wird übersprunge.</string>
+    <string name="usage_notification_pin_title">FMD PIN brucht</string>
+    <string name="usage_notification_pin_text">De PIN isch von dere Nummere brucht worde: \"%s\". Mer empfehlet, de PIN z ändere.</string>
+    <string name="pin_mismatch">D PINs stimmed nöd überein!</string>
+    <string name="pin_match_command_keyword">De PIN döff nöd mit eim vo de Befehl übereinstimme!</string>
 </resources>

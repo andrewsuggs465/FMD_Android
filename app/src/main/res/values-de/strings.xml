@@ -15,7 +15,7 @@
     <string name="Settings_OpenCellId">OpenCelliD</string>
     <string name="Settings_Import">Einstellungen importieren</string>
     <string name="Settings_Export">Einstellungen exportieren</string>
-    <string name="Settings_Logs">Logs</string>
+    <string name="Settings_Logs">Protokoll</string>
     <string name="Settings_About">Über</string>
     <!-- Settings: General -->
     <string name="Settings_FMD_via_Pin_Description">Hiermit kannst du mit FMD über eine PIN kommunizieren. So kannst du Befehle von einer Telefonnummer schicken, welche nicht in deinen Erlaubten Kontakten ist.</string>
@@ -248,8 +248,8 @@
     <string name="perm_bluetooth_connect_name">Bluetooth Verbinden</string>
     <string name="export_success">Export erfolgreich</string>
     <string name="export_failed">Export fehlgeschlagen</string>
-    <string name="log_view_title">Logs</string>
-    <string name="log_view_export">Logs Exportieren</string>
+    <string name="log_view_title">Protokoll</string>
+    <string name="log_view_export">Protokoll exportieren</string>
     <string name="temporary_allowlist_expired">Dein temporärer FindMyDevice-Zugang ist abgelaufen. Sende den PIN erneut um FindMyDevice weiter zu nutzen.</string>
     <string name="Settings_FMDServer_Unregister_Success">Erfolgreich de-registriert und Daten gelöscht!</string>
     <string name="pw_change_network_failed">Passwortänderung aufgrund eines Netzwerkfehlers fehlgeschlagen.</string>
@@ -272,7 +272,7 @@
     <string name="server_version_upgrade_required_title">FMD Server muss geupdated werden</string>
     <string name="server_version_upgrade_required_text">Der genutzte FMD Server ist Version {CURRENT}, aber diese App benötigt mindestens {MIN}. Die Steuerung dieses Geräts mit diesem Server könnte beeinträchtigt sein. Bitte den Server updaten.</string>
     <string name="log_view_clear_confirm">Möchtest du wirklich alle Protokolleinträge löschen?</string>
-    <string name="log_view_clear">Protokolle löschen</string>
+    <string name="log_view_clear">Protokoll löschen</string>
     <string name="pin_mismatch">Die PINs stimmen nicht überein!</string>
     <string name="pin_match_command_keyword">Die PIN darf nicht mit einem der Befehle übereinstimmen!</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Verbindungsprüfung-Intervall</string>
@@ -282,7 +282,7 @@
     <string name="server_connectivity_lost_title">FMD-Server-Verbindung verloren</string>
     <string name="server_connectivity_lost_text">Der FMD-Server kann nicht mehr erreicht werden. Die letzte erfolgreiche Verbindung war am %s.</string>
     <string name="cmd_delete_response_dry_run">Testlauf erfolgreich, die eigentliche Gerätelöschung wird übersprungen.</string>
-    <string name="Settings_FMDServer_Update_Interval_Title">Interval des Standortuploads im Hintergrund</string>
+    <string name="Settings_FMDServer_Update_Interval_Title">Intervall des Standortuploads im Hintergrund</string>
     <string name="usage_notification_pin_title">FMD PIN benutzt</string>
-    <string name="usage_notification_pin_text">Der Pin wurde von dieser Nummer verwendet: \"%s\". Wir empfehlen, den PIN zu ändern.</string>
+    <string name="usage_notification_pin_text">Der PIN wurde von dieser Nummer verwendet: \"%s\". Wir empfehlen, den PIN zu ändern.</string>
 </resources>
