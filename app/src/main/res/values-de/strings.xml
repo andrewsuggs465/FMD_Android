@@ -282,4 +282,7 @@
     <string name="server_connectivity_lost_title">FMD-Server-Verbindung verloren</string>
     <string name="server_connectivity_lost_text">Der FMD-Server kann nicht mehr erreicht werden. Die letzte erfolgreiche Verbindung war am %s.</string>
     <string name="cmd_delete_response_dry_run">Testlauf erfolgreich, die eigentliche Gerätelöschung wird übersprungen.</string>
+    <string name="Settings_FMDServer_Update_Interval_Title">Interval des Standortuploads im Hintergrund</string>
+    <string name="usage_notification_pin_title">FMD PIN benutzt</string>
+    <string name="usage_notification_pin_text">Der Pin wurde von dieser Nummer verwendet: \"%s\". Wir empfehlen, den PIN zu ändern.</string>
 </resources>
