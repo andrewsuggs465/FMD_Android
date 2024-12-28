@@ -42,7 +42,7 @@
     <string name="Settings_FMDServer_Push_Open_UP">UnifiedPush-website openen</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD uploadt elke x minuten de locatie van het apparaat.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Locatiebron</string>
-    <string name="Settings_FMDServer_Update_Interval_Title">Vernieuwingsinterval</string>
+    <string name="Settings_FMDServer_Update_Interval_Title">Uploadinterval achtergrondlocatie</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Uploaden bij bijna lege batterij</string>
     <string name="password_old">Oud wachtwoord</string>
     <string name="Settings_FMDServer_AddAccount">FMD Server: Inloggen/Registreren</string>
@@ -240,4 +240,15 @@
     <string name="server_version_upgrade_required_title">Upgrade van de FMD-server vereist</string>
     <string name="log_view_clear">Logboeken wissen</string>
     <string name="log_view_clear_confirm">Wil je echt alle logboekvermeldingen wissen?</string>
+    <string name="cmd_delete_response_dry_run">Proefdraaien is gelukt en het daadwerkelijke verwijderen van het apparaat wordt overgeslagen.</string>
+    <string name="usage_notification_pin_title">FMD-pincode gebruikt</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Description">FMD zal je op de hoogte stellen als de laatste succesvolle verbinding met FMD Server meer dan X uur geleden is. Dit heeft geen effect als de controle op de verbinding is uitgeschakeld.</string>
+    <string name="server_connectivity_lost_title">Verbinding met FMD-server verbroken</string>
+    <string name="server_connectivity_lost_text">De FMD-server is niet meer bereikbaar. De laatste succesvolle verbinding was op %s.</string>
+    <string name="Settings_FMDServer_Check_Interval_Title">Interval voor controle van de verbinding</string>
+    <string name="Settings_FMDServer_Check_Interval_Description">FMD controleert elke X uur de verbinding met de FMD Server. Zet deze op 0 om de controle op de verbinding uit te schakelen.</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Title">Maximaal toegestane tijd zonder verbinding</string>
+    <string name="usage_notification_pin_text">De pincode werd gebruikt met dit nummer: \"%s\". Het wordt aanbevolen om de pincode te wijzigen.</string>
+    <string name="pin_mismatch">De pincodes komen niet overeen!</string>
+    <string name="pin_match_command_keyword">De pincode mag niet gelijk zijn aan een van de commando\'s!</string>
 </resources>
