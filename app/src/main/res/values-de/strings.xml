@@ -275,11 +275,11 @@
     <string name="log_view_clear">Protokolle löschen</string>
     <string name="pin_mismatch">Die PINs stimmen nicht überein!</string>
     <string name="pin_match_command_keyword">Die PIN darf nicht mit einem der Befehle übereinstimmen!</string>
-    <string name="Settings_FMDServer_Check_Interval_Title">Intervall der Konnektivitätsprüfung</string>
-    <string name="Settings_FMDServer_Check_Interval_Description">FMD prüft die Konnektivität zum FMD-Server alle X Stunden. Stelle den Wert 0 ein, um die Überprüfung der Konnektivität zu deaktivieren.</string>
+    <string name="Settings_FMDServer_Check_Interval_Title">Verbindungsprüfung-Intervall</string>
+    <string name="Settings_FMDServer_Check_Interval_Description">FMD prüft die Verbindung zum FMD-Server alle X Stunden. Setze den Wert auf 0, um die Verbindungsprüfung zu deaktivieren.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Maximal zulässige Zeit ohne Verbindung</string>
-    <string name="Settings_FMDServer_Check_Notify_After_Description">FMD wird dich benachrichtigen, wenn die letzte erfolgreiche Verbindung zum FMD-Server mehr als X Stunden zurückliegt. Dies hat keine Auswirkungen, wenn die Konnektivitätsprüfung deaktiviert ist.</string>
-    <string name="server_connectivity_lost_title">FMD-Server-Konnektivität verloren</string>
-    <string name="server_connectivity_lost_text">Der FMD-Server kann nicht mehr erreicht werden. Die letzte erfolgreiche Verbindung war um %s.</string>
-    <string name="cmd_delete_response_dry_run">Trockenlauf erfolgreich, die eigentliche Gerätelöschung wird übersprungen.</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Description">FMD wird dich benachrichtigen, wenn die letzte erfolgreiche Verbindung zum FMD-Server mehr als X Stunden zurückliegt. Dies hat keine Auswirkungen, wenn die Verbindungsprüfung deaktiviert ist.</string>
+    <string name="server_connectivity_lost_title">FMD-Server-Verbindung verloren</string>
+    <string name="server_connectivity_lost_text">Der FMD-Server kann nicht mehr erreicht werden. Die letzte erfolgreiche Verbindung war am %s.</string>
+    <string name="cmd_delete_response_dry_run">Testlauf erfolgreich, die eigentliche Gerätelöschung wird übersprungen.</string>
 </resources>
