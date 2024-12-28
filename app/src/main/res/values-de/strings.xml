@@ -39,7 +39,6 @@
     <string name="Settings_FMDServer_Push_Description_Missing">Das Senden von Befehlen von FMD Server zu deinem Gerät benötigt eine UnifiedPush-Distributor-App. Installiere eine, und komm dann hierher zurück. UnifiedPush wird automatisch erkannt.</string>
     <string name="Settings_FMDServer_Push_Description_Available">Erfolgreich für Pushnachrichten registriert.</string>
     <string name="Settings_FMDServer_Push_Open_UP">UnifiedPush Webseite Öffnen</string>
-    <string name="Settings_FMDServer_Update_Interval_Title"></string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD lädt den Gerätestandort alle X Minuten hoch.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Standort-Quelle</string>
     <string name="Settings_FMDServer_Location_Type_Description">Die Quelle(n) dessen Standort regelmäßig im Hintergrund hochgeladen werden soll.
