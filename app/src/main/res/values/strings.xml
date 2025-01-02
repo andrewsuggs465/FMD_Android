@@ -72,9 +72,13 @@
     <string name="Settings_FMDServer_Delete_Account">Delete Account</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">This will delete all data from the Server! Are you sure?</string>
     <string name="Settings_FMDServer_Unregister_Success">Unregistering and data deletion successful!</string>
-    <string name="Settings_FMDServer_Push_Description_Missing">Sending commands from FMD Server to your device requires a UnifiedPush distributor app. Install one, and then return here. It will automatically be detected.</string>
-    <string name="Settings_FMDServer_Push_Description_Available">Successfully registered for push notifications.</string>
+    <string name="Settings_FMDServer_Push_Title" translatable="false">Push</string>
+    <string name="Settings_FMDServer_Push_Description">Sending commands from FMD Server to your device requires a UnifiedPush distributor app.</string>
+    <string name="Settings_FMDServer_Push_Distributor">Distributor: %s</string>
+    <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
     <string name="Settings_FMDServer_Push_Open_UP">Open UnifiedPush Website</string>
+    <string name="Settings_FMDServer_Push_Register">Register</string>
+    <string name="Settings_FMDServer_Push_Register_Again">Register Again</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Connectivity Check Interval</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD checks the connectivity to FMD Server every X hours. Set this to 0 to disable the connectivity check.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Maximum allowed time without connectivity</string>

@@ -5,13 +5,14 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.unifiedpush.android.connector.ConstantsKt;
 import org.unifiedpush.android.connector.MessagingReceiver;
 import org.unifiedpush.android.connector.UnifiedPush;
 
 import java.util.ArrayList;
 
+import de.nulide.findmydevice.data.Settings;
+import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.net.FMDServerApiRepoSpec;
 import de.nulide.findmydevice.net.FMDServerApiRepository;
 import de.nulide.findmydevice.services.FMDServerCommandDownloadService;
@@ -33,7 +34,10 @@ public class PushReceiver extends MessagingReceiver {
     }
 
     @Override
-    public void onNewEndpoint(@Nullable Context context, @NotNull String endpoint, @NotNull String instance) {
+    public void onNewEndpoint(@NonNull Context context, @NotNull String endpoint, @NotNull String instance) {
+        SettingsRepository settings = SettingsRepository.Companion.getInstance(context);
+        settings.set(Settings.SET_FMDSERVER_PUSH_URL, endpoint);
+
         FMDServerApiRepository repo = FMDServerApiRepository.Companion.getInstance(new FMDServerApiRepoSpec(context));
         repo.registerPushEndpoint(endpoint, (error) -> {
             error.printStackTrace();
@@ -41,12 +45,15 @@ public class PushReceiver extends MessagingReceiver {
     }
 
     @Override
-    public void onRegistrationFailed(@Nullable Context context, @NotNull String s) {
+    public void onRegistrationFailed(@NonNull Context context, @NotNull String s) {
         // do nothing
     }
 
     @Override
-    public void onUnregistered(@Nullable Context context, @NotNull String s) {
+    public void onUnregistered(@NonNull Context context, @NotNull String s) {
+        SettingsRepository settings = SettingsRepository.Companion.getInstance(context);
+        settings.set(Settings.SET_FMDSERVER_PUSH_URL, "");
+
         FMDServerApiRepository repo = FMDServerApiRepository.Companion.getInstance(new FMDServerApiRepoSpec(context));
         repo.registerPushEndpoint("", (error) -> {
             error.printStackTrace();
@@ -63,6 +70,8 @@ public class PushReceiver extends MessagingReceiver {
         if (isRegisteredWithUnifiedPush(context)) {
             UnifiedPush.unregisterApp(context, ConstantsKt.INSTANCE_DEFAULT);
         }
+        // ensure that the state is cleared
+        new PushReceiver().onUnregistered(context, "");
     }
 
     public static boolean isRegisteredWithUnifiedPush(Context context) {

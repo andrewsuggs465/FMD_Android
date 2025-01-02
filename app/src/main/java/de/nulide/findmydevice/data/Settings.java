@@ -32,9 +32,9 @@ public class Settings extends HashMap<Integer, Object> {
     public static final int SET_FMD_CRYPT_PRIVKEY = 109;
     public static final int SET_FMD_CRYPT_HPW = 110;
     public static final int SET_FMD_LOW_BAT_SEND = 111;
-
     //public static final int SET_FMD_CRYPT_NEW_SALT = 112;
     public static final int SET_UPDATEBOARDING_MODERN_CRYPTO_COMPLETED = 113;
+    public static final int SET_FMDSERVER_PUSH_URL = 114;
 
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS = 201;
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS = 202;
@@ -100,6 +100,7 @@ public class Settings extends HashMap<Integer, Object> {
                 case SET_FMD_CRYPT_PRIVKEY:
                 case SET_FMD_CRYPT_PUBKEY:
                 case SET_FMDSERVER_URL:
+                case SET_FMDSERVER_PUSH_URL:
                     return "";
                 //case SET_GPS_STATE:
                 //    return 1;

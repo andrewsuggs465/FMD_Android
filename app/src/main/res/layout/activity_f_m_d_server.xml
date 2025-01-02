@@ -158,35 +158,9 @@
                 android:ems="10"
                 android:text="@string/Settings_FMDServer_Delete_Account" />
 
+            <!-- Push -->
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="@dimen/margin_normal"
-                android:background="?android:attr/listDivider" />
-
-            <TextView
-                style="@style/FMD.Text.SectionTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_small"
-                android:text="Push" />
-
-            <TextView
-                android:id="@+id/textPushHelp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/Settings_FMDServer_Push_Description_Missing" />
-
-            <Button
-                android:id="@+id/buttonOpenUnifiedPush"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_normal"
-                android:ems="10"
-                android:text="@string/Settings_FMDServer_Push_Open_UP" />
+            <include layout="@layout/activity_f_m_d_server_section_push" />
 
             <!-- Connectivity Check -->
 
