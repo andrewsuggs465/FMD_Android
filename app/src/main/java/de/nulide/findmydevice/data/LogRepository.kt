@@ -71,7 +71,12 @@ class LogRepository private constructor(private val context: Context) {
     }
 
     private fun saveList() {
-        val raw = gson.toJson(list)
+        // Hacky workaround for https://gitlab.com/Nulide/findmydevice/-/issues/262
+        // It can happen that a first thread is already saving the list (gson.toJson internally uses an iterator)
+        // while a second thread is calling list.sublist().clear().
+        // This causes a ConcurrentModificationException.
+        val copiedList = list.clone()
+        val raw = gson.toJson(copiedList)
         val file = File(context.filesDir, LOG_FILENAME)
         file.writeText(raw)
     }
@@ -82,12 +87,6 @@ class LogRepository private constructor(private val context: Context) {
         // no need to save, pruneLog() saves
     }
 
-    // Synchronise log pruning because the LogRepository is a singleton.
-    // It can happen that a first thread is already saving the list (gson.toJson internally uses an iterator)
-    // while a second thread is calling list.sublist().clear().
-    // This causes a ConcurrentModificationException.
-    // See https://gitlab.com/Nulide/findmydevice/-/issues/262
-    @Synchronized
     fun pruneLog() {
         val maxLength = 1000
         val newStart = max(0, list.size - maxLength)

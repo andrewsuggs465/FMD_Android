@@ -34,7 +34,8 @@ class AllowlistRepository private constructor(private val context: Context) {
     }
 
     private fun saveList() {
-        val raw = gson.toJson(list)
+        val copiedList = list.clone()
+        val raw = gson.toJson(copiedList)
         val file = File(context.filesDir, ALLOWLIST_FILENAME)
         file.writeText(raw)
     }
@@ -59,7 +60,6 @@ class AllowlistRepository private constructor(private val context: Context) {
         }
     }
 
-    @Synchronized
     fun remove(phoneNumber: String) {
         val toRemove = mutableListOf<Contact>()
         for (ele in list) {
