@@ -2,6 +2,7 @@ package de.nulide.findmydevice.commands
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import kotlinx.coroutines.test.runTest
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -13,7 +14,7 @@ class CommandParserTest {
     // All the possible branches in the CommandParser should have a test
 
     @Test
-    fun testEmpty() {
+    fun testEmpty() = runTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
 
         val cmds = availableCommands(appContext)
@@ -26,7 +27,7 @@ class CommandParserTest {
     }
 
     @Test
-    fun testTriggerWordMismatch() {
+    fun testTriggerWordMismatch() = runTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
 
         val cmds = availableCommands(appContext)
@@ -40,7 +41,7 @@ class CommandParserTest {
     }
 
     @Test
-    fun testUnknownCommand() {
+    fun testUnknownCommand() = runTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
 
         val cmds = availableCommands(appContext)
@@ -54,7 +55,7 @@ class CommandParserTest {
     }
 
     @Test
-    fun testBasic() {
+    fun testBasic() = runTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
 
         val cmds = availableCommands(appContext)
@@ -72,7 +73,7 @@ class CommandParserTest {
     }
 
     @Test
-    fun testPin() {
+    fun testPin() = runTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
 
         val cmds = availableCommands(appContext)
@@ -93,7 +94,7 @@ class CommandParserTest {
     }
 
     @Test
-    fun testHelp() {
+    fun testHelp() = runTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
 
         val cmds = availableCommands(appContext)
@@ -111,7 +112,7 @@ class CommandParserTest {
     }
 
     @Test
-    fun testHelpWithPin() {
+    fun testHelpWithPin() = runTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
 
         val cmds = availableCommands(appContext)
@@ -132,7 +133,7 @@ class CommandParserTest {
     }
 
     @Test
-    fun testCaseInsensitivity() {
+    fun testCaseInsensitivity() = runTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
 
         val cmds = availableCommands(appContext)
