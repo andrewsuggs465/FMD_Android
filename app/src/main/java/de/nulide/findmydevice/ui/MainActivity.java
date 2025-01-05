@@ -131,6 +131,7 @@ public class MainActivity extends FmdActivity {
             // just in case it was still running
             FMDServerLocationUploadService.cancelJob(this);
             FmdServerConnectivityCheckService.cancelJob(this);
+            PushReceiver.unregisterWithUnifiedPush(this);
         }
         TempContactExpiredService.scheduleJob(this, 0);
         invalidateOptionsMenu();

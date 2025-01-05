@@ -83,8 +83,7 @@ class FmdServerConnectivityCheckService : FmdJobService() {
         val settings = SettingsRepository.getInstance(context)
         val now: Long = System.currentTimeMillis()
 
-        // Check if we can connect to the server and can log in (i.e., get an access token)
-        fmdServerRepo.getAccessToken(
+        fmdServerRepo.checkConnection(
             { response ->
                 context.log().i(TAG, "Successfully connected to FMD Server")
                 settings.set(Settings.SET_FMD_SERVER_LAST_CONNECTIVITY_UNIX_TIME, now)

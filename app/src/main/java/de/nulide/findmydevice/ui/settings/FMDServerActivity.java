@@ -27,6 +27,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.security.PrivateKey;
 
 import de.nulide.findmydevice.R;
+import de.nulide.findmydevice.data.EncryptedSettingsRepository;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.net.FMDServerApiRepoSpec;
@@ -244,8 +245,12 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
                 .setMessage(R.string.Settings_FMDServer_Logout_Text)
                 .setPositiveButton(getString(R.string.Ok), (dialog, whichButton) -> {
                     settings.removeServerAccount();
+                    // TODO: API to invalidate access tokens. Maybe combine with session management.
+                    EncryptedSettingsRepository encryptedSettingsRepo = EncryptedSettingsRepository.Companion.getInstance(context);
+                    encryptedSettingsRepo.setCachedAccessToken("");
                     FMDServerLocationUploadService.cancelJob(this);
                     FmdServerConnectivityCheckService.cancelJob(this);
+                    PushReceiver.unregisterWithUnifiedPush(this);
                     finish();
                 })
                 .setNegativeButton(getString(R.string.cancel), null)
@@ -330,6 +335,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         showLoadingIndicator(context);
         FMDServerLocationUploadService.cancelJob(context);
         FmdServerConnectivityCheckService.cancelJob(context);
+        PushReceiver.unregisterWithUnifiedPush(context);
         fmdServerRepo.unregister(
                 response -> {
                     loadingDialog.cancel();
@@ -345,8 +351,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     private void checkConnection() {
         TextView textViewConnectionStatus = findViewById(R.id.textViewConnectionStatus);
 
-        // Check if we can connect to the server and can log in (i.e., get an access token)
-        fmdServerRepo.getAccessToken(
+        fmdServerRepo.checkConnection(
                 response -> {
                     settings.set(
                             Settings.SET_FMD_SERVER_LAST_CONNECTIVITY_UNIX_TIME,
