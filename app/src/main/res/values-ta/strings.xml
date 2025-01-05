@@ -18,7 +18,7 @@
     <string name="cmd_camera_description_short">படம் எடுக்கவும்</string>
     <string name="cmd_camera_description_long">முன்/பின் கேமராவுடன் ஒரு படத்தை எடுத்து FMD சேவையகத்தில் பதிவேற்றுகிறது. தற்போது எஃப்எம்டி சேவையகத்தில் மட்டுமே பதிவேற்றுவது ஆதரிக்கப்படுகிறது. இந்த கட்டளையை பிற போக்குவரத்து சேனல்கள் வழியாகவும் அனுப்பலாம், மேலும் படம் FMD சேவையகத்தில் பதிவேற்றப்படும் (ஒரு கணக்கு இருந்தால்).</string>
     <string name="cmd_camera_response_no_fmd_server">படம் எடுக்க முடியாது: எஃப்எம்டி சேவையக கணக்கு எதுவும் இல்லை.</string>
-    <string name="cmd_camera_response_success">சாதனம் ஒரு படத்தை எடுத்து எஃப்எம்டி சேவையகத்திற்கு அனுப்பும். நீங்கள் அதை விரைவில் இங்கே காணலாம்: %</string>
+    <string name="cmd_camera_response_success">சாதனம் ஒரு படத்தை எடுத்து எஃப்எம்டி சேவையகத்திற்கு அனுப்பும். நீங்கள் அதை விரைவில் இங்கே காணலாம்: %s</string>
     <string name="cmd_delete_description_short">தொழிற்சாலை சாதனத்தை மீட்டெடுக்கிறது</string>
     <string name="cmd_delete_response_success">சாதனம் இப்போது நீக்கப்பட வேண்டும். குட்பை!</string>
     <string name="transport_notification_reply_title">அறிவிப்பு பதில்</string>
