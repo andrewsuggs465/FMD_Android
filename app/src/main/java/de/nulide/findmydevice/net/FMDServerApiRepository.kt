@@ -91,6 +91,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
     }
 
     fun registerAccount(
+        username: String,
         privKey: String,
         pubKey: String,
         hashedPW: String,
@@ -104,6 +105,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             jsonObject.put("hashedPassword", hashedPW)
             jsonObject.put("pubkey", pubKey)
             jsonObject.put("privkey", privKey)
+            jsonObject.put("requestedUsername", username)
             jsonObject.put("registrationToken", registrationToken)
         } catch (e: JSONException) {
             e.printStackTrace()

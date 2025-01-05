@@ -116,9 +116,8 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         val context = view.context
         val registerLayout = layoutInflater.inflate(R.layout.dialog_register, null)
 
-        val passwordInput = registerLayout.findViewById<EditText>(R.id.editTextFMDPassword)
-        val passwordInputCheck =
-            registerLayout.findViewById<EditText>(R.id.editTextFMDPasswordCheck)
+        val usernameInput = registerLayout.findViewById<EditText>(R.id.editTextUsername)
+        val passwordInput = registerLayout.findViewById<EditText>(R.id.editTextPassword)
         val registrationTokenInput =
             registerLayout.findViewById<EditText>(R.id.editTextRegistrationToken)
 
@@ -130,13 +129,13 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
             .setPositiveButton(getString(R.string.Ok)) { _, _ ->
                 showLoadingIndicator(context)
 
+                val username = usernameInput.text.toString()
                 val password = passwordInput.text.toString()
-                val passwordCheck = passwordInputCheck.text.toString()
                 val registrationToken = registrationTokenInput.text.toString()
 
                 cacheRegistrationToken(registrationToken)
 
-                if (password.isNotEmpty() && password == passwordCheck) {
+                if (password.isNotEmpty()) {
                     // Key generation and password hashing is expensive-ish, so we don't want
                     // to do it on the UI thread (e.g., it would block the loading indicator).
                     lifecycleScope.launch(Dispatchers.IO) {
@@ -147,6 +146,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                         settingsRepo.set(Settings.SET_FMDSERVER_PASSWORD_SET, true)
 
                         fmdServerRepo.registerAccount(
+                            username,
                             keys.encryptedPrivateKey,
                             keys.base64PublicKey,
                             hashedPW,
@@ -156,7 +156,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                         )
                     }
                 } else {
-                    Toast.makeText(context, R.string.pw_change_mismatch, Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, R.string.pw_change_empty, Toast.LENGTH_LONG).show()
                     loadingDialog?.cancel()
                 }
             }
@@ -168,7 +168,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         val loginLayout = layoutInflater.inflate(R.layout.dialog_login, null)
 
         val idInput = loginLayout.findViewById<EditText>(R.id.editTextFMDID)
-        val passwordInput = loginLayout.findViewById<EditText>(R.id.editTextFMDPassword)
+        val passwordInput = loginLayout.findViewById<EditText>(R.id.editTextPassword)
 
         val loginDialog = MaterialAlertDialogBuilder(context)
             .setTitle(context.getString(R.string.Settings_FMDServer_Login))
