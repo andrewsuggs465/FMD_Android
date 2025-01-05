@@ -49,7 +49,7 @@ class CommandParser(
         val firstToken = iter.next()
 
         // Not an FMD command
-        if (firstToken != expectedTriggerWord) {
+        if (firstToken.lowercase() != expectedTriggerWord.lowercase()) {
             return ParserResult.TriggerWordMismatch(firstToken, expectedTriggerWord)
         }
 
