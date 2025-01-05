@@ -68,7 +68,7 @@
     <string name="copied">Kopioitu</string>
     <string name="loading">Ladataan…</string>
     <string name="help">Apua</string>
-    <string name="Settings_FMDServer_Update_Interval_Title">Päivitysväli</string>
+    <string name="Settings_FMDServer_Update_Interval_Title">Sijainnin lähetyksen aikaväli</string>
     <string name="Settings_FMDServer_Location_Type_Title">Sijainnin lähde</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Lataa matalalla akun varauksella</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Lataa laitteen sijainti palvelimelle, kun akun varaus laskee alhaiseksi. Tämä vaatii ilmoitusten käyttöoikeuden.</string>
@@ -245,4 +245,15 @@
     <string name="missing_permissions_description">Seuraavat käyttöoikeudet vaaditaan FMD:n käyttöön.</string>
     <string name="log_view_clear">Tyhjennä lokit</string>
     <string name="log_view_clear_confirm">Haluatko todella poistaa kaikki lokimerkinnät?</string>
+    <string name="Settings_FMDServer_Check_Interval_Title">Yhteyden tarkistuksen aikaväli</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Title">Pisin sallittu aika ilman yhteyttä</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Description">FMD ilmoittaa, jos viimeisimmästä onnistuneesta yhteyden tarkistuksesta on kulunut pidempään kuin määrittämäsi tuntimäärä ja tarkistus on käytössä.</string>
+    <string name="server_connectivity_lost_title">Yhteys FMD-palvelimeen on katkennut</string>
+    <string name="server_connectivity_lost_text">FMD-palvelinta ei tavoiteta. Viimeisin yhteys saatu %s.</string>
+    <string name="cmd_delete_response_dry_run">Testiajo suoritettu, ohitetaan todellinen laitteen poisto.</string>
+    <string name="usage_notification_pin_text">PIN-koodia käytti numero %s. On suositeltavaa vaihtaa PIN-koodi.</string>
+    <string name="Settings_FMDServer_Check_Interval_Description">FMD tarkistaa yhteyden FMD-palvelimelle määrittämäsi tuntimäärän välein. Aseta nollaksi poistaaksesi tarkistus käytöstä.</string>
+    <string name="pin_mismatch">PIN-koodit eivät täsmää!</string>
+    <string name="pin_match_command_keyword">PIN-koodi ei voi olla sama kuin mikään komennoista!</string>
+    <string name="usage_notification_pin_title">FMD PIN-koodia käytetty</string>
 </resources>

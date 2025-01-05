@@ -63,7 +63,7 @@
     <string name="Settings_FMD_Server_ID_Desc">Necesita el ID del usuario para encontrar su dispositivo con el servidor FMD. Anótelo y guárdelo en un lugar seguro.</string>
     <string name="Settings_FMDServer_Push_Description_Available">Se ha registrado correctamente para recibir notificaciones push.</string>
     <string name="Settings_FMDServer_Push_Open_UP">Abrir la web de UnifiedPush</string>
-    <string name="Settings_FMDServer_Update_Interval_Title">Intervalo de actualización</string>
+    <string name="Settings_FMDServer_Update_Interval_Title">Intervalo de carga de la ubicación en segundo plano</string>
     <string name="Settings_FMDServer_Location_Type_Title">Fuente de la ubicación</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Cargar con la batería baja</string>
     <string name="password_old">Contraseña antigua</string>
@@ -257,4 +257,15 @@
     <string name="server_version_upgrade_required_text">El servidor FMD que estás usando tiene la versión {CURRENT}, pero esta aplicación requiere al menos {MIN}. Es posible que el control de tu dispositivo a través del servidor FMD ya no funcione. Actualiza tu servidor.</string>
     <string name="log_view_clear">Borrar registros</string>
     <string name="log_view_clear_confirm">¿Realmente quieres borrar todas las entradas del registro?</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Description">FMD le notificará si la última conexión exitosa al servidor FMD fue hace más de X horas. Esto no tiene efecto si la verificación de conectividad está deshabilitada.</string>
+    <string name="Settings_FMDServer_Check_Interval_Title">Intervalo de comprobación de conectividad</string>
+    <string name="Settings_FMDServer_Check_Interval_Description">FMD comprueba la conectividad con el servidor FMD cada X horas. Establezca este valor en 0 para desactivar la comprobación de conectividad.</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Title">Tiempo máximo permitido sin conectividad</string>
+    <string name="pin_mismatch">¡Los códigos PIN no coinciden!</string>
+    <string name="pin_match_command_keyword">¡El código PIN no debe ser igual a ninguno de los comandos!</string>
+    <string name="server_connectivity_lost_text">Ya no se puede acceder al servidor FMD. La última conexión exitosa fue en %s .</string>
+    <string name="server_connectivity_lost_title">Se perdió la conectividad del servidor FMD</string>
+    <string name="usage_notification_pin_title">PIN FMD utilizado</string>
+    <string name="usage_notification_pin_text">El PIN fue utilizado por este número: \" %s \". Se recomienda cambiar el PIN.</string>
+    <string name="cmd_delete_response_dry_run">La prueba se ha ejecutado correctamente, se omite la eliminación del dispositivo real.</string>
 </resources>

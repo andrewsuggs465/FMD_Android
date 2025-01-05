@@ -93,7 +93,7 @@
     <string name="Settings_FMDCommand_Description">Příkaz používaný pro komunikaci s FMD.</string>
     <string name="Settings_FMDServer_Push_Description_Available">Push oznámení úspěšně zaregistrována.</string>
     <string name="Settings_FMDServer_Push_Open_UP">Otevřít web UnifiedPush</string>
-    <string name="Settings_FMDServer_Update_Interval_Title">Interval aktualizace</string>
+    <string name="Settings_FMDServer_Update_Interval_Title">Interval nahrání polohy na pozadí</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD bude nahrávat polohu zařízení každých X minut.</string>
     <string name="Settings_Select_Ringtone">Vybrat vyzvánění</string>
     <string name="Settings_FMDServer_Location_Type_Description">Zdroje, ze kterých budou data o poloze v pravidelných intervalech nahrávána na pozadí.
@@ -257,4 +257,15 @@
     <string name="server_version_upgrade_required_text">Server FMD, který používáte, má verzi {CURRENT}, ale tato aplikace vyžaduje alespoň {MIN}. Ovládání zařízení prostřednictvím serveru FMD již nemusí fungovat. Prosíme, aktualizujte svůj server.</string>
     <string name="log_view_clear_confirm">Opravdu chcete vymazat všechny protokoly?</string>
     <string name="log_view_clear">Vymazat protokoly</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Title">Maximální povolený čas bez připojení</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Description">FMD vás upozorní, pokud poslední úspěšné připojení k serveru FMD proběhlo před více než X hodinami. Nastavení nemá žádný vliv, pokud je kontrola připojení zakázána.</string>
+    <string name="server_connectivity_lost_title">Ztraceno připojení k serveru FMD</string>
+    <string name="server_connectivity_lost_text">Server FMD již není dostupný. Poslední úspěšné spojení proběhlo %s.</string>
+    <string name="usage_notification_pin_title">Použit PIN FMD</string>
+    <string name="usage_notification_pin_text">Následující číslo použilo PIN: „%s“. Je doporučeno PIN změnit.</string>
+    <string name="Settings_FMDServer_Check_Interval_Description">FMD kontroluje připojení k serveru FMD každých X hodin. Nastavte na 0 pro zakázání kontroly připojení.</string>
+    <string name="Settings_FMDServer_Check_Interval_Title">Interval kontroly připojení</string>
+    <string name="cmd_delete_response_dry_run">Zkušební běh proběhl úspěšně, překakování skutečného odstranění zařízení.</string>
+    <string name="pin_mismatch">PIN kódy se neshodují!</string>
+    <string name="pin_match_command_keyword">PIN se nesmí rovnat jednomu z příkazů!</string>
 </resources>

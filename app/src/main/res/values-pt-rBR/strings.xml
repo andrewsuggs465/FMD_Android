@@ -20,7 +20,7 @@
     <string name="Settings_FMDServer_Push_Description_Missing">Enviar comandos de um Servidor FMD para o seu dispositivo requer um app distribuidor de UnifiedPush. Instale um, e aí volte aqui. Ele será automaticamente detectado.</string>
     <string name="Settings_FMDServer_Push_Description_Available">Registrado com sucesso para notificações push.</string>
     <string name="Settings_FMDServer_Push_Open_UP">Abrir Site do UnifiedPush</string>
-    <string name="Settings_FMDServer_Update_Interval_Title">Intervalo de Atualização</string>
+    <string name="Settings_FMDServer_Update_Interval_Title">Intervalo do Envio de Localização em Segundo Plano</string>
     <string name="Settings_FMDServer_Update_Interval_Description">O FMD faz upload da localização do dispositivo a cada X minutos.</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Envio em Bateria Baixa</string>
     <string name="password_old">Senha Antiga</string>
@@ -102,7 +102,7 @@
     <string name="OpenCellId_test_opencellid">Testar Conexão ao OpenCelliD</string>
     <string name="notify_crypto_update_title">Ação necessária</string>
     <string name="notify_crypto_update_text">Você precisará atualizar algumas configurações para continuar usando o FMD. Clique para abrir.</string>
-    <string name="app_description">FMD (Find My Device) permite que você localize remotamente o seu dispositivo. Você pode se comunicar com o FMD por SMS, mensageiros, ou usando um Servidor FMD. Localize seu dispositivo, faça-o tocar, bloqueie-o, ou formate ele - tudo remotamente.</string>
+    <string name="app_description">O FMD (Find My Device) permite que você localize remotamente o seu dispositivo. Você pode se comunicar com o FMD por SMS, mensageiros, ou usando um Servidor FMD. Localize seu dispositivo, faça-o tocar, bloqueie-o, ou formate ele - tudo remotamente.</string>
     <string name="Enable">Ativar</string>
     <string name="Delete">Excluir</string>
     <string name="cmd_locate_response_gps_will_follow">Coordenadas GPS serão enviadas em breve.</string>
@@ -257,4 +257,15 @@
     <string name="crashed_title">Relatório de Erro</string>
     <string name="log_view_clear_confirm">Você deseja realmente excluir todos os itens dos registros?</string>
     <string name="log_view_clear">Limpar Registros</string>
+    <string name="server_connectivity_lost_text">O Servidor FMD não pôde ser contatado. A última conexão bem-sucedida foi em %s.</string>
+    <string name="usage_notification_pin_text">O PIN foi usado pelo número: \"%s\". É recomendado alterar o PIN.</string>
+    <string name="Settings_FMDServer_Check_Interval_Title">Intervalo de Verificação de Conectividade</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Title">Tempo máximo permitido sem conectividade</string>
+    <string name="server_connectivity_lost_title">Conexão ao Servidor FMD perdida</string>
+    <string name="cmd_delete_response_dry_run">Execução seca bem-sucedida, pulando a real exclusão do dispositivo.</string>
+    <string name="Settings_FMDServer_Check_Interval_Description">O FMD verifica sua conexão ao Servidor FMD a cada X horas. Defina isso pra 0 para desativar a verificação de conectividade.</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Description">O FMD irá te notificar se a última conexão ao Servidor FMD foi a mais de X horas atrás. Isto não tem efeito se a verificação de conectividade estar desativada.</string>
+    <string name="pin_mismatch">Os PINs não correspondem!</string>
+    <string name="pin_match_command_keyword">O PIN não pode ser igual a um dos comandos!</string>
+    <string name="usage_notification_pin_title">PIN do FMD usado</string>
 </resources>

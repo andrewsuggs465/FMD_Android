@@ -80,7 +80,7 @@
     <string name="GPS">GPS</string>
     <string name="pin">PIN-код</string>
     <string name="pin_repeat">Повторите PIN-код</string>
-    <string name="Settings_FMDServer_Update_Interval_Title">Интервал обновления</string>
+    <string name="Settings_FMDServer_Update_Interval_Title">Интервал фоновой выгрузки местоположения</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD выгружает местоположение устройства каждые X минут.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Источник местоположения</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Выгружать при низком заряде аккумулятора</string>
@@ -255,4 +255,17 @@
     <string name="server_version_upgrade_required_title">Необходимо обновить FMD Сервер</string>
     <string name="server_version_upgrade_required_text">Используемый вами FMD Сервер имеет версию {CURRENT}, но это приложение требует как минимум версию {MIN}. Управление вашим устройством через FMD Сервер может больше не работать. Пожалуйста, обновите ваш сервер.</string>
     <string name="crashed_title">Отчёт об ошибке</string>
+    <string name="server_connectivity_lost_title">Соединение с FMD Сервером потеряно</string>
+    <string name="server_connectivity_lost_text">FMD Сервер больше недоступен. Последнее успешное соединение было в %s.</string>
+    <string name="Settings_FMDServer_Check_Interval_Title">Интервал проверки доступности соединения</string>
+    <string name="Settings_FMDServer_Check_Interval_Description">FMD проверяет доступность соединения с FMD Сервером каждые X часов. Установите это на 0, чтобы отключить проверки.</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Description">FMD оповестит вас, если последнее успешное соединение с FMD Сервером было больше, чем X часов назад. Это не будет работать, если проверки доступности соединения отключены.</string>
+    <string name="cmd_delete_response_dry_run">Пробный запуск прошёл успешно, без фактического удаления устройства.</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Title">Максимально разрешённое время без доступного соединения</string>
+    <string name="pin_mismatch">PIN-коды не совпадают!</string>
+    <string name="pin_match_command_keyword">PIN-код не должен быть таким же, как и одна из команд!</string>
+    <string name="log_view_clear">Очистить логи</string>
+    <string name="log_view_clear_confirm">Вы действительно хотите удалить все записи лога?</string>
+    <string name="usage_notification_pin_title">Был использован PIN-код FMD</string>
+    <string name="usage_notification_pin_text">PIN-код был использован следующим мобильным номером: \"%s\". Рекомендуется сменить PIN-код.</string>
 </resources>

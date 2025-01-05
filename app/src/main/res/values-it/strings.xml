@@ -95,7 +95,7 @@
     <string name="registration_token">Token di registrazione</string>
     <string name="help">Aiuto</string>
     <string name="Settings_FMDServer_Change_Password_Button">Cambia Password</string>
-    <string name="Settings_FMDServer_Update_Interval_Title">Intervallo di Aggiornamento</string>
+    <string name="Settings_FMDServer_Update_Interval_Title">Intervallo Aggiornamento in Secondo Piano della Posizione</string>
     <string name="Settings_FMDServer_open_website">Apri il sito web del Server FMD</string>
     <string name="Settings_FMDServer_use_default_server">Usa il server Pubblico di Nulide</string>
     <string name="OpenCellId_test_opencellid">Test Connessione OpenCelliD</string>
@@ -243,4 +243,17 @@
     <string name="server_version_upgrade_required_title">Necessario aggiornamento del server FMD</string>
     <string name="server_version_upgrade_required_text">Il server FMD in uso ha la versione {CURRENT}, ma questa applicazione richiede almeno {MIN}. Il controllo del dispositivo tramite il server FMD potrebbe non funzionare più. Aggiorna il server.</string>
     <string name="crashed_title">Rapporto anomalia</string>
+    <string name="usage_notification_pin_text">Il PIN è stato utilizzato da questo numero: \"%s\". Si raccomanda di cambiare PIN.</string>
+    <string name="Settings_FMDServer_Check_Interval_Title">Intervallo Controllo Connettività</string>
+    <string name="pin_mismatch">I PIN non corrispondono!</string>
+    <string name="pin_match_command_keyword">Il PIN non può essere uguale ad uno dei comandi!</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Description">FMD vi avviserà se l\'ultima connessione riuscita al server FMD risale a più di tot ore fa. Questo non ha effetto se il controllo della connettività è disabilitato.</string>
+    <string name="Settings_FMDServer_Check_Interval_Description">FMD controlla la connettività al server FMD ogni tot ore. Impostando il valore 0 si disabilita il controllo della connettività.</string>
+    <string name="usage_notification_pin_title">Utilizzo PIN FMD</string>
+    <string name="log_view_clear">Cancella Voci</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Title">Tempo massimo consentito senza connettività</string>
+    <string name="server_connectivity_lost_title">Connettività Server FMD persa</string>
+    <string name="server_connectivity_lost_text">Il Server FMD non può più essere raggiunto. Ultima connessione riuscita in data %s.</string>
+    <string name="log_view_clear_confirm">Vuoi veramente eliminare tutte le voci di registro?</string>
+    <string name="cmd_delete_response_dry_run">Prova riuscita, evitando l\'effettiva cancellazione del dispositivo.</string>
 </resources>

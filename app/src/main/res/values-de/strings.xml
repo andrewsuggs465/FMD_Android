@@ -15,7 +15,7 @@
     <string name="Settings_OpenCellId">OpenCelliD</string>
     <string name="Settings_Import">Einstellungen importieren</string>
     <string name="Settings_Export">Einstellungen exportieren</string>
-    <string name="Settings_Logs">Logs</string>
+    <string name="Settings_Logs">Protokoll</string>
     <string name="Settings_About">Über</string>
     <!-- Settings: General -->
     <string name="Settings_FMD_via_Pin_Description">Hiermit kannst du mit FMD über eine PIN kommunizieren. So kannst du Befehle von einer Telefonnummer schicken, welche nicht in deinen Erlaubten Kontakten ist.</string>
@@ -39,7 +39,6 @@
     <string name="Settings_FMDServer_Push_Description_Missing">Das Senden von Befehlen von FMD Server zu deinem Gerät benötigt eine UnifiedPush-Distributor-App. Installiere eine, und komm dann hierher zurück. UnifiedPush wird automatisch erkannt.</string>
     <string name="Settings_FMDServer_Push_Description_Available">Erfolgreich für Pushnachrichten registriert.</string>
     <string name="Settings_FMDServer_Push_Open_UP">UnifiedPush Webseite Öffnen</string>
-    <string name="Settings_FMDServer_Update_Interval_Title">Update-Intervall</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD lädt den Gerätestandort alle X Minuten hoch.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Standort-Quelle</string>
     <string name="Settings_FMDServer_Location_Type_Description">Die Quelle(n) dessen Standort regelmäßig im Hintergrund hochgeladen werden soll.
@@ -249,8 +248,8 @@
     <string name="perm_bluetooth_connect_name">Bluetooth Verbinden</string>
     <string name="export_success">Export erfolgreich</string>
     <string name="export_failed">Export fehlgeschlagen</string>
-    <string name="log_view_title">Logs</string>
-    <string name="log_view_export">Logs Exportieren</string>
+    <string name="log_view_title">Protokoll</string>
+    <string name="log_view_export">Protokoll exportieren</string>
     <string name="temporary_allowlist_expired">Dein temporärer FindMyDevice-Zugang ist abgelaufen. Sende den PIN erneut um FindMyDevice weiter zu nutzen.</string>
     <string name="Settings_FMDServer_Unregister_Success">Erfolgreich de-registriert und Daten gelöscht!</string>
     <string name="pw_change_network_failed">Passwortänderung aufgrund eines Netzwerkfehlers fehlgeschlagen.</string>
@@ -273,5 +272,17 @@
     <string name="server_version_upgrade_required_title">FMD Server muss geupdated werden</string>
     <string name="server_version_upgrade_required_text">Der genutzte FMD Server ist Version {CURRENT}, aber diese App benötigt mindestens {MIN}. Die Steuerung dieses Geräts mit diesem Server könnte beeinträchtigt sein. Bitte den Server updaten.</string>
     <string name="log_view_clear_confirm">Möchtest du wirklich alle Protokolleinträge löschen?</string>
-    <string name="log_view_clear">Protokolle löschen</string>
+    <string name="log_view_clear">Protokoll löschen</string>
+    <string name="pin_mismatch">Die PINs stimmen nicht überein!</string>
+    <string name="pin_match_command_keyword">Die PIN darf nicht mit einem der Befehle übereinstimmen!</string>
+    <string name="Settings_FMDServer_Check_Interval_Title">Verbindungsprüfung-Intervall</string>
+    <string name="Settings_FMDServer_Check_Interval_Description">FMD prüft die Verbindung zum FMD-Server alle X Stunden. Setze den Wert auf 0, um die Verbindungsprüfung zu deaktivieren.</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Title">Maximal zulässige Zeit ohne Verbindung</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Description">FMD wird dich benachrichtigen, wenn die letzte erfolgreiche Verbindung zum FMD-Server mehr als X Stunden zurückliegt. Dies hat keine Auswirkungen, wenn die Verbindungsprüfung deaktiviert ist.</string>
+    <string name="server_connectivity_lost_title">FMD-Server-Verbindung verloren</string>
+    <string name="server_connectivity_lost_text">Der FMD-Server kann nicht mehr erreicht werden. Die letzte erfolgreiche Verbindung war am %s.</string>
+    <string name="cmd_delete_response_dry_run">Testlauf erfolgreich, die eigentliche Gerätelöschung wird übersprungen.</string>
+    <string name="Settings_FMDServer_Update_Interval_Title">Intervall des Standortuploads im Hintergrund</string>
+    <string name="usage_notification_pin_title">FMD PIN benutzt</string>
+    <string name="usage_notification_pin_text">Der PIN wurde von dieser Nummer verwendet: \"%s\". Wir empfehlen, den PIN zu ändern.</string>
 </resources>
