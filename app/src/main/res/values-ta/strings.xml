@@ -25,7 +25,6 @@
     <string name="Notification_InApp">பயன்பாட்டு போக்குவரத்து சேனல்</string>
     <string name="Notification_InApp_Description">பயன்பாட்டு போக்குவரத்து சேனலில் இருந்து அறிவிப்புகள்</string>
     <string name="usage_notification_title">செயல்படுத்தப்பட்டது</string>
-    <string name="usage_notification_pin_text">முள் இந்த எண்ணால் பயன்படுத்தப்பட்டது: எச் முள் மாற்ற பரிந்துரைக்கப்படுகிறது.</string>
     <string name="setup_warnings_title">அமைவு எச்சரிக்கைகள்</string>
     <string name="missing_permissions_title">அனுமதிகள் இல்லை</string>
     <string name="missing_permissions_description">எஃப்எம்டி இயங்க பின்வரும் அனுமதிகள் தேவை.</string>
@@ -112,7 +111,6 @@
     <string name="pw_change_network_failed">பிணைய பிழை காரணமாக கடவுச்சொல் மாற்றம் தோல்வியடைந்தது.</string>
     <string name="server_login_attempts_title">தோல்வியுற்ற உள்நுழைவு FMD சேவையகத்திற்கு முயற்சிக்கிறது</string>
     <string name="pw_change_wrong_password">தவறான கடவுச்சொல்</string>
-    <string name="server_login_attempts_text">பல தோல்வியுற்ற கடவுச்சொற்கள் காரணமாக யாரோ உங்கள் எஃப்எம்டி சேவையக கணக்கில் உள்நுழைய முயற்சித்தனர், கணக்கு இப்போது 10 நிமிடங்கள் பூட்டப்பட்டுள்ளது.</string>
     <string name="server_version_upgrade_required_title">FMD சேவையக மேம்படுத்தல் தேவை</string>
     <string name="server_version_upgrade_required_text">நீங்கள் பயன்படுத்தும் FMD சேவையகத்திற்கு {CURRENT} உள்ளது, ஆனால் இந்த பயன்பாட்டிற்கு குறைந்தபட்சம் {MIN} தேவைப்படுகிறது. FMD சேவையகம் வழியாக உங்கள் சாதனத்தை கட்டுப்படுத்துவது இனி இயங்காது. உங்கள் சேவையகத்தை மேம்படுத்தவும்.</string>
     <string name="server_connectivity_lost_title">FMD சேவையக இணைப்பு இழந்தது</string>
@@ -244,8 +242,7 @@
     <string name="Notification_Security_Description">பாதுகாப்பு புதுப்பிப்புகள் பற்றிய அறிவிப்புகள்</string>
     <string name="Notification_FAIL">தோல்விகள்</string>
     <string name="Notification_Fail_Description">அறிவிப்புகள் ஏதேனும் தோல்வியுற்றால், எஃப்எம்டி சேவையகத்திற்கான இணைப்பு போன்றவை</string>
-    <string name="usage_notification_text">கள் கட்டளை செயல்படுத்தப்பட்டது.</string>
-    <string name="usage_notification_text_source">1 $ s கட்டளை 2 $ s ஆல் செயல்படுத்தப்பட்டது</string>
+    <string name="usage_notification_text_source">%1$s கட்டளை %2$s ஆல் செயல்படுத்தப்பட்டது.</string>
     <string name="usage_notification_pin_title">FMD முள் பயன்படுத்தப்பட்டது</string>
     <string name="crashed_text">எஃப்எம்டி செயலிழந்தது! இங்கே பதிவு:</string>
     <string name="crashed_send_log">பதிவு அனுப்பு</string>
