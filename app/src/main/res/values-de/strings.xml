@@ -285,4 +285,5 @@
     <string name="Settings_FMDServer_Update_Interval_Title">Intervall des Standortuploads im Hintergrund</string>
     <string name="usage_notification_pin_title">FMD PIN benutzt</string>
     <string name="usage_notification_pin_text">Der PIN wurde von dieser Nummer verwendet: \"%s\". Wir empfehlen, den PIN zu ändern.</string>
+    <string name="server_fmd_id_hint">Die FMD ID identifiziert Ihren Account auf dem FMD Server. Wenn Sie dieses Feld leer lassen generiert der Server eine ID für Sie. Bitte beachten Sie, dass die FMD ID im Klartext auf dem Server gespeichert wird, d.h. der Server Administrator kann sie einsehen.</string>
 </resources>
