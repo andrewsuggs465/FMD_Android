@@ -189,7 +189,7 @@
     <string name="cmd_camera_description_short">Take a picture</string>
     <string name="cmd_camera_description_long">Takes a picture of with the front/back camera and uploads it to FMD Server. Currently only uploading to FMD Server is supported. You can send this command via other transport channels, too, and the picture will be uploaded to FMD Server (if an account exists).</string>
     <string name="cmd_camera_response_no_fmd_server">Cannot take picture: no FMD Server account exists.</string>
-    <string name="cmd_camera_response_success">"The device is taking a picture and will send it to FMD Server. You can view it here soon: %s</string>
+    <string name="cmd_camera_response_success">The device is taking a picture and will send it to FMD Server. You can view it here soon: %s</string>
 
     <string name="cmd_delete_description_short">Factory-reset the device</string>
     <string name="cmd_delete_description_long">This wipes all data. Afterwards you will no longer be able to communicate with the device. To prevent accidental and malicious usage, this command requires a password and it needs to be explicitly enabled in the settings.</string>
