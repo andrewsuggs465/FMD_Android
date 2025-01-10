@@ -102,7 +102,7 @@
     <string name="server_version_upgrade_required_title">FMD Server upgrade required</string>
     <string name="server_version_upgrade_required_text">The FMD Server you are using has version {CURRENT}, but this app requires at least {MIN}. Controlling your device via FMD Server may not work anymore. Please upgrade your server.</string>
     <string name="server_connectivity_lost_title">FMD Server connectivity lost</string>
-    <string name="server_connectivity_lost_text">The FMD Server can no longer be reached. The last successful connection was at %s.</string>
+    <string name="server_connectivity_lost_text">The FMD Server at %1$s can no longer be reached. The last successful connection was at %2$s.</string>
 
     <!-- FMD Server Registration/Login -->
     <string name="server_version">Server version</string>

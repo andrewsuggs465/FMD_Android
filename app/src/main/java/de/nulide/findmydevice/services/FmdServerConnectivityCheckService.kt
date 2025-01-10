@@ -107,11 +107,13 @@ class FmdServerConnectivityCheckService : FmdJobService() {
                         lastSuccessMillis.toString()
                     }
 
+                    val baseUrl = settings.get(Settings.SET_FMDSERVER_URL) as String
                     Notifications.notify(
                         context,
                         context.getString(R.string.server_connectivity_lost_title),
                         context.getString(
                             R.string.server_connectivity_lost_text,
+                            baseUrl,
                             lastSuccessString
                         ),
                         Notifications.CHANNEL_FAILED
