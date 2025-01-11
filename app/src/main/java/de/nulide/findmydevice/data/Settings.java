@@ -36,6 +36,7 @@ public class Settings extends HashMap<Integer, Object> {
     public static final int SET_UPDATEBOARDING_MODERN_CRYPTO_COMPLETED = 113;
     public static final int SET_FMDSERVER_PUSH_URL = 114;
     public static final int SET_FMDSERVER_LAST_LOCATION_UPLOAD_TIME = 115;
+    public static final int SET_FMDSERVER_LAST_CMD_MILLIS = 116;
 
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS = 201;
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS = 202;
@@ -103,6 +104,8 @@ public class Settings extends HashMap<Integer, Object> {
                 case SET_FMDSERVER_URL:
                 case SET_FMDSERVER_PUSH_URL:
                     return "";
+                case SET_FMDSERVER_LAST_CMD_MILLIS:
+                    return 0;
                 //case SET_GPS_STATE:
                 //    return 1;
                 case SET_APP_CRASHED_LOG_ENTRY:

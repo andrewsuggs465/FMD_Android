@@ -33,7 +33,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
 
         val TAG = FMDServerApiRepository::class.simpleName
 
-        const val MIN_REQUIRED_SERVER_VERSION = "0.6.0"
+        const val MIN_REQUIRED_SERVER_VERSION = "0.9.0"
 
         private const val URL_ACCESS_TOKEN = "/requestAccess"
         private const val URL_COMMAND = "/command"
@@ -478,6 +478,36 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             { response ->
                 try {
                     val command = response["Data"] as String
+                    val time = (response["UnixTime"] as Number).toLong()
+                    val sig = response["CmdSig"] as String
+
+                    if (command.isEmpty()) {
+                        return@JsonObjectRequest onResponse.onResponse("")
+                    }
+                    // Exception: this value does not need to be signed.
+                    // The command field is abused to send this status notification.
+                    if (command == "423") {
+                        return@JsonObjectRequest onResponse.onResponse("423")
+                    }
+
+                    // This only needs to be strictly increasing, to prevent replay attacks.
+                    // It doesn't need to be "current", i.e. we don't care how far away from "now" this timestamp is.
+                    val lastCmdMillis =
+                        (settingsRepo.get(Settings.SET_FMDSERVER_LAST_CMD_MILLIS) as Number).toLong()
+                    if (time <= lastCmdMillis) {
+                        val errorMsg = "Timestamp is not increasing: $time <= $lastCmdMillis"
+                        context.log().e(TAG, errorMsg)
+                        return@JsonObjectRequest onError.onErrorResponse(VolleyError(errorMsg))
+                    }
+
+                    val publicKeyPem = settingsRepo.get(Settings.SET_FMD_CRYPT_PUBKEY) as String
+                    if (!CypherUtils.verifySig(publicKeyPem, "$time:$command", sig)) {
+                        val errorMsg = "Failed to verify the signature of command '$command'"
+                        context.log().e(TAG, errorMsg)
+                        return@JsonObjectRequest onError.onErrorResponse(VolleyError(errorMsg))
+                    }
+
+                    settingsRepo.set(Settings.SET_FMDSERVER_LAST_CMD_MILLIS, time)
                     onResponse.onResponse(command)
                 } catch (e: JSONException) {
                     context.log().w(TAG, "getCommandInternal: ${e.stackTraceToString()}")

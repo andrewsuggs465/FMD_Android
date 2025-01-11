@@ -23,10 +23,14 @@ import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SecureRandom;
+import java.security.Signature;
+import java.security.SignatureException;
 import java.security.spec.EncodedKeySpec;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.PSSParameterSpec;
+import java.security.spec.X509EncodedKeySpec;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -240,7 +244,7 @@ public class CypherUtils {
 
         byte[] aesPlaintextBytes = decryptWithAes(ciphertextBytes, aesKey);
         String pem = new String(aesPlaintextBytes, StandardCharsets.UTF_8);
-        return pemDecodeRsaKey(pem);
+        return pemDecodeRsaPrivateKey(pem);
     }
 
     public static String pemEncodeRsaKey(PrivateKey priv) {
@@ -257,7 +261,7 @@ public class CypherUtils {
         return sw.getBuffer().toString();
     }
 
-    public static PrivateKey pemDecodeRsaKey(String pem) {
+    public static PrivateKey pemDecodeRsaPrivateKey(String pem) {
         try {
             pem = pem.replace("-----END PRIVATE KEY-----\n", "");
             pem = pem.replace("-----BEGIN PRIVATE KEY-----\n", "");
@@ -271,6 +275,38 @@ public class CypherUtils {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static PublicKey decodeRsaPublicKey(String base64) {
+        try {
+            byte[] keyBytes = decodeBase64(base64);
+            EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
+            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            return keyFactory.generatePublic(keySpec);
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException | NullPointerException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // ------ Section: asymmetric key (signature) ------
+
+    public static boolean verifySig(String publicKeyBase64, String msg, String sigBase64) {
+        PublicKey pubKey = decodeRsaPublicKey(publicKeyBase64);
+        byte[] msgBytes = msg.getBytes(StandardCharsets.UTF_8);
+        byte[] sigBytes = Base64.decode(sigBase64, Base64.DEFAULT);
+
+        try {
+            Signature sig = Signature.getInstance("SHA256withRSA/PSS");
+            sig.setParameter(new PSSParameterSpec("SHA-256", "MGF1", MGF1ParameterSpec.SHA256, 32, 1));
+            sig.initVerify(pubKey);
+            sig.update(msgBytes);
+            return sig.verify(sigBytes);
+        } catch (NoSuchAlgorithmException | InvalidAlgorithmParameterException |
+                 InvalidKeyException | SignatureException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     // ------ Section: symmetric key ------
