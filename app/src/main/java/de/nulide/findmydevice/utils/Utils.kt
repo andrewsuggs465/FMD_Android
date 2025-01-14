@@ -40,6 +40,12 @@ class Utils {
         }
 
         @JvmStatic
+        fun openApp(context: Context, packageName: String) {
+            val intent = context.packageManager.getLaunchIntentForPackage(packageName)
+            context.startActivity(intent)
+        }
+
+        @JvmStatic
         fun getGeoURI(lat: String, lon: String): String {
             return "geo:$lat,$lon"
         }

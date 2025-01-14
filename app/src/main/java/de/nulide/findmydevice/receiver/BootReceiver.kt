@@ -40,7 +40,6 @@ class BootReceiver : BroadcastReceiver() {
                 FMDServerLocationUploadService.scheduleJob(context, 0)
                 FmdServerConnectivityCheckService.scheduleJob(context);
                 ServerVersionCheckService.scheduleJobNow(context)
-                PushReceiver.registerWithUnifiedPush(context)
             }
         }
     }

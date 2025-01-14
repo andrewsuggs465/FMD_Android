@@ -262,7 +262,6 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
 
             FMDServerLocationUploadService.scheduleJob(context, 0)
             FmdServerConnectivityCheckService.scheduleJob(context)
-            PushReceiver.registerWithUnifiedPush(context)
 
             val fmdServerActivityIntent = Intent(context, FMDServerActivity::class.java)
             startActivity(fmdServerActivityIntent)

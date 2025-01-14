@@ -6,16 +6,16 @@ import static de.nulide.findmydevice.ui.UiUtil.setupEdgeToEdgeScrollView;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +23,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
+import org.unifiedpush.android.connector.UnifiedPush;
 
 import java.security.PrivateKey;
 
@@ -48,8 +50,6 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     private SettingsRepository settings;
     private FMDServerApiRepository fmdServerRepo;
 
-    private TextView textViewPushHelp;
-
     private EditText editTextCheckInterval;
     private EditText editTextNotifyAfterTime;
     private EditText editTextFMDServerUpdateTime;
@@ -58,8 +58,6 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     private CheckBox checkBoxFMDServerCell;
 
     private CheckBox checkBoxLowBat;
-
-    private Context context;
 
     private AlertDialog loadingDialog;
 
@@ -73,7 +71,6 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
         settings = SettingsRepository.Companion.getInstance(this);
         fmdServerRepo = FMDServerApiRepository.Companion.getInstance(new FMDServerApiRepoSpec(this));
-        this.context = this;
 
         TextView textViewServerUrl = findViewById(R.id.textViewServerUrl);
         TextView textViewUserId = findViewById(R.id.textViewUserId);
@@ -88,8 +85,10 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         findViewById(R.id.buttonLogout).setOnClickListener(this::onLogoutClicked);
         findViewById(R.id.buttonDeleteData).setOnClickListener(this::onDeleteClicked);
 
-        textViewPushHelp = findViewById(R.id.textPushHelp);
-
+        findViewById(R.id.buttonOpenPushDistributor).setOnClickListener(this::onOpenPushDistributorClicked);
+        findViewById(R.id.buttonCopyPushDistributor).setOnClickListener(this::onCopyPushDistributorClicked);
+        findViewById(R.id.buttonCopyPushUrl).setOnClickListener(this::onCopyPushUrlClicked);
+        findViewById(R.id.buttonRegisterPush).setOnClickListener(this::onRegisterPushClicked);
         findViewById(R.id.buttonOpenUnifiedPush).setOnClickListener(this::onOpenUnifiedPushClicked);
 
         editTextCheckInterval = findViewById(R.id.editTextCheckInterval);
@@ -143,15 +142,9 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     @Override
     protected void onResume() {
         super.onResume();
-        PushReceiver.registerWithUnifiedPush(this);
-
-        if (PushReceiver.isRegisteredWithUnifiedPush(this)) {
-            textViewPushHelp.setText(R.string.Settings_FMDServer_Push_Description_Available);
-        } else {
-            textViewPushHelp.setText(R.string.Settings_FMDServer_Push_Description_Missing);
-        }
 
         checkConnection();
+        checkPushRegistration();
     }
 
     @Override
@@ -234,7 +227,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     }
 
     private void onDeleteClicked(View view) {
-        new MaterialAlertDialogBuilder(context)
+        new MaterialAlertDialogBuilder(this)
                 .setTitle(getString(R.string.Settings_FMDServer_Delete_Account))
                 .setMessage(R.string.Settings_FMDServer_Alert_DeleteData_Desc)
                 .setPositiveButton(getString(R.string.Ok), (dialog, whichButton) -> runDelete())
@@ -243,7 +236,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     }
 
     private void onLogoutClicked(View view) {
-        new MaterialAlertDialogBuilder(context)
+        new MaterialAlertDialogBuilder(this)
                 .setTitle(getString(R.string.Settings_FMDServer_Logout_Button))
                 .setMessage(R.string.Settings_FMDServer_Logout_Text)
                 .setPositiveButton(getString(R.string.Ok), (dialog, whichButton) -> {
@@ -263,7 +256,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     private void onChangePasswordClicked(View view) {
         LayoutInflater inflater = getLayoutInflater();
         final AlertDialog.Builder alert = new MaterialAlertDialogBuilder(this);
-        alert.setTitle(context.getString(R.string.Settings_FMDServer_Change_Password_Button));
+        alert.setTitle(getString(R.string.Settings_FMDServer_Change_Password_Button));
         View registerLayout = inflater.inflate(R.layout.dialog_password_change, null);
         alert.setView(registerLayout);
         EditText oldPasswordInput = registerLayout.findViewById(R.id.editTextFMDOldPassword);
@@ -278,9 +271,9 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
                 String passwordCheck = passwordInputCheck.getText().toString();
 
                 if (password.isEmpty() || oldPassword.isEmpty()) {
-                    Toast.makeText(context, R.string.pw_change_empty, Toast.LENGTH_LONG).show();
+                    Toast.makeText(view.getContext(), R.string.pw_change_empty, Toast.LENGTH_LONG).show();
                 } else if (!password.equals(passwordCheck)) {
-                    Toast.makeText(context, R.string.pw_change_mismatch, Toast.LENGTH_LONG).show();
+                    Toast.makeText(view.getContext(), R.string.pw_change_mismatch, Toast.LENGTH_LONG).show();
                 } else {
                     runChangePassword(oldPassword, password);
                 }
@@ -295,19 +288,33 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         loadingDialog.show();
     }
 
+    private void onOpenPushDistributorClicked(View view) {
+        String packageName = UnifiedPush.getDistributor(this);
+        Utils.openApp(this, packageName);
+    }
+
+    private void onCopyPushDistributorClicked(View view) {
+        String text = UnifiedPush.getDistributor(this);
+        Utils.copyToClipboard(this, "Push Distributor", text);
+    }
+
+    private void onCopyPushUrlClicked(View view) {
+        String text = (String) settings.get(Settings.SET_FMDSERVER_PUSH_URL);
+        Utils.copyToClipboard(this, "Push URL", text);
+    }
+
     private void onOpenUnifiedPushClicked(View view) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://unifiedpush.org/"));
-        startActivity(intent);
+        Utils.openUrl(this, "https://unifiedpush.org/");
     }
 
     private void runChangePassword(String oldPassword, String password) {
-        showLoadingIndicator(context);
+        showLoadingIndicator(this);
         // do expensive async crypto and hashing in a background thread (not on the UI thread)
         new Thread(() -> {
             try {
                 PrivateKey privKey = CypherUtils.decryptPrivateKeyWithPassword((String) settings.get(Settings.SET_FMD_CRYPT_PRIVKEY), oldPassword);
                 if (privKey == null) {
-                    Toast.makeText(context, R.string.pw_change_wrong_password, Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, R.string.pw_change_wrong_password, Toast.LENGTH_LONG).show();
                     loadingDialog.cancel();
                     return;
                 }
@@ -318,16 +325,16 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
                     fmdServerRepo.changePassword(hashedPW, newPrivKey,
                             (response -> {
                                 loadingDialog.cancel();
-                                Toast.makeText(context, R.string.pw_change_success, Toast.LENGTH_LONG).show();
+                                Toast.makeText(this, R.string.pw_change_success, Toast.LENGTH_LONG).show();
                             }),
                             (error) -> {
-                                Toast.makeText(context, R.string.pw_change_network_failed, Toast.LENGTH_LONG).show();
+                                Toast.makeText(this, R.string.pw_change_network_failed, Toast.LENGTH_LONG).show();
                                 loadingDialog.cancel();
                             });
                 });
             } catch (Exception bdp) {
                 runOnUiThread(() -> {
-                    Toast.makeText(context, R.string.pw_change_wrong_password, Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, R.string.pw_change_wrong_password, Toast.LENGTH_LONG).show();
                     loadingDialog.cancel();
                 });
             }
@@ -335,6 +342,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     }
 
     private void runDelete() {
+        Context context = this;
         showLoadingIndicator(context);
         FMDServerLocationUploadService.cancelJob(context);
         FmdServerConnectivityCheckService.cancelJob(context);
@@ -388,5 +396,43 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
             // Silently ignore
             serverVersion.setVisibility(View.GONE);
         });
+    }
+
+    private void checkPushRegistration() {
+        if (!PushReceiver.isRegisteredWithUnifiedPush(this)) {
+            PushReceiver.registerWithUnifiedPush(this);
+        }
+
+        LinearLayout sectionPushDistributor = findViewById(R.id.sectionPushDistributor);
+        TextView textPushDistributor = findViewById(R.id.textPushDistributor);
+        LinearLayout sectionPushUrl = findViewById(R.id.sectionPushUrl);
+        TextView textPushUrl = findViewById(R.id.textPushUrl);
+        Button buttonRegister = findViewById(R.id.buttonRegisterPush);
+
+        String distributor = UnifiedPush.getDistributor(this);
+        if (!distributor.isEmpty()) {
+            sectionPushDistributor.setVisibility(View.VISIBLE);
+            textPushDistributor.setText(getString(R.string.Settings_FMDServer_Push_Distributor, distributor));
+
+            sectionPushUrl.setVisibility(View.VISIBLE);
+            String url = (String) settings.get(Settings.SET_FMDSERVER_PUSH_URL);
+            textPushUrl.setText(getString(R.string.Settings_FMDServer_Push_Url, url));
+
+            buttonRegister.setText(R.string.Settings_FMDServer_Push_Register_Again);
+        } else {
+            sectionPushDistributor.setVisibility(View.GONE);
+            sectionPushUrl.setVisibility(View.GONE);
+
+            buttonRegister.setText(R.string.Settings_FMDServer_Push_Register);
+        }
+    }
+
+    private void onRegisterPushClicked(View view) {
+        PushReceiver.unregisterWithUnifiedPush(this);
+        checkPushRegistration();
+
+        // TODO: Hack to get the screen to refresh.
+        // The proper way to do this would be callbacks.
+        view.postDelayed(this::checkPushRegistration, 5 * 1000);
     }
 }
