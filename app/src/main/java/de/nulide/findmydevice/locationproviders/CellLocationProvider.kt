@@ -39,7 +39,7 @@ class CellLocationProvider<T>(
 
         val paras = CellParameters.queryCellParametersFromTelephonyManager(context)
         if (paras == null) {
-            context.log().i(TAG, "No cell location found")
+            context.log().i(TAG, "Cell paras are null. Are you connected to the cellular network?")
             transport.send(context, context.getString(R.string.OpenCellId_test_no_connection))
             deferred.complete(Unit)
             return deferred

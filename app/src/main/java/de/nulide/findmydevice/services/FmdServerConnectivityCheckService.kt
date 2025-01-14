@@ -44,8 +44,6 @@ class FmdServerConnectivityCheckService : FmdJobService() {
             }
 
             val intervalMillis = intervalHours * 60 * 60 * 1000
-            context.log()
-                .i(TAG, "Scheduling connectivity check service every $intervalMillis millis")
 
             val serviceComponent =
                 ComponentName(context, FmdServerConnectivityCheckService::class.java)
@@ -61,7 +59,6 @@ class FmdServerConnectivityCheckService : FmdJobService() {
 
         @JvmStatic
         fun cancelJob(context: Context) {
-            context.log().i(TAG, "Cancelling connectivity check")
             val jobScheduler = context.getSystemService(JobScheduler::class.java)
             jobScheduler.cancel(JOB_ID)
         }
