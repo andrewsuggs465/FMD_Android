@@ -268,4 +268,5 @@
     <string name="Settings_FMDServer_Check_Notify_After_Title">Največji dovoljeni čas brez povezljivosti</string>
     <string name="server_connectivity_lost_title">Povezava s FMD strežnikom je izgubljena</string>
     <string name="server_connectivity_lost_text">FMD strežnik ni več dosegljiv. Zadnja uspešna povezava je bila ob %s.</string>
+    <string name="server_fmd_id_hint">FMD ID identificira vaš račun na FMD strežniku. To polje pustite prazno, če želite, da strežnik sam ustvari ID. Upoštevajte, da je FMD ID shranjen na strežniku kot navadno besedilo, kar pomeni, da ga lahko vidi skrbnik strežnika.</string>
 </resources>

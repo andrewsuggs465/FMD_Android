@@ -268,4 +268,5 @@
     <string name="pin_mismatch">Os PINs não correspondem!</string>
     <string name="pin_match_command_keyword">O PIN não pode ser igual a um dos comandos!</string>
     <string name="usage_notification_pin_title">PIN do FMD usado</string>
+    <string name="server_fmd_id_hint">O ID FMD identifica sua conta no Servidor FMD. Deixe isso vazio para deixar que o servidor gere um ID. Note que o ID FMD é guardado em texto simples no servidor, ou seja, o administrador do servidor pode vê-lo.</string>
 </resources>

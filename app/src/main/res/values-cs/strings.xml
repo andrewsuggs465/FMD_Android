@@ -268,4 +268,5 @@
     <string name="cmd_delete_response_dry_run">Zkušební běh proběhl úspěšně, překakování skutečného odstranění zařízení.</string>
     <string name="pin_mismatch">PIN kódy se neshodují!</string>
     <string name="pin_match_command_keyword">PIN se nesmí rovnat jednomu z příkazů!</string>
+    <string name="server_fmd_id_hint">FMD ID identifikuje váš účet na serveru FMD. Ponechte prázdné, pokud chcete nechat vygenerovat ID serverem. Upozorňujeme, že FMD ID je na serveru ukládáno v prostém textu, tudíž jej může vidět např. správce serveru.</string>
 </resources>
