@@ -108,7 +108,7 @@
     <string name="Settings_FMDServer_Server_Url">URL du serveur</string>
     <string name="cmd_camera_description_short">Prendre une photo</string>
     <string name="cmd_camera_response_no_fmd_server">Impossible de prendre une photo : aucun compte FMD n\'existe.</string>
-    <string name="cmd_camera_response_success">L\'appareil prend une photo et l\'enverra au serveur FMD. Vous pourrez bientôt la voir ici : %s</string>
+    <string name="cmd_camera_response_success">L\'appareil prend une photo et l\'enverra au serveur FMD. Vous pourrez bientôt la voir ici : %s</string>
     <string name="cmd_delete_description_short">Réinitialiser l\'appareil aux paramètres d\'usine</string>
     <string name="cmd_delete_response_disabled">Réinitialisation impossible : la commande de réinitialisation n\'est pas activée dans les paramètres.</string>
     <string name="cmd_delete_response_pwd_missing">Réinitialisation impossible : mot de passe manquant. Utilisation : %s.</string>
