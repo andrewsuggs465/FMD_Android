@@ -146,7 +146,7 @@
     <string name="cmd_camera_description_long">Maakt een foto met de camera aan de voor- en achterkant en uploadt deze naar FMD Server. Momenteel wordt alleen uploaden naar FMD Server ondersteund. Je kunt deze opdracht ook via andere transportkanalen verzenden en de foto wordt geüpload naar de FMD-server (als er een account bestaat).</string>
     <string name="cmd_delete_description_short">Apparaat terugzetten naar fabrieksinstellingen</string>
     <string name="cmd_delete_response_failed">Kan apparaat niet wissen vanwege een uitzondering.</string>
-    <string name="cmd_camera_response_success">Het apparaat maakt een foto en stuurt deze naar FMD Server. Je kunt het hier bekijken: %s</string>
+    <string name="cmd_camera_response_success">Het apparaat maakt een foto en stuurt deze naar de FMD-server. Je kunt het binnenkort hier bekijken: %s</string>
     <string name="cmd_delete_description_long">Hiermee worden alle gegevens gewist. Daarna kun je niet meer communiceren met het apparaat. Om onbedoeld en kwaadwillig gebruik te voorkomen, vereist deze opdracht een wachtwoord en moet deze expliciet zijn ingeschakeld in de instellingen.</string>
     <string name="cmd_delete_response_success">Het apparaat zou nu gewist moeten zijn. Tot ziens!</string>
     <string name="cmd_gps_response_on">GPS staat aan.</string>
@@ -251,4 +251,5 @@
     <string name="usage_notification_pin_text">De pincode werd gebruikt met dit nummer: \"%s\". Het wordt aanbevolen om de pincode te wijzigen.</string>
     <string name="pin_mismatch">De pincodes komen niet overeen!</string>
     <string name="pin_match_command_keyword">De pincode mag niet gelijk zijn aan een van de commando\'s!</string>
+    <string name="server_fmd_id_hint">De FMD-ID identificeert jouw account op de FMD-server. Laat dit leeg om de server een ID te laten genereren. Merk op dat de FMD-ID in platte tekst op de server wordt opgeslagen, d.w.z. dat de serverbeheerder deze kan lezen.</string>
 </resources>
