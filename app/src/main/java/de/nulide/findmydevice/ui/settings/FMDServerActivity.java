@@ -188,28 +188,31 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
     @Override
     public void afterTextChanged(Editable edited) {
-        if (edited == editTextCheckInterval.getText()) {
-            String string = edited.toString();
-            if (!string.isEmpty()) {
-                long value = Long.parseLong(string);
-                settings.set(Settings.SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS, value);
+        String string = edited.toString();
+        if (string.isEmpty()) {
+            return;
+        }
 
-                if (value > 0) {
-                    FmdServerConnectivityCheckService.scheduleJob(this);
-                } else {
-                    FmdServerConnectivityCheckService.cancelJob(this);
-                }
+        long value;
+        try {
+            // The EditText's inputType shouldn't allow non-numbers, but catch the exception anyway.
+            value = Long.parseLong(string);
+        } catch (NumberFormatException e) {
+            return;
+        }
+
+        if (edited == editTextCheckInterval.getText()) {
+            settings.set(Settings.SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS, value);
+
+            if (value > 0) {
+                FmdServerConnectivityCheckService.scheduleJob(this);
+            } else {
+                FmdServerConnectivityCheckService.cancelJob(this);
             }
         } else if (edited == editTextNotifyAfterTime.getText()) {
-            String string = edited.toString();
-            if (!string.isEmpty()) {
-                settings.set(Settings.SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS, Long.parseLong(string));
-            }
+            settings.set(Settings.SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS, value);
         } else if (edited == editTextFMDServerUpdateTime.getText()) {
-            String string = edited.toString();
-            if (!string.isEmpty()) {
-                settings.set(Settings.SET_FMDSERVER_UPDATE_TIME, Integer.parseInt(string));
-            }
+            settings.set(Settings.SET_FMDSERVER_UPDATE_TIME, (int) value);
         }
     }
 
