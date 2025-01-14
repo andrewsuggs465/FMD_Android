@@ -15,6 +15,10 @@ import java.util.Calendar
 import java.util.TimeZone
 
 
+/**
+ * Only call this provider via the LocateCommand!
+ * (because it handles things like LocationAutoOnOff centrally)
+ */
 class CellLocationProvider<T>(
     private val context: Context,
     private val transport: Transport<T>,

@@ -6,16 +6,22 @@ import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.locationproviders.CellLocationProvider
 import de.nulide.findmydevice.locationproviders.GpsLocationProvider
+import de.nulide.findmydevice.locationproviders.LocationAutoOnOffHandler
 import de.nulide.findmydevice.permissions.LocationPermission
 import de.nulide.findmydevice.permissions.WriteSecureSettingsPermission
 import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
+import de.nulide.findmydevice.utils.log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
 class LocateCommand(context: Context) : Command(context) {
+
+    companion object {
+        private val TAG = LocateCommand::class.simpleName
+    }
 
     override val keyword = "locate"
     override val usage = "locate [last | all | cell | gps]"
@@ -53,6 +59,19 @@ class LocateCommand(context: Context) : Command(context) {
             return
         }
 
+        val locOnOffHandler = LocationAutoOnOffHandler.getInstance(context)
+        val jobId = (0..Int.MAX_VALUE).random()
+        val isLocationOn = locOnOffHandler.addJob(jobId)
+
+        if (!isLocationOn) {
+            context.log().w(
+                TAG,
+                "Cannot locate: Location is off and missing permission WRITE_SECURE_SETTINGS"
+            )
+            transport.send(context, context.getString(R.string.cmd_locate_response_location_off))
+            return
+        }
+
         // build the location providers
         val providers = when (option) {
             "cell" -> listOf(CellLocationProvider(context, transport))
@@ -73,6 +92,7 @@ class LocateCommand(context: Context) : Command(context) {
                 .forEach { deferred -> deferred.await() }
 
             // finish the job once all providers have finished
+            locOnOffHandler.removeJob(jobId)
             job?.jobFinished()
         }
         coroutineScope.launch(Dispatchers.IO) { lambda() }

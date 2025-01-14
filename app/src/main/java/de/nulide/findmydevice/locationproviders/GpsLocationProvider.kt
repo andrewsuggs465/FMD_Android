@@ -14,14 +14,16 @@ import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.permissions.LocationPermission
-import de.nulide.findmydevice.permissions.WriteSecureSettingsPermission
 import de.nulide.findmydevice.transports.Transport
-import de.nulide.findmydevice.utils.SecureSettings
 import de.nulide.findmydevice.utils.log
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Deferred
 
 
+/**
+ * Only call this provider via the LocateCommand!
+ * (because it handles things like LocationAutoOnOff centrally)
+ */
 class GpsLocationProvider<T>(
     private val context: Context,
     private val transport: Transport<T>,
@@ -29,22 +31,12 @@ class GpsLocationProvider<T>(
 
     companion object {
         private val TAG = GpsLocationProvider::class.simpleName
-
-        @JvmStatic
-        fun isGpsOn(context: Context): Boolean {
-            val lm = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-            return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                lm.isLocationEnabled
-            } else lm.isProviderEnabled(LocationManager.GPS_PROVIDER)
-                    || lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
-        }
     }
 
     private val locationManager: LocationManager =
         context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
     private var deferred: CompletableDeferred<Unit>? = null
-    private var isGpsTurnedOnByUs = false
 
     @SuppressLint("MissingPermission") // linter is not good enough to recognize the check
     override fun getAndSendLocation(): Deferred<Unit> {
@@ -55,24 +47,6 @@ class GpsLocationProvider<T>(
             context.log().i(TAG, "Missing location permission, cannot get location")
             def.complete(Unit)
             return def
-        }
-
-        if (!isGpsOn(context)) {
-            if (WriteSecureSettingsPermission().isGranted(context)) {
-                SecureSettings.turnGPS(context, true)
-                isGpsTurnedOnByUs = true
-            } else {
-                context.log().w(
-                    TAG,
-                    "Cannot run fmd locate: GPS is off and missing permission WRITE_SECURE_SETTINGS"
-                )
-                transport.send(
-                    context,
-                    context.getString(R.string.cmd_locate_response_location_off)
-                )
-                def.complete(Unit)
-                return def
-            }
         }
 
         transport.send(context, context.getString(R.string.cmd_locate_response_gps_will_follow))
@@ -127,7 +101,8 @@ class GpsLocationProvider<T>(
         val settings = SettingsRepository.getInstance(context)
         val cachedLat = settings.get(Settings.SET_LAST_KNOWN_LOCATION_LAT) as String
         val cachedLon = settings.get(Settings.SET_LAST_KNOWN_LOCATION_LON) as String
-        val cachedTimeMillis = (settings.get(Settings.SET_LAST_KNOWN_LOCATION_TIME) as Number).toLong()
+        val cachedTimeMillis =
+            (settings.get(Settings.SET_LAST_KNOWN_LOCATION_TIME) as Number).toLong()
         val isCacheValid = cachedLat.isNotEmpty() && cachedLon.isNotEmpty()
 
         if (lastLocation == null) {
@@ -177,9 +152,6 @@ class GpsLocationProvider<T>(
     }
 
     private fun cleanup() {
-        if (isGpsTurnedOnByUs) {
-            SecureSettings.turnGPS(context, false)
-        }
         locationManager.removeUpdates(this)
         deferred?.complete(Unit)
     }
