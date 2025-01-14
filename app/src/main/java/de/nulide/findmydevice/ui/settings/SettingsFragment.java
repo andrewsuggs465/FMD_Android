@@ -23,6 +23,7 @@ import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.ui.TaggedFragment;
 import de.nulide.findmydevice.ui.helper.SettingsEntry;
 import de.nulide.findmydevice.ui.helper.SettingsViewAdapter;
+import de.nulide.findmydevice.utils.SettingsImportExporter;
 
 
 public class SettingsFragment extends TaggedFragment {
@@ -87,7 +88,7 @@ public class SettingsFragment extends TaggedFragment {
                 break;
             case 5:
                 Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
-                intent.putExtra(Intent.EXTRA_TITLE, SettingsRepository.Companion.filenameForExport());
+                intent.putExtra(Intent.EXTRA_TITLE, SettingsImportExporter.Companion.filenameForExport());
                 intent.setType("*/*");
                 startActivityForResult(intent, EXPORT_REQ_CODE);
                 break;
@@ -120,14 +121,14 @@ public class SettingsFragment extends TaggedFragment {
             if (data != null) {
                 Uri uri = data.getData();
                 if (uri != null) {
-                    settings.importFromUri(context, uri);
+                    new SettingsImportExporter(context).importData(uri);
                 }
             }
         } else if (requestCode == EXPORT_REQ_CODE && resultCode == Activity.RESULT_OK) {
             if (data != null) {
                 Uri uri = data.getData();
                 if (uri != null) {
-                    settings.writeToUri(context, uri);
+                    new SettingsImportExporter(context).exportData(uri);
                 }
             }
         }

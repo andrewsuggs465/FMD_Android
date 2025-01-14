@@ -19,6 +19,7 @@ import de.nulide.findmydevice.net.FMDServerApiRepoSpec;
 import de.nulide.findmydevice.net.FMDServerApiRepository;
 import de.nulide.findmydevice.ui.MainActivity;
 import de.nulide.findmydevice.utils.Notifications;
+import de.nulide.findmydevice.utils.SettingsImportExporter;
 import de.nulide.findmydevice.utils.UnregisterUtil;
 
 public class UpdateboardingModernCryptoActivity extends AppCompatActivity {
@@ -62,7 +63,7 @@ public class UpdateboardingModernCryptoActivity extends AppCompatActivity {
             if (data != null) {
                 Uri uri = data.getData();
                 if (uri != null) {
-                    settings.writeToUri(this, uri);
+                    new SettingsImportExporter(this).exportData(uri);
                 }
             }
         }

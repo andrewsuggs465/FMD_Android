@@ -1,26 +1,23 @@
 package de.nulide.findmydevice.data
 
 import android.content.Context
-import android.net.Uri
 import android.os.Build
-import android.widget.Toast
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParseException
 import com.google.gson.ToNumberStrategy
 import com.google.gson.stream.JsonReader
 import com.google.gson.stream.JsonWriter
 import com.google.gson.stream.MalformedJsonException
-import de.nulide.findmydevice.R
 import de.nulide.findmydevice.utils.CypherUtils
 import de.nulide.findmydevice.utils.SingletonHolder
-import de.nulide.findmydevice.utils.writeToUri
+import de.nulide.findmydevice.utils.writeAsJson
 import java.io.File
-import java.io.FileNotFoundException
 import java.io.FileReader
 import java.io.FileWriter
 import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
+import java.io.OutputStreamWriter
 import java.security.KeyFactory
 import java.security.NoSuchAlgorithmException
 import java.security.PublicKey
@@ -82,15 +79,6 @@ class SettingsRepository private constructor(private val context: Context) {
         SingletonHolder<SettingsRepository, Context>(::SettingsRepository) {
 
         val TAG = SettingsRepository::class.simpleName
-
-        fun filenameForExport(): String {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                val date = LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
-                return "fmd-settings-$date.json"
-            } else {
-                return "fmd-settings.json"
-            }
-        }
     }
 
     private val gson = GsonBuilder()
@@ -133,34 +121,14 @@ class SettingsRepository private constructor(private val context: Context) {
         return settings.get(key)
     }
 
-    fun writeToUri(context: Context, uri: Uri) {
-        writeToUri(context, uri, settings)
+    fun writeAsJson(outputStreamWriter: OutputStreamWriter) {
+        writeAsJson(outputStreamWriter, settings)
     }
 
-    fun importFromUri(context: Context, uri: Uri) {
-        val inputStream: InputStream
-        try {
-            inputStream = context.contentResolver.openInputStream(uri) ?: return
-        } catch (e: FileNotFoundException) {
-            e.printStackTrace()
-            Toast.makeText(
-                context,
-                context.getString(R.string.Settings_Import_Failed),
-                Toast.LENGTH_SHORT
-            ).show()
-            return
-        }
-
+    fun importFromStream(inputStream: InputStream) {
         val reader = JsonReader(InputStreamReader(inputStream))
         settings = gson.fromJson(reader, Settings::class.java) ?: Settings()
         saveSettings()
-        inputStream.close()
-
-        Toast.makeText(
-            context,
-            context.getString(R.string.Settings_Import_Success),
-            Toast.LENGTH_SHORT
-        ).show()
     }
 
     fun migrateSettings() {
