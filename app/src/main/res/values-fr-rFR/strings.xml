@@ -91,8 +91,6 @@
     <string name="request_failed_response_body">Corps de la réponse</string>
     <string name="registration_token_hint">Les instances privées peuvent nécessiter un jeton secret. Laissez-le vide si l\'instance est publique.</string>
     <string name="Settings_FMDConfig">Configuration de FMD</string>
-    <string name="Settings_FMDServer_Push_Description_Missing">L\'envoi de commandes du serveur FMD vers votre appareil nécessite une application UnifiedPush Distributor. Installez-en une, puis revenez ici. Elle sera détectée automatiquement.</string>
-    <string name="Settings_FMDServer_Push_Description_Available">Enregistrement aux notifications push réussi.</string>
     <string name="OpenCellId_help">OpenCelliD peut être utilisé par FMD pour obtenir une localisation approximative basée sur l\'antenne-relais connectée à l\'appareil. Une connexion internet est nécessaire pour chaque requête de localisation. De plus, il est obligatoire de créer un compte sur OpenCelliD et d\'obtenir son propre jeton d\'accès API.</string>
     <string name="app_description">FMD (Find My Device) vous permet de localiser à distance votre appareil. Vous pouvez communiquer avec FMD via SMS, des messageries instantanées, ou en utilisant le serveur FMD. Localisez votre appareil, faites-le sonner, verrouillez-le ou effacez son contenu - le tout à distance.</string>
     <string name="Permission_POST_NOTIFICATIONS">FMD vous enverra occasionnellement des notifications, par exemple pour vous avertir que quelqu\'un est en train de localiser votre appareil.</string>

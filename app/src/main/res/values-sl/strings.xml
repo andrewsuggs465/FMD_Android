@@ -24,7 +24,6 @@
     <string name="Settings_FMD_Server_ID_Desc">Za iskanje naprave s FMD strežnikom, potrebujete ID naprave. Zapišite si ga, in ga shranite na varno mesto.</string>
     <string name="Settings_FMDServer_Logout_Button">Odjava</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">To bo izbrisalo vse vaše podatke iz FMD strežnika! Ste prepričani?</string>
-    <string name="Settings_FMDServer_Push_Description_Available">Registracija za sprejemanje potisnih obvestil je bila uspešna.</string>
     <string name="Settings_FMDServer_Push_Open_UP">Odpri spletno stran UnifiedPush</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Interval posodabljanja v ozadju</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD posodobi lokacijo vaše naprave vsakih n minut.</string>
@@ -56,7 +55,6 @@
     <string name="WhiteList_Select_Number">Izberite eno izmed telefonskih številk.</string>
     <string name="pin_repeat">Ponovi PIN</string>
     <string name="Settings_FMDServer_Change_Password_Button">Sprememba gesla</string>
-    <string name="Settings_FMDServer_Push_Description_Missing">Za pošiljanje ukazov iz FMD strežnika na vašo napravo, je potrebna UnifiedPush aplikacija, ki omogoča distribucijo tim. potisnih obvestil. Po namestitvi bo aplikacija samodejno zaznana.</string>
     <string name="Settings_FMDServer_Location_Type_Description">Vir(i) iz katerih se posodabljajo lokacijski podatki v ozadju v rednih intervalih.
 \nČe ni izbran niti en vir, se lokacija ne bo redno posodabljala. (Še vedno pa lahko uporabite spletni vmesnik, da vsilite posodobitev. Za slednje so sicer potrebna potisna obvestila.)</string>
     <string name="registration_token_hint">Zasebni FMD strežniki lahko zahtevajo tim. registracijski žeton. Pustite prazno, če je strežnik javen.</string>

@@ -61,7 +61,6 @@
     <string name="Settings_FMD_Server_Server_URL">URL del servidor:</string>
     <string name="Settings_FMD_Server_User_ID">ID del usuario:</string>
     <string name="Settings_FMD_Server_ID_Desc">Necesita el ID del usuario para encontrar su dispositivo con el servidor FMD. Anótelo y guárdelo en un lugar seguro.</string>
-    <string name="Settings_FMDServer_Push_Description_Available">Se ha registrado correctamente para recibir notificaciones push.</string>
     <string name="Settings_FMDServer_Push_Open_UP">Abrir la web de UnifiedPush</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Intervalo de carga de la ubicación en segundo plano</string>
     <string name="Settings_FMDServer_Location_Type_Title">Fuente de la ubicación</string>
@@ -93,7 +92,6 @@
     <string name="Settings_FMD_Server_General">General</string>
     <string name="Settings_FMDServer_Change_Password_Button">Cambiar la contraseña</string>
     <string name="Settings_FMDServer_Logout_Button">Cerrar sesión</string>
-    <string name="Settings_FMDServer_Push_Description_Missing">El envío de comandos desde el servidor FMD a su dispositivo requiere una aplicación de distribuidor UnifiedPush. Instale una y vuelva aquí. Se detectará automáticamente.</string>
     <string name="OpenCellId_test_opencellid">Probar la conexión a OpenCelliD</string>
     <string name="password_new_repeat">Repita la nueva contraseña</string>
     <string name="OpenCellId_test_no_connection">Sin conexión móvil</string>

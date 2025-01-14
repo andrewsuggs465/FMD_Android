@@ -34,8 +34,6 @@
 \nÈ possibile continuare comunque, ma l\'account potrebbe non essere stato eliminato dal server. Se si continua, l\'account verrà eliminato localmente da questo dispositivo.</string>
     <string name="server_unregister_continue_anyway">Prosegui comunque</string>
     <string name="server_unregister_dont_continue">Non proseguire</string>
-    <string name="Settings_FMDServer_Push_Description_Missing">Inviare comandi dal server FMD al telefono richiede una app di distribuzione UnifiedPush. Installane una e poi torna qui. Verrà rilevata automaticamente.</string>
-    <string name="Settings_FMDServer_Push_Description_Available">Registrazione riuscita per le notifiche push.</string>
     <string name="Settings_FMDServer_Push_Open_UP">Vai sul sito di UnifiedPush</string>
     <string name="copied">Copiato</string>
     <string name="Whitelist_help">I contatti di questo elenco possono inviare comandi FMD via SMS. I comandi provenienti da tutti gli altri verranno ignorati.</string>

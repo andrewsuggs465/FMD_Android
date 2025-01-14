@@ -28,7 +28,6 @@
     <string name="Settings_FMD_Server_User_ID">Корисничко име:</string>
     <string name="Settings_FMDServer_Change_Password_Button">Промени лозинка</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Ова ќе ги избрише сите податоци од серверот! Дали си сигурен?</string>
-    <string name="Settings_FMDServer_Push_Description_Available">Успешно регистриран за испраќачки известувања.</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Интервал на освежување</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD ја испраќа позицијата на уредот секои Х минути.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Извор на позиција</string>
@@ -109,7 +108,6 @@
     <string name="Settings_FMD_Server_General">Општо</string>
     <string name="Settings_FMD_Server_ID_Desc">Потребно ти е корисничко име за да го пронајдеш твојот уред со FMD серверот. Запиши го и чувај го на сигурно.</string>
     <string name="Settings_FMDServer_Logout_Button">Одјави се</string>
-    <string name="Settings_FMDServer_Push_Description_Missing">Праќање наредби од FMD серверот до твојот уред изискува апликација за распоредување на UnifiedPush. Инсталирај таква, и потоа врати се тука. Таа автоматски ќе се открие.</string>
     <string name="Settings_FMDServer_Push_Open_UP">Интернет страница за Open UnifiedPush</string>
     <string name="Settings_FMDServer_Location_Type_Description">Изворот/ите од кои позиционите податоци се испраќаат при редовни интервали, во позадина.
 \nАко ниту еден извор не е избран, локација не се праќа редовно. (Сѐ уште можеш да го користиш Интернет опкружувањето за да присилиш испраќање на позиција. Ова изискува испраќачки известувања.)</string>

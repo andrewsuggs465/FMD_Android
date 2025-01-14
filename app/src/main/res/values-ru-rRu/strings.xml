@@ -66,8 +66,6 @@
     <string name="server_unregister_continue_anyway">Всё равно продолжить</string>
     <string name="server_version_error_low_version">Необходима как минимум версия сервера {MIN}, а версия выбранного сервера {CURRENT}. Продолжайте на свой риск.</string>
     <string name="Whitelist_empty">Нет разрешённых контактов. Нажмите на кнопку, чтобы добавить их.</string>
-    <string name="Settings_FMDServer_Push_Description_Missing">Отправка команд с FMD Сервера на ваше устройство требует установки приложения дистрибьютора UnifiedPush. Установите его, и затем вернитесь сюда. FMD автоматически обнаружит это.</string>
-    <string name="Settings_FMDServer_Push_Description_Available">Вы успешно зарегистрировались для получения пуш-уведомлений.</string>
     <string name="server_unregister_failed_title">Отмена регистрации не удалась</string>
     <string name="server_unregister_dont_continue">Не продолжать</string>
     <string name="Notification_Server">FMD Сервер</string>

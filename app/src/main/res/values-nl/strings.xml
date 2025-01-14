@@ -38,7 +38,6 @@
     <string name="Settings_FMDServer_Delete_Account">Account verwijderen</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Hiermee worden alle gegevens van de server verwijderd! Doorgaan?</string>
     <string name="Settings_FMDServer_Unregister_Success">Registratie en gegevens met succes verwijderd!</string>
-    <string name="Settings_FMDServer_Push_Description_Available">Succesvol geregistreerd voor pushmeldingen.</string>
     <string name="Settings_FMDServer_Push_Open_UP">UnifiedPush-website openen</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD uploadt elke x minuten de locatie van het apparaat.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Locatiebron</string>
@@ -111,7 +110,6 @@
     <string name="pin_repeat">Pincode herhalen</string>
     <string name="Settings_FMD_Server_Server_URL">Server-URL:</string>
     <string name="Settings_FMD_Server_ID_Desc">De User-ID is nodig om het apparaat met FMD Server te vinden. Noteer het en bewaar dit op een veilige plek.</string>
-    <string name="Settings_FMDServer_Push_Description_Missing">Het verzenden van opdrachten van FMD Server naar je apparaat vereist een UnifiedPush-distributor-app. Installeer er een en keer hier terug. Het wordt automatisch gedetecteerd.</string>
     <string name="Settings_FMDServer_Location_Type_Description">De bron(nen) van waaruit de locatiegegevens op regelmatige tijdstippen op de achtergrond worden geüpload.\nAls er geen is geselecteerd, worden er geen regelmatige locaties geüpload. (Je kunt nog wel de webinterface gebruiken om een upload te forceren. Dit vereist push.)</string>
     <string name="password_new">Nieuw wachtwoord</string>
     <string name="password_new_repeat">Nieuw wachtwoord herhalen</string>

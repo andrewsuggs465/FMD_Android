@@ -80,7 +80,6 @@
     <string name="LockScreen_Usage_detectd">رسالة قفل الشاشة: تم اكتشاف الاستخدام.</string>
     <string name="ringer_stop_ringing">ايقاف الرنين</string>
     <string name="cmd_locate_response_location_off">عذرًا، تم إيقاف GPS.</string>
-    <string name="Settings_FMDServer_Push_Description_Missing">يتطلب إرسال الأوامر من خادم FMD إلى جهازك تطبيق موزع UnifiedPush. قم بتثبيت واحد، ثم عد إلى هنا. سيتم اكتشافه تلقائيًا.</string>
     <string name="Permission_POST_NOTIFICATIONS">سوف يرسل لك FMD أحيانًا إشعارات، على سبيل المثال لتحذيرك من أن شخصًا ما يحدد موقع جهازك.</string>
     <string name="Locked_Lock_Screen">FindMyDevice
 \nهذا الهاتف مغلق!
@@ -117,7 +116,6 @@
     <string name="cmd_bluetooth_response_no_bluetooth">يبدو أن الجهاز لا يتوفر على البلوتوث.</string>
     <string name="cmd_bluetooth_response_off">تم إيقاف البلوتوث.</string>
     <string name="Settings_FMD_Server_Connection_Status">وضع الاتصال:</string>
-    <string name="Settings_FMDServer_Push_Description_Available">تم التسجيل لدفع الإشعارات بنجاح.</string>
     <string name="Settings_FMD_Server_Connection_Status_Success">تم بنجاح</string>
     <string name="registration_token_hint">قد تتطلب الخوادم الخاصة رمز تسجيل سري. دع الخانة فارغة إن كان الخادم عامًّا.</string>
     <string name="server_registration_token_error">فشل طلب الشبكة مع رمز حالة HTTP 401. قد يحدث هذا إن كان الخادم يتطلب رمز تسجيل سري والرمز الذي وفرته خطأ.</string>

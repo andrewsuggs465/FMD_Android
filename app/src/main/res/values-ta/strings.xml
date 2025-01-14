@@ -89,10 +89,8 @@
     <string name="Settings_FMDServer_Delete_Account">கணக்கை நீக்கு</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">இது சேவையகத்திலிருந்து எல்லா தரவையும் நீக்கிவிடும்! நீங்கள் உறுதியாக இருக்கிறீர்களா?</string>
     <string name="Settings_FMDServer_Unregister_Success">பதிவுசெய்தல் மற்றும் தரவு நீக்குதல் வெற்றிகரமாக!</string>
-    <string name="Settings_FMDServer_Push_Description_Available">புச் அறிவிப்புகளுக்கு வெற்றிகரமாக பதிவு செய்யப்பட்டுள்ளது.</string>
     <string name="Settings_FMDServer_Push_Open_UP">யுனிஃபைட் புச் வலைத்தளத்தைத் திறக்கவும்</string>
     <string name="Settings_FMDServer_Check_Interval_Title">இணைப்பு சோதனை இடைவெளி</string>
-    <string name="Settings_FMDServer_Push_Description_Missing">உங்கள் சாதனத்திற்கு FMD சேவையகத்திலிருந்து கட்டளைகளை அனுப்புவதற்கு ஒருங்கிணைந்த புச் விநியோகச்தர் பயன்பாடு தேவை. ஒன்றை நிறுவவும், பின்னர் இங்கே திரும்பவும். இது தானாகவே கண்டறியப்படும்.</string>
     <string name="Settings_FMDServer_Check_Interval_Description">ஒவ்வொரு ஃச் மணி நேரத்திற்கும் எஃப்எம்டி சேவையகத்திற்கான இணைப்பை எஃப்எம்டி சரிபார்க்கிறது. இணைப்பு காசோலையை முடக்க இதை 0 ஆக அமைக்கவும்.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">இணைப்பு இல்லாமல் அதிகபட்சமாக அனுமதிக்கப்பட்ட நேரம்</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD சேவையகத்திற்கான கடைசி வெற்றிகரமான இணைப்பு ஃச் மணி நேரத்திற்கு முன்பு இருந்தால் FMD உங்களுக்கு அறிவிக்கும். இணைப்பு சோதனை முடக்கப்பட்டால் இது எந்த விளைவையும் ஏற்படுத்தாது.</string>

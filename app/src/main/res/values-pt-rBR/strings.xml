@@ -17,8 +17,6 @@
     <string name="Settings_Lockscreenmessage_Description">Mensagem da Tela de Bloqueio:
 \nQuando o dispositivo é bloqueado, esta mensagem aparecerá na tela de bloqueio.</string>
     <string name="Settings_FMD_Server_General">Geral</string>
-    <string name="Settings_FMDServer_Push_Description_Missing">Enviar comandos de um Servidor FMD para o seu dispositivo requer um app distribuidor de UnifiedPush. Instale um, e aí volte aqui. Ele será automaticamente detectado.</string>
-    <string name="Settings_FMDServer_Push_Description_Available">Registrado com sucesso para notificações push.</string>
     <string name="Settings_FMDServer_Push_Open_UP">Abrir Site do UnifiedPush</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Intervalo do Envio de Localização em Segundo Plano</string>
     <string name="Settings_FMDServer_Update_Interval_Description">O FMD faz upload da localização do dispositivo a cada X minutos.</string>

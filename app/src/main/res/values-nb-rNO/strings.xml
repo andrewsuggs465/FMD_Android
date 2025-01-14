@@ -33,7 +33,6 @@
     <string name="Settings_FMDServer_Location_Type_Title">Posisjoneringstjeneste</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD laster opp enheten hvert n minutt.</string>
     <string name="Settings_FMDServer_Location_Type_Description">Kilden posisjoneringsdataen lastes opp fra. Velg minst én.</string>
-    <string name="Settings_FMDServer_Push_Description_Available">Registrert for dyttingsmerknader.</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Oppdateringsintervall</string>
     <string name="Settings_FMDServer_AddAccount">FMD-tjener: Logg inn/registrering</string>
     <string name="Settings_FMDServer_use_default_server">Bruk Nulides offentlige tjener</string>
@@ -103,7 +102,6 @@
     <string name="cmd_delete_response_success">Enheten bør nå være slettet. Adjø.</string>
     <string name="cmd_locate_response_gps_will_follow">GPS-koordinater vil bli sendt snart.</string>
     <string name="MH_Pin_Accepted">PIN godtatt.</string>
-    <string name="Settings_FMDServer_Push_Description_Missing">Å sende komandoer fra FMD-tjenren til din enhet krever et UnifiedPush-distribusjonsprogram. Installer det og prøv igjen.</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Last opp enhetens posisjon når batterinivået blir lavt. Dette krever merknadstilgang.</string>
     <string name="cmd_delete_description_long">Dette fjerner all data. Etterpå vil du ikke kunne kommunisere med enheten. For å forhindre utilsiktet og ondsinnet bruk krever kommandoen et passord, og det må innvilges spesielt i innstillingene.</string>
     <string name="OpenCellId_help">FMD kan bruke OpenCelliD-tjenesten til å hente en omtrentlig posisjon basert på mobilmasten(e) enheten er tilkoblet. Tilkobling til Internett kreves for hver posisjonsspørring. Du må også opprette en konto på OpenCelliD og skaffe ditt eget API-tilgangssymbol.</string>
