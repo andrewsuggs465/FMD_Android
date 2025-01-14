@@ -256,4 +256,5 @@
     <string name="missing_permissions_title">缺少权限</string>
     <string name="crashed_text">FMD崩溃了！以下是日志：</string>
     <string name="crashed_copy_log">复制日志</string>
+    <string name="server_fmd_id_hint">FMD ID标识了您在FMD服务器上的账户，此字段留空会让服务器生成ID。请注意，FMD ID以明文形式存储在服务器上，即服务器管理员可以看到。</string>
 </resources>
