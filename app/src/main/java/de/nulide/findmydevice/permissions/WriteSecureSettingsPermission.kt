@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.net.Uri
+import android.os.UserHandle
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
@@ -36,9 +37,10 @@ class WriteSecureSettingsPermission : Permission() {
     }
 
     override fun request(activity: Activity) {
+        val userId = getUserId(activity)
         MaterialAlertDialogBuilder(activity).apply {
             setTitle(R.string.grant_write_secure_settings_title)
-            setMessage(R.string.grant_write_secure_settings_description)
+            setMessage(activity.getString(R.string.grant_write_secure_settings_description, userId))
 
             setNegativeButton(R.string.grant_via_root) { _, _ -> requestViaRoot(activity) }
             if (isShizukuRunning()) {
@@ -56,13 +58,14 @@ class WriteSecureSettingsPermission : Permission() {
         activity.startActivity(intent)
     }
 
-    private fun requestViaShizuku(context: Context) {
+    private fun requestViaShizuku(context: Activity) {
         if (!isShizukuPermissionGranted()) {
             requestShizukuPermission()
             return
         }
 
-        val command = "pm grant ${context.packageName} ${Manifest.permission.WRITE_SECURE_SETTINGS}"
+        val command =
+            "pm grant --user ${getUserId(context)} ${context.packageName} ${Manifest.permission.WRITE_SECURE_SETTINGS}"
         val proc = Shizuku.newProcess(arrayOf("sh", "-c", command), null, "/")
         try {
             proc.waitFor()
@@ -77,14 +80,18 @@ class WriteSecureSettingsPermission : Permission() {
         }
     }
 
-    private fun requestViaRoot(context: Context) {
+    private fun requestViaRoot(context: Activity) {
         if (isRooted()) {
             val command =
-                "pm grant ${context.packageName} ${Manifest.permission.WRITE_SECURE_SETTINGS}"
+                "pm grant --user ${getUserId(context)} ${context.packageName} ${Manifest.permission.WRITE_SECURE_SETTINGS}"
             execCommand(context, command)
         } else {
             Toast.makeText(context, context.getString(R.string.perm_root_denied), Toast.LENGTH_LONG)
                 .show()
         }
+    }
+
+    private fun getUserId(activity: Activity): Int {
+        return UserHandle.getUserHandleForUid(activity.taskId).describeContents()
     }
 }
