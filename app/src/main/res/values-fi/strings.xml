@@ -45,7 +45,6 @@
     <string name="Notification_Server">FMD-Palvelin</string>
     <string name="Edit">Muokkaa</string>
     <string name="Settings_FMDServer_Logout_Button">Kirjaudu ulos</string>
-    <string name="Settings_FMDServer_Push_Description_Missing">Komentojen lähettäminen FMD-palvelimelta laitteeseesi vaatii UnifiedPush-sovelluksen. Asenna sellainen ensin. Sovellus tunnistetaan automaattisesti.</string>
     <string name="Whitelist_help">Vain tässä listassa olevat yhteystiedot voivat lähettää FMD-komentoja tekstiviestitse. Muut yhteystiedot ohitetaan.</string>
     <string name="pin">PIN</string>
     <string name="pin_repeat">Toista PIN</string>
@@ -55,7 +54,6 @@
     <string name="Settings_FMD_Server_ID_Desc">Tarvitset käyttäjän ID: n löytääksesi laitteen FMD-palvelimella. Ota se talteen ja pidä turvassa.</string>
     <string name="Settings_FMDServer_Change_Password_Button">Vaihda salasana</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Tämä poistaa kaikki tiedot palvelimelta! Haluatko varmasti jatkaa?</string>
-    <string name="Settings_FMDServer_Push_Description_Available">Rekisteröidytty push-ilmoitusten vastaanottajaksi.</string>
     <string name="Settings_FMDServer_Push_Open_UP">Avaa UnifiedPush-verkkosivu</string>
     <string name="password_new">Uusi salasana</string>
     <string name="password_new_repeat">Toista uusi salasana</string>

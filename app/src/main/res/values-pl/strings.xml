@@ -103,13 +103,11 @@
     <string name="Settings_FMD_Server_ID_Desc">Potrzebujesz identyfikatora użytkownika, aby znaleźć swoje urządzenie przy użyciu Serwera FMD. Zapisz go i przechowaj w bezpiecznym miejscu.</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">To usunie wszystkie dane z Serwera! Jesteś pewien?</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD przesyłą lokalizację urządzenia co X minut.</string>
-    <string name="Settings_FMDServer_Push_Description_Available">Rejestracja do powiadomień przebiegła pomyślnie.</string>
     <string name="Settings_FMDServer_Push_Open_UP">Otwórz Stronę UnifiedPush</string>
     <string name="Settings_Appearance">Wygląd</string>
     <string name="appearance_language_choose">Wybierz język</string>
     <string name="appearance_language">Język</string>
     <string name="Settings_FMD_Server_Connection_Status">Status połączenia:</string>
-    <string name="Settings_FMDServer_Push_Description_Missing">Wysyłanie poleceń z Serwera FMD do urządzenia wymaga aplikacji dystrybutora UnifiedPush. Zainstaluj ją, a następnie wróć tutaj. Zostanie ona automatycznie wykryta.</string>
     <string name="log_view_export">Eksportuj Logi</string>
     <string name="MH_Pin_Accepted">Pin zaakceptowano!</string>
     <string name="crashed_send_log">Wyślij log</string>

@@ -60,8 +60,6 @@
 \nडिवाइस को लॉक करते समय यह संदेश लॉक स्क्रीन पर दिखाई देगा।</string>
     <string name="Settings_FMD_Server_User_ID">उपयोक्ता ID:</string>
     <string name="Settings_FMD_Server_ID_Desc">FMD सर्वर के साथ अपना डिवाइस खोजने के लिए आपको उपयोक्ता ID की आवश्यकता है। इसे लिख कर सुरक्षित रख लें।</string>
-    <string name="Settings_FMDServer_Push_Description_Missing">FMD सर्वर से आपके डिवाइस पर कमांड भेजने के लिए UnifiedPush वितरक ऐप की आवश्यकता होती है। एक स्थापित करें, और फिर यहां वापस आएं। इसका स्वतः ही पता चल जाएगा।</string>
-    <string name="Settings_FMDServer_Push_Description_Available">पुश सूचनाओं के लिए सफलतापूर्वक पंजीकृत किया गया।</string>
     <string name="server_version_error_low_version">कम से कम सर्वर संस्करण {MIN} आवश्यक है, लेकिन चयनित सर्वर का संस्करण {CURRENT} है। स्वयं के जोखिम पर आगे बढ़ें।</string>
     <string name="password_old">पुराना पासवर्ड</string>
     <string name="server_version">सर्वर संस्करण</string>

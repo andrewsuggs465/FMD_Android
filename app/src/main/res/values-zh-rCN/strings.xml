@@ -25,7 +25,6 @@
     <string name="Settings_FMDServer_Change_Password_Button">更改密码</string>
     <string name="Settings_FMDServer_Logout_Button">登出</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">这将会从服务器上删除所有数据！您确定要这么做吗？</string>
-    <string name="Settings_FMDServer_Push_Description_Available">成功注册了通知推送权限。</string>
     <string name="Settings_FMDServer_Push_Open_UP">打开 UnifiedPush 网站</string>
     <string name="Settings_FMDServer_Update_Interval_Title">后台位置上传间隔</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD每X分钟上传一次设备的地理位置信息。</string>
@@ -54,7 +53,6 @@
     <string name="Settings_FMD_via_Pin_Description">允许您通过PIN与FMD交流。这允许您通过不在“允许联系人”列表中的电话号码发送命令。</string>
     <string name="pin_repeat">重复PIN</string>
     <string name="Settings_FMDCommand_Description">用于与FMD通信的命令。</string>
-    <string name="Settings_FMDServer_Push_Description_Missing">从FMD服务器向您的设备发送命令需要UnifiedPush distributor应用。安装后回到此页面，它将会被自动检测到。</string>
     <string name="Settings_FMDServer_Location_Type_Description">位置来源中的位置信息以一个规律的速度在后台更新。
 \n如果没有选择任何选项，则不会有规律的上传位置信息。（你仍可以使用网页接口来强制更新。需要通知推送服务。）</string>
     <string name="server_version">服务端版本</string>
