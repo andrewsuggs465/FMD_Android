@@ -143,7 +143,7 @@
     <string name="perm_write_secure_settings_name">Zapisovat zabezpečená nastavení</string>
     <string name="required_permissions_title">Požadovaná oprávnění</string>
     <string name="grant">Udělit</string>
-    <string name="grant_write_secure_settings_description">Toto oprávnění lze udělit pouze pomocí příkazu „pm grant“ s nástrojem pro příkazovou řádku systému Android. Tento příkaz můžete ručně vykonat pomocí nástroje Android Debug Bridge (ADB) s počítačem. Můžete jej také vykonat přímo na vašem zařízení pomocí rootu nebo aplikace Shizuku.</string>
+    <string name="grant_write_secure_settings_description">Toto oprávnění lze udělit pouze pomocí příkazu „pm grant“ s nástrojem pro příkazovou řádku systému Android. Tento příkaz můžete ručně vykonat pomocí nástroje Android Debug Bridge (ADB) s počítačem. Můžete jej také vykonat přímo na vašem zařízení pomocí rootu nebo aplikace Shizuku.\n\nUživatelské ID: %s</string>
     <string name="grant_via_adb">Udělit pomocí ADB</string>
     <string name="perm_root_denied">Root přístup zamítnut</string>
     <string name="cmd_missing_permissions">Nepodařilo se spustit příkaz %1$s: chybějící oprávnění %2$s.</string>
@@ -258,7 +258,7 @@
     <string name="Settings_FMDServer_Check_Notify_After_Title">Maximální povolený čas bez připojení</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD vás upozorní, pokud poslední úspěšné připojení k serveru FMD proběhlo před více než X hodinami. Nastavení nemá žádný vliv, pokud je kontrola připojení zakázána.</string>
     <string name="server_connectivity_lost_title">Ztraceno připojení k serveru FMD</string>
-    <string name="server_connectivity_lost_text">Server FMD již není dostupný. Poslední úspěšné spojení proběhlo %s.</string>
+    <string name="server_connectivity_lost_text">Server FMD na %1$s již není dostupný. Poslední úspěšné spojení proběhlo %2$s.</string>
     <string name="usage_notification_pin_title">Použit PIN FMD</string>
     <string name="usage_notification_pin_text">Následující číslo použilo PIN: „%s“. Je doporučeno PIN změnit.</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD kontroluje připojení k serveru FMD každých X hodin. Nastavte na 0 pro zakázání kontroly připojení.</string>
@@ -267,4 +267,9 @@
     <string name="pin_mismatch">PIN kódy se neshodují!</string>
     <string name="pin_match_command_keyword">PIN se nesmí rovnat jednomu z příkazů!</string>
     <string name="server_fmd_id_hint">FMD ID identifikuje váš účet na serveru FMD. Ponechte prázdné, pokud chcete nechat vygenerovat ID serverem. Upozorňujeme, že FMD ID je na serveru ukládáno v prostém textu, tudíž jej může vidět např. správce serveru.</string>
+    <string name="Settings_FMDServer_Push_Description">Odesílání příkazů ze serveru FMD do vašeho zařízení vyžaduje distribuční aplikaci služby UnifiedPush.</string>
+    <string name="Settings_FMDServer_Push_Distributor">Distributor: %s</string>
+    <string name="Settings_FMDServer_Push_Register">Registrovat</string>
+    <string name="Settings_FMDServer_Push_Register_Again">Znovu registrovat</string>
+    <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
 </resources>

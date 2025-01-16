@@ -131,7 +131,7 @@
 \nDu chasch trotzdem wiiter mache, aber dis Konto isch viellicht nöd vom Server glöscht worde. Wenn du wiiter machsch wird dis Konto lokal vom Gerät glöscht.</string>
     <string name="OpenCellId_help">FMD chan d OpenCelliD-Dienst bruche zum en ungfähre Standort finde wo uf de Mobilfunkzelle basiert in wellere dis Gerät iigloggt isch. Für jedi Aafrag bruchts en Internetverbindig. Du bruchsch au es Konto bi OpenCelliD zum es API Access Token becho.</string>
     <string name="perm_write_secure_settings_name">Secure Settings verwalte</string>
-    <string name="grant_write_secure_settings_description">Die Berechtigung cha nur mit em Kommandozeilebefehl \"pm grant\" vo Android erteilt werde. Du chasch de Befehl manuell über de Android Debug Bridge (ADB) vomene Computer us usführe. Du chasch ihn au direkt uf dim Gerät mit Root oder Shizuku usführe.</string>
+    <string name="grant_write_secure_settings_description">Die Berechtigung cha nur mit em Kommandozeilebefehl \"pm grant\" vo Android erteilt werde. Du chasch de Befehl manuell über de Android Debug Bridge (ADB) vomene Computer us usführe. Du chasch ihn au direkt uf dim Gerät mit Root oder Shizuku usführe.\n\nNutzer-ID: %s</string>
     <string name="perm_root_denied">Root-Zuegriff abglehnt</string>
     <string name="perm_shizuku_failed">Erlaube via Shizuku fehlgschlage</string>
     <string name="Notification_Pin_Usage_Description">Benachrichtigunge wenn miteme PIN uf FMD zuegriffe wird</string>
@@ -255,11 +255,17 @@
     <string name="Settings_FMDServer_Check_Notify_After_Title">Maximal zuelässigi Ziit ohni Verbindig</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD wird dich benachrichtige, wenn di letscht erfolgriich Verbindig zum FMD-Server me als X Stunde zruggliit. Das het kei Uswirkige, wenn d Verbindigsprüefig deaktiviert isch.</string>
     <string name="server_connectivity_lost_title">FMD-Server-Verbindig verlore</string>
-    <string name="server_connectivity_lost_text">De FMD-Server chan nüme erreicht werde. Di letscht erfolgriich Verbindig isch am %s gsi.</string>
+    <string name="server_connectivity_lost_text">De FMD-Server bi %1$s chan nüme erreicht werde. Di letscht erfolgriich Verbindig isch am %2$s gsi.</string>
     <string name="log_view_clear_confirm">Wotscht würkli alli Protokolliiträg lösche?</string>
     <string name="cmd_delete_response_dry_run">Testlauf erfolgriich, die eigentlichi Gerätlöschig wird übersprunge.</string>
     <string name="usage_notification_pin_title">FMD PIN brucht</string>
     <string name="usage_notification_pin_text">De PIN isch von dere Nummere brucht worde: \"%s\". Mer empfehlet, de PIN z ändere.</string>
     <string name="pin_mismatch">D PINs stimmed nöd überein!</string>
     <string name="pin_match_command_keyword">De PIN döff nöd mit eim vo de Befehl übereinstimme!</string>
+    <string name="Settings_FMDServer_Push_Distributor">Verteiler: %s</string>
+    <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
+    <string name="Settings_FMDServer_Push_Register">Registriere</string>
+    <string name="Settings_FMDServer_Push_Register_Again">Nomal Registriere</string>
+    <string name="Settings_FMDServer_Push_Description">Zum Befehl vo FMD Server a dis Gerät z schicke bruchts en UnifiedPush-Verteiler-App.</string>
+    <string name="server_fmd_id_hint">D FMD ID identifiziert din Account ufem FMD Server. Wenn du das Feld leer lasch, generiert d Server en ID für dich. Bis dir bewusst, dass d FMD ID im Klartext ufem Server gespeicheret wird, d.h. de Server Administrator cha sie aaluege.</string>
 </resources>
