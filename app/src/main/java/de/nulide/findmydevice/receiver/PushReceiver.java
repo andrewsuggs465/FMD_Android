@@ -54,10 +54,15 @@ public class PushReceiver extends MessagingReceiver {
         SettingsRepository settings = SettingsRepository.Companion.getInstance(context);
         settings.set(Settings.SET_FMDSERVER_PUSH_URL, "");
 
-        FMDServerApiRepository repo = FMDServerApiRepository.Companion.getInstance(new FMDServerApiRepoSpec(context));
-        repo.registerPushEndpoint("", (error) -> {
-            error.printStackTrace();
-        });
+        // Either we have triggered the push deregistration (after server account deletion),
+        // or someone else (e.g., the distributor itself) has triggered the deregistration.
+        // In the latter case, inform the server.
+        if (settings.serverAccountExists()) {
+            FMDServerApiRepository repo = FMDServerApiRepository.Companion.getInstance(new FMDServerApiRepoSpec(context));
+            repo.registerPushEndpoint("", (error) -> {
+                error.printStackTrace();
+            });
+        }
     }
 
     public static void registerWithUnifiedPush(Context context) {
