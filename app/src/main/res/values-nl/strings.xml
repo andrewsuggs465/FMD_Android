@@ -181,7 +181,7 @@
     <string name="perm_unused_app_description">Android pauzeert apps die een paar maanden niet zijn geopend en verwijdert hun machtigingen. FMD wordt echter verondersteld op de achtergrond te werken. Na het instellen hoef je het zelden te openen. Daarom moet je FMD vrijstellen van pauzering, anders werkt het met een paar maanden misschien niet meer.</string>
     <string name="grant">Verlenen</string>
     <string name="grant_write_secure_settings_title">Beveiligde instellingen schrijven toestaan</string>
-    <string name="grant_write_secure_settings_description">Deze machtiging kan alleen worden verleend met de Android opdrachtregel \"pm grant\". Je kunt deze opdracht handmatig uitvoeren via de Android Debug Bridge (ADB) met behulp van een computer. Je kunt het ook rechtstreeks op je apparaat uitvoeren met root of Shizuku.</string>
+    <string name="grant_write_secure_settings_description">Deze machtiging kan alleen worden verleend met de Android opdrachtregel \"pm grant\". Je kunt deze opdracht handmatig uitvoeren via de Android Debug Bridge (ADB) met behulp van een computer. Je kunt het ook rechtstreeks op je apparaat uitvoeren met root of Shizuku.\n\nGebruikers-ID: %s</string>
     <string name="Toast_Duplicate_contact">Dit contact bestaat al.</string>
     <string name="temporary_allowlist_expired">Je tijdelijke toegang tot FindMyDevice is verlopen. Als je FindMyDevice wilt blijven gebruiken, moet je de pincode opnieuw verzenden.</string>
     <string name="OpenCellId_help">FMD kan de OpenCelliD-service gebruiken om een geschatte locatie te krijgen op basis van de zendmast waarmee het apparaat is verbonden. Voor elke locatiezoekopdracht is een internetverbinding vereist. Je moet ook een account aanmaken bij OpenCelliD en je eigen API Access Token krijgen.</string>
@@ -242,7 +242,7 @@
     <string name="usage_notification_pin_title">FMD-pincode gebruikt</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD zal je op de hoogte stellen als de laatste succesvolle verbinding met FMD Server meer dan X uur geleden is. Dit heeft geen effect als de controle op de verbinding is uitgeschakeld.</string>
     <string name="server_connectivity_lost_title">Verbinding met FMD-server verbroken</string>
-    <string name="server_connectivity_lost_text">De FMD-server is niet meer bereikbaar. De laatste succesvolle verbinding was op %s.</string>
+    <string name="server_connectivity_lost_text">De FMD-server op %1$s is niet meer bereikbaar. De laatste succesvolle verbinding was op %2$s.</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Interval voor controle van de verbinding</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD controleert elke X uur de verbinding met de FMD Server. Zet deze op 0 om de controle op de verbinding uit te schakelen.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Maximaal toegestane tijd zonder verbinding</string>
@@ -250,4 +250,9 @@
     <string name="pin_mismatch">De pincodes komen niet overeen!</string>
     <string name="pin_match_command_keyword">De pincode mag niet gelijk zijn aan een van de commando\'s!</string>
     <string name="server_fmd_id_hint">De FMD-ID identificeert jouw account op de FMD-server. Laat dit leeg om de server een ID te laten genereren. Merk op dat de FMD-ID in platte tekst op de server wordt opgeslagen, d.w.z. dat de serverbeheerder deze kan lezen.</string>
+    <string name="Settings_FMDServer_Push_Description">Het verzenden van opdrachten van FMD Server naar je apparaat vereist een UnifiedPush-distributeursapp.</string>
+    <string name="Settings_FMDServer_Push_Distributor">Distributeur: %s</string>
+    <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
+    <string name="Settings_FMDServer_Push_Register">Registreren</string>
+    <string name="Settings_FMDServer_Push_Register_Again">Opnieuw registreren</string>
 </resources>
