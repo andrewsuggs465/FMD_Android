@@ -20,6 +20,9 @@ import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Deferred
 
 
+const val MAX_GPS_DURATION_MILLIS = 5 * 60 * 1000L
+private const val UPDATE_INTERVAL_MILLIS = 2 * 1000L
+
 /**
  * Only call this provider via the LocateCommand!
  * (because it handles things like LocationAutoOnOff centrally)
@@ -67,9 +70,6 @@ class GpsLocationProvider<T>(
         return def
     }
 
-    private val MAX_DURATION_MILLIS = 5 * 30 * 1000L
-    private val UPDATE_INTERVAL_MILLIS = 2 * 1000L
-
     @SuppressLint("MissingPermission")
     @RequiresApi(Build.VERSION_CODES.S)
     private fun getAndSendLocationAndroid12() {
@@ -77,7 +77,7 @@ class GpsLocationProvider<T>(
 
         val locationRequest = LocationRequest.Builder(UPDATE_INTERVAL_MILLIS)
             .setQuality(LocationRequest.QUALITY_HIGH_ACCURACY)
-            .setDurationMillis(MAX_DURATION_MILLIS + 5 * 1000L) // timeout before it stops
+            .setDurationMillis(MAX_GPS_DURATION_MILLIS + 5 * 1000L) // timeout before it stops
             .build()
         val consumer = { location: Location? ->
             // This lambda is invoked every UPDATE_INTERVAL_MILLIS, possibly with "null"
@@ -86,7 +86,7 @@ class GpsLocationProvider<T>(
                 onLocationChanged(location)
             } else {
                 val delta = System.currentTimeMillis() - start
-                if (delta > MAX_DURATION_MILLIS) {
+                if (delta > MAX_GPS_DURATION_MILLIS) {
                     // Fall back to getting the last known location.
                     // The last location known by the LocationManager may still be newer
                     // than the last location known by FMD.
