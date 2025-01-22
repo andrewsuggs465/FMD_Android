@@ -69,6 +69,12 @@
                 android:layout_marginBottom="@dimen/margin_small"
                 android:text="@string/Settings_Pin_Description" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@string/Settings_Pin_Not_Backed_Up" />
+
             <Button
                 android:id="@+id/buttonEnterPin"
                 android:layout_width="match_parent"

@@ -47,6 +47,7 @@
     <!-- Settings: General -->
     <string name="Settings_FMD_via_Pin_Description">Allows you to communicate with FMD via a PIN. This allows you to send commands from a phone number that is not in the Allowed Contacts list.</string>
     <string name="Settings_Pin_Description">Used as confirmation before wiping the device and for anonymous usage of the service.</string>
+    <string name="Settings_Pin_Not_Backed_Up">Warning: The PIN is not included in the app backup.</string>
     <string name="Settings_Enter_Pin">Enter PIN</string>
     <string name="pin">PIN</string>
     <string name="pin_repeat">Repeat PIN</string>
