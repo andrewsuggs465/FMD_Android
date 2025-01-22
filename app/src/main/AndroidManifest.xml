@@ -144,7 +144,7 @@
             android:name=".receiver.CopyInAppTextReceiver"
             android:exported="false" />
         <receiver
-            android:name=".receiver.SMSReceiver"
+            android:name=".receiver.SmsReceiver"
             android:directBootAware="true"
             android:exported="true"
             android:permission="android.permission.BROADCAST_SMS">
