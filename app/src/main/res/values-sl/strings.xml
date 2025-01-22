@@ -6,7 +6,6 @@
     <string name="accept">Sprejmi</string>
     <string name="Edit">Uredi</string>
     <string name="GPS">GPS</string>
-    <string name="Settings_OpenCellId">OpenCellID</string>
     <string name="Settings_Import">Uvozi nastavitve</string>
     <string name="Settings_About">O aplikaciji</string>
     <string name="Settings_FMD_via_Pin_Description">Omogoči komunikacijo z aplikacijo FMD s PIN kodo. V tem primeru bodo fmd ukaze preko SMS sporočil lahko pošiljali tudi stiki, ki niso na seznamu zaupanja vrednih, vendar bodo morali sporočilu dodati pravilno PIN kodo.</string>

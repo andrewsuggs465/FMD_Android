@@ -158,7 +158,6 @@
     <string name="cmd_locate_response_location_off">Impossible de localiser : la localisation est désactivée.</string>
     <string name="perm_unused_app_description">Android met en pause les applications qui sont inutilisées pendant quelques mois et supprime leurs autorisations. Cependant, FMD est censé fonctionner en arrière-plan. Après l\'avoir configuré, vous avez rarement besoin de l\'ouvrir. Vous devez donc l\'exonérer, sinon il pourrait ne pas fonctionner dans quelques mois.</string>
     <string name="transport_sms_title">SMS</string>
-    <string name="Settings_OpenCellId">OpenCelliD</string>
     <string name="transport_sms_description_auth">Seuls les numéros de téléphone qui sont dans la liste peuvent envoyer des commandes. Pour envoyer des commandes à partir d\'un numéro de téléphone qui n\'est pas dans la liste blanche, vous devez inclure le NIP : \"fmd monnip help\". Pour plus de commodité, afin que vous n\'ayez pas à réécrire le NIP à chaque fois, ce nouveau numéro de téléphone est ajouté à une liste blanche temporaire pour les 10 prochaines minutes.</string>
     <string name="perm_do_not_disturb_access_name">Accès à « Ne pas déranger »</string>
     <string name="perm_location_name">Lieu</string>

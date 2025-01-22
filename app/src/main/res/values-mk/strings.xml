@@ -98,7 +98,6 @@
     <string name="bottom_nav_settings">Нагодувања</string>
     <string name="bottom_nav_commands">Наредби</string>
     <string name="Settings_Import">Внеси нагодувања</string>
-    <string name="Settings_OpenCellId">OpenCelliD</string>
     <string name="Settings_About">За апликацијата</string>
     <string name="Settings_FMD_via_Pin_Description">Ти дозволува да комуницираш со FMD користејќи ЛИБ (личен идентификациски број). Ова ти овозможува да праќаш наредби од телефонски број кој не се наоѓа во списокот на Дозволени контакти.</string>
     <string name="Toast_Empty_FMDCommand">Празна наредба не е дозволена\n Враќање на пред-поставката.[fmd]</string>

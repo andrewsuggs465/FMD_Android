@@ -43,7 +43,6 @@
     <string name="cmd_locate_response_location_off">Spiacente, la posizione è disattivata.</string>
     <string name="Settings_FMDConfig">Configurazione FMD</string>
     <string name="Settings_WhiteList">Lista Contatti Fidati</string>
-    <string name="Settings_OpenCellId">OpenCell ID</string>
     <string name="Settings_Logs">Registri</string>
     <string name="Settings_About">Info</string>
     <string name="Settings_Settings">Impostazioni</string>

@@ -6,7 +6,6 @@
     <string name="Edit">编辑</string>
     <string name="GPS">GPS</string>
     <string name="Cell">移动网络</string>
-    <string name="Settings_OpenCellId">打开移动网络ID</string>
     <string name="Settings_Import">导入设置</string>
     <string name="Settings_Export">导出设置</string>
     <string name="Settings_Logs">日志</string>
