@@ -94,6 +94,19 @@ public class FMDServerLocationUploadService extends FmdJobService {
             return false;
         }
 
+        // Skip recurring uploads if the last upload was recently.
+        // Non-recurring, on-demand uploads are always handled.
+        if (recurring) {
+            long now = System.currentTimeMillis();
+            long lastUploadTimeMillis = ((Number) settings.get(Settings.SET_LAST_KNOWN_LOCATION_TIME)).longValue();
+            long uploadIntervalMillis = ((int) settings.get(Settings.SET_FMDSERVER_UPDATE_TIME)) * 60 * 1000L;
+            if (lastUploadTimeMillis + uploadIntervalMillis / 2 > now) {
+                FmdLogKt.log(this).i(TAG, "Skipping upload, last upload was recent");
+                jobFinished();
+                return false;
+            }
+        }
+
         Transport<Unit> transport = new FmdServerTransport(this, "Regular Background Upload");
         CommandHandler<Unit> commandHandler = new CommandHandler<>(transport, this.getCoroutineScope(), this, false);
 

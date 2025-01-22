@@ -35,6 +35,7 @@ public class Settings extends HashMap<Integer, Object> {
     //public static final int SET_FMD_CRYPT_NEW_SALT = 112;
     public static final int SET_UPDATEBOARDING_MODERN_CRYPTO_COMPLETED = 113;
     public static final int SET_FMDSERVER_PUSH_URL = 114;
+    public static final int SET_FMDSERVER_LAST_LOCATION_UPLOAD_TIME = 115;
 
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS = 201;
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS = 202;
@@ -108,6 +109,7 @@ public class Settings extends HashMap<Integer, Object> {
                     return 0;
                 case SET_LAST_KNOWN_LOCATION_TIME:
                 case SET_LAST_LOW_BAT_UPLOAD:
+                case SET_FMDSERVER_LAST_LOCATION_UPLOAD_TIME:
                     return -1L;
                 case SET_THEME:
                     return VAL_THEME_FOLLOW_SYSTEM;
