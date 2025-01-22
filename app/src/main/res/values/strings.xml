@@ -135,6 +135,8 @@
     <string name="allowlist_add_phone_number">Add Phone Number</string>
     <string name="allowlist_phone_number_name">Name</string>
     <string name="allowlist_phone_number">Phone Number</string>
+    <string name="allowlist_reset_title">Allowed Contacts reset</string>
+    <string name="allowlist_reset_text">Due to a crash, the Allowed Contacts were reset. Please configure them again.</string>
 
     <!-- Settings: Temporary Allowed Contacts -->
     <string name="temporary_allowlist_expired">Your temporary FindMyDevice access expired. To continue using FindMyDevice, send the PIN again.</string>
