@@ -21,7 +21,6 @@
     <string name="cmd_locate_response_location_off">Lo sentimos, la ubicación está desactivada.</string>
     <string name="Settings_FMDConfig">Configuración FMD</string>
     <string name="Settings_WhiteList">Lista Blanca</string>
-    <string name="Settings_OpenCellId">OpenCelliD</string>
     <string name="Settings_Logs">Registros</string>
     <string name="Settings_About">Acerca de</string>
     <string name="Settings_Settings">Ajustes</string>

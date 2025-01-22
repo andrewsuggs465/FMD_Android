@@ -21,7 +21,6 @@
     <string name="cmd_locate_response_location_off">Pahoittelut, sijainti on poissa käytöstä.</string>
     <string name="Settings_FMDConfig">FMD-SMS</string>
     <string name="Settings_WhiteList">Valkoinen lista</string>
-    <string name="Settings_OpenCellId">OpenCelliD</string>
     <string name="Settings_Logs">Lokit</string>
     <string name="Settings_About">Tietoa</string>
     <string name="Settings_Settings">Asetukset</string>

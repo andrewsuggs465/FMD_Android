@@ -42,7 +42,6 @@
     <string name="GPS">GPS</string>
     <string name="request_failed_status_code">Stavový kód</string>
     <string name="request_failed_exception">Výjimka</string>
-    <string name="Settings_OpenCellId">OpenCelliD</string>
     <string name="Settings_FMD_via_Pin_Description">Umožňuje komunikovat s FMD pomocí kódu PIN. To vám umožní posílat příkazy z mobilního čísla, které se nenachází na seznamu povolených kontaktů.</string>
     <string name="Settings_Enter_Pin">Zadat PIN</string>
     <string name="pin">PIN</string>

@@ -12,7 +12,6 @@
     <string name="Settings_Settings">Iistellige</string>
     <string name="Settings_FMDConfig">FMD-Iistellige</string>
     <string name="Settings_WhiteList">Erlaubti Kontäkt</string>
-    <string name="Settings_OpenCellId">OpenCelliD</string>
     <string name="Settings_Import">Iistellige Importiere</string>
     <string name="Settings_FMD_via_Pin_Description">Machts dir möglich mit FMD via PIN zu kommuniziere. So chasch Befehl vonere Telefonnummer schicke wo nöd in dine Erlaubte Kontäkt isch.</string>
     <string name="Settings_Pin_Description">De PIN wird als Bestätigung zums Gerät zruggzsetze brucht und zum anonym Befehl a FMD zschicke.</string>

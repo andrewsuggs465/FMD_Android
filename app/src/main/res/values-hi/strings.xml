@@ -73,7 +73,6 @@
     <string name="loading">लोड हो रहा है…</string>
     <string name="accept">स्वीकारें</string>
     <string name="Settings_FMDConfig">FMD-विन्यास</string>
-    <string name="Settings_OpenCellId">OpenCelliD</string>
     <string name="Whitelist_help">इस सूची के संपर्कों को SMS के माध्यम से FMD कमांड भेजने की अनुमति है। बाकी सभी के आदेशों को नजरअंदाज कर दिया जाएगा।</string>
     <string name="registration_token_hint">निजी इंस्टैंस के लिए गुप्त टोकन की आवश्यकता हो सकती है। यदि इंस्टैंस सार्वजनिक है तो इसे खाली छोड़ दें।</string>
     <string name="Whitelist_empty">कोई अनुमत संपर्क नहीं। कुछ जोड़ने के लिए बटन पर क्लिक करें!</string>

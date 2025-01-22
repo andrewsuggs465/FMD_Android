@@ -10,7 +10,6 @@
     <string name="Settings_WhiteList">Tillatte kontakter</string>
     <string name="Settings_Import">Importer innstillinger</string>
     <string name="Settings_Export">Eksporter innstillinger</string>
-    <string name="Settings_OpenCellId">OpenCelliD</string>
     <string name="Settings_FMD_via_Pin_Description">Lar deg kommunisere med FMD via en PIN. Du vil legges til på midlertidig hvitliste.</string>
     <string name="Settings_Pin_Description">Brukt som bekreftelse før tømming av enheten, eller for midlertidig bruk av tjenesten.</string>
     <string name="Settings_Enter_Pin">Skriv inn PIN</string>

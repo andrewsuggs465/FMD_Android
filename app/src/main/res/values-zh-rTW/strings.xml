@@ -17,7 +17,6 @@
     <string name="usage_notification_title">指令已執行</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD 每 X 分鐘上載一次裝置的位置。</string>
     <string name="Settings_FMDConfig">FMD 配置</string>
-    <string name="Settings_OpenCellId">OpenCelliD</string>
     <string name="Settings_Settings">設定</string>
     <string name="Settings_Import">匯入設定</string>
     <string name="Settings_WhiteList">允許的聯絡人</string>

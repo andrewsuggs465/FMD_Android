@@ -78,7 +78,6 @@
     <string name="Edit">Editar</string>
     <string name="GPS">GPS</string>
     <string name="request_failed_status_code">Código de status</string>
-    <string name="Settings_OpenCellId">OpenCelliD</string>
     <string name="Settings_Import">Importar Configurações</string>
     <string name="Settings_FMD_Server_Server_URL">URL do Servidor:</string>
     <string name="Settings_FMDServer_Change_Password_Button">Alterar Senha</string>

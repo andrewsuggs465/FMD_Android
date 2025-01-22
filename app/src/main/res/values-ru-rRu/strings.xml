@@ -21,7 +21,6 @@
     <string name="cmd_locate_response_location_off">Извините, определение местоположения отключено.</string>
     <string name="Settings_FMDConfig">Конфигурация FMD</string>
     <string name="Settings_WhiteList">Разрешённые контакты</string>
-    <string name="Settings_OpenCellId">OpenCelliD</string>
     <string name="Settings_Logs">Логи</string>
     <string name="Settings_About">О приложении</string>
     <string name="Settings_Settings">Настройки</string>
