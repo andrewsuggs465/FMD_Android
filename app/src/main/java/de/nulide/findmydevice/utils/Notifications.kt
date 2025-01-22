@@ -34,7 +34,8 @@ object Notifications {
         title: String?,
         text: String?,
         channelID: Int,
-        customizeBuilder: ((NotificationCompat.Builder) -> Unit) = { _ -> }
+        cls: Class<*> = MainActivity::class.java,
+        customizeBuilder: ((NotificationCompat.Builder) -> Unit) = { _ -> },
     ) {
         val builder = NotificationCompat.Builder(context, channelID.toString())
             .setSmallIcon(R.drawable.ic_notification)
@@ -45,13 +46,11 @@ object Notifications {
 
         customizeBuilder(builder)
 
-        if (channelID == CHANNEL_SECURITY) {
-            val intent = Intent(context, MainActivity::class.java)
-            val pendingIntent =
-                PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
-            builder.setAutoCancel(true)
-            builder.setContentIntent(pendingIntent)
-        }
+        val intent = Intent(context, cls)
+        val pendingIntent =
+            PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+        builder.setAutoCancel(true)
+        builder.setContentIntent(pendingIntent)
 
         val granted = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             ActivityCompat.checkSelfPermission(
