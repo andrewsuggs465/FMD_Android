@@ -7,6 +7,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.os.PersistableBundle;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import de.nulide.findmydevice.commands.CommandHandler;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
@@ -24,7 +26,7 @@ public class FMDServerLocationUploadService extends FmdJobService {
 
     private static final String TAG = FMDServerLocationUploadService.class.getSimpleName();
 
-    private static final int JOB_ID = 108;
+    private static final int JOB_ID = 108; // for recurring jobs only
 
     private static final String EXTRA_RECURRING = "EXTRA_RECURRING";
 
@@ -43,8 +45,16 @@ public class FMDServerLocationUploadService extends FmdJobService {
             return;
         }
 
+        int jobId = JOB_ID;
+        if (!recurring) {
+            // Use a random job id for non-recurring, on-demand jobs.
+            // Otherwise, if they have the same ID, Android will treat them as one,
+            // and e.g., share the EXTRA_RECURRING, which causes issues.
+            jobId = ThreadLocalRandom.current().nextInt();
+        }
+
         ComponentName serviceComponent = new ComponentName(context, FMDServerLocationUploadService.class);
-        JobInfo.Builder builder = new JobInfo.Builder(JOB_ID, serviceComponent)
+        JobInfo.Builder builder = new JobInfo.Builder(jobId, serviceComponent)
                 .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY);
 
         // We cannot use setPeriodic() because that only works for periods >= 15 mins
