@@ -1,7 +1,6 @@
 package de.nulide.findmydevice.data
 
 import android.content.Context
-import android.os.Build
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParseException
 import com.google.gson.JsonSyntaxException
@@ -26,8 +25,6 @@ import java.security.PublicKey
 import java.security.spec.EncodedKeySpec
 import java.security.spec.InvalidKeySpecException
 import java.security.spec.X509EncodedKeySpec
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 
 
 const val SETTINGS_FILENAME = "settings.json"
@@ -124,6 +121,11 @@ class SettingsRepository private constructor(private val context: Context) {
 
     fun get(key: Int): Any {
         return settings.get(key)
+    }
+
+    fun remove(key: Int) {
+        settings.remove(key)
+        saveSettings()
     }
 
     fun writeAsJson(outputStreamWriter: OutputStreamWriter) {

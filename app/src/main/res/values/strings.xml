@@ -184,6 +184,9 @@
     <string name="server_unregister_continue_anyway">Continue anyway</string>
     <string name="server_unregister_dont_continue">Don\'t continue</string>
 
+    <!-- Pin update boarding -->
+    <string name="update_pin_hash_change_text">The FMD PIN was reset during an app update. To continue using FMD with a PIN, please set the PIN again.</string>
+
     <!-- Commands -->
 
     <string name="cmd_missing_permissions">Cannot run command %1$s: Missing permission(s) %2$s.</string>
