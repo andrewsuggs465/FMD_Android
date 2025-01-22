@@ -5,11 +5,11 @@ import android.content.Context
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
+import de.nulide.findmydevice.data.EncryptedSettingsRepository
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.permissions.DeviceAdminPermission
 import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
-import de.nulide.findmydevice.utils.CypherUtils
 import de.nulide.findmydevice.utils.log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -60,7 +60,9 @@ class DeleteCommand(context: Context) : Command(context) {
         }
         val pwd = args[0]
 
-        if (!CypherUtils.checkPasswordForFmdPin(settings.get(Settings.SET_PIN) as String, pwd)) {
+        val encSettings = EncryptedSettingsRepository.getInstance(context)
+        val expectedPin = encSettings.getFmdPin()
+        if (expectedPin.isNullOrBlank() || expectedPin != pwd) {
             val msg = context.getString(R.string.cmd_delete_response_pwd_wrong)
             context.log().i(TAG, msg)
             transport.send(context, msg)

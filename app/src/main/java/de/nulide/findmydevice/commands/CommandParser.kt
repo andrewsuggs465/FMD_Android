@@ -1,9 +1,5 @@
 package de.nulide.findmydevice.commands
 
-import de.nulide.findmydevice.utils.CypherUtils
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-
 
 sealed class ParserResult {
     // For valid syntax
@@ -36,7 +32,7 @@ sealed class ParserResult {
  */
 class CommandParser(
     val expectedTriggerWord: String,
-    val expectedPinHash: String,
+    val expectedPin: String?,
     val helpCommand: Command,
     val availableCommands: List<Command>,
 ) {
@@ -68,17 +64,13 @@ class CommandParser(
         val secondToken = iter.next()
 
         // Check if correct PIN is present.
-        // Since hashing is expensive, only check the hash if the entry doesn't match a known command.
         val matchesKnownCommand = availableCommands.any {
             it.keyword.lowercase() == secondToken.lowercase()
         }
         var pin: String? = null
         if (!matchesKnownCommand) {
-            // Run CPU-bound password hashing on different dispatcher
-            withContext(Dispatchers.Default) {
-                if (CypherUtils.checkPasswordForFmdPin(expectedPinHash, secondToken)) {
-                    pin = secondToken
-                }
+            if (!expectedPin.isNullOrBlank() && expectedPin == secondToken) {
+                pin = secondToken
             }
         }
 

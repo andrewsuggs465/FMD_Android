@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import de.nulide.findmydevice.R;
+import de.nulide.findmydevice.data.EncryptedSettingsRepository;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.ui.FmdActivity;
@@ -32,6 +33,7 @@ import de.nulide.findmydevice.utils.CypherUtils;
 public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnCheckedChangeListener, TextWatcher {
 
     private SettingsRepository settings;
+    private EncryptedSettingsRepository encSettings;
 
     private CheckBox checkBoxDeviceWipe;
     private CheckBox checkBoxAccessViaPin;
@@ -56,6 +58,7 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
         setupEdgeToEdgeScrollView(findViewById(R.id.scrollView));
 
         settings = SettingsRepository.Companion.getInstance(this);
+        encSettings = EncryptedSettingsRepository.Companion.getInstance(this);
 
         checkBoxDeviceWipe = findViewById(R.id.checkBoxWipeData);
         checkBoxDeviceWipe.setChecked((Boolean) settings.get(Settings.SET_WIPE_ENABLED));
@@ -75,7 +78,8 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
         textColorDisabled = getColor(R.color.md_theme_onError);
 
         buttonEnterPin = findViewById(R.id.buttonEnterPin);
-        if (settings.get(Settings.SET_PIN).equals("")) {
+        String pin = encSettings.getFmdPin();
+        if (pin == null || pin.isBlank()) {
             buttonEnterPin.setBackgroundColor(colorDisabled);
             buttonEnterPin.setTextColor(textColorDisabled);
         } else {
@@ -142,7 +146,7 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
 
                         if (pin.equals(repeat)) {
                             if (pin.isEmpty()) {
-                                settings.set(Settings.SET_PIN, "");
+                                encSettings.setFmdPin(null);
                                 buttonEnterPin.setBackgroundColor(colorDisabled);
                                 buttonEnterPin.setTextColor(textColorDisabled);
                             }
@@ -154,7 +158,7 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
                             ) {
                                 Toast.makeText(context, R.string.pin_match_command_keyword, Toast.LENGTH_LONG).show();
                             } else {
-                                settings.set(Settings.SET_PIN, CypherUtils.hashPasswordForFmdPin(pin));
+                                encSettings.setFmdPin(pin);
                                 buttonEnterPin.setBackgroundColor(colorEnabled);
                                 buttonEnterPin.setTextColor(textColorEnabled);
                             }

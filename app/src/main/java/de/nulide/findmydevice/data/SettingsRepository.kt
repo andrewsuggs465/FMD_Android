@@ -143,12 +143,6 @@ class SettingsRepository private constructor(private val context: Context) {
 
 // ---------- Convenience helpers ----------
 
-    fun accessViaPinEnabled(): Boolean {
-        val enabled = get(Settings.SET_ACCESS_VIA_PIN) as Boolean
-        val pinHash = get(Settings.SET_PIN) as String
-        return enabled && pinHash.isNotEmpty()
-    }
-
     fun serverAccountExists(): Boolean {
         val id = get(Settings.SET_FMDSERVER_ID) as String
         return id.isNotEmpty()

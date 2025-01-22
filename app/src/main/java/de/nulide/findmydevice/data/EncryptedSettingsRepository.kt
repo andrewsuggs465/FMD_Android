@@ -23,6 +23,7 @@ class EncryptedSettingsRepository private constructor(context: Context) {
         private const val FILENAME = "fmd_encrypted_settings"
 
         private const val KEY_SERVER_CACHED_ACCESS_TOKEN = "KEY_SERVER_CACHED_ACCESS_TOKEN"
+        private const val KEY_FMD_PIN = "KEY_FMD_PIN"
     }
 
     val sharedPrefs: SharedPreferences
@@ -47,5 +48,17 @@ class EncryptedSettingsRepository private constructor(context: Context) {
 
     fun setCachedAccessToken(newToken: String) {
         sharedPrefs.edit().putString(KEY_SERVER_CACHED_ACCESS_TOKEN, newToken).apply()
+    }
+
+    fun getFmdPin(): String? {
+        return sharedPrefs.getString(KEY_FMD_PIN, null)
+    }
+
+    fun setFmdPin(new: String?) {
+        if (new == null) {
+            sharedPrefs.edit().remove(KEY_FMD_PIN).apply()
+        } else {
+            sharedPrefs.edit().putString(KEY_FMD_PIN, new).apply()
+        }
     }
 }
