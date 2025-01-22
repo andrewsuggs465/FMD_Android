@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.Intent
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
-import de.nulide.findmydevice.services.FMDServerLocationUploadService
+import de.nulide.findmydevice.services.ServerLocationUploadService
 import de.nulide.findmydevice.utils.log
 
 
@@ -36,7 +36,7 @@ class BatteryLowReceiver : BroadcastReceiver() {
 
                 // Locating and uploading takes some time.
                 // Start a service for this, to allow the BroadcastReceiver to exit.
-                FMDServerLocationUploadService.scheduleJob(context, 0, false)
+                ServerLocationUploadService.scheduleJob(context, 0, false)
             } else {
                 context.log().i(TAG, "Last low battery upload too recent, skipping.")
             }

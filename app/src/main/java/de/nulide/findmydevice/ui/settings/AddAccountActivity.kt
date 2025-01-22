@@ -26,9 +26,8 @@ import de.nulide.findmydevice.net.FMDServerApiRepoSpec
 import de.nulide.findmydevice.net.FMDServerApiRepository
 import de.nulide.findmydevice.net.MinRequiredVersionResult
 import de.nulide.findmydevice.net.isMinRequiredVersion
-import de.nulide.findmydevice.receiver.PushReceiver
-import de.nulide.findmydevice.services.FMDServerLocationUploadService
-import de.nulide.findmydevice.services.FmdServerConnectivityCheckService
+import de.nulide.findmydevice.services.ServerConnectivityCheckService
+import de.nulide.findmydevice.services.ServerLocationUploadService
 import de.nulide.findmydevice.ui.FmdActivity
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeAppBar
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeScrollView
@@ -260,8 +259,8 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                 System.currentTimeMillis()
             )
 
-            FMDServerLocationUploadService.scheduleJob(context, 0)
-            FmdServerConnectivityCheckService.scheduleJob(context)
+            ServerLocationUploadService.scheduleJob(context, 0)
+            ServerConnectivityCheckService.scheduleJob(context)
 
             val fmdServerActivityIntent = Intent(context, FMDServerActivity::class.java)
             startActivity(fmdServerActivityIntent)

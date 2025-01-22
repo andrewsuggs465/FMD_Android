@@ -7,7 +7,7 @@ import android.provider.Telephony
 import android.telephony.SmsMessage
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
-import de.nulide.findmydevice.services.FMDSMSService
+import de.nulide.findmydevice.services.SmsService
 import de.nulide.findmydevice.utils.log
 
 
@@ -49,7 +49,7 @@ class SmsReceiver : BroadcastReceiver() {
                 return
             }
 
-            FMDSMSService.scheduleJob(context, phoneNumber, subscriptionId, msg)
+            SmsService.scheduleJob(context, phoneNumber, subscriptionId, msg)
         }
     }
 }

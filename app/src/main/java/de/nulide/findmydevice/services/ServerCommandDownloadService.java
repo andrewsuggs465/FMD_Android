@@ -21,9 +21,9 @@ import kotlin.Unit;
 /**
  * Downloads the latest command and executes it
  */
-public class FMDServerCommandDownloadService extends FmdJobService {
+public class ServerCommandDownloadService extends FmdJobService {
 
-    private final String TAG = FMDServerCommandDownloadService.class.getSimpleName();
+    private final String TAG = ServerCommandDownloadService.class.getSimpleName();
 
     private static final int JOB_ID = 109;
     private SettingsRepository settingsRepo;
@@ -52,7 +52,7 @@ public class FMDServerCommandDownloadService extends FmdJobService {
     }
 
     public static void scheduleJobNow(Context context) {
-        ComponentName serviceComponent = new ComponentName(context, FMDServerCommandDownloadService.class);
+        ComponentName serviceComponent = new ComponentName(context, ServerCommandDownloadService.class);
         JobInfo.Builder builder = new JobInfo.Builder(JOB_ID, serviceComponent);
         builder.setMinimumLatency(0);
         builder.setOverrideDeadline(1000);

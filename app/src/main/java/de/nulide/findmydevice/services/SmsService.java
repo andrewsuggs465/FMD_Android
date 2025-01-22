@@ -12,9 +12,9 @@ import de.nulide.findmydevice.transports.SmsTransport;
 import de.nulide.findmydevice.transports.Transport;
 
 
-public class FMDSMSService extends FmdJobService {
+public class SmsService extends FmdJobService {
 
-    private static final String TAG = FMDSMSService.class.getSimpleName();
+    private static final String TAG = SmsService.class.getSimpleName();
 
     private static final int JOB_ID = 107;
 
@@ -28,7 +28,7 @@ public class FMDSMSService extends FmdJobService {
         bundle.putInt(SUBSCRIPTION_ID, subscriptionId);
         bundle.putString(MESSAGE, message);
 
-        ComponentName serviceComponent = new ComponentName(context, FMDSMSService.class);
+        ComponentName serviceComponent = new ComponentName(context, SmsService.class);
         JobInfo.Builder builder = new JobInfo.Builder(JOB_ID, serviceComponent)
                 .setExtras(bundle);
         builder.setMinimumLatency(0);

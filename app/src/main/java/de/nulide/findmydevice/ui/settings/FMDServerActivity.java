@@ -36,9 +36,9 @@ import de.nulide.findmydevice.net.FMDServerApiRepoSpec;
 import de.nulide.findmydevice.net.FMDServerApiRepository;
 import de.nulide.findmydevice.permissions.NotificationAccessPermission;
 import de.nulide.findmydevice.receiver.PushReceiver;
-import de.nulide.findmydevice.services.FMDServerLocationUploadService;
+import de.nulide.findmydevice.services.ServerLocationUploadService;
 import de.nulide.findmydevice.services.FmdBatteryLowService;
-import de.nulide.findmydevice.services.FmdServerConnectivityCheckService;
+import de.nulide.findmydevice.services.ServerConnectivityCheckService;
 import de.nulide.findmydevice.ui.FmdActivity;
 import de.nulide.findmydevice.ui.home.PermissionView;
 import de.nulide.findmydevice.utils.CypherUtils;
@@ -198,9 +198,9 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
             settings.set(Settings.SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS, value);
 
             if (value > 0) {
-                FmdServerConnectivityCheckService.scheduleJob(this);
+                ServerConnectivityCheckService.scheduleJob(this);
             } else {
-                FmdServerConnectivityCheckService.cancelJob(this);
+                ServerConnectivityCheckService.cancelJob(this);
             }
         } else if (edited == editTextNotifyAfterTime.getText()) {
             settings.set(Settings.SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS, value);
@@ -244,8 +244,8 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
                     // TODO: API to invalidate access tokens. Maybe combine with session management.
                     EncryptedSettingsRepository encryptedSettingsRepo = EncryptedSettingsRepository.Companion.getInstance(this);
                     encryptedSettingsRepo.setCachedAccessToken("");
-                    FMDServerLocationUploadService.cancelJob(this);
-                    FmdServerConnectivityCheckService.cancelJob(this);
+                    ServerLocationUploadService.cancelJob(this);
+                    ServerConnectivityCheckService.cancelJob(this);
                     PushReceiver.unregisterWithUnifiedPush(this);
                     finish();
                 })
@@ -344,8 +344,8 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     private void runDelete() {
         Context context = this;
         showLoadingIndicator(context);
-        FMDServerLocationUploadService.cancelJob(context);
-        FmdServerConnectivityCheckService.cancelJob(context);
+        ServerLocationUploadService.cancelJob(context);
+        ServerConnectivityCheckService.cancelJob(context);
         PushReceiver.unregisterWithUnifiedPush(context);
         fmdServerRepo.unregister(
                 response -> {

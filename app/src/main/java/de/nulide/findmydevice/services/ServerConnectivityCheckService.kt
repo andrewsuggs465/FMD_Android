@@ -21,12 +21,12 @@ import java.time.format.DateTimeFormatter
 /**
  * Checks the connectivity to FMD Server at regular intervals in the background.
  */
-class FmdServerConnectivityCheckService : FmdJobService() {
+class ServerConnectivityCheckService : FmdJobService() {
 
     companion object {
         const val JOB_ID: Int = 112
 
-        val TAG = FmdServerConnectivityCheckService::class.simpleName
+        val TAG = ServerConnectivityCheckService::class.simpleName
 
         @JvmStatic
         fun scheduleJob(context: Context) {
@@ -46,7 +46,7 @@ class FmdServerConnectivityCheckService : FmdJobService() {
             val intervalMillis = intervalHours * 60 * 60 * 1000
 
             val serviceComponent =
-                ComponentName(context, FmdServerConnectivityCheckService::class.java)
+                ComponentName(context, ServerConnectivityCheckService::class.java)
             val builder = JobInfo.Builder(JOB_ID, serviceComponent)
                 .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
                 // The period must be >= 15 minutes, due to Android requirements

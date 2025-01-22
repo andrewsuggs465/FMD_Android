@@ -13,7 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
 
-class ThirdPartyAccessService : NotificationListenerService() {
+class NotificationListenService : NotificationListenerService() {
 
     companion object {
         // LineageOS 21 / Android 14: android, BatterySaverStateMachine
