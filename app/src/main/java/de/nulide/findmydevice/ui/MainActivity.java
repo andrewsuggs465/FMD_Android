@@ -21,9 +21,6 @@ import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.net.MinRequiredVersionResult;
 import de.nulide.findmydevice.permissions.PermissionsUtilKt;
-import de.nulide.findmydevice.receiver.PushReceiver;
-import de.nulide.findmydevice.services.ServerLocationUploadService;
-import de.nulide.findmydevice.services.ServerConnectivityCheckService;
 import de.nulide.findmydevice.services.TempContactExpiredService;
 import de.nulide.findmydevice.ui.home.CommandListFragment;
 import de.nulide.findmydevice.ui.home.TransportListFragment;
@@ -111,8 +108,6 @@ public class MainActivity extends FmdActivity {
         }
 
         if (settings.serverAccountExists()) {
-            // In onCreate instead of onResume to avoid excessive re-registrations
-            PushReceiver.registerWithUnifiedPush(this);
             checkServerVersion();
         }
     }
@@ -124,15 +119,6 @@ public class MainActivity extends FmdActivity {
                 .replace(R.id.fragment_container, activeFragment, activeFragment.getStaticTag())
                 .commit();
 
-        if (settings.serverAccountExists()) {
-            ServerLocationUploadService.scheduleJob(this, 0);
-            ServerConnectivityCheckService.scheduleJob(this);
-        } else {
-            // just in case it was still running
-            ServerLocationUploadService.cancelJob(this);
-            ServerConnectivityCheckService.cancelJob(this);
-            PushReceiver.unregisterWithUnifiedPush(this);
-        }
         TempContactExpiredService.scheduleJob(this, 0);
         invalidateOptionsMenu();
     }
