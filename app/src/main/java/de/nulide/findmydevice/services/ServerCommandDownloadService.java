@@ -5,6 +5,7 @@ import android.app.job.JobParameters;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
+import android.os.Build;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -58,9 +59,14 @@ public class ServerCommandDownloadService extends FmdJobService {
 
         ComponentName serviceComponent = new ComponentName(context, ServerCommandDownloadService.class);
         JobInfo.Builder builder = new JobInfo.Builder(jobId, serviceComponent);
-        builder.setMinimumLatency(0);
-        builder.setOverrideDeadline(1000);
         builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            builder.setExpedited(true);
+        } else {
+            // expedited jobs cannot have a delay
+            builder.setMinimumLatency(0);
+            builder.setOverrideDeadline(1000);
+        }
         JobScheduler jobScheduler = context.getSystemService(JobScheduler.class);
         jobScheduler.schedule(builder.build());
     }
