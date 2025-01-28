@@ -21,9 +21,9 @@
     <string name="Settings_Pin_Description">Wird als Bestätigung vor dem Löschen des Geräts und für die anonyme Nutzung von FMD verwendet.</string>
     <string name="Settings_Enter_Pin">PIN eingeben</string>
     <string name="pin">PIN</string>
-    <string name="pin_repeat">PIN Wiederholen</string>
+    <string name="pin_repeat">PIN wiederholen</string>
     <string name="Settings_FMDCommand_Description">Der für die Kommunikation mit FMD verwendete Befehl.</string>
-    <string name="Settings_Ringer_Tone_Description">Wählen Sie einen Klingelton aus, der beim Senden von \"fmd ring\" abgespielt werden soll.</string>
+    <string name="Settings_Ringer_Tone_Description">Wähle einen Klingelton aus, der beim Senden von \"fmd ring\" abgespielt werden soll.</string>
     <string name="Settings_Select_Ringtone">Klingelton auswählen</string>
     <string name="Settings_Lockscreenmessage_Description">Sperrbildschirmnachricht:
 \nEine Nachricht, welche auf dem Sperrbildschirm angezeigt wird, wenn das Gerät gesperrt wird.</string>
@@ -31,45 +31,44 @@
     <string name="Settings_FMD_Server_General">Allgemein</string>
     <string name="Settings_FMD_Server_Server_URL">Server URL:</string>
     <string name="Settings_FMD_Server_User_ID">User ID:</string>
-    <string name="Settings_FMD_Server_ID_Desc">Sie benötigen Ihre User ID um Ihr Gerät mit FMD Server zu finden. Notieren Sie sie sich und bewahren Sie sie sicher auf.</string>
-    <string name="Settings_FMDServer_Change_Password_Button">Password Ändern</string>
+    <string name="Settings_FMD_Server_ID_Desc">Du benötigst deine User ID, um dein Gerät mit FMD Server zu finden. Notiere sie dir und bewahre sie sicher auf.</string>
+    <string name="Settings_FMDServer_Change_Password_Button">Password ändern</string>
     <string name="Settings_FMDServer_Logout_Button">Ausloggen</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Dadurch werden alle Daten auf dem Server gelöscht. Sind Sie sicher?</string>
-    <string name="Settings_FMDServer_Push_Open_UP">UnifiedPush Webseite Öffnen</string>
+    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Dadurch werden alle Daten auf dem Server gelöscht. Bist du sicher?</string>
+    <string name="Settings_FMDServer_Push_Open_UP">UnifiedPush Webseite öffnen</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD lädt den Gerätestandort alle X Minuten hoch.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Standort-Quelle</string>
-    <string name="Settings_FMDServer_Location_Type_Description">Die Quelle(n) dessen Standort regelmäßig im Hintergrund hochgeladen werden soll.
-\nFalls keine ausgewählt ist werden keine Standorte regelmäßig hochgeladen. (Sie können das Standort-Hochladen weiterhin über das Webinterface erzwingen. Dies benötigt Push.)</string>
-    <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Bei Niedrigem Akkustand Hochladen</string>
-    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Lade den Standort hoch wenn der Akkustand niedrig wird. Dies benötigt Benachrichtigungszugriff.</string>
+    <string name="Settings_FMDServer_Location_Type_Description">Die Quelle(n), deren Standort regelmäßig im Hintergrund hochgeladen werden soll. \nFalls keine ausgewählt ist, werden keine Standorte regelmäßig hochgeladen. (Du kannst das Standort-Hochladen weiterhin über das Webinterface erzwingen. Dies benötigt Push.)</string>
+    <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Bei niedrigem Akkustand hochladen</string>
+    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Lade den Standort hoch, wenn der Akkustand niedrig wird. Dies benötigt Benachrichtigungszugriff.</string>
     <string name="password_old">Altes Passwort</string>
     <string name="password_new">Neues Passwort</string>
-    <string name="password_new_repeat">Neues Passwort Wiederholen</string>
+    <string name="password_new_repeat">Neues Passwort wiederholen</string>
     <!-- FMD Server Registration/Login -->
     <string name="server_version">Server-Version</string>
     <string name="server_version_error">Laden der Server-Version fehlgeschlagen</string>
     <string name="server_version_error_low_version">Es wird mindestens die Server-Version {MIN} benötigt, aber der ausgewählte Server hat Version {CURRENT}. Fortsetzen auf eigene Gefahr.</string>
     <string name="Settings_FMDServer_AddAccount">FMD Server: Einloggen/Registrieren</string>
-    <string name="Settings_FMDServer_Info">Mit FMD Server können Sie Befehle über das Internet schicken, vom Server an die App. Außerdem können Sie den Gerätestandort auf der Karten sehen, oder Bilder anschauen die das Gerät gemacht hat. Für eine Anleitung zum Selbsthosten, siehe Webseite.</string>
-    <string name="Settings_FMDServer_open_website">FMD Server Webseite Öffnen</string>
-    <string name="Settings_FMDServer_use_default_server">Nulides Öffentlichen Server benutzen</string>
+    <string name="Settings_FMDServer_Info">Mit FMD Server kannst du Befehle über das Internet vom Server an die App schicken. Außerdem kannst du den Gerätestandort auf der Karte verfolgen oder Bilder, die das Gerät aufgenommen hat, ansehen. Für eine Anleitung zum Selbsthosten, siehe Webseite.</string>
+    <string name="Settings_FMDServer_open_website">FMD Server Webseite öffnen</string>
+    <string name="Settings_FMDServer_use_default_server">Nulides öffentlichen Server benutzen</string>
     <string name="Settings_FMDServer_Login">Einloggen</string>
     <string name="Settings_FMDServer_Register">Registrieren</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Datenschutzbestimmungen</string>
     <string name="password">Passwort</string>
     <string name="registration_token">Registrierungs-Token</string>
-    <string name="registration_token_hint">Private Instanzen können ein geheimes Token erfordern. Lassen Sie dieses Feld leer wenn die Instanz öffentlich ist.</string>
+    <string name="registration_token_hint">Private Instanzen können ein geheimes Token erfordern. Lass dieses Feld leer, wenn die Instanz öffentlich ist.</string>
     <!-- Settings: Allowed Contacts -->
-    <string name="Whitelist_help">Die Kontakte in dieser Liste dürfen Ihnen FMD Befehle via SMS schicken. Befehle von allen anderen werden ignoriert.</string>
-    <string name="Whitelist_empty">Keine erlaubten Kontakte. Klicken Sie den Button um Kontakte hinzuzufügen!</string>
+    <string name="Whitelist_help">Die Kontakte in dieser Liste dürfen dir FMD Befehle via SMS schicken. Befehle von allen anderen werden ignoriert.</string>
+    <string name="Whitelist_empty">Keine erlaubten Kontakte. Klicke den Button, um Kontakte hinzuzufügen!</string>
     <string name="WhiteList_Add_Contact">Kontakt hinzufügen</string>
-    <string name="WhiteList_Select_Number">Wählen Sie eine der Telefonnummern aus.</string>
-    <string name="Alert_First_Time_contact_added">Herzlichen Glückwunsch! Sie haben Ihren ersten Kontakt hinzugefügt. Sie können nun mit FMD kommunizieren, indem Sie eine SMS mit dem Inhalt \"fmd\" von der erlaubten Telefonnummer senden. Wenn alles funktioniert, wird die Anwendung antworten.</string>
+    <string name="WhiteList_Select_Number">Wähle eine der Telefonnummern aus.</string>
+    <string name="Alert_First_Time_contact_added">Herzlichen Glückwunsch! Du hast deinen ersten Kontakt hinzugefügt. Du kannst nun mit FMD kommunizieren, indem du eine SMS mit dem Inhalt \"fmd\" von der erlaubten Telefonnummer sendest. Wenn alles funktioniert, wird die Anwendung antworten.</string>
     <!-- Settings: OpenCelliD -->
-    <string name="OpenCellId_help">FMD kann den Dienst OpenCelliD benutzen um den ungefähren Standort zu bestimmen basierend auf der Mobilfunkzelle mit der das Gerät verbunden ist. Eine Internetverbindung ist benötigt für jede Standortanfrage. Außerdem müssen Sie ein OpenCelliD-Konto anlegen um ein eigenes API Access Token zu bekommen.</string>
-    <string name="OpenCellId_privacy">Privatsphäre: bedenke dass OpenCelliD mit jeder API-Anfrage Ihre aktuelle Mobilfunkzelle und somit auch Ihren Standort erfährt.</string>
-    <string name="OpenCellId_open_website">OpenCelliD Webseite Öffnen</string>
-    <string name="OpenCellId_test_opencellid">OpenCelliD-Verbindung Testen</string>
+    <string name="OpenCellId_help">FMD kann den Dienst OpenCelliD benutzen, um den ungefähren Standort zu bestimmen, basierend auf der Mobilfunkzelle mit der das Gerät verbunden ist. Eine Internetverbindung wird für jede Standortanfrage benötigt. Außerdem musst du ein OpenCelliD-Konto anlegen, um ein eigenes API Access Token zu bekommen.</string>
+    <string name="OpenCellId_privacy">Privatsphäre: Bedenke, dass OpenCelliD mit jeder API-Anfrage deine aktuelle Mobilfunkzelle und somit auch deinen Standort erfährt.</string>
+    <string name="OpenCellId_open_website">OpenCelliD Webseite öffnen</string>
+    <string name="OpenCellId_test_opencellid">OpenCelliD-Verbindung testen</string>
     <string name="OpenCellId_test_no_connection">Keine Mobilfunkverbindung</string>
     <!-- Settings: Logs -->
 
@@ -79,37 +78,35 @@
     <string name="about_wiki">Wiki</string>
     <!-- Crypto Update Boarding -->
     <string name="server_unregister_failed_title">Deregistrierung fehlgeschlagen</string>
-    <string name="server_unregister_failed_body">Die Deregistrierung ist mit folgendem Fehler fehlgeschlagen: {ERROR}
-\n
-\nSie können trotzdem fortsetzen, aber es könnte sein, dass Ihr Account nicht vom Server gelöscht wurde. Falls Sie fortsetzen wird Ihr Account lokal von diesem Gerät gelöscht.</string>
+    <string name="server_unregister_failed_body">Die Deregistrierung ist mit folgendem Fehler fehlgeschlagen: {ERROR} \n \nDu kannst trotzdem fortsetzen, aber es könnte sein, dass dein Account nicht vom Server gelöscht wurde. Falls du fortsetzt, wird dein Account lokal von diesem Gerät gelöscht.</string>
     <string name="server_unregister_continue_anyway">Trotzdem fortsetzen</string>
     <string name="server_unregister_dont_continue">Nicht fortsetzen</string>
     <!-- Permissions -->
 
     <!-- Notification Channels -->
     <string name="Notification_Usage">Nutzung</string>
-    <string name="Notification_Usage_Description">Benachrichtigungen wenn FMD Befehle erhält</string>
+    <string name="Notification_Usage_Description">Benachrichtigungen, wenn FMD Befehle erhält</string>
     <string name="Pin_Usage">PIN Nutzung</string>
-    <string name="Notification_Pin_Usage_Description">Benachrichtigungen wenn mit der PIN auf FMD zugegriffen wird</string>
+    <string name="Notification_Pin_Usage_Description">Benachrichtigungen, wenn mit der PIN auf FMD zugegriffen wird</string>
     <string name="Notification_Server">FMD Server</string>
     <!-- Varia -->
 
     <!-- Not yet sorted -->
-    <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Diese Anwendung soll im Hintergrund laufen. Um sicherzustellen, dass sie auch im Standby funktioniert, muss die Akku-Optimierung für diese App ausgemacht werden.</string>
+    <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Diese Anwendung soll im Hintergrund laufen. Um sicherzustellen, dass sie auch im Standby funktioniert, muss die Akku-Optimierung für diese App deaktiviert werden.</string>
     <string name="Delete">Löschen</string>
     <string name="Enable">Aktivieren</string>
     <string name="Locked_Lock_Screen">FindMyDevice
 \nDieses Gerät wurde gesperrt!
 \nNachricht vom Besitzer:</string>
-    <string name="Permission_POST_NOTIFICATIONS">FMD sendet gelegentlich Benachrichtigungen, z.B. um zu warnen wenn jemand das Gerät ortet.</string>
+    <string name="Permission_POST_NOTIFICATIONS">FMD sendet gelegentlich Benachrichtigungen, z.B. um zu warnen, wenn jemand das Gerät ortet.</string>
     <string name="cmd_help_message_start">FindMyDevice Kommandos:</string>
     <string name="cmd_locate_response_gps_will_follow">GPS-Koordinaten werden demnächst versendet.</string>
     <string name="Toast_Duplicate_contact">Dieser Kontakt existiert bereits.</string>
     <string name="MH_Pin_Accepted">Pin akzeptiert!</string>
     <string name="ringer_stop_ringing">KLINGELN STOPPEN</string>
     <string name="cmd_locate_response_location_off">Ortung fehlgeschlagen: der Standort ist ausgeschaltet.</string>
-    <string name="LockScreen_Usage_detectd">LockScreenMessage: Verwendung erkannt.</string>
-    <string name="LockScreen_Backbutton_pressed">LockScreenMessage: Zurück-Taste wurde gedrückt.</string>
+    <string name="LockScreen_Usage_detectd">Sperrbildschirmnachricht: Verwendung erkannt.</string>
+    <string name="LockScreen_Backbutton_pressed">Sperrbildschirmnachricht: Zurück-Taste wurde gedrückt.</string>
     <string name="Toast_Empty_FMDCommand">Leerer Befehl nicht erlaubt, Default wird verwendet.</string>
     <string name="Notification_Security">Sicherheit</string>
     <string name="Notification_FAIL">Fehler</string>
@@ -117,9 +114,9 @@
     <string name="app_description">Mit FMD (Find My Device) kannst du dein Gerät aus der Ferne orten. Du kannst mit FMD über SMS, Instant Messengers, oder über FMD Server kommunizieren. Orte dein Gerät, lass es klingeln, sperre es, oder setze es auf Werkseinstellungen zurück - alles aus der Ferne.</string>
     <string name="Notification_Security_Description">Benachrichtigungen bzgl. Sicherheitsupdates</string>
     <string name="notify_crypto_update_title">Aktion erforderlich</string>
-    <string name="notify_crypto_update_text">Sie müssen einige Einstellungen ändern, um weiterhin FMD benutzen zu können. Bitte hier klicken.</string>
+    <string name="notify_crypto_update_text">Du musst einige Einstellungen ändern, um weiterhin FMD benutzen zu können. Bitte hier klicken.</string>
     <string name="request_failed_response_body">Response Body</string>
-    <string name="request_failed_exception">Exception</string>
+    <string name="request_failed_exception">Ausnahne</string>
     <string name="request_failed_title">Netzwerkanfrage fehlgeschlagen</string>
     <string name="request_failed_status_code">Statuscode</string>
     <string name="Notification_Server_Description">Benachrichtigungen bzgl. FMD Server</string>
@@ -188,7 +185,7 @@
     <string name="cmd_locate_last_known_location_not_available">Kein letzter bekannter Standort. Frage den aktuellen Standort an, um ein Standort-Update zu erzwingen.</string>
     <string name="transport_sms_description_note">SMS kann Kosten verursachen, sowohl für dich als auch für die Personen, die dir SMS schicken. Für SMS muss deine SIM-Karte entsperrt sein (z. B. nach einem Neustart).</string>
     <string name="transport_notification_reply_title">Antworten auf Benachrichtigungen</string>
-    <string name="transport_notification_reply_description_auth">Um FMD per Antworten auf Benachrichtigungen zu steuern muss die FMD-PIN gesetzt sein. Jede Nachricht muss die korrekte PIN enthalten.</string>
+    <string name="transport_notification_reply_description_auth">Um FMD per Antworten auf Benachrichtigungen zu steuern, muss die FMD-PIN gesetzt sein. Jede Nachricht muss die korrekte PIN enthalten.</string>
     <string name="transport_fmd_server_title">FMD Server</string>
     <string name="transport_fmd_server_description">FMD Server bietet eine Webschnittstelle, über die du dein Gerät steuern, seinen Standort abfragen und die von ihm gesendeten Bilder ansehen kannst. Du kannst FMD Server selbst hosten oder die bereitgestellte Instanz nutzen. Die Daten werden verschlüsselt auf dem Server gespeichert und sind durch dein Passwort geschützt.</string>
     <string name="transport_fmd_server_description_auth">Jeder der deinen Benutzernamen und dein Passwort kennt kann sich bei FMD Server anmelden und dein Gerät steuern.</string>
@@ -199,7 +196,7 @@
     <string name="cmd_locate_last_known_location_text">Letzter bekannter Standort</string>
     <string name="Settings_Import_Success">Import erfolgreich</string>
     <string name="WhiteList_no_contact_picker">Keine Kontakt-Auswahl-App gefunden!</string>
-    <string name="transport_notification_reply_description">Du kannst FMD erlauben deine Benachrichtigungen zu lesen um auf Befehle zu warten. FMD kann dann über die in Android integrierte Benachrichtigungsfunktion antworten. So kannst du FMD über eine Messaging-App deiner Wahl steuern, solange diese App Benachrichtigungen sendet, auf die man antworten kann. Du kannst z.B. eine Signal-Nachricht „fmd mypin help“ an dein Gerät senden.</string>
+    <string name="transport_notification_reply_description">Du kannst FMD erlauben deine Benachrichtigungen zu lesen, um auf Befehle zu warten. FMD kann dann über die in Android integrierte Benachrichtigungsfunktion antworten. So kannst du FMD über eine Messaging-App deiner Wahl steuern, solange diese App Benachrichtigungen sendet, auf die man antworten kann. Du kannst z.B. eine Signal-Nachricht „fmd mypin help“ an dein Gerät senden.</string>
     <string name="bottom_nav_settings">Einstellungen</string>
     <string name="missing_permissions_title">Fehlende Berechtigungen</string>
     <string name="transport_sms_title">SMS</string>
@@ -214,10 +211,10 @@
     <string name="allowlist_add_phone_number">Telefonnummer hinzufügen</string>
     <string name="allowlist_phone_number_name">Name</string>
     <string name="perm_unused_app_name">Einschränkungen für nicht benutzte Apps</string>
-    <string name="perm_unused_app_description">Android pausiert Apps, die einige Monate lang nicht geöffnet werden, und entfernt ihre Berechtigungen. Allerdings soll FMD im Hintergrund arbeiten. Nach der initialen Einrichtung öffnet man FMD nur selten. Daher musst du FMD von dieser Pausierung ausnehmen, sonst kann es passieren dass FMD in ein paar Monaten nicht mehr funktioniert.</string>
+    <string name="perm_unused_app_description">Android pausiert Apps, die einige Monate lang nicht geöffnet werden und entfernt ihre Berechtigungen. Allerdings soll FMD im Hintergrund arbeiten. Nach der initialen Einrichtung öffnet man FMD nur selten. Daher musst du FMD von dieser Pausierung ausnehmen, sonst kann es passieren, dass FMD in ein paar Monaten nicht mehr funktioniert.</string>
     <string name="crashed_send_log">Log senden</string>
     <string name="crashed_copy_log">Log kopieren</string>
-    <string name="OpenCellId_tower_collector_download">Tower Collector Herunterladen</string>
+    <string name="OpenCellId_tower_collector_download">Tower Collector herunterladen</string>
     <string name="OpenCellId_tower_collector_info">Du kannst zu OpenCelliD beitragen, indem du Mobilfunkmast-Daten sammelst und hochlädst. Dazu benötigst du eine extra App. Eine solche App ist Tower Collector.</string>
     <string name="crashed_open_issuetracker">Issue Tracker Öffnen</string>
     <string name="transport_inapp_title">In-App</string>
@@ -230,19 +227,19 @@
     <string name="usage_notification_text_source">Der Befehl \"%1$s\" wurde von \"%2$s\" ausgeführt.</string>
     <string name="Settings_FMD_Server_Connection_Status">Verbindungsstatus:</string>
     <string name="Settings_FMD_Server_Connection_Status_Success">Erfolg</string>
-    <string name="server_registration_token_error">Die Netzwerkanfrage ist mit HTTP 401 fehlgeschlagen. Dies kann passieren, wenn der Server ein Registrierungs-Token benötigt und das von Ihnen angegebene Token falsch war.</string>
-    <string name="server_login_attempts_title">Fehlgeschlagene Anmeldeversuche in FMD Server</string>
-    <string name="server_login_attempts_text">Jemand hat versucht sich in dein FMD Server-Account \"%s\" einzuloggen. Wegen mehrerer falscher Passwortversuche ist das Account nun für 10 Minuten gesperrt.</string>
+    <string name="server_registration_token_error">Die Netzwerkanfrage ist mit HTTP 401 fehlgeschlagen. Dies kann passieren, wenn der Server ein Registrierungs-Token benötigt und das von dir angegebene Token falsch war.</string>
+    <string name="server_login_attempts_title">Fehlgeschlagene Anmeldeversuche am FMD Server</string>
+    <string name="server_login_attempts_text">Jemand hat versucht sich in deinen FMD Server-Account \"%s\" einzuloggen. Wegen mehrerer falscher Passwortversuche ist der Account nun für 10 Minuten gesperrt.</string>
     <string name="cmd_locate_response_gps_fail">Das Finden einer neuen GPS-Position ist fehlgeschlagen. Vielleicht wegen einer Zeitüberschreitung.</string>
     <string name="Settings_no_ringtone_picker">Keine Klingelton-Auswahl-App gefunden!</string>
-    <string name="Settings_FMDServer_Delete_Account">Account Löschen</string>
+    <string name="Settings_FMDServer_Delete_Account">Account löschen</string>
     <string name="pw_change_success">Passwort geändert</string>
     <string name="pw_change_empty">Das Passwort darf nicht leer sein.</string>
     <string name="pw_change_wrong_password">Falsches Passwort</string>
     <string name="Settings_FMDServer_Error_id_or_pw_empty">Die FMD ID und das Passwort dürfen nicht leer sein.</string>
     <string name="cmd_bluetooth_response_on">Bluetooth eingeschaltet.</string>
     <string name="cmd_bluetooth_response_off">Bluetooth ausgeschaltet.</string>
-    <string name="perm_bluetooth_connect_name">Bluetooth Verbinden</string>
+    <string name="perm_bluetooth_connect_name">Bluetooth verbinden</string>
     <string name="export_success">Export erfolgreich</string>
     <string name="export_failed">Export fehlgeschlagen</string>
     <string name="log_view_title">Protokoll</string>
@@ -264,7 +261,7 @@
     <string name="appearance_theme_choose">Designstil auswählen</string>
     <string name="appearance_theme_light">Hell</string>
     <string name="appearance_dynamic_colors">Dynamische Farben</string>
-    <string name="Settings_FMDServer_Logout_Text">Möchten Sie sich wirklich aus Ihrem FMD Server-Account ausloggen?</string>
+    <string name="Settings_FMDServer_Logout_Text">Möchtest du dich wirklich aus deinem FMD Server-Account ausloggen?</string>
     <string name="crashed_title">Absturzbericht</string>
     <string name="server_version_upgrade_required_title">FMD Server muss geupdated werden</string>
     <string name="server_version_upgrade_required_text">Der genutzte FMD Server ist Version {CURRENT}, aber diese App benötigt mindestens {MIN}. Die Steuerung dieses Geräts mit diesem Server könnte beeinträchtigt sein. Bitte den Server updaten.</string>
@@ -282,10 +279,10 @@
     <string name="Settings_FMDServer_Update_Interval_Title">Intervall des Standortuploads im Hintergrund</string>
     <string name="usage_notification_pin_title">FMD PIN benutzt</string>
     <string name="usage_notification_pin_text">Der PIN wurde von dieser Nummer verwendet: \"%s\". Wir empfehlen, den PIN zu ändern.</string>
-    <string name="server_fmd_id_hint">Die FMD ID identifiziert Ihren Account auf dem FMD Server. Wenn Sie dieses Feld leer lassen generiert der Server eine ID für Sie. Bitte beachten Sie, dass die FMD ID im Klartext auf dem Server gespeichert wird, d.h. der Server Administrator kann sie einsehen.</string>
+    <string name="server_fmd_id_hint">Die FMD ID identifiziert deinen Account auf dem FMD Server. Wenn du dieses Feld leer lässt generiert der Server eine ID für dich. Bitte beachte, dass die FMD ID im Klartext auf dem Server gespeichert wird, d.h. der Server Administrator kann sie einsehen.</string>
     <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
-    <string name="Settings_FMDServer_Push_Register_Again">Erneut Registrieren</string>
+    <string name="Settings_FMDServer_Push_Register_Again">Erneut registrieren</string>
     <string name="Settings_FMDServer_Push_Register">Registrieren</string>
     <string name="Settings_FMDServer_Push_Distributor">Verteiler: %s</string>
-    <string name="Settings_FMDServer_Push_Description">Um Befehle von FMD Server an Ihr Gerät zu senden wird eine UnifiedPush-Verteiler-App benötigt.</string>
+    <string name="Settings_FMDServer_Push_Description">Um Befehle von FMD Server an dein Gerät zu senden, wird eine UnifiedPush-Verteiler-App benötigt.</string>
 </resources>
