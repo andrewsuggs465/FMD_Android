@@ -6,6 +6,8 @@ import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import de.nulide.findmydevice.R;
 import de.nulide.findmydevice.commands.CommandHandler;
 import de.nulide.findmydevice.data.Settings;
@@ -25,7 +27,7 @@ public class ServerCommandDownloadService extends FmdJobService {
 
     private final String TAG = ServerCommandDownloadService.class.getSimpleName();
 
-    private static final int JOB_ID = 109;
+    private static final int JOB_ID_BASE = 10_000;
     private SettingsRepository settingsRepo;
 
     @Override
@@ -38,7 +40,7 @@ public class ServerCommandDownloadService extends FmdJobService {
             return false;
         }
 
-        FmdLogKt.log(this).d(TAG, "Downloading remote command");
+        FmdLogKt.log(this).d(TAG, "Downloading remote command as jobId=" + params.getJobId());
         FMDServerApiRepository fmdServerRepo = FMDServerApiRepository.Companion.getInstance(new FMDServerApiRepoSpec(this));
         fmdServerRepo.getCommand(this::onResponse, Throwable::printStackTrace);
 
@@ -52,8 +54,10 @@ public class ServerCommandDownloadService extends FmdJobService {
     }
 
     public static void scheduleJobNow(Context context) {
+        int jobId = JOB_ID_BASE + ThreadLocalRandom.current().nextInt(0, JOB_ID_BASE);
+
         ComponentName serviceComponent = new ComponentName(context, ServerCommandDownloadService.class);
-        JobInfo.Builder builder = new JobInfo.Builder(JOB_ID, serviceComponent);
+        JobInfo.Builder builder = new JobInfo.Builder(jobId, serviceComponent);
         builder.setMinimumLatency(0);
         builder.setOverrideDeadline(1000);
         builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY);
