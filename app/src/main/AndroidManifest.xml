@@ -144,7 +144,7 @@
             android:name=".receiver.CopyInAppTextReceiver"
             android:exported="false" />
         <receiver
-            android:name=".receiver.SMSReceiver"
+            android:name=".receiver.SmsReceiver"
             android:directBootAware="true"
             android:exported="true"
             android:permission="android.permission.BROADCAST_SMS">
@@ -168,15 +168,15 @@
         </receiver>
 
         <service
-            android:name=".services.FmdServerConnectivityCheckService"
+            android:name=".services.ServerConnectivityCheckService"
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE" />
         <service
-            android:name=".services.FMDServerLocationUploadService"
+            android:name=".services.ServerLocationUploadService"
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE" />
         <service
-            android:name=".services.FMDServerCommandDownloadService"
+            android:name=".services.ServerCommandDownloadService"
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE" />
         <service
@@ -192,11 +192,11 @@
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE" />
         <service
-            android:name=".services.FMDSMSService"
+            android:name=".services.SmsService"
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE" />
         <service
-            android:name=".services.ThirdPartyAccessService"
+            android:name=".services.NotificationListenService"
             android:exported="false"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>

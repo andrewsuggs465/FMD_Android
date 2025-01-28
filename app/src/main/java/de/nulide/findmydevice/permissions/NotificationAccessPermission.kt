@@ -9,7 +9,7 @@ import android.os.Build
 import android.provider.Settings
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
-import de.nulide.findmydevice.services.ThirdPartyAccessService
+import de.nulide.findmydevice.services.NotificationListenService
 
 
 class NotificationAccessPermission : Permission() {
@@ -17,7 +17,7 @@ class NotificationAccessPermission : Permission() {
     override val name = R.string.perm_notification_access_name
 
     override fun isGranted(context: Context): Boolean {
-        val cn = ComponentName(context, ThirdPartyAccessService::class.java)
+        val cn = ComponentName(context, NotificationListenService::class.java)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
             val nm = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

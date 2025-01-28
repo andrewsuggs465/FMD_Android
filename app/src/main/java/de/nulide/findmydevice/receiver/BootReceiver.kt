@@ -5,9 +5,9 @@ import android.content.Context
 import android.content.Intent
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
-import de.nulide.findmydevice.services.FMDServerLocationUploadService
 import de.nulide.findmydevice.services.FmdBatteryLowService
-import de.nulide.findmydevice.services.FmdServerConnectivityCheckService
+import de.nulide.findmydevice.services.ServerConnectivityCheckService
+import de.nulide.findmydevice.services.ServerLocationUploadService
 import de.nulide.findmydevice.services.ServerVersionCheckService
 import de.nulide.findmydevice.services.TempContactExpiredService
 import de.nulide.findmydevice.ui.onboarding.UpdateboardingModernCryptoActivity
@@ -37,8 +37,8 @@ class BootReceiver : BroadcastReceiver() {
             UpdateboardingModernCryptoActivity.notifyAboutCryptoRefreshIfRequired(context)
 
             if (settings.serverAccountExists()) {
-                FMDServerLocationUploadService.scheduleJob(context, 0)
-                FmdServerConnectivityCheckService.scheduleJob(context);
+                ServerLocationUploadService.scheduleJob(context, 0)
+                ServerConnectivityCheckService.scheduleJob(context);
                 ServerVersionCheckService.scheduleJobNow(context)
             }
         }

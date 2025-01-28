@@ -22,9 +22,9 @@ import kotlin.Unit;
 /**
  * Uploads the location at regular intervals in the background
  */
-public class FMDServerLocationUploadService extends FmdJobService {
+public class ServerLocationUploadService extends FmdJobService {
 
-    private static final String TAG = FMDServerLocationUploadService.class.getSimpleName();
+    private static final String TAG = ServerLocationUploadService.class.getSimpleName();
 
     private static final int JOB_ID = 108; // for recurring jobs only
 
@@ -53,7 +53,7 @@ public class FMDServerLocationUploadService extends FmdJobService {
             jobId = ThreadLocalRandom.current().nextInt();
         }
 
-        ComponentName serviceComponent = new ComponentName(context, FMDServerLocationUploadService.class);
+        ComponentName serviceComponent = new ComponentName(context, ServerLocationUploadService.class);
         JobInfo.Builder builder = new JobInfo.Builder(jobId, serviceComponent)
                 .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY);
 
