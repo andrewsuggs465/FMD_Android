@@ -3,8 +3,10 @@ package de.nulide.findmydevice.data
 import android.content.Context
 import android.telephony.PhoneNumberUtils
 import com.google.gson.Gson
+import com.google.gson.JsonSyntaxException
 import com.google.gson.stream.JsonReader
 import de.nulide.findmydevice.utils.SingletonHolder
+import de.nulide.findmydevice.utils.log
 import java.io.File
 import java.io.FileReader
 import java.util.LinkedList
@@ -31,7 +33,10 @@ class TemporaryAllowlistModel : LinkedList<TempAllowedNumber>()
 class TemporaryAllowlistRepository private constructor(private val context: Context) {
 
     companion object :
-        SingletonHolder<TemporaryAllowlistRepository, Context>(::TemporaryAllowlistRepository) {}
+        SingletonHolder<TemporaryAllowlistRepository, Context>(::TemporaryAllowlistRepository) {
+
+        val TAG = TemporaryAllowlistRepository::class.simpleName
+    }
 
     private val gson = Gson()
 
@@ -43,8 +48,13 @@ class TemporaryAllowlistRepository private constructor(private val context: Cont
             file.createNewFile()
         }
         val reader = JsonReader(FileReader(file))
-        list = gson.fromJson(reader, TemporaryAllowlistModel::class.java)
-            ?: TemporaryAllowlistModel()
+        list = try {
+            gson.fromJson(reader, TemporaryAllowlistModel::class.java) ?: TemporaryAllowlistModel()
+        } catch (e: JsonSyntaxException) {
+            context.log().e(TAG, e.stackTraceToString())
+            // Reset the list
+            TemporaryAllowlistModel()
+        }
     }
 
     private fun saveList() {

@@ -3,8 +3,13 @@ package de.nulide.findmydevice.data
 import android.content.Context
 import android.telephony.PhoneNumberUtils
 import com.google.gson.Gson
+import com.google.gson.JsonSyntaxException
 import com.google.gson.stream.JsonReader
+import de.nulide.findmydevice.R
+import de.nulide.findmydevice.utils.Notifications
+import de.nulide.findmydevice.utils.Notifications.CHANNEL_FAILED
 import de.nulide.findmydevice.utils.SingletonHolder
+import de.nulide.findmydevice.utils.log
 import java.io.File
 import java.io.FileReader
 import java.io.InputStream
@@ -20,7 +25,9 @@ class AllowlistModel : LinkedList<Contact>()
 
 class AllowlistRepository private constructor(private val context: Context) {
 
-    companion object : SingletonHolder<AllowlistRepository, Context>(::AllowlistRepository) {}
+    companion object : SingletonHolder<AllowlistRepository, Context>(::AllowlistRepository) {
+        val TAG = AllowlistRepository::class.simpleName
+    }
 
     private val gson = Gson()
 
@@ -33,7 +40,14 @@ class AllowlistRepository private constructor(private val context: Context) {
             file.createNewFile()
         }
         val reader = JsonReader(FileReader(file))
-        list = gson.fromJson(reader, AllowlistModel::class.java) ?: AllowlistModel()
+        list = try {
+            gson.fromJson(reader, AllowlistModel::class.java) ?: AllowlistModel()
+        } catch (e: JsonSyntaxException) {
+            context.log().e(TAG, e.stackTraceToString())
+            // Reset the list
+            notifyAllowlistReset()
+            AllowlistModel()
+        }
     }
 
     private fun saveList() {
@@ -78,5 +92,11 @@ class AllowlistRepository private constructor(private val context: Context) {
         }
         list.removeAll(toRemove)
         saveList()
+    }
+
+    private fun notifyAllowlistReset() {
+        val title = context.getString(R.string.allowlist_reset_title)
+        val text = context.getString(R.string.allowlist_reset_text)
+        Notifications.notify(context, title, text, CHANNEL_FAILED)
     }
 }
