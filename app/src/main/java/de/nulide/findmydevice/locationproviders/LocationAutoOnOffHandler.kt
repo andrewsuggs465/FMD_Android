@@ -6,53 +6,87 @@ import android.os.Build
 import de.nulide.findmydevice.permissions.WriteSecureSettingsPermission
 import de.nulide.findmydevice.utils.SecureSettings
 import de.nulide.findmydevice.utils.SingletonHolder
+import de.nulide.findmydevice.utils.log
 
+
+data class AddJobResult(
+    val jobId: Long,
+    val isLocationOn: Boolean,
+)
 
 class LocationAutoOnOffHandler private constructor(val context: Context) {
 
     companion object :
-        SingletonHolder<LocationAutoOnOffHandler, Context>(::LocationAutoOnOffHandler) {}
+        SingletonHolder<LocationAutoOnOffHandler, Context>(::LocationAutoOnOffHandler) {
+
+        private val TAG = LocationAutoOnOffHandler::class.simpleName
+    }
 
     private var isTurnedOnByUs = false
 
     /**
      * Set of jobs that are currently running that need the location to be on.
      */
-    private val runningJobs = mutableSetOf<Int>()
+    private val runningJobs = mutableSetOf<Long>()
 
     // Synchronise adding and removing jobs. This avoids race conditions between concurrent jobs
     // which could result in broken state.
     private val lock = Any()
 
     /**
-     * Turns the location on for the job with the given id.
+     * Turns the location on for a job.
      *
-     * @return True if the location is on, false otherwise.
+     * @return
+     * - A jobId that should be passed to removeJob()
+     * - True if the location is on, false otherwise.
      */
-    fun addJob(jobId: Int): Boolean = synchronized(lock) {
+    fun addJob(): AddJobResult = synchronized(lock) {
+        val jobId = System.currentTimeMillis()
+
         if (isLocationOn(context)) {
-            return true
+            if (isTurnedOnByUs) {
+                // add this job, so that any job that exits earlier does not turn it off
+                runningJobs.add(jobId)
+                context.log().d(TAG, "Adding job=$jobId")
+            }
+            return AddJobResult(jobId, true)
         }
+
         if (!WriteSecureSettingsPermission().isGranted(context)) {
-            return false
+            return AddJobResult(jobId, false)
         }
 
         SecureSettings.turnGPS(context, true)
         isTurnedOnByUs = true
         runningJobs.add(jobId)
+        context.log().d(TAG, "Adding job=$jobId")
 
         // Give it some time to turn on
         Thread.sleep(500)
 
-        return true
+        return AddJobResult(jobId, true)
     }
 
-    fun removeJob(jobId: Int) = synchronized(lock) {
+    fun removeJob(jobId: Long) = synchronized(lock) {
         runningJobs.remove(jobId)
+        cleanJobs()
+        context.log().d(TAG, "Removing job=$jobId remaining=$runningJobs")
 
         if (runningJobs.isEmpty() && isTurnedOnByUs) {
             SecureSettings.turnGPS(context, false)
             isTurnedOnByUs = false
+        }
+    }
+
+    // Remove outdated jobs that never removed themselves
+    private fun cleanJobs() = synchronized(lock) {
+        val now = System.currentTimeMillis()
+        val old = runningJobs.toSet() // clone to avoid modifying the set that we are iteration over
+
+        for (id in old) {
+            if (id + MAX_GPS_DURATION_MILLIS < now) {
+                runningJobs.remove(id)
+            }
         }
     }
 }

@@ -7,6 +7,8 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.commands.ParserResult
+import de.nulide.findmydevice.data.Settings
+import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.net.FMDServerApiRepoSpec
 import de.nulide.findmydevice.net.FMDServerApiRepository
 import de.nulide.findmydevice.permissions.Permission
@@ -22,6 +24,7 @@ class FmdServerTransport(
     constructor(context: Context) : this(context, "FMD Server")
 
     private val repo = FMDServerApiRepository.getInstance(FMDServerApiRepoSpec(context))
+    private val settings = SettingsRepository.getInstance(context)
 
     @get:DrawableRes
     override val icon = R.drawable.ic_cloud
@@ -64,6 +67,9 @@ class FmdServerTransport(
         timeMillis: Long,
     ) {
         // no call to super(), we need to completely replace this for FMD Server
+
+        val now = System.currentTimeMillis()
+        settings.set(Settings.SET_FMDSERVER_LAST_LOCATION_UPLOAD_TIME, now)
 
         val batteryLevel = Utils.getBatteryLevel(context)
         repo.sendLocation(provider, lat, lon, batteryLevel, timeMillis)

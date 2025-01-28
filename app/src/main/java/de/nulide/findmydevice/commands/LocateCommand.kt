@@ -60,10 +60,9 @@ class LocateCommand(context: Context) : Command(context) {
         }
 
         val locOnOffHandler = LocationAutoOnOffHandler.getInstance(context)
-        val jobId = (0..Int.MAX_VALUE).random()
-        val isLocationOn = locOnOffHandler.addJob(jobId)
+        val res = locOnOffHandler.addJob()
 
-        if (!isLocationOn) {
+        if (!res.isLocationOn) {
             context.log().w(
                 TAG,
                 "Cannot locate: Location is off and missing permission WRITE_SECURE_SETTINGS"
@@ -92,7 +91,7 @@ class LocateCommand(context: Context) : Command(context) {
                 .forEach { deferred -> deferred.await() }
 
             // finish the job once all providers have finished
-            locOnOffHandler.removeJob(jobId)
+            locOnOffHandler.removeJob(res.jobId)
             job?.jobFinished()
         }
         coroutineScope.launch(Dispatchers.IO) { lambda() }
