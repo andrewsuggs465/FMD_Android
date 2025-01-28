@@ -86,6 +86,12 @@ class LogRepository private constructor(private val context: Context) {
     }
 
     fun pruneLog() {
+        // Prune the log when it becomes too large.
+        // When we prune, prune a bit more than the pruning threshold.
+        // This avoids pruning the log with every new entry.
+        if (list.size < 1200) {
+            return
+        }
         val maxLength = 1000
         val newStart = max(0, list.size - maxLength)
 
