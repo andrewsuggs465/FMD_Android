@@ -1,6 +1,7 @@
 package de.nulide.findmydevice.ui;
 
 import static de.nulide.findmydevice.net.ServerRequiredVersionCheckKt.isMinRequiredVersion;
+import static de.nulide.findmydevice.receiver.AppUpdatedReceiverKt.doUpdateMigrations;
 import static de.nulide.findmydevice.ui.UiUtil.setupEdgeToEdgeAppBar;
 
 import android.content.Intent;
@@ -79,7 +80,8 @@ public class MainActivity extends FmdActivity {
             return;
         }
 
-        settings.migrateSettings();
+        doUpdateMigrations(this);
+
         if (!(Boolean) settings.get(Settings.SET_UPDATEBOARDING_MODERN_CRYPTO_COMPLETED)) {
             Intent intent = new Intent(this, UpdateboardingModernCryptoActivity.class);
             startActivity(intent);
