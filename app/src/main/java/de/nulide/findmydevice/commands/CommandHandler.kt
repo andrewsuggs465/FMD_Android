@@ -55,13 +55,22 @@ class CommandHandler<T>
     /**
      * Parses and executes a command of the form "triggerWord command options", e.g. "fmd locate cell"
      */
-    fun execute(context: Context, rawCommand: String) {
+    @JvmOverloads
+    fun execute(
+        context: Context,
+        rawCommand: String,
+        onHandlingStarted: () -> Unit = {},
+    ) {
         coroutineScope.launch(Dispatchers.Default) {
-            executeSuspend(context, rawCommand)
+            executeSuspend(context, rawCommand, onHandlingStarted)
         }
     }
 
-    suspend fun executeSuspend(context: Context, rawCommand: String) {
+    suspend fun executeSuspend(
+        context: Context,
+        rawCommand: String,
+        onHandlingStarted: () -> Unit,
+    ) {
         context.log().d(
             TAG,
             "Handling command '$rawCommand' from source '${transport.getDestinationString()}'"
@@ -86,6 +95,8 @@ class CommandHandler<T>
                 if (showUsageNotification) {
                     showUsageNotification(context, rawCommand)
                 }
+                // Only call this if we are actually handling the command, and not aborting.
+                onHandlingStarted()
                 parsed.command.execute(parsed.args, transport, coroutineScope, job)
             }
 

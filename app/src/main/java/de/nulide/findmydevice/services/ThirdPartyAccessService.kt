@@ -60,9 +60,6 @@ class ThirdPartyAccessService : NotificationListenerService() {
 
         val transport = NotificationReplyTransport(sbn)
         val commandHandler = CommandHandler(transport, coroutineScope, null)
-        commandHandler.execute(this, message)
-
-        // TODO: only cancel if we replied
-        //cancelNotification(sbn.key)
+        commandHandler.execute(this, message) { cancelNotification(sbn.key) }
     }
 }
