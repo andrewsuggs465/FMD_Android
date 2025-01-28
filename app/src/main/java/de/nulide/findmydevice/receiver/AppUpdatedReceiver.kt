@@ -8,6 +8,7 @@ import de.nulide.findmydevice.services.ServerConnectivityCheckService
 import de.nulide.findmydevice.services.ServerLocationUploadService
 import de.nulide.findmydevice.services.ServerVersionCheckService
 import de.nulide.findmydevice.services.TempContactExpiredService
+import de.nulide.findmydevice.ui.onboarding.PinUpdate
 import de.nulide.findmydevice.ui.onboarding.UpdateboardingModernCryptoActivity
 import de.nulide.findmydevice.utils.log
 
@@ -30,6 +31,7 @@ class AppUpdatedReceiver : BroadcastReceiver() {
 
             settings.migrateSettings()
             UpdateboardingModernCryptoActivity.notifyAboutCryptoRefreshIfRequired(context)
+            PinUpdate.migratePin(context)
 
             if (settings.serverAccountExists()) {
                 ServerLocationUploadService.scheduleJob(context, 0)

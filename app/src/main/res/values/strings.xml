@@ -47,6 +47,7 @@
     <!-- Settings: General -->
     <string name="Settings_FMD_via_Pin_Description">Allows you to communicate with FMD via a PIN. This allows you to send commands from a phone number that is not in the Allowed Contacts list.</string>
     <string name="Settings_Pin_Description">Used as confirmation before wiping the device and for anonymous usage of the service.</string>
+    <string name="Settings_Pin_Not_Backed_Up">Warning: The PIN is not included in the app backup.</string>
     <string name="Settings_Enter_Pin">Enter PIN</string>
     <string name="pin">PIN</string>
     <string name="pin_repeat">Repeat PIN</string>
@@ -182,6 +183,9 @@
     <string name="server_unregister_failed_body">Unregistering failed with the following error: {ERROR}\n\nYou can continue anyway, but your account might not have been deleted from the server. If you continue, your account will be deleted locally from this device.</string>
     <string name="server_unregister_continue_anyway">Continue anyway</string>
     <string name="server_unregister_dont_continue">Don\'t continue</string>
+
+    <!-- Pin update boarding -->
+    <string name="update_pin_hash_change_text">The FMD PIN was reset during an app update. To continue using FMD with a PIN, please set the PIN again.</string>
 
     <!-- Commands -->
 

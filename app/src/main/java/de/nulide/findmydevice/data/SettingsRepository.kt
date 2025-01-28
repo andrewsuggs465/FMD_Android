@@ -1,7 +1,6 @@
 package de.nulide.findmydevice.data
 
 import android.content.Context
-import android.os.Build
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParseException
 import com.google.gson.JsonSyntaxException
@@ -26,8 +25,6 @@ import java.security.PublicKey
 import java.security.spec.EncodedKeySpec
 import java.security.spec.InvalidKeySpecException
 import java.security.spec.X509EncodedKeySpec
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 
 
 const val SETTINGS_FILENAME = "settings.json"
@@ -126,6 +123,11 @@ class SettingsRepository private constructor(private val context: Context) {
         return settings.get(key)
     }
 
+    fun remove(key: Int) {
+        settings.remove(key)
+        saveSettings()
+    }
+
     fun writeAsJson(outputStreamWriter: OutputStreamWriter) {
         writeAsJson(outputStreamWriter, settings)
     }
@@ -142,12 +144,6 @@ class SettingsRepository private constructor(private val context: Context) {
     }
 
 // ---------- Convenience helpers ----------
-
-    fun accessViaPinEnabled(): Boolean {
-        val enabled = get(Settings.SET_ACCESS_VIA_PIN) as Boolean
-        val pinHash = get(Settings.SET_PIN) as String
-        return enabled && pinHash.isNotEmpty()
-    }
 
     fun serverAccountExists(): Boolean {
         val id = get(Settings.SET_FMDSERVER_ID) as String

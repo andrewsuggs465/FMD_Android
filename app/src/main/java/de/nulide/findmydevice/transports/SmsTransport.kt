@@ -9,6 +9,7 @@ import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.commands.ParserResult
 import de.nulide.findmydevice.data.AllowlistRepository
+import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.data.TEMP_USAGE_VALIDITY_MILLIS
 import de.nulide.findmydevice.data.TemporaryAllowlistRepository
@@ -64,7 +65,8 @@ class SmsTransport(
         }
 
         // Case 2: phone number in temporary allowlist (i.e., it send the correct PIN earlier)
-        if (settings.accessViaPinEnabled()) {
+        val pinAccessEnabled = settings.get(Settings.SET_ACCESS_VIA_PIN) as Boolean
+        if (pinAccessEnabled) {
             if (tempAllowlistRepo.containsValidNumber(phoneNumber)) {
                 context.log().i(TAG, "$phoneNumber used FMD via temporary allowlist")
                 return true

@@ -2,11 +2,11 @@ package de.nulide.findmydevice.commands
 
 import android.content.Context
 import de.nulide.findmydevice.R
+import de.nulide.findmydevice.data.EncryptedSettingsRepository
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
-import de.nulide.findmydevice.utils.CypherUtils
 import de.nulide.findmydevice.utils.Notifications
 import de.nulide.findmydevice.utils.log
 import kotlinx.coroutines.CoroutineScope
@@ -78,11 +78,13 @@ class CommandHandler<T>
 
         val settings = SettingsRepository.getInstance(context)
         val fmdTriggerWord = settings.get(Settings.SET_FMD_COMMAND) as String
-        val expectedPinHash = settings.get(Settings.SET_PIN) as String
+
+        val encSettings = EncryptedSettingsRepository.getInstance(context)
+        val expectedPin = encSettings.getFmdPin()
 
         val cmds = availableCommands(context)
         val parser =
-            CommandParser(fmdTriggerWord, expectedPinHash, HelpCommand(cmds, context), cmds)
+            CommandParser(fmdTriggerWord, expectedPin, HelpCommand(cmds, context), cmds)
         val parsed = parser.parse(rawCommand)
 
         when (parsed) {
@@ -129,19 +131,5 @@ class CommandHandler<T>
 
     companion object {
         val TAG = CommandHandler::class.simpleName
-
-        // fmd <pin> locate
-        @JvmStatic
-        fun checkAndRemovePin(repo: SettingsRepository, msg: String): String? {
-            val expectedHash = repo.get(Settings.SET_PIN) as String
-            val parts = msg.split(" ").filter { it.isNotBlank() }
-            if (parts.size >= 2) {
-                val pin = parts[1]
-                if (CypherUtils.checkPasswordForFmdPin(expectedHash, pin)) {
-                    return msg.replace(pin, "")
-                }
-            }
-            return null
-        }
     }
 }
