@@ -33,7 +33,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
 
         val TAG = FMDServerApiRepository::class.simpleName
 
-        const val MIN_REQUIRED_SERVER_VERSION = "0.4.0"
+        const val MIN_REQUIRED_SERVER_VERSION = "0.6.0"
 
         private const val URL_ACCESS_TOKEN = "/requestAccess"
         private const val URL_COMMAND = "/command"
@@ -73,7 +73,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
                 tempBaseUrl.trim('/')
             )
         }
-        baseUrl = settingsRepo.get(Settings.SET_FMDSERVER_URL) as String
+        baseUrl = settingsRepo.get(Settings.SET_FMDSERVER_URL) as String + "/api/v1"
     }
 
     fun getServerVersion(
@@ -83,7 +83,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
     ) {
         val request = StringRequest(
             Method.GET,
-            customBaseUrl + URL_VERSION,
+            "${customBaseUrl.trim('/')}/api/v1$URL_VERSION",
             onResponse,
             onError
         )
