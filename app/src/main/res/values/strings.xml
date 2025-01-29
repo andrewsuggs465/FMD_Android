@@ -222,6 +222,7 @@
     <string name="cmd_locate_response_location_off">Cannot locate: location is turned off.</string>
     <string name="cmd_locate_response_gps_will_follow">GPS coordinates will be sent soon.</string>
     <string name="cmd_locate_response_opencellid_failed">Error gaining location from OpenCelliD. This can happen if the cell tower is not in the database.\n\nPlease try the following the link: %1$s\n\n%2$s</string>
+    <string name="cmd_locate_response_beacondb_failed">Error gaining location from BeaconDB. This can happen if the cell tower is not in the database.\n\n%s</string>
     <string name="cmd_locate_response_gps_fail">Getting a fresh GPS location failed. Maybe due to a timeout.</string>
     <string name="cmd_locate_last_known_location_text">Last known location</string>
     <string name="cmd_locate_last_known_location_not_available">No last known location. Request the latest location to force a location update.</string>
