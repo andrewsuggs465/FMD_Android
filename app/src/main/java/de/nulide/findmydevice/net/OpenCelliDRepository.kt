@@ -44,7 +44,8 @@ class OpenCelliDRepository private constructor(private val spec: OpenCelliDSpec)
                         response.getString("error")
                     } else "Missing lat or lon in response"
 
-                    context.log().w(TAG, message)
+                    context.log()
+                        .w(TAG, "OpenCelliD API call failed: $message\n${paras.prettyPrint()}")
                     onError(OpenCelliDError(message, url))
                 }
             },
