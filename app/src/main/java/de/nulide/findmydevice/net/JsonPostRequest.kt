@@ -35,4 +35,10 @@ class JsonPostRequest(
         val parsed = JSONObject()
         return Response.success(parsed, HttpHeaderParser.parseCacheHeaders(response))
     }
+
+    override fun getHeaders(): Map<String, String> {
+        return mapOf<String, String>(
+            Pair(HEADER_USER_AGENT, FMD_USER_AGENT)
+        )
+    }
 }

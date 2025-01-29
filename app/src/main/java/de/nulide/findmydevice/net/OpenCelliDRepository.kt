@@ -3,7 +3,6 @@ package de.nulide.findmydevice.net
 import android.content.Context
 import com.android.volley.Request
 import com.android.volley.RequestQueue
-import com.android.volley.toolbox.JsonObjectRequest
 import de.nulide.findmydevice.utils.CellParameters
 import de.nulide.findmydevice.utils.PatchedVolley
 import de.nulide.findmydevice.utils.SingletonHolder
