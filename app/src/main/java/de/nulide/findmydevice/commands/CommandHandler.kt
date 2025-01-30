@@ -10,8 +10,6 @@ import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.Notifications
 import de.nulide.findmydevice.utils.log
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 
 // Order matters for the home screen
@@ -60,16 +58,6 @@ class CommandHandler<T>
         context: Context,
         rawCommand: String,
         onHandlingStarted: () -> Unit = {},
-    ) {
-        coroutineScope.launch(Dispatchers.Default) {
-            executeSuspend(context, rawCommand, onHandlingStarted)
-        }
-    }
-
-    suspend fun executeSuspend(
-        context: Context,
-        rawCommand: String,
-        onHandlingStarted: () -> Unit,
     ) {
         context.log().d(
             TAG,

@@ -37,7 +37,7 @@ class CommandParser(
     val availableCommands: List<Command>,
 ) {
 
-    suspend fun parse(raw: String): ParserResult {
+    fun parse(raw: String): ParserResult {
         val tokens = splitBySpaceWithQuotes(raw)
         val iter = tokens.iterator()
 
