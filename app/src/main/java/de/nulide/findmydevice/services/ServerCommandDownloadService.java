@@ -73,7 +73,8 @@ public class ServerCommandDownloadService extends FmdJobService {
 
     private void onResponse(String remoteCommand) {
         FmdLogKt.log(this).i(TAG, "Received remote command '" + remoteCommand + "'");
-        if (remoteCommand.isEmpty()) {
+        if (remoteCommand.isBlank()) {
+            jobFinished();
             return;
         }
         if (remoteCommand.startsWith("423")) {
@@ -86,6 +87,7 @@ public class ServerCommandDownloadService extends FmdJobService {
                     msg,
                     Notifications.CHANNEL_SERVER
             );
+            jobFinished();
             return;
         }
         String fullCommand = settingsRepo.get(Settings.SET_FMD_COMMAND) + " " + remoteCommand;
