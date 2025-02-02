@@ -271,4 +271,8 @@
     <string name="Settings_FMDServer_Push_Register">Registrar</string>
     <string name="Settings_FMDServer_Push_Description">Para enviar comandos do Servidor FMD, seu dispositivo precisa de um app distribuidor UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Register_Again">Registrar Novamente</string>
+    <string name="Settings_Pin_Not_Backed_Up">Cuidado: O PIN não é incluso no backup de apps.</string>
+    <string name="allowlist_reset_text">Devido à um erro, os Contatos Permitidos foram redefinidos. Por favor, os configure novamente.</string>
+    <string name="allowlist_reset_title">Redefinição dos Contatos Permitidos</string>
+    <string name="update_pin_hash_change_text">O PIN FMD foi redefinido durante uma atualização do app. Para continuar usando o FMD com um PIN, por favor, defina o PIN novamente.</string>
 </resources>
