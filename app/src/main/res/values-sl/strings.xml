@@ -271,4 +271,8 @@
     <string name="Settings_FMDServer_Push_Register_Again">Ponovna registracija</string>
     <string name="Settings_FMDServer_Push_Distributor">Potisni razdelilnik: %s</string>
     <string name="Settings_FMDServer_Push_Description">Pošiljanje ukazov s FMD strežnika v vašo napravo zahteva namestitev aplikacije distributerja potisnih sporočil UnifiedPush.</string>
+    <string name="allowlist_reset_title">Dovoljena ponastavitev stikov</string>
+    <string name="update_pin_hash_change_text">FMD PIN koda je bila med posodobitvijo aplikacije izbrisana. Če želite še naprej uporabljati FMD s kodo PIN, jo znova nastavite.</string>
+    <string name="Settings_Pin_Not_Backed_Up">Opozorilo: PIN koda ni vključena v varnostno kopijo aplikacije.</string>
+    <string name="allowlist_reset_text">Zaradi zrušitve so bili dovoljeni stiki izbrisani. Prosim, nastavite jih ponovno.</string>
 </resources>
