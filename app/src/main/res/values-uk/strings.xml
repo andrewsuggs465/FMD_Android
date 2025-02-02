@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Toast_Empty_FMDCommand">Порожня команда не дозволена\n Повернення до налаштувань за замовчуванням.[fmd]</string>
+    <string name="Toast_Empty_FMDCommand">Порожня команда не дозволена, використовується за замовчуванням.</string>
     <string name="Settings_Lockscreenmessage_Description">Повідомлення на екрані блокування:
 \nКоли пристрій заблокований на екрані блокування з\'явиться це повідомлення.</string>
     <string name="Settings_FMD_Server_General">Загальне</string>
@@ -172,7 +172,7 @@
     <string name="perm_unused_app_description">Android ставить на паузу додатки, які не відкриваються протягом кількох місяців, і видаляє їхні дозволи. FMD, однак, має працювати у фоновому режимі. Після його налаштування вам рідко потрібно буде його відкривати. Тому вам потрібно вимкнути для FMD цю функцію, інакше він може не працювати через кілька місяців.</string>
     <string name="required_permissions_title">Необхідні дозволи</string>
     <string name="grant">Надати</string>
-    <string name="grant_write_secure_settings_description">Цей дозвіл можна надати тільки за допомогою інструменту командного рядка Android «pm grant». Ви можете виконати цю команду вручну через Android Debug Bridge (ADB) за допомогою комп\'ютера, або виконати її безпосередньо на вашому пристрої від імені користувача root чи Shizuku.</string>
+    <string name="grant_write_secure_settings_description">Цей дозвіл можна надати тільки за допомогою інструменту командного рядка Android «pm grant». Ви можете виконати цю команду вручну через Android Debug Bridge (ADB) за допомогою комп\'ютера, або виконати її безпосередньо на вашому пристрої від імені користувача root чи Shizuku.\n\nІдентифікатор користувача: %s</string>
     <string name="perm_shizuku_failed">Не вдалось надати дозвіл через Shizuku</string>
     <string name="grant_via_adb">Надати через ADB</string>
     <string name="grant_via_root">Надати через Root</string>
@@ -207,4 +207,60 @@
     <string name="server_registration_token_error">Не вдалося виконати мережевий запит з помилкою HTTP 401. Це може статися, якщо сервер вимагає токен реєстрації, а ви надали неправильний токен.</string>
     <string name="server_login_attempts_title">Невдалі спроби входу на сервер FMD</string>
     <string name="server_login_attempts_text">Хтось намагався увійти до вашого облікового запису FMD Server «%s». Через кілька невдалих спроб входу обліковий запис заблоковано на 10 хвилин.</string>
+    <string name="temporary_allowlist_expired">Термін дії вашого тимчасового доступу до FindMyDevice закінчився. Щоб продовжити користуватися FindMyDevice, надішліть PIN-код ще раз.</string>
+    <string name="pw_change_success">Пароль змінено</string>
+    <string name="Settings_FMDServer_Error_id_or_pw_empty">FMD ID та пароль не повинні бути порожніми.</string>
+    <string name="Settings_no_ringtone_picker">Не знайдено жодного вибирача мелодій!</string>
+    <string name="pw_change_empty">Пароль не може бути порожнім.</string>
+    <string name="cmd_bluetooth_response_off">Bluetooth вимкнено.</string>
+    <string name="cmd_delete_response_dry_run">Пробний запуск успішно завершено, фактичне видалення пристрою пропущено.</string>
+    <string name="Settings_Pin_Not_Backed_Up">Попередження: PIN не входить до резервної копії програми.</string>
+    <string name="server_fmd_id_hint">FMD ID ідентифікує ваш обліковий запис на сервері FMD. Залиште це поле порожнім, щоб дозволити серверу згенерувати ідентифікатор. Зверніть увагу, що FMD ID зберігається на сервері у відкритому вигляді, тобто адміністратор сервера може його бачити.</string>
+    <string name="allowlist_reset_text">Через збій, дозволені контакти було скинуто. Будь ласка, налаштуйте їх знову.</string>
+    <string name="allowlist_reset_title">Дозволені контакти скинуто</string>
+    <string name="update_pin_hash_change_text">PIN-код FMD було скинуто під час оновлення програми. Щоб продовжити користуватися FMD з PIN-кодом, будь ласка, встановіть його знову.</string>
+    <string name="export_success">Експорт пройшов успішно</string>
+    <string name="export_failed">Не вдалось експортувати</string>
+    <string name="Settings_Appearance">Зовнішній вигляд</string>
+    <string name="appearance_language">Мова</string>
+    <string name="appearance_theme_dark">Темна</string>
+    <string name="appearance_theme_follow_system">Системна</string>
+    <string name="appearance_theme_light">Світла</string>
+    <string name="cmd_delete_response_failed">Не вдалося видалити пристрій через виняток.</string>
+    <string name="Settings_FMDServer_Check_Interval_Title">Інтервал перевірки зв\'язку</string>
+    <string name="Settings_FMDServer_Check_Interval_Description">FMD перевіряє підключення до сервера FMD кожні X годин. Встановіть значення 0, щоб вимкнути перевірку підключення.</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Description">FMD сповістить вас, якщо останнє успішне з\'єднання з сервером FMD відбулося більше X годин тому. Це не має ніякого ефекту, якщо перевірка підключення вимкнена.</string>
+    <string name="pw_change_mismatch">Повторні паролі не збігаються.</string>
+    <string name="server_connectivity_lost_title">Втрачено з\'єднання з сервером FMD</string>
+    <string name="server_connectivity_lost_text">Сервер FMD за адресою %1$s більше не доступний. Останнє успішне з\'єднання було за адресою %2$s.</string>
+    <string name="cmd_bluetooth_response_no_bluetooth">Схоже цей пристрій не має Bluetooth.</string>
+    <string name="appearance_dynamic_colors">Динамічні кольори</string>
+    <string name="log_view_export">Експортувати журнал</string>
+    <string name="log_view_clear">Очистити журнал</string>
+    <string name="Settings_FMDServer_Push_Description">Для надсилання команд з FMD Server на ваш пристрій потрібен додаток-розподільник UnifiedPush.</string>
+    <string name="Settings_FMDServer_Push_Register">Зареєструвати</string>
+    <string name="Settings_FMDServer_Push_Register_Again">Зареєструвати знову</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Title">Максимально допустимий час без підключення</string>
+    <string name="server_version_upgrade_required_text">Сервер FMD, який ви використовуєте, має версію {CURRENT}, але цей додаток вимагає принаймні {MIN}. Керування вашим пристроєм через FMD Server може більше не працювати. Будь ласка, оновіть ваш сервер.</string>
+    <string name="log_view_title">Журнал</string>
+    <string name="cmd_locate_response_opencellid_failed">Помилка при отриманні місцеперебування від OpenCelliD. Це може статися, якщо вежі стільникового зв\'язку немає в базі даних.\n\nБудь ласка, спробуйте перейти за посиланням: %1$s\n\n%2$s</string>
+    <string name="pw_change_wrong_password">Неправильний пароль</string>
+    <string name="pw_change_network_failed">Зміна пароля не відбулася через помилку мережі.</string>
+    <string name="appearance_language_choose">Виберіть мову</string>
+    <string name="appearance_language_system_default">Мова системи</string>
+    <string name="appearance_theme">Тема</string>
+    <string name="appearance_theme_choose">Виберіть тему</string>
+    <string name="cmd_bluetooth_description_short">Вмикає та вимикає Bluetooth</string>
+    <string name="cmd_bluetooth_response_on">Bluetooth увімкнено.</string>
+    <string name="pin_match_command_keyword">PIN-код не повинен дорівнювати одній з команд!</string>
+    <string name="pin_mismatch">PIN-коди не співпадають!</string>
+    <string name="Settings_FMDServer_Delete_Account">Видалити обліковий запис</string>
+    <string name="Settings_FMDServer_Unregister_Success">Скасування реєстрації та видалення даних успішно завершено!</string>
+    <string name="Settings_FMDServer_Logout_Text">Ви дійсно хочете вийти зі свого облікового запису сервера FMD?</string>
+    <string name="log_view_clear_confirm">Ви впевнені що хочете видалити всі записи журналу?</string>
+    <string name="cmd_locate_response_gps_fail">Не вдалося отримати нові дані про місцеперебування за GPS. Можливо, через тайм-аут.</string>
+    <string name="crashed_title">Звіт про збій</string>
+    <string name="usage_notification_pin_title">FMD PIN використано</string>
+    <string name="server_version_upgrade_required_title">Потрібно оновити сервер FMD</string>
+    <string name="usage_notification_pin_text">PIN використовувався номером: \"%s\". Рекомендується змінити PIN-код.</string>
 </resources>
