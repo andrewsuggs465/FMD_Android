@@ -271,4 +271,8 @@
     <string name="Settings_FMDServer_Push_Register">Registrovat</string>
     <string name="Settings_FMDServer_Push_Register_Again">Znovu registrovat</string>
     <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
+    <string name="allowlist_reset_text">Kvůli pádu byly resetovány povolené kontakty. Nastavte je prosím znovu.</string>
+    <string name="update_pin_hash_change_text">Během aktualizace aplikace byl resetován PIN FMD. Abyste mohli nadále používat FMD s PINem, nastavte jej prosím znovu.</string>
+    <string name="Settings_Pin_Not_Backed_Up">Varování: záloha aplikace neobsahuje PIN.</string>
+    <string name="allowlist_reset_title">Povolené kontakty byly resetovány</string>
 </resources>
