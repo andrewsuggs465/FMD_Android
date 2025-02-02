@@ -135,7 +135,7 @@
     <string name="registration_token_hint">Voor privé-instanties kan een geheim token nodig zijn. Laat dit leeg als de instantie openbaar is.</string>
     <string name="Whitelist_help">De contacten in deze lijst mogen FMD-opdrachten via sms versturen. Opdrachten van anderen worden genegeerd.</string>
     <string name="server_registration_token_error">Netwerkaanvraag is mislukt met HTTP 401. Dit kan gebeuren als de server een registratietoken vereist en het opgegeven token onjuist was.</string>
-    <string name="Whitelist_empty">Geen toegestane contacten. Klik op de knop om er een paar toe te voegen!</string>
+    <string name="Whitelist_empty">Geen Toegestane contacten. Klik op de knop om er een paar toe te voegen!</string>
     <string name="WhiteList_Select_Number">Selecteer een van de telefoonnummers.</string>
     <string name="server_unregister_dont_continue">Niet doorgaan</string>
     <string name="cmd_bluetooth_response_no_bluetooth">Het apparaat lijkt geen Bluetooth te hebben.</string>
@@ -255,4 +255,8 @@
     <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
     <string name="Settings_FMDServer_Push_Register">Registreren</string>
     <string name="Settings_FMDServer_Push_Register_Again">Opnieuw registreren</string>
+    <string name="allowlist_reset_text">Ten gevolge van een crash zijn de Toegestane contacten teruggezet. Configureer deze opnieuw.</string>
+    <string name="Settings_Pin_Not_Backed_Up">Waarschuwing: De pincode is niet opgenomen in de app-back-up.</string>
+    <string name="allowlist_reset_title">Toegestane contacten teruggezet</string>
+    <string name="update_pin_hash_change_text">De FMD-pincode is teruggezet tijdens een app-update. Om FMD met een pincode te blijven gebruiken, moet deze opnieuw worden ingesteld.</string>
 </resources>
