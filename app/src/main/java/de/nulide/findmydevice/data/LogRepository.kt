@@ -48,6 +48,7 @@ class LogRepository private constructor(private val context: Context) {
     private val gson = Gson()
 
     val list: LogModel
+    private var dirty = false
 
     init {
         val file = File(context.filesDir, LOG_FILENAME)
@@ -64,12 +65,14 @@ class LogRepository private constructor(private val context: Context) {
             // We do NOT log the error to the new, empty LogModel created below, in order to avoid
             // running into loops (in case this stack trace is what causes the JsonSyntaxException).
             Log.e(TAG, e.stackTraceToString())
+            dirty = true
             // Silently reset the log
             LogModel()
         }
     }
 
-    private fun saveList() {
+    private fun save() {
+        if (!dirty) return
         val raw = synchronized(list) { gson.toJson(list) }
         val file = File(context.filesDir, LOG_FILENAME)
         file.writeText(raw)
@@ -77,11 +80,12 @@ class LogRepository private constructor(private val context: Context) {
 
     fun add(new: LogEntry) {
         synchronized(list) { list.add(new) }
-        pruneLog()
-        // no need to save, pruneLog() saves
+        dirty = true
+        prune()
+        save()
     }
 
-    fun pruneLog() {
+    fun prune() {
         // Prune the log when it becomes too large.
         // When we prune, prune a bit more than the pruning threshold.
         // This avoids pruning the log with every new entry.
@@ -93,13 +97,15 @@ class LogRepository private constructor(private val context: Context) {
             while (list.size > MAX_LOG_ENTRIES) {
                 list.removeFirst()
             }
-            saveList()
+            dirty = true
+            save()
         }
     }
 
     fun clearLog() = synchronized(list) {
         list.clear()
-        saveList()
+        dirty = true
+        save()
     }
 
     fun getLastCrashLog(): LogEntry? = synchronized(list) {
