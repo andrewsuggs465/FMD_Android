@@ -22,7 +22,7 @@
     <string name="Settings_Enter_Pin">Введіть PIN</string>
     <string name="pin_repeat">Повторіть PIN</string>
     <string name="Settings_Select_Ringtone">Виберіть мелодію</string>
-    <string name="Settings_FMDServer_Update_Interval_Title">Часовий проміжок оновлення</string>
+    <string name="Settings_FMDServer_Update_Interval_Title">Інтервал передавання фонового місцезнаходження</string>
     <string name="Settings_FMDServer_Location_Type_Title">Джерело місцеперебування</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Завантаження при низькому заряді акумулятора</string>
     <string name="password_old">Старий пароль</string>
@@ -92,7 +92,7 @@
     <string name="server_unregister_dont_continue">Не продовжувати</string>
     <string name="cmd_camera_description_short">Зробити фото</string>
     <string name="cmd_delete_response_disabled">Неможливо видалити: команда видалення не ввімкнена в налаштуваннях.</string>
-    <string name="cmd_gps_description_short">Увімкнення або вимкнення GPS</string>
+    <string name="cmd_gps_description_short">Увімкніть і вимкніть GPS</string>
     <string name="cmd_help_message_start">Команди FindMyDevice:</string>
     <string name="cmd_locate_description_short">Знайти пристрій</string>
     <string name="cmd_locate_last_known_location_text">Останнє відоме місцезнаходження</string>
@@ -133,7 +133,7 @@
     <string name="cmd_locate_last_known_location_not_available">Немає останнього відомого місцезнаходження. Запитайте останнє місцезнаходження, щоб оновити його.</string>
     <string name="cmd_lock_description_long">Заблокуйте пристрій і за бажанням покажіть повідомлення на екрані блокування. Після цього біометричне розблокування буде недоступне, а для розблокування пристрою знадобиться пароль пристрою.</string>
     <string name="cmd_lock_response">Тепер пристрій має бути заблоковано.</string>
-    <string name="cmd_nodisturb_description_short">Увімкнути або вимкнути функцію «Не турбувати»</string>
+    <string name="cmd_nodisturb_description_short">Увімкніть і вимкніть режим «Не турбувати»</string>
     <string name="cmd_ring_response">Зараз пристрій повинен дзвонити.</string>
     <string name="cmd_nodisturb_response_off">Режим «Не турбувати» вимкнено.</string>
     <string name="cmd_stats_description_short">Отримати статистику мережі</string>
@@ -260,7 +260,15 @@
     <string name="log_view_clear_confirm">Ви впевнені що хочете видалити всі записи журналу?</string>
     <string name="cmd_locate_response_gps_fail">Не вдалося отримати нові дані про місцеперебування за GPS. Можливо, через тайм-аут.</string>
     <string name="crashed_title">Звіт про збій</string>
-    <string name="usage_notification_pin_title">FMD PIN використано</string>
+    <string name="usage_notification_pin_title">PIN-код ящуру використано</string>
     <string name="server_version_upgrade_required_title">Потрібно оновити сервер FMD</string>
     <string name="usage_notification_pin_text">PIN використовувався номером: \"%s\". Рекомендується змінити PIN-код.</string>
+    <string name="pin">PIN</string>
+    <string name="perm_sms_name">SMS</string>
+    <string name="Settings_FMDServer_Push_Distributor">Дистриб\'ютор: %s</string>
+    <string name="Settings_FMDServer_Push_Url">Штовхати URL: %s</string>
+    <string name="perm_bluetooth_connect_name">Підключіть Bluetooth</string>
+    <string name="transport_sms_title">SMS</string>
+    <string name="LockScreen_Backbutton_pressed">LockScreenMessage: натиснуто кнопку «Назад».</string>
+    <string name="LockScreen_Usage_detectd">LockScreenMessage: виявлено використання.</string>
 </resources>
