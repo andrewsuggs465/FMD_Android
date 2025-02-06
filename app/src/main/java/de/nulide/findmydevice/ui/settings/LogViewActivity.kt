@@ -40,7 +40,7 @@ class LogViewActivity : FmdActivity() {
         recyclerView = findViewById<RecyclerView>(R.id.recycler_logs)
         recyclerView.adapter = adapter
 
-        adapter.submitList(repo.list)
+        synchronized(repo.list) { adapter.submitList(repo.list) }
         recyclerView.scrollToPosition(adapter.itemCount - 1)
     }
 
@@ -62,7 +62,7 @@ class LogViewActivity : FmdActivity() {
                 .setPositiveButton(getString(R.string.Ok), { dialog, button ->
                     repo.clearLog()
                     // TODO: let adapter observe list, instead of explicitly updating the adapter
-                    adapter.submitList(repo.list)
+                    synchronized(repo.list) { adapter.submitList(repo.list) }
                     recyclerView.scrollToPosition(0)
                 })
                 .setNegativeButton(getString(R.string.cancel), null)
@@ -79,7 +79,7 @@ class LogViewActivity : FmdActivity() {
                 val uri = data.data
                 if (uri != null) {
                     writeToUri(this, uri) { outputStream ->
-                        writeAsJson(OutputStreamWriter(outputStream), repo.list)
+                        synchronized(repo.list) { writeAsJson(OutputStreamWriter(outputStream), repo.list) }
                     }
                 }
             }
