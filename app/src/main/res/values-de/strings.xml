@@ -285,4 +285,8 @@
     <string name="Settings_FMDServer_Push_Register">Registrieren</string>
     <string name="Settings_FMDServer_Push_Distributor">Verteiler: %s</string>
     <string name="Settings_FMDServer_Push_Description">Um Befehle von FMD Server an dein Gerät zu senden, wird eine UnifiedPush-Verteiler-App benötigt.</string>
+    <string name="Settings_Pin_Not_Backed_Up">Achtung: Der PIN ist nicht im App-Backup enthalten.</string>
+    <string name="allowlist_reset_text">Aufgrund eines Absturzes wurden die Erlaubten Kontakte zurückgesetzt. Bitte konfiguriere sie erneut.</string>
+    <string name="allowlist_reset_title">Erlaubte Kontakte zurückgesetzt</string>
+    <string name="update_pin_hash_change_text">Die FMD-PIN wurde während eines App-Updates zurückgesetzt. Konfiguriere die PIN erneut, um FMD weiterhin mit einer PIN zu benutzen.</string>
 </resources>

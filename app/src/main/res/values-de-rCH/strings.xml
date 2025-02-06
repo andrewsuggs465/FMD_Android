@@ -267,4 +267,8 @@
     <string name="Settings_FMDServer_Push_Register_Again">Nomal Registriere</string>
     <string name="Settings_FMDServer_Push_Description">Zum Befehl vo FMD Server a dis Gerät z schicke bruchts en UnifiedPush-Verteiler-App.</string>
     <string name="server_fmd_id_hint">D FMD ID identifiziert din Account ufem FMD Server. Wenn du das Feld leer lasch, generiert d Server en ID für dich. Bis dir bewusst, dass d FMD ID im Klartext ufem Server gespeicheret wird, d.h. de Server Administrator cha sie aaluege.</string>
+    <string name="update_pin_hash_change_text">D FMD-PIN isch während emne App-Update zrugggsetzt worde. Bitte konfigurier d PIN nomal zum FMD wiiterhin mitem PIN bruche.</string>
+    <string name="allowlist_reset_title">Erlaubti Kontäkt zrugggsetzt</string>
+    <string name="allowlist_reset_text">Wege emne Absturz sind die Erlaubten Kontäkt zrugggsetzt worde. Bitte konfiguriere sie nomal.</string>
+    <string name="Settings_Pin_Not_Backed_Up">Achtung: D PIN isch nöd im App-Backup enthalte.</string>
 </resources>
