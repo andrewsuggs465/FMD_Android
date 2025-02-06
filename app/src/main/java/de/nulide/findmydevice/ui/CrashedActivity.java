@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import de.nulide.findmydevice.R;
+import de.nulide.findmydevice.data.LogEntry;
 import de.nulide.findmydevice.data.LogRepository;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
@@ -32,7 +33,12 @@ public class CrashedActivity extends FmdActivity {
         settings.set(Settings.SET_APP_CRASHED_LOG_ENTRY, 0);
 
         LogRepository repo = LogRepository.Companion.getInstance(this);
-        crashLog = repo.getLastCrashLog().getMsg();
+        LogEntry entry = repo.getLastCrashLog();
+        if (entry == null) {
+            continueToMain();
+            return;
+        }
+        crashLog = entry.getMsg();
 
         TextView textViewCrashLog = findViewById(R.id.textViewCrash);
         textViewCrashLog.setText(crashLog);
