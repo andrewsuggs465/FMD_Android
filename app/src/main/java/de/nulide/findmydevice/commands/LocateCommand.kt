@@ -14,6 +14,7 @@ import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.job
 import kotlinx.coroutines.launch
 
 
@@ -82,8 +83,23 @@ class LocateCommand(context: Context) : Command(context) {
                 )
         }
 
+        val cleanupHandler = {
+            locOnOffHandler.removeJob(res.jobId)
+            job?.jobFinished()
+        }
+
+        // Make sure we clean up and properly finish the job, even when something else
+        // cancels the coroutine. E.g., when the system calls onStopJob() the coroutine
+        // is cancelled.
+        //
+        // Proper cleanup is important for the regular background upload, e.g., we need
+        // to make sure that the location auto-on/off runs.
+        coroutineScope.coroutineContext.job.invokeOnCompletion { cause ->
+            cleanupHandler()
+        }
+
         // run the providers and get the locations
-        val lambda = suspend {
+        coroutineScope.launch(Dispatchers.IO) {
             providers
                 // launch all providers in parallel
                 .map { prov -> prov.getAndSendLocation() }
@@ -91,9 +107,7 @@ class LocateCommand(context: Context) : Command(context) {
                 .forEach { deferred -> deferred.await() }
 
             // finish the job once all providers have finished
-            locOnOffHandler.removeJob(res.jobId)
-            job?.jobFinished()
+            cleanupHandler()
         }
-        coroutineScope.launch(Dispatchers.IO) { lambda() }
     }
 }

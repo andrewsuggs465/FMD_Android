@@ -85,7 +85,7 @@ public class ServerLocationUploadService extends FmdJobService {
     @Override
     public boolean onStartJob(JobParameters params) {
         super.onStartJob(params);
-        FmdLogKt.log(this).d(TAG, "Starting background upload job");
+        FmdLogKt.log(this).d(TAG, "Starting background upload job with jobId=" + params.getJobId());
 
         PersistableBundle extras = params.getExtras();
         recurring = extras.getBoolean(EXTRA_RECURRING);

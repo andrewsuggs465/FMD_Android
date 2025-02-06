@@ -38,6 +38,7 @@ abstract class FmdJobService : JobService() {
 
     @CallSuper
     override fun onStopJob(params: JobParameters?): Boolean {
+        this.log().d(TAG, "Stopping job ${params?.jobId}")
         coroutineScope.cancel()
         return false
     }
