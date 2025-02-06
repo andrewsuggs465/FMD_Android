@@ -22,16 +22,14 @@ class AppUpdatedReceiver : BroadcastReceiver() {
     }
 
     override fun onReceive(context: Context?, intent: Intent) {
-        val settings = SettingsRepository.Companion.getInstance(context!!)
+        val settings = SettingsRepository.getInstance(context!!)
 
         if (intent.action == APP_UPDATED) {
             context.log().i(TAG, "Running MY_PACKAGE_REPLACED (APP_UPDATED) handler")
 
-            TempContactExpiredService.scheduleJob(context, 0)
+            doUpdateMigrations(context)
 
-            settings.migrateSettings()
-            UpdateboardingModernCryptoActivity.notifyAboutCryptoRefreshIfRequired(context)
-            PinUpdate.migratePin(context)
+            TempContactExpiredService.scheduleJob(context, 0)
 
             if (settings.serverAccountExists()) {
                 ServerLocationUploadService.scheduleJob(context, 0)
@@ -40,4 +38,11 @@ class AppUpdatedReceiver : BroadcastReceiver() {
             }
         }
     }
+}
+
+fun doUpdateMigrations(context: Context) {
+    val settings = SettingsRepository.getInstance(context)
+    settings.migrateSettings()
+    UpdateboardingModernCryptoActivity.notifyAboutCryptoRefreshIfRequired(context)
+    PinUpdate.migratePin(context)
 }
