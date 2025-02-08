@@ -73,7 +73,7 @@ class LogRepository private constructor(private val context: Context) {
 
     private fun save() {
         if (!dirty) return
-        val raw = synchronized(list) { gson.toJson(list) }
+        val raw = synchronized(list) { gson.toJson(list); dirty = false }
         val file = File(context.filesDir, LOG_FILENAME)
         file.writeText(raw)
     }
