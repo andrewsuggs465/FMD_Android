@@ -2,7 +2,7 @@ Eu perdi meu celular novo.
 E porque eu não uso os serviços do Google, eu não consegui localizá-lo e meu celular se foi pra sempre.
 Na esperança que isso não aconteça novamente, eu desenvolvi este aplicativo, para que eu possa localizar meu celular via SMS.
 
-Funcionalidades:
+Recursos:
 
 - Localizar o dispositivo (usando GPS ou localização de redes móveis)
 - Bloquear o dispositivo
@@ -12,7 +12,7 @@ Funcionalidades:
 
 Uso:
 
-Você pode controlar o FMD (e então seu dispositivo) via SMS ou pelo Servidor FMD.
+Você pode controlar o FMD (portanto seu dispositivo) via SMS ou pelo FMD Server.
 Você pode enviar um comando ao dispositivo (ex: "fmd ring") e o dispositivo o executará.
 
 Com o SMS, você pode definir uma lista de contatos confiados (números de telefone) que poderão executar comandos.
@@ -21,9 +21,9 @@ E assim, números de telefone não confiados podem enviar comandos ao incluir o 
 Isso é útil porque se você perde seu telefone, você pode pedir uma pessoa aleatória por ajuda para apagar seu dispositivo remotamente.
 Se você simplesmente enviar "fmd" para o seu dispositivo, o FMD responderá com uma mensagem que lista os comandos disponíveis.
 
-Com o Servidor FMD, você tem uma interface web para enviar comandos, para ver a localização do seu dispositivo em um mapa,
+Com o FMD Server, você tem uma interface web para enviar comandos, para ver a localização do seu dispositivo em um mapa,
 e para visualizar imagens tiradas pelo dispositivo.
-Você pode também hospedar o Servidor FMD você mesmo.
+Você pode também hospedar o FMD Server você mesmo.
 Você pode ver mais detalhes aqui: https://gitlab.com/nulide/findmydeviceserver
 
 Aviso:
