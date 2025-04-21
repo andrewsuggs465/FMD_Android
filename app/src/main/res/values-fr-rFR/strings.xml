@@ -238,7 +238,7 @@
     <string name="Settings_FMDServer_Check_Notify_After_Title">Temps maximum autorisé sans connectivité</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD enverra une notification si la dernière connexion réussie au Serveur FMD date d’il y a plus de X heures. Ceci n’a pas d’effet si la vérification de la connectivité est désactivée.</string>
     <string name="server_connectivity_lost_title">Connexion au Serveur FMD perdue</string>
-    <string name="server_connectivity_lost_text">Le Serveur FMD ne peut plus être contacté. La dernière connexion réussie était a %s.</string>
+    <string name="server_connectivity_lost_text">Le Serveur FMD %1$s ne peut plus être contacté. La dernière connexion réussie était à %2$s.</string>
     <string name="log_view_title">Journaux</string>
     <string name="log_view_clear">Supprimer les journaux</string>
     <string name="log_view_clear_confirm">Voulez-vous vraiment supprimer toutes les entrées des journaux ?</string>
