@@ -271,4 +271,8 @@
     <string name="Settings_FMDServer_Push_Description">Для отправки команд с FMD Сервера на ваше устройство, требуется приложение распространителя UnifiedPush.</string>
     <string name="server_fmd_id_hint">FMD ID идентифицирует ваш аккаунт на FMD Сервере. Оставьте это поле пустым, чтобы позволить серверу сгенерировать ID самостоятельно. Имейте ввиду, что FMD ID хранится на сервере в виде текста, и администратор сервера может видеть его.</string>
     <string name="Settings_FMDServer_Push_Register_Again">Зарегистрировать повторно</string>
+    <string name="allowlist_reset_title">Сброс разрешённых контактов</string>
+    <string name="update_pin_hash_change_text">PIN-код FMD был сброшен во время обновления приложения. Чтобы продолжить пользоваться FMD с PIN-кодом, пожалуйста установите PIN-код снова.</string>
+    <string name="Settings_Pin_Not_Backed_Up">Предупреждение: PIN-код не включён в резервную копию приложения.</string>
+    <string name="allowlist_reset_text">В связи со сбоем, разрешённые контакты были сброшены. Пожалуйста, настройте их снова.</string>
 </resources>
