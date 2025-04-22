@@ -48,8 +48,8 @@
     <string name="accept">允许</string>
     <string name="Settings_Settings">设置</string>
     <string name="Settings_FMDConfig">FMD-配置</string>
-    <string name="Settings_WhiteList">允许联系人</string>
-    <string name="Settings_FMD_via_Pin_Description">允许您通过PIN与FMD交流。这允许您通过不在“允许联系人”列表中的电话号码发送命令。</string>
+    <string name="Settings_WhiteList">允许的联系人</string>
+    <string name="Settings_FMD_via_Pin_Description">允许您通过PIN与FMD交流。这允许您通过不在“允许的联系人”列表中的电话号码发送命令。</string>
     <string name="pin_repeat">重复PIN</string>
     <string name="Settings_FMDCommand_Description">用于与FMD通信的命令。</string>
     <string name="Settings_FMDServer_Location_Type_Description">位置来源中的位置信息以一个规律的速度在后台更新。
@@ -254,9 +254,13 @@
     <string name="crashed_text">FMD崩溃了！以下是日志：</string>
     <string name="crashed_copy_log">复制日志</string>
     <string name="server_fmd_id_hint">FMD ID标识了您在FMD服务器上的账户，此字段留空会让服务器生成ID。请注意，FMD ID以明文形式存储在服务器上，即服务器管理员可以看到。</string>
-    <string name="Settings_FMDServer_Push_Distributor">Distributor: %s</string>
+    <string name="Settings_FMDServer_Push_Distributor">分发服务器：%s</string>
     <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
     <string name="Settings_FMDServer_Push_Register">注册</string>
     <string name="Settings_FMDServer_Push_Register_Again">重新注册</string>
     <string name="Settings_FMDServer_Push_Description">通过FMD Server向您的设备发送命令需要一个 UnifiedPush distributor应用。</string>
+    <string name="update_pin_hash_change_text">应用更新期间重置了FMD PIN。想继续使用带PIN的FMD，请重新设置。</string>
+    <string name="allowlist_reset_title">重置允许的联系人</string>
+    <string name="Settings_Pin_Not_Backed_Up">警告：PIN未包含在应用备份中。</string>
+    <string name="allowlist_reset_text">由于崩溃，允许的联系人被重置。请重新配置。</string>
 </resources>
