@@ -81,12 +81,12 @@
     <string name="ringer_stop_ringing">ايقاف الرنين</string>
     <string name="cmd_locate_response_location_off">عذرًا، تم إيقاف GPS.</string>
     <string name="Permission_POST_NOTIFICATIONS">سوف يرسل لك FMD أحيانًا إشعارات، على سبيل المثال لتحذيرك من أن شخصًا ما يحدد موقع جهازك.</string>
-    <string name="Locked_Lock_Screen">FindMyDevice
+    <string name="Locked_Lock_Screen">FMD
 \nهذا الهاتف مغلق!
 \nرسالة من المالك:</string>
     <string name="Toast_Duplicate_contact">جهة الاتصال هذه موجودة بالفعل.</string>
     <string name="Delete">حذف</string>
-    <string name="cmd_help_message_start">أوامر FindMyDevice:</string>
+    <string name="cmd_help_message_start">أوامر FMD:</string>
     <string name="OpenCellId_help">يمكن لـ FMD استخدام خدمة OpenCelliD للحصول على موقع تقريبي بناءً على البرج الخلوي الذي يتصل به الجهاز. مطلوب اتصال بالإنترنت لكل استعلام عن الموقع. تحتاج أيضًا إلى إنشاء حساب في OpenCelliD والحصول على Token للوصول إلى API الخاص بك.</string>
     <string name="Enable">تفعيل</string>
     <string name="Settings_FMDServer_Server_Url">رابط الخادم</string>
@@ -138,7 +138,7 @@
     <string name="Settings_FMDServer_Unregister_Success">تم مسح الحساب والبيانات بنجاح!</string>
     <string name="Settings_FMDServer_Location_Type_Description">المصدر أو المصادر التي يتم رفع بيانات الموقع إليها بانتظام في الخلفية.\nإن لم يتم إختيار أحدها، لن يتم رفع بيانات الموقع بانتظام. (بإمكانك استعمال واجهة الويب للقيام برفع إجباري، ما يتطلب إشعارات دفع مفعلة.)</string>
     <string name="pw_change_mismatch">كلمات السر غير متطابقة.</string>
-    <string name="temporary_allowlist_expired">انتهت صلاحية وصولك المؤقت إلى FindMyDevice. لمواصلة استخدام FindMyDevice، أرسل الرقم السري مرة أخرى.</string>
+    <string name="temporary_allowlist_expired">انتهت صلاحية وصولك المؤقت إلى FMD. لمواصلة استخدام FMD، أرسل الرقم السري مرة أخرى.</string>
     <string name="allowlist_phone_number_name">إسم</string>
     <string name="OpenCellId_tower_collector_info">يمكنك المساهمة إلى OpenCelliD بتجميع ورفع معلومات الأبراج الخلوية. تحتاج تطبيقا خاصا لذلك، مثل \"Tower Collector\".</string>
     <string name="appearance_theme_light">فاتح</string>

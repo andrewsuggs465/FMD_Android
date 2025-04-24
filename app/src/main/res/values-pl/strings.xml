@@ -53,7 +53,7 @@
     <string name="notify_crypto_update_title">Wymagane działania</string>
     <string name="server_unregister_continue_anyway">Kontynuuj mimo to</string>
     <string name="server_unregister_dont_continue">Nie kontynuuj</string>
-    <string name="cmd_help_message_start">Komendy FindMyDevice:</string>
+    <string name="cmd_help_message_start">Komendy FMD:</string>
     <string name="perm_camera_name">Kamera</string>
     <string name="perm_location_name">Lokalizacja</string>
     <string name="perm_sms_name">SMS</string>

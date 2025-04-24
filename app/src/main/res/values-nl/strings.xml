@@ -154,7 +154,7 @@
     <string name="cmd_delete_response_disabled">Kan niet wissen: de delete-opdracht is niet ingeschakeld in de instellingen.</string>
     <string name="cmd_gps_description_short">GPS aan-/uitzetten</string>
     <string name="cmd_help_description_short">Hulp weergeven</string>
-    <string name="cmd_help_message_start">FindMyDevice opdrachten:</string>
+    <string name="cmd_help_message_start">FMD opdrachten:</string>
     <string name="cmd_locate_response_location_off">Kan niet lokaliseren: locatie is uitgeschakeld.</string>
     <string name="cmd_locate_description_short">Het apparaat lokaliseren</string>
     <string name="cmd_locate_response_gps_will_follow">GPS-coördinaten worden verzonden.</string>
@@ -183,7 +183,7 @@
     <string name="grant_write_secure_settings_title">Beveiligde instellingen schrijven toestaan</string>
     <string name="grant_write_secure_settings_description">Deze machtiging kan alleen worden verleend met de Android opdrachtregel \"pm grant\". Je kunt deze opdracht handmatig uitvoeren via de Android Debug Bridge (ADB) met behulp van een computer. Je kunt het ook rechtstreeks op je apparaat uitvoeren met root of Shizuku.\n\nGebruikers-ID: %s</string>
     <string name="Toast_Duplicate_contact">Dit contact bestaat al.</string>
-    <string name="temporary_allowlist_expired">Je tijdelijke toegang tot FindMyDevice is verlopen. Als je FindMyDevice wilt blijven gebruiken, moet je de pincode opnieuw verzenden.</string>
+    <string name="temporary_allowlist_expired">Je tijdelijke toegang tot FMD is verlopen. Als je FMD wilt blijven gebruiken, moet je de pincode opnieuw verzenden.</string>
     <string name="OpenCellId_help">FMD kan de OpenCelliD-service gebruiken om een geschatte locatie te krijgen op basis van de zendmast waarmee het apparaat is verbonden. Voor elke locatiezoekopdracht is een internetverbinding vereist. Je moet ook een account aanmaken bij OpenCelliD en je eigen API Access Token krijgen.</string>
     <string name="OpenCellId_tower_collector_info">Je kunt bijdragen aan OpenCelliD door informatie over zendmasten te verzamelen en te uploaden. Hiervoor heb je een speciale app nodig, zoals bv. Tower Collector.</string>
     <string name="OpenCellId_tower_collector_download">Tower Collector downloaden</string>
@@ -220,7 +220,7 @@
     <string name="usage_notification_title">Opdracht uitgevoerd</string>
     <string name="missing_permissions_description">De volgende machtigingen zijn nodig om FMD uit te voeren.</string>
     <string name="usage_notification_text_source">De opdracht \"%1$s\" is uitgevoerd door \"%2$s\".</string>
-    <string name="Locked_Lock_Screen">FindMyDevice\nDit apparaat is vergrendeld!\nBericht van de eigenaar:</string>
+    <string name="Locked_Lock_Screen">FMD\nDit apparaat is vergrendeld!\nBericht van de eigenaar:</string>
     <string name="LockScreen_Usage_detectd">LockScreenMessage: Gebruik gedetecteerd.</string>
     <string name="missing_permissions_title">Ontbrekende machtigingen</string>
     <string name="LockScreen_Backbutton_pressed">LockScreenMessage: Knop Terug gedrukt.</string>

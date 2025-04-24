@@ -95,11 +95,11 @@
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Diese Anwendung soll im Hintergrund laufen. Um sicherzustellen, dass sie auch im Standby funktioniert, muss die Akku-Optimierung für diese App deaktiviert werden.</string>
     <string name="Delete">Löschen</string>
     <string name="Enable">Aktivieren</string>
-    <string name="Locked_Lock_Screen">FindMyDevice
+    <string name="Locked_Lock_Screen">FMD
 \nDieses Gerät wurde gesperrt!
 \nNachricht vom Besitzer:</string>
     <string name="Permission_POST_NOTIFICATIONS">FMD sendet gelegentlich Benachrichtigungen, z.B. um zu warnen, wenn jemand das Gerät ortet.</string>
-    <string name="cmd_help_message_start">FindMyDevice Kommandos:</string>
+    <string name="cmd_help_message_start">FMD Kommandos:</string>
     <string name="cmd_locate_response_gps_will_follow">GPS-Koordinaten werden demnächst versendet.</string>
     <string name="Toast_Duplicate_contact">Dieser Kontakt existiert bereits.</string>
     <string name="MH_Pin_Accepted">Pin akzeptiert!</string>
@@ -244,7 +244,7 @@
     <string name="export_failed">Export fehlgeschlagen</string>
     <string name="log_view_title">Protokoll</string>
     <string name="log_view_export">Protokoll exportieren</string>
-    <string name="temporary_allowlist_expired">Dein temporärer FindMyDevice-Zugang ist abgelaufen. Sende den PIN erneut um FindMyDevice weiter zu nutzen.</string>
+    <string name="temporary_allowlist_expired">Dein temporärer FMD-Zugang ist abgelaufen. Sende den PIN erneut um FMD weiter zu nutzen.</string>
     <string name="Settings_FMDServer_Unregister_Success">Erfolgreich de-registriert und Daten gelöscht!</string>
     <string name="pw_change_network_failed">Passwortänderung aufgrund eines Netzwerkfehlers fehlgeschlagen.</string>
     <string name="pw_change_mismatch">Die Passwörter stimmen nicht überein.</string>

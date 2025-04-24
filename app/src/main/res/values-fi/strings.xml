@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Locked_Lock_Screen">FindMyDevice
+    <string name="Locked_Lock_Screen">FMD
 \nTämä puhelin on lukittu!
 \nViesti omistajalta:</string>
     <string name="Enable">Ota käyttöön</string>
@@ -12,7 +12,7 @@
     <string name="Delete">Poista</string>
     <string name="Toast_Duplicate_contact">Yhteystieto on jo olemassa.</string>
     <string name="cmd_locate_response_gps_will_follow">GPS-koordinaatit lähetetään pian.</string>
-    <string name="cmd_help_message_start">FindMyDevice-komennot:</string>
+    <string name="cmd_help_message_start">FMD-komennot:</string>
     <string name="Settings_FMD_via_Pin_Description">Kommunikoi FMD:n kanssa PIN-koodia käyttäen. Tämä mahdollistaa komentojen lähettämisen puhelinnunerosta, joka ei ole valkoisella listalla.</string>
     <string name="Settings_Enter_Pin">Syötä PIN-koodi</string>
     <string name="MH_Pin_Accepted">PIN-koodi hyväksytty!</string>

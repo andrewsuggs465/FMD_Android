@@ -150,7 +150,7 @@
     <string name="Delete">Lösche</string>
     <string name="Toast_Duplicate_contact">De Kontakt gits scho.</string>
     <string name="Permission_POST_NOTIFICATIONS">FMD schickt mengisch Benachrichtigunge, z.B. zum Warne dass öpper s Gerät ortet.</string>
-    <string name="Locked_Lock_Screen">FindMyDevice
+    <string name="Locked_Lock_Screen">FMD
 \nS Gerät isch gsperrt worde!
 \nNachricht vom Besitzer:</string>
     <string name="transport_fmd_server_title">FMD Server</string>
@@ -164,7 +164,7 @@
     <string name="bottom_nav_transports">Transportkanäl</string>
     <string name="bottom_nav_settings">Iistellige</string>
     <string name="WhiteList_no_contact_picker">Kei Kontakt-Uuswahl-Aawendig gfunde!</string>
-    <string name="cmd_help_message_start">FindMyDevice Befehl:</string>
+    <string name="cmd_help_message_start">FMD Befehl:</string>
     <string name="cmd_locate_response_location_off">Ortung fehlgschlage: de Standort isch abgstellt.</string>
     <string name="cmd_locate_response_gps_will_follow">D GPS Koordinate werdet gad gschickt.</string>
     <string name="cmd_locate_last_known_location_text">Letzte bekannte Standort</string>
@@ -219,7 +219,7 @@
     <string name="Settings_FMDServer_Delete_Account">Konto lösche</string>
     <string name="Settings_FMDServer_Unregister_Success">De-registrierig und Datelöschig erfolgriich!</string>
     <string name="pw_change_mismatch">D Passwörter stimmed nöd überii.</string>
-    <string name="temporary_allowlist_expired">Diin temporäre FindMyDevice-Zuegang isch abgloffe. Send de PIN numal zum FindMyDevice wiiter nutze.</string>
+    <string name="temporary_allowlist_expired">Diin temporäre FMD-Zuegang isch abgloffe. Send de PIN numal zum FMD wiiter nutze.</string>
     <string name="log_view_title">Logs</string>
     <string name="log_view_export">Logs exportiere</string>
     <string name="pw_change_success">Passwort isch gänderet</string>

@@ -2,7 +2,7 @@
 <resources>
     <string name="Edit">Modifica</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Questa applicazione dovrebbe funzionare in background. Per assicurarsi che funzioni anche quando il dispositivo è in standby, è necessario disattivare l\'ottimizzazione della batteria per questa applicazione.</string>
-    <string name="Locked_Lock_Screen">FindMyDevice\nQuesto dispositivo è bloccato!\nMessaggio dal proprietario:</string>
+    <string name="Locked_Lock_Screen">FMD\nQuesto dispositivo è bloccato!\nMessaggio dal proprietario:</string>
     <string name="Enable">Attiva</string>
     <string name="Settings_Pin_Description">Utilizzato come conferma prima di cancellare i dati del dispositivo o per l\'utilizzo anonimo del servizio.</string>
     <string name="Settings_Lockscreenmessage_Description">Messaggio schermata di blocco:
@@ -12,7 +12,7 @@
     <string name="Delete">Cancella</string>
     <string name="Toast_Duplicate_contact">Questo contatto esiste già.</string>
     <string name="cmd_locate_response_gps_will_follow">Le coordinate GPS verranno inviate a breve.</string>
-    <string name="cmd_help_message_start">Comandi FindMyDevice:</string>
+    <string name="cmd_help_message_start">Comandi FMD:</string>
     <string name="Settings_FMD_via_Pin_Description">Consente di comunicare con FMD tramite un PIN. Questo permette di inviare comandi da un numero di telefono non presente nella lista dei Contatti Fidati.</string>
     <string name="Settings_Enter_Pin">Inserisci PIN</string>
     <string name="MH_Pin_Accepted">Pin corretto!</string>
@@ -214,7 +214,7 @@
     <string name="pw_change_mismatch">Le password ripetute non corrispondono.</string>
     <string name="pw_change_wrong_password">Password errata</string>
     <string name="pw_change_network_failed">Cambio password non riuscito a causa di un errore di rete.</string>
-    <string name="temporary_allowlist_expired">L\'accesso temporaneo di FindMyDevice è scaduto. Per continuare a utilizzare FindMyDevice, inviare nuovamente il PIN.</string>
+    <string name="temporary_allowlist_expired">L\'accesso temporaneo di FMD è scaduto. Per continuare a utilizzare FMD, inviare nuovamente il PIN.</string>
     <string name="log_view_title">Registri</string>
     <string name="log_view_export">Esporta registri</string>
     <string name="cmd_bluetooth_description_short">Attiva e disattiva il Bluetooth</string>

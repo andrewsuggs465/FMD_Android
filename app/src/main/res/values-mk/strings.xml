@@ -67,7 +67,7 @@
     <string name="cmd_delete_response_disabled">Не може да се избрише: наредбата за бришење не е дозволена во нагодувања.</string>
     <string name="cmd_delete_response_pwd_missing">Не може да се избрише: нема лозинка. Користење: %s.</string>
     <string name="cmd_delete_response_pwd_wrong">Не може да се избрише: погрешна лозинка.</string>
-    <string name="cmd_help_message_start">FindMyDevice наредби:</string>
+    <string name="cmd_help_message_start">FMD наредби:</string>
     <string name="cmd_locate_description_short">Пронајди го уредот</string>
     <string name="cmd_locate_description_long">Пронајди го уредот преку еден или повеќе давачи на позиција. Системскиот давач на позиција обично е ГПС, понекогаш во комбинација со други извори. Секундарниот давач е OpenCelliD, кој користи база на позиции на телефонски кули.</string>
     <string name="cmd_locate_last_known_location_text">Последна позната позиција</string>
@@ -191,7 +191,7 @@
     <string name="Notification_Fail_Description">Известувања за кога нешто нема да успее, како на пр., поврзување co FMD серверот</string>
     <string name="missing_permissions_title">Недостапни дозволи</string>
     <string name="missing_permissions_description">Следниве дозволи се потребни за FMD да работи.</string>
-    <string name="Locked_Lock_Screen">FindMyDevice
+    <string name="Locked_Lock_Screen">FMD
 \nОвој уред е заклучен!
 \nПорака од собственикот:</string>
     <string name="usage_notification_title">Извршена наредба</string>

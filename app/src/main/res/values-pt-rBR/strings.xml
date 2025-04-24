@@ -59,10 +59,10 @@
     <string name="Notification_Fail_Description">Notificações de quando algo falha, como a conexão ao Servidor FMD</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Este aplicativo é feita para rodar em segundo plano. Para ter certeza que ela funciona mesmo quando o seu dispositivo está em standby, você precisa desativar as otimizações de bateria para este app.</string>
     <string name="Permission_POST_NOTIFICATIONS">O FMD irá te enviar notificações ocasionalmente, por exemplo, para te avisar que alguém está localizando seu dispositivo.</string>
-    <string name="Locked_Lock_Screen">FindMyDevice
+    <string name="Locked_Lock_Screen">FMD
 \nEste dispositivo está bloqueado!
 \nMensagem do dono:</string>
-    <string name="cmd_help_message_start">Comandos do FindMyDevice:</string>
+    <string name="cmd_help_message_start">Comandos do FMD:</string>
     <string name="LockScreen_Usage_detectd">Mensagem da Tela de Bloqueio: Uso detectado.</string>
     <string name="LockScreen_Backbutton_pressed">Mensagem da Tela de Bloqueio: Botão de voltar pressionado.</string>
     <string name="loading">Carregando…</string>
@@ -227,7 +227,7 @@
     <string name="Settings_FMDServer_Delete_Account">Excluir Conta</string>
     <string name="pw_change_network_failed">Alteração de senha falhou por causa de um erro de rede.</string>
     <string name="Settings_FMDServer_Error_id_or_pw_empty">O ID FMD e senha não podem serem vazios.</string>
-    <string name="temporary_allowlist_expired">Seu acesso temporário do FindMyDevice acabou. Para continuar usando o FindMyDevice, envie o PIN novamente.</string>
+    <string name="temporary_allowlist_expired">Seu acesso temporário do FMD acabou. Para continuar usando o FMD, envie o PIN novamente.</string>
     <string name="cmd_bluetooth_description_short">Ativar/desativar Bluetooth</string>
     <string name="cmd_bluetooth_response_no_bluetooth">O dispositivo parece não ter Bluetooth.</string>
     <string name="cmd_bluetooth_response_on">Bluetooth ativado.</string>

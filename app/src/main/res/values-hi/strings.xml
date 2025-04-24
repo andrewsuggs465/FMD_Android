@@ -33,10 +33,10 @@
     <string name="Notification_Security">सुरक्षा</string>
     <string name="Notification_FAIL">विफलताएं</string>
     <string name="Permission_POST_NOTIFICATIONS">FMD कभी-कभी आपको सूचनाएं भेजेगा, उदाहरण के लिए आपको चेतावनी देने के लिए कि कोई आपके डिवाइस का पता लगा रहा है।</string>
-    <string name="Locked_Lock_Screen">FindMyDevice
+    <string name="Locked_Lock_Screen">FMD
 \nयह फोन लॉक है!
 \nमालिक की ओर से संदेश:</string>
-    <string name="cmd_help_message_start">FindMyDevice के कमांड:</string>
+    <string name="cmd_help_message_start">FMD के कमांड:</string>
     <string name="MH_Pin_Accepted">पिन स्वीकृत!</string>
     <string name="ringer_stop_ringing">घंटी बजाना बंद करें</string>
     <string name="cmd_locate_response_location_off">क्षमा करें, स्थान बंद है।</string>

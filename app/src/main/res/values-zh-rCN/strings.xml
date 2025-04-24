@@ -98,7 +98,7 @@
     <string name="pw_change_success">密码已更改</string>
     <string name="Settings_FMDServer_Error_id_or_pw_empty">FMD的ID和密码不能为空。</string>
     <string name="pw_change_network_failed">由于网络错误，密码更改失败。</string>
-    <string name="temporary_allowlist_expired">您的FindMyDevice临时访问权限已过期。要继续使用FindMyDevice，请再次发送PIN。</string>
+    <string name="temporary_allowlist_expired">您的FMD临时访问权限已过期。要继续使用FMD，请再次发送PIN。</string>
     <string name="export_success">导出成功</string>
     <string name="export_failed">导出失败</string>
     <string name="Settings_Appearance">外观</string>
@@ -140,7 +140,7 @@
     <string name="transport_sms_description_auth">只有允许列表中的电话号码才能发送命令。要从列表外的电话号码发送命令，您必须包含PIN：“fmd mypin help”。为了方便起见，您不必每次都重新输入PIN，此新电话号码会在接下来的10分钟内添加到临时允许列表中。</string>
     <string name="transport_notification_reply_description">您可以允许FMD读取您的通知以监听命令，然后FMD就可以通过安卓系统内置的通知回复功能进行回复。这样只要它发布的是可以回复的通知，您就可以使用您选择的消息应用程序控制FMD。例如，您可以向手机发送信号消息“FMD mypin help”。</string>
     <string name="transport_fmd_server_description_note">FMD服务器需要连接互联网，可以是移动网络（因此需要解锁SIM卡）或WiFi。</string>
-    <string name="Locked_Lock_Screen">FindMyDevice\n此设备已锁定！\n来自机主的消息：</string>
+    <string name="Locked_Lock_Screen">FMD\n此设备已锁定！\n来自机主的消息：</string>
     <string name="cmd_camera_response_no_fmd_server">无法拍照：不存在FMD服务器账户。</string>
     <string name="cmd_ring_description_short">使设备响铃</string>
     <string name="transport_fmd_server_title">FMD服务器</string>
@@ -167,7 +167,7 @@
     <string name="cmd_delete_response_failed">由于异常，删除设备失败。</string>
     <string name="cmd_delete_response_success">该设备现在应该已删除。再见！</string>
     <string name="cmd_locate_response_location_off">无法定位：定位功能已关闭。</string>
-    <string name="cmd_help_message_start">FindMyDevice命令：</string>
+    <string name="cmd_help_message_start">FMD命令：</string>
     <string name="cmd_locate_response_gps_will_follow">很快将发送GPS坐标。</string>
     <string name="cmd_locate_last_known_location_text">最后已知位置</string>
     <string name="cmd_ring_response">设备现在应该正在响铃。</string>

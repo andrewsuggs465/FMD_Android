@@ -5,7 +5,7 @@
     <string name="MH_Pin_Accepted">Code PIN accepté !</string>
     <string name="Settings_Enter_Pin">Entrez le code PIN</string>
     <string name="Settings_FMD_via_Pin_Description">Permet de communiquer avec FMD via un code PIN. Cela vous permet d\'envoyer des commandes à partir d\'un numéro de téléphone qui ne figure pas dans la liste des contacts autorisés.</string>
-    <string name="cmd_help_message_start">les commandes de FindMyDevice :</string>
+    <string name="cmd_help_message_start">les commandes de FMD :</string>
     <string name="cmd_locate_response_gps_will_follow">Les coordonnées GPS seront envoyées bientôt.</string>
     <string name="Toast_Duplicate_contact">Ce contact existe déjà.</string>
     <string name="Delete">Effacer</string>
@@ -16,7 +16,7 @@
 \nLors du verrouillage de l\'appareil, ce message apparaitra sur l\'écran de verrouillage.</string>
     <string name="Settings_Pin_Description">Utilisé comme confirmation avant d\'effacer l\'appareil et pour l\'utilisation anonyme du service.</string>
     <string name="Enable">Activer</string>
-    <string name="Locked_Lock_Screen">FindMyDevice
+    <string name="Locked_Lock_Screen">FMD
 \nCet appareil est verrouillé !
 \nMessage du propriétaire :</string>
     <string name="Notification_Usage_Description">Notifications lorsque FMD reçoit des commandes</string>

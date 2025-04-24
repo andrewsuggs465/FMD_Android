@@ -78,12 +78,12 @@
     <string name="Notification_FAIL">Napake</string>
     <string name="Notification_Fail_Description">Obvestila ko se pojavi napaka, npr. ko spodleti povezava na FMD strežnik</string>
     <string name="Permission_POST_NOTIFICATIONS">Aplikacija FMD vam bo občasno pošiljala obvestila, na primer, da vas opozori, da nekdo locira vašo napravo.</string>
-    <string name="Locked_Lock_Screen">FindMyDevice
+    <string name="Locked_Lock_Screen">FMD
 \nNaprava je zaklenjena!
 \nSporočilo lastnika:</string>
     <string name="Enable">Omogoči</string>
     <string name="Toast_Duplicate_contact">Ta stik že obstaja.</string>
-    <string name="cmd_help_message_start">FindMyDevice ukazi:</string>
+    <string name="cmd_help_message_start">FMD ukazi:</string>
     <string name="cmd_locate_response_gps_will_follow">GPS koordinate bodo kmalu poslane.</string>
     <string name="ringer_stop_ringing">IZKLJUČI ZVONENJE</string>
     <string name="LockScreen_Usage_detectd">LockScreenMessage: zaznana uporaba.</string>
@@ -223,7 +223,7 @@
     <string name="cmd_bluetooth_description_short">Vključi ali izključi Bluetooth</string>
     <string name="export_success">Izvoz uspešno zaključen</string>
     <string name="export_failed">Izvoz ni uspel</string>
-    <string name="temporary_allowlist_expired">Vaš začasni dostop do FindMyDevice je potekel. Če želite še naprej uporabljati FindMyDevice, znova pošljite PIN.</string>
+    <string name="temporary_allowlist_expired">Vaš začasni dostop do FMD je potekel. Če želite še naprej uporabljati FMD, znova pošljite PIN.</string>
     <string name="log_view_export">Izvozi dnevniške zapise</string>
     <string name="appearance_language">Jezik</string>
     <string name="appearance_language_choose">Izberi jezik</string>

@@ -10,7 +10,7 @@
     <string name="cmd_gps_response_on">GPS đã được bật.</string>
     <string name="cmd_gps_response_off">GPS đã được tắt.</string>
     <string name="cmd_help_description_short">Hiển thị trợ giúp</string>
-    <string name="cmd_help_message_start">Lệnh FindMyDevice:</string>
+    <string name="cmd_help_message_start">Lệnh FMD:</string>
     <string name="cmd_locate_description_short">Xác định vị trí thiết bị</string>
     <string name="cmd_locate_response_location_off">Không thể xác định vị trí: vị trí đã bị tắt.</string>
     <string name="cmd_locate_response_opencellid_failed">Lỗi khi lấy vị trí từ OpenCelliD. Điều này có thể xảy ra nếu trạm phát sóng không có trong cơ sở dữ liệu.\n\nVui lòng thử liên kết sau: %1$s\n\n%2$s</string>
@@ -184,7 +184,7 @@
     <string name="transport_fmd_server_title">máy chủ FMD</string>
     <string name="usage_notification_pin_title">Mã PIN FMD đã được sử dụng</string>
     <string name="missing_permissions_description">Các quyền sau đây là cần thiết để FMD hoạt động.</string>
-    <string name="Locked_Lock_Screen">FindMyDevice\nThiết bị này đã bị khóa!\nTin nhắn từ chủ sở hữu:</string>
+    <string name="Locked_Lock_Screen">FMD\nThiết bị này đã bị khóa!\nTin nhắn từ chủ sở hữu:</string>
     <string name="usage_notification_pin_text">Mã PIN đã được sử dụng bởi số này: \"%s\". Khuyến nghị thay đổi mã PIN.</string>
     <string name="transport_sms_description_auth">Chỉ những số điện thoại có trong danh sách cho phép mới có thể gửi lệnh. Để gửi lệnh từ một số điện thoại không có trong danh sách cho phép, bạn phải bao gồm mã PIN: \"fmd mypin help\". Để tiện lợi, để bạn không phải nhập lại mã PIN mỗi lần, số điện thoại mới này sẽ được thêm vào danh sách cho phép tạm thời trong 10 phút tới.</string>
     <string name="transport_fmd_server_description">Máy chủ FMD cung cấp giao diện web để điều khiển thiết bị của bạn, xem vị trí của nó và xem các hình ảnh mà nó gửi. Bạn có thể tự lưu trữ Máy chủ FMD hoặc sử dụng phiên bản được cung cấp. Dữ liệu được lưu trữ mã hóa trên máy chủ, được bảo vệ bằng mật khẩu của bạn.</string>

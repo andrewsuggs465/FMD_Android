@@ -93,7 +93,7 @@
     <string name="cmd_camera_description_short">Зробити фото</string>
     <string name="cmd_delete_response_disabled">Неможливо видалити: команда видалення не ввімкнена в налаштуваннях.</string>
     <string name="cmd_gps_description_short">Увімкніть і вимкніть GPS</string>
-    <string name="cmd_help_message_start">Команди FindMyDevice:</string>
+    <string name="cmd_help_message_start">Команди FMD:</string>
     <string name="cmd_locate_description_short">Знайти пристрій</string>
     <string name="cmd_locate_last_known_location_text">Останнє відоме місцезнаходження</string>
     <string name="cmd_ring_description_short">Дзвінок пристоєм</string>
@@ -207,7 +207,7 @@
     <string name="server_registration_token_error">Не вдалося виконати мережевий запит з помилкою HTTP 401. Це може статися, якщо сервер вимагає токен реєстрації, а ви надали неправильний токен.</string>
     <string name="server_login_attempts_title">Невдалі спроби входу на сервер FMD</string>
     <string name="server_login_attempts_text">Хтось намагався увійти до вашого облікового запису FMD Server «%s». Через кілька невдалих спроб входу обліковий запис заблоковано на 10 хвилин.</string>
-    <string name="temporary_allowlist_expired">Термін дії вашого тимчасового доступу до FindMyDevice закінчився. Щоб продовжити користуватися FindMyDevice, надішліть PIN-код ще раз.</string>
+    <string name="temporary_allowlist_expired">Термін дії вашого тимчасового доступу до FMD закінчився. Щоб продовжити користуватися FMD, надішліть PIN-код ще раз.</string>
     <string name="pw_change_success">Пароль змінено</string>
     <string name="Settings_FMDServer_Error_id_or_pw_empty">FMD ID та пароль не повинні бути порожніми.</string>
     <string name="Settings_no_ringtone_picker">Не знайдено жодного вибирача мелодій!</string>

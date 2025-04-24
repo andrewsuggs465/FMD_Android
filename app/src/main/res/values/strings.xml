@@ -140,7 +140,7 @@
     <string name="allowlist_reset_text">Due to a crash, the Allowed Contacts were reset. Please configure them again.</string>
 
     <!-- Settings: Temporary Allowed Contacts -->
-    <string name="temporary_allowlist_expired">Your temporary FindMyDevice access expired. To continue using FindMyDevice, send the PIN again.</string>
+    <string name="temporary_allowlist_expired">Your temporary FMD access expired. To continue using FMD, send the PIN again.</string>
 
     <!-- Settings: OpenCelliD -->
     <string name="OpenCellId_OpenCellId" translatable="false">OpenCelliD</string>
@@ -215,7 +215,7 @@
     <string name="cmd_gps_response_off">GPS turned off.</string>
 
     <string name="cmd_help_description_short">Show the help</string>
-    <string name="cmd_help_message_start">FindMyDevice Commands:</string>
+    <string name="cmd_help_message_start">FMD Commands:</string>
 
     <string name="cmd_locate_description_short">Locate the device</string>
     <string name="cmd_locate_description_long">Locate the device using one or more location providers. The operating system provider is usually GPS, sometimes with a combination of other sources. A second provider is OpenCelliD, which uses a database of cell tower locations.</string>
@@ -323,7 +323,7 @@
     <string name="missing_permissions_description">The following permissions are needed for FMD to run.</string>
 
     <!-- Lock screen message-->
-    <string name="Locked_Lock_Screen">FindMyDevice\nThis device is locked!\nMessage from the owner:</string>
+    <string name="Locked_Lock_Screen">FMD\nThis device is locked!\nMessage from the owner:</string>
     <string name="LockScreen_Usage_detectd">LockScreenMessage: Usage detected.</string>
     <string name="LockScreen_Backbutton_pressed">LockScreenMessage: Back-Button pressed.</string>
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Locked_Lock_Screen">FindMyDevice
+    <string name="Locked_Lock_Screen">FMD
 \n¡Este dispositivo está bloqueado!
 \nMensaje del propietari@:</string>
     <string name="Enable">Activar</string>
@@ -12,7 +12,7 @@
     <string name="Delete">Eliminar</string>
     <string name="Toast_Duplicate_contact">Este contacto ya existe.</string>
     <string name="cmd_locate_response_gps_will_follow">Las coordenadas GPS se enviarán pronto.</string>
-    <string name="cmd_help_message_start">Comandos de FindMyDevice:</string>
+    <string name="cmd_help_message_start">Comandos de FMD:</string>
     <string name="Settings_FMD_via_Pin_Description">Te permite comunicarte con FMD mediante un PIN. Esto te permite enviar comandos desde un número de teléfono que no está en la lista de contactos permitidos.</string>
     <string name="Settings_Enter_Pin">Introducir el PIN</string>
     <string name="MH_Pin_Accepted">¡Pin aceptado!</string>
@@ -218,7 +218,7 @@
     <string name="server_login_attempts_title">Intentos de inicio de sesión fallidos en el servidor FMD</string>
     <string name="server_login_attempts_text">Alguien intentó iniciar sesión en su cuenta de servidor FMD \" %s \". Debido a múltiples contraseñas incorrectas, la cuenta ahora está bloqueada durante 10 minutos.</string>
     <string name="cmd_locate_response_gps_fail">Error al obtener una nueva ubicación GPS. Tal vez debido a un tiempo de espera.</string>
-    <string name="temporary_allowlist_expired">El uso temporal de FindMyDevice ha expirado. Para seguir utilizando FindMyDevice, vuelve a enviar el PIN.</string>
+    <string name="temporary_allowlist_expired">El uso temporal de FMD ha expirado. Para seguir utilizando FMD, vuelve a enviar el PIN.</string>
     <string name="export_success">Exportación realizada</string>
     <string name="export_failed">Exportación fallida</string>
     <string name="log_view_export">Exportar registros</string>

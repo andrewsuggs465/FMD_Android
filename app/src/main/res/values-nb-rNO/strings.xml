@@ -58,7 +58,7 @@
     <string name="Notification_FAIL">Mislyktes</string>
     <string name="Pin_Usage">PIN-bruk</string>
     <string name="Notification_Pin_Usage_Description">Merknad om PIN-bruk.</string>
-    <string name="cmd_help_message_start">FindMyDevice-kommandoer:</string>
+    <string name="cmd_help_message_start">FMD-kommandoer:</string>
     <string name="Settings_Logs">Loggføring</string>
     <string name="server_unregister_failed_title">Avregistrering mislyktes</string>
     <string name="server_unregister_dont_continue">Ikke fortsett</string>
@@ -69,7 +69,7 @@
     <string name="Notification_Usage">Bruk</string>
     <string name="Delete">Slett</string>
     <string name="Notification_Fail_Description">Merknad når noe går galt, som f.eks. tilkoblingen til FMD-tjeneren.</string>
-    <string name="Settings_FMDCommand_Description">Kommando brukt til kommunikasjon med FindMyDevice-programmet.</string>
+    <string name="Settings_FMDCommand_Description">Kommando brukt til kommunikasjon med FMD-programmet.</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Last opp ved lav batterikapasitet</string>
     <string name="password_old">Gammelt passord</string>
     <string name="server_version_error">Kunne ikke hente tjenerversjon</string>
@@ -151,7 +151,7 @@
     <string name="grant_write_secure_settings_title">Innvilg skriving av sikkerhetsinnstillinger</string>
     <string name="grant_write_secure_settings_description">Denne tilgangen kan kun innvilges med Androids «pm grant»-kommandolinjeverktøy. Du kan kjøre denne kommandoen manuelt via Android-avlusningsbroen (ADB) ved å bruke en datamaskin. Du kan også kjøre det direkte på enheten din ved bruk av rot-tilgang eller Shizuku.</string>
     <string name="perm_write_secure_settings_name">Skriving av sikkerhetsinnstillinger</string>
-    <string name="Locked_Lock_Screen">FindMyDevice
+    <string name="Locked_Lock_Screen">FMD
 \nDenne enheten er låst.
 \nMelding fra eieren:</string>
     <string name="LockScreen_Backbutton_pressed">Låseskjermsmelding: «Tilbake»-knapp trykket.</string>

@@ -19,14 +19,14 @@
     <string name="Notification_Usage_Description">Oznámení, když FMD přijímá příkazy</string>
     <string name="Notification_Pin_Usage_Description">Oznámení při přístupu k FMD pomocí PINu</string>
     <string name="Permission_POST_NOTIFICATIONS">FMD vám bude čas od času posílat oznámení, například jako varování, že někdo vyhledává vaše zařízení.</string>
-    <string name="Locked_Lock_Screen">FindMyDevice
+    <string name="Locked_Lock_Screen">FMD
 \nToto zařízení je uzamčeno!
 \nZpráva od majitele:</string>
     <string name="Delete">Odstranit</string>
     <string name="ringer_stop_ringing">ZASTAVIT VYZVÁNĚNÍ</string>
     <string name="cmd_locate_response_location_off">Nelze najít: poloha je vypnuta.</string>
     <string name="cmd_locate_response_gps_will_follow">Souřadnice GPS budou brzy odeslány.</string>
-    <string name="cmd_help_message_start">Příkazy FindMyDevice:</string>
+    <string name="cmd_help_message_start">Příkazy FMD:</string>
     <string name="cmd_locate_last_known_location_text">Poslední známá poloha</string>
     <string name="cmd_locate_last_known_location_not_available">Není známa poslední poloha. Vyžádejte nejnovější polohu pro vynucení aktualizace polohy.</string>
     <string name="cmd_locate_response_opencellid_failed">Chyba při získávání polohy z OpenCelliD. To se může stát, když se mobilní věž nenachází v databázi.
@@ -218,7 +218,7 @@
     <string name="server_login_attempts_title">Nezdařené pokusy o přihlášení k serveru FMD</string>
     <string name="server_login_attempts_text">Někdo se pokusil přihlásit do vašeho účtu „%s“ na serveru FMD. Z důvodu několika nezdařených pokusů o zadání hesla je účet nyní na 10 minut uzamčen.</string>
     <string name="cmd_locate_response_gps_fail">Nepodařilo se získat aktuální polohu z GPS. Možná vypršel čas.</string>
-    <string name="temporary_allowlist_expired">Váš dočasný přístup k FindMyDevice vypršel. Pro pokračování v používání FindMyDevice zadejte znovu svůj PIN.</string>
+    <string name="temporary_allowlist_expired">Váš dočasný přístup k FMD vypršel. Pro pokračování v používání FMD zadejte znovu svůj PIN.</string>
     <string name="Settings_no_ringtone_picker">Výběrové menu pro vyzvánění nenalezeno!</string>
     <string name="Settings_FMDServer_Delete_Account">Smazat účet</string>
     <string name="Settings_FMDServer_Unregister_Success">Smazání účtu a všech dat proběhlo úspěšně!</string>
