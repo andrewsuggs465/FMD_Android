@@ -188,7 +188,7 @@
     <string name="perm_post_notification_name">Mostra Notifiche</string>
     <string name="perm_sms_name">SMS</string>
     <string name="perm_write_secure_settings_name">Scrivi impostazioni di sicurezza</string>
-    <string name="grant_write_secure_settings_description">Questa autorizzazione può essere concessa solo con lo strumento da riga di comando \"pm grant\" di Android. È possibile eseguire questo comando manualmente tramite Android Debug Bridge (ADB) utilizzando un computer. È anche possibile eseguirlo direttamente sul dispositivo tramite root o Shizuku.</string>
+    <string name="grant_write_secure_settings_description">Questa autorizzazione può essere concessa solo con lo strumento da riga di comando \"pm grant\" di Android. È possibile eseguire questo comando manualmente tramite Android Debug Bridge (ADB) utilizzando un computer. È anche possibile eseguirlo direttamente sul dispositivo tramite root o Shizuku.\n\nID utente: %s</string>
     <string name="transport_sms_title">SMS</string>
     <string name="grant_via_shizuku">Concedi via Shizuku</string>
     <string name="perm_root_denied">Accesso Root negato</string>
@@ -250,7 +250,17 @@
     <string name="log_view_clear">Cancella Voci</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Tempo massimo consentito senza connettività</string>
     <string name="server_connectivity_lost_title">Connettività Server FMD persa</string>
-    <string name="server_connectivity_lost_text">Il Server FMD non può più essere raggiunto. Ultima connessione riuscita in data %s.</string>
+    <string name="server_connectivity_lost_text">Il Server FMD su %1$s non può più essere raggiunto. Ultima connessione riuscita in data %2$s.</string>
     <string name="log_view_clear_confirm">Vuoi veramente eliminare tutte le voci di registro?</string>
     <string name="cmd_delete_response_dry_run">Prova riuscita, evitando l\'effettiva cancellazione del dispositivo.</string>
+    <string name="allowlist_reset_title">Azzera contatti fidati</string>
+    <string name="allowlist_reset_text">A causa di un arresto anomalo, i Contatti fidati sono stati ripristinati. Si prega di configurarli nuovamente.</string>
+    <string name="update_pin_hash_change_text">Il PIN di FMD è stato resettato durante un aggiornamento dell\'app. Per continuare a utilizzare FMD con un PIN, impostare nuovamente il PIN.</string>
+    <string name="Settings_FMDServer_Push_Description">L\'invio di comandi dal server FMD al dispositivo richiede un\'applicazione del distributore UnifiedPush.</string>
+    <string name="Settings_FMDServer_Push_Distributor">Distributore: %s</string>
+    <string name="Settings_FMDServer_Push_Register">Registra</string>
+    <string name="Settings_FMDServer_Push_Register_Again">Registra Nuovamente</string>
+    <string name="Settings_FMDServer_Push_Url">URL Push: %s</string>
+    <string name="server_fmd_id_hint">L\'ID FMD identifica l\'account sul server FMD. Lasciare vuoto questo campo per lasciare che il server generi un ID. Si noti che l\'ID FMD è memorizzato in chiaro sul server, vale a dire che l\'amministratore del server può vederlo.</string>
+    <string name="Settings_Pin_Not_Backed_Up">Attenzione: Il PIN non è incluso nel backup dell\'app.</string>
 </resources>

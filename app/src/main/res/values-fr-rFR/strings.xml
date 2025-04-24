@@ -180,7 +180,7 @@
     <string name="perm_unused_app_name">Restrictions d\'application inutilisées</string>
     <string name="grant">Autoriser</string>
     <string name="grant_write_secure_settings_title">Autoriser la modification des paramètres sécurisés</string>
-    <string name="grant_write_secure_settings_description">Cette autorisation ne peut être accordée qu\'avec l\'outil de ligne de commande \"pm grant\" d\'Android. Vous pouvez exécuter cette commande manuellement via Android Debug Bridge (ADB) en utilisant un ordinateur. Vous pouvez également l\'exécuter directement sur votre appareil en utilisant root ou Shizuku.</string>
+    <string name="grant_write_secure_settings_description">Cette autorisation ne peut être accordée qu\'avec l\'outil de ligne de commande \"pm grant\" d\'Android. Vous pouvez exécuter cette commande manuellement via Android Debug Bridge (ADB) en utilisant un ordinateur. Vous pouvez également l\'exécuter directement sur votre appareil en utilisant root ou Shizuku.\n\nID de l\'utilisateur : %s</string>
     <string name="grant_via_adb">Autoriser par ADB</string>
     <string name="grant_via_root">Autoriser par root</string>
     <string name="grant_via_shizuku">Autoriser par Shizuku</string>
@@ -238,7 +238,7 @@
     <string name="Settings_FMDServer_Check_Notify_After_Title">Temps maximum autorisé sans connectivité</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD enverra une notification si la dernière connexion réussie au Serveur FMD date d’il y a plus de X heures. Ceci n’a pas d’effet si la vérification de la connectivité est désactivée.</string>
     <string name="server_connectivity_lost_title">Connexion au Serveur FMD perdue</string>
-    <string name="server_connectivity_lost_text">Le Serveur FMD ne peut plus être contacté. La dernière connexion réussie était a %s.</string>
+    <string name="server_connectivity_lost_text">Le Serveur FMD %1$s ne peut plus être contacté. La dernière connexion réussie était à %2$s.</string>
     <string name="log_view_title">Journaux</string>
     <string name="log_view_clear">Supprimer les journaux</string>
     <string name="log_view_clear_confirm">Voulez-vous vraiment supprimer toutes les entrées des journaux ?</string>
@@ -261,4 +261,14 @@
     <string name="server_login_attempts_text">Quelqu’un a essayé de se connecter à votre compte Serveur FMD « %s ». À cause de plusieurs mauvais mots de passe, le compte est maintenant bloqué pour 10 minutes.</string>
     <string name="cmd_bluetooth_response_off">Bluetooth désactivé.</string>
     <string name="Notification_InApp">Intégré à l’application</string>
+    <string name="Settings_Pin_Not_Backed_Up">Attention : le code PIN n\'est pas inclus dans la sauvegarde de l\'application.</string>
+    <string name="Settings_FMDServer_Push_Description">Envoyer des commandes depuis le serveur FMD vers votre appareil nécessite une application publiant grâce à UnifiedPush.</string>
+    <string name="allowlist_reset_title">Réinitialisation des contacts autorisés</string>
+    <string name="allowlist_reset_text">A cause d\'un plantage, les contacts autorisés ont été réinitialisés. Merci de les configurer à nouveau.</string>
+    <string name="update_pin_hash_change_text">Le code PIN de FMD a été réinitialisé suite à une mise à jour de l\'appli. Pour continuer à utiliser un code PIN, merci de l\'enregistrer à nouveau.</string>
+    <string name="Settings_FMDServer_Push_Distributor">Publication : %s</string>
+    <string name="Settings_FMDServer_Push_Url">URL de publication : %s</string>
+    <string name="Settings_FMDServer_Push_Register">S\'enregistrer</string>
+    <string name="Settings_FMDServer_Push_Register_Again">S\'enregistrer à nouveau</string>
+    <string name="server_fmd_id_hint">L\'identifiant (ID) FMD permet d\'identifier votée compte sur le serveur FMD. Laisser le champ vide pour permettre au serveur de générer un ID. Veuillez noter que l\'ID FMD est enregistré sous forme de texte lisible depuis le serveur, donc que l\'administrateur du serveur peut le visualiser.</string>
 </resources>

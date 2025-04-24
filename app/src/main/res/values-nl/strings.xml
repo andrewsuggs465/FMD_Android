@@ -70,7 +70,7 @@
     <string name="cmd_camera_description_short">Foto nemen</string>
     <string name="cmd_camera_response_no_fmd_server">Kan geen foto maken: er is geen FMD Server-account.</string>
     <string name="cmd_lock_description_short">Het apparaat vergrendelen</string>
-    <string name="cmd_ring_response">Het apparaat zou nu moeten rinkelen.</string>
+    <string name="cmd_ring_response">Het apparaat zou nu moeten overgaan.</string>
     <string name="cmd_nodisturb_response_on">Niet storen is ingeschakeld.</string>
     <string name="cmd_stats_description_short">Netwerkinformatie opvragen</string>
     <string name="cmd_stats_description_long">Netwerkinformatie van het apparaat opvragen. Bijvoorbeeld het IP-adres en een lijst met wifi-netwerken in de omgeving.</string>
@@ -166,7 +166,7 @@
     <string name="cmd_locate_last_known_location_text">Laatst bekende locatie</string>
     <string name="cmd_lock_response">Het apparaat zou nu vergrendeld moeten zijn.</string>
     <string name="cmd_lock_description_long">Vergrendel het apparaat en toon eventueel een bericht op het vergrendelscherm. Hierna is biometrische ontgrendeling niet meer beschikbaar en is het wachtwoord vereist om het apparaat te ontgrendelen.</string>
-    <string name="cmd_ring_description_short">Het apparaat laten rinkelen</string>
+    <string name="cmd_ring_description_short">Laat het toestel overgaan</string>
     <string name="cmd_nodisturb_description_short">Niet storen aan-/uitzetten</string>
     <string name="perm_battery_optimizations_name">Instellingen voor batterijbesparing negeren</string>
     <string name="perm_camera_name">Camera</string>
@@ -224,7 +224,7 @@
     <string name="LockScreen_Usage_detectd">LockScreenMessage: Gebruik gedetecteerd.</string>
     <string name="missing_permissions_title">Ontbrekende machtigingen</string>
     <string name="LockScreen_Backbutton_pressed">LockScreenMessage: Knop Terug gedrukt.</string>
-    <string name="ringer_stop_ringing">RINKELEN STOPPEN</string>
+    <string name="ringer_stop_ringing">OVERGAAN STOPPEN</string>
     <string name="cmd_missing_permissions">Kan opdracht %1$s niet uitvoeren. Ontbrekende machtiging(en): %2$s .</string>
     <string name="crashed_send_log">Logboek verzenden</string>
     <string name="crashed_copy_log">Logboek kopiëren</string>

@@ -42,6 +42,20 @@ You can join the "Community" room for general discussions and the "Announcement"
 
 <a href='https://ko-fi.com/H2H35JLOY' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi4.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a> 
 
+## Funding
+
+<div style="display: inline-flex; align-items: center;">
+    <a href="https://nlnet.nl/" target="_blank">
+        <img src="https://nlnet.nl/logo/banner.svg" alt="nlnet" height="50">
+    </a>
+    <a href="https://nlnet.nl/taler" target="_blank">
+        <img src="https://nlnet.nl/image/logos/NGI_Mobifree_tag.svg" alt="NextGenerationInternet" height="50">
+    </a>
+</div>
+
+This project was funded through the NGI Mobifree Fund.
+For more details, visit our [project page](https://nlnet.nl/project/FMD/)
+
 ## Why is it taking that long to fix x?
 
 I am working full-time.
