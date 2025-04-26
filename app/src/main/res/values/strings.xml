@@ -34,7 +34,7 @@
 
     <!-- Settings (main screen, with the list) -->
     <string name="Settings_Settings">Settings</string>
-    <string name="Settings_FMDConfig">FMD-Config</string>
+    <string name="Settings_FMDConfig">General</string>
     <string name="Settings_FMDServer" translatable="false">FMD Server</string>
     <string name="Settings_WhiteList">Allowed Contacts</string>
     <string name="Settings_OpenCellId" translatable="false">OpenCelliD</string>
