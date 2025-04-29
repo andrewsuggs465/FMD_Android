@@ -285,7 +285,7 @@
     <string name="transport_notification_reply_description">You can allow FMD to read your notifications to listen for commands. FMD can then reply via Android\'s built-in notification reply feature. This allows you to control FMD using a messaging application of your choice, as long as it posts notifications that can be replied to. E.g., you can send a Signal message \"fmd mypin help\" to your phone.</string>
     <string name="transport_notification_reply_description_auth">Controlling FMD via Notification Reply requires the FMD PIN to be set. Every message must contain the correct PIN.</string>
 
-    <string name="transport_fmd_server_title">FMD Server</string>
+    <string name="transport_fmd_server_title" translatable="false">FMD Server</string>
     <string name="transport_fmd_server_description">FMD Server provides a web interface to control your device, view its location, and view pictures it sent. You can self-host FMD Server or use the provided instance. Data is stored encrypted on the server, protected by your password.</string>
     <string name="transport_fmd_server_description_auth">Anyone who knows your username and password can log in to FMD Server and control your device.</string>
     <string name="transport_fmd_server_description_note">FMD Server requires an internet connection. This can be a mobile network (thus the SIM needs to be unlocked) or WiFi.</string>
@@ -301,7 +301,7 @@
     <string name="Notification_Usage_Description">Notifications when FMD is receiving commands</string>
     <string name="Pin_Usage">PIN Usage</string>
     <string name="Notification_Pin_Usage_Description">Notifications when FMD is accessed is via the PIN</string>
-    <string name="Notification_Server">FMD Server</string>
+    <string name="Notification_Server" translatable="false">FMD Server</string>
     <string name="Notification_Server_Description">Notifications related to FMD Server</string>
     <string name="Notification_Security">Security</string>
     <string name="Notification_Security_Description">Notifications about security updates</string>
