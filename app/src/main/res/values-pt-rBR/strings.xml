@@ -65,7 +65,7 @@
     <string name="help">Ajuda</string>
     <string name="Cell">Redes móveis</string>
     <string name="request_failed_title">Solicitação de rede falhou</string>
-    <string name="Settings_FMDConfig">Configuração-FMD</string>
+    <string name="Settings_FMDConfig">Geral</string>
     <string name="Settings_WhiteList">Contatos permitidos</string>
     <string name="Settings_FMD_Server_ID_Desc">Você precisará do ID do usuário para encontrar seu dispositivo com o FMD Server. Mantenha-o seguro.</string>
     <string name="Settings_FMDServer_Logout_Button">Sair</string>
@@ -188,12 +188,12 @@
     <string name="OpenCellId_tower_collector_download">Baixar o Tower Collector</string>
     <string name="OpenCellId_tower_collector_info">Você pode contribuir ao OpenCelliD coletando e enviando informações de redes móveis. Você precisa de um app dedicado para isto. Um tal app é o Tower Collector.</string>
     <string name="crashed_open_issuetracker">Abrir o rastreador de problemas</string>
-    <string name="transport_inapp_send_command_title">Enviar comando dentro do app</string>
+    <string name="transport_inapp_send_command_title">Enviar comando pelo próprio app</string>
     <string name="transport_inapp_send_command_command_placeholder">Comando</string>
-    <string name="Notification_InApp">Canal de transporte dentro do app</string>
-    <string name="Notification_InApp_Description">Notificações do canal de transporte dentro do app</string>
+    <string name="Notification_InApp">Canal de transporte integrado</string>
+    <string name="Notification_InApp_Description">Notificações do canal de transporte integrado</string>
     <string name="usage_notification_text_source">O comando \"%1$s\" foi executado por \"%2$s\".</string>
-    <string name="transport_inapp_title">Dentro do app</string>
+    <string name="transport_inapp_title">Integrado</string>
     <string name="transport_inapp_description">Envie comandos localmente pelo FMD para o seu dispositivo. Isso é útil para testes. O FMD responderá com uma notificação.</string>
     <string name="transport_inapp_send_command_button_send">Enviar</string>
     <string name="Settings_FMD_Server_Connection_Status">Estado da conexão:</string>
@@ -225,7 +225,7 @@
     <string name="appearance_language">Idioma</string>
     <string name="appearance_language_choose">Selecionar idioma</string>
     <string name="appearance_language_system_default">Padrão do sistema</string>
-    <string name="cmd_delete_response_failed">Falha ao excluir dispositivo devido à uma exceção.</string>
+    <string name="cmd_delete_response_failed">Falha ao apagar o dispositivo devido à uma exceção.</string>
     <string name="appearance_theme_dark">Escuro</string>
     <string name="appearance_theme">Tema</string>
     <string name="appearance_theme_follow_system">Seguir o sistema</string>
