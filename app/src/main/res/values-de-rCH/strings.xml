@@ -10,7 +10,7 @@
     <string name="request_failed_response_body">Response Body</string>
     <string name="request_failed_exception">Usnahmefehler</string>
     <string name="Settings_Settings">Iistellige</string>
-    <string name="Settings_FMDConfig">FMD-Iistellige</string>
+    <string name="Settings_FMDConfig">Allgemein</string>
     <string name="Settings_WhiteList">Erlaubti Kontäkt</string>
     <string name="Settings_Import">Iistellige Importiere</string>
     <string name="Settings_FMD_via_Pin_Description">Machts dir möglich mit FMD via PIN zu kommuniziere. So chasch Befehl vonere Telefonnummer schicke wo nöd in dine Erlaubte Kontäkt isch.</string>
