@@ -24,7 +24,7 @@ The wiki can be found [here](https://gitlab.com/Nulide/findmydevice/-/wikis/home
 
 ## Contribute
 
-Translations are hosted on [Weblate](https://hosted.weblate.org/projects/findmydevice/fmd-android/),
+Translations are hosted on [Weblate](https://hosted.weblate.org/projects/fmd/fmd-android/),
 thanks to their free Libre tier.
 
 For translations instructions and other ways to contribute, see the [CONTRIBUTING.md](CONTRIBUTING.md).
@@ -54,7 +54,7 @@ You can join the "Community" room for general discussions and the "Announcement"
 </div>
 
 This project was funded through the NGI Mobifree Fund.
-For more details, visit our [project page](https://nlnet.nl/project/FMD/)
+For more details, visit our [project page](https://nlnet.nl/project/FMD/).
 
 ## Why is it taking that long to fix x?
 

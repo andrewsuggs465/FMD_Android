@@ -188,7 +188,7 @@
     <string name="OpenCellId_tower_collector_download">Baixar o Tower Collector</string>
     <string name="OpenCellId_tower_collector_info">Você pode contribuir ao OpenCelliD coletando e enviando informações de redes móveis. Você precisa de um app dedicado para isto. Um tal app é o Tower Collector.</string>
     <string name="crashed_open_issuetracker">Abrir o rastreador de problemas</string>
-    <string name="transport_inapp_send_command_title">Enviar comando pelo próprio app</string>
+    <string name="transport_inapp_send_command_title">Enviar comando pelo app</string>
     <string name="transport_inapp_send_command_command_placeholder">Comando</string>
     <string name="Notification_InApp">Canal de transporte integrado</string>
     <string name="Notification_InApp_Description">Notificações do canal de transporte integrado</string>
