@@ -87,7 +87,7 @@
     <string name="Alert_First_Time_contact_added">Вітаю. Ви додали свій перший контакт. Тепер ви можете зв\'язатися з FMD, надіславши SMS-повідомлення з текстом \"fmd\" з дозволеного номера телефону. Коли все буде в порядку, додаток відповість.</string>
     <string name="allowlist_phone_number">Номер телефону</string>
     <string name="Cell">Мобільне зʼєднання</string>
-    <string name="Settings_FMDConfig">Налаштування FMD</string>
+    <string name="Settings_FMDConfig">Загальне</string>
     <string name="notify_crypto_update_title">Потрібна дія</string>
     <string name="server_unregister_dont_continue">Не продовжувати</string>
     <string name="cmd_camera_description_short">Зробити фото</string>
@@ -188,10 +188,8 @@
     <string name="Notification_Usage">Використання</string>
     <string name="Notification_Fail_Description">Сповіщення, коли щось не вдається, наприклад, з\'єднатись зі FMD сервером</string>
     <string name="usage_notification_text">Команду \"%s\" виконано.</string>
-    <string name="Locked_Lock_Screen">Знайти мій пристрій
-\nЦей пристрій заблоковано!
-\nПовідомлення від власника:</string>
-    <string name="crashed_text">Ящур зазнав поразки! Ось журнал:</string>
+    <string name="Locked_Lock_Screen">FMD\nЦей пристрій заблоковано!\nПовідомлення від власника:</string>
+    <string name="crashed_text">FMD зазнав поразки! Ось журнал:</string>
     <string name="crashed_send_log">Надіслати журнал</string>
     <string name="crashed_continue_without">Продобжити без звіту</string>
     <string name="usage_notification_text_source">Команда «%1$s» була виконана «%2$s».</string>

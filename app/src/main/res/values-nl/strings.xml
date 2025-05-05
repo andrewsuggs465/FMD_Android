@@ -103,7 +103,7 @@
     <string name="request_failed_title">Netwerkaanvraag mislukt</string>
     <string name="Settings_Import_Failed">Import mislukt</string>
     <string name="request_failed_response_body">Hoofdtekst van de reactie</string>
-    <string name="Settings_FMDConfig">FMD-configuratie</string>
+    <string name="Settings_FMDConfig">Algemeen</string>
     <string name="Settings_Export">Instellingen exporteren</string>
     <string name="pw_change_mismatch">De wachtwoorden komen niet overeen.</string>
     <string name="Settings_Enter_Pin">Pincode invoeren</string>

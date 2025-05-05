@@ -119,4 +119,12 @@
     <string name="Settings_Pin_Not_Backed_Up">注意：ピンコードはアプリのバックアップには含まれません。</string>
     <string name="Settings_Select_Ringtone">呼び出し音を選択</string>
     <string name="server_version_upgrade_required_title">FMDのサーバーのアップグレードが必要です</string>
+    <string name="server_fmd_id_hint">FMD IDは、FMDサーバーがアカウントを確認する際に必要となります。空欄にするとサーバーが自動でIDを作成します。なお、FMD IDはサーバー上に平文で保存され、サーバーの管理者はこれを見ることができます。</string>
+    <string name="allowlist_phone_number_name">名前</string>
+    <string name="OpenCellId_tower_collector_download">Tower Collectorをダウンロード</string>
+    <string name="OpenCellId_test_opencellid">OpenCelliDの接続をテスト</string>
+    <string name="appearance_theme_choose">テーマを選択</string>
+    <string name="appearance_language_choose">言語を選択</string>
+    <string name="cmd_bluetooth_response_on">Bluetoothが有効になりました。</string>
+    <string name="cmd_bluetooth_response_off">Bluetoothが無効になりました。</string>
 </resources>

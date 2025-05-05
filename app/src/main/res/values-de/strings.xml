@@ -10,7 +10,7 @@
     <string name="Cell">Mobilfunkzelle</string>
     <!-- Settings (main screen, with the list) -->
     <string name="Settings_Settings">Einstellungen</string>
-    <string name="Settings_FMDConfig">FMD-Einstellungen</string>
+    <string name="Settings_FMDConfig">Allgemein</string>
     <string name="Settings_WhiteList">Erlaubte Kontakte</string>
     <string name="Settings_Import">Einstellungen importieren</string>
     <string name="Settings_Export">Einstellungen exportieren</string>

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Locked_Lock_Screen">Find My Device
-\nЭто устройство заблокировано!
-\nСообщение от его владельца:</string>
+    <string name="Locked_Lock_Screen">Find My Device \nЭто устройство заблокировано! \nСообщение от его владельца:</string>
     <string name="Enable">Включить</string>
     <string name="Settings_Pin_Description">Используется как подтверждение удаления данных, хранящихся на устройстве и для анонимного использования сервиса.</string>
     <string name="Settings_Lockscreenmessage_Description">Сообщение на экране блокировки:
