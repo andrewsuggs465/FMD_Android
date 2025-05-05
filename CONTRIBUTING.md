@@ -20,7 +20,7 @@ If you have questions or your merge request isn't ready you can upload it and ma
 
 ## Translating
 
-Translations are hosted on [Weblate](https://hosted.weblate.org/projects/findmydevice/fmd-android/).
+Translations are hosted on [Weblate](https://hosted.weblate.org/projects/fmd/fmd-android/).
 
 The source language is English, located in `values/strings.xml`.
 English translations should always be manually committed to Gitlab to keep the file clean and organised.
@@ -34,7 +34,7 @@ They are then synced down from Weblate to Gitlab, Weblate will automatically ope
 TLDR:
 
 ```
-git remote add weblate https://hosted.weblate.org/git/findmydevice/fmd-android
+git remote add weblate https://hosted.weblate.org/git/fmd/fmd-android
 git checkout -b fix-weblate
 git remote update weblate
 git merge --strategy-option theirs weblate/master
