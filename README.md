@@ -3,7 +3,7 @@
 Find your device via SMS, instant messengers, or a web interface
 ([FMD Server](https://gitlab.com/Nulide/findmydeviceserver)).
 
-FMD ("FindMyDevice") allows you to locate, ring, wipe and issue other commands to your device when it's lost.
+FMD allows you to locate, ring, wipe and issue other commands to your device when it's lost.
 It aims to be a secure open source alternative to Google's Find My Device.
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
@@ -18,16 +18,14 @@ Why has nobody created an open source application to find a lost device without 
 
 If you like FMD and want to support it, spread the word or donate.
 
-## Wiki
+## Documentation
 
-The wiki can be found [here](https://gitlab.com/Nulide/findmydevice/-/wikis/home).
+The docs can be found [here](https://fmd-foss.org/docs/overview).
 
 ## Contribute
 
-Translations are hosted on [Weblate](https://hosted.weblate.org/projects/fmd/fmd-android/),
-thanks to their free Libre tier.
-
-For translations instructions and other ways to contribute, see the [CONTRIBUTING.md](CONTRIBUTING.md).
+For translations instructions and other ways to contribute,
+see the [contribution guide](https://fmd-foss.org/docs/contribute/overview).
 
 ## Community
 
