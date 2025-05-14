@@ -4,30 +4,30 @@ Na esperança que isso não aconteça novamente, eu desenvolvi este aplicativo, 
 
 Recursos:
 
-- Localizar o dispositivo (usando GPS ou localização de redes móveis)
+- Localizar o dispositivo (usando GPS ou localização por redes móveis)
 - Bloquear o dispositivo
 - Fazer com que o dispositivo toque
 - Tirar fotos com a câmera do dispositivo para ver seus arredores
-- Redefinir o dispositivo às configurações de fábrica
+- Apagar os dados do dispositivo
 
 Uso:
 
-Você pode controlar o FMD (portanto seu dispositivo) via SMS ou pelo FMD Server.
+Você pode controlar o FMD (portanto seu dispositivo) pelo SMS ou pelo FMD Server.
 Você pode enviar um comando ao dispositivo (ex: "fmd ring") e o dispositivo o executará.
 
-Com o SMS, você pode definir uma lista de contatos confiados (números de telefone) que poderão executar comandos.
+Com o SMS, você pode definir uma lista de contatos confiáveis (números de telefone) que poderão executar comandos.
 Ou você pode definir um PIN, para uso anônimo.
-E assim, números de telefone não confiados podem enviar comandos ao incluir o PIN na mensagem.
-Isso é útil porque se você perde seu telefone, você pode pedir uma pessoa aleatória por ajuda para apagar seu dispositivo remotamente.
-Se você simplesmente enviar "fmd" para o seu dispositivo, o FMD responderá com uma mensagem que lista os comandos disponíveis.
+Deste modo, números de telefone que não são confiáveis podem enviar comandos ao incluir o PIN na mensagem.
+Isso é útil porque se você perder seu telefone, você pode pedir ajuda para uma pessoa aleatória para apagar seu dispositivo remotamente.
+Se você simplesmente enviar a mensagem "fmd" para o seu dispositivo, o FMD responderá com uma mensagem que lista os comandos disponíveis.
 
 Com o FMD Server, você tem uma interface web para enviar comandos, para ver a localização do seu dispositivo em um mapa,
-e para visualizar imagens tiradas pelo dispositivo.
-Você pode também hospedar o FMD Server você mesmo.
+e para visualizar imagens capturadas pelo dispositivo.
+Você pode também hospedar o FMD Server por conta própria.
 Você pode ver mais detalhes aqui: https://gitlab.com/nulide/findmydeviceserver
 
-Aviso:
+Isenção de responsabilidade:
 
-Este app é providenciado em uma base de melhores esforços.
-Esperamos que seja útil, usamos nós mesmos, mas é um hobby
-e não podemos garantir que funcionará quando você precisá-lo.
+Este app é fornecido na base de melhores esforços.
+Esperamos que seja útil, nós mesmos o usamos, mas é um hobby
+e não podemos garantir que funcionará quando você mais precisar dele.
