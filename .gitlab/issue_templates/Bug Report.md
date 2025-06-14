@@ -1,5 +1,5 @@
 - [ ] I have searched for duplicates (including closed issues)
-- [ ] I have read the [wiki](https://gitlab.com/Nulide/findmydevice/-/wikis/home)
+- [ ] I have read the [wiki](https://fmd-foss.org/docs/overview)
 
 ### Bug Summary
 
@@ -24,7 +24,6 @@ ExampleThing happens.
 - FMD Server version: 0.0.0
 - Android version: 13
 - ROM name: Graphene/Lineage/Huawei stock/Samsung stock
-
 - Clean install: yes/no
 - If no: upgrade from version: 0.0.0
 
