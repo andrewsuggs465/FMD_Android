@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Locked_Lock_Screen">Find My Device \nЭто устройство заблокировано! \nСообщение от его владельца:</string>
+    <string name="Locked_Lock_Screen">FMD \nЭто устройство заблокировано! \nСообщение от его владельца:</string>
     <string name="Enable">Включить</string>
     <string name="Settings_Pin_Description">Используется как подтверждение удаления данных, хранящихся на устройстве и для анонимного использования сервиса.</string>
     <string name="Settings_Lockscreenmessage_Description">Сообщение на экране блокировки:
@@ -10,14 +10,14 @@
     <string name="Delete">Удалить</string>
     <string name="Toast_Duplicate_contact">Этот контакт уже существует.</string>
     <string name="cmd_locate_response_gps_will_follow">GPS координаты скоро будут отправлены.</string>
-    <string name="cmd_help_message_start">Команды Find My Device:</string>
+    <string name="cmd_help_message_start">Команды FMD:</string>
     <string name="Settings_FMD_via_Pin_Description">Позволяет вам взаимодействовать с FMD через ПИН-код. Это позволяет вам отправлять команды с мобильного номера, не находящегося в списке Разрешённых контактов.</string>
     <string name="Settings_Enter_Pin">Введите ПИН-код</string>
     <string name="MH_Pin_Accepted">ПИН-код принят!</string>
     <string name="Alert_First_Time_contact_added">Поздравляем! Вы добавили ваш первый контакт. Теперь вы можете взаимодействовать с FMD через отправку SMS сообщений с разрешённых мобильных номеров, содержащих в себе нужные команды, например \"fmd lock\". Если всё будет работать, то приложение должно прислать вам ответ.</string>
     <string name="ringer_stop_ringing">ОСТАНОВИТЬ РИНГТОН</string>
     <string name="cmd_locate_response_location_off">Извините, определение местоположения отключено.</string>
-    <string name="Settings_FMDConfig">Настройка FMD</string>
+    <string name="Settings_FMDConfig">Общие</string>
     <string name="Settings_WhiteList">Разрешённые контакты</string>
     <string name="Settings_Logs">Журнал отладки</string>
     <string name="Settings_About">О приложении</string>
@@ -225,7 +225,7 @@
     <string name="perm_bluetooth_connect_name">Подключить Bluetooth</string>
     <string name="export_success">Экспортирование успешно</string>
     <string name="export_failed">Экспортирование не удалось</string>
-    <string name="temporary_allowlist_expired">Ваш временный доступ к Find My Device истёк. Чтобы продолжить использовать Find My Device, отправьте ПИН-код снова.</string>
+    <string name="temporary_allowlist_expired">Ваш временный доступ к FMD истёк. Чтобы продолжить использовать FMD, отправьте ПИН-код снова.</string>
     <string name="pw_change_success">Пароль изменён</string>
     <string name="pw_change_mismatch">Пароли не совпадают.</string>
     <string name="pw_change_wrong_password">Неверный пароль</string>
