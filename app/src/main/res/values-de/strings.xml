@@ -39,7 +39,7 @@
     <string name="Settings_FMDServer_Location_Type_Title">Standort-Quelle</string>
     <string name="Settings_FMDServer_Location_Type_Description">Die Quelle(n), deren Standort regelmäßig im Hintergrund hochgeladen werden soll. \nFalls keine ausgewählt ist, werden keine Standorte regelmäßig hochgeladen. (Du kannst das Standort-Hochladen weiterhin über das Webinterface erzwingen. Dies benötigt Push.)</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Bei niedrigem Akkustand hochladen</string>
-    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Lade den Standort hoch, wenn der Akkustand niedrig wird. Dies benötigt Benachrichtigungszugriff.</string>
+    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Standort hochladen, wenn der Akkustand niedrig wird. Dies benötigt Benachrichtigungszugriff.</string>
     <string name="password_old">Altes Passwort</string>
     <string name="password_new">Neues Passwort</string>
     <string name="password_new_repeat">Neues Passwort wiederholen</string>
@@ -55,7 +55,7 @@
     <string name="Settings_FMDServer_Register">Registrieren</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Datenschutzbestimmungen</string>
     <string name="password">Passwort</string>
-    <string name="registration_token">Registrierungs-Token</string>
+    <string name="registration_token">Registrierungstoken</string>
     <string name="registration_token_hint">Private Instanzen können ein geheimes Token erfordern. Lass dieses Feld leer, wenn die Instanz öffentlich ist.</string>
     <!-- Settings: Allowed Contacts -->
     <string name="Whitelist_help">Die Kontakte in dieser Liste dürfen dir FMD Befehle via SMS schicken. Befehle von allen anderen werden ignoriert.</string>
@@ -114,7 +114,7 @@
     <string name="Notification_Security_Description">Benachrichtigungen bzgl. Sicherheitsupdates</string>
     <string name="notify_crypto_update_title">Aktion erforderlich</string>
     <string name="notify_crypto_update_text">Du musst einige Einstellungen ändern, um weiterhin FMD benutzen zu können. Bitte hier klicken.</string>
-    <string name="request_failed_response_body">Response Body</string>
+    <string name="request_failed_response_body">Antwort Body</string>
     <string name="request_failed_exception">Ausnahne</string>
     <string name="request_failed_title">Netzwerkanfrage fehlgeschlagen</string>
     <string name="request_failed_status_code">Statuscode</string>
@@ -138,7 +138,7 @@
     <string name="perm_overlay_name">Über anderen Apps einblenden</string>
     <string name="perm_post_notification_name">Benachrichtigungen senden</string>
     <string name="perm_sms_name">SMS</string>
-    <string name="perm_write_secure_settings_name">Secure Settings verwalten</string>
+    <string name="perm_write_secure_settings_name">In Secure Einstellungen schreiben</string>
     <string name="required_permissions_title">Erforderliche Berechtigungen</string>
     <string name="optional_permissions_title">Optionale Berechtigungen</string>
     <string name="grant">Zulassen</string>
@@ -200,7 +200,7 @@
     <string name="missing_permissions_title">Fehlende Berechtigungen</string>
     <string name="transport_sms_title">SMS</string>
     <string name="cmd_lock_description_long">Sperre das Gerät und zeige optional eine Nachricht auf dem Sperrbildschirm an. Danach ist die biometrische Sperre nicht verfügbar und dein Gerät kann nur mit dem Gerätepasswort entsperrt werden.</string>
-    <string name="setup_warnings_title">Setup-Warnungen</string>
+    <string name="setup_warnings_title">Warnungen einrichten</string>
     <string name="transport_sms_description">Schicke Befehle per SMS an dein Gerät. Schicke z.B. eine SMS mit \"fmd help\" an dein Gerät. FMD wird per SMS antworten.</string>
     <string name="transport_sms_description_auth">Nur Telefonnummern, die in der Liste erlaubter Nummern sind, können Befehle senden. Um Befehle von einer Telefonnummer zu senden, die nicht in dieser Liste ist, muss die Nachricht die PIN enthalten: „fmd mypin help“. Damit du die PIN nicht jedes Mal neu eingeben musst, wird diese neue Telefonnummer für die nächsten 10 Minuten in eine temporäre Erlaubnisliste aufgenommen.</string>
     <string name="add">Hinzufügen</string>
@@ -286,6 +286,6 @@
     <string name="Settings_FMDServer_Push_Description">Um Befehle von FMD Server an dein Gerät zu senden, wird eine UnifiedPush-Verteiler-App benötigt.</string>
     <string name="Settings_Pin_Not_Backed_Up">Achtung: Der PIN ist nicht im App-Backup enthalten.</string>
     <string name="allowlist_reset_text">Aufgrund eines Absturzes wurden die Erlaubten Kontakte zurückgesetzt. Bitte konfiguriere sie erneut.</string>
-    <string name="allowlist_reset_title">Erlaubte Kontakte zurückgesetzt</string>
+    <string name="allowlist_reset_title">Erlaubte Kontakte zurücksetzen</string>
     <string name="update_pin_hash_change_text">Die FMD-PIN wurde während eines App-Updates zurückgesetzt. Konfiguriere die PIN erneut, um FMD weiterhin mit einer PIN zu benutzen.</string>
 </resources>
