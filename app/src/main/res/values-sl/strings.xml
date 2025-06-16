@@ -13,7 +13,7 @@
     <string name="Settings_Enter_Pin">Vnesi PIN</string>
     <string name="pin">PIN</string>
     <string name="Settings_FMDCommand_Description">Ukaz, ki se uporablja za komunikacijo s FMD aplikacijo.</string>
-    <string name="Settings_Select_Ringtone">Izberi melodijo zvonenja</string>
+    <string name="Settings_Select_Ringtone">Izberi melodijo zvonjenja</string>
     <string name="Settings_Ringer_Tone_Description">Izberi melodijo zvonenja za predvajanje ob ukazu \"fmd ring\".</string>
     <string name="Settings_Lockscreenmessage_Description">Sporočilo na zaklenjenem zaslonu: \nKo boste napravo zaklenili, se bo na zaklenjenem zaslonu pokazalo to sporočilo.</string>
     <string name="Settings_FMD_Server_General">Splošno</string>
@@ -21,9 +21,9 @@
     <string name="Settings_FMD_Server_User_ID">ID naprave:</string>
     <string name="Settings_FMD_Server_ID_Desc">Za iskanje naprave s FMD strežnikom, potrebujete ID naprave. Zapišite si ga, in ga shranite na varno mesto.</string>
     <string name="Settings_FMDServer_Logout_Button">Odjava</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">To bo izbrisalo vse vaše podatke iz FMD strežnika! Ste prepričani?</string>
+    <string name="Settings_FMDServer_Alert_DeleteData_Desc">To bo izbrisalo vse vaše podatke iz strežnika! Ste prepričani?</string>
     <string name="Settings_FMDServer_Push_Open_UP">Odpri spletno stran UnifiedPush</string>
-    <string name="Settings_FMDServer_Update_Interval_Title">Interval posodabljanja v ozadju</string>
+    <string name="Settings_FMDServer_Update_Interval_Title">Interval posodabljanja lokacije v ozadju</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD posodobi lokacijo vaše naprave vsakih n minut.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Vir lokacije</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Posodobi lokacijo ob nizki ravni baterije</string>
@@ -33,7 +33,7 @@
     <string name="password_new_repeat">Ponovi novo geslo</string>
     <string name="server_version">Različica strežnika</string>
     <string name="server_version_error">Napaka pri pridobivanju različice strežnika</string>
-    <string name="Settings_FMDServer_AddAccount">FMD strežnik: Prijava/Registracija</string>
+    <string name="Settings_FMDServer_AddAccount">FMD strežnik: Prijava</string>
     <string name="Settings_FMDServer_open_website">Odpri spletno stran FMD strežnika</string>
     <string name="Settings_FMDServer_use_default_server">Uporabi Nulide-jev javni strežnik</string>
     <string name="Settings_FMDServer_Login">Prijava</string>
@@ -42,7 +42,7 @@
     <string name="password">Geslo</string>
     <string name="Alert_First_Time_contact_added">Čestitamo. Dodali ste svoj prvi zaupanja vreden stik. Zdaj vam lahko ta stik pošilja FMD ukaze preko SMS sporočil. Če vse deluje kot je treba, mu bo aplikacija nazaj po SMS sporočilu posredovala odgovor.</string>
     <string name="Settings_Settings">Nastavitve</string>
-    <string name="Settings_FMDConfig">FMD nastavitve</string>
+    <string name="Settings_FMDConfig">Splošno</string>
     <string name="Settings_WhiteList">Zaupanja vredni stiki</string>
     <string name="Settings_Export">Izvozi nastavitve</string>
     <string name="server_version_error_low_version">Potrebna je vsaj različica strežnika {MIN}, trenutno izbrani strežnik pa ima različico {CURRENT}. Nadaljujte na lastno odgovornost.</string>
@@ -132,7 +132,7 @@
     <string name="crashed_continue_without">Nadaljuj brez poročanja</string>
     <string name="transport_inapp_title">V aplikaciji</string>
     <string name="transport_inapp_description">Pošljite ukaze lokalno iz aplikacije FMD v svojo napravo. To je uporabno za testiranje. Aplikacija FMD bo odgovorila z obvestilom.</string>
-    <string name="transport_inapp_send_command_title">Pošlji ukaz preko aplikacije</string>
+    <string name="transport_inapp_send_command_title">Pošlji ukaz iz aplikacije</string>
     <string name="transport_inapp_send_command_command_placeholder">Ukaz</string>
     <string name="transport_inapp_send_command_button_send">Pošlji</string>
     <string name="Notification_InApp">Transportni kanal preko aplikacije</string>
@@ -171,7 +171,7 @@
     <string name="cmd_stats_description_long">Pridobi statistiko omrežja iz naprave, na primer IP naslov naprave in seznam okoliških omrežij WiFi.</string>
     <string name="perm_unused_app_name">Omejitve neuporabljenih aplikacij</string>
     <string name="perm_unused_app_description">Aplikacije, ki niso odprte nekaj mesecev, Android začasno ustavi in odstrani njihova dovoljenja. Vendar pa mora FMD delovati v ozadju. Ko aplikacijo enkrat nastavite, jo boste verjetno zelo redko odprli. Zato morate FMD izvzeti iz začasne zaustavitve, sicer aplikacija čez nekaj mesecev morda ne bo več delovala.</string>
-    <string name="grant_write_secure_settings_title">Dovoli \"Write Secure\" nastavitev</string>
+    <string name="grant_write_secure_settings_title">Dovoli dostop za pisanje v varne nastavitve</string>
     <string name="grant_via_shizuku">Dovoli preko Shizuku</string>
     <string name="grant_via_root">Dovoli preko korenskega dostopa (tim. root)</string>
     <string name="perm_root_denied">Korenski dostop zavrnjen</string>
@@ -190,7 +190,7 @@
     <string name="cmd_locate_description_long">Poišče napravo z enim ali več viri lokacije. Na nivoju operacijskega sistema je vir običajno GPS, včasih s kombinacijo drugih virov. Drugi vir je OpenCellID, ki uporablja bazo podatkov o lokacijah baznih postaj.</string>
     <string name="cmd_lock_response">Naprava je sedaj zaklenjena.</string>
     <string name="perm_overlay_name">Prikaz nad drugimi aplikacijami</string>
-    <string name="perm_write_secure_settings_name">Write Secure nastavitev</string>
+    <string name="perm_write_secure_settings_name">Nastavitev za pisanje v varne nastavitve</string>
     <string name="optional_permissions_title">Neobvezna dovoljenja</string>
     <string name="perm_sms_name">SMS</string>
     <string name="cmd_nodisturb_response_on">Način \"Ne moti\" je sedaj vključen.</string>
@@ -273,5 +273,5 @@
     <string name="allowlist_reset_title">Dovoljena ponastavitev stikov</string>
     <string name="update_pin_hash_change_text">FMD PIN koda je bila med posodobitvijo aplikacije izbrisana. Če želite še naprej uporabljati FMD s kodo PIN, jo znova nastavite.</string>
     <string name="Settings_Pin_Not_Backed_Up">Opozorilo: PIN koda ni vključena v varnostno kopijo aplikacije.</string>
-    <string name="allowlist_reset_text">Zaradi zrušitve so bili dovoljeni stiki izbrisani. Prosim, nastavite jih ponovno.</string>
+    <string name="allowlist_reset_text">Zaradi zrušitve so bili zaupanja vedni stiki izbrisani. Prosim, nastavite jih ponovno.</string>
 </resources>
