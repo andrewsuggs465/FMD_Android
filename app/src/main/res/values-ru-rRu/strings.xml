@@ -3,8 +3,7 @@
     <string name="Locked_Lock_Screen">FMD \nЭто устройство заблокировано! \nСообщение от его владельца:</string>
     <string name="Enable">Включить</string>
     <string name="Settings_Pin_Description">Используется как подтверждение удаления данных, хранящихся на устройстве и для анонимного использования сервиса.</string>
-    <string name="Settings_Lockscreenmessage_Description">Сообщение на экране блокировки:
-\nКогда устройство будет заблокировано, это сообщение появится на экране блокировки.</string>
+    <string name="Settings_Lockscreenmessage_Description">Сообщение на экране блокировки: \nКогда устройство будет заблокировано, это сообщение появится на экране блокировки.</string>
     <string name="Settings_FMDCommand_Description">Эта команда используется для взаимодействия с FMD.</string>
     <string name="WhiteList_Add_Contact">Добавить контакт</string>
     <string name="Delete">Удалить</string>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="Toast_Empty_FMDCommand">Порожня команда не дозволена, використовується за замовчуванням.</string>
-    <string name="Settings_Lockscreenmessage_Description">Повідомлення на екрані блокування:
-\nКоли пристрій заблокований на екрані блокування з\'явиться це повідомлення.</string>
+    <string name="Settings_Lockscreenmessage_Description">Повідомлення на екрані блокування: \nКоли пристрій заблокований на екрані блокування з\'явиться це повідомлення.</string>
     <string name="Settings_FMD_Server_General">Загальне</string>
     <string name="Settings_FMD_Server_Server_URL">Посилання сервера:</string>
     <string name="Settings_FMD_Server_User_ID">Ідентифікатор користувача:</string>

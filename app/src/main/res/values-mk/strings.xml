@@ -23,8 +23,7 @@
     <string name="pin">ЛИБ (личен идентификационен број)</string>
     <string name="pin_repeat">Повтори го ЛИБ-от</string>
     <string name="Settings_Ringer_Tone_Description">Одбери ѕвонка која ќе свири кога е пратена FMD ѕвони наредба.</string>
-    <string name="Settings_Lockscreenmessage_Description">Порака при заклучен екран:
-\nКога ќе се заклучи уредот, оваа порака ќе се појави на заклучениот екран.</string>
+    <string name="Settings_Lockscreenmessage_Description">Порака при заклучен екран: \nКога ќе се заклучи уредот, оваа порака ќе се појави на заклучениот екран.</string>
     <string name="Settings_FMD_Server_User_ID">Корисничко име:</string>
     <string name="Settings_FMDServer_Change_Password_Button">Промени лозинка</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Ова ќе ги избрише сите податоци од серверот! Дали си сигурен?</string>

@@ -108,8 +108,7 @@
     <string name="Notification_Fail_Description">Benachrichtigunge wenn öppis fehlschlaht (z.B. die Verbindig zu FMD Server)</string>
     <string name="usage_notification_title">Befehl usgfüehrt</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Die Aawendig sett im Hintergrund laufe. Zum sichergoh, dass sie au im Standby funktioniert, muess d Akku-Optimierig für die App abgstellt werde.</string>
-    <string name="Settings_Lockscreenmessage_Description">Sperrbildschirmnachricht:
-\nDie Nachricht wos ufm Sperrbildschirm aazeigt wenns Gerät gsperrt wird.</string>
+    <string name="Settings_Lockscreenmessage_Description">Sperrbildschirmnachricht: \nDie Nachricht wos ufm Sperrbildschirm aazeigt wenns Gerät gsperrt wird.</string>
     <string name="Settings_FMD_Server_Server_URL">Server URL:</string>
     <string name="Settings_FMD_Server_User_ID">Benutzer ID:</string>
     <string name="copied">Kopiert</string>

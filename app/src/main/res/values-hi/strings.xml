@@ -56,8 +56,7 @@
     <string name="pin">पिन</string>
     <string name="pin_repeat">पिन दोहराएं</string>
     <string name="Settings_FMDCommand_Description">कमांड का उपयोग FMD एप्लिकेशन के साथ संचार करने के लिए किया जाता है।</string>
-    <string name="Settings_Lockscreenmessage_Description">लॉक स्क्रीन संदेश:
-\nडिवाइस को लॉक करते समय यह संदेश लॉक स्क्रीन पर दिखाई देगा।</string>
+    <string name="Settings_Lockscreenmessage_Description">लॉक स्क्रीन संदेश: \nडिवाइस को लॉक करते समय यह संदेश लॉक स्क्रीन पर दिखाई देगा।</string>
     <string name="Settings_FMD_Server_User_ID">उपयोक्ता ID:</string>
     <string name="Settings_FMD_Server_ID_Desc">FMD सर्वर के साथ अपना डिवाइस खोजने के लिए आपको उपयोक्ता ID की आवश्यकता है। इसे लिख कर सुरक्षित रख लें।</string>
     <string name="server_version_error_low_version">कम से कम सर्वर संस्करण {MIN} आवश्यक है, लेकिन चयनित सर्वर का संस्करण {CURRENT} है। स्वयं के जोखिम पर आगे बढ़ें।</string>

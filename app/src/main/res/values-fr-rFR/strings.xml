@@ -12,8 +12,7 @@
     <string name="Settings_About">A propos de</string>
     <string name="WhiteList_Add_Contact">Ajouter un contact</string>
     <string name="Settings_FMDCommand_Description">La commande utilisée pour communiquer avec FMD.</string>
-    <string name="Settings_Lockscreenmessage_Description">Message sur l\'écran de verrouillage :
-\nLors du verrouillage de l\'appareil, ce message apparaitra sur l\'écran de verrouillage.</string>
+    <string name="Settings_Lockscreenmessage_Description">Message sur l\'écran de verrouillage : \nLors du verrouillage de l\'appareil, ce message apparaitra sur l\'écran de verrouillage.</string>
     <string name="Settings_Pin_Description">Utilisé comme confirmation avant d\'effacer l\'appareil et pour l\'utilisation anonyme du service.</string>
     <string name="Enable">Activer</string>
     <string name="Locked_Lock_Screen">FMD
@@ -44,7 +43,7 @@
     <string name="Settings_FMDServer_Change_Password_Button">Changer le mot de passe</string>
     <string name="Settings_FMD_Server_ID_Desc">Vous avec besoin de l\'identifiant utilisateur pour trouver votre appareil avec le serveur FMD. Notez-le et gardez-le en lieu sûr.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Lieu source</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Cela supprimera toutes les données du serveur ! Êtes-vous sûr ?</string>
+    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Cela supprimera toutes les données du serveur ! Êtes-vous sûr ?</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Envoyer lorsque la batterie est faible</string>
     <string name="password_old">Ancien mot de passe</string>
     <string name="password_new">Nouveau mot de passe</string>
@@ -80,7 +79,7 @@
     <string name="Settings_WhiteList">Contacts autorisés</string>
     <string name="pin">PIN</string>
     <string name="Settings_FMDServer_Login">Se connecter</string>
-    <string name="Settings_FMDServer_AddAccount">Serveur FMD : Se connecter/S\'inscrire</string>
+    <string name="Settings_FMDServer_AddAccount">Serveur FMD : Se connecter/S\'inscrire</string>
     <string name="Settings_FMDServer_open_website">Ouvrir le site web du serveur FMD</string>
     <string name="OpenCellId_open_website">Ouvrir le site web de OpenCelliD</string>
     <string name="OpenCellId_test_no_connection">Aucune connection mobile</string>
@@ -218,7 +217,7 @@
     <string name="Settings_Appearance">Apparence</string>
     <string name="appearance_language">Langue</string>
     <string name="usage_notification_text_source">La commande « %1$s » a été exécutée par « %2$s ».</string>
-    <string name="Settings_FMD_Server_Connection_Status">État de la connexion :</string>
+    <string name="Settings_FMD_Server_Connection_Status">État de la connexion :</string>
     <string name="Settings_FMD_Server_Connection_Status_Success">Succès</string>
     <string name="server_version_upgrade_required_title">Mise à jour du Serveur FMD requise</string>
     <string name="temporary_allowlist_expired">Votre accès temporaire à FMD a expiré. Pour continuer à utiliser FMD, renvoyez le code PIN.</string>

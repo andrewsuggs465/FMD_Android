@@ -25,8 +25,7 @@
     <string name="Settings_FMDCommand_Description">Der für die Kommunikation mit FMD verwendete Befehl.</string>
     <string name="Settings_Ringer_Tone_Description">Wähle einen Klingelton aus, der beim Senden von \"fmd ring\" abgespielt werden soll.</string>
     <string name="Settings_Select_Ringtone">Klingelton auswählen</string>
-    <string name="Settings_Lockscreenmessage_Description">Sperrbildschirmnachricht:
-\nEine Nachricht, welche auf dem Sperrbildschirm angezeigt wird, wenn das Gerät gesperrt wird.</string>
+    <string name="Settings_Lockscreenmessage_Description">Sperrbildschirmnachricht: \nEine Nachricht, welche auf dem Sperrbildschirm angezeigt wird, wenn das Gerät gesperrt wird.</string>
     <!-- Settings: FMD Server -->
     <string name="Settings_FMD_Server_General">Allgemein</string>
     <string name="Settings_FMD_Server_Server_URL">Server URL:</string>

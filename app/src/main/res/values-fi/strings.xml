@@ -5,8 +5,7 @@
 \nViesti omistajalta:</string>
     <string name="Enable">Ota käyttöön</string>
     <string name="Settings_Pin_Description">Käytetään varmistamiseen ennen laitteen tyhjennystä ja anonyyminä palvelun käyttöä.</string>
-    <string name="Settings_Lockscreenmessage_Description">Lukitusnäytön viesti:
-\nKun laite lukitaan, tämä viesti näkyy lukitusnäytöllä.</string>
+    <string name="Settings_Lockscreenmessage_Description">Lukitusnäytön viesti: \nKun laite lukitaan, tämä viesti näkyy lukitusnäytöllä.</string>
     <string name="Settings_FMDCommand_Description">Komento, jota käytetään FMD:n ohjaamiseen.</string>
     <string name="WhiteList_Add_Contact">Lisää yhteystieto</string>
     <string name="Delete">Poista</string>

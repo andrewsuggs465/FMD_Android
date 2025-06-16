@@ -54,8 +54,7 @@
     <string name="Settings_FMDCommand_Description">用於與 FMD 交流的指令。</string>
     <string name="Settings_Ringer_Tone_Description">選擇傳送 FMD 響鈴指令時將會播放的鈴聲。</string>
     <string name="Settings_Select_Ringtone">選擇鈴聲</string>
-    <string name="Settings_Lockscreenmessage_Description">鎖定螢幕訊息：
-\n鎖定裝置時，此訊息將出現在鎖定畫面上。</string>
+    <string name="Settings_Lockscreenmessage_Description">鎖定螢幕訊息： \n鎖定裝置時，此訊息將出現在鎖定畫面上。</string>
     <string name="Settings_FMD_Server_Server_URL">伺服器網址：</string>
     <string name="Settings_FMD_Server_User_ID">使用者 ID：</string>
     <string name="Settings_FMD_Server_ID_Desc">你需要使用者 ID 才能透過 FMD 伺服器找到你的裝置。把它寫下來並妥善保管。</string>

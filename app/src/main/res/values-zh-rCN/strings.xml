@@ -15,8 +15,7 @@
     <string name="pin">PIN</string>
     <string name="Settings_Ringer_Tone_Description">选择一个将在FMD铃声发送时响起的铃声。</string>
     <string name="Settings_Select_Ringtone">选择铃声</string>
-    <string name="Settings_Lockscreenmessage_Description">锁定屏幕通知：
-\n当设备锁定时，这条通知将会在锁屏上出现。</string>
+    <string name="Settings_Lockscreenmessage_Description">锁定屏幕通知： \n当设备锁定时，这条通知将会在锁屏上出现。</string>
     <string name="Settings_FMD_Server_General">常规</string>
     <string name="Settings_FMD_Server_Server_URL">服务器URL：</string>
     <string name="Settings_FMD_Server_User_ID">用户ID：</string>

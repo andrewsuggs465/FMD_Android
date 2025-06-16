@@ -5,8 +5,7 @@
 \nMensaje del propietari@:</string>
     <string name="Enable">Activar</string>
     <string name="Settings_Pin_Description">Se utiliza como confirmación antes de borrar el dispositivo y para el uso anónimo del servicio.</string>
-    <string name="Settings_Lockscreenmessage_Description">Mensaje de la Pantalla de Bloqueo:
-\nAl bloquear el dispositivo, este mensaje aparecerá en la pantalla de bloqueo.</string>
+    <string name="Settings_Lockscreenmessage_Description">Mensaje de la Pantalla de Bloqueo: \nAl bloquear el dispositivo, este mensaje aparecerá en la pantalla de bloqueo.</string>
     <string name="Settings_FMDCommand_Description">El comando utilizado para comunicarse con el FMD.</string>
     <string name="WhiteList_Add_Contact">Añadir Contacto</string>
     <string name="Delete">Eliminar</string>

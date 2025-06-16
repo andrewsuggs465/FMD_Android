@@ -5,8 +5,7 @@
     <string name="Locked_Lock_Screen">FMD\nQuesto dispositivo è bloccato!\nMessaggio dal proprietario:</string>
     <string name="Enable">Attiva</string>
     <string name="Settings_Pin_Description">Utilizzato come conferma prima di cancellare i dati del dispositivo o per l\'utilizzo anonimo del servizio.</string>
-    <string name="Settings_Lockscreenmessage_Description">Messaggio schermata di blocco:
-\nQuando si blocca il dispositivo, questo messaggio viene visualizzato nella schermata di blocco.</string>
+    <string name="Settings_Lockscreenmessage_Description">Messaggio schermata di blocco: \nQuando si blocca il dispositivo, questo messaggio viene visualizzato nella schermata di blocco.</string>
     <string name="Settings_FMDCommand_Description">Comando usato per comunicare con FMD.</string>
     <string name="WhiteList_Add_Contact">Aggiungi Contatto</string>
     <string name="Delete">Cancella</string>

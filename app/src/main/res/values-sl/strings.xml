@@ -15,8 +15,7 @@
     <string name="Settings_FMDCommand_Description">Ukaz, ki se uporablja za komunikacijo s FMD aplikacijo.</string>
     <string name="Settings_Select_Ringtone">Izberi melodijo zvonenja</string>
     <string name="Settings_Ringer_Tone_Description">Izberi melodijo zvonenja za predvajanje ob ukazu \"fmd ring\".</string>
-    <string name="Settings_Lockscreenmessage_Description">Sporočilo na zaklenjenem zaslonu:
-\nKo boste napravo zaklenili, se bo na zaklenjenem zaslonu pokazalo to sporočilo.</string>
+    <string name="Settings_Lockscreenmessage_Description">Sporočilo na zaklenjenem zaslonu: \nKo boste napravo zaklenili, se bo na zaklenjenem zaslonu pokazalo to sporočilo.</string>
     <string name="Settings_FMD_Server_General">Splošno</string>
     <string name="Settings_FMD_Server_Server_URL">URL strežnika:</string>
     <string name="Settings_FMD_Server_User_ID">ID naprave:</string>
