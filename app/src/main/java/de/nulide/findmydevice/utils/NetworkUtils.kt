@@ -10,6 +10,15 @@ import androidx.collection.ArrayMap
 import java.net.NetworkInterface
 import java.net.SocketException
 
+data class NetworkInfo(
+    val interfaceName: String,
+    val linkAddresses: List<String>,
+) {
+    override fun toString(): String {
+        return "Interface: $interfaceName\n" + linkAddresses.joinToString("\n")
+    }
+}
+
 object NetworkUtils {
 
     fun getWifiNetworks(context: Context): MutableList<ScanResult> {
@@ -21,26 +30,20 @@ object NetworkUtils {
         return results
     }
 
-    fun getAllIP(): MutableMap<String, String> {
-        val ip = ArrayMap<String, String>()
-        try {
-            val en = NetworkInterface.getNetworkInterfaces()
+    // https://developer.android.com/develop/connectivity/network-ops/reading-network-state
+    fun getIps(context: Context): List<NetworkInfo> {
+        val connectivityManager = context.getSystemService(ConnectivityManager::class.java)
 
-            while (en.hasMoreElements()) {
-                val intf = en.nextElement()
-                val enumIpAddr = intf.getInetAddresses()
-
-                while (enumIpAddr.hasMoreElements()) {
-                    val inetAddress = enumIpAddr.nextElement()
-                    if (!inetAddress.isLoopbackAddress) {
-                        ip.put(intf.displayName, inetAddress.hostAddress)
-                    }
-                }
+        return connectivityManager.allNetworks
+            .map { network -> connectivityManager.getLinkProperties(network) }
+            .filterNotNull()
+            .map { linkProps ->
+                NetworkInfo(
+                    linkProps.interfaceName ?: "",
+                    linkProps.linkAddresses.map { addr -> addr.toString() }.toList()
+                )
             }
-        } catch (e: SocketException) {
-            e.printStackTrace()
-        }
-        return ip
+            .toList()
     }
 
     @JvmStatic

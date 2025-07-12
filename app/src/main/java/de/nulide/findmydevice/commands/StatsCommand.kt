@@ -32,8 +32,8 @@ class StatsCommand(context: Context) : Command(context) {
         coroutineScope: CoroutineScope,
         job: FmdJobService?,
     ) {
-        val ips = NetworkUtils.getAllIP()
-        val ipsString = ips.map { i -> i.value }.joinToString("\n")
+        val ips = NetworkUtils.getIps(context)
+        val ipsString = ips.joinToString("\n\n")
 
         val wifis = NetworkUtils.getWifiNetworks(context)
         val wifisString = wifis
