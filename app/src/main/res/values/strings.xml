@@ -233,6 +233,10 @@
     <string name="cmd_ring_description_short">Make the device ring</string>
     <string name="cmd_ring_response">The device should now be ringing.</string>
 
+    <string name="cmd_ringermode_description_short">Change the ringer mode</string>
+    <string name="cmd_ringermode_response_empty">The current ringer mode is \"%s\".</string>
+    <string name="cmd_ringermode_response">The ringer mode was changed from \"%1$s\" (old) to \"%2$s\" (new).</string>
+
     <string name="cmd_nodisturb_description_short">Toggle Do Not Disturb on and off</string>
     <string name="cmd_nodisturb_response_on">Do Not Disturb mode turned on.</string>
     <string name="cmd_nodisturb_response_off">Do Not Disturb mode turned off.</string>
