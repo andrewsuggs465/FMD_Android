@@ -13,41 +13,28 @@
         android:paddingHorizontal="12dp"
         android:paddingVertical="@dimen/margin_small">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/usage"
+            style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginBottom="@dimen/margin_small"
+            android:drawablePadding="10dp"
+            tools:drawableStartCompat="@drawable/ic_camera"
+            tools:text="camera [on | off]" />
 
-            <TextView
-                android:id="@+id/usage"
-                style="@style/TextAppearance.Material3.TitleMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
-                tools:drawableStartCompat="@drawable/ic_camera"
-                tools:text="camera [on | off]" />
-
-            <TextView
-                style="@style/TextAppearance.Material3.TitleMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_small"
-                android:text="－"
-                tools:ignore="HardcodedText" />
-
-            <TextView
-                android:id="@+id/description_short"
-                style="@style/TextAppearance.Material3.TitleMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Short description" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/description_short"
+            style="@style/TextAppearance.Material3.TitleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Short description" />
 
         <TextView
             android:id="@+id/description_long"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_normal"
             tools:text="Long description" />
 
         <TextView
@@ -55,7 +42,7 @@
             style="@style/TextAppearance.Material3.TitleSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_normal"
             android:text="@string/required_permissions_title" />
 
         <LinearLayout
