@@ -6,7 +6,7 @@ This document describes how to publish a new release for FMD.
 2. Write a changelog and put it in `metadata/en-US/changelogs/{versionCode}.txt`
 2. Commit and push
 3. Tag the new release: `git tag v0.0.0` and push the tag: `git push --tags`
-4. Create a new release on Gitlab: https://gitlab.com/Nulide/findmydevice/-/releases
+4. Create a new release on Gitlab: <https://gitlab.com/fmd-foss/fmd-android/-/releases>
 5. Wait for F-Droid to pick it up!
 
 ## Testing

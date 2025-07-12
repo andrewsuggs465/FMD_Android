@@ -56,10 +56,10 @@ public class AboutLibsListener {
         public boolean onExtraClicked(@NonNull View view, @NonNull SpecialButton specialButton) {
             switch (specialButton) {
                 case SPECIAL1:
-                    Utils.openUrl(view.getContext(), "https://gitlab.com/Nulide/findmydevice");
+                    Utils.openUrl(view.getContext(), "https://gitlab.com/fmd-foss/fmd-android");
                     return true;
                 case SPECIAL2:
-                    Utils.openUrl(view.getContext(), "https://gitlab.com/Nulide/findmydevice/-/wikis/home");
+                    Utils.openUrl(view.getContext(), "https://fmd-foss.org/docs/overview");
                     return true;
                 case SPECIAL3:
                     return false;

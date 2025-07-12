@@ -55,7 +55,7 @@ public class CrashedActivity extends FmdActivity {
 
     private void onSendLogClicked(View v) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://gitlab.com/Nulide/findmydevice/-/issues"));
+        intent.setData(Uri.parse("https://gitlab.com/fmd-foss/fmd-android/-/issues"));
         startActivity(intent);
         finish();
     }

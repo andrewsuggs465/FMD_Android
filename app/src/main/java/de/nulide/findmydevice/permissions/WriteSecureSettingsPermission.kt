@@ -5,11 +5,11 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager.PERMISSION_GRANTED
-import android.net.Uri
 import android.os.UserHandle
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.utils.RootAccess.Companion.execCommand
@@ -53,7 +53,7 @@ class WriteSecureSettingsPermission : Permission() {
     private fun requestManually(activity: Activity) {
         val intent = Intent(
             Intent.ACTION_VIEW,
-            Uri.parse("https://gitlab.com/Nulide/findmydevice/-/wikis/PERMISSION-WRITE_SECURE_SETTINGS")
+            "https://fmd-foss.org/docs/fmd-android/granting-secure-settings-access".toUri()
         )
         activity.startActivity(intent)
     }

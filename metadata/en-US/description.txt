@@ -24,7 +24,7 @@ If you simply text "fmd" to your phone FMD will reply with a text listing the av
 With FMD Server you get a web interface to send commands, to view the location of your device on a map,
 and to view pictures taken by the device.
 You can self-host FMD Server.
-See here for more details: https://gitlab.com/nulide/findmydeviceserver
+For more details, see: https://gitlab.com/fmd-foss/fmd-server
 
 Disclaimer:
 

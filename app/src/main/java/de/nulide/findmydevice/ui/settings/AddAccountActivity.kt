@@ -73,7 +73,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
 
         val btnOpenWebsite = findViewById<Button>(R.id.buttonOpenFmdServerWebsite)
         btnOpenWebsite.setOnClickListener { _ ->
-            openUrl(this, "https://gitlab.com/Nulide/findmydeviceserver")
+            openUrl(this, "https://gitlab.com/fmd-foss/fmd-server")
         }
 
         // Actively opt-in to using Nulide's server

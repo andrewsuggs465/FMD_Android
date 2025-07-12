@@ -1,7 +1,7 @@
 # FMD Android
 
 Find your device via SMS, instant messengers, or a web interface
-([FMD Server](https://gitlab.com/Nulide/findmydeviceserver)).
+([FMD Server](https://gitlab.com/fmd-foss/fmd-server)).
 
 FMD allows you to locate, ring, wipe and issue other commands to your device when it's lost.
 It aims to be a secure open source alternative to Google's Find My Device.
