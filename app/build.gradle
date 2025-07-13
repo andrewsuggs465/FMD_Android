@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.mikepenz.aboutlibraries.plugin'
+    id "org.sonarqube" version "6.2.0.5505"
 }
 
 android {
@@ -138,5 +139,19 @@ dependencies {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0") {
             because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
         }
+    }
+}
+
+sonar {
+    androidVariant "devDebug"
+    properties {
+        property "sonar.projectName", "FMD Android" // defaults to "app" (from Gradle)
+        property "sonar.projectKey", "fmd-foss_fmd-android"
+        property "sonar.organization", "fmd-foss"
+
+        // https://gitlab.com/fmd-foss/fmd-android/-/jobs/10666336525
+        // https://community.sonarsource.com/t/execution-failed-for-task-sonar/136857
+        // https://community.sonarsource.com/t/resolved-gradle-plugin-6-0-0-5145-error/132507
+        property "sonar.scanner.skipJreProvisioning", true
     }
 }

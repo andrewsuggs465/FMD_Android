@@ -26,6 +26,10 @@ variables:
   # when the script was last modified for latest compileSdkVersion, it was which is written down below
   ANDROID_SDK_TOOLS: "13114758"
 
+  # SonarQube
+  SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
+  GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+
 # Packages installation before running script
 before_script:
   - apt-get --quiet update --yes
@@ -70,8 +74,10 @@ workflow:
     - if: $CI_COMMIT_BRANCH
 
 stages:
-  - lint
+  # SonarQube cannot scan .java files, it needs compiled code.
+  # Thus build before lint.
   - build
+  - lint
   - test
 
 # Basic android and gradle stuff
@@ -87,6 +93,20 @@ lintDebug:
     expose_as: "lint-report"
     when: always
 
+sonarcloud-check:
+  stage: lint
+  image: gradle:jdk17
+  dependencies: # to get the artifacts
+    - assembleDebug
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script: gradle sonar
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
 # Make Project
 assembleDebug:
   interruptible: true
@@ -95,7 +115,9 @@ assembleDebug:
     - ./gradlew assembleDevDebug
   artifacts:
     paths:
-      - app/build/outputs/
+      - app/build/
+      #- app/build/outputs/ # for APK
+      #- app/build/intermediates/ # for SonarQube
     expire_in: 60 days
 
 # Run all tests, if any fails, interrupt the pipeline(fail it)
