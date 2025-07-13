@@ -69,11 +69,16 @@ workflow:
       when: never
     - if: $CI_COMMIT_BRANCH
 
+stages:
+  - lint
+  - build
+  - test
+
 # Basic android and gradle stuff
 # Check linting
 lintDebug:
   interruptible: true
-  stage: build
+  stage: lint
   script:
     - ./gradlew -Pci --console=plain :app:lint -PbuildDir=lint
   artifacts:
@@ -94,7 +99,6 @@ assembleDebug:
 
 # Run all tests, if any fails, interrupt the pipeline(fail it)
 debugTests:
-  needs: [ lintDebug, assembleDebug ]
   interruptible: true
   stage: test
   script:
