@@ -47,7 +47,6 @@
     <string name="Notification_Usage_Description">Notificações de quando o FMD está recebendo comandos</string>
     <string name="Pin_Usage">Uso do PIN</string>
     <string name="Notification_Pin_Usage_Description">Notificações de quando o FMD é acessado pelo PIN</string>
-    <string name="Notification_Server">FMD Server</string>
     <string name="Notification_Server_Description">Notificações relacionadas ao FMD Server</string>
     <string name="Notification_Security">Segurança</string>
     <string name="Notification_Security_Description">Notificações sobre atualizações de segurança</string>
@@ -156,7 +155,6 @@
     <string name="transport_sms_title">SMS</string>
     <string name="transport_sms_description_note">Usar SMS pode levar a custos tanto para você e para a pessoa te enviando mensagens. O SMS precisa que seu cartão SIM esteja desbloqueado (ex: depois de um reinício).</string>
     <string name="transport_notification_reply_title">Responder notificações</string>
-    <string name="transport_fmd_server_title">FMD Server</string>
     <string name="transport_fmd_server_description_auth">Alguém que sabe seu nome de usuário e senha pode entrar no FMD Server e controlar seu dispositivo.</string>
     <string name="transport_fmd_server_description_note">Usar o FMD Server requer uma conexão à internet. Pode ser de uma rede móvel (significando que seu SIM precisa estar desbloqueado) ou pelo Wi-Fi.</string>
     <string name="bottom_nav_commands">Comandos</string>

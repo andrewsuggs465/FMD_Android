@@ -61,7 +61,6 @@
     <string name="notify_crypto_update_text">Vous devez mettre à jour certains paramètres pour continuer à utiliser FMD. Appuyez pour ouvrir.</string>
     <string name="server_unregister_continue_anyway">Continuer tout de même</string>
     <string name="server_unregister_dont_continue">Ne pas continuer</string>
-    <string name="Notification_Server">Serveur FMD</string>
     <string name="Notification_Security_Description">Notifications à propos des mise à jour de sécurité</string>
     <string name="Notification_FAIL">Échecs</string>
     <string name="Notification_Fail_Description">Notifications en cas d\'échec, comme la connexion au serveur FMD</string>
@@ -175,7 +174,6 @@
     <string name="transport_fmd_server_description_note">Le serveur FMD nécessite une connexion Internet. Il peut s\'agir d\'un réseau mobile (il faut donc déverrouiller la SIM) ou d\'une connexion Wi-Fi.</string>
     <string name="bottom_nav_transports">Voies de transmission</string>
     <string name="request_failed_exception">Erreur</string>
-    <string name="transport_fmd_server_title">Serveur FMD</string>
     <string name="perm_unused_app_name">Restrictions d\'application inutilisées</string>
     <string name="grant">Autoriser</string>
     <string name="grant_write_secure_settings_title">Autoriser la modification des paramètres sécurisés</string>

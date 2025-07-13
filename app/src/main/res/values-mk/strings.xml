@@ -83,7 +83,6 @@
     <string name="transport_sms_title">СМС</string>
     <string name="transport_sms_description">Испраќај наредби до твојот уред преку СМС; на пример, прати порака „fmd help“ до твојот уред. FMD ќе ти врати со СМС.</string>
     <string name="transport_notification_reply_title">Одговор при известување</string>
-    <string name="transport_fmd_server_title">FMD сервер</string>
     <string name="LockScreen_Usage_detectd">ПоракаНаЗаклученЕкран: одкриено е користење.</string>
     <string name="LockScreen_Backbutton_pressed">ПоракаНаЗаклученЕкран: притиснато е копчето за назад.</string>
     <string name="ringer_stop_ringing">ПРЕКИНИ СО ЅВОНЕЊЕ</string>
@@ -184,7 +183,6 @@
     <string name="Notification_Usage_Description">Известувања кога FMD прима наредби</string>
     <string name="Notification_Pin_Usage_Description">Известувања кога се пристапува на FMD преку ЛИБ (PIN)</string>
     <string name="Notification_Server_Description">Известувања поврзани со FMD серверот</string>
-    <string name="Notification_Server">FMD сервер</string>
     <string name="Notification_Security">Безбедност</string>
     <string name="Notification_Security_Description">Известувања за безбедносните надградби</string>
     <string name="Notification_Fail_Description">Известувања за кога нешто нема да успее, како на пр., поврзување co FMD серверот</string>

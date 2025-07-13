@@ -71,7 +71,6 @@
     <string name="Notification_Usage_Description">FMD 接收命令时的通知</string>
     <string name="Pin_Usage">PIN 的用途</string>
     <string name="Notification_Pin_Usage_Description">通过 PIN 访问 FMD 时的通知</string>
-    <string name="Notification_Server">FMD服务器</string>
     <string name="Notification_Security">安全性</string>
     <string name="Notification_FAIL">失败信息</string>
     <string name="notify_crypto_update_title">需要行为</string>
@@ -141,7 +140,6 @@
     <string name="Locked_Lock_Screen">FMD\n此设备已锁定！\n来自机主的消息：</string>
     <string name="cmd_camera_response_no_fmd_server">无法拍照：不存在 FMD 服务器账户。</string>
     <string name="cmd_ring_description_short">使设备响铃</string>
-    <string name="transport_fmd_server_title">FMD服务器</string>
     <string name="cmd_delete_response_disabled">无法删除：设置中未启用删除命令。</string>
     <string name="cmd_lock_description_long">锁定设备，并可选择在锁屏上显示消息。在此之后，生物识别解锁将不可用，需要您的设备密码才能解锁设备。</string>
     <string name="transport_inapp_send_command_button_send">发送</string>

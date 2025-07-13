@@ -226,14 +226,12 @@
     <string name="grant_write_secure_settings_description">Bu izin yalnızca Android\'in \"pm grant\" komut dizini aracıyla verilebilir. Bu komudu elle, bilgisayar üzerinden , Android Debug Bridge (ADB) aracılığıyla çalıştırabilirsiniz. Cihazınızda ayrıca root ya da Shizuku kullanarak çalıştırabilirsiniz.\n\nKullanıcı ID: %s</string>
     <string name="perm_root_denied">Root erişimi reddedildi</string>
     <string name="perm_shizuku_failed">Shizuku ile izin verme başarısız</string>
-    <string name="transport_fmd_server_title">FMD Sunucusu</string>
     <string name="transport_inapp_title">Uygulama İçi</string>
     <string name="transport_inapp_description">FMD uygulamasının içinden yerel olarak cihazınıza komutlar gönderin. Bu deneme yapmak için kullanışlı. FMD bir bildirim ile cevap verecektir.</string>
     <string name="transport_inapp_send_command_title">Uygulama İçi Komut Gönder</string>
     <string name="transport_inapp_send_command_command_placeholder">Komut</string>
     <string name="Notification_Usage">Kullanım</string>
     <string name="Pin_Usage">PIN Kullanımı</string>
-    <string name="Notification_Server">FMD Sunucusu</string>
     <string name="Notification_Server_Description">FMD Sunucusuyla alakalı bildirimler</string>
     <string name="Notification_Security">Güvenlik</string>
     <string name="Notification_Security_Description">Güvenlik güncellemeleri hakında bildirimler</string>

@@ -200,8 +200,6 @@
     <string name="transport_sms_description_auth">Alleen telefoonnummers die op de toelatingslijst staan, kunnen opdrachten verzenden. Als je opdrachten wilt verzenden vanaf een telefoonnummer dat niet op de toelatingslijst staat, moet je de pincode \"fmd mypin help\" opnemen. Voor het gemak, zodat je de pincode niet elke keer opnieuw hoeft in te voeren, wordt dit nieuwe telefoonnummer de komende 10 minuten toegevoegd aan een tijdelijke toelatingslijst.</string>
     <string name="transport_notification_reply_description">Je kunt FMD meldingen laten lezen om te speuren naar opdrachten. FMD kan dan antwoorden via de ingebouwde meldingsfunctie van Android. Op deze manier kun je FMD aansturen vanuit elke berichtentoepassing, zolang deze meldingen plaatst waarop kan worden gereageerd. Zo kun je bijvoorbeeld een Signal-bericht \"fmd mypin help\" naar je telefoon sturen.</string>
     <string name="transport_notification_reply_description_auth">Voor het besturen van FMD via Antwoorden op meldingen moet de FMD-pincode worden ingesteld. Elk bericht moet de juiste pincode bevatten.</string>
-    <string name="transport_fmd_server_title">FMD Server</string>
-    <string name="Notification_Server">FMD Server</string>
     <string name="Notification_FAIL">Mislukkingen</string>
     <string name="transport_fmd_server_description">FMD Server biedt een webinterface om jouw apparaat te bedienen, de locatie te bekijken en de verzonden foto\'s te bekijken. Je kunt de FMD-server zelf hosten of de standaardinstantie gebruiken. Gegevens worden versleuteld opgeslagen op de server, beveiligd met jouw wachtwoord.</string>
     <string name="transport_inapp_send_command_command_placeholder">Opdracht</string>

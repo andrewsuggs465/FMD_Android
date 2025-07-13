@@ -63,7 +63,6 @@
 \nSe non viene selezionato niente, nessuna posizione viene caricata regolarmente. (È ancora possibile utilizzare l\'interfaccia web per forzare il caricamento. Questo richiede il push.)</string>
     <string name="GPS">GPS</string>
     <string name="Cell">Cella</string>
-    <string name="Notification_Server">Server FMD</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Questo cancellerà tutti i dati dal server Sei sicuro?</string>
     <string name="Settings_Import">Importa Impostazioni</string>
     <string name="Settings_Export">Esporta Impostazioni</string>
@@ -173,7 +172,6 @@
     <string name="Notification_InApp">Canale di invio In-App</string>
     <string name="Notification_InApp_Description">Notifiche dal canale di invio in-app</string>
     <string name="crashed_continue_without">Continua senza segnalare</string>
-    <string name="transport_fmd_server_title">Server FMD</string>
     <string name="transport_fmd_server_description">Il Server FMD fornisce una interfaccia web per controllare il dispositivo, visualizzare la sua posizione e le immagini inviate. Potete ospitare Server FMD autonomamente o utilizzare l\'istanza fornita. I dati sono memorizzati in modo criptato sul server, protetti dalla vostra password.</string>
     <string name="transport_inapp_title">In - App</string>
     <string name="WhiteList_no_contact_picker">Nessuna app per selezionare contatti trovata!</string>

@@ -57,7 +57,6 @@
     <string name="transport_inapp_send_command_button_send">Gửi</string>
     <string name="Notification_Usage">Sử Dụng</string>
     <string name="Pin_Usage">Sử Dụng PIN</string>
-    <string name="Notification_Server">Máy Chủ FMD</string>
     <string name="Notification_Server_Description">Thông báo liên quan đến Máy Chủ FMD</string>
     <string name="Notification_Security">Bảo Mật</string>
     <string name="Notification_Security_Description">Thông báo về các bản cập nhật bảo mật</string>
@@ -181,7 +180,6 @@
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Ứng dụng này được thiết kế để hoạt động trong nền. Để đảm bảo nó hoạt động ngay cả khi thiết bị của bạn ở chế độ chờ, bạn cần tắt tối ưu hóa pin cho ứng dụng này.</string>
     <string name="grant_via_shizuku">Cấp Quyền Qua Shizuku</string>
     <string name="Notification_Usage_Description">Thông báo khi FMD đang nhận lệnh</string>
-    <string name="transport_fmd_server_title">máy chủ FMD</string>
     <string name="usage_notification_pin_title">Mã PIN FMD đã được sử dụng</string>
     <string name="missing_permissions_description">Các quyền sau đây là cần thiết để FMD hoạt động.</string>
     <string name="Locked_Lock_Screen">FMD\nThiết bị này đã bị khóa!\nTin nhắn từ chủ sở hữu:</string>

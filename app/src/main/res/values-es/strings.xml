@@ -45,7 +45,6 @@
 \nSi no se selecciona ninguna, no se cargarán localizaciones regularmente. (Puede seguir utilizando la interfaz web para forzar una carga. Esto requiere push.)</string>
     <string name="GPS">GPS</string>
     <string name="Cell">Celular</string>
-    <string name="Notification_Server">Servidor FMD</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">¡Esto eliminará todos los datos del servidor! ¿Está seguro/a?</string>
     <string name="Settings_Import">Importar Ajustes</string>
     <string name="Settings_Export">Exportar Ajustes</string>
@@ -170,7 +169,6 @@
     <string name="bottom_nav_settings">Ajustes</string>
     <string name="transport_sms_description_note">Los SMS pueden generar costes tanto para usted como para la persona que le envía el mensaje. Los SMS requieren que su tarjeta SIM esté desbloqueada (por ejemplo, después de reiniciar el sistema).</string>
     <string name="transport_notification_reply_description_auth">Para controlar FMD mediante una respuesta de notificación, es necesario configurar el PIN de FMD. Cada mensaje debe contener el PIN correcto.</string>
-    <string name="transport_fmd_server_title">Servidor FMD</string>
     <string name="transport_fmd_server_description_auth">Cualquiera que conozca tu nombre de usuario y contraseña puede iniciar sesión en el servidor FMD y controlar tu dispositivo.</string>
     <string name="transport_fmd_server_description_note">El servidor FMD requiere una conexión a Internet. Puede ser una red móvil (por lo que la SIM debe estar desbloqueada) o WiFi.</string>
     <string name="setup_warnings_title">Advertencias de configuración</string>

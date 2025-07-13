@@ -208,7 +208,6 @@
     <string name="missing_permissions_description">يجب الحصول على الأذونات التالية لتشغيل FMD.</string>
     <string name="grant_via_adb">منح عبر ADB</string>
     <string name="setup_warnings_title">تحذيرات الإعداد</string>
-    <string name="Notification_Server">خادم FMD</string>
     <string name="Notification_InApp">قناة النقل داخل التطبيق</string>
     <string name="transport_inapp_send_command_title">إرسال أمر داخل التطبيق</string>
     <string name="Pin_Usage">إستخدام الرقم السري</string>
@@ -216,7 +215,6 @@
     <string name="transport_fmd_server_description_note">يتطلب خادم FMD اتصالاً بالإنترنت. يمكن أن يكون ذلك عبر شبكة جوال (وبالتالي يجب إلغاء قفل بطاقة SIM) أو شبكة WiFi.</string>
     <string name="required_permissions_title">الأذونات المطلوبة</string>
     <string name="transport_sms_description">أرسل الأوامر إلى جهازك عبر الرسائل القصيرة. على سبيل المثال، أرسل رسالة نصية تحتوي على \"fmd help\" إلى جهازك. سيرد FMD برسالة نصية قصيرة.</string>
-    <string name="transport_fmd_server_title">خادم FMD</string>
     <string name="perm_camera_name">كاميرا</string>
     <string name="grant">منح</string>
     <string name="grant_via_root">منح عبر Root</string>

@@ -97,7 +97,6 @@
     <string name="required_permissions_title">必須の権限</string>
     <string name="grant_via_root">Rootで付与</string>
     <string name="Notification_Usage">使用状況</string>
-    <string name="Notification_Server">FMD Server</string>
     <string name="crashed_title">クラッシュレポート</string>
     <string name="crashed_send_log">ログを送信</string>
     <string name="crashed_copy_log">ログをコピー</string>

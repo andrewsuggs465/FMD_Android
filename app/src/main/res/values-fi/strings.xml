@@ -40,7 +40,6 @@
 \nJos lähteitä ei ole valittu, sijaintitietoja ei ladata säännöllisesti. (Voit silti pyytää sijaintitiedon verkkokäyttöliittymän kautta. Tämä vaatii pushin.)</string>
     <string name="GPS">GPS</string>
     <string name="Cell">Tukiasema</string>
-    <string name="Notification_Server">FMD-Palvelin</string>
     <string name="Edit">Muokkaa</string>
     <string name="Settings_FMDServer_Logout_Button">Kirjaudu ulos</string>
     <string name="Whitelist_help">Vain tässä listassa olevat yhteystiedot voivat lähettää FMD-komentoja tekstiviestitse. Muut yhteystiedot ohitetaan.</string>
@@ -142,7 +141,6 @@
     <string name="usage_notification_title">Komento suoritettu</string>
     <string name="crashed_send_log">Lähetä loki</string>
     <string name="transport_inapp_send_command_button_send">Lähetä</string>
-    <string name="transport_fmd_server_title">FMD-palvelin</string>
     <string name="missing_permissions_title">Puuttuvat käyttöoikeudet</string>
     <string name="server_unregister_continue_anyway">Jatka</string>
     <string name="notify_crypto_update_title">Toiminta vaaditaan</string>

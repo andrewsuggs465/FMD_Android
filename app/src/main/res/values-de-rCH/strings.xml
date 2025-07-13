@@ -100,7 +100,6 @@
     <string name="Notification_Usage">Nutzig</string>
     <string name="Notification_Usage_Description">Benachrichtigunge wenn FMD Befehl erhält</string>
     <string name="Pin_Usage">PIN Nutzig</string>
-    <string name="Notification_Server">FMD Server</string>
     <string name="Notification_Server_Description">Benachrichtigunge bzgl. FMD Server</string>
     <string name="Notification_Security">Sicherheit</string>
     <string name="Notification_Security_Description">Benachrichtigunge bzgl. Sicherheitsupdates</string>
@@ -151,7 +150,6 @@
     <string name="Locked_Lock_Screen">FMD
 \nS Gerät isch gsperrt worde!
 \nNachricht vom Besitzer:</string>
-    <string name="transport_fmd_server_title">FMD Server</string>
     <string name="transport_notification_reply_description_auth">Zum FMD per Antworte uf Benachrichtigunge steuern muss d FMD-PIN gesetzt sii. Jedi Nachricht muss d korrekti PIN enthalte.</string>
     <string name="transport_fmd_server_description_auth">Jede wo diin Benutzername und diis Passwort kennt chan sich bii FMD Server aamelde und diis Gerät stüre.</string>
     <string name="missing_permissions_description">FMD brucht die folgende Berechtigunge.</string>

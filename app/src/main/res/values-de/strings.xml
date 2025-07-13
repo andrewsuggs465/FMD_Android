@@ -87,7 +87,6 @@
     <string name="Notification_Usage_Description">Benachrichtigungen, wenn FMD Befehle erhält</string>
     <string name="Pin_Usage">PIN Nutzung</string>
     <string name="Notification_Pin_Usage_Description">Benachrichtigungen, wenn mit der PIN auf FMD zugegriffen wird</string>
-    <string name="Notification_Server">FMD Server</string>
     <!-- Varia -->
 
     <!-- Not yet sorted -->
@@ -185,7 +184,6 @@
     <string name="transport_sms_description_note">SMS kann Kosten verursachen, sowohl für dich als auch für die Personen, die dir SMS schicken. Für SMS muss deine SIM-Karte entsperrt sein (z. B. nach einem Neustart).</string>
     <string name="transport_notification_reply_title">Antworten auf Benachrichtigungen</string>
     <string name="transport_notification_reply_description_auth">Um FMD per Antworten auf Benachrichtigungen zu steuern, muss die FMD-PIN gesetzt sein. Jede Nachricht muss die korrekte PIN enthalten.</string>
-    <string name="transport_fmd_server_title">FMD Server</string>
     <string name="transport_fmd_server_description">FMD Server bietet eine Webschnittstelle, über die du dein Gerät steuern, seinen Standort abfragen und die von ihm gesendeten Bilder ansehen kannst. Du kannst FMD Server selbst hosten oder die bereitgestellte Instanz nutzen. Die Daten werden verschlüsselt auf dem Server gespeichert und sind durch dein Passwort geschützt.</string>
     <string name="transport_fmd_server_description_auth">Jeder der deinen Benutzernamen und dein Passwort kennt kann sich bei FMD Server anmelden und dein Gerät steuern.</string>
     <string name="transport_fmd_server_description_note">FMD Server benötigt eine Internetverbindung. Dies kann Mobilfunk sein (dann muss die SIM-Karte entsperrt sein) oder WLAN.</string>

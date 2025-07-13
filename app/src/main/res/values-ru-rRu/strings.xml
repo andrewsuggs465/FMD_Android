@@ -64,7 +64,6 @@
     <string name="Whitelist_empty">Нет разрешённых контактов. Нажмите на кнопку, чтобы добавить их.</string>
     <string name="server_unregister_failed_title">Отмена регистрации не удалась</string>
     <string name="server_unregister_dont_continue">Не продолжать</string>
-    <string name="Notification_Server">Сервер FMD</string>
     <string name="loading">Загрузка…</string>
     <string name="help">Помощь</string>
     <string name="copied">Скопировано</string>
@@ -186,7 +185,6 @@
     <string name="grant_via_shizuku">Выдать через Shizuku</string>
     <string name="perm_root_denied">Отказано в Root-доступе</string>
     <string name="transport_sms_title">SMS-сообщения</string>
-    <string name="transport_fmd_server_title">Сервер FMD</string>
     <string name="missing_permissions_title">Отсутствующие разрешения</string>
     <string name="missing_permissions_description">Следующие разрешения необходимы для того, чтобы запускать FMD.</string>
     <string name="grant_write_secure_settings_title">Выдать разрешение \"Запись защищённых настроек\"</string>

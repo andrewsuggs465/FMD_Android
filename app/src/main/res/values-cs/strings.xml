@@ -65,7 +65,6 @@
     <string name="OpenCellId_test_no_connection">Žádné mobilní připojení</string>
     <string name="server_unregister_continue_anyway">Přesto pokračovat</string>
     <string name="Pin_Usage">Využití PINu</string>
-    <string name="Notification_Server">Server FMD</string>
     <string name="Notification_Security">Zabezpečení</string>
     <string name="Notification_Security_Description">Oznámení o aktualizacích zabezpečení</string>
     <string name="Notification_FAIL">Chyby</string>
@@ -177,7 +176,6 @@
     <string name="WhiteList_no_contact_picker">Nenalezena aplikace výběru kontaktů!</string>
     <string name="allowlist_add_phone_number">Přidat telefonní číslo</string>
     <string name="perm_unused_app_name">Omezení nepoužívaných aplikací</string>
-    <string name="transport_fmd_server_title">Server FMD</string>
     <string name="bottom_nav_commands">Příkazy</string>
     <string name="cmd_lock_description_long">Uzamknout zařízení a volitelně zobrazit zprávu na zamykací obrazovce. Po této akci nebude dostupné odemčení biometrikou a pro odemčení zařízení bude vyžadováno vaše heslo zařízení.</string>
     <string name="transport_sms_description">Posílejte příkazy do svého zařízení pomocí SMS. Například po odeslání „fmd help“ odpoví FMD SMS zprávou.</string>

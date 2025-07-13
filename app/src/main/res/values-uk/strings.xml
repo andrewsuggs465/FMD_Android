@@ -148,13 +148,11 @@
     <string name="optional_permissions_title">Додаткові дозволи</string>
     <string name="grant_write_secure_settings_title">Надати доступ для запису до захищених налаштувань</string>
     <string name="perm_root_denied">Відмовлено в root доступі</string>
-    <string name="transport_fmd_server_title">Сервер FMD</string>
     <string name="transport_fmd_server_description_auth">Будь-хто, хто знає ваше ім\'я користувача та пароль, може увійти до FMD Server і керувати вашим пристроєм.</string>
     <string name="transport_fmd_server_description_note">Сервер FMD вимагає підключення до Інтернету. Це може бути мобільна мережа (при цьому SIM-карта повинна бути розблокована) або Wi-Fi.</string>
     <string name="Notification_Usage_Description">Сповіщення, коли FMD отримує команди</string>
     <string name="Pin_Usage">Використання PIN-коду</string>
     <string name="Notification_Pin_Usage_Description">Сповіщення про доступ до FMD за допомогою PIN</string>
-    <string name="Notification_Server">Сервер FMD</string>
     <string name="Notification_Server_Description">Сповіщення, пов\'язані з FMD сервером</string>
     <string name="Notification_Security">Безпека</string>
     <string name="Notification_Security_Description">Сповіщення про оновлення безпеки</string>

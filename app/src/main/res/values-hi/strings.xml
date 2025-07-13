@@ -29,7 +29,6 @@
     <string name="server_unregister_dont_continue">जारी न रखें</string>
     <string name="Notification_Usage_Description">जब FMD को आदेश प्राप्त हो रहे हों तो अधिसूचनाएं</string>
     <string name="Pin_Usage">पिन उपयोग</string>
-    <string name="Notification_Server">FMD सर्वर</string>
     <string name="Notification_Security">सुरक्षा</string>
     <string name="Notification_FAIL">विफलताएं</string>
     <string name="Permission_POST_NOTIFICATIONS">FMD कभी-कभी आपको सूचनाएं भेजेगा, उदाहरण के लिए आपको चेतावनी देने के लिए कि कोई आपके डिवाइस का पता लगा रहा है।</string>
@@ -168,7 +167,6 @@
     <string name="perm_unused_app_description">एंड्रॉयड कुछ महीनों तक न खोले गए ऐप्स को रोक देता है और उनकी अनुमतियां हटा देता है। हालांकि, FMD को पृष्ठभूमि में काम करना चाहिए। इसे सेट करने के बाद आपको इसे शायद ही कभी खोलने की आवश्यकता होगी। इसलिए आपको FMD को रोके जाने से मुक्त करने की आवश्यकता है, अन्यथा यह कुछ महीनों में काम नहीं करेगा।</string>
     <string name="transport_notification_reply_description">आप FMD को आदेश सुनने के लिए अपनी सूचनाएं पढ़ने की अनुमति दे सकते हैं। इसके बाद FMD एंड्रॉयड की अंतर्निहित अधिसूचना उत्तर सुविधा के माध्यम से उत्तर दे सकता है। यह आपको अपनी पसंद के मैसेजिंग एप्लिकेशन का उपयोग करके FMD को नियंत्रित करने की अनुमति देता है, जब तक कि यह ऐसी सूचनाएं पोस्ट करता है जिनका उत्तर दिया जा सकता है। उदाहरण के लिए, आप अपने फ़ोन पर सिग्नल संदेश \"fmd mypin help\" भेज सकते हैं।</string>
     <string name="transport_notification_reply_description_auth">अधिसूचना उत्तर के माध्यम से FMD को नियंत्रित करने के लिए FMD पिन सेट करना आवश्यक है। प्रत्येक संदेश में सही पिन होना चाहिए।</string>
-    <string name="transport_fmd_server_title">FMD सर्वर</string>
     <string name="setup_warnings_title">सेटअप चेतावनियां</string>
     <string name="missing_permissions_title">अनुपलब्ध अनुमतियां</string>
     <string name="missing_permissions_description">FMD को चलाने के लिए निम्नलिखित अनुमतियों की आवश्यकता है।</string>

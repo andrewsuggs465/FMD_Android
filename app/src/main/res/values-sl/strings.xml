@@ -71,7 +71,6 @@
     <string name="server_unregister_dont_continue">Ne nadaljuj</string>
     <string name="Notification_Usage">Uporaba</string>
     <string name="Notification_Pin_Usage_Description">Obvestila o dostopu do FMD aplikacije s pomočjo PIN kode</string>
-    <string name="Notification_Server">FMD strežnik</string>
     <string name="Notification_Security">Varnost</string>
     <string name="Notification_Security_Description">Obvestila o varnostnih posodobitvah</string>
     <string name="Notification_FAIL">Napake</string>
@@ -179,7 +178,6 @@
     <string name="transport_notification_reply_title">Odgovor na obvestilo</string>
     <string name="transport_sms_title">SMS</string>
     <string name="usage_notification_title">Ukaz izveden</string>
-    <string name="transport_fmd_server_title">FMD strežnik</string>
     <string name="add">Dodaj</string>
     <string name="allowlist_phone_number_name">Ime</string>
     <string name="allowlist_phone_number">Telefonska številka</string>

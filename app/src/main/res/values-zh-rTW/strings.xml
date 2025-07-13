@@ -86,7 +86,6 @@
     <string name="server_unregister_dont_continue">不要繼續</string>
     <string name="Notification_Security">安全</string>
     <string name="Notification_FAIL">失敗</string>
-    <string name="Notification_Server">FMD 伺服器</string>
     <string name="pw_change_success">密碼已變更</string>
     <string name="pw_change_mismatch">重複的密碼不相符。</string>
     <string name="pin_match_command_keyword">PIN 碼不得等於其中一個命令！</string>
