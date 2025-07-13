@@ -96,6 +96,7 @@ assembleDebug:
   artifacts:
     paths:
       - app/build/outputs/
+    expire_in: 60 days
 
 # Run all tests, if any fails, interrupt the pipeline(fail it)
 debugTests:
