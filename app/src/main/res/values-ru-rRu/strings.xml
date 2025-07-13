@@ -10,7 +10,7 @@
     <string name="Toast_Duplicate_contact">Этот контакт уже существует.</string>
     <string name="cmd_locate_response_gps_will_follow">GPS координаты скоро будут отправлены.</string>
     <string name="cmd_help_message_start">Команды FMD:</string>
-    <string name="Settings_FMD_via_Pin_Description">Позволяет вам взаимодействовать с FMD через ПИН-код. Это позволяет вам отправлять команды с мобильного номера, не находящегося в списке Разрешённых контактов.</string>
+    <string name="Settings_FMD_via_Pin_Description">Позволяет вам взаимодействовать с FMD через ПИН-код. Это позволяет вам отправлять команды с мобильного номера, не находящегося в списке разрешённых контактов.</string>
     <string name="Settings_Enter_Pin">Введите ПИН-код</string>
     <string name="MH_Pin_Accepted">ПИН-код принят!</string>
     <string name="Alert_First_Time_contact_added">Поздравляем! Вы добавили ваш первый контакт. Теперь вы можете взаимодействовать с FMD через отправку SMS сообщений с разрешённых мобильных номеров, содержащих в себе нужные команды, например \"fmd lock\". Если всё будет работать, то приложение должно прислать вам ответ.</string>
