@@ -188,7 +188,7 @@
     <string name="missing_permissions_title">Отсутствующие разрешения</string>
     <string name="missing_permissions_description">Следующие разрешения необходимы для того, чтобы запускать FMD.</string>
     <string name="grant_write_secure_settings_title">Выдать разрешение \"Запись защищённых настроек\"</string>
-    <string name="grant_write_secure_settings_description">Это разрешение может быть выдано только через консольную команду \"pm grant\" в Android. Вы можете выполнить её вручную через Android Debug Bridge (ADB) с помощью компьютера. Вы также можете выполнить её прямо на вашем устройстве через Root или Shizuku.\n\nИдентификатор (ID) пользователя: %s</string>
+    <string name="grant_write_secure_settings_description">Это разрешение может быть выдано только через консольную команду \"pm grant\" в Android. Вы можете выполнить её вручную через Android Debug Bridge (ADB) с помощью компьютера. Вы также можете выполнить её прямо на вашем устройстве через Root или Shizuku.\n\nИдентификатор (ID) пользователя: %d</string>
     <string name="transport_notification_reply_description_auth">Взаимодействие с FMD через ответ на уведомление требует установки ПИН-кода. Каждая команда должна будет содержать верный ПИН-код.</string>
     <string name="transport_fmd_server_description_note">Сервер FMD требует наличия соединения с интернетом. Это может быть как мобильный интернет (а значит SIM-карта должна быть разблокирована), так и Wi-Fi сеть.</string>
     <string name="OpenCellId_tower_collector_info">Вы можете совершать вклад в проект OpenCelliD собирая и загружая информацию о сотовых вышках. Для этого, вам необходимо использовать отдельное приложение. Например, одним из них является Tower Collector.</string>

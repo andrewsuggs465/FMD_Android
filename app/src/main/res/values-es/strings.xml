@@ -164,7 +164,7 @@
     <string name="cmd_ring_description_short">Hacer que el dispositivo suene</string>
     <string name="perm_camera_name">Cámara</string>
     <string name="cmd_ring_response">El dispositivo ahora debería estar sonando.</string>
-    <string name="grant_write_secure_settings_description">Este permiso solo se puede conceder con la herramienta de línea de comandos \"pm grant\" de Android. Puedes ejecutar este comando manualmente a través de Android Debug Bridge (ADB) usando una computadora. También puedes ejecutarlo directamente en tu dispositivo usando root o Shizuku.\n\nID de usuario: %s</string>
+    <string name="grant_write_secure_settings_description">Este permiso solo se puede conceder con la herramienta de línea de comandos \"pm grant\" de Android. Puedes ejecutar este comando manualmente a través de Android Debug Bridge (ADB) usando una computadora. También puedes ejecutarlo directamente en tu dispositivo usando root o Shizuku.\n\nID de usuario: %d</string>
     <string name="usage_notification_text">El comando \"%s\" fue ejecutado.</string>
     <string name="bottom_nav_settings">Ajustes</string>
     <string name="transport_sms_description_note">Los SMS pueden generar costes tanto para usted como para la persona que le envía el mensaje. Los SMS requieren que su tarjeta SIM esté desbloqueada (por ejemplo, después de reiniciar el sistema).</string>

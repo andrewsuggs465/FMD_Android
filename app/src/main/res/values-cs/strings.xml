@@ -140,7 +140,7 @@
     <string name="perm_write_secure_settings_name">Zapisovat zabezpečená nastavení</string>
     <string name="required_permissions_title">Požadovaná oprávnění</string>
     <string name="grant">Udělit</string>
-    <string name="grant_write_secure_settings_description">Toto oprávnění lze udělit pouze pomocí příkazu „pm grant“ s nástrojem pro příkazovou řádku systému Android. Tento příkaz můžete ručně vykonat pomocí nástroje Android Debug Bridge (ADB) s počítačem. Můžete jej také vykonat přímo na vašem zařízení pomocí rootu nebo aplikace Shizuku.\n\nUživatelské ID: %s</string>
+    <string name="grant_write_secure_settings_description">Toto oprávnění lze udělit pouze pomocí příkazu „pm grant“ s nástrojem pro příkazovou řádku systému Android. Tento příkaz můžete ručně vykonat pomocí nástroje Android Debug Bridge (ADB) s počítačem. Můžete jej také vykonat přímo na vašem zařízení pomocí rootu nebo aplikace Shizuku.\n\nUživatelské ID: %d</string>
     <string name="grant_via_adb">Udělit pomocí ADB</string>
     <string name="perm_root_denied">Root přístup zamítnut</string>
     <string name="cmd_missing_permissions">Nepodařilo se spustit příkaz %1$s: chybějící oprávnění %2$s.</string>

@@ -41,7 +41,7 @@
     <string name="grant">Cấp Quyền</string>
     <string name="grant_via_adb">Cấp Quyền Qua ADB</string>
     <string name="grant_via_root">Cấp Quyền Qua Root</string>
-    <string name="grant_write_secure_settings_description">Quyền này chỉ có thể được cấp với công cụ dòng lệnh \"pm grant\" của Android. Bạn có thể thực hiện lệnh này thủ công qua Android Debug Bridge (ADB) bằng cách sử dụng máy tính. Bạn cũng có thể thực hiện trực tiếp trên thiết bị của mình bằng cách sử dụng root hoặc Shizuku.\n\nUser ID: %s</string>
+    <string name="grant_write_secure_settings_description">Quyền này chỉ có thể được cấp với công cụ dòng lệnh \"pm grant\" của Android. Bạn có thể thực hiện lệnh này thủ công qua Android Debug Bridge (ADB) bằng cách sử dụng máy tính. Bạn cũng có thể thực hiện trực tiếp trên thiết bị của mình bằng cách sử dụng root hoặc Shizuku.\n\nUser ID: %d</string>
     <string name="perm_root_denied">Truy cập root bị từ chối</string>
     <string name="perm_shizuku_failed">Cấp quyền qua Shizuku thất bại</string>
     <string name="transport_sms_title">SMS</string>

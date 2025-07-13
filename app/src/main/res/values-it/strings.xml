@@ -185,7 +185,7 @@
     <string name="perm_post_notification_name">Mostra Notifiche</string>
     <string name="perm_sms_name">SMS</string>
     <string name="perm_write_secure_settings_name">Scrivi impostazioni di sicurezza</string>
-    <string name="grant_write_secure_settings_description">Questa autorizzazione può essere concessa solo con lo strumento da riga di comando \"pm grant\" di Android. È possibile eseguire questo comando manualmente tramite Android Debug Bridge (ADB) utilizzando un computer. È anche possibile eseguirlo direttamente sul dispositivo tramite root o Shizuku.\n\nID utente: %s</string>
+    <string name="grant_write_secure_settings_description">Questa autorizzazione può essere concessa solo con lo strumento da riga di comando \"pm grant\" di Android. È possibile eseguire questo comando manualmente tramite Android Debug Bridge (ADB) utilizzando un computer. È anche possibile eseguirlo direttamente sul dispositivo tramite root o Shizuku.\n\nID utente: %d</string>
     <string name="transport_sms_title">SMS</string>
     <string name="grant_via_shizuku">Concedi via Shizuku</string>
     <string name="perm_root_denied">Accesso Root negato</string>

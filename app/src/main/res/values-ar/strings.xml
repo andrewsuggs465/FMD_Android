@@ -187,7 +187,7 @@
     <string name="cmd_stats_description_long">أحصل على إحصائيات الشبكة من الجهاز. على سبيل المثال، عنوان IP الخاص به وقائمة بشبكات Wi-Fi المحيطة به.</string>
     <string name="perm_battery_optimizations_name">تجاهل تحسينات البطارية</string>
     <string name="perm_device_admin_name">مسؤول الجهاز</string>
-    <string name="grant_write_secure_settings_description">لا يمكن منح هذا الإذن إلا باستخدام أداة سطر الأوامر \"pm grant\" في نظام Android. يمكنك تنفيذ هذا الأمر يدويًا عبر Android Debug Bridge (ADB) باستخدام جهاز كمبيوتر. يمكنك أيضًا تنفيذه مباشرة على جهازك باستخدام root أو Shizuku.\nUser ID: %s</string>
+    <string name="grant_write_secure_settings_description">لا يمكن منح هذا الإذن إلا باستخدام أداة سطر الأوامر \"pm grant\" في نظام Android. يمكنك تنفيذ هذا الأمر يدويًا عبر Android Debug Bridge (ADB) باستخدام جهاز كمبيوتر. يمكنك أيضًا تنفيذه مباشرة على جهازك باستخدام root أو Shizuku.\nUser ID: %d</string>
     <string name="transport_inapp_description">أرسل الأوامر محليًا من داخل FMD إلى جهازك. يعد هذا مفيدًا للاختبار. سيرد FMD بإشعار.</string>
     <string name="cmd_ring_response">ينبغي أن يرن الجهاز الآن.</string>
     <string name="perm_overlay_name">العرض فوق التطبيقات الأخرى</string>

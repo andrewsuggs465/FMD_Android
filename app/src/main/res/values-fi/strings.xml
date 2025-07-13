@@ -216,7 +216,7 @@
     <string name="cmd_nodisturb_description_short">Kytke Älä häiritse-tila päälle tai pois päältä</string>
     <string name="cmd_nodisturb_response_on">Älä häiritse-tila kytketty päälle.</string>
     <string name="cmd_nodisturb_response_off">Älä häiritse-tila kytketty pois päältä.</string>
-    <string name="grant_write_secure_settings_description">Tämä käyttöoikeus voidaan myöntäö vain Androidin \"pm grant\"-komentorivityökalulla. Voit suorittaa komennon manuaalisesti Android Debug Bridgen (ADB):n kautta tietokonetta käyttäen. Voit suorittaa komennon myös rootatulla tai Shizukua käyttävällä laitteella.\n\nUser ID: %s</string>
+    <string name="grant_write_secure_settings_description">Tämä käyttöoikeus voidaan myöntäö vain Androidin \"pm grant\"-komentorivityökalulla. Voit suorittaa komennon manuaalisesti Android Debug Bridgen (ADB):n kautta tietokonetta käyttäen. Voit suorittaa komennon myös rootatulla tai Shizukua käyttävällä laitteella.\n\nUser ID: %d</string>
     <string name="grant_via_root">Myönnä root-oikeuksin</string>
     <string name="transport_sms_description_note">Tekstiviestit veloitetaan liittymän hinnaston mukaisesti. Jotta tekstiviestejä voidaan käyttää, tulee SIM-kortin lukituksen olla avattu (esim. laitteen uudelleenkäynnistyksen jälkeen).</string>
     <string name="Notification_Server_Description">FMD-palvelimeen liittyvät ilmoitukset</string>

@@ -127,7 +127,7 @@
 \nDu chasch trotzdem wiiter mache, aber dis Konto isch viellicht nöd vom Server glöscht worde. Wenn du wiiter machsch wird dis Konto lokal vom Gerät glöscht.</string>
     <string name="OpenCellId_help">FMD chan d OpenCelliD-Dienst bruche zum en ungfähre Standort finde wo uf de Mobilfunkzelle basiert in wellere dis Gerät iigloggt isch. Für jedi Aafrag bruchts en Internetverbindig. Du bruchsch au es Konto bi OpenCelliD zum es API Access Token becho.</string>
     <string name="perm_write_secure_settings_name">Secure Settings verwalte</string>
-    <string name="grant_write_secure_settings_description">Die Berechtigung cha nur mit em Kommandozeilebefehl \"pm grant\" vo Android erteilt werde. Du chasch de Befehl manuell über de Android Debug Bridge (ADB) vomene Computer us usführe. Du chasch ihn au direkt uf dim Gerät mit Root oder Shizuku usführe.\n\nNutzer-ID: %s</string>
+    <string name="grant_write_secure_settings_description">Die Berechtigung cha nur mit em Kommandozeilebefehl \"pm grant\" vo Android erteilt werde. Du chasch de Befehl manuell über de Android Debug Bridge (ADB) vomene Computer us usführe. Du chasch ihn au direkt uf dim Gerät mit Root oder Shizuku usführe.\n\nNutzer-ID: %d</string>
     <string name="perm_root_denied">Root-Zuegriff abglehnt</string>
     <string name="perm_shizuku_failed">Erlaube via Shizuku fehlgschlage</string>
     <string name="Notification_Pin_Usage_Description">Benachrichtigunge wenn miteme PIN uf FMD zuegriffe wird</string>

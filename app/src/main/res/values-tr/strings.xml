@@ -223,7 +223,7 @@
     <string name="crashed_continue_without">Rapor etmeden devam et</string>
     <string name="perm_unused_app_description">Android birkaç ay boyunca açılmamış olan uygulamaları durdurur ve izinlerini kaldırır. Ancak FMD\'nin arkaplanda çalışması lazım. Kurduktan sonra nadiren uygulamayı açmanız gerekli. Yani FMD\'yi durdurulmaktan muaf tutmanız gerekli, aksi takdirde birkaç ay içinde çalışmayabilir.</string>
     <string name="grant">İzin ver</string>
-    <string name="grant_write_secure_settings_description">Bu izin yalnızca Android\'in \"pm grant\" komut dizini aracıyla verilebilir. Bu komudu elle, bilgisayar üzerinden , Android Debug Bridge (ADB) aracılığıyla çalıştırabilirsiniz. Cihazınızda ayrıca root ya da Shizuku kullanarak çalıştırabilirsiniz.\n\nKullanıcı ID: %s</string>
+    <string name="grant_write_secure_settings_description">Bu izin yalnızca Android\'in \"pm grant\" komut dizini aracıyla verilebilir. Bu komudu elle, bilgisayar üzerinden , Android Debug Bridge (ADB) aracılığıyla çalıştırabilirsiniz. Cihazınızda ayrıca root ya da Shizuku kullanarak çalıştırabilirsiniz.\n\nKullanıcı ID: %d</string>
     <string name="perm_root_denied">Root erişimi reddedildi</string>
     <string name="perm_shizuku_failed">Shizuku ile izin verme başarısız</string>
     <string name="transport_inapp_title">Uygulama İçi</string>

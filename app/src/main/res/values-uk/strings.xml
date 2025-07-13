@@ -169,7 +169,7 @@
     <string name="perm_unused_app_description">Android ставить на паузу додатки, які не відкриваються протягом кількох місяців, і видаляє їхні дозволи. FMD, однак, має працювати у фоновому режимі. Після його налаштування вам рідко потрібно буде його відкривати. Тому вам потрібно вимкнути для FMD цю функцію, інакше він може не працювати через кілька місяців.</string>
     <string name="required_permissions_title">Необхідні дозволи</string>
     <string name="grant">Надати</string>
-    <string name="grant_write_secure_settings_description">Цей дозвіл можна надати тільки за допомогою інструменту командного рядка Android «pm grant». Ви можете виконати цю команду вручну через Android Debug Bridge (ADB) за допомогою комп\'ютера, або виконати її безпосередньо на вашому пристрої від імені користувача root чи Shizuku.\n\nІдентифікатор користувача: %s</string>
+    <string name="grant_write_secure_settings_description">Цей дозвіл можна надати тільки за допомогою інструменту командного рядка Android «pm grant». Ви можете виконати цю команду вручну через Android Debug Bridge (ADB) за допомогою комп\'ютера, або виконати її безпосередньо на вашому пристрої від імені користувача root чи Shizuku.\n\nІдентифікатор користувача: %d</string>
     <string name="perm_shizuku_failed">Не вдалось надати дозвіл через Shizuku</string>
     <string name="grant_via_adb">Надати через ADB</string>
     <string name="grant_via_root">Надання доступу через root</string>

@@ -142,7 +142,7 @@
     <string name="optional_permissions_title">Optionale Berechtigungen</string>
     <string name="grant">Zulassen</string>
     <string name="grant_write_secure_settings_title">Verwalten der Secure Settings zulassen</string>
-    <string name="grant_write_secure_settings_description">Diese Berechtigung kann nur mit Androids Kommandozeilenbefehl \"pm grant\" erteilt werden. Du kannst diesen Befehl manuell über die Android Debug Bridge (ADB) von einem Computer aus ausführen. Du kannst ihn auch direkt auf deinem Gerät mit Root oder Shizuku ausführen.\n\nNutzer-ID: %s</string>
+    <string name="grant_write_secure_settings_description">Diese Berechtigung kann nur mit Androids Kommandozeilenbefehl \"pm grant\" erteilt werden. Du kannst diesen Befehl manuell über die Android Debug Bridge (ADB) von einem Computer aus ausführen. Du kannst ihn auch direkt auf deinem Gerät mit Root oder Shizuku ausführen.\n\nNutzer-ID: %d</string>
     <string name="grant_via_adb">Via ADB erlauben</string>
     <string name="grant_via_root">Via Root erlauben</string>
     <string name="grant_via_shizuku">Via Shizuku erlauben</string>

@@ -183,7 +183,7 @@
     <string name="server_unregister_failed_title">Ei õnnestunud lõpetada registreerimist</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD rakendus kontrollib ühenduse toimimist FMD Serveriga iga x tunni järel. Kui sa seda võimalust ei vaja, siis sisesta väärtuseks 0.</string>
     <string name="cmd_camera_response_success">Nutiseade just pildistab ja laadib seda üles FMD serverisse. Üsna pea näed seda siin: %s</string>
-    <string name="grant_write_secure_settings_description">Neid õigusi saad jagada vaid Androidi „pm grant“ käsurea tarvikuga. Üks võimalus oleks seda teha arvutist käsitsi Android Debug Bridge (ADB) abil. Või kui nutiseadmes on juurkasutaja lubatud või Shizuku kasutusel, siis saad teha ka otse nutiseadmest.\n\nKasutajatunnus: %s</string>
+    <string name="grant_write_secure_settings_description">Neid õigusi saad jagada vaid Androidi „pm grant“ käsurea tarvikuga. Üks võimalus oleks seda teha arvutist käsitsi Android Debug Bridge (ADB) abil. Või kui nutiseadmes on juurkasutaja lubatud või Shizuku kasutusel, siis saad teha ka otse nutiseadmest.\n\nKasutajatunnus: %d</string>
     <string name="cmd_stats_description_short">Vaata võrguühenduse statistikat</string>
     <string name="crashed_text">FMD on jooksnud kokku! Vealogi on siin:</string>
     <string name="MH_Pin_Accepted">PIN-kood on sobilik!</string>

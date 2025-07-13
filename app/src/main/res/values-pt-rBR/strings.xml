@@ -113,7 +113,7 @@
     <string name="perm_sms_name">SMS</string>
     <string name="perm_write_secure_settings_name">Modificar configurações seguras</string>
     <string name="grant_write_secure_settings_title">Permitir modificação das configurações seguras</string>
-    <string name="grant_write_secure_settings_description">Esta permissão só pode ser concedida com a ferramenta \"pm grant\" de terminal do Android. Você pode executar este comando manualmente atráves do Android Debug Bridge (ADB) usando um computador. Você também pode executá-lo diretamente no seu dispositivo usando root ou o Shizuku.\n\nID do usuário: %s</string>
+    <string name="grant_write_secure_settings_description">Esta permissão só pode ser concedida com a ferramenta \"pm grant\" de terminal do Android. Você pode executar este comando manualmente atráves do Android Debug Bridge (ADB) usando um computador. Você também pode executá-lo diretamente no seu dispositivo usando root ou o Shizuku.\n\nID do usuário: %d</string>
     <string name="cmd_camera_description_short">Tirar uma foto</string>
     <string name="cmd_delete_response_pwd_wrong">Não foi possível executar o delete: senha errada.</string>
     <string name="cmd_camera_response_no_fmd_server">Não foi possível tirar foto: nenhum conta do FMD Server existe.</string>
