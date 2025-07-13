@@ -7,13 +7,13 @@
     <string name="GPS">GPS</string>
     <string name="request_failed_title">Netzwerkaafrag fehlgschlage</string>
     <string name="request_failed_status_code">Statuscode</string>
-    <string name="request_failed_response_body">Response Body</string>
+    <string name="request_failed_response_body">Response body</string>
     <string name="request_failed_exception">Usnahmefehler</string>
     <string name="Settings_Settings">Iistellige</string>
     <string name="Settings_FMDConfig">Allgemein</string>
     <string name="Settings_WhiteList">Erlaubti Kontäkt</string>
-    <string name="Settings_Import">Iistellige Importiere</string>
-    <string name="Settings_FMD_via_Pin_Description">Machts dir möglich mit FMD via PIN zu kommuniziere. So chasch Befehl vonere Telefonnummer schicke wo nöd in dine Erlaubte Kontäkt isch.</string>
+    <string name="Settings_Import">Iistellige importiere</string>
+    <string name="Settings_FMD_via_Pin_Description">Machts dir möglich mit FMD via PIN zu kommuniziere. So chasch Befehl vonere Telefonnummer schicke wo nöd in dine erlaubte Kontäkt isch.</string>
     <string name="Settings_Pin_Description">De PIN wird als Bestätigung zums Gerät zruggzsetze brucht und zum anonym Befehl a FMD zschicke.</string>
     <string name="pin">PIN</string>
     <string name="pin_repeat">PIN wiederhole</string>
@@ -35,7 +35,7 @@
     <string name="server_version">Server-Version</string>
     <string name="server_version_error">Fehler bim Lade vo de Server-Version</string>
     <string name="server_version_error_low_version">Es brucht mindestens Server-Version {MIN}, aber de usgwählti Server het Version {CURRENT}. Mach uf eigeni Gfahr wiiter.</string>
-    <string name="Settings_FMDServer_AddAccount">FMD Server: Iilogge/Registriere</string>
+    <string name="Settings_FMDServer_AddAccount">FMD Server: Iilogge</string>
     <string name="Settings_FMDServer_open_website">FMD Server Websiite öffne</string>
     <string name="Settings_FMDServer_use_default_server">De öffentlichi Server vo Nulide bruche</string>
     <string name="Settings_FMDServer_Server_Url">Server-URL</string>
@@ -43,12 +43,12 @@
     <string name="Settings_FMDServer_Register">Registriere</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Dateschutzerklärig</string>
     <string name="password">Passwort</string>
-    <string name="registration_token">Registrierigs-Token</string>
+    <string name="registration_token">Registrierigstoken</string>
     <string name="registration_token_hint">Privati Instanze bruchet mengisch es gheims Token. Lahns leer falls d Instanz öffentlich isch.</string>
     <string name="Whitelist_help">D Kontäkt in dere Lischte döffed Befehl via SMS schicke. Befehl vo allne andere werdet ignoriert.</string>
     <string name="WhiteList_Add_Contact">Kontakt dezue tue</string>
     <string name="OpenCellId_privacy">Privatsphäri: denk dra dass OpenCelliD bi jedere Aafrag dini aktuelli Mobilfunkzelle und demit au din Standort überchunnt.</string>
-    <string name="OpenCellId_open_website">OpenCelliD-Websiite Öffne</string>
+    <string name="OpenCellId_open_website">OpenCelliD-Websiite öffne</string>
     <string name="OpenCellId_test_opencellid">OpenCelliD-Verbindig teschte</string>
     <string name="OpenCellId_test_no_connection">Kei Mobilfunkverbindig</string>
     <string name="about">Über</string>
@@ -108,7 +108,7 @@
     <string name="Notification_Fail_Description">Benachrichtigunge wenn öppis fehlschlaht (z.B. die Verbindig zu FMD Server)</string>
     <string name="usage_notification_title">Befehl usgfüehrt</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Die Aawendig sett im Hintergrund laufe. Zum sichergoh, dass sie au im Standby funktioniert, muess d Akku-Optimierig für die App abgstellt werde.</string>
-    <string name="Settings_Lockscreenmessage_Description">Sperrbildschirmnachricht: \nDie Nachricht wos ufm Sperrbildschirm aazeigt wenns Gerät gsperrt wird.</string>
+    <string name="Settings_Lockscreenmessage_Description">Sperrbildschirmnachricht:\nDie Nachricht wos ufm Sperrbildschirm aazeigt wenns Gerät gsperrt wird.</string>
     <string name="Settings_FMD_Server_Server_URL">Server URL:</string>
     <string name="Settings_FMD_Server_User_ID">Benutzer ID:</string>
     <string name="copied">Kopiert</string>
@@ -116,12 +116,11 @@
     <string name="Cell">Mobilfunkzelle</string>
     <string name="Settings_FMD_Server_General">Allgemein</string>
     <string name="Settings_Enter_Pin">PIN iigäh</string>
-    <string name="Settings_Export">Iistellige Exportiere</string>
+    <string name="Settings_Export">Iistellige exportiere</string>
     <string name="Settings_About">Über</string>
     <string name="Settings_Logs">Protokoll</string>
     <string name="Settings_FMDServer_Info">Mit FMD Server chasch Befehl übers Internet schicke, vom Server ad App. Du chasch au de Standort vom Gerät ufere Karte gse oder d Bilder wos Gerät gmacht het aaluege. En Self-Hosting-Aaleitig hets uf de Websiite.</string>
-    <string name="Settings_FMDServer_Location_Type_Description">D Quell(e) vo wo de Standort regelmässig im Hintegrund ufeglade wird.
-\nFalls du keini uswählsch wird kein Standort ufeglade. (Du chasch wiiterhin en Upload übers Webinterface erzwinge. Dafür bruchts Push.)</string>
+    <string name="Settings_FMDServer_Location_Type_Description">D Quell(e) vo wo de Standort regelmässig im Hintergrund ufeglade wird. \nFalls du keini uswählsch wird kein Standort ufeglade. (Du chasch wiiterhin en Upload übers Webinterface erzwinge. Dafür bruchts Push.)</string>
     <string name="Whitelist_empty">Kei Erlaubti Kontäkt. Druck de Chnopf zum neui dezue tue!</string>
     <string name="Alert_First_Time_contact_added">Gratuliere! Du hesch din erschte Kontakt dezu tah. Du chasch jetzt mit de FMD-App kommuniziere indem du es SMS vonere erlaubte Telefonnumere schicksch wo \"fmd\" enthaltet. Falls alles klappet, wird d App antworte.</string>
     <string name="server_unregister_failed_body">D De-Registrierig isch fehlgschlage: {ERROR}
@@ -196,7 +195,7 @@
     <string name="crashed_continue_without">Ohni Melde wiitermache</string>
     <string name="OpenCellId_tower_collector_download">Tower Collector Abelade</string>
     <string name="OpenCellId_tower_collector_info">Du chasch OpenCelliD helfe indem du Mobilfunkmast-Datene sammlisch und ufeladsch. Für das bruchts en separati App. Eini isch zum Bispil Tower Collector.</string>
-    <string name="crashed_open_issuetracker">Issue Tracker Uftue</string>
+    <string name="crashed_open_issuetracker">Issue Tracker uftue</string>
     <string name="transport_inapp_title">In-App</string>
     <string name="transport_inapp_send_command_title">In-App Befehl schicke</string>
     <string name="transport_inapp_send_command_command_placeholder">Befehl</string>
@@ -263,11 +262,11 @@
     <string name="Settings_FMDServer_Push_Distributor">Verteiler: %s</string>
     <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
     <string name="Settings_FMDServer_Push_Register">Registriere</string>
-    <string name="Settings_FMDServer_Push_Register_Again">Nomal Registriere</string>
+    <string name="Settings_FMDServer_Push_Register_Again">Nomal registriere</string>
     <string name="Settings_FMDServer_Push_Description">Zum Befehl vo FMD Server a dis Gerät z schicke bruchts en UnifiedPush-Verteiler-App.</string>
     <string name="server_fmd_id_hint">D FMD ID identifiziert din Account ufem FMD Server. Wenn du das Feld leer lasch, generiert d Server en ID für dich. Bis dir bewusst, dass d FMD ID im Klartext ufem Server gespeicheret wird, d.h. de Server Administrator cha sie aaluege.</string>
     <string name="update_pin_hash_change_text">D FMD-PIN isch während emne App-Update zrugggsetzt worde. Bitte konfigurier d PIN nomal zum FMD wiiterhin mitem PIN bruche.</string>
     <string name="allowlist_reset_title">Erlaubti Kontäkt zrugggsetzt</string>
-    <string name="allowlist_reset_text">Wege emne Absturz sind die Erlaubten Kontäkt zrugggsetzt worde. Bitte konfiguriere sie nomal.</string>
+    <string name="allowlist_reset_text">Wege emne Absturz sind die erlaubten Kontäkt zrugggsetzt worde. Bitte konfiguriere sie nomal.</string>
     <string name="Settings_Pin_Not_Backed_Up">Achtung: D PIN isch nöd im App-Backup enthalte.</string>
 </resources>
