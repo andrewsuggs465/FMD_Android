@@ -102,14 +102,12 @@
             android:label="@string/log_view_title" />
         <activity
             android:name=".ui.RingerActivity"
-            android:screenOrientation="sensorPortrait"
             android:showOnLockScreen="true"
             android:showWhenLocked="true"
             android:turnScreenOn="true" />
         <activity android:name=".ui.onboarding.UpdateboardingModernCryptoActivity" />
         <activity
             android:name=".ui.LockScreenMessage"
-            android:screenOrientation="sensorPortrait"
             android:showOnLockScreen="true" />
         <activity
             android:name=".ui.MainActivity"
