@@ -150,7 +150,6 @@
 \n
 \nवाई-फाई नेटवर्क:
 \n%2$s</string>
-    <string name="grant_write_secure_settings_description">यह अनुमति केवल एंड्रॉयड के \"pm grant\" कमांड लाइन टूल से ही दी जा सकती है। आप कंप्यूटर का उपयोग करके Android Debug Bridge (ADB) के माध्यम से इस कमांड को हस्तचालित रूप से निष्पादित कर सकते हैं। आप इसे रूट या शिज़ुकु का उपयोग करके सीधे अपने डिवाइस पर भी निष्पादित कर सकते हैं।</string>
     <string name="cmd_lock_response">डिवाइस अब लॉक हो जाना चाहिए।</string>
     <string name="cmd_ring_description_short">डिवाइस को बजाता है</string>
     <string name="cmd_ring_response">अब डिवाइस बजना शुरू हो जाना चाहिए।</string>

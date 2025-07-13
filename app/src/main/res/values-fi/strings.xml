@@ -216,7 +216,7 @@
     <string name="cmd_nodisturb_description_short">Kytke Älä häiritse-tila päälle tai pois päältä</string>
     <string name="cmd_nodisturb_response_on">Älä häiritse-tila kytketty päälle.</string>
     <string name="cmd_nodisturb_response_off">Älä häiritse-tila kytketty pois päältä.</string>
-    <string name="grant_write_secure_settings_description">Tämä käyttöoikeus voidaan myöntäö vain Androidin \"pm grant\"-komentorivityökalulla. Voit suorittaa komennon manuaalisesti Android Debug Bridgen (ADB):n kautta tietokonetta käyttäen. Voit suorittaa komennon myös rootatulla tai Shizukua käyttävällä laitteella.</string>
+    <string name="grant_write_secure_settings_description">Tämä käyttöoikeus voidaan myöntäö vain Androidin \"pm grant\"-komentorivityökalulla. Voit suorittaa komennon manuaalisesti Android Debug Bridgen (ADB):n kautta tietokonetta käyttäen. Voit suorittaa komennon myös rootatulla tai Shizukua käyttävällä laitteella.\n\nUser ID: %s</string>
     <string name="grant_via_root">Myönnä root-oikeuksin</string>
     <string name="transport_sms_description_note">Tekstiviestit veloitetaan liittymän hinnaston mukaisesti. Jotta tekstiviestejä voidaan käyttää, tulee SIM-kortin lukituksen olla avattu (esim. laitteen uudelleenkäynnistyksen jälkeen).</string>
     <string name="Notification_Server_Description">FMD-palvelimeen liittyvät ilmoitukset</string>
@@ -243,7 +243,6 @@
     <string name="Settings_FMDServer_Check_Notify_After_Title">Pisin sallittu aika ilman yhteyttä</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD ilmoittaa, jos viimeisimmästä onnistuneesta yhteyden tarkistuksesta on kulunut pidempään kuin määrittämäsi tuntimäärä ja tarkistus on käytössä.</string>
     <string name="server_connectivity_lost_title">Yhteys FMD-palvelimeen on katkennut</string>
-    <string name="server_connectivity_lost_text">FMD-palvelinta ei tavoiteta. Viimeisin yhteys saatu %s.</string>
     <string name="cmd_delete_response_dry_run">Testiajo suoritettu, ohitetaan todellinen laitteen poisto.</string>
     <string name="usage_notification_pin_text">PIN-koodia käytti numero %s. On suositeltavaa vaihtaa PIN-koodi.</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD tarkistaa yhteyden FMD-palvelimelle määrittämäsi tuntimäärän välein. Aseta nollaksi poistaaksesi tarkistus käytöstä.</string>

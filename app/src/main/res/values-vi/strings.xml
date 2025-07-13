@@ -41,7 +41,7 @@
     <string name="grant">Cấp Quyền</string>
     <string name="grant_via_adb">Cấp Quyền Qua ADB</string>
     <string name="grant_via_root">Cấp Quyền Qua Root</string>
-    <string name="grant_write_secure_settings_description">Quyền này chỉ có thể được cấp với công cụ dòng lệnh \"pm grant\" của Android. Bạn có thể thực hiện lệnh này thủ công qua Android Debug Bridge (ADB) bằng cách sử dụng máy tính. Bạn cũng có thể thực hiện trực tiếp trên thiết bị của mình bằng cách sử dụng root hoặc Shizuku.</string>
+    <string name="grant_write_secure_settings_description">Quyền này chỉ có thể được cấp với công cụ dòng lệnh \"pm grant\" của Android. Bạn có thể thực hiện lệnh này thủ công qua Android Debug Bridge (ADB) bằng cách sử dụng máy tính. Bạn cũng có thể thực hiện trực tiếp trên thiết bị của mình bằng cách sử dụng root hoặc Shizuku.\n\nUser ID: %s</string>
     <string name="perm_root_denied">Truy cập root bị từ chối</string>
     <string name="perm_shizuku_failed">Cấp quyền qua Shizuku thất bại</string>
     <string name="transport_sms_title">SMS</string>
@@ -194,7 +194,6 @@
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD sẽ thông báo cho bạn nếu lần kết nối thành công cuối cùng đến máy chủ FMD đã hơn X giờ. Điều này không có tác dụng nếu kiểm tra kết nối bị vô hiệu hóa.</string>
     <string name="pw_change_network_failed">Thay đổi mật khẩu không thành công do lỗi mạng.</string>
     <string name="server_version_upgrade_required_text">Máy chủ FMD bạn đang sử dụng có phiên bản {CURRENT}, nhưng ứng dụng này yêu cầu ít nhất {MIN}. Việc điều khiển thiết bị của bạn qua máy chủ FMD có thể không còn hoạt động nữa. Vui lòng nâng cấp máy chủ của bạn.</string>
-    <string name="server_connectivity_lost_text">Không thể kết nối với máy chủ FMD nữa. Kết nối thành công cuối cùng là vào lúc %s.</string>
     <string name="Settings_FMDServer_open_website">Mở trang web máy chủ FMD</string>
     <string name="server_connectivity_lost_title">Mất kết nối với máy chủ FMD</string>
     <string name="Settings_FMDServer_Server_Url">URL máy chủ</string>

@@ -145,7 +145,7 @@
     <string name="usage_notification_title">Kommando kjørt</string>
     <string name="usage_notification_text">Kjørte kommandoen «%s».</string>
     <string name="grant_write_secure_settings_title">Innvilg skriving av sikkerhetsinnstillinger</string>
-    <string name="grant_write_secure_settings_description">Denne tilgangen kan kun innvilges med Androids «pm grant»-kommandolinjeverktøy. Du kan kjøre denne kommandoen manuelt via Android-avlusningsbroen (ADB) ved å bruke en datamaskin. Du kan også kjøre det direkte på enheten din ved bruk av rot-tilgang eller Shizuku.</string>
+    <string name="grant_write_secure_settings_description">Denne tilgangen kan kun innvilges med Androids «pm grant»-kommandolinjeverktøy. Du kan kjøre denne kommandoen manuelt via Android-avlusningsbroen (ADB) ved å bruke en datamaskin. Du kan også kjøre det direkte på enheten din ved bruk av rot-tilgang eller Shizuku.\n\nUser ID: %s</string>
     <string name="perm_write_secure_settings_name">Skriving av sikkerhetsinnstillinger</string>
     <string name="Locked_Lock_Screen">FMD
 \nDenne enheten er låst.

@@ -177,7 +177,7 @@
     <string name="perm_unused_app_name">Restrictions d\'application inutilisées</string>
     <string name="grant">Autoriser</string>
     <string name="grant_write_secure_settings_title">Autoriser la modification des paramètres sécurisés</string>
-    <string name="grant_write_secure_settings_description">Cette autorisation ne peut être accordée qu\'avec l\'outil de ligne de commande \"pm grant\" d\'Android. Vous pouvez exécuter cette commande manuellement via Android Debug Bridge (ADB) en utilisant un ordinateur. Vous pouvez également l\'exécuter directement sur votre appareil en utilisant root ou Shizuku.\n\nID de l\'utilisateur : %s</string>
+    <string name="grant_write_secure_settings_description">Cette autorisation ne peut être accordée qu\'avec l\'outil de ligne de commande \"pm grant\" d\'Android. Vous pouvez exécuter cette commande manuellement via Android Debug Bridge (ADB) en utilisant un ordinateur. Vous pouvez également l\'exécuter directement sur votre appareil en utilisant root ou Shizuku.\n\nID de l\'utilisateur: %s</string>
     <string name="grant_via_adb">Autoriser par ADB</string>
     <string name="grant_via_root">Autoriser par root</string>
     <string name="grant_via_shizuku">Autoriser par Shizuku</string>
