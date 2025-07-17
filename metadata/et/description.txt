@@ -24,7 +24,7 @@ Aga kui lihtsalt saadad oma telefonile „fmd“ käsu, siis FMD rakendus vastab
 Kui kasutad FMD serverit, siis on sul mugav kasutajaliides käskude saatmiseks, asukoha vaatamiseks kaardil
 ja nutiseadme ümbrusest piltide tegemiseks.
 FMD Serveri saad ka enda jaoks tööle panna mõnda sulle sobilikku serverisse.
-Lisateavet leiad siit: https://gitlab.com/nulide/findmydeviceserver
+Lisateavet leiad siit: https://gitlab.com/fmd-foss/fmd-server
 
 Lahtiütlus vastutusest:
 
