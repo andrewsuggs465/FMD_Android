@@ -24,7 +24,7 @@ Wenn du einfach "fmd" an dein Telefon schickst, antwortet FMD mit einer SMS, wel
 FMD Server ist ein Webinterface, um Befehle zu senden, den Standort des Geräts auf einer Karte anzuzeigen,
 und Bilder, die vom Gerät aufgenommen wurden, anzuschauen.
 Du kannst FMD Server selber hosten.
-Mehr Informationen hier: https://gitlab.com/nulide/findmydeviceserver
+Mehr Informationen siehe: https://gitlab.com/fmd-foss/fmd-server
 
 Hinweis:
 
