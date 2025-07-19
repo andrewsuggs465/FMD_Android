@@ -23,8 +23,8 @@ Se você simplesmente enviar a mensagem "fmd" para o seu dispositivo, o FMD resp
 
 Com o FMD Server, você tem uma interface web para enviar comandos, para ver a localização do seu dispositivo em um mapa,
 e para visualizar imagens capturadas pelo dispositivo.
-Você pode também hospedar o FMD Server por conta própria.
-Você pode ver mais detalhes aqui: https://gitlab.com/nulide/findmydeviceserver
+Você pode também auto-hospedar o FMD Server.
+Para mais detalhes, visite: https://gitlab.com/fmd-foss/fmd-server
 
 Isenção de responsabilidade:
 
