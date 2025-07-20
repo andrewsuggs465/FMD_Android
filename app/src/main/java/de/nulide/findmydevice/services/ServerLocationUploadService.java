@@ -43,6 +43,7 @@ public class ServerLocationUploadService extends FmdJobService {
     }
 
     public static void scheduleJob(Context context, long delayMinutes, boolean recurring) {
+        FmdLogKt.log(context).d(TAG, "Scheduling upload service");
         SettingsRepository settings = SettingsRepository.Companion.getInstance(context);
         if (((Integer) settings.get(Settings.SET_FMDSERVER_LOCATION_TYPE)) == 3) {
             // user requested NOT to upload any location at regular intervals
@@ -83,6 +84,7 @@ public class ServerLocationUploadService extends FmdJobService {
     }
 
     public static void cancelJob(Context context) {
+        FmdLogKt.log(context).d(TAG, "Cancelling upload service");
         JobScheduler jobScheduler = context.getSystemService(JobScheduler.class);
         jobScheduler.cancel(JOB_ID);
     }

@@ -8,12 +8,15 @@ import de.nulide.findmydevice.services.ServerConnectivityCheckService
 import de.nulide.findmydevice.services.ServerLocationUploadService
 import de.nulide.findmydevice.services.TempContactExpiredService
 import de.nulide.findmydevice.utils.Notifications
+import de.nulide.findmydevice.utils.log
 
 
 class FmdApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        this.log().i("FmdApplication", "Starting FmdApplication")
 
         Notifications.init(this)
         initUncaughtExceptionHandler(this)
