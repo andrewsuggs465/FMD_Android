@@ -32,7 +32,7 @@ class AppUpdatedReceiver : BroadcastReceiver() {
             TempContactExpiredService.scheduleJob(context, 0)
 
             if (settings.serverAccountExists()) {
-                ServerLocationUploadService.scheduleJob(context, 0)
+                ServerLocationUploadService.scheduleRecurring(context)
                 ServerConnectivityCheckService.scheduleJob(context)
                 ServerVersionCheckService.scheduleJobNow(context)
             }

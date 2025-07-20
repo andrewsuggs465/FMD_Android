@@ -37,6 +37,11 @@ public class ServerLocationUploadService extends FmdJobService {
         scheduleJob(context, delayMinutes, true);
     }
 
+    public static void scheduleRecurring(Context context) {
+        cancelJob(context);
+        scheduleJob(context, 0, true);
+    }
+
     public static void scheduleJob(Context context, long delayMinutes, boolean recurring) {
         SettingsRepository settings = SettingsRepository.Companion.getInstance(context);
         if (((Integer) settings.get(Settings.SET_FMDSERVER_LOCATION_TYPE)) == 3) {
@@ -117,7 +122,13 @@ public class ServerLocationUploadService extends FmdJobService {
             }
         }
 
-        Transport<Unit> transport = new FmdServerTransport(this, "Regular Background Upload");
+        String destination;
+        if (recurring) {
+            destination = "Regular Background Upload";
+        } else {
+            destination = "Manual Location Request";
+        }
+        Transport<Unit> transport = new FmdServerTransport(this, destination);
         CommandHandler<Unit> commandHandler = new CommandHandler<>(transport, this.getCoroutineScope(), this, false);
 
         String locateCommand = settings.get(Settings.SET_FMD_COMMAND) + " locate";

@@ -261,7 +261,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                 System.currentTimeMillis()
             )
 
-            ServerLocationUploadService.scheduleJob(context, 0)
+            ServerLocationUploadService.scheduleRecurring(context)
             ServerConnectivityCheckService.scheduleJob(context)
 
             val fmdServerActivityIntent = Intent(context, FMDServerActivity::class.java)

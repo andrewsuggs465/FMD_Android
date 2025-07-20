@@ -36,9 +36,9 @@ import de.nulide.findmydevice.net.FMDServerApiRepoSpec;
 import de.nulide.findmydevice.net.FMDServerApiRepository;
 import de.nulide.findmydevice.permissions.NotificationAccessPermission;
 import de.nulide.findmydevice.receiver.PushReceiver;
-import de.nulide.findmydevice.services.ServerLocationUploadService;
 import de.nulide.findmydevice.services.FmdBatteryLowService;
 import de.nulide.findmydevice.services.ServerConnectivityCheckService;
+import de.nulide.findmydevice.services.ServerLocationUploadService;
 import de.nulide.findmydevice.ui.FmdActivity;
 import de.nulide.findmydevice.ui.home.PermissionView;
 import de.nulide.findmydevice.utils.CypherUtils;
@@ -158,6 +158,12 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
                 settings.set(Settings.SET_FMDSERVER_LOCATION_TYPE, 1);
             } else {
                 settings.set(Settings.SET_FMDSERVER_LOCATION_TYPE, 3);
+            }
+
+            if (checkBoxFMDServerGPS.isChecked() || checkBoxFMDServerCell.isChecked()) {
+                ServerLocationUploadService.scheduleRecurring(this);
+            } else {
+                ServerLocationUploadService.cancelJob(this);
             }
         } else if (buttonView == checkBoxLowBat) {
             settings.set(Settings.SET_FMD_LOW_BAT_SEND, isChecked);

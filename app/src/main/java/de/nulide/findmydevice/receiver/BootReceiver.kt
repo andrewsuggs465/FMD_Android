@@ -36,7 +36,7 @@ class BootReceiver : BroadcastReceiver() {
             }
 
             if (settings.serverAccountExists()) {
-                ServerLocationUploadService.scheduleJob(context, 0)
+                ServerLocationUploadService.scheduleRecurring(context)
                 ServerConnectivityCheckService.scheduleJob(context);
                 ServerVersionCheckService.scheduleJobNow(context)
             }
