@@ -25,7 +25,7 @@ public class TempContactExpiredService extends JobService {
         TemporaryAllowlistRepository repo = TemporaryAllowlistRepository.Companion.getInstance(this);
         List<Pair<String, Integer>> expired = repo.removeExpired();
 
-        for (Pair temporaryPhoneNumber : expired) {
+        for (Pair<String, Integer> temporaryPhoneNumber : expired) {
             String msg = getString(R.string.temporary_allowlist_expired);
             Transport<String> transport = new SmsTransport(this, (String) temporaryPhoneNumber.getFirst(), (Integer) temporaryPhoneNumber.getSecond());
             transport.send(this, msg);

@@ -28,8 +28,8 @@ import de.nulide.findmydevice.utils.SettingsImportExporter;
 
 public class SettingsFragment extends TaggedFragment {
 
-    private final int EXPORT_REQ_CODE = 30;
-    private final int IMPORT_REQ_CODE = 40;
+    private static final int EXPORT_REQ_CODE = 30;
+    private static final int IMPORT_REQ_CODE = 40;
 
     private SettingsRepository settings;
 

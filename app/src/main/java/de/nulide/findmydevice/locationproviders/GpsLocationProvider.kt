@@ -168,8 +168,14 @@ class GpsLocationProvider<T>(
 
     @Deprecated("Deprecated in Java")
     override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {
+        // unused
     }
 
-    override fun onProviderEnabled(provider: String) {}
-    override fun onProviderDisabled(provider: String) {}
+    override fun onProviderEnabled(provider: String) {
+        // unused
+    }
+
+    override fun onProviderDisabled(provider: String) {
+        // unused
+    }
 }

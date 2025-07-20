@@ -3,14 +3,12 @@ package de.nulide.findmydevice.data
 import android.content.Context
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParseException
-import com.google.gson.JsonSyntaxException
 import com.google.gson.ToNumberStrategy
 import com.google.gson.stream.JsonReader
 import com.google.gson.stream.JsonWriter
 import com.google.gson.stream.MalformedJsonException
 import de.nulide.findmydevice.utils.CypherUtils
 import de.nulide.findmydevice.utils.SingletonHolder
-import de.nulide.findmydevice.utils.log
 import de.nulide.findmydevice.utils.writeAsJson
 import java.io.File
 import java.io.FileReader

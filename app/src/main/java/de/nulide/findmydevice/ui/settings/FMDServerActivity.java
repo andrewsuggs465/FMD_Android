@@ -171,12 +171,12 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+        // unused
     }
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+        // unused
     }
 
     @Override
@@ -433,6 +433,6 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
         // TODO: Hack to get the screen to refresh.
         // The proper way to do this would be callbacks.
-        view.postDelayed(this::checkPushRegistration, 5 * 1000);
+        view.postDelayed(this::checkPushRegistration, 5 * 1000L);
     }
 }

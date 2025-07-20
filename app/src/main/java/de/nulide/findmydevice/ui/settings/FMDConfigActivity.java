@@ -47,7 +47,7 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
     int textColorEnabled;
     int textColorDisabled;
 
-    private final int REQUEST_CODE_RINGTONE = 5;
+    private static final int REQUEST_CODE_RINGTONE = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,12 +107,12 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+        // unused
     }
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+        // unused
     }
 
     @Override

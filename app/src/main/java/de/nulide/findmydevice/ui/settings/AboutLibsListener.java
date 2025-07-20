@@ -50,6 +50,7 @@ public class AboutLibsListener {
 
         @Override
         public void onIconClicked(@NonNull View view) {
+            // unused
         }
 
         @Override

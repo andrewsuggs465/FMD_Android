@@ -32,7 +32,7 @@ private fun jpegImageToByteArray(image: Image): ByteArray {
 
 // Taken from: https://blog.minhazav.dev/how-to-convert-yuv-420-sp-android.media.Image-to-Bitmap-or-jpeg/
 fun yuv420488ImageToJpegImage(image: Image, imageQuality: Int): ByteArray? {
-    require(!(image.format !== ImageFormat.YUV_420_888)) { "Invalid image format" }
+    require(image.format == ImageFormat.YUV_420_888) { "Invalid image format" }
     val yuvImage: YuvImage = toYuvImage(image)
     val width = image.width
     val height = image.height

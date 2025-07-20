@@ -36,11 +36,11 @@ class LogRepository private constructor(private val context: Context) {
         val TAG = LogRepository::class.simpleName
 
         fun filenameForExport(): String {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 val date = LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
-                return "fmd-logs-$date.json"
+                "fmd-logs-$date.json"
             } else {
-                return "fmd-logs.json"
+                "fmd-logs.json"
             }
         }
     }

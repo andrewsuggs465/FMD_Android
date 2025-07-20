@@ -1,14 +1,9 @@
 package de.nulide.findmydevice.utils
 
-import android.R.attr.process
 import android.content.Context
 import android.widget.Toast
 import de.nulide.findmydevice.R
-import java.io.BufferedReader
-import java.io.InputStream
-import java.io.InputStreamReader
 import java.io.OutputStream
-import java.lang.StringBuilder
 
 
 class RootAccess {
@@ -39,8 +34,6 @@ class RootAccess {
                 outputStream.close()
 
                 proc.waitFor()
-
-
             } catch (e: Exception) {
                 Toast.makeText(context, context.getString(R.string.perm_root_denied), Toast.LENGTH_LONG).show()
                 e.printStackTrace()

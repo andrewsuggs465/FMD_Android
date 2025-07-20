@@ -132,6 +132,7 @@ public class ServerLocationUploadService extends FmdJobService {
                 // no need to change the command
                 break;
             case 3:
+            default:
                 // we should not be here...
                 return false;
         }

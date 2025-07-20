@@ -29,11 +29,11 @@ class SettingsImportExporter(
 ) {
     companion object {
         fun filenameForExport(): String {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 val date = LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
-                return "fmd-settings-$date.zip"
+                "fmd-settings-$date.zip"
             } else {
-                return "fmd-settings.zip"
+                "fmd-settings.zip"
             }
         }
     }

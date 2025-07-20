@@ -94,7 +94,7 @@ class LocateCommand(context: Context) : Command(context) {
         //
         // Proper cleanup is important for the regular background upload, e.g., we need
         // to make sure that the location auto-on/off runs.
-        coroutineScope.coroutineContext.job.invokeOnCompletion { cause ->
+        coroutineScope.coroutineContext.job.invokeOnCompletion { _ ->
             cleanupHandler()
         }
 

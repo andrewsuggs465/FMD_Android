@@ -221,9 +221,11 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
     }
 
     override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+        // unused
     }
 
     override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+        // unused
     }
 
     override fun afterTextChanged(editable: Editable) {

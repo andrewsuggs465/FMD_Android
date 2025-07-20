@@ -44,7 +44,7 @@ public class AllowlistActivity extends FmdActivity {
 
     private TextView textWhitelistEmpty;
 
-    private final static int REQUEST_CODE = 6438;
+    private static final int REQUEST_CODE = 6438;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

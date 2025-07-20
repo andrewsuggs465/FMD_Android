@@ -47,14 +47,14 @@ class LocationPermission : Permission() {
             )
             return
         }
-        if (!isBackgroundGranted(activity.applicationContext)) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                ActivityCompat.requestPermissions(
-                    activity,
-                    arrayOf(Manifest.permission.ACCESS_BACKGROUND_LOCATION),
-                    REQUEST_CODE
-                )
-            }
+        if (!isBackgroundGranted(activity.applicationContext)
+            && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
+        ) {
+            ActivityCompat.requestPermissions(
+                activity,
+                arrayOf(Manifest.permission.ACCESS_BACKGROUND_LOCATION),
+                REQUEST_CODE
+            )
         }
     }
 }

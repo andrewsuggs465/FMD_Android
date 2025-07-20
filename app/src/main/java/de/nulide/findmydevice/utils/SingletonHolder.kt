@@ -1,7 +1,5 @@
 package de.nulide.findmydevice.utils
 
-import android.util.Log
-
 /*
  * Copyright (c) 2021 Ubique Innovation AG <https://www.ubique.ch>
  *

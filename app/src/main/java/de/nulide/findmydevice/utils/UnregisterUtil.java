@@ -31,10 +31,7 @@ public class UnregisterUtil {
                             onContinueClickedListener.onContinueClicked();
                             dialog.dismiss();
                         })
-                .setNegativeButton(context.getString(R.string.server_unregister_dont_continue),
-                        (DialogInterface dialog, int which) -> {
-                            dialog.dismiss();
-                        })
+                .setNegativeButton(context.getString(R.string.server_unregister_dont_continue), (DialogInterface dialog, int which) -> dialog.dismiss())
                 .show();
     }
 

@@ -85,7 +85,7 @@ class AppearanceActivity : FmdActivity() {
         val names = locales.map { it.displayName.capitalize(Locale.getDefault()) }.toMutableList()
         names.add(0, getString(R.string.appearance_language_system_default))
 
-        viewBinding.buttonEditLanguage.setOnClickListener { v ->
+        viewBinding.buttonEditLanguage.setOnClickListener { _ ->
             MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.appearance_language_choose)
                 .setSingleChoiceItems(names.toTypedArray(), checkedIdx) { _, idx ->
@@ -128,7 +128,7 @@ class AppearanceActivity : FmdActivity() {
         )
         val checkedIdx = options.indexOfFirst { it == current }
 
-        viewBinding.buttonEditTheme.setOnClickListener { v ->
+        viewBinding.buttonEditTheme.setOnClickListener { _ ->
             MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.appearance_theme_choose)
                 .setSingleChoiceItems(optionsStrings, checkedIdx) { _, idx ->

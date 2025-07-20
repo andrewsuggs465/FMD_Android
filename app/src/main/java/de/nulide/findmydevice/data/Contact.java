@@ -33,7 +33,10 @@ public class Contact {
         this.number = number;
     }
 
-    public boolean equals(@Nullable Contact toCheck) {
-        return PhoneNumberUtils.compare(number, toCheck.number);
+    public boolean equals(@Nullable Object other) {
+        if (!(other instanceof Contact)) {
+            return false;
+        }
+        return PhoneNumberUtils.compare(number, ((Contact) other).number);
     }
 }

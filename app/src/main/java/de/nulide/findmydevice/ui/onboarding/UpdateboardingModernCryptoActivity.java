@@ -24,7 +24,7 @@ import de.nulide.findmydevice.utils.UnregisterUtil;
 
 public class UpdateboardingModernCryptoActivity extends AppCompatActivity {
 
-    private final int EXPORT_REQ_CODE = 30;
+    private static final int EXPORT_REQ_CODE = 30;
 
     private SettingsRepository settings;
 
