@@ -106,6 +106,8 @@ class SettingsFragment : TaggedFragment() {
                 settingIntent = LibsBuilder().withActivityTitle(activityTitle)
                     .withListener(AboutLibsListener.listener).intent(context)
             }
+
+            9 -> settingIntent = Intent(context, DebuggingActivity::class.java)
         }
 
         if (settingIntent != null) {

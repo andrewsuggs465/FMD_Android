@@ -10,6 +10,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.nulide.findmydevice.BuildConfig;
 import de.nulide.findmydevice.R;
 
 
@@ -33,6 +34,9 @@ public class SettingsEntry {
         entries.add(new SettingsEntry(context, R.string.Settings_Import, R.drawable.ic_import_export));
         entries.add(new SettingsEntry(context, R.string.Settings_Logs, R.drawable.ic_logs));
         entries.add(new SettingsEntry(context, R.string.Settings_About, R.drawable.ic_info));
+        if (BuildConfig.DEBUG) {
+            entries.add(new SettingsEntry(context, R.string.Settings_Debugging, R.drawable.ic_bug_report));
+        }
         return entries;
     }
 }

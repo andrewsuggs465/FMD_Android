@@ -42,6 +42,7 @@
     <string name="Settings_Import">Import settings</string>
     <string name="Settings_Export">Export settings</string>
     <string name="Settings_Logs">Logs</string>
+    <string name="Settings_Debugging">Troubleshooting</string>
     <string name="Settings_About">About</string>
 
     <!-- Settings: General -->
@@ -194,6 +195,12 @@
     <string name="log_view_export">Export logs</string>
     <string name="log_view_clear">Clear logs</string>
     <string name="log_view_clear_confirm">Do you really want to delete all log entries?</string>
+
+    <!-- Settings: Debugging -->
+    <!-- Make all debug settings untranslatable: If you are technical enough to debug, you understand English. -->
+    <string name="debugging_pending_jobs_title" translatable="false">Pending jobs</string>
+    <string name="debugging_pending_jobs_auto_refresh" translatable="false">This list automatically refreshes every second.</string>
+    <string name="debugging_recent_jobs" translatable="false">Recent jobs</string>
 
     <!-- Settings: About -->
     <string name="about">About</string>
