@@ -259,4 +259,7 @@
     <string name="allowlist_reset_title">重置授权联系人</string>
     <string name="Settings_Pin_Not_Backed_Up">警告：应用备份中未包含 PIN。</string>
     <string name="allowlist_reset_text">由于崩溃，授权联系人被重置。请重新配置。</string>
+    <string name="cmd_ringermode_description_short">更改响铃模式</string>
+    <string name="cmd_ringermode_response_empty">当前响铃模式为“%s”。</string>
+    <string name="cmd_ringermode_response">已从“%1$s”（原）更改为“%2$s”（新）。</string>
 </resources>
