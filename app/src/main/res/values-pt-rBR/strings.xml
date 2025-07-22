@@ -79,7 +79,7 @@
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Enviar a localização deste dispositivo no momento que o nível da bateria ficar baixo. Requer acesso às notificações.</string>
     <string name="Settings_FMDServer_Location_Type_Description">As fontes que são utilizadas para o envio da localização nos intervalos configurados em segundo plano.\nSe nenhuma está selecionada, o envio da localização não será feito regularmente. (Você ainda pode usar a interface web para forçar um envio. Requer push.)</string>
     <string name="password_new_repeat">Confirmar senha nova</string>
-    <string name="Settings_FMDServer_Info">Com o FMD Server você pode enviar comandos pela internet, do servidor para o app. Você pode também ver a localização do dispositivo em um mapa, ou ver as fotos capturadas pelo dispositivo. Caso queira hospedar o seu, visite o site.</string>
+    <string name="Settings_FMDServer_Info">Com o FMD Server você pode enviar comandos pela internet, do servidor para o app. Você pode também ver a localização do dispositivo em um mapa, ou ver as fotos capturadas pelo dispositivo. Caso queira auto-hospedá-lo, visite o site.</string>
     <string name="registration_token_hint">Instâncias privadas podem solicitar um token secreto. Deixe em branco se a instância é pública.</string>
     <string name="Whitelist_help">Os contatos nesta lista podem enviar comandos do FMD por SMS. Comandos de outras pessoas serão ignorados.</string>
     <string name="WhiteList_Add_Contact">Adicionar contato</string>
@@ -160,7 +160,7 @@
     <string name="bottom_nav_commands">Comandos</string>
     <string name="bottom_nav_transports">Canais de transporte</string>
     <string name="Settings_Import_Failed">Importação falhou</string>
-    <string name="transport_fmd_server_description">O FMD Server fornece uma interface web para controlar seu dispositivo, ver sua localização, e ver as imagens que mandou. Você pode hospedar o FMD Server você mesmo, ou usar o servidor fornecido. Dados são armazenamentos com criptografia no servidor, protegidos pela sua senha.</string>
+    <string name="transport_fmd_server_description">O FMD Server fornece uma interface web para controlar seu dispositivo, ver sua localização, e ver as imagens que mandou. Você pode auto-hospedar o FMD Server, ou usar o servidor fornecido. Os dados são armazenamentos com criptografia no servidor, protegidos pela sua senha.</string>
     <string name="cmd_lock_description_long">Bloqueie o dispositivo e opcionalmente mostre uma mensagem na tela de bloqueio. Após isso, o desbloqueio biométrico fica indisponível e a senha do seu dispositivo é necessária para desbloquear o dispositivo.</string>
     <string name="transport_sms_description">Envie comandos para o seu dispositivo via SMS. Ex: envie uma mensagem contendo \"fmp help\" para o seu dispositivo. O FMD responderá com um SMS.</string>
     <string name="transport_sms_description_auth">Somente números de telefone que estão na lista de permitidos podem enviar comandos. Para enviar comandos de um número de telefone que não está nela, você deve incluir o PIN: \"fmd meuPIN help\". Para conveniência, para que você não precise digitar o PIN toda hora, este novo número de telefone será adicionado à uma lista de permitidos temporária pelos próximos 10 minutos.</string>
@@ -257,4 +257,7 @@
     <string name="allowlist_reset_text">Devido à uma falha, os contatos permitidos foram redefinidos. Por favor, os configure novamente.</string>
     <string name="allowlist_reset_title">Redefinição dos contatos permitidos</string>
     <string name="update_pin_hash_change_text">O PIN do FMD foi redefinido durante uma atualização do app. Para continuar usando o FMD com um PIN, por favor, defina o PIN novamente.</string>
+    <string name="cmd_ringermode_description_short">Mudar o modo de toque</string>
+    <string name="cmd_ringermode_response_empty">O modo de toque atual é \"%s\".</string>
+    <string name="cmd_ringermode_response">O modo de toque foi alterado de \"%1$s\" (antigo) para \"%2$s\" (novo).</string>
 </resources>
