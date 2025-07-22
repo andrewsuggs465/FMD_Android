@@ -266,4 +266,7 @@
     <string name="transport_sms_title">SMS</string>
     <string name="LockScreen_Backbutton_pressed">LockScreenMessage: натиснуто кнопку «Назад».</string>
     <string name="LockScreen_Usage_detectd">LockScreenMessage: виявлено використання.</string>
+    <string name="cmd_ringermode_description_short">Зміна режиму дзвінка</string>
+    <string name="cmd_ringermode_response_empty">Поточний режим дзвінка: \"%s\".</string>
+    <string name="cmd_ringermode_response">Режим дзвінка змінено з \"%1$s\" (старий) на \"%2$s\" (новий).</string>
 </resources>
