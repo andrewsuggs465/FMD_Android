@@ -272,4 +272,7 @@
     <string name="update_pin_hash_change_text">FMD PIN koda je bila med posodobitvijo aplikacije izbrisana. Če želite še naprej uporabljati FMD s kodo PIN, jo znova nastavite.</string>
     <string name="Settings_Pin_Not_Backed_Up">Opozorilo: PIN koda ni vključena v varnostno kopijo aplikacije.</string>
     <string name="allowlist_reset_text">Zaradi zrušitve so bili zaupanja vedni stiki izbrisani. Prosim, nastavite jih ponovno.</string>
+    <string name="cmd_ringermode_response">Način zvonjenja je bil spremenjen iz \"%1$s\" (stari) v \"%2$s\" (novi).</string>
+    <string name="cmd_ringermode_description_short">Spremeni način zvonjenja</string>
+    <string name="cmd_ringermode_response_empty">Trenutni način zvonjenja je \"%s\".</string>
 </resources>
