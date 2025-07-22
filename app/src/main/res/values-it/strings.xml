@@ -12,7 +12,7 @@
     <string name="Toast_Duplicate_contact">Questo contatto esiste già.</string>
     <string name="cmd_locate_response_gps_will_follow">Le coordinate GPS verranno inviate a breve.</string>
     <string name="cmd_help_message_start">Comandi FMD:</string>
-    <string name="Settings_FMD_via_Pin_Description">Consente di comunicare con FMD tramite un PIN. Questo permette di inviare comandi da un numero di telefono non presente nella lista dei Contatti Fidati.</string>
+    <string name="Settings_FMD_via_Pin_Description">Consente di comunicare con FMD tramite un PIN. Questo permette di inviare comandi da un numero di telefono non presente nella lista dei Contatti Ammessi.</string>
     <string name="Settings_Enter_Pin">Inserisci PIN</string>
     <string name="MH_Pin_Accepted">Pin corretto!</string>
     <string name="OpenCellId_help">FMD può utilizzare il servizio OpenCelliD per ottenere una posizione approssimativa basata sulla torre cellulare a cui il dispositivo è collegato. Per ogni richiesta di localizzazione è necessaria una connessione a Internet. È inoltre necessario creare un account su OpenCelliD e ottenere il proprio token di accesso all\'API.</string>
@@ -40,8 +40,8 @@
     <string name="Alert_First_Time_contact_added">Congratulazioni. Avete aggiunto il vostro primo contatto. Ora è possibile comunicare con FMD inviando un messaggio SMS contenente fmd dal numero di telefono inserito nell\'elenco. Se tutto funziona, l\'applicazione risponderà.</string>
     <string name="ringer_stop_ringing">SMETTI DI SQUILLARE</string>
     <string name="cmd_locate_response_location_off">Spiacente, la posizione è disattivata.</string>
-    <string name="Settings_FMDConfig">Configurazione FMD</string>
-    <string name="Settings_WhiteList">Lista Contatti Fidati</string>
+    <string name="Settings_FMDConfig">Generale</string>
+    <string name="Settings_WhiteList">Contatti Ammessi</string>
     <string name="Settings_Logs">Registri</string>
     <string name="Settings_About">Info</string>
     <string name="Settings_Settings">Impostazioni</string>
@@ -54,7 +54,7 @@
     <string name="LockScreen_Backbutton_pressed">MessaggioBloccoSchermo: Premuto pulsante Indietro.</string>
     <string name="Toast_Empty_FMDCommand">Il comando vuoto non è consentito, si utilizza quello predefinito.</string>
     <string name="Settings_Ringer_Tone_Description">Seleziona una suoneria che verrà riprodotta quando viene inviato \"fmd ring\".</string>
-    <string name="Settings_Select_Ringtone">Seleziona suoneria</string>
+    <string name="Settings_Select_Ringtone">Seleziona suono suoneria</string>
     <string name="WhiteList_Select_Number">Seleziona uno dei numeri di telefono.</string>
     <string name="Settings_FMDServer_Update_Interval_Description">Il tempo in minuti in cui FMD deve inviare nuovi dati sulla posizione al server.</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Info Privacy</string>
@@ -98,13 +98,13 @@
     <string name="about_source_code">Codice sorgente</string>
     <string name="about_wiki">Wiki</string>
     <string name="Settings_FMDServer_Info">Con il Server FMD è possibile inviare comandi con Internet, dal server all\'app. È anche possibile visualizzare la posizione del dispositivo su una mappa o visualizzare le immagini scattate dal dispositivo. Per le istruzioni di self-hosting, vedere il sito web.</string>
-    <string name="request_failed_title">Richiesta connessione fallita</string>
+    <string name="request_failed_title">Richiesta di rete non riuscita</string>
     <string name="bottom_nav_commands">Comandi</string>
-    <string name="bottom_nav_transports">Canali di Invio</string>
+    <string name="bottom_nav_transports">Canali di trasporto</string>
     <string name="cmd_camera_description_short">Fai una foto</string>
     <string name="add">Aggiungi</string>
     <string name="request_failed_status_code">Codice Stato</string>
-    <string name="request_failed_response_body">Contenuto della Risposta</string>
+    <string name="request_failed_response_body">Corpo della risposta</string>
     <string name="request_failed_exception">Eccezione</string>
     <string name="bottom_nav_settings">Impostazioni</string>
     <string name="Settings_Import_Success">Importazione riuscita</string>
@@ -260,4 +260,7 @@
     <string name="Settings_FMDServer_Push_Url">URL Push: %s</string>
     <string name="server_fmd_id_hint">L\'ID FMD identifica l\'account sul server FMD. Lasciare vuoto questo campo per lasciare che il server generi un ID. Si noti che l\'ID FMD è memorizzato in chiaro sul server, vale a dire che l\'amministratore del server può vederlo.</string>
     <string name="Settings_Pin_Not_Backed_Up">Attenzione: Il PIN non è incluso nel backup dell\'app.</string>
+    <string name="cmd_ringermode_description_short">Cambia la modalità della suoneria</string>
+    <string name="cmd_ringermode_response_empty">La modalità della suoneria corrente è \"%s\".</string>
+    <string name="cmd_ringermode_response">La modalità della suoneria è cambiata da \"%1$s\" (vecchia) to \"%2$s\" (nuova).</string>
 </resources>
