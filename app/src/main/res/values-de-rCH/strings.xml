@@ -267,4 +267,7 @@
     <string name="allowlist_reset_title">Erlaubti Kontäkt zrugggsetzt</string>
     <string name="allowlist_reset_text">Wege emne Absturz sind die erlaubten Kontäkt zrugggsetzt worde. Bitte konfiguriere sie nomal.</string>
     <string name="Settings_Pin_Not_Backed_Up">Achtung: D PIN isch nöd im App-Backup enthalte.</string>
+    <string name="cmd_ringermode_description_short">Klingelmodus ändere</string>
+    <string name="cmd_ringermode_response_empty">De aktuelli Klingelmodus isch \"%s\".</string>
+    <string name="cmd_ringermode_response">De Klingelmodus isch vo \"%1$s\" (alt) uf \"%2$s\" (neu) gänderet worde.</string>
 </resources>

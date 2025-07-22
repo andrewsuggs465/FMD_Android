@@ -286,4 +286,7 @@
     <string name="allowlist_reset_text">Aufgrund eines Absturzes wurden die Erlaubten Kontakte zurückgesetzt. Bitte konfiguriere sie erneut.</string>
     <string name="allowlist_reset_title">Erlaubte Kontakte zurücksetzen</string>
     <string name="update_pin_hash_change_text">Die FMD-PIN wurde während eines App-Updates zurückgesetzt. Konfiguriere die PIN erneut, um FMD weiterhin mit einer PIN zu benutzen.</string>
+    <string name="cmd_ringermode_description_short">Klingelmodus ändern</string>
+    <string name="cmd_ringermode_response_empty">Der aktuelle Klingelmodus ist \"%s\".</string>
+    <string name="cmd_ringermode_response">Der Klingelmodus wurde geändert von \"%1$s\" (alt) zu \"%2$s\" (neu).</string>
 </resources>
