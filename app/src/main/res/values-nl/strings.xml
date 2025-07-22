@@ -257,4 +257,7 @@
     <string name="Settings_Pin_Not_Backed_Up">Waarschuwing: De pincode is niet opgenomen in de app-back-up.</string>
     <string name="allowlist_reset_title">Toegestane contacten teruggezet</string>
     <string name="update_pin_hash_change_text">De FMD-pincode is teruggezet tijdens een app-update. Om FMD met een pincode te blijven gebruiken, moet deze opnieuw worden ingesteld.</string>
+    <string name="cmd_ringermode_description_short">Belmodus wijzigen</string>
+    <string name="cmd_ringermode_response_empty">De huidige belmodus is \"%s\".</string>
+    <string name="cmd_ringermode_response">De belmodus is gewijzigd van \"%1$s\" (oud) naar \"%2$s\" (nieuw).</string>
 </resources>
