@@ -272,4 +272,7 @@
     <string name="update_pin_hash_change_text">Během aktualizace aplikace byl resetován PIN FMD. Abyste mohli nadále používat FMD s PINem, nastavte jej prosím znovu.</string>
     <string name="Settings_Pin_Not_Backed_Up">Varování: záloha aplikace neobsahuje PIN.</string>
     <string name="allowlist_reset_title">Povolené kontakty byly resetovány</string>
+    <string name="cmd_ringermode_description_short">Změnit režim vyzvánění</string>
+    <string name="cmd_ringermode_response_empty">Aktuální režim vyzvánění je „%s“.</string>
+    <string name="cmd_ringermode_response">Režim vyzvánění byl změněn z „%1$s“ (původní) na „%2$s“ (nový).</string>
 </resources>
