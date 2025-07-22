@@ -268,4 +268,7 @@
     <string name="Settings_FMDServer_Push_Register">S\'enregistrer</string>
     <string name="Settings_FMDServer_Push_Register_Again">S\'enregistrer à nouveau</string>
     <string name="server_fmd_id_hint">L\'identifiant (ID) FMD permet d\'identifier votée compte sur le serveur FMD. Laisser le champ vide pour permettre au serveur de générer un ID. Veuillez noter que l\'ID FMD est enregistré sous forme de texte lisible depuis le serveur, donc que l\'administrateur du serveur peut le visualiser.</string>
+    <string name="cmd_ringermode_description_short">Changer le mode de sonnerie</string>
+    <string name="cmd_ringermode_response_empty">Le mode de sonnerie actuelle est \"%s\".</string>
+    <string name="cmd_ringermode_response">Le mode de sonnerie a été modifié de \"%1$s\" (ancien) vers \"%2$s\" (nouveau).</string>
 </resources>
