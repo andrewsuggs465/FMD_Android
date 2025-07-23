@@ -16,7 +16,7 @@ class FmdBatteryLowService : FmdJobService() {
 
         @JvmStatic
         fun scheduleJobNow(context: Context) {
-            if(!isRunning(context)) {
+            if (!isRunning(context)) {
                 val serviceComponent = ComponentName(context, FmdBatteryLowService::class.java)
                 val builder = JobInfo.Builder(JOB_ID, serviceComponent)
                 builder.setMinimumLatency(0)
@@ -29,16 +29,16 @@ class FmdBatteryLowService : FmdJobService() {
         }
 
         @JvmStatic
-        fun stopJobNow(context: Context){
+        fun stopJobNow(context: Context) {
             val jobScheduler = context.getSystemService(JobScheduler::class.java)
             jobScheduler.cancel(JOB_ID)
         }
 
         @JvmStatic
-        fun isRunning(context: Context): Boolean{
+        fun isRunning(context: Context): Boolean {
             val jobScheduler = context.getSystemService(JobScheduler::class.java)
-            for (jobInfo in jobScheduler.allPendingJobs){
-                if (jobInfo.id == JOB_ID){
+            for (jobInfo in jobScheduler.allPendingJobs) {
+                if (jobInfo.id == JOB_ID) {
                     return true
                 }
             }
@@ -46,11 +46,21 @@ class FmdBatteryLowService : FmdJobService() {
         }
     }
 
+    private var batteryLowReceiver: BatteryLowReceiver? = null
+
     override fun onStartJob(params: JobParameters?): Boolean {
         super.onStartJob(params)
         val filter = IntentFilter(Intent.ACTION_BATTERY_LOW)
-        val batteryLowReceiver = BatteryLowReceiver()
+        batteryLowReceiver = BatteryLowReceiver()
         registerReceiver(batteryLowReceiver, filter)
+        return true
+    }
+
+    override fun onStopJob(params: JobParameters?): Boolean {
+        super.onStopJob(params)
+        batteryLowReceiver?.let {
+            unregisterReceiver(it)
+        }
         return true
     }
 }

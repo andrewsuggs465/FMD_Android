@@ -18,8 +18,10 @@ class BatteryLowReceiver : BroadcastReceiver() {
 
         fun handleLowBatteryUpload(context: Context) {
             val settings = SettingsRepository.getInstance(context)
+            context.log().i(TAG, "Handling low battery")
 
             if (!(settings.get(Settings.SET_FMD_LOW_BAT_SEND) as Boolean)) {
+                context.log().i(TAG, "Disabled in settings, not uploading location.")
                 return
             }
 
