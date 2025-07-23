@@ -46,6 +46,20 @@ class FmdBatteryLowService : FmdJobService() {
         }
     }
 
+    // Android 8+ no longer allows registering ACTION_BATTERY_LOW in the manifest with an implicit receiver.
+    // We need an active context and explicitly register the receiver at runtime.
+    // Therefore, we need this job to be active in the background.
+    //
+    // This is ironic, because it would be more battery-efficient if the system would wake us up
+    // (by calling the implicit manifest-registered receiver), instead of us having to keep a service running.
+    //
+    // See:
+    //
+    // - https://developer.android.com/develop/background-work/background-tasks/broadcasts/broadcast-exceptions
+    // - https://gitlab.com/fmd-foss/fmd-android/-/merge_requests/295
+    //
+    // The best way to test if this feature is working is to use the emulator in Android Studio,
+    // where it is easy to change the battery level.
     private var batteryLowReceiver: BatteryLowReceiver? = null
 
     override fun onStartJob(params: JobParameters?): Boolean {
