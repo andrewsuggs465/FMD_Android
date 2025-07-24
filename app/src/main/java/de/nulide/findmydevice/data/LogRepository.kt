@@ -12,7 +12,7 @@ import java.io.File
 import java.io.FileReader
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.util.*
+import java.util.LinkedList
 
 
 const val LOG_FILENAME = "logs.json"
@@ -47,6 +47,18 @@ class LogRepository private constructor(private val context: Context) {
 
     private val gson = Gson()
 
+    /**
+     * ## Concurrency
+     *
+     * The LinkedList is read outside of this object.
+     * To prevent `ConcurrentModificationException`, we must synchronize all reads and writes to it.
+     * Writes should only happen inside the objects (in member functions).
+     *
+     * Reads can happen elsewhere in the app. All such reads MUST be synchronized on the list:
+     * `synchronized(repo.list) { ... }`.
+     *
+     * For an introduction to concurrency, see "Java Concurrency in Practice" (the PDF can be found online).
+     */
     val list: LogModel
     private var dirty = false
 
@@ -72,8 +84,23 @@ class LogRepository private constructor(private val context: Context) {
     }
 
     private fun save() {
+        // Concurrency safety:
+        //
+        // If dirty=true, we may unnecessarily save the file, which is fine.
+        //
+        // If dirty=false, another thread must have set that in the synchronized section below.
+        // Since we synchronize on list, this thread must have seen all changes to the list.
+        // In particular, the list cannot have been modified between setting dirty=false and
+        // that thread serializing the list.
+        // Thus we can return and skip an unnecessary serialization + file IO.
         if (!dirty) return
-        val raw = synchronized(list) { gson.toJson(list); dirty = false }
+
+        val raw = synchronized(list) {
+            // Swap order, to easily return the string.
+            // Since it is synchronised, it should be fine.
+            dirty = false
+            gson.toJson(list)
+        }
         val file = File(context.filesDir, LOG_FILENAME)
         file.writeText(raw)
     }
