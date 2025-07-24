@@ -25,6 +25,7 @@ abstract class FmdJobService : JobService() {
 
     @CallSuper
     override fun onStartJob(params: JobParameters?): Boolean {
+        this.log().d(TAG, "Starting job ${params?.jobId}")
         this.params = params
         return false
     }
