@@ -235,6 +235,7 @@
     <string name="cmd_ring_response">The device should now be ringing.</string>
 
     <string name="cmd_ringermode_description_short">Change the ringer mode</string>
+    <string name="cmd_ringermode_description_long">Note that \"silent\" also enables Do Not Disturb mode. This is expected behaviour and is defined by Android.</string>
     <string name="cmd_ringermode_response_empty">The current ringer mode is \"%s\".</string>
     <string name="cmd_ringermode_response">The ringer mode was changed from \"%1$s\" (old) to \"%2$s\" (new).</string>
 

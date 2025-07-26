@@ -12,6 +12,21 @@ import de.nulide.findmydevice.utils.log
 import kotlinx.coroutines.CoroutineScope
 
 
+/**
+ * ## Note
+ *
+ * RINGER_MODE_SILENT also enables DND mode.
+ * This is Android's opinionated default.
+ *
+ * We try to work around this in "fmd ring", because there our goal is to restore the user's settings.
+ * Here, we stay with Android's default (which is enabling DND).
+ *
+ * References:
+ *
+ * - https://gitlab.com/fmd-foss/fmd-android/-/merge_requests/342
+ * - https://stackoverflow.com/questions/58044974/enable-silent-mode-in-android-without-triggering-do-not-disturb
+ * - https://issuetracker.google.com/issues/237819541
+ */
 class RingerModeCommand(context: Context) : Command(context) {
     companion object {
         private val TAG = RingerModeCommand::class.simpleName
@@ -26,7 +41,7 @@ class RingerModeCommand(context: Context) : Command(context) {
     @get:StringRes
     override val shortDescription = R.string.cmd_ringermode_description_short
 
-    override val longDescription = null
+    override val longDescription = R.string.cmd_ringermode_description_long
 
     override val requiredPermissions = listOf(DoNotDisturbAccessPermission())
 
