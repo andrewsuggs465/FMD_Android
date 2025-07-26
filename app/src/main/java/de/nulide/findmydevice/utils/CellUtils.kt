@@ -45,3 +45,7 @@ data class CellParameters(
         }
     }
 }
+
+fun List<CellParameters>.prettyPrint(): String {
+    return this.joinToString("\n\n") { it.prettyPrint() }
+}

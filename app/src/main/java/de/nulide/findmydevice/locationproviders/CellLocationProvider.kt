@@ -10,6 +10,7 @@ import de.nulide.findmydevice.net.OpenCelliDSpec
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.CellParameters
 import de.nulide.findmydevice.utils.log
+import de.nulide.findmydevice.utils.prettyPrint
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Deferred
 import java.util.Calendar
@@ -53,7 +54,7 @@ class CellLocationProvider<T>(
         // Since internally both repositories use Volley with callbacks, the requests don't block on each other.
         // TODO: query all
         queryOpenCelliD(paras.first())
-        queryBeaconDb(paras.first())
+        queryBeaconDb(paras)
         return deferred
     }
 
@@ -94,7 +95,7 @@ class CellLocationProvider<T>(
         )
     }
 
-    private fun queryBeaconDb(paras: CellParameters) {
+    private fun queryBeaconDb(paras: List<CellParameters>) {
         context.log().d(TAG, "Querying BeaconDB")
         val beaconDbRepo = BeaconDbRepository.getInstance(context)
         beaconDbRepo.getCellLocation(

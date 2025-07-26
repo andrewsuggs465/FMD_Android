@@ -7,6 +7,7 @@ import de.nulide.findmydevice.utils.CellParameters
 import de.nulide.findmydevice.utils.PatchedVolley
 import de.nulide.findmydevice.utils.SingletonHolder
 import de.nulide.findmydevice.utils.log
+import de.nulide.findmydevice.utils.prettyPrint
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -22,20 +23,23 @@ class BeaconDbRepository private constructor(private val context: Context) {
     private val requestQueue: RequestQueue = PatchedVolley.newRequestQueue(context)
 
     fun getCellLocation(
-        paras: CellParameters,
+        paras: List<CellParameters>,
         onSuccess: (BeaconDbSuccess) -> Unit,
         onError: (BeaconDbError) -> Unit,
     ) {
         // https://ichnaea.readthedocs.io/en/latest/api/geolocate.html
         val url = "https://api.beacondb.net/v1/geolocate"
 
-        val cellTower = mapOf<String, Any>(
-            Pair("radioType", paras.radio.lowercase()),
-            Pair("mobileCountryCode", paras.mcc),
-            Pair("mobileNetworkCode", paras.mnc),
-            Pair("locationAreaCode", paras.lac),
-            Pair("cellId", paras.cid),
-        )
+        val cellTowers: List<Map<String, Any>> = paras.map {
+            mapOf<String, Any>(
+                Pair("radioType", it.radio.lowercase()),
+                Pair("mobileCountryCode", it.mcc),
+                Pair("mobileNetworkCode", it.mnc),
+                Pair("locationAreaCode", it.lac),
+                Pair("cellId", it.cid),
+            )
+        }.toList()
+
         // Fallbacks can be very imprecise. Also, we want the cell location and nothing else.
         val fallbacks = mapOf<String, Boolean>(
             Pair("lacf", false),
@@ -44,7 +48,7 @@ class BeaconDbRepository private constructor(private val context: Context) {
         val jsonObject = JSONObject().apply {
             put("considerIp", false)
             put("fallbacks", JSONObject(fallbacks))
-            put("cellTowers", JSONArray(listOf(cellTower)))
+            put("cellTowers", JSONArray(cellTowers))
         }
 
         val request = JsonObjectRequest(
