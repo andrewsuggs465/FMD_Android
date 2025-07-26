@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import org.jetbrains.annotations.NotNull;
 import org.unifiedpush.android.connector.ConstantsKt;
 import org.unifiedpush.android.connector.MessagingReceiver;
+import org.unifiedpush.android.connector.RegistrationDialogContent;
 import org.unifiedpush.android.connector.UnifiedPush;
 
 import java.util.ArrayList;
@@ -67,7 +68,7 @@ public class PushReceiver extends MessagingReceiver {
 
     public static void registerWithUnifiedPush(Context context) {
         if (isUnifiedPushAvailable(context)) {
-            UnifiedPush.registerAppWithDialog(context, ConstantsKt.INSTANCE_DEFAULT, "", new ArrayList<>(), "");
+            UnifiedPush.registerAppWithDialog(context, ConstantsKt.INSTANCE_DEFAULT, new RegistrationDialogContent(), new ArrayList<>(), "");
         }
     }
 

@@ -52,18 +52,17 @@ class RingerModeCommand(context: Context) : Command(context) {
             return
         }
 
-        if (args.contains("normal")) {
-            audioManager.ringerMode = AudioManager.RINGER_MODE_NORMAL
-        } else if (args.contains("vibrate")) {
-            audioManager.ringerMode = AudioManager.RINGER_MODE_VIBRATE
-        } else if (args.contains("silent")) {
-            audioManager.ringerMode = AudioManager.RINGER_MODE_SILENT
-        } else {
-            // Do nothing.
-            // If it's unchanged, the response message will indirectly indicate this.
+        val newMode = when {
+            args.contains("normal") -> AudioManager.RINGER_MODE_NORMAL
+            args.contains("vibrate") -> AudioManager.RINGER_MODE_VIBRATE
+            args.contains("silent") -> AudioManager.RINGER_MODE_SILENT
+            else -> {
+                // Do nothing. The response message will indirectly indicate that it is unchanged.
+                oldMode
+            }
         }
 
-        val newMode = audioManager.ringerMode
+        audioManager.ringerMode = newMode
 
         val msg = context.getString(
             R.string.cmd_ringermode_response,

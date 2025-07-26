@@ -6,9 +6,6 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.wifi.ScanResult
 import android.net.wifi.WifiManager
-import androidx.collection.ArrayMap
-import java.net.NetworkInterface
-import java.net.SocketException
 
 data class NetworkInfo(
     val interfaceName: String,
@@ -34,6 +31,7 @@ object NetworkUtils {
     fun getIps(context: Context): List<NetworkInfo> {
         val connectivityManager = context.getSystemService(ConnectivityManager::class.java)
 
+        @Suppress("Deprecation")
         return connectivityManager.allNetworks
             .map { network -> connectivityManager.getLinkProperties(network) }
             .filterNotNull()

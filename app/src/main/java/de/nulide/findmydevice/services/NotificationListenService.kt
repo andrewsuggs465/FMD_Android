@@ -39,13 +39,13 @@ class NotificationListenService : NotificationListenerService() {
             return
         }
 
-        if (settings.get(Settings.SET_FMD_LOW_BAT_SEND) as Boolean) {
-            if (packageName in BATTERY_PACKAGE_NAMES) {
-                val tag = sbn.tag
-                if (tag != null && tag in BATTERY_TAGS) {
-                    BatteryLowReceiver.handleLowBatteryUpload(this)
-                    return
-                }
+        if (settings.get(Settings.SET_FMD_LOW_BAT_SEND) as Boolean
+            && packageName in BATTERY_PACKAGE_NAMES
+        ) {
+            val tag = sbn.tag
+            if (tag != null && tag in BATTERY_TAGS) {
+                BatteryLowReceiver.handleLowBatteryUpload(this)
+                return
             }
         }
 

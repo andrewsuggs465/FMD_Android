@@ -47,6 +47,7 @@ class DummyCameraxActivity : AppCompatActivity() {
 
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.O) {
             // On SDK >= 27 we have the flags in the AndroidManifest
+            @Suppress("Deprecation")
             window.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED or WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON)
         }
 
