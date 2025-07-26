@@ -30,13 +30,18 @@ class BeaconDbRepository private constructor(private val context: Context) {
         // https://ichnaea.readthedocs.io/en/latest/api/geolocate.html
         val url = "https://api.beacondb.net/v1/geolocate"
 
-        val cellTowers: List<Map<String, Any>> = paras.map {
+        val cellTowers: List<Map<String, Any>> = paras.mapNotNull {
+            val mcc = it.mobileCountryCode?.toInt() ?: return@mapNotNull null
+            val mnc = it.mobileNetworkCode?.toInt() ?: return@mapNotNull null
+            val lac = it.locationAreaCode ?: return@mapNotNull null
+            val cid = it.cellId ?: return@mapNotNull null
+
             mapOf<String, Any>(
-                Pair("radioType", it.radio.lowercase()),
-                Pair("mobileCountryCode", it.mcc),
-                Pair("mobileNetworkCode", it.mnc),
-                Pair("locationAreaCode", it.lac),
-                Pair("cellId", it.cid),
+                Pair("radioType", it.radio.toString().lowercase()),
+                Pair("mobileCountryCode", mcc),
+                Pair("mobileNetworkCode", mnc),
+                Pair("locationAreaCode", lac),
+                Pair("cellId", cid),
             )
         }.toList()
 
@@ -56,8 +61,6 @@ class BeaconDbRepository private constructor(private val context: Context) {
             url,
             jsonObject,
             { response ->
-                // context.log().d(TAG, "Response: $response")
-
                 // Filter fallback, just to be sure
                 if (response.has("location") && !response.has("fallback")) {
                     val locObj = response.getJSONObject("location")

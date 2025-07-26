@@ -27,7 +27,7 @@ class OpenCelliDRepository private constructor(private val spec: OpenCelliDSpec)
         onError: (OpenCelliDError) -> Unit,
     ) {
         val url =
-            "https://opencellid.org/cell/get?key=$apiAccessToken&mcc=${paras.mcc}&mnc=${paras.mnc}&lac=${paras.lac}&cellid=${paras.cid}&radio=${paras.radio.uppercase()}&format=json"
+            "https://opencellid.org/cell/get?key=$apiAccessToken&mcc=${paras.mobileCountryCode}&mnc=${paras.mobileNetworkCode}&lac=${paras.locationAreaCode}&cellid=${paras.cellId}&radio=${paras.radio.toString().uppercase()}&format=json"
 
         val request = JsonObjectRequest(
             Request.Method.GET,

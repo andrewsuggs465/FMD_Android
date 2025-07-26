@@ -1,6 +1,8 @@
 package de.nulide.findmydevice.locationproviders
 
+import android.Manifest
 import android.content.Context
+import androidx.annotation.RequiresPermission
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
@@ -38,6 +40,7 @@ class CellLocationProvider<T>(
     @Volatile
     private var beaconDbFinished = false
 
+    @RequiresPermission(Manifest.permission.ACCESS_FINE_LOCATION)
     override fun getAndSendLocation(): Deferred<Unit> {
         deferred = CompletableDeferred<Unit>()
         ocidFinished = false

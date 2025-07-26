@@ -93,6 +93,7 @@ class OpenCellIdActivity : FmdActivity(), TextWatcher {
             return
         }
 
+        @SuppressLint("MissingPermission") // ACCESS_FINE_LOCATION
         val paras = CellParameters.queryCellParametersFromTelephonyManager(context)
         if (paras.isEmpty()) {
             context.log().i(TAG, "No cell location found")

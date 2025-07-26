@@ -1,51 +1,185 @@
 package de.nulide.findmydevice.utils
 
-import android.annotation.SuppressLint
+import android.Manifest
 import android.content.Context
+import android.os.Build
+import android.telephony.CellIdentityNr
+import android.telephony.CellInfo
+import android.telephony.CellInfoGsm
+import android.telephony.CellInfoLte
+import android.telephony.CellInfoNr
+import android.telephony.CellInfoWcdma
 import android.telephony.TelephonyManager
-import android.telephony.gsm.GsmCellLocation
+import androidx.annotation.RequiresApi
+import androidx.annotation.RequiresPermission
 
+// Inspired by https://github.com/mjaakko/NeoStumbler/blob/8f289eedd4f8df3c0f1715a146a0813f407ab443/app/src/main/java/xyz/malkki/neostumbler/domain/CellTower.kt
+// (under MIT license)
+
+enum class RadioType {
+    GSM,
+    WCDMA,
+    LTE,
+    NR
+
+}
 
 data class CellParameters(
-    val mcc: Int,
-    val mnc: Int,
-    val lac: Int,
-    val cid: Int,
-    val radio: String
+    val mobileCountryCode: String?,
+    val mobileNetworkCode: String?,
+    val locationAreaCode: Int?,
+    val cellId: Long?,
+    val radio: RadioType
 ) {
     fun prettyPrint(): String {
         return """
             CellParameters:
-            mcc: $mcc
-            mnc: $mnc
-            lac: $lac
-            cid: $cid
+            mcc: $mobileCountryCode
+            mnc: $mobileNetworkCode
+            lac: $locationAreaCode
+            cid: $cellId
             radio: $radio
         """.trimIndent()
+    }
+
+    /**
+     * Checks if the cell info has enough useful data. Used for filtering neighbouring cells which
+     * don't specify their codes.
+     */
+    fun hasEnoughData(): Boolean {
+        if (mobileCountryCode == null || mobileNetworkCode == null) {
+            return false
+        }
+
+        return when (radio) {
+            RadioType.GSM -> cellId != null || locationAreaCode != null
+            RadioType.WCDMA,
+            RadioType.LTE,
+            RadioType.NR ->
+                cellId != null || locationAreaCode != null //|| primaryScramblingCode != null
+        }
     }
 
     companion object {
         private val TAG = CellParameters::class.simpleName
 
+        fun fromCellInfo(cellInfo: CellInfo): CellParameters? {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && cellInfo is CellInfoNr) {
+                return cellInfo.toCellParameters()
+            }
+            return when (cellInfo) {
+                is CellInfoLte -> cellInfo.toCellParameters()
+                is CellInfoWcdma -> cellInfo.toCellParameters()
+                is CellInfoGsm -> cellInfo.toCellParameters()
+                else -> null
+            }
+        }
+
+        @RequiresPermission(Manifest.permission.ACCESS_FINE_LOCATION)
         fun queryCellParametersFromTelephonyManager(context: Context): List<CellParameters> {
             val tm = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
 
-            // TODO: Migrate to CellInfo (GsmCellLocation is deprecated)
-            @SuppressLint("MissingPermission")  // ACCESS_FINE_LOCATION
-            val location = tm.cellLocation as? GsmCellLocation
-            val operator = tm.networkOperator
-            if (location == null || operator.length <= 3) {
-                return emptyList()
-            }
+            val cellInfos = tm.allCellInfo?.toList() ?: return emptyList()
 
-            val mcc = operator.substring(0, 3).toInt()
-            val mnc = operator.substring(3).toInt()
-
-            return listOf(CellParameters(mcc, mnc, location.lac, location.cid, "GSM"))
+            return cellInfos
+                .mapNotNull { fromCellInfo(it) }
+                .filter { it.hasEnoughData() }
+                .toList()
         }
     }
 }
 
 fun List<CellParameters>.prettyPrint(): String {
     return this.joinToString("\n\n") { it.prettyPrint() }
+}
+
+// 5G
+@RequiresApi(Build.VERSION_CODES.Q)
+fun CellInfoNr.toCellParameters(): CellParameters {
+    val id = this.cellIdentity as CellIdentityNr
+    return CellParameters(
+        id.mccString,
+        id.mncString,
+        id.tac.takeIf { it != CellInfo.UNAVAILABLE && it != 0 },
+        id.nci.takeIf { it != CellInfo.UNAVAILABLE_LONG && it != 0L },
+        RadioType.NR,
+    )
+}
+
+// 4G
+@Suppress("Deprecation")
+fun CellInfoLte.toCellParameters(): CellParameters {
+    val id = this.cellIdentity
+    val mccString: String?
+    val mncString: String?
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        mccString = id.mccString
+        mncString = id.mncString
+    } else {
+        mccString = id.mcc.toString()
+        mncString = id.mnc.toString()
+    }
+
+    return CellParameters(
+        mccString,
+        mncString,
+        id.tac.takeIf { it != UNAVAILABLE && it != 0 },
+        id.ci.takeIf { it != UNAVAILABLE && it != 0 }?.toLong(),
+        RadioType.LTE,
+    )
+}
+
+// 3G
+@Suppress("Deprecation")
+fun CellInfoWcdma.toCellParameters(): CellParameters {
+    val id = this.cellIdentity
+    val mccString: String?
+    val mncString: String?
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        mccString = id.mccString
+        mncString = id.mncString
+    } else {
+        mccString = id.mcc.toString()
+        mncString = id.mnc.toString()
+    }
+
+    return CellParameters(
+        mccString,
+        mncString,
+        id.lac.takeIf { it != UNAVAILABLE && it != 0 },
+        id.cid.takeIf { it != UNAVAILABLE && it != 0 }?.toLong(),
+        RadioType.WCDMA,
+    )
+}
+
+// 2G
+@Suppress("Deprecation")
+fun CellInfoGsm.toCellParameters(): CellParameters {
+    val id = this.cellIdentity
+    val mccString: String?
+    val mncString: String?
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        mccString = id.mccString
+        mncString = id.mncString
+    } else {
+        mccString = id.mcc.toString()
+        mncString = id.mnc.toString()
+    }
+
+    return CellParameters(
+        mccString,
+        mncString,
+        id.lac.takeIf { it != UNAVAILABLE && it != 0 },
+        id.cid.takeIf { it != UNAVAILABLE && it != 0 }?.toLong(),
+        RadioType.GSM,
+    )
+}
+
+private val UNAVAILABLE = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+    CellInfo.UNAVAILABLE
+} else {
+    Integer.MAX_VALUE
 }
