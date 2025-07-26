@@ -5,9 +5,8 @@ import androidx.annotation.CallSuper
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.commands.ParserResult
-import de.nulide.findmydevice.locationproviders.LocationProvider
+import de.nulide.findmydevice.data.FmdLocation
 import de.nulide.findmydevice.permissions.Permission
-import de.nulide.findmydevice.utils.Utils
 import de.nulide.findmydevice.utils.log
 
 
@@ -69,15 +68,7 @@ abstract class Transport<DestinationType>(
         // (this should be done in the concrete classes that override this function)
     }
 
-    open fun sendNewLocation(
-        context: Context,
-        provider: String,
-        lat: String,
-        lon: String,
-        timeMillis: Long,
-    ) {
-        val batteryLevel = Utils.getBatteryLevel(context)
-        val msg = LocationProvider.buildLocationString(provider, lat, lon, batteryLevel, timeMillis)
-        send(context, msg)
+    open fun sendNewLocation(context: Context, location: FmdLocation) {
+        send(context, location.toString())
     }
 }

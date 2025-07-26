@@ -37,7 +37,13 @@ class OpenCelliDRepository private constructor(private val spec: OpenCelliDSpec)
                 if (response.has("lat") && response.has("lon")) {
                     val lat = response.getString("lat")
                     val lon = response.getString("lon")
-                    onSuccess(OpenCelliDSuccess(lat, lon, url))
+                    try {
+                        onSuccess(OpenCelliDSuccess(lat.toDouble(), lon.toDouble(), url))
+                    } catch (e: NumberFormatException) {
+                        val msg = "Failed to format number as double"
+                        context.log().w(TAG, msg)
+                        onError(OpenCelliDError(msg, url))
+                    }
                 } else {
                     val message = if (response.has("error")) {
                         response.getString("error")
@@ -61,5 +67,5 @@ class OpenCelliDRepository private constructor(private val spec: OpenCelliDSpec)
 
 class OpenCelliDSpec(val context: Context)
 
-data class OpenCelliDSuccess(val lat: String, val lon: String, val url: String)
+data class OpenCelliDSuccess(val lat: Double, val lon: Double, val url: String)
 data class OpenCelliDError(val error: String, val url: String)

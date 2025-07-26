@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Context
 import androidx.annotation.RequiresPermission
 import de.nulide.findmydevice.R
+import de.nulide.findmydevice.data.FmdLocation
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.net.BeaconDbRepository
@@ -11,12 +12,11 @@ import de.nulide.findmydevice.net.OpenCelliDRepository
 import de.nulide.findmydevice.net.OpenCelliDSpec
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.CellParameters
+import de.nulide.findmydevice.utils.Utils
 import de.nulide.findmydevice.utils.log
 import de.nulide.findmydevice.utils.prettyPrint
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Deferred
-import java.util.Calendar
-import java.util.TimeZone
 
 
 /**
@@ -78,9 +78,16 @@ class CellLocationProvider<T>(
             paras, apiAccessToken,
             onSuccess = {
                 context.log().d(TAG, "Location found by OpenCelliD")
-                val timeMillis = Calendar.getInstance(TimeZone.getTimeZone("UTC")).timeInMillis
-                storeLastKnownLocation(context, it.lat, it.lon, timeMillis)
-                transport.sendNewLocation(context, "OpenCelliD", it.lat, it.lon, timeMillis)
+
+                val loc = FmdLocation(
+                    lat = it.lat,
+                    lon = it.lon,
+                    provider = "OpenCelliD",
+                    batteryLevel = Utils.getBatteryLevel(context),
+                )
+
+                settings.storeLastKnownLocation(loc)
+                transport.sendNewLocation(context, loc)
                 ocidFinished = true
                 onFinished()
             },
@@ -105,17 +112,17 @@ class CellLocationProvider<T>(
             paras,
             onSuccess = {
                 context.log().d(TAG, "Location found by BeaconDB")
-                val timeMillis = Calendar.getInstance(TimeZone.getTimeZone("UTC")).timeInMillis
 
-                storeLastKnownLocation(context, it.lat.toString(), it.lon.toString(), timeMillis)
-                transport.sendNewLocation(
-                    context,
-                    "BeaconDB",
-                    it.lat.toString(),
-                    it.lon.toString(),
-                    timeMillis
+                val loc = FmdLocation(
+                    lat = it.lat,
+                    lon = it.lon,
+                    provider = "BeaconDB",
+                    batteryLevel = Utils.getBatteryLevel(context),
                 )
 
+                val settings = SettingsRepository.getInstance(context)
+                settings.storeLastKnownLocation(loc)
+                transport.sendNewLocation(context, loc)
                 beaconDbFinished = true
                 onFinished()
             },

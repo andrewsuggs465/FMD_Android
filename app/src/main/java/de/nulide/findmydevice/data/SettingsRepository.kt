@@ -7,8 +7,10 @@ import com.google.gson.ToNumberStrategy
 import com.google.gson.stream.JsonReader
 import com.google.gson.stream.JsonWriter
 import com.google.gson.stream.MalformedJsonException
+import de.nulide.findmydevice.R
 import de.nulide.findmydevice.utils.CypherUtils
 import de.nulide.findmydevice.utils.SingletonHolder
+import de.nulide.findmydevice.utils.Utils
 import java.io.File
 import java.io.FileReader
 import java.io.FileWriter
@@ -178,9 +180,39 @@ class SettingsRepository private constructor(private val context: Context) {
     }
 
     fun removeServerAccount() {
-        set(Settings.SET_FMDSERVER_ID, "");
-        set(Settings.SET_FMD_CRYPT_HPW, "");
-        set(Settings.SET_FMD_CRYPT_PRIVKEY, "");
-        set(Settings.SET_FMD_CRYPT_PUBKEY, "");
+        set(Settings.SET_FMDSERVER_ID, "")
+        set(Settings.SET_FMD_CRYPT_HPW, "")
+        set(Settings.SET_FMD_CRYPT_PRIVKEY, "")
+        set(Settings.SET_FMD_CRYPT_PUBKEY, "")
+    }
+
+    fun storeLastKnownLocation(loc: FmdLocation) {
+        // historically stored as String
+        set<String>(Settings.SET_LAST_KNOWN_LOCATION_LAT, loc.lat.toString())
+        set<String>(Settings.SET_LAST_KNOWN_LOCATION_LON, loc.lon.toString())
+
+        set<Long>(Settings.SET_LAST_KNOWN_LOCATION_TIME, loc.timeMillis)
+    }
+
+    /**
+     * Return the last known location as cached by the settings.
+     */
+    fun getLastKnownLocation(): FmdLocation? {
+        return try {
+            val loc = getLastKnownLocationInt()
+            loc
+        } catch (e: NumberFormatException) {
+            null
+        }
+    }
+
+    private fun getLastKnownLocationInt(): FmdLocation {
+        return FmdLocation(
+            lat = (get(Settings.SET_LAST_KNOWN_LOCATION_LAT) as String).toDouble(),
+            lon = (get(Settings.SET_LAST_KNOWN_LOCATION_LON) as String).toDouble(),
+            provider = context.getString(R.string.cmd_locate_last_known_location_text),
+            batteryLevel = Utils.getBatteryLevel(context),
+            timeMillis = (get(Settings.SET_LAST_KNOWN_LOCATION_TIME) as Number).toLong(),
+        )
     }
 }

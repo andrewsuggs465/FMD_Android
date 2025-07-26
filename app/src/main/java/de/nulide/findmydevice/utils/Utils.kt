@@ -46,19 +46,18 @@ class Utils {
         }
 
         @JvmStatic
-        fun getGeoURI(lat: String, lon: String): String {
+        fun getGeoURI(lat: Double, lon: Double): String {
             return "geo:$lat,$lon"
         }
 
         @JvmStatic
-        fun getOpenStreetMapLink(lat: String, lon: String): String {
+        fun getOpenStreetMapLink(lat: Double, lon: Double): String {
             return "https://www.openstreetmap.org/?mlat=$lat&mlon=$lon&zoom=14"
         }
 
-        fun getBatteryLevel(context: Context): String {
-            val manager = context.getSystemService(Context.BATTERY_SERVICE) as BatteryManager
-            val level = manager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)
-            return Integer.valueOf(level).toString()
+        fun getBatteryLevel(context: Context): Int {
+            val manager = context.getSystemService(BatteryManager::class.java)
+            return manager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)
         }
     }
 }

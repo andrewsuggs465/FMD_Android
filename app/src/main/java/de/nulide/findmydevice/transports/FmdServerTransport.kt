@@ -7,13 +7,13 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.commands.ParserResult
+import de.nulide.findmydevice.data.FmdLocation
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.net.FMDServerApiRepoSpec
 import de.nulide.findmydevice.net.FMDServerApiRepository
 import de.nulide.findmydevice.permissions.Permission
 import de.nulide.findmydevice.ui.settings.AddAccountActivity
-import de.nulide.findmydevice.utils.Utils
 
 
 class FmdServerTransport(
@@ -59,19 +59,9 @@ class FmdServerTransport(
         // not implemented for FMD Server
     }
 
-    override fun sendNewLocation(
-        context: Context,
-        provider: String,
-        lat: String,
-        lon: String,
-        timeMillis: Long,
-    ) {
+    override fun sendNewLocation(context: Context, location: FmdLocation) {
         // no call to super(), we need to completely replace this for FMD Server
-
-        val now = System.currentTimeMillis()
-        settings.set(Settings.SET_FMDSERVER_LAST_LOCATION_UPLOAD_TIME, now)
-
-        val batteryLevel = Utils.getBatteryLevel(context)
-        repo.sendLocation(provider, lat, lon, batteryLevel, timeMillis)
+        settings.set(Settings.SET_FMDSERVER_LAST_LOCATION_UPLOAD_TIME, location.timeMillis)
+        repo.sendLocation(location)
     }
 }

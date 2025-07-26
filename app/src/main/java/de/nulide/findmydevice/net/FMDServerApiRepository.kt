@@ -6,6 +6,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.VolleyError
 import de.nulide.findmydevice.data.EncryptedSettingsRepository
+import de.nulide.findmydevice.data.FmdLocation
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.utils.CypherUtils
@@ -570,9 +571,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
      *
      * TODO: handled this internally in the repo.
      */
-    fun sendLocation(
-        provider: String, lat: String, lon: String, batLevel: String, timeInMillis: Long
-    ) {
+    fun sendLocation(location: FmdLocation) {
         // Prepare payload
         val publicKey = settingsRepo.getKeys()?.publicKey
         if (publicKey == null) {
@@ -582,12 +581,14 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
 
         val locationDataObject = JSONObject()
         try {
-            locationDataObject.put("provider", provider)
-            locationDataObject.put("date", timeInMillis)
-            locationDataObject.put("bat", batLevel)
-            locationDataObject.put("lon", lon)
-            locationDataObject.put("lat", lat)
-            locationDataObject.put("time", Date(timeInMillis).toString())
+            locationDataObject.put("provider", location.provider)
+
+            locationDataObject.put("lat", location.lat)
+            locationDataObject.put("lon", location.lon)
+
+            locationDataObject.put("bat", location.batteryLevel)
+            locationDataObject.put("date", location.timeMillis)
+            locationDataObject.put("time", Date(location.timeMillis).toString())
         } catch (e: JSONException) {
             e.printStackTrace()
         }

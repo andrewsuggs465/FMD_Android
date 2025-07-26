@@ -11,7 +11,7 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import de.nulide.findmydevice.R
-import de.nulide.findmydevice.data.Settings
+import de.nulide.findmydevice.data.FmdLocation
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.permissions.LocationPermission
 import de.nulide.findmydevice.transports.Transport
@@ -106,23 +106,19 @@ class GpsLocationProvider<T>(
 
     @SuppressLint("MissingPermission")
     fun getLastKnownLocation(asFallBackForCurrentLocation: Boolean = false) {
-        val lastLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+        val lastLocationFromAndroid =
+            locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
 
         val settings = SettingsRepository.getInstance(context)
-        val cachedLat = settings.get(Settings.SET_LAST_KNOWN_LOCATION_LAT) as String
-        val cachedLon = settings.get(Settings.SET_LAST_KNOWN_LOCATION_LON) as String
-        val cachedTimeMillis =
-            (settings.get(Settings.SET_LAST_KNOWN_LOCATION_TIME) as Number).toLong()
-        val isCacheValid = cachedLat.isNotEmpty() && cachedLon.isNotEmpty()
+        val cachedLoc = settings.getLastKnownLocation()
 
-        if (lastLocation == null) {
+        if (lastLocationFromAndroid == null) {
             if (asFallBackForCurrentLocation) {
                 // If current location was requested originally, don't fall back to cached location.
                 transport.send(context, context.getString(R.string.cmd_locate_response_gps_fail))
-            } else if (isCacheValid) {
+            } else if (cachedLoc != null) {
                 // If last location was requested, fall back to cached location.
-                val provider = context.getString(R.string.cmd_locate_last_known_location_text)
-                transport.sendNewLocation(context, provider, cachedLat, cachedLon, cachedTimeMillis)
+                transport.sendNewLocation(context, cachedLoc)
             } else {
                 // No location and nothing to fall back to.
                 transport.send(
@@ -131,32 +127,30 @@ class GpsLocationProvider<T>(
                 )
             }
         } else {
-            // If the last location from the LocationManager is newer than our cached location,
-            // update our cached location.
-            if (lastLocation.time > cachedTimeMillis) {
-                onLocationChanged(lastLocation)
+            if (cachedLoc == null) {
+                // Update our cached location
+                onLocationChanged(lastLocationFromAndroid)
             } else {
-                val provider = context.getString(R.string.cmd_locate_last_known_location_text)
-                transport.sendNewLocation(
-                    context,
-                    provider,
-                    cachedLat,
-                    cachedLon,
-                    cachedTimeMillis
-                )
+                // If the last location from the LocationManager is newer than our cached location,
+                // update our cached location.
+                if (lastLocationFromAndroid.time > cachedLoc.timeMillis) {
+                    onLocationChanged(lastLocationFromAndroid)
+                } else {
+                    transport.sendNewLocation(context, cachedLoc)
+                }
             }
         }
         cleanup()
     }
 
     override fun onLocationChanged(location: Location) {
-        val provider = location.provider ?: "GPS"
-        val lat = location.latitude.toString()
-        val lon = location.longitude.toString()
-        context.log().d(TAG, "Location found by $provider")
+        val fmdLocation = FmdLocation.fromAndroidLocation(context, location)
+        context.log().d(TAG, "Location found by ${fmdLocation.provider}")
 
-        storeLastKnownLocation(context, lat, lon, location.time)
-        transport.sendNewLocation(context, provider, lat, lon, location.time)
+        val settings = SettingsRepository.getInstance(context)
+        settings.storeLastKnownLocation(fmdLocation)
+
+        transport.sendNewLocation(context, fmdLocation)
 
         cleanup()
     }
