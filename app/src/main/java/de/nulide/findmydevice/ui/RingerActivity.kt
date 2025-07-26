@@ -1,5 +1,7 @@
 package de.nulide.findmydevice.ui
 
+import android.app.NotificationManager
+import android.app.NotificationManager.INTERRUPTION_FILTER_ALL
 import android.content.Context
 import android.content.Intent
 import android.media.AudioManager
@@ -37,6 +39,9 @@ class RingerActivity : FmdActivity() {
 
     private var oldRingerMode: Int? = null
     private var oldAlarmVolume: Int? = null
+
+    private var oldInterruptionFiler: Int? = null
+    private var oldNotificationPolicy: NotificationManager.Policy? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,7 +87,8 @@ class RingerActivity : FmdActivity() {
     }
 
     private fun raiseVolume() {
-        val audioManager = this.getSystemService(AUDIO_SERVICE) as AudioManager
+        val audioManager = getSystemService(AudioManager::class.java)
+        val notificationManager = getSystemService(NotificationManager::class.java)
 
         oldRingerMode = audioManager.ringerMode
         oldAlarmVolume = audioManager.getStreamVolume(AudioManager.STREAM_ALARM)
@@ -90,16 +96,29 @@ class RingerActivity : FmdActivity() {
         audioManager.ringerMode = AudioManager.RINGER_MODE_NORMAL
         val maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_ALARM)
         audioManager.setStreamVolume(AudioManager.STREAM_ALARM, maxVolume, 0)
+
+        oldInterruptionFiler = notificationManager.currentInterruptionFilter
+        oldNotificationPolicy = notificationManager.notificationPolicy
+
+        notificationManager.setInterruptionFilter(INTERRUPTION_FILTER_ALL)
     }
 
     private fun resetVolume() {
-        val audioManager = this.getSystemService(AUDIO_SERVICE) as AudioManager
+        val audioManager = getSystemService(AudioManager::class.java)
+        val notificationManager = getSystemService(NotificationManager::class.java)
 
         oldRingerMode?.let {
             audioManager.ringerMode = it
         }
         oldAlarmVolume?.let {
             audioManager.setStreamVolume(AudioManager.STREAM_ALARM, it, 0)
+        }
+
+        oldInterruptionFiler?.let {
+            notificationManager.setInterruptionFilter(it)
+        }
+        oldNotificationPolicy?.let {
+            notificationManager.notificationPolicy = it
         }
     }
 }
