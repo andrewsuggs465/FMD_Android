@@ -11,6 +11,15 @@ data class FmdLocation(
     val lat: Double,
     val lon: Double,
 
+    /** Horizontal radius in meter */
+    val accuracy: Float? = null,
+    /** Height above sea level in meter */
+    val altitude: Double? = null,
+    /** Horizontal direction of travel between 0.0 and 360.0 */
+    val bearing: Float? = null,
+    /** Speed in m/s */
+    val speed: Float? = null,
+
     val provider: String,
     val batteryLevel: Int,
 
@@ -23,6 +32,10 @@ data class FmdLocation(
             return FmdLocation(
                 lat = loc.latitude,
                 lon = loc.longitude,
+                accuracy = if (loc.hasAccuracy()) loc.accuracy else null,
+                altitude = if (loc.hasAltitude()) loc.altitude else null,
+                bearing = if (loc.hasBearing()) loc.bearing else null,
+                speed = if (loc.hasSpeed()) loc.speed else null,
                 provider = loc.provider ?: "GPS",
                 batteryLevel = Utils.getBatteryLevel(context),
                 timeMillis = loc.time,
@@ -35,6 +48,19 @@ data class FmdLocation(
             .append("$provider:\n")
             .append("Lat: $lat\n")
             .append("Lon: $lon\n")
+
+        if (accuracy != null) {
+            string.append("Accuracy: $accuracy m\n")
+        }
+        if (altitude != null) {
+            string.append("Altitude: $altitude m\n")
+        }
+        if (bearing != null) {
+            string.append("Bearing: $bearing\n")
+        }
+        if (speed != null) {
+            string.append("Speed: $speed m/s = ${speed * 3.6} km/h\n")
+        }
 
         string.append("Time: ${Date(timeMillis)}\n")
             .append("Battery: $batteryLevel %\n")

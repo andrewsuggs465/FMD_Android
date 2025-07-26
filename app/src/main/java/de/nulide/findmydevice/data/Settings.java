@@ -54,6 +54,10 @@ public class Settings extends HashMap<Integer, Object> {
     public static final int SET_LAST_KNOWN_LOCATION_LON = 503;
     public static final int SET_LAST_KNOWN_LOCATION_TIME = 504;
     public static final int SET_LAST_LOW_BAT_UPLOAD = 505;
+    public static final int SET_LAST_KNOWN_LOCATION_ACCURACY = 506;
+    public static final int SET_LAST_KNOWN_LOCATION_ALTITUDE = 507;
+    public static final int SET_LAST_KNOWN_LOCATION_BEARING = 508;
+    public static final int SET_LAST_KNOWN_LOCATION_SPEED = 509;
 
     public static final int SET_THEME = 601;
     public static final String VAL_THEME_FOLLOW_SYSTEM = "follow_system";
@@ -125,6 +129,12 @@ public class Settings extends HashMap<Integer, Object> {
                     return 36L;
                 case SET_FMD_SERVER_LAST_CONNECTIVITY_UNIX_TIME:
                     return 0L;
+
+                case SET_LAST_KNOWN_LOCATION_ACCURACY,
+                     SET_LAST_KNOWN_LOCATION_ALTITUDE,
+                     SET_LAST_KNOWN_LOCATION_BEARING,
+                     SET_LAST_KNOWN_LOCATION_SPEED:
+                    return Float.NaN;
             }
         }
         return "";

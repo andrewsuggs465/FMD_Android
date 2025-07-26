@@ -81,6 +81,7 @@ class SettingsRepository private constructor(private val context: Context) {
 
     private val gson = GsonBuilder()
         .setObjectToNumberStrategy(INT_OR_DOUBLE) //(ToNumberPolicy.LONG_OR_DOUBLE)
+        .serializeSpecialFloatingPointValues() // to allow NaN
         .create()
 
     // Should only be accessed via the getters/setters in this repository
@@ -191,6 +192,27 @@ class SettingsRepository private constructor(private val context: Context) {
         set<String>(Settings.SET_LAST_KNOWN_LOCATION_LAT, loc.lat.toString())
         set<String>(Settings.SET_LAST_KNOWN_LOCATION_LON, loc.lon.toString())
 
+        if (loc.accuracy != null) {
+            set<Float>(Settings.SET_LAST_KNOWN_LOCATION_ACCURACY, loc.accuracy)
+        } else {
+            set<Float>(Settings.SET_LAST_KNOWN_LOCATION_ACCURACY, Float.NaN)
+        }
+        if (loc.altitude != null) {
+            set<Double>(Settings.SET_LAST_KNOWN_LOCATION_ALTITUDE, loc.altitude)
+        } else {
+            set<Double>(Settings.SET_LAST_KNOWN_LOCATION_ALTITUDE, Double.NaN)
+        }
+        if (loc.bearing != null) {
+            set<Float>(Settings.SET_LAST_KNOWN_LOCATION_BEARING, loc.bearing)
+        } else {
+            set<Float>(Settings.SET_LAST_KNOWN_LOCATION_BEARING, Float.NaN)
+        }
+        if (loc.speed != null) {
+            set<Float>(Settings.SET_LAST_KNOWN_LOCATION_SPEED, loc.speed)
+        } else {
+            set<Float>(Settings.SET_LAST_KNOWN_LOCATION_SPEED, Float.NaN)
+        }
+
         set<Long>(Settings.SET_LAST_KNOWN_LOCATION_TIME, loc.timeMillis)
     }
 
@@ -207,9 +229,30 @@ class SettingsRepository private constructor(private val context: Context) {
     }
 
     private fun getLastKnownLocationInt(): FmdLocation {
+        var acc: Float? = (get(Settings.SET_LAST_KNOWN_LOCATION_ACCURACY) as Number).toFloat()
+        if (acc!!.isNaN()) {
+            acc = null
+        }
+        var alt: Double? = (get(Settings.SET_LAST_KNOWN_LOCATION_ALTITUDE) as Number).toDouble()
+        if (alt!!.isNaN()) {
+            alt = null
+        }
+        var bear: Float? = (get(Settings.SET_LAST_KNOWN_LOCATION_BEARING) as Number).toFloat()
+        if (bear!!.isNaN()) {
+            bear = null
+        }
+        var speed: Float? = (get(Settings.SET_LAST_KNOWN_LOCATION_SPEED) as Number).toFloat()
+        if (speed!!.isNaN()) {
+            speed = null
+        }
+
         return FmdLocation(
             lat = (get(Settings.SET_LAST_KNOWN_LOCATION_LAT) as String).toDouble(),
             lon = (get(Settings.SET_LAST_KNOWN_LOCATION_LON) as String).toDouble(),
+            accuracy = acc,
+            altitude = alt,
+            bearing = bear,
+            speed = speed,
             provider = context.getString(R.string.cmd_locate_last_known_location_text),
             batteryLevel = Utils.getBatteryLevel(context),
             timeMillis = (get(Settings.SET_LAST_KNOWN_LOCATION_TIME) as Number).toLong(),

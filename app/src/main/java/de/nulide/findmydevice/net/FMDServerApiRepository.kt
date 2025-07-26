@@ -586,6 +586,11 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             locationDataObject.put("lat", location.lat)
             locationDataObject.put("lon", location.lon)
 
+            locationDataObject.put("accuracy", location.accuracy)
+            locationDataObject.put("altitude", location.altitude)
+            locationDataObject.put("heading", location.bearing)
+            locationDataObject.put("speed", location.speed)
+
             locationDataObject.put("bat", location.batteryLevel)
             locationDataObject.put("date", location.timeMillis)
             locationDataObject.put("time", Date(location.timeMillis).toString())

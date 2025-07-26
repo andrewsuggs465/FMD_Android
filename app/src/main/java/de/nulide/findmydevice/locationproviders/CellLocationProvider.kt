@@ -116,6 +116,7 @@ class CellLocationProvider<T>(
                 val loc = FmdLocation(
                     lat = it.lat,
                     lon = it.lon,
+                    accuracy = it.accuracy?.toFloat(),
                     provider = "BeaconDB",
                     batteryLevel = Utils.getBatteryLevel(context),
                 )
