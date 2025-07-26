@@ -1,5 +1,6 @@
 package de.nulide.findmydevice.ui.settings
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -93,7 +94,7 @@ class OpenCellIdActivity : FmdActivity(), TextWatcher {
         }
 
         val paras = CellParameters.queryCellParametersFromTelephonyManager(context)
-        if (paras == null) {
+        if (paras.isEmpty()) {
             context.log().i(TAG, "No cell location found")
             viewBinding.textViewTestOpenCellIdResponse.text =
                 context.getString(R.string.OpenCellId_test_no_connection)
@@ -103,19 +104,39 @@ class OpenCellIdActivity : FmdActivity(), TextWatcher {
         val repo = OpenCelliDRepository.getInstance(OpenCelliDSpec(context))
         val apiAccessToken = settings.get(Settings.SET_OPENCELLID_API_KEY) as String
 
+        viewBinding.textViewTestOpenCellIdResponse.text = ""
+
+        paras.forEach {
+            queryOpenCelliD(it, repo, apiAccessToken)
+        }
+    }
+
+    private fun queryOpenCelliD(
+        paras: CellParameters,
+        repo: OpenCelliDRepository,
+        apiAccessToken: String
+    ) {
         repo.getCellLocation(
             paras, apiAccessToken,
             onSuccess = {
                 val geoURI = getGeoURI(it.lat, it.lon)
                 val osm = getOpenStreetMapLink(it.lat, it.lon)
-                viewBinding.textViewTestOpenCellIdResponse.text =
+                append(
                     "Paras: $paras\n\nOpenCelliD: ${it.url}\n${geoURI}\nOpenStreetMap: $osm"
+                )
             },
             onError = {
-                viewBinding.textViewTestOpenCellIdResponse.text =
+                append(
                     "Paras: $paras\n\nOpenCelliD: ${it.url}\n\nError: ${it.error}"
+                )
             },
         )
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun append(string: String) {
+        val old = viewBinding.textViewTestOpenCellIdResponse.text.toString()
+        viewBinding.textViewTestOpenCellIdResponse.text = old + "\n\n" + string
     }
 
     companion object {

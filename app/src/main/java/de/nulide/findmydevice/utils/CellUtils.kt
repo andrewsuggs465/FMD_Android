@@ -27,7 +27,7 @@ data class CellParameters(
     companion object {
         private val TAG = CellParameters::class.simpleName
 
-        fun queryCellParametersFromTelephonyManager(context: Context): CellParameters? {
+        fun queryCellParametersFromTelephonyManager(context: Context): List<CellParameters> {
             val tm = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
 
             // TODO: Migrate to CellInfo (GsmCellLocation is deprecated)
@@ -35,13 +35,13 @@ data class CellParameters(
             val location = tm.cellLocation as? GsmCellLocation
             val operator = tm.networkOperator
             if (location == null || operator.length <= 3) {
-                return null
+                return emptyList()
             }
 
             val mcc = operator.substring(0, 3).toInt()
             val mnc = operator.substring(3).toInt()
 
-            return CellParameters(mcc, mnc, location.lac, location.cid, "GSM")
+            return listOf(CellParameters(mcc, mnc, location.lac, location.cid, "GSM"))
         }
     }
 }

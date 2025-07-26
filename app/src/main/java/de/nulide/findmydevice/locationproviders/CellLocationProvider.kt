@@ -43,7 +43,7 @@ class CellLocationProvider<T>(
         beaconDbFinished = false
 
         val paras = CellParameters.queryCellParametersFromTelephonyManager(context)
-        if (paras == null) {
+        if (paras.isEmpty()) {
             context.log().i(TAG, "Cell paras are null. Are you connected to the cellular network?")
             transport.send(context, context.getString(R.string.OpenCellId_test_no_connection))
             deferred.complete(Unit)
@@ -51,8 +51,9 @@ class CellLocationProvider<T>(
         }
 
         // Since internally both repositories use Volley with callbacks, the requests don't block on each other.
-        queryOpenCelliD(paras)
-        queryBeaconDb(paras)
+        // TODO: query all
+        queryOpenCelliD(paras.first())
+        queryBeaconDb(paras.first())
         return deferred
     }
 
