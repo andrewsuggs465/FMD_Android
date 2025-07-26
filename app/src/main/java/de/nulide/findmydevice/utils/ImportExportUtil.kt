@@ -52,7 +52,7 @@ class SettingsImportExporter(
             entry = ZipEntry(ALLOWLIST_FILENAME)
             zipOutputStream.putNextEntry(entry)
             writer = zipOutputStream.writer()
-            writeAsJson(writer, AllowlistRepository.getInstance(context).list)
+            AllowlistRepository.getInstance(context).writeAsJson(writer)
             writer.flush()
             zipOutputStream.closeEntry()
 
@@ -90,11 +90,13 @@ class SettingsImportExporter(
 
 fun writeAsJson(
     outputStreamWriter: OutputStreamWriter,
+    // Receive the Gson as parameter, to ensure it is configured with the settings that src needs
+    gson: Gson,
     src: Any,
 ) {
     val type = src.javaClass
     val writer = JsonWriter(outputStreamWriter)
-    Gson().toJson(src, type, writer)
+    gson.toJson(src, type, writer)
 }
 
 fun writeToUri(

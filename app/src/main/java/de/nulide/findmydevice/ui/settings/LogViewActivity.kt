@@ -11,7 +11,6 @@ import de.nulide.findmydevice.data.LogRepository
 import de.nulide.findmydevice.ui.FmdActivity
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeAppBar
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeScrollView
-import de.nulide.findmydevice.utils.writeAsJson
 import de.nulide.findmydevice.utils.writeToUri
 import java.io.OutputStreamWriter
 
@@ -80,7 +79,7 @@ class LogViewActivity : FmdActivity() {
                 if (uri != null) {
                     writeToUri(this, uri) { outputStream ->
                         synchronized(repo.list) {
-                            writeAsJson(OutputStreamWriter(outputStream), repo.list)
+                            repo.writeAsJson(OutputStreamWriter(outputStream))
                         }
                     }
                 }

@@ -10,6 +10,7 @@ import de.nulide.findmydevice.data.UncaughtExceptionHandler.Companion.CRASH_MSG_
 import de.nulide.findmydevice.utils.SingletonHolder
 import java.io.File
 import java.io.FileReader
+import java.io.OutputStreamWriter
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.LinkedList
@@ -142,5 +143,9 @@ class LogRepository private constructor(private val context: Context) {
             }
         }
         return null
+    }
+
+    fun writeAsJson(outputStreamWriter: OutputStreamWriter) {
+        de.nulide.findmydevice.utils.writeAsJson(outputStreamWriter, gson, list)
     }
 }

@@ -14,6 +14,7 @@ import java.io.File
 import java.io.FileReader
 import java.io.InputStream
 import java.io.InputStreamReader
+import java.io.OutputStreamWriter
 import java.util.LinkedList
 
 
@@ -55,6 +56,10 @@ class AllowlistRepository private constructor(private val context: Context) {
         val raw = gson.toJson(copiedList)
         val file = File(context.filesDir, ALLOWLIST_FILENAME)
         file.writeText(raw)
+    }
+
+    fun writeAsJson(outputStreamWriter: OutputStreamWriter) {
+        de.nulide.findmydevice.utils.writeAsJson(outputStreamWriter, gson, list)
     }
 
     fun importFromStream(inputStream: InputStream) {

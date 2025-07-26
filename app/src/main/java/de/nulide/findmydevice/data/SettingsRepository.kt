@@ -9,7 +9,6 @@ import com.google.gson.stream.JsonWriter
 import com.google.gson.stream.MalformedJsonException
 import de.nulide.findmydevice.utils.CypherUtils
 import de.nulide.findmydevice.utils.SingletonHolder
-import de.nulide.findmydevice.utils.writeAsJson
 import java.io.File
 import java.io.FileReader
 import java.io.FileWriter
@@ -127,7 +126,7 @@ class SettingsRepository private constructor(private val context: Context) {
     }
 
     fun writeAsJson(outputStreamWriter: OutputStreamWriter) {
-        writeAsJson(outputStreamWriter, settings)
+        de.nulide.findmydevice.utils.writeAsJson(outputStreamWriter, gson, settings)
     }
 
     fun importFromStream(inputStream: InputStream) {
