@@ -61,6 +61,6 @@ fun isMinRequiredVersion(
             onResult(MinRequiredVersionResult.Success(currentString))
         }
     }, { error: VolleyError ->
-        onResult(MinRequiredVersionResult.Error(error.message.toString()))
+        onResult(MinRequiredVersionResult.Error("[${error.networkResponse?.statusCode ?: 0}] ${error.message}"))
     })
 }
