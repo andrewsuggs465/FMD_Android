@@ -2,6 +2,7 @@ package de.nulide.findmydevice.ui;
 
 import static de.nulide.findmydevice.net.ServerRequiredVersionCheckKt.isMinRequiredVersion;
 import static de.nulide.findmydevice.receiver.AppUpdatedReceiverKt.doUpdateMigrations;
+import static de.nulide.findmydevice.ui.SetupWarningsActivityKt.shouldShowSetupWarnings;
 import static de.nulide.findmydevice.ui.UiUtil.setupEdgeToEdgeAppBar;
 
 import android.content.Intent;
@@ -21,7 +22,6 @@ import de.nulide.findmydevice.R;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.net.MinRequiredVersionResult;
-import de.nulide.findmydevice.permissions.PermissionsUtilKt;
 import de.nulide.findmydevice.services.TempContactExpiredService;
 import de.nulide.findmydevice.ui.home.CommandListFragment;
 import de.nulide.findmydevice.ui.home.TransportListFragment;
@@ -149,7 +149,7 @@ public class MainActivity extends FmdActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
-        if (PermissionsUtilKt.isMissingGlobalAppPermission(this)) {
+        if (shouldShowSetupWarnings(this)) {
             toolbar.inflateMenu(R.menu.main_app_bar_warnings);
         } else {
             toolbar.inflateMenu(R.menu.main_app_bar);

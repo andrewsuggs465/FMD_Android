@@ -35,6 +35,7 @@ class AppUpdatedReceiver : BroadcastReceiver() {
                 ServerLocationUploadService.scheduleRecurring(context)
                 ServerConnectivityCheckService.scheduleJob(context)
                 ServerVersionCheckService.scheduleJobNow(context)
+                ServerConnectivityCheckService.notifyAboutConnectivityCheck(context)
             }
         }
     }

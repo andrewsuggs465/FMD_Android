@@ -1,10 +1,16 @@
 package de.nulide.findmydevice.ui
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import de.nulide.findmydevice.databinding.ActivitySetupWarningsBinding
 import de.nulide.findmydevice.permissions.globalAppPermissions
+import de.nulide.findmydevice.permissions.isMissingGlobalAppPermission
+import de.nulide.findmydevice.services.ServerConnectivityCheckService
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeAppBar
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeScrollView
+import de.nulide.findmydevice.ui.settings.FMDServerActivity
 
 
 class SetupWarningsActivity : FmdActivity() {
@@ -19,7 +25,15 @@ class SetupWarningsActivity : FmdActivity() {
 
         setupEdgeToEdgeAppBar(viewBinding.appBar)
         setupEdgeToEdgeScrollView(viewBinding.scrollView)
+    }
 
+    override fun onResume() {
+        super.onResume()
+
+        // For simplicity, we always show all warnings/recommendations.
+        // Easier for developers (no big if-else tree), and
+        // more transparent for users (why did this suddenly disappear?).
+        setupRecommendations(this)
         setupPermissionsList(
             this,
             viewBinding.permissionsRequiredTitle,
@@ -27,4 +41,26 @@ class SetupWarningsActivity : FmdActivity() {
             globalAppPermissions()
         )
     }
+
+    private fun setupRecommendations(context: Context) {
+        val showConnCheck =
+            ServerConnectivityCheckService.shouldNudgeAboutConnectivityCheck(context)
+
+        if (showConnCheck) {
+            viewBinding.recommendationConnCheckEnableButton.visibility = View.VISIBLE
+            viewBinding.recommendationConnCheckEnableButton.setOnClickListener {
+                val intent = Intent(this, FMDServerActivity::class.java)
+                startActivity(intent)
+            }
+            viewBinding.icCheck.visibility = View.GONE
+        } else {
+            viewBinding.recommendationConnCheckEnableButton.visibility = View.GONE
+            viewBinding.icCheck.visibility = View.VISIBLE
+        }
+    }
+}
+
+fun shouldShowSetupWarnings(context: Context): Boolean {
+    return ServerConnectivityCheckService.shouldNudgeAboutConnectivityCheck(context)
+            || isMissingGlobalAppPermission(context)
 }

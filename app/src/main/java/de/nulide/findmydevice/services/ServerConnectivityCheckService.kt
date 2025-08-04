@@ -11,6 +11,7 @@ import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.net.FMDServerApiRepoSpec
 import de.nulide.findmydevice.net.FMDServerApiRepository
+import de.nulide.findmydevice.ui.settings.FMDServerActivity
 import de.nulide.findmydevice.utils.Notifications
 import de.nulide.findmydevice.utils.log
 import java.time.Instant
@@ -61,6 +62,33 @@ class ServerConnectivityCheckService : FmdJobService() {
         fun cancelJob(context: Context) {
             val jobScheduler = context.getSystemService(JobScheduler::class.java)
             jobScheduler.cancel(JOB_ID)
+        }
+
+        fun shouldNudgeAboutConnectivityCheck(context: Context): Boolean {
+            val settings = SettingsRepository.getInstance(context)
+            val interval =
+                (settings.get(Settings.SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS) as Number).toLong()
+            return settings.serverAccountExists() && interval <= 0L
+        }
+
+        /**
+         * Nudge the user to enable the server connectivity check,
+         * by showing a notification telling the user that this feature exists.
+         * This should be used sparingly, to not annoy the user.
+         */
+        fun notifyAboutConnectivityCheck(context: Context) {
+            if (shouldNudgeAboutConnectivityCheck(context)) {
+                val title = context.getString(R.string.server_connectivity_check_not_enabled_title)
+                val text = context.getString(R.string.server_connectivity_check_not_enabled_text)
+
+                Notifications.notify(
+                    context,
+                    title,
+                    text,
+                    Notifications.CHANNEL_SERVER,
+                    cls = FMDServerActivity::class.java,
+                )
+            }
         }
     }
 

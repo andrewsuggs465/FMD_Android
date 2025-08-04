@@ -106,6 +106,8 @@
     <string name="server_version_upgrade_required_text">The FMD Server you are using has version {CURRENT}, but this app requires at least {MIN}. Controlling your device via FMD Server may not work anymore. Please upgrade your server.</string>
     <string name="server_connectivity_lost_title">FMD Server connectivity lost</string>
     <string name="server_connectivity_lost_text">The FMD Server at %1$s can no longer be reached. The last successful connection was at %2$s.</string>
+    <string name="server_connectivity_check_not_enabled_title">Enable the server connectivity check</string>
+    <string name="server_connectivity_check_not_enabled_text">FMD can regularly check whether FMD Server is still reachable. For privacy reasons this is off by default. But for availability reasons we recommend enabling it.</string>
 
     <!-- FMD Server registration/login -->
     <string name="server_version">Server version</string>
@@ -327,6 +329,7 @@
 
     <!-- Setup warnings -->
     <string name="setup_warnings_title">Setup warnings</string>
+    <string name="setup_recommendations_title">Recommendations</string>
     <string name="missing_permissions_title">Missing permissions</string>
     <string name="missing_permissions_description">The following permissions are needed for FMD to run.</string>
 
