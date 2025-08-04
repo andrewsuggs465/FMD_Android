@@ -28,7 +28,6 @@ import de.nulide.findmydevice.data.EncryptedSettingsRepository;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.ui.FmdActivity;
-import de.nulide.findmydevice.utils.CypherUtils;
 
 public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnCheckedChangeListener, TextWatcher {
 
@@ -78,15 +77,8 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
         textColorDisabled = getColor(R.color.md_theme_onError);
 
         buttonEnterPin = findViewById(R.id.buttonEnterPin);
-        String pin = encSettings.getFmdPin();
-        if (pin == null || pin.isBlank()) {
-            buttonEnterPin.setBackgroundColor(colorDisabled);
-            buttonEnterPin.setTextColor(textColorDisabled);
-        } else {
-            buttonEnterPin.setBackgroundColor(colorEnabled);
-            buttonEnterPin.setTextColor(textColorEnabled);
-        }
         buttonEnterPin.setOnClickListener(this::onEnterPinClicked);
+        updatePinButton();
 
         buttonSelectRingtone = findViewById(R.id.buttonSelectRingTone);
         buttonSelectRingtone.setOnClickListener(this::onSelectRingtoneClicked);
@@ -145,10 +137,8 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
                         String repeat = editTextPinRepeat.getText().toString();
 
                         if (pin.equals(repeat)) {
-                            if (pin.isEmpty()) {
+                            if (pin.isBlank()) {
                                 encSettings.setFmdPin(null);
-                                buttonEnterPin.setBackgroundColor(colorDisabled);
-                                buttonEnterPin.setTextColor(textColorDisabled);
                             }
                             // The PIN must not match a command keyword.
                             // Otherwise, we cannot (easily) distinguish between the PIN and the command.
@@ -159,12 +149,12 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
                                 Toast.makeText(context, R.string.pin_match_command_keyword, Toast.LENGTH_LONG).show();
                             } else {
                                 encSettings.setFmdPin(pin);
-                                buttonEnterPin.setBackgroundColor(colorEnabled);
-                                buttonEnterPin.setTextColor(textColorEnabled);
                             }
                         } else {
                             Toast.makeText(context, R.string.pin_mismatch, Toast.LENGTH_LONG).show();
                         }
+
+                        updatePinButton();
                     }
                 })
                 .show();
@@ -188,6 +178,19 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE_RINGTONE) {
             Uri uri = intent.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
             settings.set(Settings.SET_RINGER_TONE, uri.toString());
+        }
+    }
+
+    private void updatePinButton() {
+        String pin = encSettings.getFmdPin();
+        if (pin == null || pin.isBlank()) {
+            buttonEnterPin.setBackgroundColor(colorDisabled);
+            buttonEnterPin.setTextColor(textColorDisabled);
+            buttonEnterPin.setText(R.string.Settings_Set_Pin);
+        } else {
+            buttonEnterPin.setBackgroundColor(colorEnabled);
+            buttonEnterPin.setTextColor(textColorEnabled);
+            buttonEnterPin.setText(R.string.Settings_Change_Pin);
         }
     }
 

@@ -55,7 +55,7 @@ class EncryptedSettingsRepository private constructor(context: Context) {
     }
 
     fun setFmdPin(new: String?) {
-        if (new == null) {
+        if (new.isNullOrBlank()) {
             sharedPrefs.edit().remove(KEY_FMD_PIN).apply()
         } else {
             sharedPrefs.edit().putString(KEY_FMD_PIN, new).apply()
