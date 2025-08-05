@@ -15,6 +15,12 @@ public class FmdKeyPair {
         this.encryptedPrivateKey = encryptedPrivateKey;
     }
 
+    public FmdKeyPair(KeyPair rsaKeyPair, String passwordProtectKeyPairWith) {
+        String encryptedPrivateKey = CypherUtils.encryptPrivateKeyWithPassword(rsaKeyPair.getPrivate(), passwordProtectKeyPairWith);
+        this.publicKey = rsaKeyPair.getPublic();
+        this.encryptedPrivateKey = encryptedPrivateKey;
+    }
+
     public static FmdKeyPair generateNewFmdKeyPair(String passwordProtectKeyPairWith) {
         KeyPair rsaKeyPair = CypherUtils.genRsaKeyPair();
         String encryptedPrivateKey = CypherUtils.encryptPrivateKeyWithPassword(rsaKeyPair.getPrivate(), passwordProtectKeyPairWith);

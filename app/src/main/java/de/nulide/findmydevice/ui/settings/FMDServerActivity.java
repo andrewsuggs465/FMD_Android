@@ -26,7 +26,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.unifiedpush.android.connector.UnifiedPush;
 
-import java.security.PrivateKey;
+import java.security.KeyPair;
 
 import de.nulide.findmydevice.R;
 import de.nulide.findmydevice.data.EncryptedSettingsRepository;
@@ -318,13 +318,13 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         // do expensive async crypto and hashing in a background thread (not on the UI thread)
         new Thread(() -> {
             try {
-                PrivateKey privKey = CypherUtils.decryptPrivateKeyWithPassword((String) settings.get(Settings.SET_FMD_CRYPT_PRIVKEY), oldPassword);
-                if (privKey == null) {
+                KeyPair keyPair = CypherUtils.decryptPrivateKeyWithPassword((String) settings.get(Settings.SET_FMD_CRYPT_PRIVKEY), oldPassword);
+                if (keyPair == null) {
                     Toast.makeText(this, R.string.pw_change_wrong_password, Toast.LENGTH_LONG).show();
                     loadingDialog.cancel();
                     return;
                 }
-                String newPrivKey = CypherUtils.encryptPrivateKeyWithPassword(privKey, password);
+                String newPrivKey = CypherUtils.encryptPrivateKeyWithPassword(keyPair.getPrivate(), password);
                 String hashedPW = CypherUtils.hashPasswordForLogin(password);
 
                 runOnUiThread(() -> {

@@ -7,6 +7,7 @@ import com.android.volley.Response
 import com.android.volley.VolleyError
 import de.nulide.findmydevice.data.EncryptedSettingsRepository
 import de.nulide.findmydevice.data.FmdLocation
+import de.nulide.findmydevice.data.FmdKeyPair
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.utils.CypherUtils
@@ -15,6 +16,7 @@ import de.nulide.findmydevice.utils.SingletonHolder
 import de.nulide.findmydevice.utils.log
 import org.json.JSONException
 import org.json.JSONObject
+import java.security.KeyPair
 import java.util.Date
 
 
@@ -234,10 +236,47 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         // Previously, we used getAccessToken for the connectivity check.
         // However, that doesn't work when the account is locked.
         // We need an endpoint that we can access with the cached access token.
-        doRequestWithCachedToken(this::getPublicKey, onResponse, onError)
+        doRequestWithCachedToken(this::getPrivateKeyRaw, onResponse, onError)
     }
 
+    /**
+     * Gets the private key stored on the server for this account.
+     * Decrypts and parses the private key into a [KeyPair].
+     *
+     * ## Security
+     *
+     * This is safe because the private key is encrypted using AES-GCM.
+     * AES-GCM is an AEAD, which provides integrity protection.
+     * This means that the server cannot modify the ciphertext without
+     * causing encryption to fail (unlike other modes like AES-CBC).
+     */
     fun getPrivateKey(
+        password: String,
+        accessToken: String,
+        onResponse: Response.Listener<KeyPair>,
+        onError: Response.ErrorListener,
+    ) {
+        getPrivateKeyRaw(
+            accessToken,
+            onResponse = { rawPrivateKey ->
+                val keyPair: KeyPair? =
+                    CypherUtils.decryptPrivateKeyWithPassword(rawPrivateKey, password)
+                if (keyPair == null) {
+                    context.log().w(TAG, "getPrivateKey: Failed to decrypt private key")
+                    onError.onErrorResponse(VolleyError("Failed to decrypt private key"))
+                } else {
+                    onResponse.onResponse(keyPair)
+                }
+            },
+            onError = onError,
+        )
+    }
+
+    /**
+     * Gets the raw private key stored on the server for this account.
+     * See also [getPrivateKey].
+     */
+    fun getPrivateKeyRaw(
         accessToken: String,
         onResponse: Response.Listener<String>,
         onError: Response.ErrorListener,
@@ -258,7 +297,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
                     val privateKey = response["Data"] as String
                     onResponse.onResponse(privateKey)
                 } catch (e: JSONException) {
-                    context.log().w(TAG, "getPrivateKey: ${e.stackTraceToString()}")
+                    context.log().w(TAG, "getPrivateKeyRaw: ${e.stackTraceToString()}")
                     onError.onErrorResponse(VolleyError("Private Key response has no Data field"))
                 }
             },
@@ -267,7 +306,16 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         queue.add(request)
     }
 
-    fun getPublicKey(
+    /**
+     * Gets the public key stored on the server for this account.
+     *
+     * WARNING: The returned public key is unauthenticated!
+     * A malicious server could provide a wrong public key and MITM you.
+     *
+     * The safe option is to get the private key and derive the public key from that.
+     * See [getPrivateKey].
+     */
+    fun getPublicKeyUnsafe(
         accessToken: String,
         onResponse: Response.Listener<String>,
         onError: Response.ErrorListener,
@@ -311,21 +359,26 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         loadBaseUrl()
 
         getSalt(userId, onError = onError, onResponse = { salt ->
-            val hashedPW = CypherUtils.hashPasswordForLogin(password, salt)
-            getAccessToken(userId, hashedPW, onError = onError, onResponse = { accessToken ->
+            val authPassword = CypherUtils.hashPasswordForLogin(password, salt)
+            getAccessToken(userId, authPassword, onError = onError, onResponse = { accessToken ->
                 encryptedSettingsRepo.setCachedAccessToken(accessToken)
 
-                getPrivateKey(accessToken, onError = onError, onResponse = { privateKey ->
-                    getPublicKey(accessToken, onError = onError, onResponse = { publicKey ->
+                getPrivateKey(
+                    password,
+                    accessToken,
+                    onError = onError,
+                    onResponse = { keyPair ->
+                        // Security: don't store the private+public key PEM strings as received from the server.
+                        // Instead, decrypt and parse them to trusted, well-formed objects.
+                        // Then encode them again for storage.
+                        val fmdKeyPair = FmdKeyPair(keyPair, password)
                         settingsRepo.apply {
-                            set(Settings.SET_FMD_CRYPT_HPW, hashedPW)
+                            set(Settings.SET_FMD_CRYPT_HPW, authPassword)
                             set(Settings.SET_FMDSERVER_ID, userId)
-                            set(Settings.SET_FMD_CRYPT_PUBKEY, publicKey)
-                            set(Settings.SET_FMD_CRYPT_PRIVKEY, privateKey)
+                            setKeys(fmdKeyPair)
                         }
                         onResponse.onResponse(Unit)
                     })
-                })
             })
         })
     }

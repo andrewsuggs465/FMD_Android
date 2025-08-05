@@ -13,7 +13,7 @@ import de.nulide.findmydevice.data.FmdKeyPair;
 public class CypherUtilsTest {
 
     @Test
-    public void testKeyEncryption(){
+    public void testKeyEncryption() {
         KeyPair keys = CypherUtils.genRsaKeyPair();
         String msg = "The password is *****";
         byte[] encryptedMsg = CypherUtils.encryptWithKey(keys.getPublic(), msg);
@@ -23,18 +23,18 @@ public class CypherUtilsTest {
     }
 
     @Test
-    public void testKeyEncryptionChain(){
+    public void testKeyEncryptionChain() {
         FmdKeyPair keys = FmdKeyPair.generateNewFmdKeyPair("password");
         String msg = "SecretMsg";
         byte[] encryptedMsg = CypherUtils.encryptWithKey(keys.getPublicKey(), msg);
-        PrivateKey privateKey = CypherUtils.decryptPrivateKeyWithPassword(keys.getEncryptedPrivateKey(), "password");
-        String decryptedMsg = CypherUtils.decryptWithKey(privateKey, encryptedMsg);
+        KeyPair keyPair = CypherUtils.decryptPrivateKeyWithPassword(keys.getEncryptedPrivateKey(), "password");
+        String decryptedMsg = CypherUtils.decryptWithKey(keyPair.getPrivate(), encryptedMsg);
         Assert.assertEquals(msg, decryptedMsg);
     }
 
 
     @Test
-    public void testBase64(){
+    public void testBase64() {
         KeyPair keys = CypherUtils.genRsaKeyPair();
         PrivateKey priv = keys.getPrivate();
         byte[] encoded = priv.getEncoded();
@@ -45,7 +45,7 @@ public class CypherUtilsTest {
     }
 
     @Test
-    public void testKeysGen(){
+    public void testKeysGen() {
         CypherUtils.genRsaKeyPair();
     }
 

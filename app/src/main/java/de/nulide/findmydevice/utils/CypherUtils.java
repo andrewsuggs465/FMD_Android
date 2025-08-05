@@ -25,11 +25,13 @@ import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.Signature;
 import java.security.SignatureException;
+import java.security.interfaces.RSAPrivateCrtKey;
 import java.security.spec.EncodedKeySpec;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.PSSParameterSpec;
+import java.security.spec.RSAPublicKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 
 import javax.crypto.BadPaddingException;
@@ -234,7 +236,7 @@ public class CypherUtils {
         return encodeBase64(concat);
     }
 
-    public static PrivateKey decryptPrivateKeyWithPassword(String encryptedPrivKey, String password) {
+    public static KeyPair decryptPrivateKeyWithPassword(String encryptedPrivKey, String password) {
         byte[] concatBytes = decodeBase64(encryptedPrivKey);
         byte[] saltBytes = Arrays.copyOfRange(concatBytes, 0, ARGON2_SALT_LENGTH);
         byte[] ciphertextBytes = Arrays.copyOfRange(concatBytes, ARGON2_SALT_LENGTH, concatBytes.length);
@@ -261,7 +263,7 @@ public class CypherUtils {
         return sw.getBuffer().toString();
     }
 
-    public static PrivateKey pemDecodeRsaPrivateKey(String pem) {
+    public static KeyPair pemDecodeRsaPrivateKey(String pem) {
         try {
             pem = pem.replace("-----END PRIVATE KEY-----\n", "");
             pem = pem.replace("-----BEGIN PRIVATE KEY-----\n", "");
@@ -270,7 +272,13 @@ public class CypherUtils {
 
             EncodedKeySpec privKeySpec = new PKCS8EncodedKeySpec(key);
             KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-            return keyFactory.generatePrivate(privKeySpec);
+            PrivateKey priv = keyFactory.generatePrivate(privKeySpec);
+
+            RSAPrivateCrtKey rsaPriv = (RSAPrivateCrtKey) priv;
+            RSAPublicKeySpec publicKeySpec = new RSAPublicKeySpec(rsaPriv.getModulus(), rsaPriv.getPublicExponent());
+            PublicKey pub = keyFactory.generatePublic(publicKeySpec);
+
+            return new KeyPair(pub, priv);
         } catch (NoSuchAlgorithmException | InvalidKeySpecException | NullPointerException e) {
             e.printStackTrace();
         }
@@ -392,7 +400,7 @@ public class CypherUtils {
         return out.toByteArray();
     }
 
-    private static class Argon2Result {
+    public static class Argon2Result {
         public final byte[] hash;
         public final Argon2Parameters params;
 
