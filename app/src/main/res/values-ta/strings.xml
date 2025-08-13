@@ -257,4 +257,7 @@
     <string name="update_pin_hash_change_text">பயன்பாட்டு புதுப்பிப்பின் போது FMD முள் மீட்டமைக்கப்பட்டது. ஒரு முள் மூலம் எஃப்எம்டியைப் பயன்படுத்த, தயவுசெய்து மீண்டும் முள் அமைக்கவும்.</string>
     <string name="usage_notification_text">\"%s\" கட்டளை செயல்படுத்தப்பட்டது.</string>
     <string name="usage_notification_pin_text">முள் இந்த எண்ணால் பயன்படுத்தப்பட்டது: \"%s\". முள் மாற்ற பரிந்துரைக்கப்படுகிறது.</string>
+    <string name="cmd_ringermode_description_short">ரிங்கர் பயன்முறையை மாற்றவும்</string>
+    <string name="cmd_ringermode_response_empty">தற்போதைய ரிங்கர் பயன்முறை \"%s\".</string>
+    <string name="cmd_ringermode_response">ரிங்கர் பயன்முறை \"%1$s\" (பழையது) இலிருந்து \"%2$s\" (புதியது) ஆக மாற்றப்பட்டது.</string>
 </resources>
