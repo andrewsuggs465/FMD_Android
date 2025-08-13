@@ -270,4 +270,7 @@
     <string name="update_pin_hash_change_text">ПИН-код FMD был сброшен во время обновления приложения. Чтобы продолжить пользоваться FMD с ПИН-кодом, пожалуйста установите ПИН снова.</string>
     <string name="Settings_Pin_Not_Backed_Up">Предупреждение: ПИН-код не включён в резервную копию приложения.</string>
     <string name="allowlist_reset_text">В связи со сбоем, разрешённые контакты были сброшены. Пожалуйста, настройте их снова.</string>
+    <string name="cmd_ringermode_description_short">Изменить режим звонка</string>
+    <string name="cmd_ringermode_response_empty">Текущий режим звонка это \"%s\".</string>
+    <string name="cmd_ringermode_response">Режим звонка был изменён с \"%1$s\" (старый) на \"%2$s\" (новый).</string>
 </resources>
