@@ -78,7 +78,7 @@
     <string name="cmd_gps_response_off">GPS wyłączony.</string>
     <string name="cmd_locate_description_short">Zlokalizuj urządzenie</string>
     <string name="request_failed_response_body">Treść odpowiedzi</string>
-    <string name="Settings_FMDServer_Update_Interval_Title">Czas między aktualizacjami</string>
+    <string name="Settings_FMDServer_Update_Interval_Title">Czas między aktualizacjami położenia w tle</string>
     <string name="Settings_FMDServer_Location_Type_Title">Źródło lokalizacji</string>
     <string name="perm_notification_access_name">Dostęp do aktualizacji</string>
     <string name="Settings_FMD_Server_Connection_Status_Success">Sukces</string>
@@ -92,13 +92,13 @@
     <string name="log_view_title">Logi</string>
     <string name="export_success">Export zakończony</string>
     <string name="export_failed">Exportowanie nie powiodło się</string>
-    <string name="request_failed_title">Połączenie Sieciowe nie powiodło się</string>
+    <string name="request_failed_title">Połączenie sieciowe nie powiodło się</string>
     <string name="Settings_FMDCommand_Description">Komenda używana do komunikacji z FMD.</string>
     <string name="Toast_Empty_FMDCommand">Pusta komenda niedozwolona, użyto wartości domyślnej.</string>
-    <string name="Settings_Lockscreenmessage_Description">Wiadomość na ekranie blokady:\nPo zablokowanou urządzenia, ta wiadomość będzie widoczna na ekranie blokady.</string>
+    <string name="Settings_Lockscreenmessage_Description">Wiadomość na ekranie blokady:\nPo zablokowaniu urządzenia, ta wiadomość będzie widoczna na ekranie blokady.</string>
     <string name="Settings_Ringer_Tone_Description">Wybierz dzwonek używany do komendy fmd ring.</string>
     <string name="Settings_FMD_Server_ID_Desc">Potrzebujesz identyfikatora użytkownika, aby znaleźć swoje urządzenie przy użyciu Serwera FMD. Zapisz go i przechowaj w bezpiecznym miejscu.</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">To usunie wszystkie dane z Serwera! Jesteś pewien?</string>
+    <string name="Settings_FMDServer_Alert_DeleteData_Desc">To usunie wszystkie dane z serwera! Jesteś pewien?</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD przesyłą lokalizację urządzenia co X minut.</string>
     <string name="Settings_FMDServer_Push_Open_UP">Otwórz Stronę UnifiedPush</string>
     <string name="Settings_Appearance">Wygląd</string>
@@ -119,4 +119,14 @@
     <string name="missing_permissions_title">Brak Uprawnień</string>
     <string name="usage_notification_title">Komenda wykonana</string>
     <string name="ringer_stop_ringing">PRZESTAŃ DZWONIĆ</string>
+    <string name="Settings_Pin_Not_Backed_Up">Uwaga: PIN nie jest zawarty w kopii zapasowej aplikacji.</string>
+    <string name="pin_mismatch">PIN-y nie są zgodne!</string>
+    <string name="Settings_FMDServer_Push_Url">URL powiadomień push: %s</string>
+    <string name="Settings_FMDServer_Push_Register">Zarejestruj</string>
+    <string name="Settings_FMDServer_Push_Register_Again">Zarejestruj ponownie</string>
+    <string name="Settings_FMDServer_Check_Interval_Title">interwał sprawdzania stanu połączenia</string>
+    <string name="Settings_FMDServer_Check_Interval_Description">FMD sprawdza połączenie z serwerem FMD co X godzin. Ustaw na 0 aby wyłączyć sprawdzanie połączenia.</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Title">Maksymalny dozwolony czas bez połączenia</string>
+    <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Załaduj przy niskim stanie baterii</string>
+    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Załaduj lokalizację tego urządzenia przy niskim stanie baterii. To wymaga uprawnienia do wyświetlania powiadomień.</string>
 </resources>
