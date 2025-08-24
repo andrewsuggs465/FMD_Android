@@ -269,4 +269,6 @@
     <string name="cmd_ringermode_description_short">Зміна режиму дзвінка</string>
     <string name="cmd_ringermode_response_empty">Поточний режим дзвінка: \"%s\".</string>
     <string name="cmd_ringermode_response">Режим дзвінка змінено з \"%1$s\" (старий) на \"%2$s\" (новий).</string>
+    <string name="cmd_locate_response_beacondb_failed">Помилка отримання місцезнаходження з BeaconDB. Це може статися, якщо вежі стільникового зв\'язку немає в базі даних.\n\n%s</string>
+    <string name="cmd_ringermode_description_long">Зверніть увагу, що «беззвучний» режим також активує режим «Не турбувати». Це очікувана поведінка, визначена Android.</string>
 </resources>
