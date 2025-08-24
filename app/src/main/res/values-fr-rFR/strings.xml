@@ -271,4 +271,6 @@
     <string name="cmd_ringermode_description_short">Changer le mode de sonnerie</string>
     <string name="cmd_ringermode_response_empty">Le mode de sonnerie actuelle est \"%s\".</string>
     <string name="cmd_ringermode_response">Le mode de sonnerie a été modifié de \"%1$s\" (ancien) vers \"%2$s\" (nouveau).</string>
+    <string name="Settings_Set_Pin">Définir le code PIN</string>
+    <string name="Settings_Change_Pin">Modifier le code PIN</string>
 </resources>
