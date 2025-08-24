@@ -289,4 +289,6 @@
     <string name="cmd_ringermode_description_short">Klingelmodus ändern</string>
     <string name="cmd_ringermode_response_empty">Der aktuelle Klingelmodus ist \"%s\".</string>
     <string name="cmd_ringermode_response">Der Klingelmodus wurde geändert von \"%1$s\" (alt) zu \"%2$s\" (neu).</string>
+    <string name="cmd_ringermode_description_long">Beachte, dass „stumm“ auch den Modus „Nicht stören“ aktiviert. Dies ist erwartetes Verhalten und wird von Android definiert.</string>
+    <string name="cmd_locate_response_beacondb_failed">Fehler beim Abrufen des Standorts von BeaconDB. Dies kann passieren, wenn der Mobilfunkmast nicht in der Datenbank vorhanden ist.\n\n%s</string>
 </resources>
