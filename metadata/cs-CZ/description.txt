@@ -12,7 +12,7 @@ Funkce:
 
 Použití:
 
-FMD (a tím pádem i své zařízení) můžete ovládat buď pomocí SMS, nebo pomocí serveru FMD.
+FMD (a tím pádem i své zařízení) můžete ovládat buď pomocí SMS, nebo pomocí Serveru FMD.
 Do zařízení můžete posílat příkazy (např. „fmd ring“) a zařízení je provede.
 
 Pro SMS můžete buď nastavit seznam důvěryhodných kontaktů (telefonních čísel), které jsou oprávněny posílat příkazy,
@@ -21,9 +21,9 @@ Nedůvěryhodná čísla poté mohou také odesílat příkazy, když zahrnout P
 Toto je užitečné, protože pokud ztratíte své zařízení, můžete požádat náhodnou osobu, aby vám pomohla vzdáleně vymazat vaše zařízení.
 Pokud jednoduše odešlete vašemu zařízení „fmd“, odpoví telefon zprávou se seznamem dostupných příkazů.
 
-Se serverem FMD navíc dostanete webové rozhraní pro posílání příkazů, zobrazení vašeho zařízení na mapě
+Se Serverem FMD navíc dostanete webové rozhraní pro posílání příkazů, zobrazení vašeho zařízení na mapě
 a pro zobrazení snímků pořízených zařízením.
-FMD server si můžete sami hostovat.
+Server FMD si můžete sami hostovat.
 Pro více informací navštivte stránku https://gitlab.com/fmd-foss/fmd-server
 
 Upozornění:
