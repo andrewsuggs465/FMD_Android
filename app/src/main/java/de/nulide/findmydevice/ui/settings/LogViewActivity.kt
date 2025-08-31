@@ -11,6 +11,7 @@ import de.nulide.findmydevice.data.LogRepository
 import de.nulide.findmydevice.ui.FmdActivity
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeAppBar
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeScrollView
+import de.nulide.findmydevice.utils.log
 import de.nulide.findmydevice.utils.writeToUri
 import java.io.OutputStreamWriter
 
@@ -19,6 +20,9 @@ private const val EXPORT_REQ_CODE = 30
 
 class LogViewActivity : FmdActivity() {
 
+    companion object {
+        private val TAG = LogViewActivity::class.simpleName
+    }
 
     private lateinit var repo: LogRepository
 
@@ -72,16 +76,28 @@ class LogViewActivity : FmdActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        this.log().d(TAG, "requestCode=$requestCode resultCode=$resultCode")
 
         if (requestCode == EXPORT_REQ_CODE && resultCode == RESULT_OK) {
-            if (data != null) {
-                val uri = data.data
-                if (uri != null) {
-                    writeToUri(this, uri) { outputStream ->
-                        synchronized(repo.list) {
-                            repo.writeAsJson(OutputStreamWriter(outputStream))
-                        }
-                    }
+            if (data == null) {
+                this.log().d(TAG, "data is null")
+                return
+            }
+
+            val uri = data.data
+            if (uri == null) {
+                this.log().d(TAG, "uri is null")
+                return
+            }
+
+            // This should be "safe" to log (no personal information), because the format is:
+            // content://org.nextcloud.documents/document/d88e9571089101a5c6407b061422b6a4%2F1968
+            // content://com.android.externalstorage.documents/document/primary%3Afmd-logs-2025-08-31.json
+            this.log().d(TAG, "exporting logs to $uri")
+
+            writeToUri(this, uri) { outputStream ->
+                synchronized(repo.list) {
+                    repo.writeAsJson(OutputStreamWriter(outputStream))
                 }
             }
         }
