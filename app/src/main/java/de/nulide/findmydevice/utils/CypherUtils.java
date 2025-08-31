@@ -81,7 +81,7 @@ public class CypherUtils {
 
     public static String hashPasswordForLogin(String password, String saltBase64) {
         // Must use the same decoding flags as the encoder.
-        // If we used `DatatypeConverter.parseBase64Binary(toDecode)` we would loose a byte.
+        // If we used `DatatypeConverter.parseBase64Binary(toDecode)` we would lose a byte.
         byte[] salt = Base64.decode(saltBase64, Argon2EncodingUtils.BASE64_FLAGS);
         return hashPasswordForLogin(password, salt);
     }

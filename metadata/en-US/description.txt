@@ -18,7 +18,7 @@ You send a command to the phone (e.g. "fmd ring") and the phone executes it.
 For SMS you can either define a list of trusted contacts (phone numbers) that are allowed to send commands.
 Or you can set a PIN to allow anonymous usage.
 Then non-trusted phone numbers can also send commands by including the PIN in the message.
-This is useful because now if you loose your phone, you can ask a random person for help to wipe your phone remotely.
+This is useful because now if you lose your phone, you can ask a random person for help to wipe your phone remotely.
 If you simply text "fmd" to your phone FMD will reply with a text listing the available commands.
 
 With FMD Server you get a web interface to send commands, to view the location of your device on a map,
