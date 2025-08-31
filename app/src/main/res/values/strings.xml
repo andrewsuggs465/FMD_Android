@@ -124,6 +124,7 @@
     <string name="server_fmd_id" translatable="false">FMD ID</string>
     <string name="server_fmd_id_hint">The FMD ID identifies your account on the FMD Server. Leave this empty to let the server generate an ID. Note that the FMD ID is stored in plaintext on the server, i.e., the server administrator can see it.</string>
     <string name="password">Password</string>
+    <string name="server_password_hint">Choose a password that cannot be guessed, but that you can recover when you lose your device. The password grants access to remotely running commands on your device. The server administrator cannot access or reset your password.</string>
     <string name="Settings_FMDServer_Error_id_or_pw_empty">The FMD ID and password must not be empty.</string>
     <string name="registration_token">Registration token</string>
     <string name="registration_token_hint">Private instances may require a secret token. Leave this empty if the instance is public.</string>

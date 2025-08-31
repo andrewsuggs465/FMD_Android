@@ -33,22 +33,28 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_normal"
             app:passwordToggleEnabled="true">
 
             <EditText
                 android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_normal"
                 android:autofillHints="password"
                 android:hint="@string/password"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/server_password_hint" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginTop="@dimen/margin_normal"
             android:background="?android:attr/listDivider" />
 
         <com.google.android.material.textfield.TextInputLayout
