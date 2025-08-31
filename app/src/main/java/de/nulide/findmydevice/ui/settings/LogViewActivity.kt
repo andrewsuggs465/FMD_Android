@@ -97,7 +97,9 @@ class LogViewActivity : FmdActivity() {
 
             writeToUri(this, uri) { outputStream ->
                 synchronized(repo.list) {
-                    repo.writeAsJson(OutputStreamWriter(outputStream))
+                    val writer = OutputStreamWriter(outputStream)
+                    repo.writeAsJson(writer)
+                    writer.close()
                 }
             }
         }

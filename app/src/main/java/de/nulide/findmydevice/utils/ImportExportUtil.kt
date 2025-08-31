@@ -97,6 +97,7 @@ fun writeAsJson(
     val type = src.javaClass
     val writer = JsonWriter(outputStreamWriter)
     gson.toJson(src, type, writer)
+    writer.close()
 }
 
 fun writeToUri(
