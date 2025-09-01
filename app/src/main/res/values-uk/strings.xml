@@ -271,4 +271,9 @@
     <string name="cmd_ringermode_response">Режим дзвінка змінено з \"%1$s\" (старий) на \"%2$s\" (новий).</string>
     <string name="cmd_locate_response_beacondb_failed">Помилка отримання місцезнаходження з BeaconDB. Це може статися, якщо вежі стільникового зв\'язку немає в базі даних.\n\n%s</string>
     <string name="cmd_ringermode_description_long">Зверніть увагу, що «беззвучний» режим також активує режим «Не турбувати». Це очікувана поведінка, визначена Android.</string>
+    <string name="Settings_Set_Pin">Встановити PIN-код</string>
+    <string name="Settings_Change_Pin">Змінити PIN-код</string>
+    <string name="server_connectivity_check_not_enabled_title">Увімкнути перевірку підключення до сервера</string>
+    <string name="server_connectivity_check_not_enabled_text">FMD може регулярно перевіряти, чи доступний сервер FMD. З міркувань конфіденційності ця функція вимкнена за замовчуванням. Але з міркувань доступності ми рекомендуємо її ввімкнути.</string>
+    <string name="setup_recommendations_title">Рекомендації</string>
 </resources>
