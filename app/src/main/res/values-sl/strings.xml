@@ -275,4 +275,11 @@
     <string name="cmd_ringermode_response">Način zvonjenja je bil spremenjen iz \"%1$s\" (stari) v \"%2$s\" (novi).</string>
     <string name="cmd_ringermode_description_short">Spremeni način zvonjenja</string>
     <string name="cmd_ringermode_response_empty">Trenutni način zvonjenja je \"%s\".</string>
+    <string name="server_connectivity_check_not_enabled_text">FMD lahko redno preverja, ali je strežnik FMD še vedno dosegljiv. Zaradi zasebnosti je ta možnost privzeto izklopljena. Zaradi razpoložljivosti pa priporočamo, da jo omogočite.</string>
+    <string name="Settings_Set_Pin">Nastavi PIN</string>
+    <string name="Settings_Change_Pin">Spremeni PIN</string>
+    <string name="server_connectivity_check_not_enabled_title">Omogoči preverjanje dosegljivosti strežnika</string>
+    <string name="cmd_locate_response_beacondb_failed">Napaka pri pridobivanju lokacije iz BeaconDB. Do tega lahko pride, če bazne postaje ni v bazi podatkov.\n\n%s</string>
+    <string name="cmd_ringermode_description_long">Upoštevajte, da »tihi« način omogoči tudi način »Ne moti«. To je pričakovano vedenje, ki ga določa Android.</string>
+    <string name="setup_recommendations_title">Priporočila</string>
 </resources>
