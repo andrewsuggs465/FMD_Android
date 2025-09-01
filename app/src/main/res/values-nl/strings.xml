@@ -260,4 +260,11 @@
     <string name="cmd_ringermode_description_short">Belmodus wijzigen</string>
     <string name="cmd_ringermode_response_empty">De huidige belmodus is \"%s\".</string>
     <string name="cmd_ringermode_response">De belmodus is gewijzigd van \"%1$s\" (oud) naar \"%2$s\" (nieuw).</string>
+    <string name="Settings_Set_Pin">PIN instellen</string>
+    <string name="Settings_Change_Pin">PIN wijzigen</string>
+    <string name="server_connectivity_check_not_enabled_title">Controle op serververbindig inschakelen</string>
+    <string name="server_connectivity_check_not_enabled_text">FMD kan regelmatig controleren of FMD Server nog bereikbaar is. Om privacy redenen is dit standaard uitgeschakeld. Maar met het oog op beschikbaarheid raden wij aan om het in te schakelen.</string>
+    <string name="cmd_locate_response_beacondb_failed">Fout bij het verkrijgen van locatie van BeaconDB. Dit kan gebeuren als de zendmast niet in de database staat.\n\n%s</string>
+    <string name="cmd_ringermode_description_long">Merk op dat \"stil\" ook de modus Niet storen inschakelt. Dit is verwacht gedrag en wordt gedefinieerd door Android.</string>
+    <string name="setup_recommendations_title">Aanbevelingen</string>
 </resources>
