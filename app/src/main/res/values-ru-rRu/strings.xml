@@ -273,4 +273,11 @@
     <string name="cmd_ringermode_description_short">Изменить режим звонка</string>
     <string name="cmd_ringermode_response_empty">Текущий режим звонка это \"%s\".</string>
     <string name="cmd_ringermode_response">Режим звонка был изменён с \"%1$s\" (старый) на \"%2$s\" (новый).</string>
+    <string name="Settings_Set_Pin">Установить PIN-код</string>
+    <string name="Settings_Change_Pin">Сменить PIN-код</string>
+    <string name="server_connectivity_check_not_enabled_title">Включить проверку подключения к серверу</string>
+    <string name="server_connectivity_check_not_enabled_text">FMD может регулярно проверять, всё ещё ли доступен FMD Server. Ради обеспечения приватности, эта настройка отключена по умолчанию. Но по причинам доступности, мы рекомендуем включить её.</string>
+    <string name="cmd_locate_response_beacondb_failed">Ошибка получения местоположения от BeaconDB. Это могло произойти, если сотовая вышка не находится в базе данных.\n\n%s</string>
+    <string name="cmd_ringermode_description_long">Имейте ввиду, что \"беззвучный\" также включает режим \"Не беспокоить\". Это ожидаемое поведение, управляемое Android.</string>
+    <string name="setup_recommendations_title">Рекомендации</string>
 </resources>
