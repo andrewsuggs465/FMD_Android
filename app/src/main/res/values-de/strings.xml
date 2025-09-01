@@ -291,4 +291,9 @@
     <string name="cmd_ringermode_response">Der Klingelmodus wurde geändert von \"%1$s\" (alt) zu \"%2$s\" (neu).</string>
     <string name="cmd_ringermode_description_long">Beachte, dass „stumm“ auch den Modus „Nicht stören“ aktiviert. Dies ist erwartetes Verhalten und wird von Android definiert.</string>
     <string name="cmd_locate_response_beacondb_failed">Fehler beim Abrufen des Standorts von BeaconDB. Dies kann passieren, wenn der Mobilfunkmast nicht in der Datenbank vorhanden ist.\n\n%s</string>
+    <string name="Settings_Set_Pin">PIN setzen</string>
+    <string name="Settings_Change_Pin">PIN ändern</string>
+    <string name="server_connectivity_check_not_enabled_title">Server-Erreichbarkeits-Prüfung aktivieren</string>
+    <string name="server_connectivity_check_not_enabled_text">FMD kann regelmäßig prüfen, ob der FMD-Server noch erreichbar ist. Aus Privatsphäre-Gründen ist dies standardmäßig deaktiviert. Um die Verfügbarkeit zu verbessern empfehlen wir jedoch, dies zu aktivieren.</string>
+    <string name="setup_recommendations_title">Empfehlungen</string>
 </resources>
