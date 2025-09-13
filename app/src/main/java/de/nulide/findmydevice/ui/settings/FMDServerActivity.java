@@ -310,7 +310,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     }
 
     private void onOpenUnifiedPushClicked(View view) {
-        Utils.openUrl(this, "https://unifiedpush.org/");
+        Utils.openUrl(this, "https://fmd-foss.org/docs/fmd-android/push");
     }
 
     private void runChangePassword(String oldPassword, String password) {

@@ -79,7 +79,7 @@
     <string name="Settings_FMDServer_Push_Description">Sending commands from FMD Server to your device requires a UnifiedPush distributor app.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distributor: %s</string>
     <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
-    <string name="Settings_FMDServer_Push_Open_UP">Open UnifiedPush website</string>
+    <string name="Settings_FMDServer_Push_Open_Help">More information about push</string>
     <string name="Settings_FMDServer_Push_Register">Register</string>
     <string name="Settings_FMDServer_Push_Register_Again">Register again</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Connectivity check interval</string>
