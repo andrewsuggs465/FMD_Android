@@ -261,7 +261,7 @@
     <string name="Settings_FMDServer_Check_Notify_After_Title">Največji dovoljeni čas brez povezljivosti</string>
     <string name="server_connectivity_lost_title">Povezava s FMD strežnikom je izgubljena</string>
     <string name="server_connectivity_lost_text">FMD strežnik od %1$s ni več dosegljiv. Zadnja uspešna povezava je bila ob %2$s.</string>
-    <string name="server_fmd_id_hint">FMD ID identificira vaš račun na FMD strežniku. To polje pustite prazno, če želite, da strežnik sam ustvari ID. Upoštevajte, da je FMD ID shranjen na strežniku kot navadno besedilo, kar pomeni, da ga lahko vidi skrbnik strežnika.</string>
+    <string name="server_fmd_id_hint">FMD ID identificira vaš račun na FMD strežniku. To polje pustite prazno, če želite, da strežnik sam ustvari ID. Skrbnik strežnika lahko vidi FMD ID.</string>
     <string name="Settings_FMDServer_Push_Url">Potisni URL: %s</string>
     <string name="Settings_FMDServer_Push_Register">Registracija</string>
     <string name="Settings_FMDServer_Push_Register_Again">Ponovna registracija</string>
@@ -281,4 +281,5 @@
     <string name="cmd_locate_response_beacondb_failed">Napaka pri pridobivanju lokacije iz BeaconDB. Do tega lahko pride, če bazne postaje ni v bazi podatkov.\n\n%s</string>
     <string name="cmd_ringermode_description_long">Upoštevajte, da »tihi« način omogoči tudi način »Ne moti«. To je pričakovano vedenje, ki ga določa Android.</string>
     <string name="setup_recommendations_title">Priporočila</string>
+    <string name="server_password_hint">Izberite geslo, ki ga ni mogoče uganiti, vendar ga lahko obnovite, če izgubite napravo. Geslo omogoča dostop do oddaljenega izvajanja ukazov v vaši napravi. Skrbnik strežnika ne more dostopati do vašega gesla ali ga ponastaviti.</string>
 </resources>
