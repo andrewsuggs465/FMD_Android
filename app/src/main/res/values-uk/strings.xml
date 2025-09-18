@@ -209,7 +209,7 @@
     <string name="cmd_bluetooth_response_off">Bluetooth вимкнено.</string>
     <string name="cmd_delete_response_dry_run">Пробний запуск успішно завершено, фактичне видалення пристрою пропущено.</string>
     <string name="Settings_Pin_Not_Backed_Up">Попередження: PIN не входить до резервної копії програми.</string>
-    <string name="server_fmd_id_hint">FMD ID ідентифікує ваш обліковий запис на сервері FMD. Залиште це поле порожнім, щоб дозволити серверу згенерувати ідентифікатор. Зверніть увагу, що FMD ID зберігається на сервері у відкритому вигляді, тобто адміністратор сервера може його бачити.</string>
+    <string name="server_fmd_id_hint">Ідентифікатор FMD ідентифікує ваш обліковий запис на сервері FMD. Залиште це поле порожнім, щоб сервер міг згенерувати ідентифікатор. Адміністратор сервера може бачити ідентифікатор FMD.</string>
     <string name="allowlist_reset_text">Через збій дозволені контакти було скинуто. Будь ласка, налаштуйте їх ще раз.</string>
     <string name="allowlist_reset_title">Скидання дозволених контактів</string>
     <string name="update_pin_hash_change_text">PIN-код FMD було скинуто під час оновлення програми. Щоб продовжити користуватися FMD з PIN-кодом, будь ласка, встановіть його знову.</string>
@@ -275,4 +275,6 @@
     <string name="server_connectivity_check_not_enabled_title">Увімкнути перевірку підключення до сервера</string>
     <string name="server_connectivity_check_not_enabled_text">FMD може регулярно перевіряти, чи доступний сервер FMD. З міркувань конфіденційності ця функція вимкнена за замовчуванням. Але з міркувань доступності ми рекомендуємо її ввімкнути.</string>
     <string name="setup_recommendations_title">Рекомендації</string>
+    <string name="Settings_FMDServer_Push_Open_Help">Більше інформації про push-повідомлення</string>
+    <string name="server_password_hint">Виберіть пароль, який неможливо вгадати, але який ви зможете відновити у разі втрати пристрою. Пароль надає доступ до віддаленого виконання команд на вашому пристрої. Адміністратор сервера не може отримати доступ до вашого пароля або скинути його.</string>
 </resources>
