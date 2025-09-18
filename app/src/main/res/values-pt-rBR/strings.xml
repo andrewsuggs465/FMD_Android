@@ -16,7 +16,6 @@
     <string name="Settings_Select_Ringtone">Selecionar som de toque</string>
     <string name="Settings_Lockscreenmessage_Description">Mensagem da tela de bloqueio:\nAo bloquear o dispositivo, esta mensagem aparecerá na tela de bloqueio.</string>
     <string name="Settings_FMD_Server_General">Geral</string>
-    <string name="Settings_FMDServer_Push_Open_UP">Abrir site do UnifiedPush</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Intervalo do envio de localização em segundo plano</string>
     <string name="Settings_FMDServer_Update_Interval_Description">O FMD envia a localização do dispositivo a cada X minutos.</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Envio em bateria baixa</string>

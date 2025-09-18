@@ -58,7 +58,6 @@
     <string name="Settings_FMDServer_Push_Description">Para poder enviar comandos do FMD Server, o seu dispositivo precisa de uma app distribuidor UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distribuidor: %s</string>
     <string name="Settings_FMDServer_Push_Url">URL do Push: %s</string>
-    <string name="Settings_FMDServer_Push_Open_UP">Abrir site do UnifiedPush</string>
     <string name="Settings_FMDServer_Push_Register">Registar</string>
     <string name="Settings_FMDServer_Push_Register_Again">Registar novamente</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Intervalo do teste de conectividade</string>

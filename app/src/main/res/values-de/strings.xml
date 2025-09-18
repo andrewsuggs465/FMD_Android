@@ -34,7 +34,6 @@
     <string name="Settings_FMDServer_Change_Password_Button">Password ändern</string>
     <string name="Settings_FMDServer_Logout_Button">Ausloggen</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Dadurch werden alle Daten auf dem Server gelöscht. Bist du sicher?</string>
-    <string name="Settings_FMDServer_Push_Open_UP">UnifiedPush Webseite öffnen</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD lädt den Gerätestandort alle X Minuten hoch.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Standort-Quelle</string>
     <string name="Settings_FMDServer_Location_Type_Description">Die Quelle(n), deren Standort regelmäßig im Hintergrund hochgeladen werden soll. \nFalls keine ausgewählt ist, werden keine Standorte regelmäßig hochgeladen. (Du kannst das Standort-Hochladen weiterhin über das Webinterface erzwingen. Dies benötigt Push.)</string>

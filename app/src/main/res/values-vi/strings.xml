@@ -118,7 +118,6 @@
     <string name="Settings_FMD_Server_Connection_Status_Success">Thành công</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Điều này sẽ xóa tất cả dữ liệu từ máy chủ! Bạn có chắc không?</string>
     <string name="Settings_FMDServer_Unregister_Success">Hủy đăng ký và xóa dữ liệu thành công!</string>
-    <string name="Settings_FMDServer_Push_Open_UP">Mở trang web UnifiedPush</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD tải lên vị trí của thiết bị mỗi X phút.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Nguồn vị trí</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Tải lên khi pin yếu</string>

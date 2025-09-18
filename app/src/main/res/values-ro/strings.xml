@@ -60,7 +60,6 @@
     <string name="Settings_FMDServer_Push_Description">Trimiterea comenzilor de la serverul FMD către dispozitivul tău necesită o aplicație distribuitor UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distribuitor: %s</string>
     <string name="Settings_FMDServer_Push_Url">URL Push: %s</string>
-    <string name="Settings_FMDServer_Push_Open_UP">Deschide site-ul UnifiedPush</string>
     <string name="Settings_FMDServer_Push_Register">Înregistrare</string>
     <string name="Settings_FMDServer_Push_Register_Again">Înregistrează-te din nou</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Interval de verificare a conectivității</string>

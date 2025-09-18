@@ -61,7 +61,6 @@
     <string name="Settings_FMDServer_Change_Password_Button">變更密碼</string>
     <string name="Settings_FMDServer_Logout_Button">登出</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">這將從伺服器中刪除所有資料！你確定嗎？</string>
-    <string name="Settings_FMDServer_Push_Open_UP">開啟 UnifiedPush 網站</string>
     <string name="Settings_FMDServer_Update_Interval_Title">背景位置上傳間隔</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">低電量時上傳</string>
     <string name="password_old">舊密碼</string>

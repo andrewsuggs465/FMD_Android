@@ -79,7 +79,6 @@
     <string name="Settings_About">O aplikaci</string>
     <string name="Settings_Pin_Description">Použito pro potvrzení před vymazáním zařízení a pro anonymní použití služby.</string>
     <string name="Settings_FMDCommand_Description">Příkaz používaný pro komunikaci s FMD.</string>
-    <string name="Settings_FMDServer_Push_Open_UP">Otevřít web UnifiedPush</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Interval nahrání polohy na pozadí</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD bude nahrávat polohu zařízení každých X minut.</string>
     <string name="Settings_Select_Ringtone">Vybrat vyzvánění</string>

@@ -22,7 +22,6 @@
     <string name="Settings_FMD_Server_ID_Desc">Za iskanje naprave s FMD strežnikom, potrebujete ID naprave. Zapišite si ga, in ga shranite na varno mesto.</string>
     <string name="Settings_FMDServer_Logout_Button">Odjava</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">To bo izbrisalo vse vaše podatke iz strežnika! Ste prepričani?</string>
-    <string name="Settings_FMDServer_Push_Open_UP">Odpri spletno stran UnifiedPush</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Interval posodabljanja lokacije v ozadju</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD posodobi lokacijo vaše naprave vsakih n minut.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Vir lokacije</string>

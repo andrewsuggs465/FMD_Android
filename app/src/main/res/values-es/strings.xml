@@ -58,7 +58,6 @@
     <string name="Settings_FMD_Server_Server_URL">URL del servidor:</string>
     <string name="Settings_FMD_Server_User_ID">ID del usuario:</string>
     <string name="Settings_FMD_Server_ID_Desc">Necesita el ID del usuario para encontrar su dispositivo con el servidor FMD. Anótelo y guárdelo en un lugar seguro.</string>
-    <string name="Settings_FMDServer_Push_Open_UP">Abrir la web de UnifiedPush</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Intervalo de carga de la ubicación en segundo plano</string>
     <string name="Settings_FMDServer_Location_Type_Title">Fuente de la ubicación</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Cargar con la batería baja</string>

@@ -38,7 +38,6 @@
     <string name="Settings_FMDServer_Delete_Account">Account verwijderen</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Hiermee worden alle gegevens van de server verwijderd! Doorgaan?</string>
     <string name="Settings_FMDServer_Unregister_Success">Registratie en gegevens met succes verwijderd!</string>
-    <string name="Settings_FMDServer_Push_Open_UP">UnifiedPush-website openen</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD uploadt elke x minuten de locatie van het apparaat.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Locatiebron</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Uploadinterval achtergrondlocatie</string>

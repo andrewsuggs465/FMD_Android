@@ -100,7 +100,6 @@
     <string name="Settings_FMD_Server_ID_Desc">Potrzebujesz identyfikatora użytkownika, aby znaleźć swoje urządzenie przy użyciu Serwera FMD. Zapisz go i przechowaj w bezpiecznym miejscu.</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">To usunie wszystkie dane z serwera! Jesteś pewien?</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD przesyłą lokalizację urządzenia co X minut.</string>
-    <string name="Settings_FMDServer_Push_Open_UP">Otwórz Stronę UnifiedPush</string>
     <string name="Settings_Appearance">Wygląd</string>
     <string name="appearance_language_choose">Wybierz język</string>
     <string name="appearance_language">Język</string>

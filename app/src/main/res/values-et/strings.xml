@@ -74,7 +74,6 @@
     <string name="Settings_FMDServer_Logout_Text">Kas sa kindlasti soovid oma FMD serveri kasutajakonto siit seadmest välja logida?</string>
     <string name="Settings_FMDServer_Unregister_Success">Registreerimise eemaldamine ja andmete kustutamine õnnestus!</string>
     <string name="Settings_FMDServer_Push_Url">Tõuketeenuse võrguaadress: %s</string>
-    <string name="Settings_FMDServer_Push_Open_UP">Ava UnifiedPushi veebisait</string>
     <string name="Settings_FMDServer_Push_Register">Registreeri</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Ühenduse toimimise kontrolli välp</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Pikim lubatud aega ilma toimiva ühenduseta</string>

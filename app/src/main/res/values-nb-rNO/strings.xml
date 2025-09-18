@@ -152,7 +152,6 @@
 \nMelding fra eieren:</string>
     <string name="LockScreen_Backbutton_pressed">Låseskjermsmelding: «Tilbake»-knapp trykket.</string>
     <string name="Toast_Empty_FMDCommand">Tom kommando er ikke tillatt\n Returnerer til forvalg.[fmd]</string>
-    <string name="Settings_FMDServer_Push_Open_UP">Åpne UnifiedPush-nettsiden</string>
     <string name="Settings_FMDServer_open_website">Åpne FMD-tjenernettsiden</string>
     <string name="Settings_FMDServer_Info">Med FMD-tjeneren kan du sende kommandoer over Internett fra tjeneren til programmet. Du kan også vise enhetsposisjon på kartet, eller vise bilder tatt av enheten. Instruks om egen vertstjening er å finne på nettsiden.</string>
     <string name="Whitelist_empty">Klikk for å legge til tillatte kontakter.</string>

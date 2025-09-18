@@ -6,7 +6,6 @@
     <string name="Settings_Ringer_Tone_Description">एक रिंगटोन चुनें जो fmd ring भेजे जाने पर बजेगी।</string>
     <string name="Settings_FMDServer_Change_Password_Button">पासवर्ड बदलें</string>
     <string name="Settings_FMDServer_Logout_Button">लॉग आउट</string>
-    <string name="Settings_FMDServer_Push_Open_UP">UnifiedPush वेबसाइट खोलें</string>
     <string name="Settings_FMDServer_Update_Interval_Title">अपडेट अंतराल</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD हर X मिनट में डिवाइस का स्थान अपलोड करता है।</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">कम बैटरी पर अपलोड करें</string>

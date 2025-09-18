@@ -57,7 +57,6 @@
     <string name="Settings_FMDServer_Push_Register_Again">再登録</string>
     <string name="Settings_FMDServer_Push_Distributor">ディストリビューター：%s</string>
     <string name="Settings_FMDServer_Push_Url">プッシュURL：%s</string>
-    <string name="Settings_FMDServer_Push_Open_UP">UnifiedPushのウェブサイトを開く</string>
     <string name="password_old">古いパスワード</string>
     <string name="pw_change_mismatch">パスワードが一致しません。</string>
     <string name="Settings_FMDServer_Server_Url">サーバーのURL</string>

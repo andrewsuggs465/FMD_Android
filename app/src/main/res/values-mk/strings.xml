@@ -105,7 +105,6 @@
     <string name="Settings_FMD_Server_General">Општо</string>
     <string name="Settings_FMD_Server_ID_Desc">Потребно ти е корисничко име за да го пронајдеш твојот уред со FMD серверот. Запиши го и чувај го на сигурно.</string>
     <string name="Settings_FMDServer_Logout_Button">Одјави се</string>
-    <string name="Settings_FMDServer_Push_Open_UP">Интернет страница за Open UnifiedPush</string>
     <string name="Settings_FMDServer_Location_Type_Description">Изворот/ите од кои позиционите податоци се испраќаат при редовни интервали, во позадина.
 \nАко ниту еден извор не е избран, локација не се праќа редовно. (Сѐ уште можеш да го користиш Интернет опкружувањето за да присилиш испраќање на позиција. Ова изискува испраќачки известувања.)</string>
     <string name="server_version_error_low_version">Потребна е барем серверска верзија {MIN}, но одбраната серверска верзија е {CURRENT}. Продолжи на сопствен ризик.</string>

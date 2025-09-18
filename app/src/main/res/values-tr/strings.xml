@@ -46,7 +46,6 @@
     <string name="Settings_FMDServer_Push_Description">FMD Sunucusundan cihazınıza komut göndermek UnifiedPush dağıtıcı uygulaması gerektirir.</string>
     <string name="Settings_FMDServer_Push_Distributor">Dağıtıcı: %s</string>
     <string name="Settings_FMDServer_Push_Register">Kayıt Ol</string>
-    <string name="Settings_FMDServer_Push_Open_UP">UnifiedPush Websitesini Aç</string>
     <string name="Settings_FMDServer_Push_Register_Again">Tekrar Kaydol</string>
     <string name="Settings_FMDServer_Logout_Button">Oturumdan Çık</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD, her X saat FMD sunucusuna bağlantı durumunu kontol eder. Bağlantı kontrolünü devre dışı bırakmak için bunu 0\'a ayarlayın.</string>

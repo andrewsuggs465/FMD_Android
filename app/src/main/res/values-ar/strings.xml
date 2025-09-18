@@ -57,7 +57,6 @@
     <string name="Settings_Enter_Pin">أدخل الرقم السري</string>
     <string name="pin">الرقم السري</string>
     <string name="Settings_FMD_Server_ID_Desc">تحتاج إلى معرف المستخدم للعثور على جهازك باستخدام خادم FMD. دوِّنه واحتفظ به في مكان آمن.</string>
-    <string name="Settings_FMDServer_Push_Open_UP">فتح موقع UnifiedPush</string>
     <string name="Settings_FMD_Server_Server_URL">عنوان URL للخادم:</string>
     <string name="Settings_FMD_Server_User_ID">معرف المستخدم:</string>
     <string name="server_version_error_low_version">مطلوب إصدار الخادم {MIN} على الأقل، ولكن الخادم المحدد لديه إصدار {CURRENT}. تابع على مسؤوليتك الخاصة.</string>

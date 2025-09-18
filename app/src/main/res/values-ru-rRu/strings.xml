@@ -36,7 +36,6 @@
     <string name="Settings_FMDServer_Change_Password_Button">Сменить пароль</string>
     <string name="Settings_FMDServer_Logout_Button">Выйти</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Это удалит все данные с сервера. Вы уверены?</string>
-    <string name="Settings_FMDServer_Push_Open_UP">Открыть сайт UnifiedPush</string>
     <string name="password_new_repeat">Повторите новый пароль</string>
     <string name="notify_crypto_update_text">Вам необходимо обновить некоторые настройки для продолжения использования FMD. Нажмите, чтобы открыть их.</string>
     <string name="Whitelist_help">Контактам в этом списке разрешено отправлять FMD команды через SMS сообщения. Команды от всех остальных контактов будут проигнорированы.</string>
