@@ -83,11 +83,13 @@ class BeaconDbRepository private constructor(private val context: Context) {
                 onError(BeaconDbError(message, url))
             },
             { error ->
-                val body = String(error.networkResponse.data, Charsets.UTF_8)
                 val message = try {
+                    val body = String(error.networkResponse.data, Charsets.UTF_8)
                     val json = JSONObject(body)
                     getErrorMessage(json)
                 } catch (e: JSONException) {
+                    error.message ?: ""
+                } catch (e: NullPointerException) {
                     error.message ?: ""
                 }
                 context.log().w(TAG, "BeaconDB API call failed: $message\n${paras.prettyPrint()}")
