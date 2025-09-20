@@ -24,7 +24,7 @@ Pokud jednoduše odešlete vašemu zařízení „fmd“, odpoví telefon zpráv
 Se Serverem FMD navíc dostanete webové rozhraní pro posílání příkazů, zobrazení vašeho zařízení na mapě
 a pro zobrazení snímků pořízených zařízením.
 Server FMD si můžete sami hostovat.
-Pro více informací navštivte stránku https://gitlab.com/fmd-foss/fmd-server
+Další podrobnosti: https://gitlab.com/fmd-foss/fmd-server
 
 Upozornění:
 
