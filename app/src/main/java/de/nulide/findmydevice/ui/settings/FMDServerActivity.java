@@ -37,6 +37,7 @@ import de.nulide.findmydevice.net.FMDServerApiRepository;
 import de.nulide.findmydevice.permissions.NotificationAccessPermission;
 import de.nulide.findmydevice.receiver.PushReceiver;
 import de.nulide.findmydevice.services.FmdBatteryLowService;
+import de.nulide.findmydevice.services.ServerCommandDownloadService;
 import de.nulide.findmydevice.services.ServerConnectivityCheckService;
 import de.nulide.findmydevice.services.ServerLocationUploadService;
 import de.nulide.findmydevice.ui.FmdActivity;
@@ -145,6 +146,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
         checkConnection();
         checkPushRegistration();
+        ServerCommandDownloadService.scheduleJobNow(this);
     }
 
     @Override

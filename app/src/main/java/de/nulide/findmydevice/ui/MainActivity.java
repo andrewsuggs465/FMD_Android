@@ -22,6 +22,7 @@ import de.nulide.findmydevice.R;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.net.MinRequiredVersionResult;
+import de.nulide.findmydevice.services.ServerCommandDownloadService;
 import de.nulide.findmydevice.services.TempContactExpiredService;
 import de.nulide.findmydevice.ui.home.CommandListFragment;
 import de.nulide.findmydevice.ui.home.TransportListFragment;
@@ -111,6 +112,7 @@ public class MainActivity extends FmdActivity {
 
         if (settings.serverAccountExists()) {
             checkServerVersion();
+            ServerCommandDownloadService.scheduleJobNow(this);
         }
     }
 
