@@ -275,7 +275,7 @@
     <string name="Settings_FMDServer_Update_Interval_Title">Intervall des Standortuploads im Hintergrund</string>
     <string name="usage_notification_pin_title">FMD PIN benutzt</string>
     <string name="usage_notification_pin_text">Der PIN wurde von dieser Nummer verwendet: \"%s\". Wir empfehlen, den PIN zu ändern.</string>
-    <string name="server_fmd_id_hint">Die FMD ID identifiziert deinen Account auf dem FMD Server. Wenn du dieses Feld leer lässt generiert der Server eine ID für dich. Bitte beachte, dass die FMD ID im Klartext auf dem Server gespeichert wird, d.h. der Server Administrator kann sie einsehen.</string>
+    <string name="server_fmd_id_hint">Die FMD ID identifiziert deinen Account auf dem FMD Server. Wenn du dieses Feld leer lässt generiert der Server eine ID für dich. Der Server Administrator kann die FMD ID sehen.</string>
     <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
     <string name="Settings_FMDServer_Push_Register_Again">Erneut registrieren</string>
     <string name="Settings_FMDServer_Push_Register">Registrieren</string>
@@ -295,4 +295,6 @@
     <string name="server_connectivity_check_not_enabled_title">Server-Erreichbarkeits-Prüfung aktivieren</string>
     <string name="server_connectivity_check_not_enabled_text">FMD kann regelmäßig prüfen, ob der FMD-Server noch erreichbar ist. Aus Privatsphäre-Gründen ist dies standardmäßig deaktiviert. Um die Verfügbarkeit zu verbessern empfehlen wir jedoch, dies zu aktivieren.</string>
     <string name="setup_recommendations_title">Empfehlungen</string>
+    <string name="Settings_FMDServer_Push_Open_Help">Mehr Informationen zu Push</string>
+    <string name="server_password_hint">Wähle ein Passwort das nicht erraten werden kann, aber dass du wiederherstellen kannst wenn du dein Gerät verlierst. Das Passwort gewährt Zugriff darauf, aus der Ferne Befehle auf deinem Gerät ausführen zu dürfen. Der Server Administrator kann das Passwort nicht sehen oder es zurücksetzen.</string>
 </resources>
