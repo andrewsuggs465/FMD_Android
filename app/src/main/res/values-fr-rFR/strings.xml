@@ -266,7 +266,7 @@
     <string name="Settings_FMDServer_Push_Url">URL de publication : %s</string>
     <string name="Settings_FMDServer_Push_Register">S\'enregistrer</string>
     <string name="Settings_FMDServer_Push_Register_Again">S\'enregistrer à nouveau</string>
-    <string name="server_fmd_id_hint">L\'identifiant (ID) FMD permet d\'identifier votée compte sur le serveur FMD. Laisser le champ vide pour permettre au serveur de générer un ID. Veuillez noter que l\'ID FMD est enregistré sous forme de texte lisible depuis le serveur, donc que l\'administrateur du serveur peut le visualiser.</string>
+    <string name="server_fmd_id_hint">L\'identifiant (ID) FMD permet d\'identifier votre compte sur le serveur FMD. Laisser le champ vide pour permettre au serveur de générer un ID. L\'administrateur du serveur peut voir l\'ID FMD.</string>
     <string name="cmd_ringermode_description_short">Changer le mode de sonnerie</string>
     <string name="cmd_ringermode_response_empty">Le mode de sonnerie actuelle est \"%s\".</string>
     <string name="cmd_ringermode_response">Le mode de sonnerie a été modifié de \"%1$s\" (ancien) vers \"%2$s\" (nouveau).</string>
@@ -277,4 +277,6 @@
     <string name="server_connectivity_check_not_enabled_title">Activer la vérification de la connectivité du serveur</string>
     <string name="server_connectivity_check_not_enabled_text">FMD peut vérifier régulièrement si le serveur FMD est toujours joignable. Pour des raisons de clé privée, cela est désactivé par défaut. Pour des raisons de disponibilité, nous recommandons de l\'activer.</string>
     <string name="setup_recommendations_title">Recommandations</string>
+    <string name="Settings_FMDServer_Push_Open_Help">Plus d\'informations sur les publications</string>
+    <string name="server_password_hint">Choisissez un mot de passe qui ne puisse pas être deviné mais dont vous pourrez vous rappeler si vous perdez votre téléphone. Le mot de passe donne accès au lancement de commande à distance sur votre appareil. L\'administrateur du serveur ne peut pas accéder à votre mot de passe ou le réinitialiser.</string>
 </resources>
