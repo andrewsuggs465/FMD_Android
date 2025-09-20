@@ -246,7 +246,7 @@
     <string name="cmd_delete_response_dry_run">Zkušební běh proběhl úspěšně, překakování skutečného odstranění zařízení.</string>
     <string name="pin_mismatch">PIN kódy se neshodují!</string>
     <string name="pin_match_command_keyword">PIN se nesmí rovnat jednomu z příkazů!</string>
-    <string name="server_fmd_id_hint">FMD ID identifikuje váš účet na Serveru FMD. Ponechte prázdné, pokud chcete nechat vygenerovat ID serverem. Upozorňujeme, že FMD ID je na serveru ukládáno v prostém textu, tudíž jej může vidět např. správce serveru.</string>
+    <string name="server_fmd_id_hint">FMD ID identifikuje váš účet na Serveru FMD. Ponechte prázdné, pokud chcete nechat vygenerovat ID serverem. Správce serveru může vaše FMD ID vidět.</string>
     <string name="Settings_FMDServer_Push_Description">Odesílání příkazů ze Serveru FMD do vašeho zařízení vyžaduje distribuční aplikaci služby UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distributor: %s</string>
     <string name="Settings_FMDServer_Push_Register">Registrovat</string>
@@ -266,4 +266,6 @@
     <string name="cmd_locate_response_beacondb_failed">Chyba při získávání polohy ze služby BeaconDB. Toto se může stát, pokud není mobilní věž v databázi.\n\n%s</string>
     <string name="cmd_ringermode_description_long">Upozorňujeme, že „tichý“ režim také povolí režim Nerušit. Toto je očekávané chování a je definované systémem Android.</string>
     <string name="setup_recommendations_title">Doporučení</string>
+    <string name="Settings_FMDServer_Push_Open_Help">Další informace o zprávách push</string>
+    <string name="server_password_hint">Zvolte si heslo, které nelze uhodnout, ale které můžete obnovit, pokud zařízení ztratíte. Heslo umožňuje vzdálený přístup k příkazům spouštěným na vašem zařízení. Správce serveru nemá přístup k vašemu heslu ani jej nemůže resetovat.</string>
 </resources>
