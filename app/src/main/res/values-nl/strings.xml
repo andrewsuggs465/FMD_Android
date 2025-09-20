@@ -246,7 +246,7 @@
     <string name="usage_notification_pin_text">De pincode werd gebruikt met dit nummer: \"%s\". Het wordt aanbevolen om de pincode te wijzigen.</string>
     <string name="pin_mismatch">De pincodes komen niet overeen!</string>
     <string name="pin_match_command_keyword">De pincode mag niet gelijk zijn aan een van de commando\'s!</string>
-    <string name="server_fmd_id_hint">De FMD-ID identificeert jouw account op de FMD-server. Laat dit leeg om de server een ID te laten genereren. Merk op dat de FMD-ID in platte tekst op de server wordt opgeslagen, d.w.z. dat de serverbeheerder deze kan lezen.</string>
+    <string name="server_fmd_id_hint">De FMD-ID identificeert jouw account op de FMD-server. Laat dit leeg om de server een ID te laten genereren. De serverbeheerder kan de FMD-ID zien.</string>
     <string name="Settings_FMDServer_Push_Description">Het verzenden van opdrachten van FMD Server naar je apparaat vereist een UnifiedPush-distributeursapp.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distributeur: %s</string>
     <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
@@ -266,4 +266,6 @@
     <string name="cmd_locate_response_beacondb_failed">Fout bij het verkrijgen van locatie van BeaconDB. Dit kan gebeuren als de zendmast niet in de database staat.\n\n%s</string>
     <string name="cmd_ringermode_description_long">Merk op dat \"stil\" ook de modus Niet storen inschakelt. Dit is verwacht gedrag en wordt gedefinieerd door Android.</string>
     <string name="setup_recommendations_title">Aanbevelingen</string>
+    <string name="Settings_FMDServer_Push_Open_Help">Meer informatie over push</string>
+    <string name="server_password_hint">Kies een wachtwoord dat niet geraden kan worden, maar dat je wel kunt gebruiken wanneer je je apparaat kwijtraakt. Het wachtwoord verleent toegang tot het op afstand uitvoeren van opdrachten op je apparaat. De serverbeheerder heeft geen toegang tot je wachtwoord en kan dit niet opnieuw instellen.</string>
 </resources>
