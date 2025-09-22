@@ -250,7 +250,7 @@
     <string name="Settings_FMDServer_Push_Register">பதிவு செய்யுங்கள்</string>
     <string name="Settings_FMDServer_Push_Register_Again">மீண்டும் பதிவு செய்யுங்கள்</string>
     <string name="server_login_attempts_text">யாரோ உங்கள் FMD சேவையக கணக்கில் \"%s\" இல் உள்நுழைய முயற்சித்தனர். பல தோல்வியுற்ற கடவுச்சொற்கள் காரணமாக, கணக்கு இப்போது 10 நிமிடங்கள் பூட்டப்பட்டுள்ளது.</string>
-    <string name="server_fmd_id_hint">எஃப்எம்டி அடையாளம் எஃப்எம்டி சேவையகத்தில் உங்கள் கணக்கை அடையாளம் காட்டுகிறது. சேவையகம் ஒரு ஐடியை உருவாக்க அனுமதிக்க இதை காலியாக விடவும். FMD அடையாளம் சேவையகத்தில் எளிய உரையில் சேமிக்கப்பட்டுள்ளது என்பதை நினைவில் கொள்க, அதாவது, சேவையக நிர்வாகி அதைப் பார்க்க முடியும்.</string>
+    <string name="server_fmd_id_hint">எஃப்எம்டி அடையாளம் எஃப்எம்டி சேவையகத்தில் உங்கள் கணக்கை அடையாளம் காட்டுகிறது. சேவையகம் ஒரு ஐடியை உருவாக்க அனுமதிக்க இதை காலியாக விடவும். சேவையக நிர்வாகி FMD ஐடியைக் காணலாம்.</string>
     <string name="allowlist_reset_title">அனுமதிக்கப்பட்ட தொடர்புகள் மீட்டமைக்க</string>
     <string name="allowlist_reset_text">விபத்து காரணமாக, அனுமதிக்கப்பட்ட தொடர்புகள் மீட்டமைக்கப்பட்டன. தயவுசெய்து அவற்றை மீண்டும் உள்ளமைக்கவும்.</string>
     <string name="update_pin_hash_change_text">பயன்பாட்டு புதுப்பிப்பின் போது FMD முள் மீட்டமைக்கப்பட்டது. ஒரு முள் மூலம் எஃப்எம்டியைப் பயன்படுத்த, தயவுசெய்து மீண்டும் முள் அமைக்கவும்.</string>
@@ -259,4 +259,13 @@
     <string name="cmd_ringermode_description_short">ரிங்கர் பயன்முறையை மாற்றவும்</string>
     <string name="cmd_ringermode_response_empty">தற்போதைய ரிங்கர் பயன்முறை \"%s\".</string>
     <string name="cmd_ringermode_response">ரிங்கர் பயன்முறை \"%1$s\" (பழையது) இலிருந்து \"%2$s\" (புதியது) ஆக மாற்றப்பட்டது.</string>
+    <string name="Settings_Set_Pin">முள் அமைக்கவும்</string>
+    <string name="Settings_Change_Pin">முள் மாற்றவும்</string>
+    <string name="Settings_FMDServer_Push_Open_Help">புச் பற்றிய கூடுதல் தகவல்கள்</string>
+    <string name="server_connectivity_check_not_enabled_title">சேவையக இணைப்பு காசோலையை இயக்கவும்</string>
+    <string name="server_connectivity_check_not_enabled_text">எஃப்எம்டி சேவையகம் இன்னும் அடைய முடியுமா என்பதை எஃப்எம்டி தவறாமல் சரிபார்க்க முடியும். தனியுரிமை காரணங்களுக்காக இது இயல்பாகவே முடக்கப்பட்டுள்ளது. ஆனால் கிடைக்கும் காரணங்களுக்காக அதை இயக்க பரிந்துரைக்கிறோம்.</string>
+    <string name="server_password_hint">யூகிக்க முடியாத கடவுச்சொல்லைத் தேர்வுசெய்க, ஆனால் உங்கள் சாதனத்தை இழக்கும்போது மீட்க முடியும். கடவுச்சொல் உங்கள் சாதனத்தில் தொலைதூரத்தில் இயங்கும் கட்டளைகளுக்கான அணுகலை வழங்குகிறது. சேவையக நிர்வாகி உங்கள் கடவுச்சொல்லை அணுகவோ அல்லது மீட்டமைக்கவோ முடியாது.</string>
+    <string name="cmd_locate_response_beacondb_failed">BEACONDB இலிருந்து இருப்பிடத்தைப் பெறுவதில் பிழை. செல் கோபுரம் தரவுத்தளத்தில் இல்லாவிட்டால் இது நிகழலாம். \n\n%s</string>
+    <string name="cmd_ringermode_description_long">\"அமைதியானது\" பயன்முறையை தொந்தரவு செய்யாது என்பதை நினைவில் கொள்க. இது எதிர்பார்க்கப்படும் நடத்தை மற்றும் ஆண்ட்ராய்டு ஆல் வரையறுக்கப்படுகிறது.</string>
+    <string name="setup_recommendations_title">பரிந்துரைகள்</string>
 </resources>
