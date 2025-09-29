@@ -13,7 +13,8 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.13.0'
+        // F-Droid cannot build with 8.12.0 and above: https://f-droid.org/en/2025/08/07/twif.html#f-droid-core
+        classpath 'com.android.tools.build:gradle:8.11.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
