@@ -3,6 +3,7 @@ package de.nulide.findmydevice.utils
 import android.Manifest
 import android.content.Context
 import android.os.Build
+import android.os.SystemClock
 import android.telephony.CellIdentityNr
 import android.telephony.CellInfo
 import android.telephony.CellInfoGsm
@@ -29,7 +30,8 @@ data class CellParameters(
     val mobileNetworkCode: String?,
     val locationAreaCode: Int?,
     val cellId: Long?,
-    val radio: RadioType
+    val radio: RadioType,
+    val timeMillis: Long,
 ) {
     fun prettyPrint(): String {
         return """
@@ -93,6 +95,15 @@ fun List<CellParameters>.prettyPrint(): String {
     return this.joinToString("\n\n") { it.prettyPrint() }
 }
 
+// Helper function because CellInfo (unhelpfully) returns a timestamp that is relative to the last boot.
+fun CellInfo.timestampUnixMillis(): Long {
+    val nowUnixMillis = System.currentTimeMillis()
+    val millisSinceBoot = SystemClock.elapsedRealtime()
+    val cellInfoAgeMillis = millisSinceBoot - (this.timeStamp / 1_000_000)
+    val cellInfoUnixMillis = nowUnixMillis - cellInfoAgeMillis
+    return cellInfoUnixMillis
+}
+
 // 5G
 @RequiresApi(Build.VERSION_CODES.Q)
 fun CellInfoNr.toCellParameters(): CellParameters {
@@ -103,6 +114,7 @@ fun CellInfoNr.toCellParameters(): CellParameters {
         id.tac.takeIf { it != CellInfo.UNAVAILABLE && it != 0 },
         id.nci.takeIf { it != CellInfo.UNAVAILABLE_LONG && it != 0L },
         RadioType.NR,
+        this.timestampUnixMillis(),
     )
 }
 
@@ -127,6 +139,7 @@ fun CellInfoLte.toCellParameters(): CellParameters {
         id.tac.takeIf { it != UNAVAILABLE && it != 0 },
         id.ci.takeIf { it != UNAVAILABLE && it != 0 }?.toLong(),
         RadioType.LTE,
+        this.timestampUnixMillis(),
     )
 }
 
@@ -151,6 +164,7 @@ fun CellInfoWcdma.toCellParameters(): CellParameters {
         id.lac.takeIf { it != UNAVAILABLE && it != 0 },
         id.cid.takeIf { it != UNAVAILABLE && it != 0 }?.toLong(),
         RadioType.WCDMA,
+        this.timestampUnixMillis(),
     )
 }
 
@@ -175,6 +189,7 @@ fun CellInfoGsm.toCellParameters(): CellParameters {
         id.lac.takeIf { it != UNAVAILABLE && it != 0 },
         id.cid.takeIf { it != UNAVAILABLE && it != 0 }?.toLong(),
         RadioType.GSM,
+        this.timestampUnixMillis(),
     )
 }
 

@@ -84,6 +84,7 @@ class CellLocationProvider<T>(
                     lon = it.lon,
                     provider = "OpenCelliD",
                     batteryLevel = Utils.getBatteryLevel(context),
+                    timeMillis = paras.timeMillis,
                 )
 
                 settings.storeLastKnownLocation(loc)
@@ -110,15 +111,17 @@ class CellLocationProvider<T>(
         val beaconDbRepo = BeaconDbRepository.getInstance(context)
         beaconDbRepo.getCellLocation(
             paras,
-            onSuccess = {
+            onSuccess = { beaconDb ->
                 context.log().d(TAG, "Location found by BeaconDB")
 
                 val loc = FmdLocation(
-                    lat = it.lat,
-                    lon = it.lon,
-                    accuracy = it.accuracy?.toFloat(),
+                    lat = beaconDb.lat,
+                    lon = beaconDb.lon,
+                    accuracy = beaconDb.accuracy?.toFloat(),
                     provider = "BeaconDB",
                     batteryLevel = Utils.getBatteryLevel(context),
+                    // Use the most recent of the timestamps
+                    timeMillis = paras.maxOf { it.timeMillis },
                 )
 
                 val settings = SettingsRepository.getInstance(context)
