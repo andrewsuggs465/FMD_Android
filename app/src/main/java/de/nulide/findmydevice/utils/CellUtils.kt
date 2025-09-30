@@ -22,7 +22,6 @@ enum class RadioType {
     WCDMA,
     LTE,
     NR
-
 }
 
 data class CellParameters(
@@ -75,18 +74,6 @@ data class CellParameters(
                 is CellInfoGsm -> cellInfo.toCellParameters()
                 else -> null
             }
-        }
-
-        @RequiresPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-        fun queryCellParametersFromTelephonyManager(context: Context): List<CellParameters> {
-            val tm = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-
-            val cellInfos = tm.allCellInfo?.toList() ?: return emptyList()
-
-            return cellInfos
-                .mapNotNull { fromCellInfo(it) }
-                .filter { it.hasEnoughData() }
-                .toList()
         }
     }
 }
@@ -197,4 +184,44 @@ private val UNAVAILABLE = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
     CellInfo.UNAVAILABLE
 } else {
     Integer.MAX_VALUE
+}
+
+@RequiresPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+fun requestCellInfo(context: Context, onCellParas: (List<CellParameters>) -> Unit) {
+    val telephonyManager = context.getSystemService(TelephonyManager::class.java)
+
+    val onCellInfoUpdate = { cellInfos: List<CellInfo> ->
+        val paras = cellInfos
+            .mapNotNull { CellParameters.fromCellInfo(it) }
+            .filter { it.hasEnoughData() }
+            .toList()
+        onCellParas(paras)
+    }
+
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+        val cellInfos = telephonyManager.allCellInfo?.toList() ?: emptyList()
+        onCellInfoUpdate(cellInfos)
+        return
+    }
+
+    telephonyManager.requestCellInfoUpdate(
+        context.mainExecutor,
+        object : TelephonyManager.CellInfoCallback() {
+            override fun onCellInfo(cellInfo: List<CellInfo>) {
+                onCellInfoUpdate(cellInfo)
+            }
+
+            @RequiresPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+            override fun onError(errorCode: Int, detail: Throwable?) {
+                // super.onError(errorCode, detail)
+                context.log().w(
+                    "CellUtils",
+                    "CellInfo update failed with errorCode=$errorCode message='${detail?.message}'"
+                            + " Falling back to cached CellInfo."
+                )
+                // Fall back to cached CellInfo
+                val cellInfos = telephonyManager.allCellInfo?.toList() ?: emptyList()
+                onCellInfoUpdate(cellInfos)
+            }
+        })
 }

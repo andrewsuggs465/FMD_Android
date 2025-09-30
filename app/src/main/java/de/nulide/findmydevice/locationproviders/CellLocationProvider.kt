@@ -15,6 +15,7 @@ import de.nulide.findmydevice.utils.CellParameters
 import de.nulide.findmydevice.utils.Utils
 import de.nulide.findmydevice.utils.log
 import de.nulide.findmydevice.utils.prettyPrint
+import de.nulide.findmydevice.utils.requestCellInfo
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Deferred
 
@@ -46,19 +47,22 @@ class CellLocationProvider<T>(
         ocidFinished = false
         beaconDbFinished = false
 
-        val paras = CellParameters.queryCellParametersFromTelephonyManager(context)
+        requestCellInfo(context, this::onCellInfoUpdate)
+        return deferred
+    }
+
+    private fun onCellInfoUpdate(paras: List<CellParameters>) {
         if (paras.isEmpty()) {
             context.log().i(TAG, "Cell paras are null. Are you connected to the cellular network?")
             transport.send(context, context.getString(R.string.OpenCellId_test_no_connection))
             deferred.complete(Unit)
-            return deferred
+            return
         }
 
         // Since internally both repositories use Volley with callbacks, the requests don't block on each other.
         // TODO: query all
         queryOpenCelliD(paras.first())
         queryBeaconDb(paras)
-        return deferred
     }
 
     private fun queryOpenCelliD(paras: CellParameters) {

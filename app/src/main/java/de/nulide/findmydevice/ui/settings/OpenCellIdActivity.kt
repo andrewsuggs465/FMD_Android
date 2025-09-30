@@ -21,6 +21,7 @@ import de.nulide.findmydevice.utils.Utils.Companion.getOpenStreetMapLink
 import de.nulide.findmydevice.utils.Utils.Companion.openUrl
 import de.nulide.findmydevice.utils.Utils.Companion.pasteFromClipboard
 import de.nulide.findmydevice.utils.log
+import de.nulide.findmydevice.utils.requestCellInfo
 
 
 class OpenCellIdActivity : FmdActivity(), TextWatcher {
@@ -94,7 +95,11 @@ class OpenCellIdActivity : FmdActivity(), TextWatcher {
         }
 
         @SuppressLint("MissingPermission") // ACCESS_FINE_LOCATION
-        val paras = CellParameters.queryCellParametersFromTelephonyManager(context)
+        requestCellInfo(context, this::onCellInfoUpdate)
+    }
+
+    private fun onCellInfoUpdate(paras: List<CellParameters>) {
+        val context = this
         if (paras.isEmpty()) {
             context.log().i(TAG, "No cell location found")
             viewBinding.textViewTestOpenCellIdResponse.text =
