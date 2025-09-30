@@ -68,7 +68,8 @@ class CellLocationProvider<T>(
             val msg = "Cannot query OpenCelliD: Missing API Token"
             context.log().i(TAG, msg)
             transport.send(context, msg)
-            deferred.complete(Unit)
+            ocidFinished = true
+            onFinished()
             return
         }
 
