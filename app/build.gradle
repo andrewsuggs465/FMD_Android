@@ -34,8 +34,8 @@ android {
         // https://gitlab.com/Nulide/findmydevice/-/issues/220
         // noinspection ExpiredTargetSdkVersion
         targetSdkVersion 32
-        versionCode 35
-        versionName "0.12.0"
+        versionCode 36
+        versionName "0.12.1"
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
