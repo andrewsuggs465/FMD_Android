@@ -43,4 +43,10 @@ abstract class FmdJobService : JobService() {
         coroutineScope.cancel()
         return false
     }
+
+    override fun onNetworkChanged(params: JobParameters) {
+        // Overridden to silence log statements done by superclass.
+        // XXX: Maybe do some special handling. Some jobs may be aborted??
+        // super.onNetworkChanged(params)
+    }
 }
