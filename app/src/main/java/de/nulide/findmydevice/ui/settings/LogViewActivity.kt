@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import de.nulide.findmydevice.R
@@ -13,6 +14,7 @@ import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeAppBar
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeScrollView
 import de.nulide.findmydevice.utils.log
 import de.nulide.findmydevice.utils.writeToUri
+import kotlinx.coroutines.launch
 import java.io.OutputStreamWriter
 
 
@@ -95,11 +97,13 @@ class LogViewActivity : FmdActivity() {
             // content://com.android.externalstorage.documents/document/primary%3Afmd-logs-2025-08-31.json
             this.log().d(TAG, "exporting logs to $uri")
 
-            writeToUri(this, uri) { outputStream ->
-                synchronized(repo.list) {
-                    val writer = OutputStreamWriter(outputStream)
-                    repo.writeAsJson(writer)
-                    writer.close()
+            lifecycleScope.launch {
+                writeToUri(this@LogViewActivity, uri) { outputStream ->
+                    synchronized(repo.list) {
+                        val writer = OutputStreamWriter(outputStream)
+                        repo.writeAsJson(writer)
+                        writer.close()
+                    }
                 }
             }
         }
