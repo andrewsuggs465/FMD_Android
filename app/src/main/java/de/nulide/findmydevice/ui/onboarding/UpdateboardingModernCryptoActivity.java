@@ -1,13 +1,10 @@
 package de.nulide.findmydevice.ui.onboarding;
 
-import static de.nulide.findmydevice.data.SettingsRepositoryKt.SETTINGS_FILENAME;
-
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +16,6 @@ import de.nulide.findmydevice.net.FMDServerApiRepoSpec;
 import de.nulide.findmydevice.net.FMDServerApiRepository;
 import de.nulide.findmydevice.ui.MainActivity;
 import de.nulide.findmydevice.utils.Notifications;
-import de.nulide.findmydevice.utils.SettingsImportExporter;
 import de.nulide.findmydevice.utils.UnregisterUtil;
 
 public class UpdateboardingModernCryptoActivity extends AppCompatActivity {
@@ -55,6 +51,7 @@ public class UpdateboardingModernCryptoActivity extends AppCompatActivity {
         findViewById(R.id.buttonConfirm).setOnClickListener(this::onConfirmClicked);
     }
 
+    /*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -68,12 +65,15 @@ public class UpdateboardingModernCryptoActivity extends AppCompatActivity {
             }
         }
     }
+    */
 
     private void onExportSettingsClicked(View view) {
-        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
-        intent.putExtra(Intent.EXTRA_TITLE, SETTINGS_FILENAME);
-        intent.setType("*/*");
-        startActivityForResult(intent, EXPORT_REQ_CODE);
+        Toast.makeText(view.getContext(), "Sorry, no longer supported.", Toast.LENGTH_LONG).show();
+
+//        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+//        intent.putExtra(Intent.EXTRA_TITLE, SETTINGS_FILENAME);
+//        intent.setType("*/*");
+//        startActivityForResult(intent, EXPORT_REQ_CODE);
     }
 
     private void onExitClicked(View view) {
