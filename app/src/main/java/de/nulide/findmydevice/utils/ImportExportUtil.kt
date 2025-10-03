@@ -99,7 +99,10 @@ fun writeAsJson(
     val type = src.javaClass
     val writer = JsonWriter(outputStreamWriter)
     gson.toJson(src, type, writer)
-    writer.close()
+
+    // Don't close the JsonWriter, as this also closes all of the underlying writers.
+    // This would close the entire ZIP file during settings export.
+    // Callers of this function should close the outputStreamWriter themselves.
 }
 
 // Coroutines: read/write must happen on the IO thread.
