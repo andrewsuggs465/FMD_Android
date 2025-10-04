@@ -2,6 +2,7 @@ package de.nulide.findmydevice.ui.settings;
 
 import static de.nulide.findmydevice.ui.UiUtil.setupEdgeToEdgeAppBar;
 import static de.nulide.findmydevice.ui.UiUtil.setupEdgeToEdgeScrollView;
+import static de.nulide.findmydevice.utils.CypherUtils.MIN_PASSWORD_LENGTH;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -282,6 +283,8 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
                     Toast.makeText(view.getContext(), R.string.pw_change_empty, Toast.LENGTH_LONG).show();
                 } else if (!password.equals(passwordCheck)) {
                     Toast.makeText(view.getContext(), R.string.pw_change_mismatch, Toast.LENGTH_LONG).show();
+                } else if (password.length() < MIN_PASSWORD_LENGTH) {
+                    Toast.makeText(view.getContext(), R.string.password_min_length, Toast.LENGTH_LONG).show();
                 } else {
                     runChangePassword(oldPassword, password);
                 }

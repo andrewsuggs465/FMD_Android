@@ -3,6 +3,7 @@ package de.nulide.findmydevice.ui.settings;
 import static de.nulide.findmydevice.commands.CommandHandlerKt.availableCommands;
 import static de.nulide.findmydevice.ui.UiUtil.setupEdgeToEdgeAppBar;
 import static de.nulide.findmydevice.ui.UiUtil.setupEdgeToEdgeScrollView;
+import static de.nulide.findmydevice.utils.CypherUtils.MIN_PASSWORD_LENGTH;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -147,6 +148,8 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
                                     availableCommands(context).stream().anyMatch(cmd -> cmd.getKeyword().equals(pin))
                             ) {
                                 Toast.makeText(context, R.string.pin_match_command_keyword, Toast.LENGTH_LONG).show();
+                            } else if (pin.length() < MIN_PASSWORD_LENGTH) {
+                                Toast.makeText(context, R.string.pin_min_length, Toast.LENGTH_LONG).show();
                             } else {
                                 encSettings.setFmdPin(pin);
                             }

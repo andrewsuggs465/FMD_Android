@@ -32,6 +32,7 @@ import de.nulide.findmydevice.ui.FmdActivity
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeAppBar
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeScrollView
 import de.nulide.findmydevice.utils.CypherUtils
+import de.nulide.findmydevice.utils.CypherUtils.MIN_PASSWORD_LENGTH
 import de.nulide.findmydevice.utils.Utils.Companion.copyToClipboard
 import de.nulide.findmydevice.utils.Utils.Companion.openUrl
 import kotlinx.coroutines.Dispatchers
@@ -134,7 +135,13 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
 
                 cacheRegistrationToken(registrationToken)
 
-                if (password.isNotEmpty()) {
+                if (password.isEmpty()) {
+                    Toast.makeText(context, R.string.pw_change_empty, Toast.LENGTH_LONG).show()
+                    loadingDialog?.cancel()
+                } else if (password.length < MIN_PASSWORD_LENGTH) {
+                    Toast.makeText(context, R.string.password_min_length, Toast.LENGTH_LONG).show()
+                    loadingDialog?.cancel()
+                } else {
                     // Key generation and password hashing is expensive-ish, so we don't want
                     // to do it on the UI thread (e.g., it would block the loading indicator).
                     lifecycleScope.launch(Dispatchers.IO) {
@@ -154,9 +161,6 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                             this@AddAccountActivity::onRegisterOrLoginError,
                         )
                     }
-                } else {
-                    Toast.makeText(context, R.string.pw_change_empty, Toast.LENGTH_LONG).show()
-                    loadingDialog?.cancel()
                 }
             }
         showPrivacyPolicyThenDialog(context, registerDialog)

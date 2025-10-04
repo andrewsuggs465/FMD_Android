@@ -47,6 +47,9 @@ import javax.xml.bind.DatatypeConverter;
 
 public class CypherUtils {
 
+    // https://pages.nist.gov/800-63-4/sp800-63b.html#passwordver
+    public static final int MIN_PASSWORD_LENGTH = 8;
+
     private static final int AES_GCM_IV_SIZE_BYTES = 12; // byte = 96 bit
     @VisibleForTesting
     protected static final int AES_GCM_KEY_SIZE_BYTES = 32; // byte = 256 bit
