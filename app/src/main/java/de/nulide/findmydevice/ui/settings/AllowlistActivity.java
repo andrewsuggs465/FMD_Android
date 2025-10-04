@@ -11,12 +11,12 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -89,7 +89,7 @@ public class AllowlistActivity extends FmdActivity {
                 .setPositiveButton(getString(R.string.add), (dialog, whichButton) -> {
                     String name = nameInput.getText().toString();
                     String number = phoneNumberInput.getText().toString();
-                    Contact dummyContact = new Contact(name, number);
+                    Contact dummyContact = Contact.from(context, name, number);
                     addContactToAllowList(dummyContact);
                 })
                 .setNegativeButton(getString(R.string.cancel), null)
@@ -121,37 +121,41 @@ public class AllowlistActivity extends FmdActivity {
                             ContactsContract.Contacts.DISPLAY_NAME,
                             ContactsContract.CommonDataKinds.Phone.NUMBER
                     };
-                    Cursor c = managedQuery(contactData, projection, null, null, null);
+                    Cursor cursor = managedQuery(contactData, projection, null, null, null);
+
                     List<Contact> contacts = new LinkedList<>();
-                    List<String> numbers = new LinkedList<>();
-                    if (c.moveToFirst()) {
-                        String name = c.getString(c.getColumnIndexOrThrow(ContactsContract.Data.DISPLAY_NAME));
-                        String phoneNumber = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
 
-                        contacts.add(new Contact(name, phoneNumber));
-                        numbers.add(phoneNumber);
-
-                        while (c.moveToNext()) {
-                            String cNumber = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                            String cName = c.getString(c.getColumnIndex(ContactsContract.Data.DISPLAY_NAME));
-                            if (!cNumber.isEmpty()) {
-                                contacts.add(new Contact(cName, cNumber));
-                                numbers.add(cNumber);
-                            }
+                    cursor.moveToFirst();
+                    do {
+                        int nameIdx = cursor.getColumnIndex(ContactsContract.Data.DISPLAY_NAME);
+                        String cName = "";
+                        if (nameIdx >= 0) {
+                            cName = cursor.getString(nameIdx);
                         }
-                    }
 
-                    if (numbers.size() == 1) {
+                        int numIdx = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+                        String cNumber = "";
+                        if (numIdx >= 0) {
+                            cNumber = cursor.getString(numIdx);
+                        }
+
+                        Contact contact = Contact.from(this, cName, cNumber);
+                        if (contact != null) {
+                            contacts.add(contact);
+                        }
+                    } while (cursor.moveToNext());
+
+                    if (contacts.size() == 1) {
                         addContactToAllowList(contacts.get(0));
                     } else {
-                        final List<Contact> finalContacts = contacts;
+                        String[] numbersArray = contacts.stream().map(Contact::getNumber).toArray(String[]::new);
+
                         AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
                         builder.setTitle(getString(R.string.WhiteList_Select_Number));
-                        String[] numbersArray = numbers.toArray(new String[numbers.size()]);
                         builder.setItems(numbersArray, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                addContactToAllowList(finalContacts.get(which));
+                                addContactToAllowList(contacts.get(which));
                             }
                         });
                         AlertDialog dialog = builder.create();
@@ -165,8 +169,10 @@ public class AllowlistActivity extends FmdActivity {
         }
     }
 
-    private void addContactToAllowList(Contact contact) {
-        if (contact != null) {
+    private void addContactToAllowList(@Nullable Contact contact) {
+        if (contact == null) {
+            Toast.makeText(this, R.string.allowlist_invalid_number, Toast.LENGTH_LONG).show();
+        } else {
             if (!allowlistRepository.contains(contact)) {
                 allowlistRepository.add(contact);
                 updateScreen();
@@ -182,9 +188,7 @@ public class AllowlistActivity extends FmdActivity {
                             .show();
                 }
             } else {
-                Toast toast = Toast.makeText(this, getString(R.string.Toast_Duplicate_contact), Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                Toast.makeText(this, R.string.Toast_Duplicate_contact, Toast.LENGTH_LONG).show();
             }
         }
     }

@@ -143,6 +143,7 @@
     <string name="allowlist_phone_number">Phone number</string>
     <string name="allowlist_reset_title">Allowed contacts reset</string>
     <string name="allowlist_reset_text">Due to a crash, the allowed contacts were reset. Please configure them again.</string>
+    <string name="allowlist_invalid_number">This phone number is invalid!</string>
 
     <!-- Settings: Temporary allowed contacts -->
     <string name="temporary_allowlist_expired">Your temporary FMD access expired. To continue using FMD, send the PIN again.</string>

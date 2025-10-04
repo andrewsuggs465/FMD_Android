@@ -1,6 +1,8 @@
 package de.nulide.findmydevice.data;
 
+import android.content.Context;
 import android.telephony.PhoneNumberUtils;
+import android.telephony.TelephonyManager;
 
 import androidx.annotation.Nullable;
 
@@ -9,12 +11,31 @@ public class Contact {
     private String name;
     private String number;
 
-    public Contact() {
-    }
-
-    public Contact(String name, String number) {
+    private Contact(String name, String number) {
         this.name = name;
         this.number = number;
+    }
+
+    @Nullable
+    public static Contact from(Context context, String name, String number) {
+        TelephonyManager tm = context.getSystemService(TelephonyManager.class);
+        String iso = tm.getNetworkCountryIso();
+
+        String numberFormatted;
+        if (iso.isEmpty()) {
+            // iso is empty when the phone is in flight mode
+            // fall back to deprecated function
+            numberFormatted = PhoneNumberUtils.formatNumber(number);
+        } else {
+            // iso must be non-empty, else the number is treated as invalid
+            numberFormatted = PhoneNumberUtils.formatNumber(number, iso);
+        }
+
+        if (numberFormatted == null || numberFormatted.isBlank()) {
+            return null;
+        }
+
+        return new Contact(name, numberFormatted);
     }
 
     public String getName() {
