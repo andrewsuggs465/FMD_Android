@@ -45,7 +45,9 @@ public class ServerLocationUploadService extends FmdJobService {
     public static void scheduleJob(Context context, long delayMinutes, boolean recurring) {
         FmdLogKt.log(context).d(TAG, "Scheduling upload service");
         SettingsRepository settings = SettingsRepository.Companion.getInstance(context);
-        if (((Integer) settings.get(Settings.SET_FMDSERVER_LOCATION_TYPE)) == 3) {
+
+        // non-recurring, one-shot jobs should always run, independent of the setting
+        if (recurring && ((Integer) settings.get(Settings.SET_FMDSERVER_LOCATION_TYPE)) == 3) {
             // user requested NOT to upload any location at regular intervals
             FmdLogKt.log(context).d(TAG, "Not scheduling job. Reason: user requested no upload");
             return;
@@ -130,25 +132,29 @@ public class ServerLocationUploadService extends FmdJobService {
         } else {
             destination = "Manual Location Request";
         }
+
         Transport<Unit> transport = new FmdServerTransport(this, destination);
         CommandHandler<Unit> commandHandler = new CommandHandler<>(transport, this.getCoroutineScope(), this, false);
 
         String locateCommand = settings.get(Settings.SET_FMD_COMMAND) + " locate";
-        switch ((Integer) settings.get(Settings.SET_FMDSERVER_LOCATION_TYPE)) {
-            case 0:
-                locateCommand += " gps";
-                break;
-            case 1:
-                locateCommand += " cell";
-                break;
-            case 2:
-                // no need to change the command
-                break;
-            case 3:
-            default:
-                // we should not be here...
-                return false;
+        if (recurring) {
+            switch ((Integer) settings.get(Settings.SET_FMDSERVER_LOCATION_TYPE)) {
+                case 0:
+                    locateCommand += " gps";
+                    break;
+                case 1:
+                    locateCommand += " cell";
+                    break;
+                case 2:
+                    // no need to change the command
+                    break;
+                case 3:
+                default:
+                    // we should not be here...
+                    return false;
+            }
         }
+
         commandHandler.execute(this, locateCommand);
 
         return true;
