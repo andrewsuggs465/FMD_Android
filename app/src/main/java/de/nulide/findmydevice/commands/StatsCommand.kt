@@ -8,6 +8,8 @@ import de.nulide.findmydevice.permissions.LocationPermission
 import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.NetworkUtils
+import de.nulide.findmydevice.utils.WifiScan
+import de.nulide.findmydevice.utils.getSsidCompat
 import kotlinx.coroutines.CoroutineScope
 
 
@@ -35,14 +37,14 @@ class StatsCommand(context: Context) : Command(context) {
         val ips = NetworkUtils.getIps(context)
         val ipsString = ips.joinToString("\n\n")
 
-        val wifis = NetworkUtils.getWifiNetworks(context)
-        val wifisString = wifis
-            .map { sr -> "SSID: ${sr.SSID}\nBSSID: ${sr.BSSID}" }
-            .joinToString("\n\n")
+        WifiScan(context, { scanResults ->
+            val wifisString =
+                scanResults.joinToString("\n\n") { sr -> "SSID: ${sr.getSsidCompat()}\nBSSID: ${sr.BSSID}" }
 
-        val reply = context.getString(R.string.cmd_stats_response, ipsString, wifisString)
+            val reply = context.getString(R.string.cmd_stats_response, ipsString, wifisString)
 
-        transport.send(context, reply)
-        job?.jobFinished()
+            transport.send(context, reply)
+            job?.jobFinished()
+        }).startWifiScan()
     }
 }

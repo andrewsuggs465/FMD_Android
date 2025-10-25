@@ -18,15 +18,6 @@ data class NetworkInfo(
 
 object NetworkUtils {
 
-    fun getWifiNetworks(context: Context): MutableList<ScanResult> {
-        val wifiManager = context.applicationContext.getSystemService(WifiManager::class.java)
-        wifiManager.setWifiEnabled(true)
-        wifiManager.startScan()
-
-        @SuppressLint("MissingPermission") val results = wifiManager.scanResults
-        return results
-    }
-
     // https://developer.android.com/develop/connectivity/network-ops/reading-network-state
     fun getIps(context: Context): List<NetworkInfo> {
         val connectivityManager = context.getSystemService(ConnectivityManager::class.java)
