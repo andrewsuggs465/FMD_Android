@@ -5,6 +5,8 @@ import android.net.Uri
 import android.os.Build
 import android.widget.Toast
 import com.google.gson.Gson
+import com.google.gson.JsonIOException
+import com.google.gson.JsonSyntaxException
 import com.google.gson.stream.JsonWriter
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.ALLOWLIST_FILENAME
@@ -62,30 +64,89 @@ class SettingsImportExporter(
         }
     }
 
-    suspend fun importData(uri: Uri) {
-        readFromUri(context, uri) { inputStream ->
-            val path = uri.path ?: throw Exception("Missing URI path")
+    @Throws(JsonIOException::class, JsonSyntaxException::class)
+    suspend fun importData(uri: Uri) = withContext(Dispatchers.IO) {
+        // We cannot use the file ending (.zip/.json) to detect the file,
+        // since the URI path may not have those (e.g. when the file comes from Nextcloud as a content provider).
+        // Thus we just need to try one format, and if it fails, try the other.
 
-            // Newer FMD versions export ZIP files
-            if (path.endsWith(".zip")) {
-                val zipInputStream = ZipInputStream(inputStream)
-                // Skip unknown files and silently ignore missing files
-                while (true) {
-                    val entry = zipInputStream.nextEntry ?: break
+        // Old "settings.json"
+        var inputStream: InputStream? = null
+        try {
+            context.log().i(TAG, "Trying to import as JSON")
+            inputStream = context.contentResolver.openInputStream(uri) ?: return@withContext
 
-                    if (entry.name == SETTINGS_FILENAME) {
+            SettingsRepository.getInstance(context).importFromStream(inputStream)
+
+            withContext(Dispatchers.Main) {
+                val text = context.getString(R.string.Settings_Import_Success)
+                Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
+            }
+
+            // Apparently the import was successful
+            return@withContext
+        } catch (e: Exception) {
+            // continue
+        } finally {
+            inputStream?.close()
+        }
+
+        // We need to open a new stream (or would need to reset the old stream).
+        // Otherwise the ZIP reader starts reading wherever the JSON reader stopped.
+
+        // New format, "fmd-export.zip" (contains settings.json and other data)
+        try {
+            context.log().i(TAG, "Trying to import ZIP")
+            inputStream = context.contentResolver.openInputStream(uri) ?: return@withContext
+
+            val zipInputStream = ZipInputStream(inputStream)
+            var settingsFound = false
+            var allowlistFound = false
+
+            while (true) {
+                val entry = zipInputStream.nextEntry ?: break
+
+                when (entry.name) {
+                    SETTINGS_FILENAME -> {
+                        context.log().i(TAG, "Trying to import $SETTINGS_FILENAME")
                         SettingsRepository.getInstance(context).importFromStream(zipInputStream)
-                    } else if (entry.name == ALLOWLIST_FILENAME) {
-                        AllowlistRepository.getInstance(context).importFromStream(zipInputStream)
+                        settingsFound = true
+                    }
+
+                    ALLOWLIST_FILENAME -> {
+                        context.log().i(TAG, "Trying to import $ALLOWLIST_FILENAME")
+                        AllowlistRepository.getInstance(context)
+                            .importFromStream(zipInputStream)
+                        allowlistFound = true
+                    }
+
+                    else -> {
+                        context.log().w(TAG, "Unknown entry '${entry.name}'")
                     }
                 }
             }
-            // Support old exports
-            else if (path.endsWith(".json")) {
-                SettingsRepository.getInstance(context).importFromStream(inputStream)
-            } else {
-                throw Exception("Unsupported file format")
+
+            if (settingsFound && allowlistFound) {
+                withContext(Dispatchers.Main) {
+                    val text = context.getString(R.string.Settings_Import_Success)
+                    Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
+                }
+                return@withContext
             }
+
+            // Consider this an import failure
+            context.log().w(TAG, "ZIP: settingsFound=$settingsFound allowlistFound=$allowlistFound")
+
+        } catch (e: Exception) {
+            context.log().e(TAG, "ZIP import failed:\n${e.stackTraceToString()}")
+            // continue
+        } finally {
+            inputStream?.close()
+        }
+
+        withContext(Dispatchers.Main) {
+            val text = context.getString(R.string.Settings_Import_Failed)
+            Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
         }
     }
 }
@@ -128,30 +189,5 @@ suspend fun writeToUri(
         }
     } finally {
         outputStream?.close()
-    }
-}
-
-suspend fun readFromUri(
-    context: Context,
-    uri: Uri,
-    read: (InputStream) -> Unit,
-) = withContext(Dispatchers.IO) {
-
-    var inputStream: InputStream? = null
-    try {
-        inputStream = context.contentResolver.openInputStream(uri) ?: return@withContext
-        read(inputStream)
-        withContext(Dispatchers.Main) {
-            val text = context.getString(R.string.Settings_Import_Success)
-            Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
-        }
-    } catch (e: Exception) {
-        context.log().e(TAG, "Import failed:\n${e.stackTraceToString()}")
-        withContext(Dispatchers.Main) {
-            val text = context.getString(R.string.Settings_Import_Failed)
-            Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
-        }
-    } finally {
-        inputStream?.close()
     }
 }

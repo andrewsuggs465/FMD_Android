@@ -3,6 +3,7 @@ package de.nulide.findmydevice.data
 import android.content.Context
 import android.telephony.PhoneNumberUtils
 import com.google.gson.Gson
+import com.google.gson.JsonIOException
 import com.google.gson.JsonSyntaxException
 import com.google.gson.stream.JsonReader
 import de.nulide.findmydevice.R
@@ -62,6 +63,7 @@ class AllowlistRepository private constructor(private val context: Context) {
         de.nulide.findmydevice.utils.writeAsJson(outputStreamWriter, gson, list)
     }
 
+    @Throws(JsonIOException::class, JsonSyntaxException::class)
     fun importFromStream(inputStream: InputStream) {
         val reader = JsonReader(InputStreamReader(inputStream))
         list = gson.fromJson(reader, AllowlistModel::class.java) ?: AllowlistModel()

@@ -2,7 +2,9 @@ package de.nulide.findmydevice.data
 
 import android.content.Context
 import com.google.gson.GsonBuilder
+import com.google.gson.JsonIOException
 import com.google.gson.JsonParseException
+import com.google.gson.JsonSyntaxException
 import com.google.gson.ToNumberStrategy
 import com.google.gson.stream.JsonReader
 import com.google.gson.stream.JsonWriter
@@ -132,6 +134,7 @@ class SettingsRepository private constructor(private val context: Context) {
         de.nulide.findmydevice.utils.writeAsJson(outputStreamWriter, gson, settings)
     }
 
+    @Throws(JsonIOException::class, JsonSyntaxException::class)
     fun importFromStream(inputStream: InputStream) {
         val reader = JsonReader(InputStreamReader(inputStream))
         settings = gson.fromJson(reader, Settings::class.java) ?: Settings()
