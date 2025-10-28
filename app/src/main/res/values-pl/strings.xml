@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Settings_FMDConfig">Konfiguracja FMD</string>
+    <string name="Settings_FMDConfig">Ogólne</string>
     <string name="copied">Skopiowano</string>
     <string name="accept">Akceptuję</string>
     <string name="add">Dodaj</string>
@@ -128,4 +128,28 @@
     <string name="Settings_FMDServer_Check_Notify_After_Title">Maksymalny dozwolony czas bez połączenia</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Załaduj przy niskim stanie baterii</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Załaduj lokalizację tego urządzenia przy niskim stanie baterii. To wymaga uprawnienia do wyświetlania powiadomień.</string>
+    <string name="Settings_Set_Pin">Ustaw PIN</string>
+    <string name="Settings_Change_Pin">Zmień PIN</string>
+    <string name="pin_match_command_keyword">PIN nie może być jednym z poleceń!</string>
+    <string name="Settings_FMDServer_Push_Description">Wysyłanie poleceń z serwera FMD na Twoje urządzenie wymaga aplikacji dystrybucji usługi UnifiedPush.</string>
+    <string name="Settings_FMDServer_Push_Distributor">Dystrybutor: %s</string>
+    <string name="Settings_FMDServer_Push_Open_Help">Więcej informacji na temat push</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Description">FMD powiadomi Cię jeśli ostatnie udane połączenie do serwera FMD było więcej niż X godzin temu. Ustawienie to nie będzie miało żadnego efektu, jeśli kontrola połączenia jest wyłączona.</string>
+    <string name="Settings_FMDServer_Location_Type_Description">Źródła z których dane o lokalizacji są wysyłane w regularnych odstępach w tle.\nJeśli żadne nie est ustawione, lokalizacja nie będzie regularnie wysyłana. (Możesz w dalszym ciągu używać interfejsu web, aby wymusić wysłanie danych. To wymaga push.)</string>
+    <string name="password_new_repeat">Powtórz nowe hasło</string>
+    <string name="pw_change_empty">Hasło nie może być puste.</string>
+    <string name="pw_change_mismatch">Hasła nie są takie same.</string>
+    <string name="pw_change_network_failed">Zmiana hasła nie powiodła się z powodu błędu sieci.</string>
+    <string name="server_login_attempts_title">Nieudane próby logowania do serwera FMD</string>
+    <string name="server_login_attempts_text">Ktoś próbował zalogować się do Twojego konta na serwerze FMD \"%s\". Z powodu wielu błędnych haseł, konto zostało zablokowane na 10 minut.</string>
+    <string name="server_version_upgrade_required_title">Wymagana aktualizacja serwera FMD</string>
+    <string name="server_version_upgrade_required_text">Serwer FMD z którego korzystasz ma wersję {CURRENT}, a ta aplikacja wymaga conajmniej wersji {MIN}. Kontrolowanie Twojego urządzenia przez serwer FMD może nie działać. Proszę zaktualizować serwer.</string>
+    <string name="server_connectivity_lost_title">Stracono połączenie z serwerem FMD</string>
+    <string name="server_connectivity_lost_text">Serwer FMD na %1$s nie jest już dostępny. Ostatnie udane połączenie było %2$s.</string>
+    <string name="server_connectivity_check_not_enabled_title">Włącz sprawdzanie łączności z serwerem</string>
+    <string name="server_connectivity_check_not_enabled_text">FMD może regularnie sprawdzać czy serwer FMD jest dostępny. Z powodów prywatności, ta funkcja jest domyślnie wyłączona. Dla większej dostępności radzimy jej włączenie.</string>
+    <string name="server_version_error">Błąd pobierania wersji serwera</string>
+    <string name="server_version_error_low_version">Minimalna wymagana wersja serwera to {MIN}, a wybrany serwer ma wersję {CURRENT} . Kontynnuj na własne ryzyko.</string>
+    <string name="Settings_FMDServer_AddAccount">Serwer FMD: Logowanie</string>
+    <string name="Settings_FMDServer_Info">Z serwerem FMD możesz wysyłać polecenia przez internet, z serwera do aplikacji. Możesz również zobaczyć lokalizację urządzenia na mapie lub zdjęcia zrobione urządzeniem. Na stronie web znajdziesz instrukcje dotyczące samodzielnego hosting\'u.</string>
 </resources>
