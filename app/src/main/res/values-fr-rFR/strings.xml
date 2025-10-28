@@ -50,7 +50,7 @@
     <string name="password_new_repeat">Répétez le nouveau mot de passe</string>
     <string name="server_version">Version du serveur</string>
     <string name="server_version_error">Erreur lors de l\'obtention de la version du serveur</string>
-    <string name="server_version_error_low_version">La version minimal requise pour le serveur est {MIN}, mais le serveur sélection a la version CURRENT}. Poursuivre à vos risques et périls.</string>
+    <string name="server_version_error_low_version">La version minimale requise du serveur est {MIN}, mais la version du serveur sélectionné est {CURRENT}. Poursuivre à vos risques et périls.</string>
     <string name="Settings_FMDServer_Register">S\'inscrire</string>
     <string name="password">Mot de passe</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Politique de confidentialité</string>
@@ -183,7 +183,7 @@
     <string name="perm_root_denied">Accès root refusé</string>
     <string name="perm_shizuku_failed">L\'autorisation par Shizuku a échoué</string>
     <string name="transport_sms_description_note">Les SMS peuvent engager des frais pour vous et la personne vous l’envoi. La réception des SMS exige que votre carte SIM soit déverrouillée (par exemple, après un redémarrage).</string>
-    <string name="transport_notification_reply_description">Vous pouvez autoriser FMD à lire vos notifications pour écouter les commandes. FMD peut ensuite répondre par la fonction de réponse intégrée d\'Android. Cela vous permet de contrôler FMD en utilisant une application de messagerie de votre choix, tant qu\'elle affiche des notifications qui peuvent être répondues. Par exemple, vous pouvez envoyer un message par Signal \"fmd monnip help\" à votre téléphone.</string>
+    <string name="transport_notification_reply_description">Vous pouvez autoriser FMD à lire vos notifications pour écouter les commandes. FMD peut ensuite répondre par la fonction de réponse intégrée d\'Android. Cela vous permet de contrôler FMD en utilisant une application de messagerie de votre choix, tant qu\'elle affiche des notifications qui peuvent être répondues. Par exemple, vous pouvez envoyer un message par Signal \"fmd monpin help\" à votre téléphone.</string>
     <string name="transport_notification_reply_description_auth">Contrôler FMD par la réponse aux notifications exige que le code PIN de FMD soit défini. Chaque message doit contenir le bon code PIN.</string>
     <string name="setup_warnings_title">Avertissements de configuration</string>
     <string name="missing_permissions_title">Permissions manquantes</string>
