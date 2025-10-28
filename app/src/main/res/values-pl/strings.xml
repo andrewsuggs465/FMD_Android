@@ -152,4 +152,5 @@
     <string name="server_version_error_low_version">Minimalna wymagana wersja serwera to {MIN}, a wybrany serwer ma wersję {CURRENT} . Kontynnuj na własne ryzyko.</string>
     <string name="Settings_FMDServer_AddAccount">Serwer FMD: Logowanie</string>
     <string name="Settings_FMDServer_Info">Z serwerem FMD możesz wysyłać polecenia przez internet, z serwera do aplikacji. Możesz również zobaczyć lokalizację urządzenia na mapie lub zdjęcia zrobione urządzeniem. Na stronie web znajdziesz instrukcje dotyczące samodzielnego hosting\'u.</string>
+    <string name="Settings_no_ringtone_picker">Nie znaleziono wybieracza dzwonków!</string>
 </resources>
