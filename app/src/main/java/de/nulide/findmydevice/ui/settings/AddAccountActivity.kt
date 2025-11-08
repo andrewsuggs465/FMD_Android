@@ -77,7 +77,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
             openUrl(this, "https://gitlab.com/fmd-foss/fmd-server")
         }
 
-        // Actively opt-in to using Nulide's server
+        // Actively opt-in to using the "official" server
         val btnUseDefaultServer = findViewById<Button>(R.id.buttonUseDefaultServer)
         btnUseDefaultServer.setOnClickListener { _ -> editTextServerUrl.setText(Settings.DEFAULT_FMD_SERVER_URL) }
 

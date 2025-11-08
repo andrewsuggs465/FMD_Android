@@ -1,6 +1,7 @@
 package de.nulide.findmydevice.data
 
 import android.content.Context
+import androidx.core.net.toUri
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonIOException
 import com.google.gson.JsonParseException
@@ -13,6 +14,7 @@ import de.nulide.findmydevice.R
 import de.nulide.findmydevice.utils.CypherUtils
 import de.nulide.findmydevice.utils.SingletonHolder
 import de.nulide.findmydevice.utils.Utils
+import de.nulide.findmydevice.utils.log
 import java.io.File
 import java.io.FileReader
 import java.io.FileWriter
@@ -142,8 +144,18 @@ class SettingsRepository private constructor(private val context: Context) {
     }
 
     fun migrateSettings() {
-        // Nothing to do currently
+        migrateServerUrl()
         set(Settings.SET_SET_VERSION, Settings.SETTINGS_VERSION)
+    }
+
+    private fun migrateServerUrl() {
+        val oldUrl = get(Settings.SET_FMDSERVER_URL) as String
+        val uri = oldUrl.toUri()
+        if (uri.host == "fmd.nulide.de") {
+            val msg = "Updating server URL: old=$oldUrl new=${Settings.DEFAULT_FMD_SERVER_URL}"
+            context.log().i(TAG, msg)
+            set(Settings.SET_FMDSERVER_URL, Settings.DEFAULT_FMD_SERVER_URL)
+        }
     }
 
 // ---------- Convenience helpers ----------

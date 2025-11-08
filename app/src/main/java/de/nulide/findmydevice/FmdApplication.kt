@@ -4,6 +4,7 @@ import android.app.Application
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.data.UncaughtExceptionHandler.Companion.initUncaughtExceptionHandler
 import de.nulide.findmydevice.receiver.PushReceiver
+import de.nulide.findmydevice.receiver.doUpdateMigrations
 import de.nulide.findmydevice.services.ServerConnectivityCheckService
 import de.nulide.findmydevice.services.ServerLocationUploadService
 import de.nulide.findmydevice.services.TempContactExpiredService
@@ -20,6 +21,8 @@ class FmdApplication : Application() {
 
         Notifications.init(this)
         initUncaughtExceptionHandler(this)
+
+        doUpdateMigrations(this)
 
         val settings = SettingsRepository.getInstance(this)
         if (settings.serverAccountExists()) {
