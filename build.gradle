@@ -20,7 +20,7 @@ buildscript {
 }
 
 plugins {
-    id "com.mikepenz.aboutlibraries.plugin" version "11.2.3" apply false
+    id "com.mikepenz.aboutlibraries.plugin" version "12.2.4" apply false
 }
 
 allprojects {
