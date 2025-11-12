@@ -268,4 +268,5 @@
     <string name="setup_recommendations_title">Recomendações</string>
     <string name="Settings_FMDServer_Push_Open_Help">Mais informações sobre o push</string>
     <string name="server_password_hint">Escolha uma senha que não pode ser adivinhada, mas que você consiga recuperar ao perder seu dispositivo. A senha dá acesso ao envio remoto de comandos no seu dispositivo. O administrador do servidor não consegue acessar ou redefinir sua senha.</string>
+    <string name="allowlist_invalid_number">Este número de telefone é invalido!</string>
 </resources>
