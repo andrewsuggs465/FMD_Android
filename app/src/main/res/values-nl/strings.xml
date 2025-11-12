@@ -268,4 +268,5 @@
     <string name="setup_recommendations_title">Aanbevelingen</string>
     <string name="Settings_FMDServer_Push_Open_Help">Meer informatie over push</string>
     <string name="server_password_hint">Kies een wachtwoord dat niet geraden kan worden, maar dat je wel kunt gebruiken wanneer je je apparaat kwijtraakt. Het wachtwoord verleent toegang tot het op afstand uitvoeren van opdrachten op je apparaat. De serverbeheerder heeft geen toegang tot je wachtwoord en kan dit niet opnieuw instellen.</string>
+    <string name="allowlist_invalid_number">Dit telefoonnummer is ongeldig!</string>
 </resources>
