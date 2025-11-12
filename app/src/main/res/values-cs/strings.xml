@@ -268,4 +268,5 @@
     <string name="setup_recommendations_title">Doporučení</string>
     <string name="Settings_FMDServer_Push_Open_Help">Další informace o zprávách push</string>
     <string name="server_password_hint">Zvolte si heslo, které nelze uhodnout, ale které můžete obnovit, pokud zařízení ztratíte. Heslo umožňuje vzdálený přístup k příkazům spouštěným na vašem zařízení. Správce serveru nemá přístup k vašemu heslu ani jej nemůže resetovat.</string>
+    <string name="allowlist_invalid_number">Toto telefonní číslo je neplatné!</string>
 </resources>
