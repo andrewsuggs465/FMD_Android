@@ -279,4 +279,5 @@
     <string name="setup_recommendations_title">Recommandations</string>
     <string name="Settings_FMDServer_Push_Open_Help">Plus d\'informations sur les publications</string>
     <string name="server_password_hint">Choisissez un mot de passe qui ne puisse pas être deviné mais dont vous pourrez vous rappeler si vous perdez votre téléphone. Le mot de passe donne accès au lancement de commande à distance sur votre appareil. L\'administrateur du serveur ne peut pas accéder à votre mot de passe ou le réinitialiser.</string>
+    <string name="allowlist_invalid_number">Ce numéro de téléphone est invalide !</string>
 </resources>
