@@ -277,4 +277,5 @@
     <string name="setup_recommendations_title">Рекомендації</string>
     <string name="Settings_FMDServer_Push_Open_Help">Більше інформації про push-повідомлення</string>
     <string name="server_password_hint">Виберіть пароль, який неможливо вгадати, але який ви зможете відновити у разі втрати пристрою. Пароль надає доступ до віддаленого виконання команд на вашому пристрої. Адміністратор сервера не може отримати доступ до вашого пароля або скинути його.</string>
+    <string name="allowlist_invalid_number">Цей номер телефону недійсний!</string>
 </resources>
