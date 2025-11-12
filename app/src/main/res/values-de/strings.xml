@@ -297,4 +297,5 @@
     <string name="setup_recommendations_title">Empfehlungen</string>
     <string name="Settings_FMDServer_Push_Open_Help">Mehr Informationen zu Push</string>
     <string name="server_password_hint">Wähle ein Passwort das nicht erraten werden kann, aber dass du wiederherstellen kannst wenn du dein Gerät verlierst. Das Passwort gewährt Zugriff darauf, aus der Ferne Befehle auf deinem Gerät ausführen zu dürfen. Der Server Administrator kann das Passwort nicht sehen oder es zurücksetzen.</string>
+    <string name="allowlist_invalid_number">Diese Telefonnummer ist ungültig!</string>
 </resources>
