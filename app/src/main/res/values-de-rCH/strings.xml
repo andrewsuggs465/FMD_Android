@@ -36,7 +36,7 @@
     <string name="server_version_error_low_version">Es brucht mindestens Server-Version {MIN}, aber de usgwählti Server het Version {CURRENT}. Mach uf eigeni Gfahr wiiter.</string>
     <string name="Settings_FMDServer_AddAccount">FMD Server: Iilogge</string>
     <string name="Settings_FMDServer_open_website">FMD Server Websiite öffne</string>
-    <string name="Settings_FMDServer_use_default_server">De öffentlichi Server vo Nulide bruche</string>
+    <string name="Settings_FMDServer_use_default_server">De öffentlich Server bruche</string>
     <string name="Settings_FMDServer_Server_Url">Server-URL</string>
     <string name="Settings_FMDServer_Login">Iilogge</string>
     <string name="Settings_FMDServer_Register">Registriere</string>
@@ -279,4 +279,6 @@
     <string name="cmd_locate_response_beacondb_failed">Fähler bim Finde vom Standort mit BeaconDB. Das chan passiere wenn de Mobilfunkmast nöd ide Datebank isch.\n\nBitte probier de folgendi Link: %s</string>
     <string name="cmd_ringermode_description_long">Bis dir bewusst, dass \"silent\" au de \"Bitte nöd störe\" Modus aktiviert. Das isch erwartets Verhalte und so vo Android definiert.</string>
     <string name="setup_recommendations_title">Empfehlige</string>
+    <string name="pin_min_length">D PIN muess mindestens 8 Zeiche lang sii. 16 oder meh sind empfohle.</string>
+    <string name="password_min_length">S Passwort muess mindestens 8 Zeiche lang sii. 16 oder meh sind empfohle.</string>
 </resources>
