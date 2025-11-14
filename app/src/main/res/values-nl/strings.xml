@@ -123,7 +123,7 @@
     <string name="Settings_FMDServer_Error_id_or_pw_empty">De FMD-ID en het wachtwoord mogen niet leeg zijn.</string>
     <string name="server_version_error_low_version">Minimale server-versie {MIN} is vereist, maar de geselecteerde server heeft versie {CURRENT}. Doorgaan is op eigen risico.</string>
     <string name="Settings_FMDServer_open_website">FMD Server-website openen</string>
-    <string name="Settings_FMDServer_use_default_server">Nulide\'s publieke server gebruiken</string>
+    <string name="Settings_FMDServer_use_default_server">De publieke server gebruiken</string>
     <string name="Settings_FMDServer_Login">Inloggen</string>
     <string name="password">Wachtwoord</string>
     <string name="Settings_FMDServer_Register">Registreren</string>
@@ -269,4 +269,6 @@
     <string name="Settings_FMDServer_Push_Open_Help">Meer informatie over push</string>
     <string name="server_password_hint">Kies een wachtwoord dat niet geraden kan worden, maar dat je wel kunt gebruiken wanneer je je apparaat kwijtraakt. Het wachtwoord verleent toegang tot het op afstand uitvoeren van opdrachten op je apparaat. De serverbeheerder heeft geen toegang tot je wachtwoord en kan dit niet opnieuw instellen.</string>
     <string name="allowlist_invalid_number">Dit telefoonnummer is ongeldig!</string>
+    <string name="pin_min_length">De pincode moet minimaal 8 tekens lang zijn. 16 of meer wordt aangeraden.</string>
+    <string name="password_min_length">Het wachtwoord moet minimaal 8 tekens lang zijn. 16 of meer wordt aangeraden.</string>
 </resources>
