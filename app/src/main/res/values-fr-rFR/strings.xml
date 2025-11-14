@@ -67,7 +67,7 @@
     <string name="notify_crypto_update_title">Action requise</string>
     <string name="Settings_FMD_Server_User_ID">Identifiant utilisateur :</string>
     <string name="about_wiki">Wiki</string>
-    <string name="Settings_FMDServer_use_default_server">Utiliser le serveur public de Nulide</string>
+    <string name="Settings_FMDServer_use_default_server">Utiliser le serveur public</string>
     <string name="copied">Copié</string>
     <string name="pin_repeat">Répétez le code PIN</string>
     <string name="Settings_Logs">Journaux</string>
@@ -280,4 +280,6 @@
     <string name="Settings_FMDServer_Push_Open_Help">Plus d\'informations sur les publications</string>
     <string name="server_password_hint">Choisissez un mot de passe qui ne puisse pas être deviné mais dont vous pourrez vous rappeler si vous perdez votre téléphone. Le mot de passe donne accès au lancement de commande à distance sur votre appareil. L\'administrateur du serveur ne peut pas accéder à votre mot de passe ou le réinitialiser.</string>
     <string name="allowlist_invalid_number">Ce numéro de téléphone est invalide !</string>
+    <string name="pin_min_length">Le code PIN doit contenir au moins 8 caractères. Il est recommandé d\'en avoir 16 ou plus.</string>
+    <string name="password_min_length">Le mot de passe doit faire au moins 8 caractères. Il est recommandé d\'en avoir 16 ou plus.</string>
 </resources>
