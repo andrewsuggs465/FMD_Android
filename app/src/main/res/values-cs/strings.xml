@@ -47,7 +47,7 @@
     <string name="password_new">Nové heslo</string>
     <string name="server_version">Verze serveru</string>
     <string name="Settings_FMDServer_AddAccount">Server FMD: přihlášení</string>
-    <string name="Settings_FMDServer_use_default_server">Použít veřejný server Nulide</string>
+    <string name="Settings_FMDServer_use_default_server">Použít veřejný server</string>
     <string name="password">Heslo</string>
     <string name="registration_token">Registrační token</string>
     <string name="Whitelist_help">Kontakty v tomto seznamu mohou posílat příkazy FMD pomocí SMS. Příkazy od všech ostatních budou ignorovány.</string>
@@ -269,4 +269,6 @@
     <string name="Settings_FMDServer_Push_Open_Help">Další informace o zprávách push</string>
     <string name="server_password_hint">Zvolte si heslo, které nelze uhodnout, ale které můžete obnovit, pokud zařízení ztratíte. Heslo umožňuje vzdálený přístup k příkazům spouštěným na vašem zařízení. Správce serveru nemá přístup k vašemu heslu ani jej nemůže resetovat.</string>
     <string name="allowlist_invalid_number">Toto telefonní číslo je neplatné!</string>
+    <string name="pin_min_length">PIN musí mít alespoň 8 znaků. Je doporučeno 16 nebo více.</string>
+    <string name="password_min_length">Heslo musí mít alespoň 8 znaků. Je doporučeno 16 nebo více.</string>
 </resources>
