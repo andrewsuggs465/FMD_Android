@@ -48,7 +48,7 @@
     <string name="Settings_FMDCommand_Description">Команда для зв\'язку з FMD.</string>
     <string name="Settings_FMD_via_Pin_Description">Дозволяє зв’язуватися з FMD за допомогою PIN-коду. Це дозволяє надсилати команди з номера телефону, якого немає у списку дозволених контактів.</string>
     <string name="Settings_Ringer_Tone_Description">Виберіть мелодію, яка буде відтворюватися при надсиланні дзвінка пошуку пристрою.</string>
-    <string name="Settings_FMDServer_use_default_server">Використовуйте публічний сервер Nulide</string>
+    <string name="Settings_FMDServer_use_default_server">Використовуйте публічний сервер</string>
     <string name="Settings_FMDServer_Location_Type_Description">Джерело(-а), з якого(-их) дані про місцезнаходження завантажуються у фоновому режимі через певні проміжки часу.
 \nЯкщо не вибрано жодного, дані про місцезнаходження не будуть регулярно завантажуватися. (Ви все ще можете використовувати вебінтерфейс, щоб примусово завантажувати дані. Для цього потрібно натиснути кнопку.)</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Завантажувати місцезнаходження цього пристрою, коли рівень заряду батареї низький. Для цього потрібен доступ до сповіщень.</string>
@@ -278,4 +278,6 @@
     <string name="Settings_FMDServer_Push_Open_Help">Більше інформації про push-повідомлення</string>
     <string name="server_password_hint">Виберіть пароль, який неможливо вгадати, але який ви зможете відновити у разі втрати пристрою. Пароль надає доступ до віддаленого виконання команд на вашому пристрої. Адміністратор сервера не може отримати доступ до вашого пароля або скинути його.</string>
     <string name="allowlist_invalid_number">Цей номер телефону недійсний!</string>
+    <string name="pin_min_length">PIN-код має містити щонайменше 8 символів. Рекомендовано 16 або більше.</string>
+    <string name="password_min_length">Пароль має містити щонайменше 8 символів. Рекомендовано 16 або більше.</string>
 </resources>
