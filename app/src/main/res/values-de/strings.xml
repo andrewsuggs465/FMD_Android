@@ -49,7 +49,7 @@
     <string name="Settings_FMDServer_AddAccount">FMD Server: Einloggen/Registrieren</string>
     <string name="Settings_FMDServer_Info">Mit FMD Server kannst du Befehle über das Internet vom Server an die App schicken. Außerdem kannst du den Gerätestandort auf der Karte verfolgen oder Bilder, die das Gerät aufgenommen hat, ansehen. Für eine Anleitung zum Selbsthosten, siehe Webseite.</string>
     <string name="Settings_FMDServer_open_website">FMD Server Webseite öffnen</string>
-    <string name="Settings_FMDServer_use_default_server">Nulides öffentlichen Server benutzen</string>
+    <string name="Settings_FMDServer_use_default_server">Öffentlichen Server benutzen</string>
     <string name="Settings_FMDServer_Login">Einloggen</string>
     <string name="Settings_FMDServer_Register">Registrieren</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Datenschutzbestimmungen</string>
@@ -298,4 +298,6 @@
     <string name="Settings_FMDServer_Push_Open_Help">Mehr Informationen zu Push</string>
     <string name="server_password_hint">Wähle ein Passwort das nicht erraten werden kann, aber dass du wiederherstellen kannst wenn du dein Gerät verlierst. Das Passwort gewährt Zugriff darauf, aus der Ferne Befehle auf deinem Gerät ausführen zu dürfen. Der Server Administrator kann das Passwort nicht sehen oder es zurücksetzen.</string>
     <string name="allowlist_invalid_number">Diese Telefonnummer ist ungültig!</string>
+    <string name="pin_min_length">Die PIN muss mindestens 8 Zeichen lang sein. Es werden 16 oder mehr Zeichen empfohlen.</string>
+    <string name="password_min_length">Das Passwort muss mindestens 8 Zeichen lang sein. Es werden 16 oder mehr Zeichen empfohlen.</string>
 </resources>
