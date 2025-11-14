@@ -27,7 +27,7 @@
     <string name="Settings_FMDServer_AddAccount">FMD Server: Entrar</string>
     <string name="Settings_FMDServer_open_website">Abrir site do FMD Server</string>
     <string name="Settings_FMDServer_Server_Url">URL do servidor</string>
-    <string name="Settings_FMDServer_use_default_server">Usar o servidor público do Nulide</string>
+    <string name="Settings_FMDServer_use_default_server">Usar o servidor público</string>
     <string name="Settings_FMDServer_Login">Entrar</string>
     <string name="Settings_FMDServer_Register">Cadastrar-se</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Política de privacidade</string>
@@ -269,4 +269,6 @@
     <string name="Settings_FMDServer_Push_Open_Help">Mais informações sobre o push</string>
     <string name="server_password_hint">Escolha uma senha que não pode ser adivinhada, mas que você consiga recuperar ao perder seu dispositivo. A senha dá acesso ao envio remoto de comandos no seu dispositivo. O administrador do servidor não consegue acessar ou redefinir sua senha.</string>
     <string name="allowlist_invalid_number">Este número de telefone é invalido!</string>
+    <string name="pin_min_length">O PIN deve ter menos 8 caracteres. São recomendados 16 ou mais.</string>
+    <string name="password_min_length">A senha tem que ter pelo menos 8 caracteres. São recomendados 16 ou mais.</string>
 </resources>
