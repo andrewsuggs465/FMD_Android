@@ -282,4 +282,8 @@
     <string name="cmd_ringermode_description_long">Upoštevajte, da »tihi« način omogoči tudi način »Ne moti«. To je pričakovano vedenje, ki ga določa Android.</string>
     <string name="setup_recommendations_title">Priporočila</string>
     <string name="server_password_hint">Izberite geslo, ki ga ni mogoče uganiti, vendar ga lahko obnovite, če izgubite napravo. Geslo omogoča dostop do oddaljenega izvajanja ukazov v vaši napravi. Skrbnik strežnika ne more dostopati do vašega gesla ali ga ponastaviti.</string>
+    <string name="password_min_length">Geslo mora biti dolgo vsaj 8 znakov. Priporočljivo je uporabiti 16 znakov ali več.</string>
+    <string name="pin_min_length">PIN mora biti dolg vsaj 8 znakov. Priporočljivo je uporabiti 16 znakov ali več.</string>
+    <string name="Settings_FMDServer_Push_Open_Help">Več informacij o potisnih sporočilih</string>
+    <string name="allowlist_invalid_number">Ta telefonska številka ni veljavna!</string>
 </resources>
