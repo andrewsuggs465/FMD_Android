@@ -39,6 +39,8 @@ class UncaughtExceptionHandler(
 
         report.appendLine("--------- Stack trace ---------")
         report.appendLine()
+        report.appendLine(e.toString())
+        report.appendLine()
         for (ele in e.stackTrace) {
             report.appendLine(ele.toString())
         }
