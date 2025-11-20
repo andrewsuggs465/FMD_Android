@@ -15,8 +15,8 @@ Uso:
 Você pode controlar o FMD (portanto seu dispositivo) pelo SMS ou pelo FMD Server.
 Você pode enviar um comando ao dispositivo (ex: "fmd ring") e o dispositivo o executará.
 
-Com o SMS, você pode definir uma lista de contatos confiáveis (números de telefone) que poderão executar comandos.
-Ou você pode definir um PIN, para uso anônimo.
+Com o SMS, você pode configurar uma lista de contatos confiáveis (números de telefone) que poderão executar comandos.
+Ou você pode configurar um PIN, para uso anônimo.
 Deste modo, números de telefone que não são confiáveis podem enviar comandos ao incluir o PIN na mensagem.
 Isso é útil porque se você perder seu telefone, você pode pedir ajuda para uma pessoa aleatória para apagar seu dispositivo remotamente.
 Se você simplesmente enviar a mensagem "fmd" para o seu dispositivo, o FMD responderá com uma mensagem que lista os comandos disponíveis.
