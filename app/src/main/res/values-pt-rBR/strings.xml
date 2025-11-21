@@ -231,7 +231,7 @@
     <string name="appearance_theme_light">Claro</string>
     <string name="Settings_FMDServer_Logout_Text">Você quer realmente sair da sua conta do FMD Server?</string>
     <string name="server_version_upgrade_required_title">Atualização do FMD Server necessária</string>
-    <string name="server_version_upgrade_required_text">O FMD Server que você está usando está na versão {CURRENT}, mas o app requer que esteja no mínimo na {MIN}. Pode ser que controlar seu dispositivo pelo FMD Server não funcione mais. Por favor atualize seu servidor.</string>
+    <string name="server_version_upgrade_required_text">O FMD Server que você está usando está na versão {CURRENT}, mas o app requer que esteja no mínimo na {MIN}. Pode ser que controlar seu dispositivo pelo FMD Server não funcione mais. Atualize seu servidor.</string>
     <string name="crashed_title">Relatório de falha</string>
     <string name="log_view_clear_confirm">Você quer mesmo apagar todos os itens dos registros?</string>
     <string name="log_view_clear">Limpar registros</string>
@@ -253,9 +253,9 @@
     <string name="Settings_FMDServer_Push_Description">Para enviar comandos do FMD Server, seu dispositivo precisa de um app distribuidor UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Register_Again">Cadastrar novamente</string>
     <string name="Settings_Pin_Not_Backed_Up">Alerta: O PIN não é incluso no backup de apps.</string>
-    <string name="allowlist_reset_text">Devido à uma falha, os contatos permitidos foram redefinidos. Por favor, os configure novamente.</string>
-    <string name="allowlist_reset_title">Redefinição dos contatos permitidos</string>
-    <string name="update_pin_hash_change_text">O PIN do FMD foi redefinido durante uma atualização do app. Para continuar usando o FMD com um PIN, por favor, configure o PIN novamente.</string>
+    <string name="allowlist_reset_text">Devido à uma falha, os contatos permitidos foram reconfigurados. Configure-os novamente.</string>
+    <string name="allowlist_reset_title">Reconfiguração dos contatos permitidos</string>
+    <string name="update_pin_hash_change_text">O PIN do FMD foi reconfigurado durante uma atualização do app. Para continuar usando o FMD com um PIN, configure o PIN novamente.</string>
     <string name="cmd_ringermode_description_short">Mudar o modo de toque</string>
     <string name="cmd_ringermode_response_empty">O modo de toque atual é \"%s\".</string>
     <string name="cmd_ringermode_response">O modo de toque foi alterado de \"%1$s\" (antigo) para \"%2$s\" (novo).</string>
@@ -264,10 +264,10 @@
     <string name="server_connectivity_check_not_enabled_title">Ativar a verificação de conectividade ao servidor</string>
     <string name="server_connectivity_check_not_enabled_text">O FMD pode verificar periodicamente se o FMD Server está acessível. Por motivos de privacidade, isto está desativado por padrão. Mas por motivos de disponibilidade, recomendamos ativá-lo.</string>
     <string name="cmd_locate_response_beacondb_failed">Erro ao receber localização pelo BeaconDB. Isto pode acontecer se a rede móvel não está no banco de dados.\n\n%s</string>
-    <string name="cmd_ringermode_description_long">Observe que o \"silencioso\" também ativa o modo Não Perturbe. Isto é comportamento esperado e é definido pelo Android.</string>
+    <string name="cmd_ringermode_description_long">Observe que o \"silencioso\" também ativa o modo Não Perturbe. Isto é comportamento esperado e é configurado pelo Android.</string>
     <string name="setup_recommendations_title">Recomendações</string>
     <string name="Settings_FMDServer_Push_Open_Help">Mais informações sobre o push</string>
-    <string name="server_password_hint">Escolha uma senha que não pode ser adivinhada, mas que você consiga recuperar ao perder seu dispositivo. A senha dá acesso ao envio remoto de comandos no seu dispositivo. O administrador do servidor não consegue acessar ou redefinir sua senha.</string>
+    <string name="server_password_hint">Escolha uma senha que não pode ser adivinhada, mas que você consiga recuperar ao perder seu dispositivo. A senha dá acesso ao envio remoto de comandos no seu dispositivo. O administrador do servidor não consegue acessar ou reconfigurar sua senha.</string>
     <string name="allowlist_invalid_number">Este número de telefone é invalido!</string>
     <string name="pin_min_length">O PIN deve ter menos 8 caracteres. São recomendados 16 ou mais.</string>
     <string name="password_min_length">A senha tem que ter pelo menos 8 caracteres. São recomendados 16 ou mais.</string>
