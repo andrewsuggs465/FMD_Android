@@ -28,6 +28,7 @@ import de.nulide.findmydevice.ui.home.CommandListFragment;
 import de.nulide.findmydevice.ui.home.TransportListFragment;
 import de.nulide.findmydevice.ui.onboarding.UpdateboardingModernCryptoActivity;
 import de.nulide.findmydevice.ui.settings.SettingsFragment;
+import de.nulide.findmydevice.warnings.PushWarningsKt;
 import kotlin.Unit;
 
 
@@ -113,6 +114,9 @@ public class MainActivity extends FmdActivity {
         if (settings.serverAccountExists()) {
             checkServerVersion();
             ServerCommandDownloadService.scheduleJobNow(this);
+        }
+        if (PushWarningsKt.shouldWarnUnifiedPushRequired(this)) {
+            PushWarningsKt.dialogWarnUnifiedPushRequired(this);
         }
     }
 

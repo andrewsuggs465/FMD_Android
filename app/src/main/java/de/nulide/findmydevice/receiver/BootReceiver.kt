@@ -11,6 +11,8 @@ import de.nulide.findmydevice.services.ServerLocationUploadService
 import de.nulide.findmydevice.services.ServerVersionCheckService
 import de.nulide.findmydevice.services.TempContactExpiredService
 import de.nulide.findmydevice.utils.log
+import de.nulide.findmydevice.warnings.shouldWarnUnifiedPushRequired
+import de.nulide.findmydevice.warnings.notifyWarnUnifiedPushRequired
 
 
 class BootReceiver : BroadcastReceiver() {
@@ -39,6 +41,9 @@ class BootReceiver : BroadcastReceiver() {
                 ServerLocationUploadService.scheduleRecurring(context)
                 ServerConnectivityCheckService.scheduleJob(context);
                 ServerVersionCheckService.scheduleJobNow(context)
+            }
+            if (shouldWarnUnifiedPushRequired(context)) {
+                notifyWarnUnifiedPushRequired(context)
             }
         }
     }

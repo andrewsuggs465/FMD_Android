@@ -11,6 +11,8 @@ import de.nulide.findmydevice.services.TempContactExpiredService
 import de.nulide.findmydevice.ui.onboarding.PinUpdate
 import de.nulide.findmydevice.ui.onboarding.UpdateboardingModernCryptoActivity
 import de.nulide.findmydevice.utils.log
+import de.nulide.findmydevice.warnings.shouldWarnUnifiedPushRequired
+import de.nulide.findmydevice.warnings.notifyWarnUnifiedPushRequired
 
 
 class AppUpdatedReceiver : BroadcastReceiver() {
@@ -36,6 +38,9 @@ class AppUpdatedReceiver : BroadcastReceiver() {
                 ServerConnectivityCheckService.scheduleJob(context)
                 ServerVersionCheckService.scheduleJobNow(context)
                 ServerConnectivityCheckService.notifyAboutConnectivityCheck(context)
+            }
+            if (shouldWarnUnifiedPushRequired(context)){
+                notifyWarnUnifiedPushRequired(context)
             }
         }
     }

@@ -11,6 +11,7 @@ import de.nulide.findmydevice.services.ServerConnectivityCheckService
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeAppBar
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeScrollView
 import de.nulide.findmydevice.ui.settings.FMDServerActivity
+import de.nulide.findmydevice.warnings.shouldWarnUnifiedPushRequired
 
 
 class SetupWarningsActivity : FmdActivity() {
@@ -33,6 +34,7 @@ class SetupWarningsActivity : FmdActivity() {
         // For simplicity, we always show all warnings/recommendations.
         // Easier for developers (no big if-else tree), and
         // more transparent for users (why did this suddenly disappear?).
+        setupRecommPush(this)
         setupRecommConnectivity(this)
         setupPermissionsList(
             this,
@@ -40,6 +42,18 @@ class SetupWarningsActivity : FmdActivity() {
             viewBinding.permissionsRequiredList,
             globalAppPermissions()
         )
+    }
+
+    private fun setupRecommPush(context: Context) {
+        val shouldNudge = shouldWarnUnifiedPushRequired(context)
+
+        viewBinding.push.icCheck.isVisible = !shouldNudge
+        viewBinding.push.button.isVisible = shouldNudge
+
+        viewBinding.push.button.setOnClickListener {
+            val intent = Intent(this, FMDServerActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setupRecommConnectivity(context: Context) {
