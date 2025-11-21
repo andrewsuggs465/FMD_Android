@@ -83,6 +83,8 @@
     <string name="Settings_FMDServer_Push_Open_Help">More information about push</string>
     <string name="Settings_FMDServer_Push_Register">Register</string>
     <string name="Settings_FMDServer_Push_Register_Again">Register again</string>
+    <string name="Settings_FMDServer_Push_Install_Sunup">Install Sunup</string>
+    <string name="Settings_FMDServer_Push_Info_Sunup">The recommended UnifiedPush distributor app is Sunup. Sunup is easy set up and uses push servers from Mozilla.</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Connectivity check interval</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD checks the connectivity to FMD Server every X hours. Set this to 0 to disable the connectivity check.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Maximum allowed time without connectivity</string>

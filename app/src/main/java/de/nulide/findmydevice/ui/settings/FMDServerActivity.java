@@ -90,6 +90,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         findViewById(R.id.buttonOpenPushDistributor).setOnClickListener(this::onOpenPushDistributorClicked);
         findViewById(R.id.buttonCopyPushDistributor).setOnClickListener(this::onCopyPushDistributorClicked);
         findViewById(R.id.buttonCopyPushUrl).setOnClickListener(this::onCopyPushUrlClicked);
+        findViewById(R.id.buttonInstallSunup).setOnClickListener(this::onInstallSunupClicked);
         findViewById(R.id.buttonRegisterPush).setOnClickListener(this::onRegisterPushClicked);
         findViewById(R.id.buttonOpenUnifiedPush).setOnClickListener(this::onOpenUnifiedPushClicked);
 
@@ -318,6 +319,10 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         Utils.openUrl(this, "https://fmd-foss.org/docs/fmd-android/push");
     }
 
+    private void onInstallSunupClicked(View view) {
+        Utils.openUrl(this, "https://f-droid.org/en/packages/org.unifiedpush.distributor.sunup");
+    }
+
     private void runChangePassword(String oldPassword, String password) {
         showLoadingIndicator(this);
         // do expensive async crypto and hashing in a background thread (not on the UI thread)
@@ -420,6 +425,9 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         TextView textPushUrl = findViewById(R.id.textPushUrl);
         Button buttonRegister = findViewById(R.id.buttonRegisterPush);
 
+        TextView textInfoSunup = findViewById(R.id.textInfoSunup);
+        Button buttonInstallSunup = findViewById(R.id.buttonInstallSunup);
+
         String distributor = UnifiedPush.getDistributor(this);
         if (!distributor.isEmpty()) {
             sectionPushDistributor.setVisibility(View.VISIBLE);
@@ -429,10 +437,16 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
             String url = (String) settings.get(Settings.SET_FMDSERVER_PUSH_URL);
             textPushUrl.setText(getString(R.string.Settings_FMDServer_Push_Url, url));
 
+            textInfoSunup.setVisibility(View.GONE);
+            buttonInstallSunup.setVisibility(View.GONE);
+
             buttonRegister.setText(R.string.Settings_FMDServer_Push_Register_Again);
         } else {
             sectionPushDistributor.setVisibility(View.GONE);
             sectionPushUrl.setVisibility(View.GONE);
+
+            textInfoSunup.setVisibility(View.VISIBLE);
+            buttonInstallSunup.setVisibility(View.VISIBLE);
 
             buttonRegister.setText(R.string.Settings_FMDServer_Push_Register);
         }

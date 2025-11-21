@@ -76,6 +76,24 @@
             android:src="@drawable/ic_content_copy" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/textInfoSunup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:text="@string/Settings_FMDServer_Push_Info_Sunup" />
+
+    <Button
+        android:id="@+id/buttonInstallSunup"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:ems="10"
+        android:text="@string/Settings_FMDServer_Push_Install_Sunup" />
+
     <Button
         android:id="@+id/buttonRegisterPush"
         style="?attr/materialButtonOutlinedStyle"
