@@ -234,8 +234,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_small"
                 android:text="@string/Settings_FMDServer_Update_Interval_Description" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@string/Settings_FMDServer_Update_Interval_Description_Constraint" />
 
             <EditText
                 android:id="@+id/editTextFMDServerUpdateTime"
