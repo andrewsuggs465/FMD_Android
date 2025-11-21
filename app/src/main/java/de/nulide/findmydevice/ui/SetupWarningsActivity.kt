@@ -3,7 +3,7 @@ package de.nulide.findmydevice.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import androidx.core.view.isVisible
 import de.nulide.findmydevice.databinding.ActivitySetupWarningsBinding
 import de.nulide.findmydevice.permissions.globalAppPermissions
 import de.nulide.findmydevice.permissions.isMissingGlobalAppPermission
@@ -33,7 +33,7 @@ class SetupWarningsActivity : FmdActivity() {
         // For simplicity, we always show all warnings/recommendations.
         // Easier for developers (no big if-else tree), and
         // more transparent for users (why did this suddenly disappear?).
-        setupRecommendations(this)
+        setupRecommConnectivity(this)
         setupPermissionsList(
             this,
             viewBinding.permissionsRequiredTitle,
@@ -42,20 +42,16 @@ class SetupWarningsActivity : FmdActivity() {
         )
     }
 
-    private fun setupRecommendations(context: Context) {
-        val showConnCheck =
+    private fun setupRecommConnectivity(context: Context) {
+        val shouldNudge =
             ServerConnectivityCheckService.shouldNudgeAboutConnectivityCheck(context)
 
-        if (showConnCheck) {
-            viewBinding.recommendationConnCheckEnableButton.visibility = View.VISIBLE
-            viewBinding.recommendationConnCheckEnableButton.setOnClickListener {
-                val intent = Intent(this, FMDServerActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.icCheck.visibility = View.GONE
-        } else {
-            viewBinding.recommendationConnCheckEnableButton.visibility = View.GONE
-            viewBinding.icCheck.visibility = View.VISIBLE
+        viewBinding.connectivity.icCheck.isVisible = !shouldNudge
+        viewBinding.connectivity.recommendationConnCheckEnableButton.isVisible = shouldNudge
+
+        viewBinding.connectivity.recommendationConnCheckEnableButton.setOnClickListener {
+            val intent = Intent(this, FMDServerActivity::class.java)
+            startActivity(intent)
         }
     }
 }
