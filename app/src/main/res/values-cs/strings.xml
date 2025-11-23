@@ -271,4 +271,9 @@
     <string name="allowlist_invalid_number">Toto telefonní číslo je neplatné!</string>
     <string name="pin_min_length">PIN musí mít alespoň 8 znaků. Je doporučeno 16 nebo více.</string>
     <string name="password_min_length">Heslo musí mít alespoň 8 znaků. Je doporučeno 16 nebo více.</string>
+    <string name="Settings_FMDServer_Push_Install_Sunup">Nainstalovat Sunup</string>
+    <string name="Settings_FMDServer_Push_Info_Sunup">Doporučená distribuční aplikace UnifiedPush je Sunup. Sunup je jednoduchý na nastavení a používá doručovací servery organizace Mozilla.</string>
+    <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Hodnoty pod 15 minut nejsou doporučeny.</string>
+    <string name="missing_push_title">Chybějící UnifiedPush</string>
+    <string name="missing_push_description">Bez distribuční aplikace UnifiedPush nemůžete přijímat příkazy ze serveru FMD.</string>
 </resources>
