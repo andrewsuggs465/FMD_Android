@@ -34,7 +34,7 @@
     <string name="server_version_error">Napaka pri pridobivanju različice strežnika</string>
     <string name="Settings_FMDServer_AddAccount">FMD strežnik: Prijava</string>
     <string name="Settings_FMDServer_open_website">Odpri spletno stran FMD strežnika</string>
-    <string name="Settings_FMDServer_use_default_server">Uporabi Nulide-jev javni strežnik</string>
+    <string name="Settings_FMDServer_use_default_server">Uporabi javni strežnik</string>
     <string name="Settings_FMDServer_Login">Prijava</string>
     <string name="Settings_FMDServer_Register">Registracija</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Politika zasebnosti</string>
@@ -286,4 +286,9 @@
     <string name="pin_min_length">PIN mora biti dolg vsaj 8 znakov. Priporočljivo je uporabiti 16 znakov ali več.</string>
     <string name="Settings_FMDServer_Push_Open_Help">Več informacij o potisnih sporočilih</string>
     <string name="allowlist_invalid_number">Ta telefonska številka ni veljavna!</string>
+    <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Vrednosti pod 15 minutami niso priporočljive.</string>
+    <string name="Settings_FMDServer_Push_Install_Sunup">Namesti Sunup</string>
+    <string name="Settings_FMDServer_Push_Info_Sunup">Priporočena aplikacija za UnifiedPush potisna sporočila je Sunup. Sunup je enostaven za namestitev in uporablja potisne strežnike Mozille.</string>
+    <string name="missing_push_title">Manjka UnifiedPush</string>
+    <string name="missing_push_description">Brez aplikacije za distribucijo potisnih sporočil UnifiedPush ne morete prejemati ukazov iz strežnika FMD.</string>
 </resources>
