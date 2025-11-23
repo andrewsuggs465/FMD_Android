@@ -280,4 +280,9 @@
     <string name="allowlist_invalid_number">Цей номер телефону недійсний!</string>
     <string name="pin_min_length">PIN-код має містити щонайменше 8 символів. Рекомендовано 16 або більше.</string>
     <string name="password_min_length">Пароль має містити щонайменше 8 символів. Рекомендовано 16 або більше.</string>
+    <string name="Settings_FMDServer_Push_Install_Sunup">Встановити Sunup</string>
+    <string name="Settings_FMDServer_Push_Info_Sunup">Рекомендованим дистриб\'ютором UnifiedPush є Sunup. Sunup легко налаштовується та використовує push-сервери від Mozilla.</string>
+    <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Значення нижче 15 хвилин не рекомендуються.</string>
+    <string name="missing_push_title">Відсутній UnifiedPush</string>
+    <string name="missing_push_description">Без дистриб\'юторського застосунку UnifiedPush ви не можете отримувати команди від FMD Server.</string>
 </resources>
