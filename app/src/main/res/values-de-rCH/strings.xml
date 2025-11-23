@@ -281,4 +281,9 @@
     <string name="setup_recommendations_title">Empfehlige</string>
     <string name="pin_min_length">D PIN muess mindestens 8 Zeiche lang sii. 16 oder meh sind empfohle.</string>
     <string name="password_min_length">S Passwort muess mindestens 8 Zeiche lang sii. 16 oder meh sind empfohle.</string>
+    <string name="Settings_FMDServer_Push_Install_Sunup">Sunup installiere</string>
+    <string name="Settings_FMDServer_Push_Info_Sunup">Di empfohleni UnifiedPush-Verteiler-App isch Sunup. Sunup isch eifach iizrichte und brucht Push Server vo Mozilla.</string>
+    <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Wert under 15 Minute werdet nöd empfohle.</string>
+    <string name="missing_push_title">UnifiedPush fählt</string>
+    <string name="missing_push_description">Ohni en UnifiedPush-Verteiler-App chasch kei Befehl vo FMD Server empfange.</string>
 </resources>
