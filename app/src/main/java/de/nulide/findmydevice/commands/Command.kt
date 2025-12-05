@@ -6,10 +6,8 @@ import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.permissions.Permission
-import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.log
-import kotlinx.coroutines.CoroutineScope
 
 
 abstract class Command(val context: Context) {
@@ -38,11 +36,9 @@ abstract class Command(val context: Context) {
         return requiredPermissions.filter { p -> !p.isGranted(context) }
     }
 
-    fun <T> execute(
+    suspend fun <T> execute(
         args: List<String>,
         transport: Transport<T>,
-        coroutineScope: CoroutineScope,
-        job: FmdJobService?,
     ) {
         val missing = missingRequiredPermissions()
         if (missing.isNotEmpty()) {
@@ -53,18 +49,20 @@ abstract class Command(val context: Context) {
             )
             context.log().w(TAG, msg)
             transport.send(context, msg)
-            job?.jobFinished()
             return
         }
+
         // Continue executing command.
         // The concrete classes should implement executeInternal.
-        executeInternal(args, transport, coroutineScope, job)
+        //
+        // This MUST only return if the command has finished executing!
+        // If you need to wait internally (e.g., for a callback from the OS),
+        // the command should internally use a CompletableDeferred.
+        executeInternal(args, transport)
     }
 
-    internal abstract fun <T> executeInternal(
+    internal abstract suspend fun <T> executeInternal(
         args: List<String>,
         transport: Transport<T>,
-        coroutineScope: CoroutineScope,
-        job: FmdJobService?,
     )
 }

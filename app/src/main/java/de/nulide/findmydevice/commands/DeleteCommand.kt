@@ -8,13 +8,11 @@ import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.EncryptedSettingsRepository
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.permissions.DeviceAdminPermission
-import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.log
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class DeleteCommand(context: Context) : Command(context) {
@@ -35,17 +33,14 @@ class DeleteCommand(context: Context) : Command(context) {
 
     override val requiredPermissions = listOf(DeviceAdminPermission())
 
-    override fun <T> executeInternal(
+    override suspend fun <T> executeInternal(
         args: List<String>,
         transport: Transport<T>,
-        coroutineScope: CoroutineScope,
-        job: FmdJobService?,
     ) {
         if (!(settings.get(Settings.SET_WIPE_ENABLED) as Boolean)) {
             val msg = context.getString(R.string.cmd_delete_response_disabled)
             context.log().i(TAG, msg)
             transport.send(context, msg)
-            job?.jobFinished()
             return
         }
 
@@ -55,7 +50,6 @@ class DeleteCommand(context: Context) : Command(context) {
             val msg = context.getString(R.string.cmd_delete_response_pwd_missing, fullUsage)
             context.log().i(TAG, msg)
             transport.send(context, msg)
-            job?.jobFinished()
             return
         }
         val pwd = args[0]
@@ -66,7 +60,6 @@ class DeleteCommand(context: Context) : Command(context) {
             val msg = context.getString(R.string.cmd_delete_response_pwd_wrong)
             context.log().i(TAG, msg)
             transport.send(context, msg)
-            job?.jobFinished()
             return
         }
 
@@ -75,11 +68,10 @@ class DeleteCommand(context: Context) : Command(context) {
             val msg = context.getString(R.string.cmd_delete_response_dry_run)
             context.log().i(TAG, msg)
             transport.send(context, msg)
-            job?.jobFinished()
             return
         }
 
-        coroutineScope.launch(Dispatchers.IO) {
+        withContext(Dispatchers.IO) {
             context.log().i(TAG, "Deleting device...")
             transport.send(context, context.getString(R.string.cmd_delete_response_success))
 
@@ -101,8 +93,6 @@ class DeleteCommand(context: Context) : Command(context) {
                 context.log().i(TAG, msg)
                 transport.send(context, msg)
             }
-
-            job?.jobFinished()
         }
     }
 }

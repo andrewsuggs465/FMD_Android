@@ -9,10 +9,8 @@ import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.permissions.DeviceAdminPermission
 import de.nulide.findmydevice.permissions.OverlayPermission
-import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.ui.LockScreenMessage
-import kotlinx.coroutines.CoroutineScope
 
 
 class LockCommand(context: Context) : Command(context) {
@@ -32,11 +30,9 @@ class LockCommand(context: Context) : Command(context) {
 
     override val optionalPermissions = listOf(OverlayPermission())
 
-    override fun <T> executeInternal(
+    override suspend fun <T> executeInternal(
         args: List<String>,
         transport: Transport<T>,
-        coroutineScope: CoroutineScope,
-        job: FmdJobService?,
     ) {
         val devicePolicyManager =
             context.getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
@@ -61,6 +57,5 @@ class LockCommand(context: Context) : Command(context) {
         }
 
         transport.send(context, context.getString(R.string.cmd_lock_response))
-        job?.jobFinished()
     }
 }

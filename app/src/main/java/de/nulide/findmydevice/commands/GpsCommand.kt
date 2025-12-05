@@ -5,10 +5,8 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.permissions.WriteSecureSettingsPermission
-import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.SecureSettings
-import kotlinx.coroutines.CoroutineScope
 
 
 class GpsCommand(context: Context) : Command(context) {
@@ -26,11 +24,9 @@ class GpsCommand(context: Context) : Command(context) {
 
     override val requiredPermissions = listOf(WriteSecureSettingsPermission())
 
-    override fun <T> executeInternal(
+    override suspend fun <T> executeInternal(
         args: List<String>,
         transport: Transport<T>,
-        coroutineScope: CoroutineScope,
-        job: FmdJobService?,
     ) {
         if (args.contains("on")) {
             SecureSettings.turnGPS(context, true)
@@ -39,6 +35,5 @@ class GpsCommand(context: Context) : Command(context) {
             SecureSettings.turnGPS(context, false)
             transport.send(context, context.getString(R.string.cmd_gps_response_off))
         }
-        job?.jobFinished()
     }
 }

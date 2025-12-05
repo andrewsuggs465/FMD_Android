@@ -5,11 +5,9 @@ import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.EncryptedSettingsRepository
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
-import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.Notifications
 import de.nulide.findmydevice.utils.log
-import kotlinx.coroutines.CoroutineScope
 
 
 // Order matters for the home screen
@@ -37,17 +35,10 @@ fun availableCommands(context: Context): List<Command> {
  * mapping it to a Command, and executing the command.
  *
  * Access control is done internally, after parsing the command.
- *
- * @param job
- * An optional FmdJobService that is running this command, and its JobParameters.
- * If this is non-null, the Command should call job.jobFinished() when it is done.
- * (This is like a callback.)
  */
 class CommandHandler<T>
 @JvmOverloads constructor(
     private val transport: Transport<T>,
-    private val coroutineScope: CoroutineScope,
-    private val job: FmdJobService?,
     private val showUsageNotification: Boolean = true,
 ) {
 
@@ -55,7 +46,7 @@ class CommandHandler<T>
      * Parses and executes a command of the form "triggerWord command options", e.g. "fmd locate cell"
      */
     @JvmOverloads
-    fun execute(
+    suspend fun execute(
         context: Context,
         rawCommand: String,
         onHandlingStarted: () -> Unit = {},
@@ -88,11 +79,12 @@ class CommandHandler<T>
                 }
                 // Only call this if we are actually handling the command, and not aborting.
                 onHandlingStarted()
-                parsed.command.execute(parsed.args, transport, coroutineScope, job)
+                parsed.command.execute(parsed.args, transport)
             }
 
             is ParserResult.Empty -> {
                 context.log().w(TAG, "Cannot handle: args is empty.")
+
             }
 
             is ParserResult.TriggerWordMismatch -> {

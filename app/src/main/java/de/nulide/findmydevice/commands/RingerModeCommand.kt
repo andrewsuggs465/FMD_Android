@@ -6,10 +6,8 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.permissions.DoNotDisturbAccessPermission
-import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.log
-import kotlinx.coroutines.CoroutineScope
 
 
 /**
@@ -45,11 +43,9 @@ class RingerModeCommand(context: Context) : Command(context) {
 
     override val requiredPermissions = listOf(DoNotDisturbAccessPermission())
 
-    override fun <T> executeInternal(
+    override suspend fun <T> executeInternal(
         args: List<String>,
         transport: Transport<T>,
-        coroutineScope: CoroutineScope,
-        job: FmdJobService?,
     ) {
         val audioManager = context.getSystemService(AudioManager::class.java)
 
@@ -62,8 +58,6 @@ class RingerModeCommand(context: Context) : Command(context) {
             )
             context.log().i(TAG, msg)
             transport.send(context, msg)
-
-            job?.jobFinished()
             return
         }
 
@@ -86,8 +80,6 @@ class RingerModeCommand(context: Context) : Command(context) {
         )
         context.log().i(TAG, msg)
         transport.send(context, msg)
-
-        job?.jobFinished()
     }
 }
 

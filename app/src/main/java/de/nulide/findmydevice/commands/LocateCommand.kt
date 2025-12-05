@@ -9,13 +9,13 @@ import de.nulide.findmydevice.locationproviders.GpsLocationProvider
 import de.nulide.findmydevice.locationproviders.LocationAutoOnOffHandler
 import de.nulide.findmydevice.permissions.LocationPermission
 import de.nulide.findmydevice.permissions.WriteSecureSettingsPermission
-import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.log
-import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class LocateCommand(context: Context) : Command(context) {
@@ -40,20 +40,17 @@ class LocateCommand(context: Context) : Command(context) {
 
     override val optionalPermissions = listOf(WriteSecureSettingsPermission())
 
-    override fun <T> executeInternal(
+    override suspend fun <T> executeInternal(
         args: List<String>,
         transport: Transport<T>,
-        coroutineScope: CoroutineScope,
-        job: FmdJobService?,
     ) {
         // ignore everything except the first option (if it exists)
         val option = args.getOrElse(0) { "all" }
 
         // fmd locate last
         if (args.contains("last")) {
-            coroutineScope.launch(Dispatchers.IO) {
+            withContext(Dispatchers.IO) {
                 GpsLocationProvider(context, transport).getLastKnownLocation()
-                job?.jobFinished()
             }
             // Even if last location is not available, return here.
             // Because requesting "last" explicitly asks not to refresh the location.
@@ -72,6 +69,8 @@ class LocateCommand(context: Context) : Command(context) {
             return
         }
 
+        val deferred = CompletableDeferred<Unit>()
+
         // build the location providers
         val providers = when (option) {
             "cell" -> listOf(CellLocationProvider(context, transport))
@@ -85,7 +84,7 @@ class LocateCommand(context: Context) : Command(context) {
 
         val cleanupHandler = {
             locOnOffHandler.removeJob(res.jobId)
-            job?.jobFinished()
+            deferred.complete(Unit)
         }
 
         // Make sure we clean up and properly finish the job, even when something else
@@ -94,20 +93,21 @@ class LocateCommand(context: Context) : Command(context) {
         //
         // Proper cleanup is important for the regular background upload, e.g., we need
         // to make sure that the location auto-on/off runs.
-        coroutineScope.coroutineContext.job.invokeOnCompletion { _ ->
+        currentCoroutineContext().job.invokeOnCompletion { _ ->
             cleanupHandler()
         }
 
         // run the providers and get the locations
-        coroutineScope.launch(Dispatchers.IO) {
+        withContext(Dispatchers.IO) {
             providers
                 // launch all providers in parallel
                 .map { prov -> prov.getAndSendLocation() }
                 // await all providers
-                .forEach { deferred -> deferred.await() }
+                .forEach { deferredProvider -> deferredProvider.await() }
 
             // finish the job once all providers have finished
             cleanupHandler()
         }
+        deferred.await()
     }
 }

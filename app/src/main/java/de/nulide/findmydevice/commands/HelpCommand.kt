@@ -5,9 +5,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.permissions.Permission
-import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
-import kotlinx.coroutines.CoroutineScope
 
 
 class HelpCommand(
@@ -28,11 +26,9 @@ class HelpCommand(
 
     override val requiredPermissions = emptyList<Permission>()
 
-    override fun <T> executeInternal(
+    override suspend fun <T> executeInternal(
         args: List<String>,
         transport: Transport<T>,
-        coroutineScope: CoroutineScope,
-        job: FmdJobService?,
     ) {
         val reply = StringBuilder()
         reply.appendLine(context.getString(R.string.cmd_help_message_start))
@@ -41,6 +37,5 @@ class HelpCommand(
             reply.appendLine("${cmd.usage} - ${context.getString(cmd.shortDescription)}")
         }
         transport.send(context, reply.toString())
-        job?.jobFinished()
     }
 }

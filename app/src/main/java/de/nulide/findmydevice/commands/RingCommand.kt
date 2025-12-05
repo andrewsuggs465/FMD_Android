@@ -6,10 +6,8 @@ import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.permissions.DoNotDisturbAccessPermission
 import de.nulide.findmydevice.permissions.OverlayPermission
-import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.ui.RingerActivity
-import kotlinx.coroutines.CoroutineScope
 
 
 const val RING_DURATION_DEFAULT_SECS = 30
@@ -33,11 +31,9 @@ class RingCommand(context: Context) : Command(context) {
     // TODO(#145): Implement this without needing the overlay permission
     override val requiredPermissions = listOf(DoNotDisturbAccessPermission(), OverlayPermission())
 
-    override fun <T> executeInternal(
+    override suspend fun <T> executeInternal(
         args: List<String>,
         transport: Transport<T>,
-        coroutineScope: CoroutineScope,
-        job: FmdJobService?,
     ) {
         val firstArg = args.getOrElse(0) { "" }
 
@@ -51,6 +47,5 @@ class RingCommand(context: Context) : Command(context) {
         }
         RingerActivity.newInstance(context, duration)
         transport.send(context, context.getString(R.string.cmd_ring_response))
-        job?.jobFinished()
     }
 }

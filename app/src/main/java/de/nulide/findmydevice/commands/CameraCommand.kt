@@ -7,11 +7,9 @@ import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.permissions.CameraPermission
-import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.ui.DummyCameraxActivity
 import de.nulide.findmydevice.utils.log
-import kotlinx.coroutines.CoroutineScope
 
 
 class CameraCommand(context: Context) : Command(context) {
@@ -32,16 +30,13 @@ class CameraCommand(context: Context) : Command(context) {
 
     override val requiredPermissions = listOf(CameraPermission())
 
-    override fun <T> executeInternal(
+    override suspend fun <T> executeInternal(
         args: List<String>,
         transport: Transport<T>,
-        coroutineScope: CoroutineScope,
-        job: FmdJobService?,
     ) {
         if (!settings.serverAccountExists()) {
             context.log().w(TAG, "Cannot take picture: no FMD Server account")
             transport.send(context, context.getString(R.string.cmd_camera_response_no_fmd_server))
-            job?.jobFinished()
             return
         }
 
@@ -64,6 +59,5 @@ class CameraCommand(context: Context) : Command(context) {
 
         val serverUrl = settings.get(Settings.SET_FMDSERVER_URL) as String
         transport.send(context, context.getString(R.string.cmd_camera_response_success, serverUrl))
-        job?.jobFinished()
     }
 }

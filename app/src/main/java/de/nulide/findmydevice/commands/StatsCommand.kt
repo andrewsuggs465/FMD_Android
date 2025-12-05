@@ -5,12 +5,11 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.permissions.LocationPermission
-import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.NetworkUtils
 import de.nulide.findmydevice.utils.WifiScan
 import de.nulide.findmydevice.utils.getSsidCompat
-import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.CompletableDeferred
 
 
 class StatsCommand(context: Context) : Command(context) {
@@ -28,14 +27,14 @@ class StatsCommand(context: Context) : Command(context) {
 
     override val requiredPermissions = listOf(LocationPermission())
 
-    override fun <T> executeInternal(
+    override suspend fun <T> executeInternal(
         args: List<String>,
         transport: Transport<T>,
-        coroutineScope: CoroutineScope,
-        job: FmdJobService?,
     ) {
         val ips = NetworkUtils.getIps(context)
         val ipsString = ips.joinToString("\n\n")
+
+        val deferred = CompletableDeferred<Unit>()
 
         WifiScan(context, { scanResults ->
             val wifisString =
@@ -44,7 +43,9 @@ class StatsCommand(context: Context) : Command(context) {
             val reply = context.getString(R.string.cmd_stats_response, ipsString, wifisString)
 
             transport.send(context, reply)
-            job?.jobFinished()
+            deferred.complete(Unit)
         }).startWifiScan()
+
+        deferred.await()
     }
 }

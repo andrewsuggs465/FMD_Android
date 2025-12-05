@@ -10,9 +10,7 @@ import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.permissions.BluetoothConnectPermission
 import de.nulide.findmydevice.permissions.Permission
-import de.nulide.findmydevice.services.FmdJobService
 import de.nulide.findmydevice.transports.Transport
-import kotlinx.coroutines.CoroutineScope
 
 
 class BluetoothCommand(context: Context) : Command(context) {
@@ -36,11 +34,9 @@ class BluetoothCommand(context: Context) : Command(context) {
     }
 
     @SuppressLint("MissingPermission")
-    override fun <T> executeInternal(
+    override suspend fun <T> executeInternal(
         args: List<String>,
         transport: Transport<T>,
-        coroutineScope: CoroutineScope,
-        job: FmdJobService?,
     ) {
         val bluetoothManager: BluetoothManager =
             context.getSystemService(BluetoothManager::class.java)
@@ -59,6 +55,5 @@ class BluetoothCommand(context: Context) : Command(context) {
             bluetoothAdapter.disable()
             transport.send(context, context.getString(R.string.cmd_bluetooth_response_off))
         }
-        job?.jobFinished()
     }
 }
