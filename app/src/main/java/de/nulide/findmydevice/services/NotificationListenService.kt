@@ -6,6 +6,7 @@ import android.service.notification.StatusBarNotification
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
+import de.nulide.findmydevice.FmdApplication
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.receiver.BatteryLowReceiver
@@ -66,6 +67,8 @@ class NotificationListenService : NotificationListenerService() {
         if (!message.startsWith(fmdTriggerWord, ignoreCase = true)) {
             return
         }
+
+        (applicationContext as FmdApplication).latestStatusBarNotification = sbn
 
         val inputData = workDataOf(
             CommandExecutionWorker.KEY_COMMAND to message,

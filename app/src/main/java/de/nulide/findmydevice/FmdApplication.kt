@@ -1,6 +1,7 @@
 package de.nulide.findmydevice
 
 import android.app.Application
+import android.service.notification.StatusBarNotification
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.data.UncaughtExceptionHandler.Companion.initUncaughtExceptionHandler
 import de.nulide.findmydevice.receiver.PushReceiver
@@ -13,6 +14,12 @@ import de.nulide.findmydevice.utils.log
 
 
 class FmdApplication : Application() {
+
+    // Workaround to "pass" this from the NotificationListenerService to the CommandExecutionWorker.
+    // The problem is that we cannot pass objects between them directly.
+    // But we also cannot retrieve the notification in the worker by ID,
+    // because notificationManager.activeNotifications only returns the notifications posted by our own app.
+    var latestStatusBarNotification: StatusBarNotification? = null
 
     override fun onCreate() {
         super.onCreate()

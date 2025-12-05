@@ -10,6 +10,7 @@ import androidx.work.CoroutineWorker
 import androidx.work.ForegroundInfo
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
+import de.nulide.findmydevice.FmdApplication
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.commands.CommandHandler
 import de.nulide.findmydevice.services.ServerLocationUploadService.SOURCE_REGULAR_BACKGROUND_UPLOAD
@@ -91,17 +92,17 @@ class CommandExecutionWorker(
             }
 
             TRANS_NOTIFICATION_REPLY -> {
-                val notification = notificationManager.activeNotifications.firstOrNull {
-                    it.packageName == destination && it.key == notificationKey
-                }
-                if (notification == null) {
+                val cached = (applicationContext as FmdApplication).latestStatusBarNotification
+                if (cached?.packageName != destination || cached.key != notificationKey) {
                     applicationContext.log().e(
                         TAG,
-                        "No notification found for packageName=$destination key=$notificationKey"
+                        "Cached StatusBarNotification not up-to-date! "
+                                + "${cached?.packageName} != $destination || "
+                                + "${cached?.key} != $notificationKey"
                     )
                     return null
                 }
-                val transport = NotificationReplyTransport(applicationContext, notification)
+                val transport = NotificationReplyTransport(applicationContext, cached)
                 CommandHandler<StatusBarNotification?>(transport, true)
             }
 
