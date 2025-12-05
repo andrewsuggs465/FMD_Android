@@ -51,11 +51,6 @@ class CommandHandler<T>
         rawCommand: String,
         onHandlingStarted: () -> Unit = {},
     ) {
-        context.log().d(
-            TAG,
-            "Handling command '$rawCommand' from source '${transport.getDestinationString()}'"
-        )
-
         val settings = SettingsRepository.getInstance(context)
         val fmdTriggerWord = settings.get(Settings.SET_FMD_COMMAND) as String
 
@@ -80,11 +75,11 @@ class CommandHandler<T>
                 // Only call this if we are actually handling the command, and not aborting.
                 onHandlingStarted()
                 parsed.command.execute(parsed.args, transport)
+                transport.closeChannel()
             }
 
             is ParserResult.Empty -> {
                 context.log().w(TAG, "Cannot handle: args is empty.")
-
             }
 
             is ParserResult.TriggerWordMismatch -> {

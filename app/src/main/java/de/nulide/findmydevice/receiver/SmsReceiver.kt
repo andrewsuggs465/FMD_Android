@@ -5,10 +5,13 @@ import android.content.Context
 import android.content.Intent
 import android.provider.Telephony
 import android.telephony.SmsMessage
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.workDataOf
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
-import de.nulide.findmydevice.services.SmsService
 import de.nulide.findmydevice.utils.log
+import de.nulide.findmydevice.workers.CommandExecutionWorker
 
 
 class SmsReceiver : BroadcastReceiver() {
@@ -49,7 +52,16 @@ class SmsReceiver : BroadcastReceiver() {
                 return
             }
 
-            SmsService.scheduleJob(context, phoneNumber, subscriptionId, msg)
+            val inputData = workDataOf(
+                CommandExecutionWorker.KEY_COMMAND to msg,
+                CommandExecutionWorker.KEY_TRANSPORT_TYPE to CommandExecutionWorker.TRANS_SMS,
+                CommandExecutionWorker.KEY_DESTINATION to phoneNumber,
+                CommandExecutionWorker.KEY_SMS_SUBSCRIPTION_ID to subscriptionId,
+            )
+            val workRequest = OneTimeWorkRequestBuilder<CommandExecutionWorker>()
+                .setInputData(inputData)
+                .build()
+            WorkManager.getInstance(context).enqueue(workRequest)
         }
     }
 }

@@ -7,19 +7,21 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.os.Build;
 
+import androidx.work.Data;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
+import androidx.work.WorkRequest;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 import de.nulide.findmydevice.R;
-import de.nulide.findmydevice.commands.CommandHandler;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.net.FMDServerApiRepoSpec;
 import de.nulide.findmydevice.net.FMDServerApiRepository;
-import de.nulide.findmydevice.transports.FmdServerTransport;
-import de.nulide.findmydevice.transports.Transport;
 import de.nulide.findmydevice.utils.FmdLogKt;
 import de.nulide.findmydevice.utils.Notifications;
-import kotlin.Unit;
+import de.nulide.findmydevice.workers.CommandExecutionWorker;
 
 /**
  * Downloads the latest command and executes it
@@ -92,8 +94,14 @@ public class ServerCommandDownloadService extends FmdJobService {
         }
         String fullCommand = settingsRepo.get(Settings.SET_FMD_COMMAND) + " " + remoteCommand;
 
-        Transport<Unit> transport = new FmdServerTransport(this);
-        CommandHandler<Unit> commandHandler = new CommandHandler<>(transport, this.getCoroutineScope(), this);
-        commandHandler.execute(this, fullCommand);
+        Data inputData = new Data.Builder()
+                .putString(CommandExecutionWorker.KEY_COMMAND, fullCommand)
+                .putString(CommandExecutionWorker.KEY_TRANSPORT_TYPE, CommandExecutionWorker.TRANS_FMD_SERVER)
+                .putString(CommandExecutionWorker.KEY_DESTINATION, "FMD Server")
+                .build();
+        WorkRequest workRequest = new OneTimeWorkRequest.Builder(CommandExecutionWorker.class)
+                .setInputData(inputData)
+                .build();
+        WorkManager.getInstance(this).enqueue(workRequest);
     }
 }

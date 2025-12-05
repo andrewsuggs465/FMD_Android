@@ -3,10 +3,13 @@ package de.nulide.findmydevice.receiver
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.workDataOf
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
-import de.nulide.findmydevice.services.ServerLocationUploadService
 import de.nulide.findmydevice.utils.log
+import de.nulide.findmydevice.workers.CommandExecutionWorker
 
 
 class BatteryLowReceiver : BroadcastReceiver() {
@@ -35,13 +38,22 @@ class BatteryLowReceiver : BroadcastReceiver() {
             if (lastUpload + MIN_INTERVAL_MILLIS < now) {
                 context.log().i(TAG, "Low battery: uploading location.")
                 settings.set(Settings.SET_LAST_LOW_BAT_UPLOAD, now)
-
-                // Locating and uploading takes some time.
-                // Start a service for this, to allow the BroadcastReceiver to exit.
-                ServerLocationUploadService.scheduleJob(context, 0, false)
+                scheduleCommand(context)
             } else {
                 context.log().i(TAG, "Last low battery upload too recent, skipping.")
             }
+        }
+
+        private fun scheduleCommand(context: Context) {
+            val inputData = workDataOf(
+                CommandExecutionWorker.KEY_COMMAND to "locate",
+                CommandExecutionWorker.KEY_TRANSPORT_TYPE to CommandExecutionWorker.TRANS_FMD_SERVER,
+                CommandExecutionWorker.KEY_DESTINATION to "Low battery upload",
+            )
+            val workRequest = OneTimeWorkRequestBuilder<CommandExecutionWorker>()
+                .setInputData(inputData)
+                .build()
+            WorkManager.getInstance(context).enqueue(workRequest)
         }
     }
 

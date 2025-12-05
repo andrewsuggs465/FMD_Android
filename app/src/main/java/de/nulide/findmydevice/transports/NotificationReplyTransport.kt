@@ -1,5 +1,6 @@
 package de.nulide.findmydevice.transports
 
+import android.app.NotificationManager
 import android.app.PendingIntent.CanceledException
 import android.content.Context
 import android.service.notification.StatusBarNotification
@@ -13,6 +14,7 @@ import de.nulide.findmydevice.utils.log
 
 
 class NotificationReplyTransport(
+    private val context: Context,
     // should only be null for the availableTransports list
     private val destination: StatusBarNotification?
 ) : Transport<StatusBarNotification?>(destination) {
@@ -60,6 +62,15 @@ class NotificationReplyTransport(
         } catch (e: CanceledException) {
             context.log().e(TAG, "Failed to send message via notification reply")
             e.printStackTrace()
+        }
+    }
+
+    override fun closeChannel() {
+        super.closeChannel()
+
+        destination?.id?.let { id ->
+            val notificationManager = context.getSystemService(NotificationManager::class.java)
+            notificationManager.cancel(id)
         }
     }
 }

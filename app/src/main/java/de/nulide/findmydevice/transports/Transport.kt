@@ -13,7 +13,7 @@ import de.nulide.findmydevice.utils.log
 // Order matters for the home screen
 fun availableTransports(context: Context): List<Transport<*>> = listOf(
     SmsTransport(context, "42", -1),
-    NotificationReplyTransport(null),
+    NotificationReplyTransport(context, null),
     FmdServerTransport(context),
     InAppTransport(context),
 )
@@ -70,5 +70,12 @@ abstract class Transport<DestinationType>(
 
     open fun sendNewLocation(context: Context, location: FmdLocation) {
         send(context, location.toString())
+    }
+
+    /**
+     * Closes the transport channel
+     */
+    open fun closeChannel() {
+        // nothing to do, but may be overridden
     }
 }

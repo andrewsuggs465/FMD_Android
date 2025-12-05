@@ -9,10 +9,11 @@ import android.widget.EditText
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.workDataOf
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import de.nulide.findmydevice.R
-import de.nulide.findmydevice.commands.CommandHandler
 import de.nulide.findmydevice.commands.ParserResult
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
@@ -20,6 +21,7 @@ import de.nulide.findmydevice.permissions.PostNotificationsPermission
 import de.nulide.findmydevice.receiver.CopyInAppTextReceiver
 import de.nulide.findmydevice.receiver.EXTRA_TEXT_TO_COPY
 import de.nulide.findmydevice.utils.Notifications
+import de.nulide.findmydevice.workers.CommandExecutionWorker
 
 
 class InAppTransport(
@@ -90,10 +92,17 @@ fun onTestCommandClicked(activity: AppCompatActivity) {
         .setPositiveButton(
             context.getString(R.string.transport_inapp_send_command_button_send)
         ) { _, _ ->
-            val transport = InAppTransport(context)
-            val commandHandler = CommandHandler(transport, activity.lifecycleScope, null, false)
             val command = editTextCommand.text.toString()
-            commandHandler.execute(context, command)
+
+            val inputData = workDataOf(
+                CommandExecutionWorker.KEY_COMMAND to command,
+                CommandExecutionWorker.KEY_TRANSPORT_TYPE to CommandExecutionWorker.TRANS_INAPP,
+                CommandExecutionWorker.KEY_DESTINATION to context.getString(R.string.transport_inapp_title),
+            )
+            val workRequest = OneTimeWorkRequestBuilder<CommandExecutionWorker>()
+                .setInputData(inputData)
+                .build()
+            WorkManager.getInstance(context).enqueue(workRequest)
         }
         .setNegativeButton(context.getString(R.string.cancel), null)
         .show()

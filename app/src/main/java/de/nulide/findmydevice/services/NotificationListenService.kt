@@ -3,11 +3,13 @@ package de.nulide.findmydevice.services
 import android.provider.Telephony
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
-import de.nulide.findmydevice.commands.CommandHandler
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.workDataOf
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.receiver.BatteryLowReceiver
-import de.nulide.findmydevice.transports.NotificationReplyTransport
+import de.nulide.findmydevice.workers.CommandExecutionWorker
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -65,8 +67,15 @@ class NotificationListenService : NotificationListenerService() {
             return
         }
 
-        val transport = NotificationReplyTransport(sbn)
-        val commandHandler = CommandHandler(transport, coroutineScope, null)
-        commandHandler.execute(this, message) { cancelNotification(sbn.key) }
+        val inputData = workDataOf(
+            CommandExecutionWorker.KEY_COMMAND to message,
+            CommandExecutionWorker.KEY_TRANSPORT_TYPE to CommandExecutionWorker.TRANS_NOTIFICATION_REPLY,
+            CommandExecutionWorker.KEY_DESTINATION to sbn.packageName,
+            CommandExecutionWorker.KEY_NOTIF_KEY to sbn.key,
+        )
+        val workRequest = OneTimeWorkRequestBuilder<CommandExecutionWorker>()
+            .setInputData(inputData)
+            .build()
+        WorkManager.getInstance(this).enqueue(workRequest)
     }
 }
