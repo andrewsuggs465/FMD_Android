@@ -282,4 +282,9 @@
     <string name="allowlist_invalid_number">Ce numéro de téléphone est invalide !</string>
     <string name="pin_min_length">Le code PIN doit contenir au moins 8 caractères. Il est recommandé d\'en avoir 16 ou plus.</string>
     <string name="password_min_length">Le mot de passe doit faire au moins 8 caractères. Il est recommandé d\'en avoir 16 ou plus.</string>
+    <string name="Settings_FMDServer_Push_Info_Sunup">L\'application de distribution UnifiedPush recommandée est Sunup. Sunup se paramètre facilement et utilise les serveurs de notification de Mozilla.</string>
+    <string name="Settings_FMDServer_Push_Install_Sunup">Installer Sunup</string>
+    <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Des valeurs inférieures à 15 minutes ne sont pas recommandées.</string>
+    <string name="missing_push_title">UnifiedPush non présent</string>
+    <string name="missing_push_description">Sans une application de distribution UnifiedPush, vous ne pouvez pas recevoir de commande depuis FMD Server.</string>
 </resources>
