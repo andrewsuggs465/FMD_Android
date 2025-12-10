@@ -271,4 +271,9 @@
     <string name="allowlist_invalid_number">Dit telefoonnummer is ongeldig!</string>
     <string name="pin_min_length">De pincode moet minimaal 8 tekens lang zijn. 16 of meer wordt aangeraden.</string>
     <string name="password_min_length">Het wachtwoord moet minimaal 8 tekens lang zijn. 16 of meer wordt aangeraden.</string>
+    <string name="missing_push_description">Zonder UnifiedPush distributie-app kun je geen opdrachten van FMD Server ontvangen.</string>
+    <string name="missing_push_title">UnifiedPush ontbreekt</string>
+    <string name="Settings_FMDServer_Push_Install_Sunup">Sunup installeren</string>
+    <string name="Settings_FMDServer_Push_Info_Sunup">De aanbevolen UnifiedPush distributie-app is Sunup. Sunup is eenvoudig in te stellen en maakt gebruik van pushservers van Mozilla.</string>
+    <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Waarden onder de 15 minuten worden niet aanbevolen.</string>
 </resources>
