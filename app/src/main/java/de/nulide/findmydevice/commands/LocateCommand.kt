@@ -1,10 +1,12 @@
 package de.nulide.findmydevice.commands
 
 import android.content.Context
+import android.location.LocationManager.GPS_PROVIDER
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.locationproviders.CellLocationProvider
+import de.nulide.findmydevice.locationproviders.FUSED_PROVIDER
 import de.nulide.findmydevice.locationproviders.GpsLocationProvider
 import de.nulide.findmydevice.locationproviders.LocationAutoOnOffHandler
 import de.nulide.findmydevice.permissions.LocationPermission
@@ -25,7 +27,8 @@ class LocateCommand(context: Context) : Command(context) {
     }
 
     override val keyword = "locate"
-    override val usage = "locate [last | all | cell | gps]"
+
+    override val usage = "locate [last | all | cell | fused | gps]"
 
     @get:DrawableRes
     override val icon = R.drawable.ic_location
@@ -50,7 +53,8 @@ class LocateCommand(context: Context) : Command(context) {
         // fmd locate last
         if (args.contains("last")) {
             withContext(Dispatchers.IO) {
-                GpsLocationProvider(context, transport).getLastKnownLocation()
+                val provider = GpsLocationProvider(context, transport, FUSED_PROVIDER, null)
+                provider.getLastKnownLocation()
             }
             // Even if last location is not available, return here.
             // Because requesting "last" explicitly asks not to refresh the location.
@@ -74,10 +78,11 @@ class LocateCommand(context: Context) : Command(context) {
         // build the location providers
         val providers = when (option) {
             "cell" -> listOf(CellLocationProvider(context, transport))
-            "gps" -> listOf(GpsLocationProvider(context, transport))
+            "fused" -> listOf(GpsLocationProvider(context, transport, FUSED_PROVIDER, accuracy))
+            "gps" -> listOf(GpsLocationProvider(context, transport, GPS_PROVIDER, accuracy))
             else ->
                 listOf(
-                    GpsLocationProvider(context, transport),
+                    GpsLocationProvider(context, transport, FUSED_PROVIDER, accuracy),
                     CellLocationProvider(context, transport)
                 )
         }

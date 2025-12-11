@@ -5,11 +5,8 @@ import android.content.Context
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
-import android.location.LocationRequest
-import android.os.Build
 import android.os.Bundle
-import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat
+import android.os.Looper
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.FmdLocation
 import de.nulide.findmydevice.data.SettingsRepository
@@ -17,11 +14,31 @@ import de.nulide.findmydevice.permissions.LocationPermission
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.log
 import kotlinx.coroutines.CompletableDeferred
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlin.math.absoluteValue
 
 
-const val MAX_GPS_DURATION_MILLIS = 5 * 60 * 1000L
+// Testing on GrapheneOS has shown that if you are in a reasonable place for GPS
+// (open sky, in a car/bus/train, in a building near a window, ...),
+// you usually get a GPS position in < 1 minute. Often in < 30 seconds.
+//
+// Therefore, set the timeout to 2 minutes.
+// It's better to fail fast, inform the user, and let them decide what to do
+// (Resend "locate gps"? Send "locate cell" instead?).
+// A shorter timeout also reduces the battery impact for commands that won't succeed anyway.
+// And it reduces the risk of Android punishing FMD for excessive foreground service usage.
+const val MAX_GPS_DURATION_MILLIS = 2 * 60 * 1000L
+
 private const val UPDATE_INTERVAL_MILLIS = 2 * 1000L
+
+// LocationManager.FUSED_PROVIDER was only added in SDK 31
+const val FUSED_PROVIDER = "fused"
 
 /**
  * Only call this provider via the LocateCommand!
@@ -30,6 +47,7 @@ private const val UPDATE_INTERVAL_MILLIS = 2 * 1000L
 class GpsLocationProvider<T>(
     private val context: Context,
     private val transport: Transport<T>,
+    private var requestedProvider: String,
 ) : LocationProvider(), LocationListener {
 
     companion object {
@@ -41,8 +59,14 @@ class GpsLocationProvider<T>(
 
     private var deferred: CompletableDeferred<Unit>? = null
 
+    private var currBestLocation: FmdLocation? = null
+    private var locationCount = 0
+    private var previousAccuracy = 0F
+
+    private var coroutineScope: CoroutineScope? = null
+
     @SuppressLint("MissingPermission") // linter is not good enough to recognize the check
-    override fun getAndSendLocation(): Deferred<Unit> {
+    override suspend fun getAndSendLocation(): Deferred<Unit> {
         val def = CompletableDeferred<Unit>()
         deferred = def
 
@@ -52,56 +76,33 @@ class GpsLocationProvider<T>(
             return def
         }
 
-        transport.send(context, context.getString(R.string.cmd_locate_response_gps_will_follow))
-        context.log().d(TAG, "Requesting location update from GPS")
+        // Countdown to stop the job after some timeout
+        coroutineScope = CoroutineScope(currentCoroutineContext())
+        coroutineScope?.launch(Dispatchers.IO) {
+            delay(MAX_GPS_DURATION_MILLIS - 5_000)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            getAndSendLocationAndroid12()
+            context.log().d(TAG, "Stopping locating due to timeout. Sending best location so far.")
+            sendBestLocationAndFinish()
+        }
+
+        if (!locationManager.isProviderEnabled(requestedProvider)) {
+            val msg = context.getString(R.string.cmd_locate_provider_disabled, requestedProvider)
+            context.log().d(TAG, msg)
+            transport.send(context, msg)
+            def.complete(Unit)
             return def
         }
 
-        for (provider in locationManager.allProviders) {
-            // we may be in a background thread due to being in a coroutine,
-            // but this needs to be called on the main thread
-            ContextCompat.getMainExecutor(context).execute {
-                locationManager.requestLocationUpdates(provider, 1000, 0f, this)
-            }
-        }
-        return def
-    }
-
-    @SuppressLint("MissingPermission")
-    @RequiresApi(Build.VERSION_CODES.S)
-    private fun getAndSendLocationAndroid12() {
-        val start = System.currentTimeMillis()
-
-        val locationRequest = LocationRequest.Builder(UPDATE_INTERVAL_MILLIS)
-            .setQuality(LocationRequest.QUALITY_HIGH_ACCURACY)
-            .setDurationMillis(MAX_GPS_DURATION_MILLIS + 5 * 1000L) // timeout before it stops
-            .build()
-        val consumer = { location: Location? ->
-            // This lambda is invoked every UPDATE_INTERVAL_MILLIS, possibly with "null"
-            // if a location is not yet known.
-            if (location != null) {
-                onLocationChanged(location)
-            } else {
-                val delta = System.currentTimeMillis() - start
-                if (delta > MAX_GPS_DURATION_MILLIS) {
-                    // Fall back to getting the last known location.
-                    // The last location known by the LocationManager may still be newer
-                    // than the last location known by FMD.
-                    getLastKnownLocation(true)
-                }
-                // if MAX_DURATION_MILLIS is not yet reached, just wait until the next interval
-            }
-        }
-        locationManager.getCurrentLocation(
-            LocationManager.FUSED_PROVIDER,
-            locationRequest,
-            null,
-            context.mainExecutor,
-            consumer
+        locationManager.requestLocationUpdates(
+            requestedProvider,
+            UPDATE_INTERVAL_MILLIS,
+            0f,
+            this@GpsLocationProvider,
+            Looper.getMainLooper(),
         )
+
+        transport.send(context, context.getString(R.string.cmd_locate_response_gps_will_follow))
+        return def
     }
 
     @SuppressLint("MissingPermission")
@@ -145,18 +146,72 @@ class GpsLocationProvider<T>(
 
     override fun onLocationChanged(location: Location) {
         val fmdLocation = FmdLocation.fromAndroidLocation(context, location)
-        context.log().d(TAG, "Location found by ${fmdLocation.provider}")
+        context.log().d(
+            TAG,
+            "Location found by ${fmdLocation.provider} with accuracy ${fmdLocation.accuracy} m."
+        )
 
+        locationCount += 1
+        val isAccDiffLarge = isAccuracyDiffLarge(fmdLocation)
+        updateCurrentBestLocation(fmdLocation)
+
+        // Skip a few initial locations to wait for a more accurate GPS-based location.
+        // Wait either until the accuracy does not improve anymore or for a fixed number of results.
+        if (requestedProvider == LocationManager.GPS_PROVIDER
+            && isAccDiffLarge
+            && locationCount < 15
+        ) {
+            return
+        }
+        // Return this location and finish
         val settings = SettingsRepository.getInstance(context)
         settings.storeLastKnownLocation(fmdLocation)
-
         transport.sendNewLocation(context, fmdLocation)
+        cleanup()
+    }
 
+    private fun isAccuracyDiffLarge(fmdLocation: FmdLocation): Boolean {
+        if (fmdLocation.accuracy == null) {
+            return false
+        }
+        val diff = (previousAccuracy - fmdLocation.accuracy).absoluteValue
+        if (diff == 0F) {
+            // This is very likely the same location => Keep running.
+            return false
+        }
+        previousAccuracy = fmdLocation.accuracy
+        return diff > 5 // meter
+    }
+
+    private fun updateCurrentBestLocation(newLocation: FmdLocation) {
+        val currBest = currBestLocation
+        if (
+        // any new location is better than no accuracy
+            currBest == null || currBest.accuracy == null
+            // if we already have a current best: is the new location better?
+            || (newLocation.accuracy != null && newLocation.accuracy < currBest.accuracy)
+        ) {
+            currBestLocation = newLocation
+            val settings = SettingsRepository.getInstance(context)
+            settings.storeLastKnownLocation(newLocation)
+        }
+    }
+
+    private fun sendBestLocationAndFinish() {
+        val currBest = currBestLocation
+        if (currBest != null) {
+            transport.sendNewLocation(context, currBest)
+        } else {
+            val msg = context.getString(R.string.cmd_locate_response_gps_fail)
+            context.log().d(TAG, msg)
+            transport.send(context, msg)
+        }
         cleanup()
     }
 
     private fun cleanup() {
         locationManager.removeUpdates(this)
+        coroutineScope?.cancel()
         deferred?.complete(Unit)
     }
 

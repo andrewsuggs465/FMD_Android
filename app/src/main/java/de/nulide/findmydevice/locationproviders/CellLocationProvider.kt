@@ -42,7 +42,7 @@ class CellLocationProvider<T>(
     private var beaconDbFinished = false
 
     @RequiresPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-    override fun getAndSendLocation(): Deferred<Unit> {
+    override suspend fun getAndSendLocation(): Deferred<Unit> {
         deferred = CompletableDeferred<Unit>()
         ocidFinished = false
         beaconDbFinished = false

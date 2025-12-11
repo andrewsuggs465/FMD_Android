@@ -14,5 +14,5 @@ abstract class LocationProvider {
      *
      * @return A Deferred that signals that the getting the location is complete.
      */
-    abstract fun getAndSendLocation(): Deferred<Unit>
+    abstract suspend fun getAndSendLocation(): Deferred<Unit>
 }
