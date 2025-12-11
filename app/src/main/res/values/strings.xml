@@ -326,6 +326,8 @@
     <string name="Notification_Fail_Description">Notifications when something fails, like the connection to FMD Server</string>
     <string name="Notification_InApp">In-app transport channel</string>
     <string name="Notification_InApp_Description">Notifications from the in-app transport channel</string>
+    <string name="Notification_ExecutionService">Command execution</string>
+    <string name="Notification_ExecutionService_Description">Notifications for currently executing commands</string>
 
     <!-- Usage notifications -->
     <string name="usage_notification_title">Command executed</string>

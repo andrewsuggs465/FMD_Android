@@ -133,7 +133,7 @@ class CommandExecutionWorker(
         val cancel = applicationContext.getString(android.R.string.cancel)
 
         val notification = NotificationCompat
-            .Builder(applicationContext, Notifications.CHANNEL_USAGE.toString())
+            .Builder(applicationContext, Notifications.CHANNEL_EXECUTION_SERVICE.toString())
             .setTicker(title)
             .setContentTitle(title)
             .setContentText(text)

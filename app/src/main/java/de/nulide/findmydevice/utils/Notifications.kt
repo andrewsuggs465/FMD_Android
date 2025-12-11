@@ -26,6 +26,7 @@ object Notifications {
     const val CHANNEL_SECURITY: Int = 46
     const val CHANNEL_FAILED: Int = 47
     const val CHANNEL_IN_APP: Int = 48
+    const val CHANNEL_EXECUTION_SERVICE = 49
 
     @JvmStatic
     @JvmOverloads
@@ -81,36 +82,50 @@ object Notifications {
                 NotificationManager.IMPORTANCE_DEFAULT
             )
             channel1.description = context.getString(R.string.Notification_Usage_Description)
+
             val channel3 = NotificationChannel(
                 CHANNEL_PIN.toString(),
                 context.getString(R.string.Pin_Usage),
                 NotificationManager.IMPORTANCE_DEFAULT
             )
             channel3.description = context.getString(R.string.Notification_Pin_Usage_Description)
+
             val channel4 = NotificationChannel(
                 CHANNEL_SERVER.toString(),
                 context.getString(R.string.Notification_Server),
                 NotificationManager.IMPORTANCE_DEFAULT
             )
             channel4.description = context.getString(R.string.Notification_Server_Description)
+
             val channel5 = NotificationChannel(
                 CHANNEL_SECURITY.toString(),
                 context.getString(R.string.Notification_Security),
                 NotificationManager.IMPORTANCE_DEFAULT
             )
             channel5.description = context.getString(R.string.Notification_Security_Description)
+
             val channel6 = NotificationChannel(
                 CHANNEL_FAILED.toString(),
                 context.getString(R.string.Notification_FAIL),
                 NotificationManager.IMPORTANCE_HIGH
             )
             channel6.description = context.getString(R.string.Notification_Fail_Description)
+
             val channel7 = NotificationChannel(
                 CHANNEL_IN_APP.toString(),
                 context.getString(R.string.Notification_InApp),
                 NotificationManager.IMPORTANCE_DEFAULT
             )
             channel7.description = context.getString(R.string.Notification_InApp_Description)
+
+            val channel8 = NotificationChannel(
+                CHANNEL_EXECUTION_SERVICE.toString(),
+                context.getString(R.string.Notification_ExecutionService),
+                // Must be visible, but doesn't need to make a noise and interrupt the user.
+                NotificationManager.IMPORTANCE_LOW
+            )
+            channel8.description =
+                context.getString(R.string.Notification_ExecutionService_Description)
 
             val notificationManager =
                 context.getSystemService<NotificationManager>(NotificationManager::class.java)
@@ -120,6 +135,7 @@ object Notifications {
             notificationManager.createNotificationChannel(channel5)
             notificationManager.createNotificationChannel(channel6)
             notificationManager.createNotificationChannel(channel7)
+            notificationManager.createNotificationChannel(channel8)
         }
     }
 }
