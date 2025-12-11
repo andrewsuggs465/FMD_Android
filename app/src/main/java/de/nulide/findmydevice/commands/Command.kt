@@ -65,4 +65,15 @@ abstract class Command(val context: Context) {
         args: List<String>,
         transport: Transport<T>,
     )
+
+    /**
+     * This method should be called by the CommandHandler both during normal completion
+     * and when an execution is externally interrupted.
+     * This allows commands to put their cleanup logic here,
+     * without the commands needing to explicitly invoke this function themselves.
+     */
+    open fun onExecuteStopped() {
+        // "type" because it does not log sub-options which may be present
+        context.log().w(TAG, "Stopping command type $keyword")
+    }
 }

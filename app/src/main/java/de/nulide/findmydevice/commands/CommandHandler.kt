@@ -8,6 +8,8 @@ import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.Notifications
 import de.nulide.findmydevice.utils.log
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.job
 
 
 // Order matters for the home screen
@@ -72,10 +74,18 @@ class CommandHandler<T>
                 if (showUsageNotification) {
                     showUsageNotification(context, rawCommand)
                 }
+
                 // Only call this if we are actually handling the command, and not aborting.
                 onHandlingStarted()
+
+                // Register onStopped handler
+                currentCoroutineContext().job.invokeOnCompletion {
+                    parsed.command.onExecuteStopped()
+                    transport.closeChannel()
+                }
+
                 parsed.command.execute(parsed.args, transport)
-                transport.closeChannel()
+                // Cleanup should be run by the handler above
             }
 
             is ParserResult.Empty -> {

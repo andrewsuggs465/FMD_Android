@@ -5,18 +5,18 @@ import android.location.LocationManager.GPS_PROVIDER
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
+import de.nulide.findmydevice.locationproviders.AddJobResult
 import de.nulide.findmydevice.locationproviders.CellLocationProvider
 import de.nulide.findmydevice.locationproviders.FUSED_PROVIDER
 import de.nulide.findmydevice.locationproviders.GpsLocationProvider
 import de.nulide.findmydevice.locationproviders.LocationAutoOnOffHandler
+import de.nulide.findmydevice.locationproviders.LocationProvider
 import de.nulide.findmydevice.permissions.LocationPermission
 import de.nulide.findmydevice.permissions.WriteSecureSettingsPermission
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.log
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.currentCoroutineContext
-import kotlinx.coroutines.job
 import kotlinx.coroutines.withContext
 
 
@@ -48,6 +48,12 @@ class LocateCommand(context: Context) : Command(context) {
 
     override val optionalPermissions = listOf(WriteSecureSettingsPermission())
 
+    // Fields for execution
+    private var providers = emptyList<LocationProvider>()
+    private val locOnOffHandler = LocationAutoOnOffHandler.getInstance(context)
+    private var addJobResult: AddJobResult? = null
+    private var deferred: CompletableDeferred<Unit>? = null
+
     override suspend fun <T> executeInternal(
         args: List<String>,
         transport: Transport<T>,
@@ -73,10 +79,9 @@ class LocateCommand(context: Context) : Command(context) {
             context.log().w(TAG, "Invalid accuracy, using null")
         }
 
-        val locOnOffHandler = LocationAutoOnOffHandler.getInstance(context)
-        val res = locOnOffHandler.addJob()
+        addJobResult = locOnOffHandler.addJob()
 
-        if (!res.isLocationOn) {
+        if (!addJobResult!!.isLocationOn) {
             context.log().w(
                 TAG,
                 "Cannot locate: Location is off and missing permission WRITE_SECURE_SETTINGS"
@@ -85,10 +90,10 @@ class LocateCommand(context: Context) : Command(context) {
             return
         }
 
-        val deferred = CompletableDeferred<Unit>()
+        deferred = CompletableDeferred<Unit>()
 
         // build the location providers
-        val providers = when (option) {
+        providers = when (option) {
             "cell" -> listOf(CellLocationProvider(context, transport))
             "fused" -> listOf(GpsLocationProvider(context, transport, FUSED_PROVIDER, accuracy))
             "gps" -> listOf(GpsLocationProvider(context, transport, GPS_PROVIDER, accuracy))
@@ -99,21 +104,6 @@ class LocateCommand(context: Context) : Command(context) {
                 )
         }
 
-        val cleanupHandler = {
-            locOnOffHandler.removeJob(res.jobId)
-            deferred.complete(Unit)
-        }
-
-        // Make sure we clean up and properly finish the job, even when something else
-        // cancels the coroutine. E.g., when the system calls onStopJob() the coroutine
-        // is cancelled.
-        //
-        // Proper cleanup is important for the regular background upload, e.g., we need
-        // to make sure that the location auto-on/off runs.
-        currentCoroutineContext().job.invokeOnCompletion { _ ->
-            cleanupHandler()
-        }
-
         // run the providers and get the locations
         withContext(Dispatchers.IO) {
             providers
@@ -121,10 +111,17 @@ class LocateCommand(context: Context) : Command(context) {
                 .map { prov -> prov.getAndSendLocation() }
                 // await all providers
                 .forEach { deferredProvider -> deferredProvider.await() }
-
-            // finish the job once all providers have finished
-            cleanupHandler()
         }
-        deferred.await()
+        deferred!!.await()
+    }
+
+    override fun onExecuteStopped() {
+        super.onExecuteStopped()
+
+        providers.forEach { it.onStopped() }
+        addJobResult?.let {
+            locOnOffHandler.removeJob(it.jobId)
+        }
+        deferred?.complete(Unit)
     }
 }

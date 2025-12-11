@@ -236,6 +236,10 @@ class GpsLocationProvider<T>(
         deferred?.complete(Unit)
     }
 
+    override fun onStopped() {
+        cleanup()
+    }
+
     @Deprecated("Deprecated in Java")
     override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {
         // unused

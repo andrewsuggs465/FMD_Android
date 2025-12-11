@@ -15,4 +15,8 @@ abstract class LocationProvider {
      * @return A Deferred that signals that the getting the location is complete.
      */
     abstract suspend fun getAndSendLocation(): Deferred<Unit>
+
+    open fun onStopped() {
+        // nothing to do, can be overridden
+    }
 }
