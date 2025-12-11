@@ -22,6 +22,7 @@ import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.absoluteValue
+import kotlin.math.roundToInt
 
 
 // Testing on GrapheneOS has shown that if you are in a reasonable place for GPS
@@ -48,6 +49,7 @@ class GpsLocationProvider<T>(
     private val context: Context,
     private val transport: Transport<T>,
     private var requestedProvider: String,
+    private val requestedAccuracy: Int?,
 ) : LocationProvider(), LocationListener {
 
     companion object {
@@ -85,6 +87,12 @@ class GpsLocationProvider<T>(
             sendBestLocationAndFinish()
         }
 
+        // Accuracy is only really meaningful with GPS, which can improve over time.
+        if (requestedAccuracy != null) {
+            context.log().w(TAG, "Forcing GPS provider since accuracy is set.")
+            requestedProvider = LocationManager.GPS_PROVIDER
+        }
+
         if (!locationManager.isProviderEnabled(requestedProvider)) {
             val msg = context.getString(R.string.cmd_locate_provider_disabled, requestedProvider)
             context.log().d(TAG, msg)
@@ -93,6 +101,8 @@ class GpsLocationProvider<T>(
             return def
         }
 
+        context.log()
+            .d(TAG, "Requesting location from $requestedProvider with accuracy $requestedAccuracy")
         locationManager.requestLocationUpdates(
             requestedProvider,
             UPDATE_INTERVAL_MILLIS,
@@ -155,19 +165,30 @@ class GpsLocationProvider<T>(
         val isAccDiffLarge = isAccuracyDiffLarge(fmdLocation)
         updateCurrentBestLocation(fmdLocation)
 
-        // Skip a few initial locations to wait for a more accurate GPS-based location.
-        // Wait either until the accuracy does not improve anymore or for a fixed number of results.
-        if (requestedProvider == LocationManager.GPS_PROVIDER
-            && isAccDiffLarge
-            && locationCount < 15
-        ) {
-            return
+        if (requestedAccuracy != null) {
+            // If good enough: send location and finish
+            val currBest = currBestLocation
+            val currAccuracy = currBest?.accuracy?.roundToInt()
+            if (currAccuracy != null && currAccuracy <= requestedAccuracy) {
+                transport.sendNewLocation(context, currBest)
+                cleanup()
+                return
+            }
+        } else {
+            // Skip a few initial locations to wait for a more accurate GPS-based location.
+            // Wait either until the accuracy does not improve anymore or for a fixed number of results.
+            if (requestedProvider == LocationManager.GPS_PROVIDER
+                && isAccDiffLarge
+                && locationCount < 15
+            ) {
+                return
+            }
+            // Return this location and finish
+            val settings = SettingsRepository.getInstance(context)
+            settings.storeLastKnownLocation(fmdLocation)
+            transport.sendNewLocation(context, fmdLocation)
+            cleanup()
         }
-        // Return this location and finish
-        val settings = SettingsRepository.getInstance(context)
-        settings.storeLastKnownLocation(fmdLocation)
-        transport.sendNewLocation(context, fmdLocation)
-        cleanup()
     }
 
     private fun isAccuracyDiffLarge(fmdLocation: FmdLocation): Boolean {

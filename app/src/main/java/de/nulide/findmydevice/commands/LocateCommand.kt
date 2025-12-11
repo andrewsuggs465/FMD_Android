@@ -28,6 +28,11 @@ class LocateCommand(context: Context) : Command(context) {
 
     override val keyword = "locate"
 
+    // Do not document the accuracy parameter. *It is for debugging.*
+    // Users should rely on the normal auto-convergence of the "gps" option.
+    // In any real scenario where you don't know where your device is
+    // (At walking speed under clear sky? Moving at 120 km/h in a train?)
+    // you don't know a-priori what accuracy is possible.
     override val usage = "locate [last | all | cell | fused | gps]"
 
     @get:DrawableRes
@@ -59,6 +64,13 @@ class LocateCommand(context: Context) : Command(context) {
             // Even if last location is not available, return here.
             // Because requesting "last" explicitly asks not to refresh the location.
             return
+        }
+
+        var accuracy: Int? = null
+        try {
+            accuracy = args.firstOrNull { it.startsWith("acc=") }?.substring(4)?.toInt()
+        } catch (e: NumberFormatException) {
+            context.log().w(TAG, "Invalid accuracy, using null")
         }
 
         val locOnOffHandler = LocationAutoOnOffHandler.getInstance(context)
