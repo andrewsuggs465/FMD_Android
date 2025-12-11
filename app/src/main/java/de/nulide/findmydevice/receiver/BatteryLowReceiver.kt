@@ -45,8 +45,11 @@ class BatteryLowReceiver : BroadcastReceiver() {
         }
 
         private fun scheduleCommand(context: Context) {
+            val settings = SettingsRepository.getInstance(context)
+            val fmdTriggerWord = settings.get(Settings.SET_FMD_COMMAND) as String
+
             val inputData = workDataOf(
-                CommandExecutionWorker.KEY_COMMAND to "locate",
+                CommandExecutionWorker.KEY_COMMAND to "$fmdTriggerWord locate",
                 CommandExecutionWorker.KEY_TRANSPORT_TYPE to CommandExecutionWorker.TRANS_FMD_SERVER,
                 CommandExecutionWorker.KEY_DESTINATION to "Low battery upload",
             )
