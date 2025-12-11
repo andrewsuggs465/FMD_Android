@@ -127,6 +127,8 @@ public class ServerLocationUploadService extends FmdJobService {
                 .build();
         WorkManager.getInstance(this).enqueue(workRequest);
 
+        // Schedule next occurrence now. The work request is single-shot, and is unaware of the periodicity.
+        scheduleNextOccurrence();
         return false;
     }
 
