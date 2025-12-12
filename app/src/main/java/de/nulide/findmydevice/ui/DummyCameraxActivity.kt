@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Size
 import android.view.Surface
 import android.view.WindowManager
@@ -36,8 +35,8 @@ class DummyCameraxActivity : AppCompatActivity() {
     private lateinit var cameraExecutor: ExecutorService
     private var cameraExtra: Int = CAMERA_BACK
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         if (!hasCameraPermission()) {
             this.log().w(TAG, "Camera permission is missing. Not taking picture.")
             finish()
@@ -56,10 +55,6 @@ class DummyCameraxActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        if (!this::cameraExecutor.isInitialized) {
-            // somehow it doesn't awlays initialise in onCreate
-            cameraExecutor = Executors.newSingleThreadExecutor()
-        }
         cameraExtra = intent.extras?.getInt(EXTRA_CAMERA) ?: CAMERA_BACK
 
         lifecycleScope.launch {
