@@ -17,6 +17,7 @@ import androidx.camera.core.resolutionselector.ResolutionStrategy
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.concurrent.futures.await
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import de.nulide.findmydevice.databinding.ActivityDummyCameraxBinding
 import de.nulide.findmydevice.net.FMDServerApiRepoSpec
@@ -34,6 +35,7 @@ class DummyCameraxActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityDummyCameraxBinding
     private lateinit var cameraExecutor: ExecutorService
     private var cameraExtra: Int = CAMERA_BACK
+    private var shouldFlash: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +58,7 @@ class DummyCameraxActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         cameraExtra = intent.extras?.getInt(EXTRA_CAMERA) ?: CAMERA_BACK
+        shouldFlash = intent.extras?.getBoolean(EXTRA_FLASH) ?: false
 
         lifecycleScope.launch {
             takePhoto()
@@ -74,11 +77,18 @@ class DummyCameraxActivity : AppCompatActivity() {
     }
 
     private suspend fun takePhoto() {
-        val cameraProvider = ProcessCameraProvider.getInstance(this).await()
+        val flashMode = if (shouldFlash && cameraExtra == CAMERA_BACK) {
+            ImageCapture.FLASH_MODE_ON
+        } else if (shouldFlash && cameraExtra == CAMERA_FRONT) {
+            ImageCapture.FLASH_MODE_SCREEN
+        } else {
+            ImageCapture.FLASH_MODE_OFF
+        }
 
-        val imageCapture = ImageCapture.Builder()
+        val cameraProvider = ProcessCameraProvider.getInstance(this).await()
+        val builder = ImageCapture.Builder()
             .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
-            .setFlashMode(ImageCapture.FLASH_MODE_OFF)
+            .setFlashMode(flashMode)
             .setTargetRotation(Surface.ROTATION_0)
             // Set the resolution to 720 x 1280, aka "720p" (flipped because it is in portrait).
             // Or lower, if this resolution is not available.
@@ -92,7 +102,17 @@ class DummyCameraxActivity : AppCompatActivity() {
                     )
                 ).build()
             )
-            .build()
+
+        if (shouldFlash && cameraExtra == CAMERA_FRONT) {
+            // https://android-developers.googleblog.com/2024/12/whats-new-in-camerax-140-and-jetpack-compose-support.html
+            viewBinding.screenFlashView.isVisible = true
+            viewBinding.screenFlashView.setScreenFlashWindow(this.window)
+            viewBinding.screenFlashView.screenFlash?.let {
+                builder.setScreenFlash(it)
+            }
+        }
+
+        val imageCapture = builder.build()
 
         val cameraSelector =
             if (cameraExtra == CAMERA_FRONT) CameraSelector.DEFAULT_FRONT_CAMERA else CameraSelector.DEFAULT_BACK_CAMERA
@@ -146,7 +166,8 @@ class DummyCameraxActivity : AppCompatActivity() {
     companion object {
         val TAG = DummyCameraxActivity::class.simpleName
 
-        const val EXTRA_CAMERA = "camera"
+        const val EXTRA_CAMERA = "EXTRA_CAMERA"
+        const val EXTRA_FLASH = "EXTRA_FLASH"
         const val CAMERA_BACK = 0
         const val CAMERA_FRONT = 1
     }

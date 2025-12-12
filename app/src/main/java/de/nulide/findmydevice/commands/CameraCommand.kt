@@ -18,7 +18,7 @@ class CameraCommand(context: Context) : Command(context) {
     }
 
     override val keyword = "camera"
-    override val usage = "camera [front | back]"
+    override val usage = "camera [front | back] [flash]"
 
     @get:DrawableRes
     override val icon = R.drawable.ic_camera
@@ -53,6 +53,9 @@ class CameraCommand(context: Context) : Command(context) {
                 DummyCameraxActivity.EXTRA_CAMERA,
                 DummyCameraxActivity.CAMERA_BACK
             )
+        }
+        if (args.contains("flash")) {
+            dummyCameraActivity.putExtra(DummyCameraxActivity.EXTRA_FLASH, true)
         }
         context.log().d(TAG, "Starting camera activity")
         context.startActivity(dummyCameraActivity)
