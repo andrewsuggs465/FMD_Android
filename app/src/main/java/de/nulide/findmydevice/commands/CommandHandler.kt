@@ -18,6 +18,7 @@ fun availableCommands(context: Context): List<Command> {
         BluetoothCommand(context),
         CameraCommand(context),
         DeleteCommand(context),
+        FlashCommand(context),
         GpsCommand(context),
         // HelpCommand(context),
         LocateCommand(context),

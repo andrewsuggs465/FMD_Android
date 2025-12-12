@@ -27,7 +27,7 @@ abstract class Command(val context: Context) {
     abstract val shortDescription: Int
 
     @get:StringRes
-    abstract val longDescription: Int?
+    open val longDescription: Int? = null
 
     abstract val requiredPermissions: List<Permission>
     open val optionalPermissions: List<Permission> = emptyList()
