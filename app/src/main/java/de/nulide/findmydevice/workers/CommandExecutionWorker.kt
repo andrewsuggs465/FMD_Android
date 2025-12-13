@@ -138,7 +138,7 @@ class CommandExecutionWorker(
             .setContentTitle(title)
             .setContentText(text)
             .setOngoing(true)
-            .setSmallIcon(R.drawable.ic_directions_run)
+            .setSmallIcon(R.drawable.fmd_logo)
             .addAction(R.drawable.ic_cancel, cancel, intent)
             .build()
 
