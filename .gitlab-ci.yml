@@ -73,6 +73,10 @@ workflow:
       when: never
     - if: $CI_COMMIT_BRANCH
 
+default:
+  tags:
+    - "fmd-android"
+
 stages:
   # SonarQube cannot scan .java files, it needs compiled code.
   # Thus build before lint.
