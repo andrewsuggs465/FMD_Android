@@ -11,6 +11,8 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.WorkRequest;
 
+import org.jetbrains.annotations.Nullable;
+
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.utils.FmdLogKt;
@@ -29,6 +31,11 @@ public class ServerLocationUploadService extends FmdJobService {
     private static final int JOB_ID = 108; // for recurring jobs only
 
     private SettingsRepository settings;
+
+    @Override
+    public @Nullable String getTAG() {
+        return TAG;
+    }
 
     public static void scheduleRecurring(Context context) {
         cancelJob(context);
@@ -74,7 +81,6 @@ public class ServerLocationUploadService extends FmdJobService {
     @Override
     public boolean onStartJob(JobParameters params) {
         super.onStartJob(params);
-        FmdLogKt.log(this).d(TAG, "Starting background upload job with jobId=" + params.getJobId());
 
         settings = SettingsRepository.Companion.getInstance(this);
 

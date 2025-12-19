@@ -18,6 +18,8 @@ import de.nulide.findmydevice.utils.Utils
  */
 class FmdBatteryLowService : FmdJobService() {
 
+    override val TAG = FmdBatteryLowService::class.simpleName
+
     companion object {
         const val JOB_ID: Int = 110
 

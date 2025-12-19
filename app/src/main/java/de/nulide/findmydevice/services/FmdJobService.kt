@@ -15,9 +15,8 @@ import kotlinx.coroutines.cancel
  * to provide a central way to cancel it when the job finishes or is stopped.
  */
 abstract class FmdJobService : JobService() {
-    companion object {
-        private val TAG = FmdJobService::class.simpleName
-    }
+
+    abstract val TAG: String? // = FmdJobService::class.simpleName
 
     val coroutineScope = CoroutineScope(Dispatchers.IO + Job())
 

@@ -14,10 +14,10 @@ import de.nulide.findmydevice.utils.log
 
 class ServerVersionCheckService : FmdJobService() {
 
+    override val TAG = ServerVersionCheckService::class.simpleName
+
     companion object {
         const val JOB_ID: Int = 111
-
-        val TAG = ServerVersionCheckService::class.simpleName
 
         @JvmStatic
         fun scheduleJobNow(context: Context) {
@@ -31,10 +31,7 @@ class ServerVersionCheckService : FmdJobService() {
 
     override fun onStartJob(params: JobParameters?): Boolean {
         super.onStartJob(params)
-
-        log().i(TAG, "Starting job to check server version")
         doWork()
-
         return true
     }
 

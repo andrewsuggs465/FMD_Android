@@ -24,6 +24,8 @@ import java.time.format.DateTimeFormatter
  */
 class ServerConnectivityCheckService : FmdJobService() {
 
+    override val TAG = ServerConnectivityCheckService::class.simpleName
+
     companion object {
         const val JOB_ID: Int = 112
 
@@ -94,10 +96,7 @@ class ServerConnectivityCheckService : FmdJobService() {
 
     override fun onStartJob(params: JobParameters?): Boolean {
         super.onStartJob(params)
-
-        log().i(TAG, "Starting connectivity check job")
         doWork()
-
         return true
     }
 

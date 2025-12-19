@@ -12,6 +12,8 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.WorkRequest;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 import de.nulide.findmydevice.R;
@@ -34,6 +36,11 @@ public class ServerCommandDownloadService extends FmdJobService {
     private SettingsRepository settingsRepo;
 
     @Override
+    public @Nullable String getTAG() {
+        return TAG;
+    }
+
+    @Override
     public boolean onStartJob(JobParameters params) {
         super.onStartJob(params);
 
@@ -43,7 +50,6 @@ public class ServerCommandDownloadService extends FmdJobService {
             return false;
         }
 
-        FmdLogKt.log(this).d(TAG, "Downloading remote command as jobId=" + params.getJobId());
         FMDServerApiRepository fmdServerRepo = FMDServerApiRepository.Companion.getInstance(new FMDServerApiRepoSpec(this));
         fmdServerRepo.getCommand(this::onResponse, Throwable::printStackTrace);
 
