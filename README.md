@@ -20,12 +20,28 @@ If you like FMD and want to support it, spread the word or donate.
 
 ## Documentation
 
-The docs can be found [here](https://fmd-foss.org/docs/overview).
+The documentation can be found [on the website](https://fmd-foss.org/docs/overview).
 
 ## Contribute
 
 For translations instructions and other ways to contribute,
 see the [contribution guide](https://fmd-foss.org/docs/contribute/overview).
+
+## Building
+
+Building FMD Android requires Java and the Android SDK.
+The easiest way is to open the repository in [Android Studio](https://developer.android.com/studio) and click "Run".
+
+Alternatively, build it from the command line:
+
+```sh
+./gradlew assembleDevDebug
+```
+
+The resulting APK should be at `app/build/outputs/apk/dev/debug/app-dev-debug.apk`.
+
+This will build the "dev" flavour of FMD Android, which can be installed in parallel with the prod app.
+The command keyword is "fmdev" (for example, "fmdev locate").
 
 ## Community
 
