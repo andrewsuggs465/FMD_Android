@@ -2,6 +2,8 @@
 
 This document describes how to publish a new release for FMD.
 
+1. Build the release flavour, sign it, and test it thoroughly.
+   (The release flavor has optimisations that the debug flavor does not have!)
 1. Update the `versionCode` and `versionName` in `app/build.gradle`.
 2. Write a changelog and put it in `metadata/en-US/changelogs/{versionCode}.txt`
 2. Commit and push
