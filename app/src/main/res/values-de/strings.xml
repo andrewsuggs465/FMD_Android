@@ -158,7 +158,7 @@
     <string name="cmd_gps_description_short">GPS ein- und ausschalten</string>
     <string name="cmd_ring_response">Das Gerät sollte nun klingeln.</string>
     <string name="cmd_lock_response">Das Gerät sollte nun gesperrt sein.</string>
-    <string name="cmd_locate_description_long">Orte das Gerät mithilfe eines oder mehrerer Standortanbieter. Der Betriebssystemanbieter ist meistens GPS, manchmal auch eine Kombination aus anderen Quellen. Ein zweiter Anbieter ist OpenCelliD, was eine Datenbank mit Mobilfunkmaststandorten verwendet.</string>
+    <string name="cmd_locate_description_long">Orte das Gerät mithilfe eines oder mehrerer Standortanbieter. GPS hat die höchste Genauigkeit, aber funktioniert nicht immer. Der \"fused\"-Anbieter wird von Android definiert, und benutzt eine Kombination aus mehreren Quellen (oft WLAN oder Mobilfunkmasten). Der \"cell\"-Anbieter fragt die öffentlichen OpenCelliD- und BeaconDB-Dienste nach den umliegenden Mobilfunkmaststandorten.</string>
     <string name="cmd_lock_description_short">Gerät sperren</string>
     <string name="cmd_nodisturb_description_short">\"Bitte Nicht Stören\"-Modus ein- und ausschalten</string>
     <string name="cmd_stats_description_long">Rufe die Netzwerkstatistiken des Geräts ab. Zum Beispiel seine IP-Adresse und eine Liste der umliegenden WLAN-Netzwerke.</string>
@@ -305,4 +305,9 @@
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Werte unter 15 Minuten werden nicht empfohlen.</string>
     <string name="missing_push_title">UnifiedPush fehlt</string>
     <string name="missing_push_description">Ohne eine UnifiedPush-Verteiler-App kannst du keine Befehle von FMD Server empfangen.</string>
+    <string name="Notification_ExecutionService">Befehlsausführung</string>
+    <string name="Notification_ExecutionService_Description">Benachrichtigungen für Befehle, die aktuell ausgeführt werden</string>
+    <string name="executing_title">Befehl wird ausgeführt</string>
+    <string name="executing_text">Der Befehl \"%1$s\" wird gerade von \"%2$s\" ausgeführt.</string>
+    <string name="cmd_locate_provider_disabled">Der angefragte Standort-Anbieter \"%s\" ist deaktiviert.</string>
 </resources>
