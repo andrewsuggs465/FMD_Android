@@ -1,12 +1,15 @@
 package de.nulide.findmydevice.data;
 
 
+import androidx.annotation.Keep;
+
 import java.util.HashMap;
 
 import de.nulide.findmydevice.BuildConfig;
 import de.nulide.findmydevice.utils.RingerUtils;
 
 
+@Keep
 public class Settings extends HashMap<Integer, Object> {
 
     public static final int SETTINGS_VERSION = 2;

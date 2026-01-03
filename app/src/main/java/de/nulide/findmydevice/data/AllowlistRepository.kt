@@ -2,6 +2,7 @@ package de.nulide.findmydevice.data
 
 import android.content.Context
 import android.telephony.PhoneNumberUtils
+import androidx.annotation.Keep
 import com.google.gson.Gson
 import com.google.gson.JsonIOException
 import com.google.gson.JsonSyntaxException
@@ -22,6 +23,7 @@ import java.util.LinkedList
 const val ALLOWLIST_FILENAME = "whitelist.json"
 
 
+@Keep
 class AllowlistModel : LinkedList<Contact>()
 
 

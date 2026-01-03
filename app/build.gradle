@@ -43,8 +43,22 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            // WARNING: Compile and test the release flavor before publishing!!!
+            // This is because minification may strip things that are not explicitly referenced
+            // but are actually needed (e.g., objects being serialised by Gson).
+            // https://stackoverflow.com/questions/35853593/minify-android-app-but-do-not-obfuscate-it
+            // minifyEnabled true
+            postprocessing {
+                removeUnusedCode true
+                removeUnusedResources true
+                optimizeCode true
+                obfuscate false
+            }
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            // don't minify (for faster builds)
+            minifyEnabled false
         }
     }
 
@@ -130,6 +144,10 @@ dependencies {
     // Shizuku
     implementation "dev.rikka.shizuku:api:13.1.0"
     implementation "dev.rikka.shizuku:provider:13.1.0"
+
+    // com.google.crypto.tink uses javax.annotation.concurrent.GuardedBy
+    // Without this dependency providing GuardedBy, R8 complains when minifying.
+    implementation 'com.github.spotbugs:spotbugs-annotations:4.9.8'
 }
 
 sonar {

@@ -2,6 +2,7 @@ package de.nulide.findmydevice.data
 
 import android.content.Context
 import android.telephony.PhoneNumberUtils
+import androidx.annotation.Keep
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import com.google.gson.stream.JsonReader
@@ -16,6 +17,7 @@ const val TEMP_ALLOWLIST_FILENAME = "temporary_allowlist.json"
 const val TEMP_USAGE_VALIDITY_MILLIS = 10 * 60 * 1000 // 10 min
 
 
+@Keep
 data class TempAllowedNumber(
     val number: String,
     val subscriptionId: Int,
@@ -27,6 +29,7 @@ data class TempAllowedNumber(
     }
 }
 
+@Keep
 class TemporaryAllowlistModel : LinkedList<TempAllowedNumber>()
 
 

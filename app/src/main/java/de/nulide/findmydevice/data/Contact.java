@@ -4,8 +4,10 @@ import android.content.Context;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
 
+import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
 
+@Keep
 public class Contact {
 
     private String name;

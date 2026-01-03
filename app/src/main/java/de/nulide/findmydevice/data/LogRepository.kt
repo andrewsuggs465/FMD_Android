@@ -3,6 +3,7 @@ package de.nulide.findmydevice.data
 import android.content.Context
 import android.os.Build
 import android.util.Log
+import androidx.annotation.Keep
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import com.google.gson.stream.JsonReader
@@ -20,6 +21,7 @@ const val LOG_FILENAME = "logs.json"
 const val MAX_LOG_ENTRIES = 1000
 const val LOG_PRUNE_THRESHOLD = MAX_LOG_ENTRIES + 200
 
+@Keep
 data class LogEntry(
     val level: String,
     val timeMillis: Long,
@@ -27,6 +29,7 @@ data class LogEntry(
     val msg: String,
 )
 
+@Keep
 class LogModel : LinkedList<LogEntry>()
 
 
