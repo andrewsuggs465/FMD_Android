@@ -8,7 +8,6 @@ import com.google.gson.JsonParseException
 import com.google.gson.JsonSyntaxException
 import com.google.gson.ToNumberStrategy
 import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
 import com.google.gson.stream.MalformedJsonException
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.utils.CypherUtils
@@ -104,18 +103,20 @@ class SettingsRepository private constructor(private val context: Context) {
         if (!file.exists()) {
             file.createNewFile()
         }
-        val reader = JsonReader(FileReader(file))
+
         // Better crash with a JsonSyntaxException than silently resetting the settings (they are important!).
         // If a user is affected by a crash due to an invalid settings JSON, they can manually fix this
         // by clearing the entire app storage.
-        return gson.fromJson(reader, Settings::class.java) ?: Settings()
+        FileReader(file).use { reader ->
+            return gson.fromJson(reader, Settings::class.java) ?: Settings()
+        }
     }
 
     private fun saveSettings() {
         val file = File(context.filesDir, SETTINGS_FILENAME)
-        val writer = JsonWriter(FileWriter(file))
-        gson.toJson(settings, Settings::class.java, writer)
-        writer.close()
+        FileWriter(file).use { writer ->
+            gson.toJson(settings, Settings::class.java, writer)
+        }
     }
 
     fun <T> set(key: Int, value: T) {
