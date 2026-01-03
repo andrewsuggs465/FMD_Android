@@ -29,8 +29,6 @@ class AppUpdatedReceiver : BroadcastReceiver() {
         if (intent.action == APP_UPDATED) {
             context.log().i(TAG, "Running MY_PACKAGE_REPLACED (APP_UPDATED) handler")
 
-            doUpdateMigrations(context)
-
             TempContactExpiredService.scheduleJob(context, 0)
 
             if (settings.serverAccountExists()) {
@@ -44,11 +42,4 @@ class AppUpdatedReceiver : BroadcastReceiver() {
             }
         }
     }
-}
-
-fun doUpdateMigrations(context: Context) {
-    val settings = SettingsRepository.getInstance(context)
-    settings.migrateSettings()
-    UpdateboardingModernCryptoActivity.notifyAboutCryptoRefreshIfRequired(context)
-    PinUpdate.migratePin(context)
 }

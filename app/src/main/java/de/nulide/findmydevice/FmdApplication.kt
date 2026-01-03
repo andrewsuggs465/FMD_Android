@@ -1,14 +1,16 @@
 package de.nulide.findmydevice
 
 import android.app.Application
+import android.content.Context
 import android.service.notification.StatusBarNotification
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.data.UncaughtExceptionHandler.Companion.initUncaughtExceptionHandler
 import de.nulide.findmydevice.receiver.PushReceiver
-import de.nulide.findmydevice.receiver.doUpdateMigrations
 import de.nulide.findmydevice.services.ServerConnectivityCheckService
 import de.nulide.findmydevice.services.ServerLocationUploadService
 import de.nulide.findmydevice.services.TempContactExpiredService
+import de.nulide.findmydevice.ui.onboarding.PinUpdate
+import de.nulide.findmydevice.ui.onboarding.UpdateboardingModernCryptoActivity
 import de.nulide.findmydevice.utils.Notifications
 import de.nulide.findmydevice.utils.log
 
@@ -44,5 +46,12 @@ class FmdApplication : Application() {
         }
 
         TempContactExpiredService.scheduleJob(this, 0)
+    }
+
+    private fun doUpdateMigrations(context: Context) {
+        val settings = SettingsRepository.getInstance(context)
+        settings.migrateSettings()
+        UpdateboardingModernCryptoActivity.notifyAboutCryptoRefreshIfRequired(context)
+        PinUpdate.migratePin(context)
     }
 }

@@ -29,8 +29,6 @@ class BootReceiver : BroadcastReceiver() {
         if (intent.action == BOOT_COMPLETED) {
             context.log().i(TAG, "Running BOOT_COMPLETED handler")
 
-            doUpdateMigrations(context)
-
             TempContactExpiredService.scheduleJob(context, 0)
 
             if (settings.get(Settings.SET_FMD_LOW_BAT_SEND) as Boolean) {
