@@ -207,7 +207,15 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
     ) {
         val webView = WebView(context)
         webView.clearCache(true) // make sure to load the latest policy
-        webView.loadUrl(editTextServerUrl.text.toString() + "/ds.html")
+
+        @SuppressLint("SetJavaScriptEnabled")
+        webView.settings.apply {
+            // JS is needed because the website is a React app
+            javaScriptEnabled = true
+            // DOM Storage is needed for the "follow system theme" of the React app to work
+            domStorageEnabled = true
+        }
+        webView.loadUrl(editTextServerUrl.text.toString() + "/privacy?embedded=true")
 
         MaterialAlertDialogBuilder(context)
             .setTitle(getString(R.string.Settings_FMDServer_Alert_PrivacyPolicy_Title))
