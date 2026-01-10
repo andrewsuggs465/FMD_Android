@@ -35,7 +35,6 @@ class FmdApplication : Application() {
 
         val settings = SettingsRepository.getInstance(this)
         if (settings.serverAccountExists()) {
-            PushReceiver.registerWithUnifiedPush(this)
             ServerLocationUploadService.scheduleRecurring(this)
             ServerConnectivityCheckService.scheduleJob(this)
         } else {

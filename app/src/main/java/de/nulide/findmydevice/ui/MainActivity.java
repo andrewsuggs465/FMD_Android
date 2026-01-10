@@ -21,6 +21,7 @@ import de.nulide.findmydevice.R;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.net.MinRequiredVersionResult;
+import de.nulide.findmydevice.receiver.PushReceiver;
 import de.nulide.findmydevice.services.ServerCommandDownloadService;
 import de.nulide.findmydevice.services.TempContactExpiredService;
 import de.nulide.findmydevice.ui.home.CommandListFragment;
@@ -111,6 +112,10 @@ public class MainActivity extends FmdActivity {
         if (settings.serverAccountExists()) {
             checkServerVersion();
             ServerCommandDownloadService.scheduleJobNow(this);
+
+            // This must be cannot be in the FmdApplication because it needs an Activity context,
+            // because it might show a dialog to choose between different distributors.
+            PushReceiver.registerWithUnifiedPush(this);
         }
         if (PushWarningsKt.shouldWarnUnifiedPushRequired(this)) {
             PushWarningsKt.dialogWarnUnifiedPushRequired(this);
