@@ -74,7 +74,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
 
         val btnOpenWebsite = findViewById<Button>(R.id.buttonOpenFmdServerWebsite)
         btnOpenWebsite.setOnClickListener { _ ->
-            openUrl(this, "https://gitlab.com/fmd-foss/fmd-server")
+            openUrl(this, "https://fmd-foss.org/docs/fmd-server/overview")
         }
 
         // Actively opt-in to using the "official" server
