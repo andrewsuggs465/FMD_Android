@@ -241,6 +241,10 @@ class SettingsRepository private constructor(private val context: Context) {
             loc
         } catch (e: NumberFormatException) {
             null
+        } catch (e: ClassCastException) {
+            // https://gitlab.com/fmd-foss/fmd-android/-/issues/379
+            // java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number
+            null
         }
     }
 
