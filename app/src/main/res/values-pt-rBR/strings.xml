@@ -124,7 +124,7 @@
     <string name="cmd_gps_response_on">GPS ativado.</string>
     <string name="cmd_gps_response_off">GPS desativado.</string>
     <string name="cmd_help_description_short">Mostrar a ajuda</string>
-    <string name="cmd_locate_description_long">Localize o dispositivo usando um ou mais provedores de localização. O provedor do sistema operacional normalmente é o GPS, algumas vezes com uma combinação de outras fontes. Um provedor secundário é o OpenCelliD, que usa um banco de dados de redes móveis.</string>
+    <string name="cmd_locate_description_long">Localize o dispositivo usando um ou mais provedores de localização. O GPS tem a maior precisão, mas nem sempre funciona. O provedor \"fused\" é definido pelo Android, e usa uma combinação de fontes (normalmente Wi-Fi ou torres móveis). O provedor \"cell\" pergunta as localizações das torres móveis ao redor pros serviços públicos do OpenCelliD e BeaconDB.</string>
     <string name="perm_location_name">Localização</string>
     <string name="perm_overlay_name">Sobrepor outros apps</string>
     <string name="optional_permissions_title">Permissões opcionais</string>
@@ -276,4 +276,10 @@
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Valores abaixo de 15 minutos não são recomendados.</string>
     <string name="missing_push_title">UnifiedPush ausente</string>
     <string name="missing_push_description">Sem um aplicativo distribuidor de UnifiedPush, você não pode receber comandos do FMD Server.</string>
+    <string name="cmd_flash_description_short">Ativar o flash da câmera</string>
+    <string name="cmd_locate_provider_disabled">O provedor de localização solicitado \"%s\" está desativado.</string>
+    <string name="Notification_ExecutionService">Execução de comando</string>
+    <string name="Notification_ExecutionService_Description">Notificações para comandos executados no momento</string>
+    <string name="executing_title">Executando comando</string>
+    <string name="executing_text">O comando \"%1$s\" está sendo executado por \"%2$s\".</string>
 </resources>
