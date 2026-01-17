@@ -310,4 +310,5 @@
     <string name="executing_title">Befehl wird ausgeführt</string>
     <string name="executing_text">Der Befehl \"%1$s\" wird gerade von \"%2$s\" ausgeführt.</string>
     <string name="cmd_locate_provider_disabled">Der angefragte Standort-Anbieter \"%s\" ist deaktiviert.</string>
+    <string name="cmd_flash_description_short">Kamerablitz blitzen lassen</string>
 </resources>
