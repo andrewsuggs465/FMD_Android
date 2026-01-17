@@ -52,7 +52,7 @@
     <string name="server_version_error">Ошибка получения версии сервера</string>
     <string name="Settings_FMDServer_AddAccount">FMD Сервер: Подключение</string>
     <string name="Settings_FMDServer_open_website">Открыть сайт сервера FMD</string>
-    <string name="Settings_FMDServer_use_default_server">Использовать публичный сервер от Nulide</string>
+    <string name="Settings_FMDServer_use_default_server">Использовать публичный сервер</string>
     <string name="Settings_FMDServer_Login">Войти</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Политика конфиденциальности</string>
     <string name="password">Пароль</string>
@@ -107,7 +107,7 @@
     <string name="cmd_delete_description_short">Сброс устройства до заводских настроек (dry run - пробный прогон)</string>
     <string name="cmd_delete_description_long">Это удалит все данные. После этого вы больше не сможете взаимодействовать с устройством. Чтобы предотвратить случайное, или злонамеренное использование, эта команда требует использования пароля который должен быть явно включён в настройках.</string>
     <string name="cmd_locate_description_short">Определить местоположение устройства (последнее, все, сота, по GPS)</string>
-    <string name="cmd_locate_description_long">Определяет местоположение устройства с помощью одного или более провайдеров местоположения. Обычно, провайдером операционной системы является GPS, иногда совместно с другими источниками. Второй провайдер это OpenCelliD, который использует базу данных с местоположением сотовых вышек.</string>
+    <string name="cmd_locate_description_long">Определяет местоположение устройства с помощью одного или более провайдеров местоположения. GPS имеет самую высокую точность, но может не всегда работать. \"Комбинированный\" провайдер задаётся Android, и использует комбинацию источников (часто Wi-Fi или сотовые вышки). \"Сотовый\" провайдер запрашивает публичные сервисы OpenCelliD и BeaconDB для получения местоположения окружающих сотовых вышек.</string>
     <string name="perm_battery_optimizations_name">Игнорировать оптимизации аккумулятора</string>
     <string name="perm_unused_app_description">Android приостанавливает приложения, которые не запускались несколько месяцев, и отзывает их разрешения. Тем не менее, FMD должен работать в фоновом режиме. После его настройки, вам необходимо изредка открывать его. Таким образом, вы исключите FMD из автоматической приостановки приложений, в противном случае, он перестанет работать через несколько месяцев.</string>
     <string name="request_failed_response_body">Текст запроса</string>
@@ -263,7 +263,7 @@
     <string name="Settings_FMDServer_Push_Url">Пуш ссылка: %s</string>
     <string name="Settings_FMDServer_Push_Register">Зарегистрировать</string>
     <string name="Settings_FMDServer_Push_Description">Для отправки команд с Сервера FMD на ваше устройство, требуется приложение распространителя UnifiedPush.</string>
-    <string name="server_fmd_id_hint">FMD ID идентифицирует ваш аккаунт на FMD Сервере. Оставьте это поле пустым, чтобы позволить серверу сгенерировать ID самостоятельно. Имейте ввиду, что FMD ID хранится на сервере в виде текста, и администратор сервера может видеть его.</string>
+    <string name="server_fmd_id_hint">FMD ID идентифицирует ваш аккаунт на FMD Сервере. Оставьте это поле пустым, чтобы позволить серверу сгенерировать ID самостоятельно. Администратор сервера может видеть FMD ID.</string>
     <string name="Settings_FMDServer_Push_Register_Again">Зарегистрировать повторно</string>
     <string name="allowlist_reset_title">Сброс разрешённых контактов</string>
     <string name="update_pin_hash_change_text">ПИН-код FMD был сброшен во время обновления приложения. Чтобы продолжить пользоваться FMD с ПИН-кодом, пожалуйста установите ПИН снова.</string>
@@ -279,4 +279,20 @@
     <string name="cmd_locate_response_beacondb_failed">Ошибка получения местоположения от BeaconDB. Это могло произойти, если сотовая вышка не находится в базе данных.\n\n%s</string>
     <string name="cmd_ringermode_description_long">Имейте ввиду, что \"беззвучный\" также включает режим \"Не беспокоить\". Это ожидаемое поведение, управляемое Android.</string>
     <string name="setup_recommendations_title">Рекомендации</string>
+    <string name="pin_min_length">PIN-код должен состоять как минимум из 8 символов. Рекомендуется 16 или более.</string>
+    <string name="Settings_FMDServer_Push_Open_Help">Больше информации о пуш-уведомлениях</string>
+    <string name="Settings_FMDServer_Push_Install_Sunup">Установить Sunup</string>
+    <string name="Settings_FMDServer_Push_Info_Sunup">Рекомендованное приложение распространителя UnifiedPush это Sunup. Sunup легко настроить и он использует пуш-сервера от Mozilla.</string>
+    <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Значения ниже 15 минут не рекомендованы.</string>
+    <string name="password_min_length">Пароль должен состоять как минимум из 8 символов. Рекомендуется 16 или более.</string>
+    <string name="server_password_hint">Выберите пароль, который нельзя угадать, но который вы можете восстановить когда вы потеряете ваше устройство. Пароль предоставляет доступ к удалённо запускаемым командам на вашем устройстве. Администратор сервера не может получить доступ к паролю или сбросить его.</string>
+    <string name="allowlist_invalid_number">Этот мобильный номер неверный!</string>
+    <string name="cmd_flash_description_short">Зажечь вспышку камеры</string>
+    <string name="cmd_locate_provider_disabled">Запрошенный провайдер местоположения \"%s\" отключён.</string>
+    <string name="Notification_ExecutionService">Выполнение команды</string>
+    <string name="Notification_ExecutionService_Description">Уведомления для выполняемых в данный момент команд</string>
+    <string name="executing_title">Выполнение команды</string>
+    <string name="executing_text">Команда \"%1$s\" сейчас выполняется \"%2$s\".</string>
+    <string name="missing_push_title">Отсутствует UnifiedPush</string>
+    <string name="missing_push_description">Без приложения распространителя UnifiedPush вы не можете получать команды от FMD Сервера.</string>
 </resources>
