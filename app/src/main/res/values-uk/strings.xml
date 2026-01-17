@@ -125,7 +125,7 @@
     <string name="cmd_delete_response_pwd_wrong">Неможливо видалити: неправильний пароль.</string>
     <string name="cmd_delete_response_pwd_missing">Неможливо видалити: відсутній пароль. Використання: %s.</string>
     <string name="cmd_locate_response_location_off">Неможливо знайти: місцеперебування вимкнено.</string>
-    <string name="cmd_locate_description_long">Визначте місцезнаходження пристрою за допомогою одного або декількох постачальників послуг з визначення місцезнаходження. Зазвичай це GPS, іноді з комбінацією інших джерел. Другим постачальником є OpenCelliD, який використовує базу даних розташування веж стільникового зв\'язку.</string>
+    <string name="cmd_locate_description_long">Визначте місцезнаходження пристрою за допомогою одного або кількох постачальників геолокації. GPS має найвищу точність, але може працювати не завжди. «Об’єднаний» постачальник визначається Android і використовує комбінацію джерел (часто Wi-Fi або вежі стільникового зв’язку). «Стільниковий» постачальник запитує у публічних сервісів OpenCelliD та BeaconDB розташування навколишніх веж стільникового зв’язку.</string>
     <string name="cmd_locate_response_gps_will_follow">GPS координати будуть надіслані найближчим часом.</string>
     <string name="cmd_lock_description_short">Заблокувати пристрій</string>
     <string name="cmd_locate_last_known_location_not_available">Немає останнього відомого місцезнаходження. Запитайте останнє місцезнаходження, щоб оновити його.</string>
@@ -285,4 +285,10 @@
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Значення нижче 15 хвилин не рекомендуються.</string>
     <string name="missing_push_title">Відсутній UnifiedPush</string>
     <string name="missing_push_description">Без дистриб\'юторського застосунку UnifiedPush ви не можете отримувати команди від FMD Server.</string>
+    <string name="cmd_flash_description_short">Спалах камери</string>
+    <string name="cmd_locate_provider_disabled">Запитаний постачальник геолокації \"%s\" вимкнено.</string>
+    <string name="Notification_ExecutionService">Виконання команди</string>
+    <string name="Notification_ExecutionService_Description">Сповіщення про команди, що виконуються на даний момент</string>
+    <string name="executing_title">Виконання команди</string>
+    <string name="executing_text">Команду \"%1$s\" виконує \"%2$s\".</string>
 </resources>
