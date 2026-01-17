@@ -184,7 +184,7 @@
     <string name="cmd_camera_description_short">Zajemi sliko</string>
     <string name="cmd_camera_description_long">Posname sliko s sprednjo/zadnjo kamero in jo naloži na FMD strežnik. Trenutno je podprto samo nalaganje slik na FMD strežnik. Ta ukaz lahko pošljete tudi prek drugih transportnih kanalov in slika bo naložena na FMD strežnik (če imate na njem aktiven račun).</string>
     <string name="cmd_gps_response_on">GPS je vključen.</string>
-    <string name="cmd_locate_description_long">Poišče napravo z enim ali več viri lokacije. Na nivoju operacijskega sistema je vir običajno GPS, včasih s kombinacijo drugih virov. Drugi vir je OpenCellID, ki uporablja bazo podatkov o lokacijah baznih postaj.</string>
+    <string name="cmd_locate_description_long">Poišče napravo z enim ali več viri lokacije. GPS ima najvišjo natančnost, vendar morda ne deluje vedno. »Združeni« ponudnik je definiran z Androidom in uporablja kombinacijo virov (pogosto WiFi ali bazne postaje). »Celični« ponudnik poizveduje pri javnih storitvah OpenCelliD in BeaconDB o lokacijah okoliških baznih postaj.</string>
     <string name="cmd_lock_response">Naprava je sedaj zaklenjena.</string>
     <string name="perm_overlay_name">Prikaz nad drugimi aplikacijami</string>
     <string name="perm_write_secure_settings_name">Nastavitev za pisanje v varne nastavitve</string>
@@ -291,4 +291,10 @@
     <string name="Settings_FMDServer_Push_Info_Sunup">Priporočena aplikacija za UnifiedPush potisna sporočila je Sunup. Sunup je enostaven za namestitev in uporablja potisne strežnike Mozille.</string>
     <string name="missing_push_title">Manjka UnifiedPush</string>
     <string name="missing_push_description">Brez aplikacije za distribucijo potisnih sporočil UnifiedPush ne morete prejemati ukazov iz strežnika FMD.</string>
+    <string name="cmd_flash_description_short">Uporabi bliskavico kamere</string>
+    <string name="cmd_locate_provider_disabled">Zahtevani ponudnik lokacije \"%s\" je onemogočen.</string>
+    <string name="Notification_ExecutionService">Izvedba ukaza</string>
+    <string name="Notification_ExecutionService_Description">Obvestila za trenutno izvajane ukaze</string>
+    <string name="executing_title">Izvajanje ukaza</string>
+    <string name="executing_text">\"%2$s\" izvaja ukaz \"%1$s\".</string>
 </resources>
