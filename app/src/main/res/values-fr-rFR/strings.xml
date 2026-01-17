@@ -128,7 +128,7 @@
     <string name="cmd_camera_description_long">Prend une photo avec la caméra avant/arrière et l\'envoie vers le serveur FMD. Actuellement, seul le transfert vers le serveur FMD est pris en charge. Vous pouvez également envoyer cette commande via d\'autres canaux de communication, et la photo sera téléversée vers le serveur FMD (si un compte existe).</string>
     <string name="cmd_delete_description_long">Cela efface toutes les données. Par la suite, vous ne pourrez plus communiquer avec l\'appareil. Pour prévenir une utilisation accidentelle et malveillante, cette commande requiert un mot de passe et doit être explicitement activée dans les paramètres.</string>
     <string name="cmd_locate_description_short">Localiser l\'appareil</string>
-    <string name="cmd_locate_description_long">Localise l\'appareil en utilisant un ou plusieurs fournisseurs de localisation. Le fournisseur du système d\'exploitation est généralement le GPS, parfois en combinaison avec d\'autres sources. Un deuxième fournisseur est OpenCelliD, qui utilise une base de données des emplacements d\'antenne relais.</string>
+    <string name="cmd_locate_description_long">Localise l\'appareil en utilisant un ou plusieurs fournisseurs de localisation. Le GPS dispose DD la meilleure précision, mais peut ne pas fonctionner. Le fournisseur \"fused\" (fusionné) est défini par Android, et utilise une combinaison de sources (souvent des antennes relais ou les bornes WiFi). Le fournisseur \"cell\" (cellulaire) appelle les services OpenCelliD et BeaconDB, fournis publiquement, qui utilisent une base de données des emplacements d\'antenne relais.</string>
     <string name="cmd_nodisturb_description_short">Activer ou désactiver le mode Ne pas déranger</string>
     <string name="usage_notification_title">Commande exécutée</string>
     <string name="cmd_ring_description_short">Faire sonner l\'appareil</string>
@@ -287,4 +287,10 @@
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Des valeurs inférieures à 15 minutes ne sont pas recommandées.</string>
     <string name="missing_push_title">UnifiedPush non présent</string>
     <string name="missing_push_description">Sans une application de distribution UnifiedPush, vous ne pouvez pas recevoir de commande depuis FMD Server.</string>
+    <string name="cmd_flash_description_short">Allumer le flash de la caméra</string>
+    <string name="cmd_locate_provider_disabled">Le fournisseur de localisation demandé \"%s\" est désactivé.</string>
+    <string name="Notification_ExecutionService">Exécution de la commande</string>
+    <string name="Notification_ExecutionService_Description">Notifications pour les commandes actuellement exécutées</string>
+    <string name="executing_title">Commande en cours d\'exécution</string>
+    <string name="executing_text">La commande \"%1$s\" est actuellement en train d\'être exécutée par \"%2$s\".</string>
 </resources>
