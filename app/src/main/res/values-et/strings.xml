@@ -267,7 +267,7 @@
     <string name="cmd_locate_response_opencellid_failed">Viga asukoha tuvastamisel OpenCelliD abil. See võib juhtuda, kui antud sidemast ei leidu andmebaasis.\n\nPalun proovi järgnevat linki: %1$s\n\n%2$s</string>
     <string name="cmd_lock_description_long">Võid nutiseadme eemalt lukustada ja soovi korral kuvada lukustusvaates täiendavat teadet. Seejärel biomeetriline lukustuse eemaldamine lülitub välja ja pead selleks kasutama nutiseadme salasõna.</string>
     <string name="perm_do_not_disturb_access_name">Ligipääs „Ära sega“ režiimile</string>
-    <string name="cmd_locate_description_long">Võid tuvastada seadme asukoha ühe või enama teenuse abil. Operatsioonisüsteemikeskselt on see tavaliselt GPS, mõnel puhul küll kombineerides muude andmetega. Teine teenusepakkuja on OpenCelliD, mis olemuselt on mobiilimastide asukohtade andmebaas.</string>
+    <string name="cmd_locate_description_long">Võid tuvastada seadme asukoha ühe või enama teenuse abil. Tüüpiliselt on GPS-i täpsus parim, aga ei pruugi alati toimida. Valik „fused“ on Androidipõhine ja kombineerib eri allikaid (tavaliselt WiFi ja sidevõrgu mastid). Valiku „cell“ puhul tehakse päringud OpenCelliD ja BeaconDB teenustesse, mis olemuselt on mobiilimastide asukohtade andmebaasid.</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">See rakendus peaks olemuselt töötama taustal. Tagamaks, et töö jätkub ka siis, kui nutiseade on ooterežiimis, palun lülita akukasutuse optimeerimine selle seadme jaoks välja.</string>
     <string name="Permission_POST_NOTIFICATIONS">FMD võib sulle saata teavitusi, näiteks siis, kui keegi proovib sinu nutiseadme asukohta tuvastada.</string>
     <string name="perm_unused_app_description">Android peatab selliste rakendust tegevuse, mida pole paar kuud avatud ning lisaks eemaldab nende õigused. FMD aga peaks just töötama taustal. Peale esmast seadistamist pole suurt vajadust teda avada. Seetõtu pead sellise Androidi poolt tegevuse peatamise keelama. Vastasel juhul ta ilmselgelt paari kuu pärast enam ei toimi.</string>
@@ -276,4 +276,10 @@
     <string name="transport_sms_description_note">SMS-ide saatmisel võib tekkida kulusid nii sulle, kui saatjale ning lisaks on vaja, et SIM-kaart on tööks avatud (näiteks peale nutiseadme taaskäivitamist).</string>
     <string name="transport_notification_reply_title">Vastus teavitustele</string>
     <string name="transport_notification_reply_description">Sa võid lubada FMD-rakendusel lugeda sinu teavitusi ja proovida sealt tuvastada käske. Neile saab FMD vastata Androidi sisseehitatud teavitustele vastamise funktsionaalsusega. See võimaldab kontrollida FMD tööd sulle sobiva sõnumirakenduse abil - too peab lihtsalt oskama saata sõnumeid, mille teavitustele on võimalik vastata. Näiteks proovi saata oma telefonile Signali või Matrixi sõnum „fmd mypin help“.</string>
+    <string name="cmd_flash_description_short">Vilguta kaamera välklampi</string>
+    <string name="cmd_locate_provider_disabled">Soovitud asukohateenuse pakkuja „%s“ on lülitatud välja.</string>
+    <string name="Notification_ExecutionService">Käsu täitmine</string>
+    <string name="Notification_ExecutionService_Description">Hetkel täitmisel käskude teavitused</string>
+    <string name="executing_title">Käsk on täitmisel</string>
+    <string name="executing_text">„%2$s“ on hetkel täitmas „%1$s“ käsku.</string>
 </resources>
