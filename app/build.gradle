@@ -137,10 +137,6 @@ dependencies {
     implementation "org.apache.maven:maven-artifact:3.9.11" // for semantic versions
     implementation 'org.bouncycastle:bcprov-jdk18on:1.83'
 
-    // XXX: only used by javax.xml.bind.DatatypeConverter
-    implementation 'jakarta.xml.bind:jakarta.xml.bind-api:2.3.2'
-    implementation 'xerces:xercesImpl:2.12.2'
-
     // Shizuku
     implementation "dev.rikka.shizuku:api:13.1.0"
     implementation "dev.rikka.shizuku:provider:13.1.0"

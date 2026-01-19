@@ -42,7 +42,6 @@ import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource.PSpecified;
 import javax.crypto.spec.SecretKeySpec;
-import javax.xml.bind.DatatypeConverter;
 
 
 public class CypherUtils {
@@ -369,19 +368,11 @@ public class CypherUtils {
     // ------ Section: utils ------
 
     public static String encodeBase64(byte[] toEncode) {
-        return DatatypeConverter.printBase64Binary(toEncode);
+        return Base64.encodeToString(toEncode, Base64.DEFAULT);
     }
 
     public static byte[] decodeBase64(String toDecode) {
-        return DatatypeConverter.parseBase64Binary(toDecode);
-    }
-
-    public static byte[] fromHex(String str) {
-        return DatatypeConverter.parseHexBinary(str);
-    }
-
-    public static String toHex(byte[] ba) {
-        return DatatypeConverter.printHexBinary(ba);
+        return Base64.decode(toDecode, Base64.DEFAULT);
     }
 
     public static byte[] generateSecureRandom(int lengthInBytes) {
