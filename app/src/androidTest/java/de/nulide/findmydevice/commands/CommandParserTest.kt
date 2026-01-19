@@ -79,10 +79,9 @@ class CommandParserTest {
         val cmds = availableCommands(appContext)
         val helpCommand = HelpCommand(cmds, appContext)
 
-        val expectedPinHash =
-            "\$argon2id\$v=19\$m=131072,t=1,p=4\$GXrLoiiczcr4GsPmp6+muQ\$vWpZS6b8Ee+Gfjp02nVJJf3imwqFkONA05Pu9YoGtoo"
+        val expectedPin = "horse battery staple"
         val parser =
-            CommandParser("fmd", expectedPinHash, helpCommand, availableCommands(appContext))
+            CommandParser("fmd", expectedPin, helpCommand, availableCommands(appContext))
         val actual = parser.parse("""fmd "horse battery staple" ring""")
 
         assertTrue(actual is ParserResult.Success)
@@ -118,10 +117,9 @@ class CommandParserTest {
         val cmds = availableCommands(appContext)
         val helpCommand = HelpCommand(cmds, appContext)
 
-        val expectedPinHash =
-            "\$argon2id\$v=19\$m=131072,t=1,p=4\$GXrLoiiczcr4GsPmp6+muQ\$vWpZS6b8Ee+Gfjp02nVJJf3imwqFkONA05Pu9YoGtoo"
+        val expectedPin = "horse battery staple"
         val parser =
-            CommandParser("fmd", expectedPinHash, helpCommand, availableCommands(appContext))
+            CommandParser("fmd", expectedPin, helpCommand, availableCommands(appContext))
         val actual = parser.parse("""fmd "horse battery staple" """) // no command, just pin
 
         assertTrue(actual is ParserResult.Success)
