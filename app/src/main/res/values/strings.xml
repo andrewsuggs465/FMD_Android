@@ -20,6 +20,7 @@
     <string name="export_failed">Export failed</string>
     <string name="Settings_Import_Success">Import successful</string>
     <string name="Settings_Import_Failed">Import failed</string>
+    <string name="dont_show_again">Don\'t show again</string>
 
     <!-- Generic errors -->
     <string name="request_failed_title">Network request failed</string>
@@ -197,6 +198,9 @@
 
     <!-- Pin update boarding -->
     <string name="update_pin_hash_change_text">The FMD PIN was reset during an app update. To continue using FMD with a PIN, please set the PIN again.</string>
+
+    <!-- FMD Edge launch info -->
+    <string name="fmd_edge_info_message">This is the edge variant of FMD. Here, the default command keyword is \"fmde\" (instead of \"fmd\"). For example, to send the locate command, use \"fmde locate\". This allows having both edge and prod installed on the same device, and targeting commands to one of the two.</string>
 
     <!-- Commands -->
 

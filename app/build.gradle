@@ -69,6 +69,12 @@ android {
             buildConfigField "String", "DEFAULT_FMD_COMMAND", "\"fmd\""
             buildConfigField "String", "DEFAULT_FMD_SERVER_URL", "\"https://server.fmd-foss.org\""
         }
+        edge {
+            dimension "default"
+            applicationIdSuffix ".edge"
+            buildConfigField "String", "DEFAULT_FMD_COMMAND", "\"fmde\""
+            buildConfigField "String", "DEFAULT_FMD_SERVER_URL", "\"https://server-edge.fmd-foss.org\""
+        }
         dev {
             dimension "default"
             applicationIdSuffix ".dev"

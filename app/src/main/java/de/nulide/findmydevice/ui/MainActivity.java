@@ -4,6 +4,7 @@ import static de.nulide.findmydevice.net.ServerRequiredVersionCheckKt.isMinRequi
 import static de.nulide.findmydevice.ui.SetupWarningsActivityKt.shouldShowSetupWarnings;
 import static de.nulide.findmydevice.ui.UiUtil.setupEdgeToEdgeAppBar;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationBarView;
 
+import de.nulide.findmydevice.BuildConfig;
 import de.nulide.findmydevice.R;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
@@ -120,6 +122,11 @@ public class MainActivity extends FmdActivity {
         if (PushWarningsKt.shouldWarnUnifiedPushRequired(this)) {
             PushWarningsKt.dialogWarnUnifiedPushRequired(this);
         }
+
+        if (BuildConfig.FLAVOR == "edge" &&
+                !(Boolean) settings.get(Settings.SET_FMD_EDGE_INFO_SHOWN)) {
+            showFmdEdgeInfoDialog(this);
+        }
     }
 
     @Override
@@ -189,5 +196,17 @@ public class MainActivity extends FmdActivity {
             }
             return Unit.INSTANCE;
         });
+    }
+
+    private void showFmdEdgeInfoDialog(Context context) {
+        new MaterialAlertDialogBuilder(context)
+                .setTitle(R.string.app_name)
+                .setMessage(R.string.fmd_edge_info_message)
+                .setPositiveButton(getString(android.R.string.ok), null)
+                .setNeutralButton(getString(R.string.dont_show_again), (dialog, whichButton) -> {
+                    settings.set(Settings.SET_FMD_EDGE_INFO_SHOWN, true);
+                    dialog.dismiss();
+                })
+                .show();
     }
 }
