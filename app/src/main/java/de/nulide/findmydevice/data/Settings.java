@@ -68,8 +68,6 @@ public class Settings extends HashMap<Integer, Object> {
     public static final String VAL_THEME_DARK = "dark";
     public static final int SET_DYNAMIC_COLORS = 602;
 
-    public static final String DEFAULT_FMD_SERVER_URL = "https://server.fmd-foss.org";
-
     public Settings() {
     }
 

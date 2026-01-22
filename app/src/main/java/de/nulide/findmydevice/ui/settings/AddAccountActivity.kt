@@ -17,6 +17,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import com.android.volley.VolleyError
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import de.nulide.findmydevice.BuildConfig
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.FmdKeyPair
 import de.nulide.findmydevice.data.RegistrationTokenRepository
@@ -79,7 +80,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
 
         // Actively opt-in to using the "official" server
         val btnUseDefaultServer = findViewById<Button>(R.id.buttonUseDefaultServer)
-        btnUseDefaultServer.setOnClickListener { _ -> editTextServerUrl.setText(Settings.DEFAULT_FMD_SERVER_URL) }
+        btnUseDefaultServer.setOnClickListener { _ -> editTextServerUrl.setText(BuildConfig.DEFAULT_FMD_SERVER_URL) }
 
         editTextServerUrl = findViewById(R.id.editTextServerUrl)
         editTextServerUrl.addTextChangedListener(this)

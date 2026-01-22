@@ -9,6 +9,7 @@ import com.google.gson.JsonSyntaxException
 import com.google.gson.ToNumberStrategy
 import com.google.gson.stream.JsonReader
 import com.google.gson.stream.MalformedJsonException
+import de.nulide.findmydevice.BuildConfig
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.utils.CypherUtils
 import de.nulide.findmydevice.utils.SingletonHolder
@@ -153,9 +154,9 @@ class SettingsRepository private constructor(private val context: Context) {
         val oldUrl = get(Settings.SET_FMDSERVER_URL) as String
         val uri = oldUrl.toUri()
         if (uri.host == "fmd.nulide.de") {
-            val msg = "Updating server URL: old=$oldUrl new=${Settings.DEFAULT_FMD_SERVER_URL}"
+            val msg = "Updating server URL: old=$oldUrl new=${BuildConfig.DEFAULT_FMD_SERVER_URL}"
             context.log().i(TAG, msg)
-            set(Settings.SET_FMDSERVER_URL, Settings.DEFAULT_FMD_SERVER_URL)
+            set(Settings.SET_FMDSERVER_URL, BuildConfig.DEFAULT_FMD_SERVER_URL)
         }
     }
 
