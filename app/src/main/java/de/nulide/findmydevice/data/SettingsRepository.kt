@@ -146,7 +146,13 @@ class SettingsRepository private constructor(private val context: Context) {
     }
 
     fun migrateSettings() {
+        val currentVersion = get(Settings.SET_SET_VERSION) as Int
+
         migrateServerUrl()
+        if (currentVersion < 3) {
+            migrateDeletePassword()
+        }
+
         set(Settings.SET_SET_VERSION, Settings.SETTINGS_VERSION)
     }
 
@@ -158,6 +164,14 @@ class SettingsRepository private constructor(private val context: Context) {
             context.log().i(TAG, msg)
             set(Settings.SET_FMDSERVER_URL, BuildConfig.DEFAULT_FMD_SERVER_URL)
         }
+    }
+
+    private fun migrateDeletePassword() {
+        // For users that upgrade, initialize the new delete password with the existing FMD PIN
+        context.log().i(TAG, "Migrating to separate delete password")
+        val encSettings = EncryptedSettingsRepository.getInstance(context)
+        val pin = encSettings.getFmdPin()
+        encSettings.setDeletePassword(pin)
     }
 
 // ---------- Convenience helpers ----------

@@ -12,7 +12,7 @@ import de.nulide.findmydevice.utils.RingerUtils;
 @Keep
 public class Settings extends HashMap<Integer, Object> {
 
-    public static final int SETTINGS_VERSION = 2;
+    public static final int SETTINGS_VERSION = 3;
 
     public static final int SET_WIPE_ENABLED = 0;
     public static final int SET_ACCESS_VIA_PIN = 1;
