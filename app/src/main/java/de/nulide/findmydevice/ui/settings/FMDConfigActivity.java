@@ -137,7 +137,6 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
         View pinLayout = getLayoutInflater().inflate(R.layout.dialog_pin, null);
 
         EditText editTextPin = pinLayout.findViewById(R.id.editTextPin);
-        EditText editTextPinRepeat = pinLayout.findViewById(R.id.editTextPinRepeat);
 
         new MaterialAlertDialogBuilder(context)
                 .setTitle(getString(R.string.Settings_Enter_Pin))
@@ -145,26 +144,21 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
                 .setPositiveButton(getString(R.string.Ok), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String pin = editTextPin.getText().toString();
-                        String repeat = editTextPinRepeat.getText().toString();
 
-                        if (pin.equals(repeat)) {
-                            if (pin.isBlank()) {
-                                encSettings.setFmdPin(null);
-                            }
-                            // The PIN must not match a command keyword.
-                            // Otherwise, we cannot (easily) distinguish between the PIN and the command.
-                            // Also, it would be a weak PIN anyway.
-                            else if (
-                                    availableCommands(context).stream().anyMatch(cmd -> cmd.getKeyword().equals(pin))
-                            ) {
-                                Toast.makeText(context, R.string.pin_match_command_keyword, Toast.LENGTH_LONG).show();
-                            } else if (pin.length() < MIN_PASSWORD_LENGTH) {
-                                Toast.makeText(context, R.string.pin_min_length, Toast.LENGTH_LONG).show();
-                            } else {
-                                encSettings.setFmdPin(pin);
-                            }
+                        if (pin.isBlank()) {
+                            encSettings.setFmdPin(null);
+                        }
+                        // The PIN must not match a command keyword.
+                        // Otherwise, we cannot (easily) distinguish between the PIN and the command.
+                        // Also, it would be a weak PIN anyway.
+                        else if (
+                                availableCommands(context).stream().anyMatch(cmd -> cmd.getKeyword().equals(pin))
+                        ) {
+                            Toast.makeText(context, R.string.pin_match_command_keyword, Toast.LENGTH_LONG).show();
+                        } else if (pin.length() < MIN_PASSWORD_LENGTH) {
+                            Toast.makeText(context, R.string.pin_min_length, Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(context, R.string.pin_mismatch, Toast.LENGTH_LONG).show();
+                            encSettings.setFmdPin(pin);
                         }
 
                         updatePinButton();

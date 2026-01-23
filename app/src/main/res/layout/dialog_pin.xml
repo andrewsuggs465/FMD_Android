@@ -32,21 +32,5 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_small"
-            app:passwordToggleEnabled="true">
-
-            <EditText
-                android:id="@+id/editTextPinRepeat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_normal"
-                android:autofillHints="password"
-                android:hint="@string/pin_repeat"
-                android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
-
     </LinearLayout>
 </ScrollView>
