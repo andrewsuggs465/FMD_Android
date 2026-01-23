@@ -50,37 +50,18 @@
                 android:layout_marginBottom="@dimen/margin_small"
                 android:text="@string/Enable" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="@dimen/margin_normal"
-                android:background="?android:attr/listDivider" />
-
-            <TextView
-                style="@style/FMD.Text.SectionTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/pin" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/Settings_Pin_Description" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/Settings_Pin_Not_Backed_Up" />
-
             <Button
                 android:id="@+id/buttonEnterPin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
                 android:text="@string/Settings_Enter_Pin" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@string/Settings_Pin_Not_Backed_Up" />
 
             <View
                 android:layout_width="match_parent"
@@ -188,6 +169,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/Enable" />
+
+            <Button
+                android:id="@+id/buttonDeletePassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@string/password_enter" />
+
+            <TextView
+                android:id="@+id/textViewDeletePasswordWarning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@string/delete_pw_warning_empty" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@string/delete_pw_warning_no_backup" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

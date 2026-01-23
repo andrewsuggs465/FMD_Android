@@ -21,7 +21,7 @@ class DeleteCommand(context: Context) : Command(context) {
     }
 
     override val keyword = "delete"
-    override val usage = "delete <pin> [dryrun]"
+    override val usage = "delete <password> [dryrun]"
 
     @get:DrawableRes
     override val icon = R.drawable.ic_delete_outline
@@ -55,8 +55,8 @@ class DeleteCommand(context: Context) : Command(context) {
         val pwd = args[0]
 
         val encSettings = EncryptedSettingsRepository.getInstance(context)
-        val expectedPin = encSettings.getFmdPin()
-        if (expectedPin.isNullOrBlank() || expectedPin != pwd) {
+        val expectedPassword = encSettings.getDeletePassword()
+        if (expectedPassword.isNullOrBlank() || expectedPassword != pwd) {
             val msg = context.getString(R.string.cmd_delete_response_pwd_wrong)
             context.log().i(TAG, msg)
             transport.send(context, msg)

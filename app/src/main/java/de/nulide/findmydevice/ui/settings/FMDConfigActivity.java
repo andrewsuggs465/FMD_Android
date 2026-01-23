@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -29,6 +30,8 @@ import de.nulide.findmydevice.data.EncryptedSettingsRepository;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.ui.FmdActivity;
+import de.nulide.findmydevice.ui.common.PasswordSetDialog;
+import kotlin.Unit;
 
 public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnCheckedChangeListener, TextWatcher {
 
@@ -39,6 +42,7 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
     private CheckBox checkBoxAccessViaPin;
     private Button buttonEnterPin;
     private Button buttonSelectRingtone;
+    private Button buttonDeletePassword;
     private EditText editTextLockScreenMessage;
     private EditText editTextFmdCommand;
 
@@ -87,14 +91,20 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
         editTextFmdCommand = findViewById(R.id.editTextFmdCommand);
         editTextFmdCommand.setText((String) settings.get(Settings.SET_FMD_COMMAND));
         editTextFmdCommand.addTextChangedListener(this);
+
+        buttonDeletePassword = findViewById(R.id.buttonDeletePassword);
+        buttonDeletePassword.setOnClickListener(this::onEnterDeletePasswordClicked);
+        updateDeletePasswordButton();
     }
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (buttonView == checkBoxDeviceWipe) {
             settings.set(Settings.SET_WIPE_ENABLED, isChecked);
+            updateDeletePasswordButton();
         } else if (buttonView == checkBoxAccessViaPin) {
             settings.set(Settings.SET_ACCESS_VIA_PIN, isChecked);
+            updatePinButton();
         }
     }
 
@@ -163,6 +173,14 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
                 .show();
     }
 
+    private void onEnterDeletePasswordClicked(View v) {
+        new PasswordSetDialog(v.getContext(), (newPassword) -> {
+            encSettings.setDeletePassword(newPassword);
+            updateDeletePasswordButton();
+            return Unit.INSTANCE;
+        }).show();
+    }
+
     private void onSelectRingtoneClicked(View v) {
         Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
         intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_ALARM);
@@ -194,6 +212,30 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
             buttonEnterPin.setBackgroundColor(colorEnabled);
             buttonEnterPin.setTextColor(textColorEnabled);
             buttonEnterPin.setText(R.string.Settings_Change_Pin);
+        }
+    }
+
+    private void updateDeletePasswordButton() {
+        boolean enabled = (boolean) settings.get(Settings.SET_WIPE_ENABLED);
+        String password = encSettings.getDeletePassword();
+        boolean isPasswordEmpty = password == null || password.isBlank();
+
+        TextView textViewDeletePasswordWarning = findViewById(R.id.textViewDeletePasswordWarning);
+
+        if (isPasswordEmpty) {
+            buttonDeletePassword.setBackgroundColor(colorDisabled);
+            buttonDeletePassword.setTextColor(textColorDisabled);
+            buttonDeletePassword.setText(R.string.password_set);
+        } else {
+            buttonDeletePassword.setBackgroundColor(colorEnabled);
+            buttonDeletePassword.setTextColor(textColorEnabled);
+            buttonDeletePassword.setText(R.string.password_change);
+        }
+
+        if (enabled && isPasswordEmpty) {
+            textViewDeletePasswordWarning.setVisibility(View.VISIBLE);
+        } else {
+            textViewDeletePasswordWarning.setVisibility(View.GONE);
         }
     }
 

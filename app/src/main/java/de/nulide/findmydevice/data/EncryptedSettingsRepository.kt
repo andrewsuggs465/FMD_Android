@@ -24,6 +24,7 @@ class EncryptedSettingsRepository private constructor(context: Context) {
 
         private const val KEY_SERVER_CACHED_ACCESS_TOKEN = "KEY_SERVER_CACHED_ACCESS_TOKEN"
         private const val KEY_FMD_PIN = "KEY_FMD_PIN"
+        private const val KEY_DELETE_PASSWORD = "KEY_DELETE_PASSWORD"
     }
 
     val sharedPrefs: SharedPreferences
@@ -59,6 +60,18 @@ class EncryptedSettingsRepository private constructor(context: Context) {
             sharedPrefs.edit().remove(KEY_FMD_PIN).apply()
         } else {
             sharedPrefs.edit().putString(KEY_FMD_PIN, new).apply()
+        }
+    }
+
+    fun getDeletePassword(): String? {
+        return sharedPrefs.getString(KEY_DELETE_PASSWORD, null)
+    }
+
+    fun setDeletePassword(new: String?) {
+        if (new.isNullOrBlank()) {
+            sharedPrefs.edit().remove(KEY_DELETE_PASSWORD).apply()
+        } else {
+            sharedPrefs.edit().putString(KEY_DELETE_PASSWORD, new).apply()
         }
     }
 }

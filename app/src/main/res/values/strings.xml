@@ -47,7 +47,6 @@
 
     <!-- Settings: General -->
     <string name="Settings_FMD_via_Pin_Description">Allows you to communicate with FMD via a PIN. This allows you to send commands from a phone number that is not in the allowed contacts list.</string>
-    <string name="Settings_Pin_Description">Used as confirmation before wiping the device and for anonymous usage of the service.</string>
     <string name="Settings_Pin_Not_Backed_Up">Warning: The PIN is not included in the app backup.</string>
     <string name="Settings_Set_Pin">Set PIN</string>
     <string name="Settings_Change_Pin">Change PIN</string>
@@ -63,6 +62,8 @@
     <string name="Settings_Select_Ringtone">Select ringtone</string>
     <string name="Settings_no_ringtone_picker">No ringtone picker found!</string>
     <string name="Settings_Lockscreenmessage_Description">Lock screen message:\nWhen locking the device, this message will appear on the lock screen.</string>
+    <string name="delete_pw_warning_no_backup">Warning: The password is not included in the app backup.</string>
+    <string name="delete_pw_warning_empty">Warning: Deleting won\'t work because the delete password is empty. You must both enable the feature and set a password.</string>
 
     <!-- Settings: FMD Server -->
     <string name="Settings_FMD_Server_General">General</string>
