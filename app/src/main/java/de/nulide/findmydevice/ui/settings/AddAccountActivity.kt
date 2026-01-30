@@ -216,7 +216,9 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
             // DOM Storage is needed for the "follow system theme" of the React app to work
             domStorageEnabled = true
         }
-        webView.loadUrl(editTextServerUrl.text.toString() + "/privacy?embedded=true")
+
+        val url = editTextServerUrl.text.toString().removeSuffix("/") + "/privacy?embedded=true"
+        webView.loadUrl(url)
 
         MaterialAlertDialogBuilder(context)
             .setTitle(getString(R.string.Settings_FMDServer_Alert_PrivacyPolicy_Title))
@@ -243,10 +245,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
 
     override fun afterTextChanged(editable: Editable) {
         if (editable === editTextServerUrl.text) {
-            var url = editable.toString()
-            if (url.endsWith("/")) {
-                url = url.substring(0, url.length - 1)
-            }
+            val url = editTextServerUrl.text.toString().removeSuffix("/")
             settingsRepo.set(Settings.SET_FMDSERVER_URL, url)
             if (url.isEmpty()) {
                 btnRegister.isEnabled = false
