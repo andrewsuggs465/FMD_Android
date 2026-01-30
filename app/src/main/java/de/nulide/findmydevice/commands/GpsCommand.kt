@@ -4,9 +4,11 @@ import android.content.Context
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
+import de.nulide.findmydevice.locationproviders.isLocationOn
 import de.nulide.findmydevice.permissions.WriteSecureSettingsPermission
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.SecureSettings
+import de.nulide.findmydevice.utils.onOffString
 
 
 class GpsCommand(context: Context) : Command(context) {
@@ -28,7 +30,13 @@ class GpsCommand(context: Context) : Command(context) {
         args: List<String>,
         transport: Transport<T>,
     ) {
-        if (args.contains("on")) {
+        if (args.isEmpty()) {
+            val msg = context.getString(
+                R.string.cmd_gps_response_empty,
+                context.onOffString(isLocationOn(context))
+            )
+            transport.send(context, msg)
+        } else if (args.contains("on")) {
             SecureSettings.turnGPS(context, true)
             transport.send(context, context.getString(R.string.cmd_gps_response_on))
         } else if (args.contains("off")) {

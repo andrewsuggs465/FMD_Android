@@ -61,3 +61,11 @@ class Utils {
         }
     }
 }
+
+fun Context.onOffString(isOn: Boolean): String {
+    return if (isOn) {
+        getString(R.string.turned_on)
+    } else {
+        getString(R.string.turned_off)
+    }
+}

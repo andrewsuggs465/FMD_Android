@@ -21,6 +21,8 @@
     <string name="Settings_Import_Success">Import successful</string>
     <string name="Settings_Import_Failed">Import failed</string>
     <string name="dont_show_again">Don\'t show again</string>
+    <string name="turned_on">on</string>
+    <string name="turned_off">off</string>
 
     <!-- Generic errors -->
     <string name="request_failed_title">Network request failed</string>
@@ -213,6 +215,7 @@
     <string name="cmd_bluetooth_response_no_bluetooth">The device does not seem to have Bluetooth.</string>
     <string name="cmd_bluetooth_response_on">Bluetooth turned on.</string>
     <string name="cmd_bluetooth_response_off">Bluetooth turned off.</string>
+    <string name="cmd_bluetooth_response_empty">Bluetooth is %s.</string>
 
     <string name="cmd_camera_description_short">Take a picture</string>
     <string name="cmd_camera_description_long">Takes a picture of with the front/back camera and uploads it to FMD Server. Currently only uploading to FMD Server is supported. You can send this command via other transport channels, too, and the picture will be uploaded to FMD Server (if an account exists).</string>
@@ -230,9 +233,10 @@
 
     <string name="cmd_flash_description_short">Flash the camera light</string>
 
-    <string name="cmd_gps_description_short">Toggle GPS on and off</string>
-    <string name="cmd_gps_response_on">GPS turned on.</string>
-    <string name="cmd_gps_response_off">GPS turned off.</string>
+    <string name="cmd_gps_description_short">Toggle Location Services on and off</string>
+    <string name="cmd_gps_response_on">Location Services turned on.</string>
+    <string name="cmd_gps_response_off">Location Services turned off.</string>
+    <string name="cmd_gps_response_empty">Location Services are %s.</string>
 
     <string name="cmd_help_description_short">Show the help</string>
     <string name="cmd_help_message_start">FMD Commands:</string>
