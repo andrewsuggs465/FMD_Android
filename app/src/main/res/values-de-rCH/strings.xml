@@ -14,9 +14,7 @@
     <string name="Settings_WhiteList">Erlaubti Kontäkt</string>
     <string name="Settings_Import">Iistellige importiere</string>
     <string name="Settings_FMD_via_Pin_Description">Machts dir möglich mit FMD via PIN zu kommuniziere. So chasch Befehl vonere Telefonnummer schicke wo nöd in dine erlaubte Kontäkt isch.</string>
-    <string name="Settings_Pin_Description">De PIN wird als Bestätigung zums Gerät zruggzsetze brucht und zum anonym Befehl a FMD zschicke.</string>
     <string name="pin">PIN</string>
-    <string name="pin_repeat">PIN wiederhole</string>
     <string name="Settings_FMDCommand_Description">De Befehl zum mit FMD kommuniziere.</string>
     <string name="Settings_Ringer_Tone_Description">De Klingelton für fmd ring.</string>
     <string name="Settings_Select_Ringtone">Klingelton uswähle</string>
@@ -254,7 +252,6 @@
     <string name="cmd_delete_response_dry_run">Testlauf erfolgriich, die eigentlichi Gerätlöschig wird übersprunge.</string>
     <string name="usage_notification_pin_title">FMD PIN brucht</string>
     <string name="usage_notification_pin_text">De PIN isch von dere Nummere brucht worde: \"%s\". Mer empfehlet, de PIN z ändere.</string>
-    <string name="pin_mismatch">D PINs stimmed nöd überein!</string>
     <string name="pin_match_command_keyword">De PIN döff nöd mit eim vo de Befehl übereinstimme!</string>
     <string name="Settings_FMDServer_Push_Distributor">Verteiler: %s</string>
     <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>

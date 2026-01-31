@@ -49,7 +49,6 @@
     <string name="Settings_WhiteList">許可済の連絡先</string>
     <string name="Settings_Appearance">表示</string>
     <string name="pin">ピンコード</string>
-    <string name="pin_mismatch">ピンコードが一致しません！</string>
     <string name="Settings_FMDServer_Change_Password_Button">パスワードを変更</string>
     <string name="Settings_FMD_Server_User_ID">ユーザーID：</string>
     <string name="Settings_FMDServer_Logout_Text">FMDサーバーのアカウントからログアウトしてよろしいですか？</string>

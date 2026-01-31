@@ -4,7 +4,6 @@
 \n¡Este dispositivo está bloqueado!
 \nMensaje del propietari@:</string>
     <string name="Enable">Activar</string>
-    <string name="Settings_Pin_Description">Se utiliza como confirmación antes de borrar el dispositivo y para el uso anónimo del servicio.</string>
     <string name="Settings_Lockscreenmessage_Description">Mensaje de la Pantalla de Bloqueo: \nAl bloquear el dispositivo, este mensaje aparecerá en la pantalla de bloqueo.</string>
     <string name="Settings_FMDCommand_Description">El comando utilizado para comunicarse con el FMD.</string>
     <string name="WhiteList_Add_Contact">Añadir Contacto</string>
@@ -54,7 +53,6 @@
     <string name="copied">Copiado</string>
     <string name="Edit">Editar</string>
     <string name="pin">PIN</string>
-    <string name="pin_repeat">Repetir el pin</string>
     <string name="Settings_FMD_Server_Server_URL">URL del servidor:</string>
     <string name="Settings_FMD_Server_User_ID">ID del usuario:</string>
     <string name="Settings_FMD_Server_ID_Desc">Necesita el ID del usuario para encontrar su dispositivo con el servidor FMD. Anótelo y guárdelo en un lugar seguro.</string>
@@ -254,7 +252,6 @@
     <string name="Settings_FMDServer_Check_Interval_Title">Intervalo de comprobación de conectividad</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD comprueba la conectividad con el servidor FMD cada X horas. Establezca este valor en 0 para desactivar la comprobación de conectividad.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Tiempo máximo permitido sin conectividad</string>
-    <string name="pin_mismatch">¡Los códigos PIN no coinciden!</string>
     <string name="pin_match_command_keyword">¡El código PIN no debe ser igual a ninguno de los comandos!</string>
     <string name="server_connectivity_lost_text">Ya no se puede acceder al servidor FMD en %1$s . La última conexión exitosa fue en %2$s .</string>
     <string name="server_connectivity_lost_title">Se perdió la conectividad del servidor FMD</string>

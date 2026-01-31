@@ -7,10 +7,8 @@
     <string name="Settings_Logs">Registros</string>
     <string name="Settings_About">Sobre</string>
     <string name="Settings_FMD_via_Pin_Description">Permite que você se comunique com o FMD através de um PIN. Isso permite que você envie comandos de um número de telefone que não está na lista de contatos permitidos.</string>
-    <string name="Settings_Pin_Description">Utilizado para a confirmação antes de apagar os dados do dispositivo, e para uso anônimo do serviço.</string>
     <string name="Settings_Enter_Pin">Digite o PIN</string>
     <string name="pin">PIN</string>
-    <string name="pin_repeat">Digita o PIN novamente</string>
     <string name="Settings_FMDCommand_Description">O comando utilizado para se comunicar com o FMD.</string>
     <string name="Settings_Ringer_Tone_Description">Selecione um som de toque que tocará quando o comando \'fmd ring\' é enviado.</string>
     <string name="Settings_Select_Ringtone">Selecionar som de toque</string>
@@ -243,7 +241,6 @@
     <string name="cmd_delete_response_dry_run">Execução seca bem-sucedida, pulando o apagamento real do dispositivo.</string>
     <string name="Settings_FMDServer_Check_Interval_Description">O FMD testa sua conexão ao FMD Server a cada X horas. Configure isto pra 0 para desativar o teste de conectividade.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">O FMD irá te notificar se a última conexão ao FMD Server foi a mais de X horas atrás. Isto não tem efeito se o teste de conectividade está desativado.</string>
-    <string name="pin_mismatch">Os PINs não se correspondem!</string>
     <string name="pin_match_command_keyword">O PIN não pode ser igual a um dos comandos!</string>
     <string name="usage_notification_pin_title">PIN do FMD utilizado</string>
     <string name="server_fmd_id_hint">O FMD ID identifica sua conta no FMD Server. Deixe isso vazio para deixar que o servidor gere um ID. O administrador doservidor pode ver o FMD ID.</string>

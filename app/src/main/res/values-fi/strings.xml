@@ -4,7 +4,6 @@
 \nTämä puhelin on lukittu!
 \nViesti omistajalta:</string>
     <string name="Enable">Ota käyttöön</string>
-    <string name="Settings_Pin_Description">Käytetään varmistamiseen ennen laitteen tyhjennystä ja anonyyminä palvelun käyttöä.</string>
     <string name="Settings_Lockscreenmessage_Description">Lukitusnäytön viesti: \nKun laite lukitaan, tämä viesti näkyy lukitusnäytöllä.</string>
     <string name="Settings_FMDCommand_Description">Komento, jota käytetään FMD:n ohjaamiseen.</string>
     <string name="WhiteList_Add_Contact">Lisää yhteystieto</string>
@@ -44,7 +43,6 @@
     <string name="Settings_FMDServer_Logout_Button">Kirjaudu ulos</string>
     <string name="Whitelist_help">Vain tässä listassa olevat yhteystiedot voivat lähettää FMD-komentoja tekstiviestitse. Muut yhteystiedot ohitetaan.</string>
     <string name="pin">PIN</string>
-    <string name="pin_repeat">Toista PIN</string>
     <string name="Settings_FMD_Server_General">Yleinen</string>
     <string name="Settings_FMD_Server_Server_URL">Palvelimen URL:</string>
     <string name="Settings_FMD_Server_User_ID">Käyttäjän ID:</string>
@@ -245,7 +243,6 @@
     <string name="cmd_delete_response_dry_run">Testiajo suoritettu, ohitetaan todellinen laitteen poisto.</string>
     <string name="usage_notification_pin_text">PIN-koodia käytti numero %s. On suositeltavaa vaihtaa PIN-koodi.</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD tarkistaa yhteyden FMD-palvelimelle määrittämäsi tuntimäärän välein. Aseta nollaksi poistaaksesi tarkistus käytöstä.</string>
-    <string name="pin_mismatch">PIN-koodit eivät täsmää!</string>
     <string name="pin_match_command_keyword">PIN-koodi ei voi olla sama kuin mikään komennoista!</string>
     <string name="usage_notification_pin_title">FMD PIN-koodia käytetty</string>
 </resources>

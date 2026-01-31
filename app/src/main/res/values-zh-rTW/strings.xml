@@ -47,10 +47,8 @@
     <string name="Settings_Logs">日誌</string>
     <string name="Settings_About">關於</string>
     <string name="Settings_FMD_via_Pin_Description">允許您透過 PIN 與 FMD 進行通訊。這可讓您從不在允許聯絡人清單中的電話號碼傳送指令。</string>
-    <string name="Settings_Pin_Description">用於在擦除裝置之前進行確認，並可供匿名使用該服務。</string>
     <string name="Settings_Enter_Pin">輸入 PIN 碼</string>
     <string name="pin">PIN</string>
-    <string name="pin_repeat">重複 PIN 碼</string>
     <string name="Settings_FMDCommand_Description">用於與 FMD 通訊的指令。</string>
     <string name="Settings_Ringer_Tone_Description">選擇在傳送 fmd 響鈴指令時播放的鈴聲。</string>
     <string name="Settings_Select_Ringtone">選擇鈴聲</string>
@@ -118,7 +116,6 @@
     <string name="Toast_Duplicate_contact">此聯絡人已存在。</string>
     <string name="bottom_nav_commands">命令</string>
     <string name="Settings_Pin_Not_Backed_Up">警告：應用程式備份中不包含 PIN 碼。</string>
-    <string name="pin_mismatch">PIN 碼不相符！</string>
     <string name="Cell">行動數據</string>
     <string name="Toast_Empty_FMDCommand">不允許空命令，正在使用預設值。</string>
     <string name="add">增加</string>

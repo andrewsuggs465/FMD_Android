@@ -18,10 +18,8 @@
     <string name="Settings_Import_Failed">Внесот не успеа</string>
     <string name="Settings_Export">Извади нагодувања</string>
     <string name="Settings_Logs">Записи</string>
-    <string name="Settings_Pin_Description">Се користи за потврда пред да се избрише уредот и при анонимното користење на услугата.</string>
     <string name="Settings_Enter_Pin">Внеси ЛИБ (личен идентификационен број)</string>
     <string name="pin">ЛИБ (личен идентификационен број)</string>
-    <string name="pin_repeat">Повтори го ЛИБ-от</string>
     <string name="Settings_Ringer_Tone_Description">Одбери ѕвонка која ќе свири кога е пратена FMD ѕвони наредба.</string>
     <string name="Settings_Lockscreenmessage_Description">Порака при заклучен екран: \nКога ќе се заклучи уредот, оваа порака ќе се појави на заклучениот екран.</string>
     <string name="Settings_FMD_Server_User_ID">Корисничко име:</string>

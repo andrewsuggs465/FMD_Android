@@ -34,8 +34,6 @@
     <string name="Settings_Logs">Günlükler</string>
     <string name="Settings_Enter_Pin">PIN giriniz</string>
     <string name="pin">PIN</string>
-    <string name="Settings_Pin_Description">Cihazı silmeden önce doğrulama olarak ve hizmetin anonim kullanımı için kullanılır.</string>
-    <string name="pin_repeat">PIN\'i tekrar ediniz</string>
     <string name="Settings_FMDCommand_Description">FMD ile iletişim kurmak için kullanılan komut.</string>
     <string name="Toast_Empty_FMDCommand">Boş komut geçerli değil, varsayılan kullanılıyor.</string>
     <string name="Settings_Lockscreenmessage_Description">Kilit Ekranı Mesajı:\nCihazı kilitlerken, bu mesaj ekranda gözükecektir.</string>
@@ -52,7 +50,6 @@
     <string name="Settings_About">Hakkında</string>
     <string name="Settings_FMD_via_Pin_Description">FMD ile bir PIN aracılığıyla iletişim kurmanıza izin verir. Bu İzin Verilen Kişiler listesinde olmayan bir telefon numarasından komutlar göndermenize izin verir.</string>
     <string name="Settings_Pin_Not_Backed_Up">Uyarı: PIN uygulama yedeğine dahil değildir.</string>
-    <string name="pin_mismatch">PINler uyuşmuyor!</string>
     <string name="Settings_FMDServer_Logout_Text">FMD Sunucu hesabınızdan gerçekten çıkmak istiyor musunuz?</string>
     <string name="Settings_FMDServer_Unregister_Success">Kaydı silme ve veri silme başarılı!</string>
     <string name="Settings_FMD_Server_Connection_Status_Success">Başarılı</string>

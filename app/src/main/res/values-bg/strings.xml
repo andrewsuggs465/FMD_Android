@@ -21,10 +21,8 @@
     <string name="Settings_Logs">Дневници</string>
     <string name="Settings_About">Относно</string>
     <string name="Settings_FMD_via_Pin_Description">Позволява ви да комуникирате с FMD чрез PIN. Това ви позволява да изпращате команди от телефонен номер, който не е в списъка с разрешени контакти.</string>
-    <string name="Settings_Pin_Description">Използва се като потвърждение преди изтриване на устройството и за анонимно използване на услугата.</string>
     <string name="Settings_Enter_Pin">Въведете PIN</string>
     <string name="pin">PIN</string>
-    <string name="pin_repeat">Повторете PIN</string>
     <string name="Settings_FMDCommand_Description">Командата, използвана за комуникация с FMD.</string>
     <string name="loading">Зареждане…</string>
     <string name="help">Помощ</string>

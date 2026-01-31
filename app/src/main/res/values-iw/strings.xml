@@ -30,10 +30,8 @@
     <string name="Settings_FMDConfig">FMD - תצורה</string>
     <string name="Settings_Appearance">מראה</string>
     <string name="Settings_Import">ייבא הגדרות</string>
-    <string name="Settings_Pin_Description">משמש כאישור לפני מחיקה של המכשיר ובשביל שימוש אנונימי של השירות.</string>
     <string name="pin">קוד סודי</string>
     <string name="Settings_FMDCommand_Description">הפקודה מאפשרת לתקשר עם FMD.</string>
-    <string name="pin_repeat">חזור על הקוד הסודי</string>
     <string name="Settings_Ringer_Tone_Description">בחר צלצול שיושמע כאשר פקודת fmd ring נשלחת.</string>
     <string name="Settings_Select_Ringtone">בחר צלצול</string>
 </resources>

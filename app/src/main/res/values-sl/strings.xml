@@ -9,7 +9,6 @@
     <string name="Settings_Import">Uvozi nastavitve</string>
     <string name="Settings_About">O aplikaciji</string>
     <string name="Settings_FMD_via_Pin_Description">Omogoči komunikacijo z aplikacijo FMD s PIN kodo. V tem primeru bodo fmd ukaze preko SMS sporočil lahko pošiljali tudi stiki, ki niso na seznamu zaupanja vrednih, vendar bodo morali sporočilu dodati pravilno PIN kodo.</string>
-    <string name="Settings_Pin_Description">Uporablja se kot potrditev pred brisanjem naprave ter za pošiljanje FDM ukazov iz stikov, ki niso med zaupanja vrednimi.</string>
     <string name="Settings_Enter_Pin">Vnesi PIN</string>
     <string name="pin">PIN</string>
     <string name="Settings_FMDCommand_Description">Ukaz, ki se uporablja za komunikacijo s FMD aplikacijo.</string>
@@ -50,7 +49,6 @@
     <string name="Whitelist_empty">Ni zaupanja vrednih stikov. Pritisnite gumb za dodajanje!</string>
     <string name="WhiteList_Add_Contact">Dodaj stik</string>
     <string name="WhiteList_Select_Number">Izberite eno izmed telefonskih številk.</string>
-    <string name="pin_repeat">Ponovi PIN</string>
     <string name="Settings_FMDServer_Change_Password_Button">Sprememba gesla</string>
     <string name="Settings_FMDServer_Location_Type_Description">Vir(i) iz katerih se posodabljajo lokacijski podatki v ozadju v rednih intervalih.
 \nČe ni izbran niti en vir, se lokacija ne bo redno posodabljala. (Še vedno pa lahko uporabite spletni vmesnik, da vsilite posodobitev. Za slednje so sicer potrebna potisna obvestila.)</string>
@@ -256,7 +254,6 @@
     <string name="usage_notification_pin_title">Uporabljena je bil FMD PIN koda</string>
     <string name="usage_notification_pin_text">Kodo PIN je uporabila ta številka: \"%s\". Priporočljivo je, da spremenite PIN.</string>
     <string name="cmd_delete_response_dry_run">Poskusno izvajanje ukaza je bilo uspešno, naprava ni bila dejansko izbrisana.</string>
-    <string name="pin_mismatch">PIN-a se ne ujemata!</string>
     <string name="pin_match_command_keyword">PIN ne sme biti enak kot eden izmed ukazov!</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Največji dovoljeni čas brez povezljivosti</string>
     <string name="server_connectivity_lost_title">Povezava s FMD strežnikom je izgubljena</string>

@@ -22,7 +22,6 @@
     <string name="Settings_Import">Instellingen importeren</string>
     <string name="Settings_Logs">Logboeken</string>
     <string name="Settings_About">Over</string>
-    <string name="Settings_Pin_Description">Wordt gebruikt als bevestiging voordat het apparaat gewist wordt en voor anoniem gebruik van de dienst.</string>
     <string name="pin">Pincode</string>
     <string name="Settings_FMDCommand_Description">De opdracht die wordt gebruikt om te communiceren met FMD.</string>
     <string name="Toast_Empty_FMDCommand">Lege opdracht niet toegestaan. Standaardopdracht wordt gebruikt.</string>
@@ -106,7 +105,6 @@
     <string name="Settings_Export">Instellingen exporteren</string>
     <string name="pw_change_mismatch">De wachtwoorden komen niet overeen.</string>
     <string name="Settings_Enter_Pin">Pincode invoeren</string>
-    <string name="pin_repeat">Pincode herhalen</string>
     <string name="Settings_FMD_Server_Server_URL">Server-URL:</string>
     <string name="Settings_FMD_Server_ID_Desc">De User-ID is nodig om het apparaat met FMD Server te vinden. Noteer het en bewaar dit op een veilige plek.</string>
     <string name="Settings_FMDServer_Location_Type_Description">De bron(nen) van waaruit de locatiegegevens op regelmatige tijdstippen op de achtergrond worden geüpload.\nAls er geen is geselecteerd, worden er geen regelmatige locaties geüpload. (Je kunt nog wel de webinterface gebruiken om een upload te forceren. Dit vereist push.)</string>
@@ -244,7 +242,6 @@
     <string name="Settings_FMDServer_Check_Interval_Description">FMD controleert elke X uur de verbinding met de FMD Server. Zet deze op 0 om de controle op de verbinding uit te schakelen.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Maximaal toegestane tijd zonder verbinding</string>
     <string name="usage_notification_pin_text">De pincode werd gebruikt met dit nummer: \"%s\". Het wordt aanbevolen om de pincode te wijzigen.</string>
-    <string name="pin_mismatch">De pincodes komen niet overeen!</string>
     <string name="pin_match_command_keyword">De pincode mag niet gelijk zijn aan een van de opdrachten!</string>
     <string name="server_fmd_id_hint">De FMD-ID identificeert jouw account op de FMD Server. Laat dit leeg om de server een ID te laten genereren. De serverbeheerder kan de FMD-ID zien.</string>
     <string name="Settings_FMDServer_Push_Description">Om commando\'s van FMD Server naar je apparaat te sturen, heb je een UnifiedPush-distributeur-app nodig.</string>

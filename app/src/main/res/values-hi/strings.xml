@@ -49,10 +49,8 @@
     <string name="Settings_WhiteList">अनुमत संपर्क</string>
     <string name="Settings_Import">आयात सेटिंग्स</string>
     <string name="Settings_Logs">लॉग</string>
-    <string name="Settings_Pin_Description">डिवाइस को खाली करने से पहले पुष्टि के रूप में और सेवा के गुमनाम उपयोग के लिए उपयोग किया जाता है।</string>
     <string name="Settings_About">ऐप के बारे में</string>
     <string name="pin">पिन</string>
-    <string name="pin_repeat">पिन दोहराएं</string>
     <string name="Settings_FMDCommand_Description">कमांड का उपयोग FMD एप्लिकेशन के साथ संचार करने के लिए किया जाता है।</string>
     <string name="Settings_Lockscreenmessage_Description">लॉक स्क्रीन संदेश: \nडिवाइस को लॉक करते समय यह संदेश लॉक स्क्रीन पर दिखाई देगा।</string>
     <string name="Settings_FMD_Server_User_ID">उपयोक्ता ID:</string>

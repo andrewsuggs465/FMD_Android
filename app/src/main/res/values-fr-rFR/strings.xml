@@ -13,7 +13,6 @@
     <string name="WhiteList_Add_Contact">Ajouter un contact</string>
     <string name="Settings_FMDCommand_Description">La commande utilisée pour communiquer avec FMD.</string>
     <string name="Settings_Lockscreenmessage_Description">Message sur l\'écran de verrouillage : \nLors du verrouillage de l\'appareil, ce message apparaitra sur l\'écran de verrouillage.</string>
-    <string name="Settings_Pin_Description">Utilisé comme confirmation avant d\'effacer l\'appareil et pour l\'utilisation anonyme du service.</string>
     <string name="Enable">Activer</string>
     <string name="Locked_Lock_Screen">FMD
 \nCet appareil est verrouillé !
@@ -69,7 +68,6 @@
     <string name="about_wiki">Wiki</string>
     <string name="Settings_FMDServer_use_default_server">Utiliser le serveur public</string>
     <string name="copied">Copié</string>
-    <string name="pin_repeat">Répétez le code PIN</string>
     <string name="Settings_Logs">Journaux</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Intervalle d’envoi de localisation en arrière-plan</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Envoi la localisation de l\'appareil lorsque le niveau de la batterie est faible. Cela nécessite l\'accès aux notifications.</string>
@@ -250,7 +248,6 @@
     <string name="appearance_theme_dark">Sombre</string>
     <string name="appearance_theme">Thème</string>
     <string name="appearance_theme_choose">Choisir le thème</string>
-    <string name="pin_mismatch">Les codes PIN ne correspondent pas !</string>
     <string name="pin_match_command_keyword">Le code PIN doit être différent des commandes !</string>
     <string name="cmd_delete_response_dry_run">Essai réussi, on passe le vrai effacement de l’appareil.</string>
     <string name="server_login_attempts_title">Tentatives échouées de connexion au Serveur FMD</string>

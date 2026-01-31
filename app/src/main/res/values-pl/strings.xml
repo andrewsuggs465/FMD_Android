@@ -14,10 +14,8 @@
     <string name="Settings_Import_Success">Importowanie zakończone</string>
     <string name="Settings_Import_Failed">Importowanie nie powiodło się</string>
     <string name="Settings_About">O aplikacji</string>
-    <string name="Settings_Pin_Description">Używany jako potwierdzenie przed usuwaniem danych z urządzenia i przy wysyłaniu poleceń z nieznanego numeru telefonu.</string>
     <string name="Settings_Enter_Pin">Wpisz PIN</string>
     <string name="pin">PIN</string>
-    <string name="pin_repeat">Powtórz PIN</string>
     <string name="help">Pomoc</string>
     <string name="request_failed_exception">Błąd</string>
     <string name="loading">Ładowanie…</string>
@@ -119,7 +117,6 @@
     <string name="usage_notification_title">Komenda wykonana</string>
     <string name="ringer_stop_ringing">PRZESTAŃ DZWONIĆ</string>
     <string name="Settings_Pin_Not_Backed_Up">Uwaga: PIN nie jest zawarty w kopii zapasowej aplikacji.</string>
-    <string name="pin_mismatch">PIN-y nie są zgodne!</string>
     <string name="Settings_FMDServer_Push_Url">URL powiadomień push: %s</string>
     <string name="Settings_FMDServer_Push_Register">Zarejestruj</string>
     <string name="Settings_FMDServer_Push_Register_Again">Zarejestruj ponownie</string>

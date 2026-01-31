@@ -30,14 +30,11 @@
     <string name="Settings_Logs">Jurnale</string>
     <string name="Settings_About">Despre</string>
     <string name="Settings_FMD_via_Pin_Description">Îți permite să comunici cu FMD printr-un PIN. Acest lucru îți permite să trimiți comenzi de pe un număr de telefon care nu se află în lista de contacte permise.</string>
-    <string name="Settings_Pin_Description">Folosit ca confirmare înainte de a șterge dispozitivul și pentru utilizarea anonimă a serviciului.</string>
     <string name="Settings_Pin_Not_Backed_Up">Atenție: PIN-ul nu este inclus în backup-ul aplicației.</string>
     <string name="Settings_Set_Pin">Setează codul PIN</string>
     <string name="Settings_Change_Pin">Schimbă codul PIN</string>
     <string name="Settings_Enter_Pin">Introdu codul PIN</string>
     <string name="pin">PIN</string>
-    <string name="pin_repeat">Repetă codul PIN</string>
-    <string name="pin_mismatch">Codurile PIN nu se potrivesc !</string>
     <string name="pin_match_command_keyword">Codul PIN nu trebuie să fie identic cu una dintre comenzi!</string>
     <string name="Settings_FMDCommand_Description">Comanda folosită pentru a comunica cu FMD.</string>
     <string name="Toast_Empty_FMDCommand">Comanda goală nu este permisă, se va folosi valoarea implicită.</string>

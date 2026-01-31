@@ -104,10 +104,8 @@
     <string name="Settings_Logs">Nhật ký</string>
     <string name="Settings_About">Giới thiệu</string>
     <string name="Settings_FMD_via_Pin_Description">Cho phép bạn giao tiếp với FMD qua PIN. Điều này cho phép bạn gửi lệnh từ một số điện thoại không có trong danh sách liên hệ cho phép.</string>
-    <string name="Settings_Pin_Description">Được sử dụng như một xác nhận trước khi xóa thiết bị và cho việc sử dụng dịch vụ ẩn danh.</string>
     <string name="Settings_Enter_Pin">Nhập PIN</string>
     <string name="pin">PIN</string>
-    <string name="pin_repeat">Nhắc lại PIN</string>
     <string name="Settings_Ringer_Tone_Description">Chọn một âm thanh sẽ được phát khi tín hiệu FMD được gửi.</string>
     <string name="Settings_Select_Ringtone">Chọn âm thanh</string>
     <string name="Settings_no_ringtone_picker">Không tìm thấy trình chọn âm thanh!</string>
@@ -230,7 +228,6 @@
     <string name="cmd_bluetooth_response_on">Bluetooth đã được bật.</string>
     <string name="log_view_clear">Xóa nhật ký</string>
     <string name="crashed_open_issuetracker">Mở Trình theo dõi sự cố</string>
-    <string name="pin_mismatch">Các mã PIN không khớp!</string>
     <string name="pin_match_command_keyword">Mã PIN không được bằng một trong các lệnh!</string>
     <string name="Settings_FMDCommand_Description">Lệnh được sử dụng để giao tiếp với FMD.</string>
     <string name="Toast_Empty_FMDCommand">Lệnh trống không được phép, sử dụng mặc định.</string>

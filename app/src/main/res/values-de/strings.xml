@@ -18,10 +18,8 @@
     <string name="Settings_About">Über</string>
     <!-- Settings: General -->
     <string name="Settings_FMD_via_Pin_Description">Hiermit kannst du mit FMD über eine PIN kommunizieren. So kannst du Befehle von einer Telefonnummer schicken, welche nicht in deinen Erlaubten Kontakten ist.</string>
-    <string name="Settings_Pin_Description">Wird als Bestätigung vor dem Löschen des Geräts und für die anonyme Nutzung von FMD verwendet.</string>
     <string name="Settings_Enter_Pin">PIN eingeben</string>
     <string name="pin">PIN</string>
-    <string name="pin_repeat">PIN wiederholen</string>
     <string name="Settings_FMDCommand_Description">Der für die Kommunikation mit FMD verwendete Befehl.</string>
     <string name="Settings_Ringer_Tone_Description">Wähle einen Klingelton aus, der beim Senden von \"fmd ring\" abgespielt werden soll.</string>
     <string name="Settings_Select_Ringtone">Klingelton auswählen</string>
@@ -263,7 +261,6 @@
     <string name="server_version_upgrade_required_text">Der genutzte FMD Server ist Version {CURRENT}, aber diese App benötigt mindestens {MIN}. Die Steuerung dieses Geräts mit diesem Server könnte beeinträchtigt sein. Bitte den Server updaten.</string>
     <string name="log_view_clear_confirm">Möchtest du wirklich alle Protokolleinträge löschen?</string>
     <string name="log_view_clear">Protokoll löschen</string>
-    <string name="pin_mismatch">Die PINs stimmen nicht überein!</string>
     <string name="pin_match_command_keyword">Die PIN darf nicht mit einem der Befehle übereinstimmen!</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Verbindungsprüfung-Intervall</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD prüft die Verbindung zum FMD-Server alle X Stunden. Setze den Wert auf 0, um die Verbindungsprüfung zu deaktivieren.</string>

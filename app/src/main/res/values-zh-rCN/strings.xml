@@ -10,7 +10,6 @@
     <string name="Settings_Export">导出设置</string>
     <string name="Settings_Logs">日志</string>
     <string name="Settings_About">关于</string>
-    <string name="Settings_Pin_Description">在抹除设备前用作确认，也用于匿名使用该服务。</string>
     <string name="Settings_Enter_Pin">输入 PIN</string>
     <string name="pin">PIN</string>
     <string name="Settings_Ringer_Tone_Description">选择一个在 FMD 铃声发送时响起的铃声。</string>
@@ -48,7 +47,6 @@
     <string name="Settings_FMDConfig">常规</string>
     <string name="Settings_WhiteList">授权联系人</string>
     <string name="Settings_FMD_via_Pin_Description">允许您通过 PIN 与 FMD 交流。使可以您从“授权联系人”列表以外的电话号码发送命令。</string>
-    <string name="pin_repeat">重复 PIN</string>
     <string name="Settings_FMDCommand_Description">用于与 FMD 通信的命令。</string>
     <string name="Settings_FMDServer_Location_Type_Description">后台定时上传位置数据的数据源配置项。\n若未选择任何数据源，系统将不会自动上传定位信息。（此时仍可通过网页端强制上传，但该操作需依赖推送功能支持。）</string>
     <string name="server_version">服务端版本</string>
@@ -118,7 +116,6 @@
     <string name="Toast_Duplicate_contact">此联系人已存在。</string>
     <string name="Settings_FMDServer_Logout_Text">您真的想登出您的 FMD 服务器账户吗？</string>
     <string name="WhiteList_no_contact_picker">未找到联系人选择程序！</string>
-    <string name="pin_mismatch">PIN 不匹配！</string>
     <string name="pin_match_command_keyword">PIN 不得与命令之一相同！</string>
     <string name="Settings_FMDServer_Delete_Account">删除账户</string>
     <string name="Settings_FMDServer_Unregister_Success">成功注销并删除数据！</string>

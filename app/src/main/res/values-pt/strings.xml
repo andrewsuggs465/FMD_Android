@@ -30,12 +30,9 @@
     <string name="Settings_Logs">Registos</string>
     <string name="Settings_About">Sobre</string>
     <string name="Settings_FMD_via_Pin_Description">Permite que comunique com o FMD através de um PIN. Isto permite que envie comandos de um número de telefone que não está na lista de contatos permitidos.</string>
-    <string name="Settings_Pin_Description">Utilizado para a confirmação antes de apagar os dados do dispositivo e para uso anônimo do serviço.</string>
     <string name="Settings_Pin_Not_Backed_Up">Alerta: O PIN não é incluso no backup de apps.</string>
     <string name="Settings_Enter_Pin">Digite o PIN</string>
     <string name="pin">PIN</string>
-    <string name="pin_repeat">Digita o PIN novamente</string>
-    <string name="pin_mismatch">Os PINs não se correspondem!</string>
     <string name="pin_match_command_keyword">O PIN não pode ser igual a um dos comandos!</string>
     <string name="Settings_FMDCommand_Description">O comando utilizado para comunicar com o FMD.</string>
     <string name="Toast_Empty_FMDCommand">Comando vazio não permitido, usando o padrão.</string>

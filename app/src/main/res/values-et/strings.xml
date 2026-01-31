@@ -32,8 +32,6 @@
     <string name="Settings_Pin_Not_Backed_Up">Hoiatus: PIN-kood ei sisaldu rakenduse varukoopias.</string>
     <string name="Settings_Enter_Pin">Sisesta PIN-kood</string>
     <string name="pin">PIN-kood</string>
-    <string name="pin_repeat">Korda PIN-koodi</string>
-    <string name="pin_mismatch">PIN-koodid ei klapi omavahel!</string>
     <string name="pin_match_command_keyword">PIN-kood ei tohi võrduda ühegi käsuga!</string>
     <string name="Settings_FMDServer_Change_Password_Button">Muuda salasõna</string>
     <string name="Settings_FMDServer_Logout_Button">Logi välja</string>
@@ -189,7 +187,6 @@
     <string name="server_version_upgrade_required_text">Sinu kasutatava FMD serveri versioon on {CURRENT}, aga rakendus eeldab, et on {MIN}. Sinu nutiseadme juhtimine FMD serverist ei pruugi enam toimida. Palun uuenda oma serverit.</string>
     <string name="server_connectivity_lost_text">Ei õnnestu enam leida FMD serverit asukohas %1$s. Viimane õnnestunud ühendus oli %2$s.</string>
     <string name="cmd_locate_response_location_off">Asukoht pole teada: asukohatuvastus on lülitatud välja.</string>
-    <string name="Settings_Pin_Description">Kasutusel kinnituse jaoks enne seadme kustutamist ning võimaldamaks anonüümset kasutust.</string>
     <string name="cmd_nodisturb_response_off">„Ära sega“ olek on väljas.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD rakendus annab sulle teada, kui ühendus FMD Serveriga pole toiminud enam kui x tundi. Kui ühenduse kontrollimine on lülitatud välja, siis see seadistuse ei ole kasutusel.</string>
     <string name="Settings_FMDServer_Push_Description">Käskude saatmine FMD Serverist eeldab, et sul on kasutusel mõni UnifiedPushi levitaja.</string>

@@ -65,11 +65,8 @@
     <string name="Settings_Logs">பதிவுகள்</string>
     <string name="Settings_About">பற்றி</string>
     <string name="Settings_FMD_via_Pin_Description">ஒரு முள் வழியாக FMD உடன் தொடர்பு கொள்ள உங்களை அனுமதிக்கிறது. அனுமதிக்கப்பட்ட தொடர்புகள் பட்டியலில் இல்லாத தொலைபேசி எண்ணிலிருந்து கட்டளைகளை அனுப்ப இது உங்களை அனுமதிக்கிறது.</string>
-    <string name="Settings_Pin_Description">சாதனத்தைத் துடைப்பதற்கு முன் மற்றும் சேவையின் அநாமதேய பயன்பாட்டிற்காக உறுதிப்படுத்தல் பயன்படுத்தப்படுகிறது.</string>
     <string name="Settings_Enter_Pin">முள் உள்ளிடவும்</string>
     <string name="pin">முள்</string>
-    <string name="pin_repeat">முள் மீண்டும் செய்யவும்</string>
-    <string name="pin_mismatch">ஊசிகள் பொருந்தவில்லை!</string>
     <string name="pin_match_command_keyword">முள் கட்டளைகளில் ஒன்றிற்கு சமமாக இருக்கக்கூடாது!</string>
     <string name="Settings_FMDCommand_Description">FMD உடன் தொடர்பு கொள்ள பயன்படுத்தப்படும் கட்டளை.</string>
     <string name="Toast_Empty_FMDCommand">இயல்புநிலையைப் பயன்படுத்தி வெற்று கட்டளை அனுமதிக்கப்படவில்லை.</string>

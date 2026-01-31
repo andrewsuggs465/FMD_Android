@@ -37,7 +37,6 @@
     <string name="Settings_FMD_via_Pin_Description">Umožňuje komunikovat s FMD pomocí kódu PIN. To vám umožní posílat příkazy z mobilního čísla, které se nenachází na seznamu povolených kontaktů.</string>
     <string name="Settings_Enter_Pin">Zadat PIN</string>
     <string name="pin">PIN</string>
-    <string name="pin_repeat">Zopakujte PIN</string>
     <string name="Settings_Ringer_Tone_Description">Vyberte vyzvánění, které bude přehráno při použití fmd ring.</string>
     <string name="Settings_Lockscreenmessage_Description">Zpráva na zamykací obrazovce:\nPři uzamčení zařízení bude tato zpráva zobrazena na zamykací obrazovce.</string>
     <string name="Settings_FMD_Server_ID_Desc">Pro nalezení vašeho zařízení pomocí Serveru FMD potřebujete uživatelské ID. Zapište si jej a uschovejte jej na bezpečném místě.</string>
@@ -77,7 +76,6 @@
     <string name="Settings_Export">Exportovat nastavení</string>
     <string name="Settings_Logs">Protokoly</string>
     <string name="Settings_About">O aplikaci</string>
-    <string name="Settings_Pin_Description">Použito pro potvrzení před vymazáním zařízení a pro anonymní použití služby.</string>
     <string name="Settings_FMDCommand_Description">Příkaz používaný pro komunikaci s FMD.</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Interval nahrání polohy na pozadí</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD bude nahrávat polohu zařízení každých X minut.</string>
@@ -244,7 +242,6 @@
     <string name="Settings_FMDServer_Check_Interval_Description">FMD kontroluje spojení se Serverem FMD každých X hodin. Nastavte na 0 pro zakázání kontroly spojení.</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Interval kontroly spojení</string>
     <string name="cmd_delete_response_dry_run">Zkušební běh proběhl úspěšně, překakování skutečného odstranění zařízení.</string>
-    <string name="pin_mismatch">PIN kódy se neshodují!</string>
     <string name="pin_match_command_keyword">PIN se nesmí rovnat jednomu z příkazů!</string>
     <string name="server_fmd_id_hint">FMD ID identifikuje váš účet na Serveru FMD. Ponechte prázdné, pokud chcete nechat vygenerovat ID serverem. Správce serveru může vaše FMD ID vidět.</string>
     <string name="Settings_FMDServer_Push_Description">Odesílání příkazů ze Serveru FMD do vašeho zařízení vyžaduje distribuční aplikaci služby UnifiedPush.</string>

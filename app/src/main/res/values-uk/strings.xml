@@ -18,7 +18,6 @@
     <string name="Settings_Export">Експорт налаштувань</string>
     <string name="Settings_Logs">Журнал</string>
     <string name="Settings_Enter_Pin">Введіть PIN</string>
-    <string name="pin_repeat">Повторіть PIN</string>
     <string name="Settings_Select_Ringtone">Виберіть мелодію дзвінка</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Інтервал завантаження фонового місцезнаходження</string>
     <string name="Settings_FMDServer_Location_Type_Title">Джерело місцезнаходження</string>
@@ -44,7 +43,6 @@
     <string name="Settings_Import">Налаштування імпорту</string>
     <string name="Settings_Import_Failed">Не вдалось імпортувати</string>
     <string name="Settings_About">Про</string>
-    <string name="Settings_Pin_Description">Використовується для підтвердження перед витиранням пристрою та для анонімного використання сервісу.</string>
     <string name="Settings_FMDCommand_Description">Команда для зв\'язку з FMD.</string>
     <string name="Settings_FMD_via_Pin_Description">Дозволяє зв’язуватися з FMD за допомогою PIN-коду. Це дозволяє надсилати команди з номера телефону, якого немає у списку дозволених контактів.</string>
     <string name="Settings_Ringer_Tone_Description">Виберіть мелодію, яка буде відтворюватися при надсиланні дзвінка пошуку пристрою.</string>
@@ -247,7 +245,6 @@
     <string name="cmd_bluetooth_description_short">Вмикає та вимикає Bluetooth</string>
     <string name="cmd_bluetooth_response_on">Bluetooth увімкнено.</string>
     <string name="pin_match_command_keyword">PIN-код не повинен дорівнювати одній з команд!</string>
-    <string name="pin_mismatch">PIN-коди не співпадають!</string>
     <string name="Settings_FMDServer_Delete_Account">Видалити обліковий запис</string>
     <string name="Settings_FMDServer_Unregister_Success">Скасування реєстрації та видалення даних успішно завершено!</string>
     <string name="Settings_FMDServer_Logout_Text">Ви дійсно хочете вийти зі свого облікового запису сервера FMD?</string>

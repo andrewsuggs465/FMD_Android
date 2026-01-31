@@ -4,7 +4,6 @@
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Questa applicazione dovrebbe funzionare in background. Per assicurarsi che funzioni anche quando il dispositivo è in standby, è necessario disattivare l\'ottimizzazione della batteria per questa applicazione.</string>
     <string name="Locked_Lock_Screen">FMD\nQuesto dispositivo è bloccato!\nMessaggio dal proprietario:</string>
     <string name="Enable">Attiva</string>
-    <string name="Settings_Pin_Description">Utilizzato come conferma prima di cancellare i dati del dispositivo o per l\'utilizzo anonimo del servizio.</string>
     <string name="Settings_Lockscreenmessage_Description">Messaggio schermata di blocco: \nQuando si blocca il dispositivo, questo messaggio viene visualizzato nella schermata di blocco.</string>
     <string name="Settings_FMDCommand_Description">Comando usato per comunicare con FMD.</string>
     <string name="WhiteList_Add_Contact">Aggiungi contatto</string>
@@ -73,7 +72,6 @@
     <string name="Notification_FAIL">Malfunzionamenti</string>
     <string name="Notification_Fail_Description">Notifiche quando qualcosa non va, come la connessione al server FMD</string>
     <string name="pin">PIN</string>
-    <string name="pin_repeat">Reinserisci PIN</string>
     <string name="Settings_FMDServer_Logout_Button">Esci</string>
     <string name="Settings_FMDServer_Location_Type_Title">Origine posizione</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Aggiorna con batteria scarica</string>
@@ -238,7 +236,6 @@
     <string name="crashed_title">Rapporto anomalia</string>
     <string name="usage_notification_pin_text">Il PIN è stato utilizzato da questo numero: \"%s\". Si raccomanda di cambiare PIN.</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Intervallo Controllo Connettività</string>
-    <string name="pin_mismatch">I PIN non corrispondono!</string>
     <string name="pin_match_command_keyword">Il PIN non può essere uguale ad uno dei comandi!</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD vi avviserà se l\'ultima connessione riuscita al server FMD risale a più di tot ore fa. Questo non ha effetto se il controllo della connettività è disabilitato.</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD controlla la connettività al server FMD ogni tot ore. Impostando il valore 0 si disabilita il controllo della connettività.</string>

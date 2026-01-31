@@ -2,7 +2,6 @@
 <resources>
     <string name="Locked_Lock_Screen">FMD \nЭто устройство заблокировано! \nСообщение от его владельца:</string>
     <string name="Enable">Включить</string>
-    <string name="Settings_Pin_Description">Используется как подтверждение удаления данных, хранящихся на устройстве и для анонимного использования сервиса.</string>
     <string name="Settings_Lockscreenmessage_Description">Сообщение на экране блокировки: \nКогда устройство будет заблокировано, это сообщение появится на экране блокировки.</string>
     <string name="Settings_FMDCommand_Description">Эта команда используется для взаимодействия с FMD.</string>
     <string name="WhiteList_Add_Contact">Добавить контакт</string>
@@ -71,7 +70,6 @@
     <string name="Edit">Редактировать</string>
     <string name="GPS">GPS</string>
     <string name="pin">ПИН-код</string>
-    <string name="pin_repeat">Повторите ПИН-код</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Интервал фоновой выгрузки местоположения</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD выгружает местоположение устройства каждые X минут.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Источник местоположения</string>
@@ -253,7 +251,6 @@
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD оповестит вас, если последнее успешное соединение с сервером FMD было больше, чем X часов назад. Это не будет работать, если проверки доступности соединения отключены.</string>
     <string name="cmd_delete_response_dry_run">Пробный запуск прошёл успешно, без фактического удаления устройства.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Максимально разрешённое время без доступного соединения</string>
-    <string name="pin_mismatch">ПИН-коды не совпадают!</string>
     <string name="pin_match_command_keyword">ПИН-код не должен быть таким же, как и одна из команд!</string>
     <string name="log_view_clear">Очистить логи</string>
     <string name="log_view_clear_confirm">Вы действительно хотите удалить все записи лога?</string>

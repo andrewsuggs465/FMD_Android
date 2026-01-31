@@ -11,10 +11,8 @@
     <string name="Settings_Import">Importer innstillinger</string>
     <string name="Settings_Export">Eksporter innstillinger</string>
     <string name="Settings_FMD_via_Pin_Description">Lar deg kommunisere med FMD via en PIN. Du vil legges til på midlertidig hvitliste.</string>
-    <string name="Settings_Pin_Description">Brukt som bekreftelse før tømming av enheten, eller for midlertidig bruk av tjenesten.</string>
     <string name="Settings_Enter_Pin">Skriv inn PIN</string>
     <string name="pin">PIN</string>
-    <string name="pin_repeat">Gjenta PIN</string>
     <string name="Settings_Select_Ringtone">Velg ringetone</string>
     <string name="Cell">Mobil</string>
     <string name="Settings_Ringer_Tone_Description">Velg ringetone for FMD anrop.</string>
