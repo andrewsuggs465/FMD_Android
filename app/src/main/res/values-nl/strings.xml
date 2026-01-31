@@ -22,7 +22,7 @@
     <string name="Settings_Import">Instellingen importeren</string>
     <string name="Settings_Logs">Logboeken</string>
     <string name="Settings_About">Over</string>
-    <string name="Settings_Pin_Description">Wordt gebruikt als bevestiging voordat het apparaat gewist wordt en voor anoniem gebruik van FMD.</string>
+    <string name="Settings_Pin_Description">Wordt gebruikt als bevestiging voordat het apparaat gewist wordt en voor anoniem gebruik van de dienst.</string>
     <string name="pin">Pincode</string>
     <string name="Settings_FMDCommand_Description">De opdracht die wordt gebruikt om te communiceren met FMD.</string>
     <string name="Toast_Empty_FMDCommand">Lege opdracht niet toegestaan. Standaardopdracht wordt gebruikt.</string>
