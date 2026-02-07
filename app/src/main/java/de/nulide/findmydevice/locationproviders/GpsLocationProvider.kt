@@ -17,6 +17,7 @@ import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
@@ -79,7 +80,11 @@ class GpsLocationProvider<T>(
         }
 
         // Countdown to stop the job after some timeout
-        coroutineScope = CoroutineScope(currentCoroutineContext())
+        // Job() is important! Without it, if we coroutineScope.cancel() during cleanup,
+        // it will cancel the parent CoroutineScope as well.
+        // We don't want that, since other location providers may be pending in that scope, too.
+        coroutineScope = CoroutineScope(currentCoroutineContext() + Job())
+
         coroutineScope?.launch(Dispatchers.IO) {
             delay(MAX_GPS_DURATION_MILLIS - 5_000)
 
@@ -107,7 +112,7 @@ class GpsLocationProvider<T>(
             requestedProvider,
             UPDATE_INTERVAL_MILLIS,
             0f,
-            this@GpsLocationProvider,
+            this,
             Looper.getMainLooper(),
         )
 

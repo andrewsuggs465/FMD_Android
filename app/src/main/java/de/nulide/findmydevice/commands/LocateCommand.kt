@@ -119,7 +119,7 @@ class LocateCommand(context: Context) : Command(context) {
                 // await all providers
                 .forEach { deferredProvider -> deferredProvider.await() }
         }
-        deferred!!.await()
+        deferred?.complete(Unit)
     }
 
     override fun onExecuteStopped() {
