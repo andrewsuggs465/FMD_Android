@@ -49,7 +49,7 @@ class LocateCommand(context: Context) : Command(context) {
     override val optionalPermissions = listOf(WriteSecureSettingsPermission())
 
     // Fields for execution
-    private var providers = emptyList<LocationProvider>()
+    private var providers = mutableListOf<LocationProvider>()
     private val locOnOffHandler = LocationAutoOnOffHandler.getInstance(context)
     private var addJobResult: AddJobResult? = null
     private var deferred: CompletableDeferred<Unit>? = null
@@ -58,9 +58,6 @@ class LocateCommand(context: Context) : Command(context) {
         args: List<String>,
         transport: Transport<T>,
     ) {
-        // ignore everything except the first option (if it exists)
-        val option = args.getOrElse(0) { "all" }
-
         // fmd locate last
         if (args.contains("last")) {
             withContext(Dispatchers.IO) {
@@ -93,16 +90,28 @@ class LocateCommand(context: Context) : Command(context) {
         deferred = CompletableDeferred<Unit>()
 
         // build the location providers
-        providers = when (option) {
-            "cell" -> listOf(CellLocationProvider(context, transport))
-            "fused" -> listOf(GpsLocationProvider(context, transport, FUSED_PROVIDER, accuracy))
-            "gps" -> listOf(GpsLocationProvider(context, transport, GPS_PROVIDER, accuracy))
-            else ->
-                listOf(
-                    GpsLocationProvider(context, transport, FUSED_PROVIDER, accuracy),
-                    CellLocationProvider(context, transport)
-                )
+        providers.clear()
+        var chosen = false
+
+        if (args.contains("cell")) {
+            providers.add(CellLocationProvider(context, transport))
+            chosen = true
         }
+        if (args.contains("fused")) {
+            providers.add(GpsLocationProvider(context, transport, FUSED_PROVIDER, accuracy))
+            chosen = true
+        }
+        if (args.contains("gps")) {
+            providers.add(GpsLocationProvider(context, transport, GPS_PROVIDER, accuracy))
+            chosen = true
+        }
+
+        if (args.contains("all") || !chosen) {
+            providers.add(GpsLocationProvider(context, transport, FUSED_PROVIDER, accuracy))
+            providers.add(CellLocationProvider(context, transport))
+        }
+
+        context.log().d(TAG, "Chosen location providers: $providers")
 
         // run the providers and get the locations
         withContext(Dispatchers.IO) {
