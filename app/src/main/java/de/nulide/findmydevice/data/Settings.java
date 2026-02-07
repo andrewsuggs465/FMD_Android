@@ -29,7 +29,7 @@ public class Settings extends HashMap<Integer, Object> {
     public static final int SET_FMDSERVER_UPDATE_TIME = 103;
     public static final int SET_FMDSERVER_ID = 104;
     public static final int SET_FMDSERVER_PASSWORD_SET = 105;
-    public static final int SET_FMDSERVER_LOCATION_TYPE = 106; // 0=GPS, 1=CELL, 2=ALL, 3=NONE
+    public static final int SET_FMDSERVER_LOCATION_TYPE = 106; // BackgroundLocationType
     //public static final int SET_FMDSERVER_AUTO_UPLOAD = 107;
     public static final int SET_FMD_CRYPT_PUBKEY = 108;
     public static final int SET_FMD_CRYPT_PRIVKEY = 109;
@@ -98,7 +98,7 @@ public class Settings extends HashMap<Integer, Object> {
                 case SET_SET_VERSION:
                     return 0;
                 case SET_FMDSERVER_LOCATION_TYPE:
-                    return 3;
+                    return BackgroundLocationType.Companion.getEMPTY();
                 case SET_RINGER_TONE:
                     return RingerUtils.getDefaultRingtoneAsString();
                 case SET_PIN:

@@ -14,6 +14,7 @@
     <string name="Edit">Edit</string>
     <string name="Enable">Enable</string>
     <string name="Delete">Delete</string>
+    <string name="Fused">Fused</string>
     <string name="GPS">GPS</string>
     <string name="Cell">Cell</string>
     <string name="export_success">Export succeeded</string>

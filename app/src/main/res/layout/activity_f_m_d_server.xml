@@ -266,6 +266,12 @@
                 android:text="@string/Settings_FMDServer_Location_Type_Description" />
 
             <CheckBox
+                android:id="@+id/checkBoxFMDServerFused"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Fused" />
+
+            <CheckBox
                 android:id="@+id/checkBoxFMDServerGPS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

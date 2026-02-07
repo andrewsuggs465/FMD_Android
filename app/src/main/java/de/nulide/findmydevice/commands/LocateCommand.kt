@@ -111,8 +111,6 @@ class LocateCommand(context: Context) : Command(context) {
             providers.add(CellLocationProvider(context, transport))
         }
 
-        context.log().d(TAG, "Chosen location providers: $providers")
-
         // run the providers and get the locations
         withContext(Dispatchers.IO) {
             providers

@@ -13,6 +13,7 @@ import androidx.work.WorkRequest;
 
 import org.jetbrains.annotations.Nullable;
 
+import de.nulide.findmydevice.data.BackgroundLocationType;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.utils.FmdLogKt;
@@ -48,7 +49,10 @@ public class ServerLocationUploadService extends FmdJobService {
         FmdLogKt.log(context).d(TAG, "Scheduling upload service");
         SettingsRepository settings = SettingsRepository.Companion.getInstance(context);
 
-        if (((Integer) settings.get(Settings.SET_FMDSERVER_LOCATION_TYPE)) == 3) {
+        int locTypeInt = (int) settings.get(Settings.SET_FMDSERVER_LOCATION_TYPE);
+        BackgroundLocationType locType = new BackgroundLocationType(locTypeInt);
+
+        if (locType.isEmpty()) {
             // user requested NOT to upload any location at regular intervals
             FmdLogKt.log(context).d(TAG, "Not scheduling job. Reason: user requested no upload");
             return;
@@ -107,21 +111,18 @@ public class ServerLocationUploadService extends FmdJobService {
             return false;
         }
 
+        int locTypeInt = (int) settings.get(Settings.SET_FMDSERVER_LOCATION_TYPE);
+        BackgroundLocationType locType = new BackgroundLocationType(locTypeInt);
+
         String locateCommand = settings.get(Settings.SET_FMD_COMMAND) + " locate";
-        switch ((Integer) settings.get(Settings.SET_FMDSERVER_LOCATION_TYPE)) {
-            case 0:
-                locateCommand += " gps";
-                break;
-            case 1:
-                locateCommand += " cell";
-                break;
-            case 2:
-                // no need to change the command
-                break;
-            case 3:
-            default:
-                // we should not be here...
-                return false;
+        if (locType.getCell()) {
+            locateCommand += " cell";
+        }
+        if (locType.getFused()) {
+            locateCommand += " fused";
+        }
+        if (locType.getGps()) {
+            locateCommand += " gps";
         }
 
         // TODO: Should we use a PeriodicWorkRequest?? Instead of creating Work from a Job?

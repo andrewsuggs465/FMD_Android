@@ -30,6 +30,7 @@ import org.unifiedpush.android.connector.UnifiedPush;
 import java.security.KeyPair;
 
 import de.nulide.findmydevice.R;
+import de.nulide.findmydevice.data.BackgroundLocationType;
 import de.nulide.findmydevice.data.EncryptedSettingsRepository;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
@@ -56,6 +57,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     private EditText editTextNotifyAfterTime;
     private EditText editTextFMDServerUpdateTime;
 
+    private CheckBox checkBoxFMDServerFused;
     private CheckBox checkBoxFMDServerGPS;
     private CheckBox checkBoxFMDServerCell;
 
@@ -106,26 +108,18 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         editTextFMDServerUpdateTime.setText(settings.get(Settings.SET_FMDSERVER_UPDATE_TIME).toString());
         editTextFMDServerUpdateTime.addTextChangedListener(this);
 
+        checkBoxFMDServerFused = findViewById(R.id.checkBoxFMDServerFused);
         checkBoxFMDServerGPS = findViewById(R.id.checkBoxFMDServerGPS);
         checkBoxFMDServerCell = findViewById(R.id.checkBoxFMDServerCell);
-        switch ((Integer) settings.get(Settings.SET_FMDSERVER_LOCATION_TYPE)) {
-            case 0:
-                checkBoxFMDServerGPS.setChecked(true);
-                checkBoxFMDServerCell.setChecked(false);
-                break;
-            case 1:
-                checkBoxFMDServerGPS.setChecked(false);
-                checkBoxFMDServerCell.setChecked(true);
-                break;
-            case 2:
-                checkBoxFMDServerGPS.setChecked(true);
-                checkBoxFMDServerCell.setChecked(true);
-                break;
-            case 3:
-                checkBoxFMDServerGPS.setChecked(false);
-                checkBoxFMDServerCell.setChecked(false);
-                break;
-        }
+
+        int locTypeInt = (int) settings.get(Settings.SET_FMDSERVER_LOCATION_TYPE);
+        BackgroundLocationType locType = new BackgroundLocationType(locTypeInt);
+
+        checkBoxFMDServerFused.setChecked(locType.getFused());
+        checkBoxFMDServerGPS.setChecked(locType.getGps());
+        checkBoxFMDServerCell.setChecked(locType.getCell());
+
+        checkBoxFMDServerFused.setOnCheckedChangeListener(this);
         checkBoxFMDServerGPS.setOnCheckedChangeListener(this);
         checkBoxFMDServerCell.setOnCheckedChangeListener(this);
 
@@ -153,18 +147,17 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (buttonView == checkBoxFMDServerCell || buttonView == checkBoxFMDServerGPS) {
-            if (checkBoxFMDServerGPS.isChecked() && checkBoxFMDServerCell.isChecked()) {
-                settings.set(Settings.SET_FMDSERVER_LOCATION_TYPE, 2);
-            } else if (checkBoxFMDServerGPS.isChecked()) {
-                settings.set(Settings.SET_FMDSERVER_LOCATION_TYPE, 0);
-            } else if (checkBoxFMDServerCell.isChecked()) {
-                settings.set(Settings.SET_FMDSERVER_LOCATION_TYPE, 1);
-            } else {
-                settings.set(Settings.SET_FMDSERVER_LOCATION_TYPE, 3);
-            }
+        if (buttonView == checkBoxFMDServerFused
+                || buttonView == checkBoxFMDServerGPS
+                || buttonView == checkBoxFMDServerCell) {
 
-            if (checkBoxFMDServerGPS.isChecked() || checkBoxFMDServerCell.isChecked()) {
+            BackgroundLocationType locType = BackgroundLocationType.Companion.fromEmpty();
+            locType.setFused(checkBoxFMDServerFused.isChecked());
+            locType.setGps(checkBoxFMDServerGPS.isChecked());
+            locType.setCell(checkBoxFMDServerCell.isChecked());
+            settings.set(Settings.SET_FMDSERVER_LOCATION_TYPE, locType.encode());
+
+            if (!locType.isEmpty()) {
                 ServerLocationUploadService.scheduleRecurring(this);
             } else {
                 ServerLocationUploadService.cancelJob(this);
