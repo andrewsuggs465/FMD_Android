@@ -11,7 +11,6 @@ import de.nulide.findmydevice.R
 import de.nulide.findmydevice.permissions.BluetoothConnectPermission
 import de.nulide.findmydevice.permissions.Permission
 import de.nulide.findmydevice.transports.Transport
-import de.nulide.findmydevice.utils.onOffString
 
 
 class BluetoothCommand(context: Context) : Command(context) {
@@ -50,10 +49,11 @@ class BluetoothCommand(context: Context) : Command(context) {
         }
 
         if (args.isEmpty()) {
-            val msg = context.getString(
-                R.string.cmd_bluetooth_response_empty,
-                context.onOffString(bluetoothAdapter.isEnabled)
-            )
+            val msg = if (bluetoothAdapter.isEnabled) {
+                context.getString(R.string.cmd_bluetooth_response_is_on)
+            } else {
+                context.getString(R.string.cmd_bluetooth_response_is_off)
+            }
             transport.send(context, msg)
         } else if (args.contains("on")) {
             bluetoothAdapter.enable()
