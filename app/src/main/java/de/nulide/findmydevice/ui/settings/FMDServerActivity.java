@@ -215,7 +215,13 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         } else if (edited == editTextNotifyAfterTime.getText()) {
             settings.set(Settings.SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS, value);
         } else if (edited == editTextFMDServerUpdateTime.getText()) {
-            settings.set(Settings.SET_FMDSERVER_UPDATE_TIME, (int) value);
+            int interval = (int) value;
+            settings.set(Settings.SET_FMDSERVER_UPDATE_TIME, interval);
+
+            // Reschedule with new interval
+            if (checkBoxFMDServerGPS.isChecked() || checkBoxFMDServerCell.isChecked()) {
+                ServerLocationUploadService.scheduleJob(this, interval);
+            }
         }
     }
 

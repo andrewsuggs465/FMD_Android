@@ -38,11 +38,13 @@ public class ServerLocationUploadService extends FmdJobService {
     }
 
     public static void scheduleRecurring(Context context) {
-        cancelJob(context);
         scheduleJob(context, 0);
     }
 
     public static void scheduleJob(Context context, long delayMinutes) {
+        // Make sure that there are no duplicates scheduled
+        cancelJob(context);
+
         FmdLogKt.log(context).d(TAG, "Scheduling upload service");
         SettingsRepository settings = SettingsRepository.Companion.getInstance(context);
 
