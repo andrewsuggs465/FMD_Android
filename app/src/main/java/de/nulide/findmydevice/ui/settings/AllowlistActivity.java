@@ -4,6 +4,7 @@ import static de.nulide.findmydevice.ui.UiUtil.setupEdgeToEdge;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,13 +18,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
-import java.util.LinkedList;
-import java.util.List;
 
 import de.nulide.findmydevice.R;
 import de.nulide.findmydevice.data.AllowlistRepository;
@@ -98,10 +95,12 @@ public class AllowlistActivity extends FmdActivity {
 
     private void onAddContactClicked(View v) {
         Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         try {
             startActivityForResult(intent, REQUEST_CODE);
         } catch (ActivityNotFoundException e) {
             intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
             try {
                 startActivityForResult(intent, REQUEST_CODE);
             } catch (ActivityNotFoundException e2) {
@@ -116,57 +115,60 @@ public class AllowlistActivity extends FmdActivity {
         switch (reqCode) {
             case (REQUEST_CODE):
                 if (resultCode == Activity.RESULT_OK) {
-                    Uri contactData = data.getData();
-                    String[] projection = new String[]{
-                            ContactsContract.Contacts.DISPLAY_NAME,
-                            ContactsContract.CommonDataKinds.Phone.NUMBER
-                    };
-                    Cursor cursor = managedQuery(contactData, projection, null, null, null);
-
-                    List<Contact> contacts = new LinkedList<>();
-
-                    cursor.moveToFirst();
-                    do {
-                        int nameIdx = cursor.getColumnIndex(ContactsContract.Data.DISPLAY_NAME);
-                        String cName = "";
-                        if (nameIdx >= 0) {
-                            cName = cursor.getString(nameIdx);
-                        }
-
-                        int numIdx = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
-                        String cNumber = "";
-                        if (numIdx >= 0) {
-                            cNumber = cursor.getString(numIdx);
-                        }
-
-                        Contact contact = Contact.from(this, cName, cNumber);
-                        if (contact != null) {
-                            contacts.add(contact);
-                        }
-                    } while (cursor.moveToNext());
-
-                    if (contacts.size() == 1) {
-                        addContactToAllowList(contacts.get(0));
-                    } else {
-                        String[] numbersArray = contacts.stream().map(Contact::getNumber).toArray(String[]::new);
-
-                        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
-                        builder.setTitle(getString(R.string.WhiteList_Select_Number));
-                        builder.setItems(numbersArray, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                addContactToAllowList(contacts.get(which));
+                    // Multiple items selected
+                    ClipData clipData = data.getClipData();
+                    if (clipData != null) {
+                        int count = clipData.getItemCount();
+                        for (int i = 0; i < count; i++) {
+                            ClipData.Item item = clipData.getItemAt(i);
+                            Uri uri = item.getUri();
+                            if (uri != null) {
+                                addContactFromUri(uri);
                             }
-                        });
-                        AlertDialog dialog = builder.create();
-                        dialog.show();
+                        }
                     }
 
+                    // Single item selected
+                    Uri uri = data.getData();
+                    if (uri != null) {
+                        addContactFromUri(uri);
+                    }
                 }
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + reqCode);
         }
+    }
+
+    private void addContactFromUri(Uri uri) {
+        String[] projection = new String[]{
+                ContactsContract.Contacts.DISPLAY_NAME,
+                ContactsContract.CommonDataKinds.Phone.NUMBER
+        };
+        Cursor cursor = managedQuery(uri, projection, null, null, null);
+
+        if (!cursor.moveToFirst()) {
+            // cursor is empty
+            return;
+        }
+        do {
+            int nameIdx = cursor.getColumnIndex(ContactsContract.Data.DISPLAY_NAME);
+            String cName = "";
+            if (nameIdx >= 0) {
+                cName = cursor.getString(nameIdx);
+            }
+
+            int numIdx = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+            String cNumber = "";
+            if (numIdx >= 0) {
+                cNumber = cursor.getString(numIdx);
+            }
+
+            Contact contact = Contact.from(this, cName, cNumber);
+            if (contact != null) {
+                addContactToAllowList(contact);
+            }
+        } while (cursor.moveToNext());
     }
 
     private void addContactToAllowList(@Nullable Contact contact) {

@@ -144,7 +144,6 @@
     <string name="Whitelist_help">The contacts in this list are allowed to send FMD commands via SMS. Commands from everyone else will be ignored.</string>
     <string name="Whitelist_empty">No allowed contacts. Click the button to add some!</string>
     <string name="WhiteList_Add_Contact">Add contact</string>
-    <string name="WhiteList_Select_Number">Select one of the phone numbers.</string>
     <string name="Alert_First_Time_contact_added">Congratulations. You have added your first contact. You can now communicate with FMD by sending a SMS message that contains \"fmd\" from the allowed phone number. When everything works, the application will respond.</string>
     <string name="Toast_Duplicate_contact">This contact already exists.</string>
     <string name="WhiteList_no_contact_picker">No contact picker application found!</string>
