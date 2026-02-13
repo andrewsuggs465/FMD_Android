@@ -48,7 +48,7 @@ class FmdBatteryLowService : FmdJobService() {
         }
 
         @JvmStatic
-        fun stopJobNow(context: Context) {
+        fun cancelJob(context: Context) {
             val jobScheduler = context.getSystemService(JobScheduler::class.java)
             jobScheduler.cancel(JOB_ID)
         }
@@ -56,6 +56,14 @@ class FmdBatteryLowService : FmdJobService() {
 
     override fun onStartJob(params: JobParameters?): Boolean {
         super.onStartJob(params)
+
+        val settings = SettingsRepository.getInstance(this)
+        if (!settings.serverAccountExists()) {
+            this.log().w(TAG, "Server account no longer exists. Stopping BATTERY_LOW uploading.")
+            cancelJob(this) // Stop periodic rescheduling
+            jobFinished()
+            return false
+        }
 
         val batteryLevel = Utils.getBatteryLevel(this)
         if (batteryLevel < THRESHOLD_PERCENTAGE_LOW) {

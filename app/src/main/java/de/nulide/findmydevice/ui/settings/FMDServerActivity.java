@@ -162,7 +162,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
             if (isChecked) {
                 FmdBatteryLowService.scheduleJobNow(this);
             } else {
-                FmdBatteryLowService.stopJobNow(this);
+                FmdBatteryLowService.cancelJob(this);
             }
         }
     }

@@ -31,11 +31,10 @@ class BootReceiver : BroadcastReceiver() {
 
             TempContactExpiredService.scheduleJob(context, 0)
 
-            if (settings.get(Settings.SET_FMD_LOW_BAT_SEND) as Boolean) {
-                FmdBatteryLowService.scheduleJobNow(context)
-            }
-
             if (settings.serverAccountExists()) {
+                if (settings.get(Settings.SET_FMD_LOW_BAT_SEND) as Boolean) {
+                    FmdBatteryLowService.scheduleJobNow(context)
+                }
                 ServerLocationUploadService.scheduleRecurring(context)
                 ServerConnectivityCheckService.scheduleJob(context);
                 ServerVersionCheckService.scheduleJobNow(context)
