@@ -303,12 +303,6 @@
                 android:layout_marginBottom="@dimen/margin_small"
                 android:text="@string/Settings_FMDServer_LOW_BAT_Upload_Description" />
 
-            <de.nulide.findmydevice.ui.home.PermissionView
-                android:id="@+id/perm_notification_access"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_small" />
-
             <CheckBox
                 android:id="@+id/checkBoxFMDServerLowBatUpload"
                 android:layout_width="match_parent"

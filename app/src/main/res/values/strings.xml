@@ -96,7 +96,7 @@
     <string name="Settings_FMDServer_Location_Type_Title">Location source</string>
     <string name="Settings_FMDServer_Location_Type_Description">The source(s) from which the location data is uploaded at regular intervals in the background.\nIf none is selected, no locations are uploaded regularly. (You can still use the web interface to force an upload. This requires push.)</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Upload on low battery</string>
-    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Upload the location of this device when the battery level goes low. This requires access to notifications.</string>
+    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Upload the location of this device when the battery level goes low.</string>
     <string name="password_set">Set password</string>
     <string name="password_change">Change password</string>
     <string name="password_enter">Enter password</string>

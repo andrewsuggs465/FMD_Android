@@ -36,14 +36,12 @@ import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.net.FMDServerApiRepoSpec;
 import de.nulide.findmydevice.net.FMDServerApiRepository;
-import de.nulide.findmydevice.permissions.NotificationAccessPermission;
 import de.nulide.findmydevice.receiver.PushReceiver;
 import de.nulide.findmydevice.services.FmdBatteryLowService;
 import de.nulide.findmydevice.services.ServerCommandDownloadService;
 import de.nulide.findmydevice.services.ServerConnectivityCheckService;
 import de.nulide.findmydevice.services.ServerLocationUploadService;
 import de.nulide.findmydevice.ui.FmdActivity;
-import de.nulide.findmydevice.ui.home.PermissionView;
 import de.nulide.findmydevice.utils.CypherUtils;
 import de.nulide.findmydevice.utils.UnregisterUtil;
 import de.nulide.findmydevice.utils.Utils;
@@ -129,9 +127,6 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         if ((Boolean) settings.get(Settings.SET_FMD_LOW_BAT_SEND)) {
             FmdBatteryLowService.scheduleJobNow(this);
         }
-
-        PermissionView notificationAccessPerm = findViewById(R.id.perm_notification_access);
-        notificationAccessPerm.setPermission(new NotificationAccessPermission(), this, true);
 
         getServerVersion();
     }
