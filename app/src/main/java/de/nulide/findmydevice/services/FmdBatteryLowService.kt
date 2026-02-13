@@ -5,8 +5,14 @@ import android.app.job.JobParameters
 import android.app.job.JobScheduler
 import android.content.ComponentName
 import android.content.Context
-import de.nulide.findmydevice.receiver.BatteryLowReceiver
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.workDataOf
+import de.nulide.findmydevice.data.Settings
+import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.utils.Utils
+import de.nulide.findmydevice.utils.log
+import de.nulide.findmydevice.workers.CommandExecutionWorker
 
 /*
  * This used to be a long-running service that keep a context open to register an intent filer
@@ -27,6 +33,8 @@ class FmdBatteryLowService : FmdJobService() {
         private const val FLEX_MILLIS = 10 * 60 * 1000L
 
         private const val THRESHOLD_PERCENTAGE_LOW = 20
+
+        private const val UPLOAD_MIN_INTERVAL_MILLIS = 45 * 60 * 1000 // 45 mins
 
         @JvmStatic
         fun scheduleJobNow(context: Context) {
@@ -51,7 +59,7 @@ class FmdBatteryLowService : FmdJobService() {
 
         val batteryLevel = Utils.getBatteryLevel(this)
         if (batteryLevel < THRESHOLD_PERCENTAGE_LOW) {
-            BatteryLowReceiver.handleLowBatteryUpload(this)
+            handleLowBatteryUpload(this)
         }
         jobFinished()
         return false
@@ -60,5 +68,44 @@ class FmdBatteryLowService : FmdJobService() {
     override fun onStopJob(params: JobParameters?): Boolean {
         super.onStopJob(params)
         return false // let it be rescheduled using the normal period
+    }
+
+    private fun handleLowBatteryUpload(context: Context) {
+        val settings = SettingsRepository.getInstance(context)
+        context.log().i(TAG, "Handling low battery")
+
+        if (!(settings.get(Settings.SET_FMD_LOW_BAT_SEND) as Boolean)) {
+            context.log().i(TAG, "Disabled in settings, not uploading location.")
+            return
+        }
+
+        // Gson quirk: Gson may interpret long values as doubles.
+        // This workaround ensures that the value is interpreted as a long.
+        val lastUpload = (settings.get(Settings.SET_LAST_LOW_BAT_UPLOAD) as Number).toLong()
+        val now = System.currentTimeMillis()
+
+        // Don't upload too often
+        if (lastUpload + UPLOAD_MIN_INTERVAL_MILLIS < now) {
+            context.log().i(TAG, "Low battery: uploading location.")
+            settings.set(Settings.SET_LAST_LOW_BAT_UPLOAD, now)
+            scheduleCommand(context)
+        } else {
+            context.log().i(TAG, "Last low battery upload too recent, skipping.")
+        }
+    }
+
+    private fun scheduleCommand(context: Context) {
+        val settings = SettingsRepository.getInstance(context)
+        val fmdTriggerWord = settings.get(Settings.SET_FMD_COMMAND) as String
+
+        val inputData = workDataOf(
+            CommandExecutionWorker.KEY_COMMAND to "$fmdTriggerWord locate",
+            CommandExecutionWorker.KEY_TRANSPORT_TYPE to CommandExecutionWorker.TRANS_FMD_SERVER,
+            CommandExecutionWorker.KEY_DESTINATION to "Low battery upload",
+        )
+        val workRequest = OneTimeWorkRequestBuilder<CommandExecutionWorker>()
+            .setInputData(inputData)
+            .build()
+        WorkManager.getInstance(context).enqueue(workRequest)
     }
 }
