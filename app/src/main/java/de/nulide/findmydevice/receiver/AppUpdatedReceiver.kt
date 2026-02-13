@@ -5,14 +5,9 @@ import android.content.Context
 import android.content.Intent
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.services.ServerConnectivityCheckService
-import de.nulide.findmydevice.services.ServerLocationUploadService
 import de.nulide.findmydevice.services.ServerVersionCheckService
 import de.nulide.findmydevice.services.TempContactExpiredService
-import de.nulide.findmydevice.ui.onboarding.PinUpdate
-import de.nulide.findmydevice.ui.onboarding.UpdateboardingModernCryptoActivity
 import de.nulide.findmydevice.utils.log
-import de.nulide.findmydevice.warnings.shouldWarnUnifiedPushRequired
-import de.nulide.findmydevice.warnings.notifyWarnUnifiedPushRequired
 
 
 class AppUpdatedReceiver : BroadcastReceiver() {
@@ -23,22 +18,19 @@ class AppUpdatedReceiver : BroadcastReceiver() {
         const val APP_UPDATED: String = "android.intent.action.MY_PACKAGE_REPLACED"
     }
 
-    override fun onReceive(context: Context?, intent: Intent) {
-        val settings = SettingsRepository.getInstance(context!!)
-
+    // Keep the AppUpdatedReceiver so that the app launches once after app updates.
+    // However, the FmdApplication should start before this receiver runs, and it will start the main services.
+    override fun onReceive(context: Context, intent: Intent) {
         if (intent.action == APP_UPDATED) {
             context.log().i(TAG, "Running MY_PACKAGE_REPLACED (APP_UPDATED) handler")
 
+            // One-shot services that don't need to run on every FmdApplication start
             TempContactExpiredService.scheduleJob(context, 0)
 
+            val settings = SettingsRepository.getInstance(context)
             if (settings.serverAccountExists()) {
-                ServerLocationUploadService.scheduleRecurring(context)
-                ServerConnectivityCheckService.scheduleJob(context)
                 ServerVersionCheckService.scheduleJobNow(context)
                 ServerConnectivityCheckService.notifyAboutConnectivityCheck(context)
-            }
-            if (shouldWarnUnifiedPushRequired(context)){
-                notifyWarnUnifiedPushRequired(context)
             }
         }
     }
