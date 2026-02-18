@@ -125,8 +125,8 @@
     <string name="cmd_bluetooth_description_short">Lülita Bluetooth sisse/välja</string>
     <string name="cmd_bluetooth_response_no_bluetooth">Siin nutiseadmes ei tundu olema Bluetoothi.</string>
     <string name="cmd_delete_response_pwd_wrong">Kustutamine pole võimalik: vale salasõna.</string>
-    <string name="cmd_gps_description_short">Lülita GPS sisse/välja</string>
-    <string name="cmd_gps_response_on">GPS on sees.</string>
+    <string name="cmd_gps_description_short">Lülita asukohateenused sisse/välja</string>
+    <string name="cmd_gps_response_on">Asukohateenused on sees.</string>
     <string name="cmd_delete_description_short">Lähtesta nutiseade tootja algolekusse</string>
     <string name="cmd_camera_response_no_fmd_server">Pildistada pole võimalik: ei leidu FMD serveri kasutajakontot.</string>
     <string name="cmd_delete_response_disabled">Kustutamine pole võimalik: vastav käsk on seadistsutest keelatud.</string>
@@ -279,4 +279,16 @@
     <string name="Notification_ExecutionService_Description">Hetkel täitmisel käskude teavitused</string>
     <string name="executing_title">Käsk on täitmisel</string>
     <string name="executing_text">„%2$s“ on hetkel täitmas „%1$s“ käsku.</string>
+    <string name="dont_show_again">Ära näita enam uuesti</string>
+    <string name="turned_on">sees</string>
+    <string name="turned_off">väljas</string>
+    <string name="delete_pw_warning_no_backup">Hoiatus: salasõna ei sisaldu rakenduse varukoopias.</string>
+    <string name="delete_pw_warning_empty">Hoiatus: Kuna kustutamise salasõna on tühi, siis kustutamine tegelikult ei toimi. Sa pead lülitama sisse nii antud funktsionaalsuse, kui sellega seotud salasõna.</string>
+    <string name="password_set">Võta salasõna kasutusele</string>
+    <string name="password_change">Muuda salasõna</string>
+    <string name="password_enter">Sisesta salasõna</string>
+    <string name="password_match_command_keyword">Salasõna ei saa olla sama, kui mõni käsk!</string>
+    <string name="fmd_edge_info_message">See on FMD arendusversioon (edge). Sel puhul vaikimisi käsu märksõna on „fmde“ („fmd“ asemel). Näiteks asukoha tuvastamiskäsk on sel puhul „fmde locate“. Niisugune lahendus võimaldab samas seadmes kasutada nii arendus- kui tavaversiooni ja käsuga saad juhtida kummaga neist soovid suhelda.</string>
+    <string name="cmd_bluetooth_response_empty">Bluetooth on %s.</string>
+    <string name="cmd_gps_response_empty">Asukohateenused on %s.</string>
 </resources>
