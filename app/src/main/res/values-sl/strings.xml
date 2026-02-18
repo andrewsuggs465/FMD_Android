@@ -44,7 +44,7 @@
     <string name="Settings_WhiteList">Zaupanja vredni stiki</string>
     <string name="Settings_Export">Izvozi nastavitve</string>
     <string name="server_version_error_low_version">Potrebna je vsaj različica strežnika {MIN}, trenutno izbrani strežnik pa ima različico {CURRENT}. Nadaljujte na lastno odgovornost.</string>
-    <string name="Settings_FMDServer_Info">S FMD strežnikom lahko vaši napravi pošiljate ukaze preko interneta (od strežnika v FMD aplikacijo). Na FMD strežniku lahko vidite lokacijo naprave na zemljevidu ter preko kamere zajamete slike. Navodila za postavitev lastnega FMD strežnika so na spletni strani projekta.</string>
+    <string name="Settings_FMDServer_Info">S FMD strežnikom lahko vaši napravi pošiljate ukaze preko interneta (od strežnika v FMD aplikacijo). Na FMD strežniku lahko vidite lokacijo naprave na zemljevidu ter preko kamere zajamete fotografije. Navodila za postavitev lastnega FMD strežnika so na spletni strani projekta.</string>
     <string name="registration_token">Registracijski žeton</string>
     <string name="Whitelist_empty">Ni zaupanja vrednih stikov. Pritisnite gumb za dodajanje!</string>
     <string name="WhiteList_Add_Contact">Dodaj stik</string>
@@ -56,7 +56,7 @@
     <string name="Whitelist_help">Stiki na tem seznamu lahko pošiljajo FMD ukaze preko SMS sporočil. Ukazi vseh drugih stikov bodo prezrti.</string>
     <string name="Cell">Bazna postaja</string>
     <string name="request_failed_title">Omrežna zahteva ni uspela</string>
-    <string name="about">O aplikaciji</string>
+    <string name="about">O strežniku</string>
     <string name="about_source_code">Izvorna koda</string>
     <string name="OpenCellId_test_opencellid">Preveri OpenCellID povezavo</string>
     <string name="OpenCellId_test_no_connection">Ni povezave</string>
@@ -110,8 +110,8 @@
     <string name="perm_notification_access_name">Dostop do obvestil</string>
     <string name="OpenCellId_tower_collector_info">V OpenCellID bazo lahko prispevate tako, da pomagate zbirati podatke o baznih postajah. Za to potrebujete namensko aplikacijo. Ena takih aplikacij je Tower Collector.</string>
     <string name="OpenCellId_tower_collector_download">Prenesi Tower Collector</string>
-    <string name="cmd_gps_description_short">Vključi ali izključi GPS</string>
-    <string name="cmd_gps_response_off">GPS je izključen.</string>
+    <string name="cmd_gps_description_short">Vključi ali izključi lokacijske storitve</string>
+    <string name="cmd_gps_response_off">Lokacijske storitve so izključene.</string>
     <string name="cmd_help_description_short">Prikaži pomoč</string>
     <string name="cmd_locate_description_short">Poišči napravo</string>
     <string name="usage_notification_text">Izveden je bil ukaz \"%s\".</string>
@@ -147,13 +147,13 @@
     <string name="transport_fmd_server_description_auth">Vsak, ki pozna vaše uporabniško ime in geslo, se lahko prijavi v strežnik FMD in nadzoruje vašo napravo.</string>
     <string name="Settings_Import_Success">Uvoz uspešen</string>
     <string name="WhiteList_no_contact_picker">Najdena ni bila nobena aplikacija za izbor stikov!</string>
-    <string name="cmd_camera_response_success">Naprava zajema sliko, ki jo bo poslala na FMD strežnik. Kmalu jo boste lahko videli na: %s</string>
+    <string name="cmd_camera_response_success">Naprava zajema fotografijo, ki jo bo poslala na FMD strežnik. Kmalu jo boste lahko videli na: %s</string>
     <string name="cmd_delete_description_long">To izbriše vse podatke na napravi. Po tem postopku z napravo ne boste mogli več komunicirati. Da bi preprečili nenamerno ali zlonamerno uporabo, ta ukaz zahteva geslo, ki mora biti izrecno omogočeno v nastavitvah.</string>
     <string name="cmd_delete_response_disabled">Brisanje ni mogoče: ukaz za brisanje ni omogočen v nastavitvah.</string>
     <string name="cmd_delete_response_pwd_missing">Brisanje ni mogoče: manjka geslo. Primer uporabe: %s.</string>
     <string name="cmd_delete_response_pwd_wrong">Brisanje ni mogoče: napačno geslo.</string>
     <string name="cmd_delete_response_success">Naprava bo sedaj pobrisana. Nasvidenje!</string>
-    <string name="cmd_camera_response_no_fmd_server">Ne morem zajeti slike: na FMD strežniku nimate aktivnega računa.</string>
+    <string name="cmd_camera_response_no_fmd_server">Ne morem zajeti fotografije: na FMD strežniku nimate aktivnega računa.</string>
     <string name="cmd_delete_description_short">Ponastavi napravo na tovarniške nastavitve</string>
     <string name="cmd_locate_last_known_location_text">Zadnja znana lokacija</string>
     <string name="cmd_lock_description_short">Zakleni napravo</string>
@@ -179,9 +179,9 @@
     <string name="allowlist_phone_number_name">Ime</string>
     <string name="allowlist_phone_number">Telefonska številka</string>
     <string name="allowlist_add_phone_number">Dodaj telefonsko številko</string>
-    <string name="cmd_camera_description_short">Zajemi sliko</string>
-    <string name="cmd_camera_description_long">Posname sliko s sprednjo/zadnjo kamero in jo naloži na FMD strežnik. Trenutno je podprto samo nalaganje slik na FMD strežnik. Ta ukaz lahko pošljete tudi prek drugih transportnih kanalov in slika bo naložena na FMD strežnik (če imate na njem aktiven račun).</string>
-    <string name="cmd_gps_response_on">GPS je vključen.</string>
+    <string name="cmd_camera_description_short">Zajemi fotografijo</string>
+    <string name="cmd_camera_description_long">Posname fotografijo s sprednjo/zadnjo kamero in jo naloži na FMD strežnik. Trenutno je podprto samo nalaganje fotografij na FMD strežnik. Ta ukaz lahko pošljete tudi prek drugih transportnih kanalov in fotografija bo naložena na FMD strežnik (če imate na njem aktiven račun).</string>
+    <string name="cmd_gps_response_on">Lokacijske storitve so vključene.</string>
     <string name="cmd_locate_description_long">Poišče napravo z enim ali več viri lokacije. GPS ima najvišjo natančnost, vendar morda ne deluje vedno. »Združeni« ponudnik je definiran z Androidom in uporablja kombinacijo virov (pogosto WiFi ali bazne postaje). »Celični« ponudnik poizveduje pri javnih storitvah OpenCelliD in BeaconDB o lokacijah okoliških baznih postaj.</string>
     <string name="cmd_lock_response">Naprava je sedaj zaklenjena.</string>
     <string name="perm_overlay_name">Prikaz nad drugimi aplikacijami</string>
@@ -195,7 +195,7 @@
     <string name="transport_sms_description_auth">Ukaze lahko pošiljajo samo telefonske številke, ki so na seznamu zaupanja vrednih. Za pošiljanje ukazov s telefonske številke, ki ni na seznamu zaupanja vrednih, morate vključiti PIN: \"fmd mypin help\". Ta številka potem lahko pošilja ukaze s pomočjo PIN kode. Da vam ni treba vsakič znova vnašati kode PIN, bo ta nova telefonska številka dodana na začasni seznam zaupanja vrednih številk za naslednjih 10 minut.</string>
     <string name="crashed_send_log">Pošlji dnevniški zapis</string>
     <string name="transport_notification_reply_description">Aplikaciji FMD lahko dovolite, da bere obvestila drugih aplikacij in preko njih prejema ukaze. FMD lahko nato na te ukaze odgovori prek Androidove vgrajene funkcije za odgovor na obvestila. To vam omogoča komunikacijo s FMD s pomočjo aplikacije za sporočanje po vaši izbiri - če seveda le-ta objavlja obvestila, na katera je mogoče odgovoriti. V svojo napravo tako lahko na primer pošljete sporočilo \"fmd mypin help\" kar preko aplikacije Signal.</string>
-    <string name="transport_fmd_server_description">FMD strežnik ponuja spletni vmesnik za nadzor vaše naprave, ogled njene lokacije in ogled slik, ki jih je poslala. Uporabite lahko uradni FMD strežnik, ali pa si postavite svojega. Podatki, ki so shranjeni na strežniku so šifrirani in zaščiteni z vašim geslom.</string>
+    <string name="transport_fmd_server_description">FMD strežnik ponuja spletni vmesnik za nadzor vaše naprave, ogled njene lokacije in ogled fotografij, ki jih je poslala. Uporabite lahko uradni FMD strežnik, ali pa si postavite svojega. Podatki, ki so shranjeni na strežniku so šifrirani in zaščiteni z vašim geslom.</string>
     <string name="crashed_text">FMD se je zrušil! Tukaj je dnevniški zapis:</string>
     <string name="transport_sms_description_note">SMS lahko povzroči stroške tako vam kot osebi, ki vam pošilja sporočilo. SMS zahteva, da je vaša SIM kartica odklenjena (npr. po ponovnem zagonu naprave).</string>
     <string name="transport_notification_reply_description_auth">Upravljanje FMD preko odgovora na obvestilo zahteva nastavitev kode PIN. Vsako sporočilo mora vsebovati pravilen PIN.</string>
@@ -294,4 +294,16 @@
     <string name="Notification_ExecutionService_Description">Obvestila za trenutno izvajane ukaze</string>
     <string name="executing_title">Izvajanje ukaza</string>
     <string name="executing_text">\"%2$s\" izvaja ukaz \"%1$s\".</string>
+    <string name="dont_show_again">Ne prikaži ponovno</string>
+    <string name="turned_off">izključeno</string>
+    <string name="turned_on">vključeno</string>
+    <string name="delete_pw_warning_no_backup">Opozorilo: geslo ni vključeno v varnostno kopijo aplikacije.</string>
+    <string name="delete_pw_warning_empty">Opozorilo: Brisanje ne bo delovalo, ker geslo za brisanje ni nastavljeno. Storiti morate oboje: funkcijo omogočiti in nastaviti geslo.</string>
+    <string name="password_set">Nastavi geslo</string>
+    <string name="password_change">Spremeni geslo</string>
+    <string name="password_enter">Vnesi geslo</string>
+    <string name="password_match_command_keyword">Geslo ne sme biti enako kot katerikoli izmed ukazov!</string>
+    <string name="fmd_edge_info_message">To je različica FMD Edge. Tu je privzeta ključna beseda ukaza \"fmde\" (namesto \"fmd\"). Na primer, za pošiljanje ukaza locate uporabite »fmde locate«. To omogoča, da sta tako Edge kot produkcijska različica nameščena na isti napravi, ukazi pa so ločeno usmerjeni na eno od njiju.</string>
+    <string name="cmd_bluetooth_response_empty">Bluetooth je %s.</string>
+    <string name="cmd_gps_response_empty">Lokacijske storitve so %s.</string>
 </resources>
