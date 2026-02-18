@@ -33,7 +33,7 @@
     <string name="perm_sms_name">簡訊</string>
     <string name="grant">授予</string>
     <string name="MH_Pin_Accepted">Pin 已接受！</string>
-    <string name="loading">正在載入…</string>
+    <string name="loading">載入中…</string>
     <string name="help">幫助</string>
     <string name="copied">已複製</string>
     <string name="accept">允許</string>
@@ -186,9 +186,9 @@
     <string name="cmd_delete_response_failed">由於發生例外狀況，裝置刪除失敗。</string>
     <string name="cmd_delete_response_success">裝置現在應已刪除。再見！</string>
     <string name="cmd_flash_description_short">閃爍相機補光燈</string>
-    <string name="cmd_gps_description_short">切換 GPS 開啟或關閉</string>
-    <string name="cmd_gps_response_on">GPS 已開啟。</string>
-    <string name="cmd_gps_response_off">GPS 已關閉。</string>
+    <string name="cmd_gps_description_short">切換定位服務開啟或關閉</string>
+    <string name="cmd_gps_response_on">定位服務已開啟。</string>
+    <string name="cmd_gps_response_off">定位服務已關閉。</string>
     <string name="cmd_help_description_short">顯示說明</string>
     <string name="cmd_help_message_start">FMD 指令：</string>
     <string name="cmd_locate_description_short">定位裝置</string>
@@ -279,4 +279,16 @@
     <string name="crashed_open_issuetracker">開啟問題追蹤器</string>
     <string name="crashed_continue_without">不回報並繼續</string>
     <string name="Notification_Server_Description">與 FMD 伺服器相關的通知</string>
+    <string name="dont_show_again">不再顯示</string>
+    <string name="turned_on">開啟</string>
+    <string name="turned_off">關閉</string>
+    <string name="delete_pw_warning_no_backup">警告：應用程式備份不含密碼。</string>
+    <string name="delete_pw_warning_empty">警告：由於刪除密碼為空，刪除功能將無法運作。您必須同時啟用此功能並設定密碼。</string>
+    <string name="password_set">設定密碼</string>
+    <string name="password_change">變更密碼</string>
+    <string name="password_enter">輸入密碼</string>
+    <string name="password_match_command_keyword">密碼不能與任何指令相同！</string>
+    <string name="fmd_edge_info_message">這是 FMD 的 edge 版本。在此版本中，預設指令關鍵字為「fmde」（而非「fmd」）。例如，若要傳送定位（locate）指令，請使用「fmde locate」。這樣可在同一台裝置上同時安裝 edge 與正式版（prod），並分別將指令傳送至其中之一。</string>
+    <string name="cmd_bluetooth_response_empty">藍牙：%s。</string>
+    <string name="cmd_gps_response_empty">定位服務：%s。</string>
 </resources>
