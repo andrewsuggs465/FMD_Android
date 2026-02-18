@@ -107,8 +107,8 @@
     <string name="cmd_delete_response_disabled">Nepodařilo se odstranit: příkaz k odstranění není povolen v nastavení.</string>
     <string name="cmd_delete_response_pwd_missing">Nepodařilo se odstranit: chybějící heslo. Použití: %s.</string>
     <string name="cmd_delete_response_success">Zařízení by nyní mělo být vymazáno. Na shledanou!</string>
-    <string name="cmd_gps_description_short">Zapnout nebo vypnout GPS</string>
-    <string name="cmd_gps_response_off">GPS vypnuto.</string>
+    <string name="cmd_gps_description_short">Zapnout nebo vypnout polohové služby</string>
+    <string name="cmd_gps_response_off">Polohové služby vypnuty.</string>
     <string name="cmd_lock_description_short">Uzamknout zařízení</string>
     <string name="cmd_lock_response">Zařízení by nyní mělo být uzamčeno.</string>
     <string name="cmd_nodisturb_description_short">Zapnout nebo vypnout režim Nerušit</string>
@@ -137,7 +137,7 @@
     <string name="cmd_camera_response_success">Zařízení pořizuje obrázek a nahraje jej na Server FMD. Brzy si jej budete moci prohlédnout zde: %s</string>
     <string name="cmd_delete_response_pwd_wrong">Nepodařilo se odstranit: nesprávné heslo.</string>
     <string name="grant_write_secure_settings_title">Udělit přístup k zápisu zabezpečených nastavení</string>
-    <string name="cmd_gps_response_on">GPS zapnuto.</string>
+    <string name="cmd_gps_response_on">Polohové služby zapnuty.</string>
     <string name="cmd_help_description_short">Zobrazit nápovědu</string>
     <string name="cmd_locate_description_short">Najít zařízení</string>
     <string name="cmd_ring_description_short">Prozvonit zařízení</string>
@@ -279,4 +279,16 @@
     <string name="Notification_ExecutionService_Description">Oznámení pro aktuálně vykonávané příkazy</string>
     <string name="executing_title">Vykonávání příkazu</string>
     <string name="executing_text">Příkaz „%1$s“ je vykonáván uživatelem „%2$s“.</string>
+    <string name="dont_show_again">Již nezobrazovat</string>
+    <string name="turned_on">zapnut</string>
+    <string name="turned_off">vypnut</string>
+    <string name="delete_pw_warning_no_backup">Varování: Záloha aplikace neobsahuje heslo.</string>
+    <string name="delete_pw_warning_empty">Varování: Mazání nebude fungovat, protože heslo pro smazání je prázdné. Musíte povolit funkci a nastavit heslo.</string>
+    <string name="password_set">Nastavit heslo</string>
+    <string name="password_change">Změnit heslo</string>
+    <string name="password_enter">Zadejte heslo</string>
+    <string name="password_match_command_keyword">Heslo se nesmí rovnat jednomu z příkazů!</string>
+    <string name="fmd_edge_info_message">Toto je vývojová varianta FMD. Zde je výchozí klíčové slovo příkazu „fmde“ (namísto „fmd“). Chcete-li například odeslat příkaz locate, použijte „fmde locate“. To umožňuje mít nainstalovanou jak vývojovou, tak produkční verzi na stejném zařízení a směrovat příkazy na jedno z nich.</string>
+    <string name="cmd_bluetooth_response_empty">Bluetooth je %s.</string>
+    <string name="cmd_gps_response_empty">Polohové služby jsou %s.</string>
 </resources>
