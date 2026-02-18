@@ -101,7 +101,7 @@
     <string name="cmd_missing_permissions">Não foi possível executar o comando %1$s: Faltando a(s) permissão(ões) %2$s.</string>
     <string name="cmd_camera_description_long">Tira uma foto da câmera frontal/traseira e a envia para o FMD Server. Atualmente só é possível enviar para o FMD Server. Você pode enviar este comando atráves de outros canais de transporte, também, e a foto será enviada ao FMD Server (se uma conta existe).</string>
     <string name="cmd_delete_description_short">Apagar os dados do dispositivo</string>
-    <string name="cmd_gps_description_short">Habilitar o GPS</string>
+    <string name="cmd_gps_description_short">Habilitar os serviços de localização</string>
     <string name="cmd_lock_response">O dispositivo deve estar bloqueado agora.</string>
     <string name="cmd_ring_description_short">Fazer o dispositivo tocar</string>
     <string name="cmd_nodisturb_response_on">Modo \"Não Perturbe\" ativado.</string>
@@ -119,8 +119,8 @@
     <string name="cmd_delete_response_disabled">Não foi possível executar o delete: não está ativado nas configurações.</string>
     <string name="cmd_delete_response_pwd_missing">Não foi possível executar o delete: nenhuma senha. Uso: %s.</string>
     <string name="cmd_delete_response_success">Seu dispositivo agora deve ter sido apagado. Adeus!</string>
-    <string name="cmd_gps_response_on">GPS ativado.</string>
-    <string name="cmd_gps_response_off">GPS desativado.</string>
+    <string name="cmd_gps_response_on">Serviços de localização foram ativados.</string>
+    <string name="cmd_gps_response_off">Serviços de localização foram desativados.</string>
     <string name="cmd_help_description_short">Mostrar a ajuda</string>
     <string name="cmd_locate_description_long">Localize o dispositivo usando um ou mais provedores de localização. O GPS tem a maior precisão, mas nem sempre funciona. O provedor \"fused\" é definido pelo Android, e usa uma combinação de fontes (normalmente Wi-Fi ou torres móveis). O provedor \"cell\" pergunta as localizações das torres móveis ao redor pros serviços públicos do OpenCelliD e BeaconDB.</string>
     <string name="perm_location_name">Localização</string>
@@ -279,4 +279,16 @@
     <string name="Notification_ExecutionService_Description">Notificações para comandos executados no momento</string>
     <string name="executing_title">Executando comando</string>
     <string name="executing_text">O comando \"%1$s\" está sendo executado por \"%2$s\".</string>
+    <string name="dont_show_again">Não mostrar de novo</string>
+    <string name="turned_on">ativado</string>
+    <string name="turned_off">desativado</string>
+    <string name="delete_pw_warning_no_backup">Atenção: A senha não é inclusa no backup de apps.</string>
+    <string name="delete_pw_warning_empty">Atenção: Apagar não funcionará pois a senha de apagar está vazia. Você deve tanto ativar o recurso como configurar uma senha.</string>
+    <string name="password_set">Configurar senha</string>
+    <string name="password_change">Alterar senha</string>
+    <string name="password_enter">Digite a senha</string>
+    <string name="password_match_command_keyword">A senha não pode ser igual aos comandos!</string>
+    <string name="fmd_edge_info_message">Essa é a variante edge do FMD. Aqui, o comando padrão é \"fmde\" (em vez de \"fmd\"). Por exemplo, para enviar um comando de localizar, use \"fmde locate\". Isso permite ter tanto o edge quanto o prod instalados no mesmo dispositivo, e especificar para qual vão os comandos.</string>
+    <string name="cmd_bluetooth_response_empty">O Bluetooth está %s.</string>
+    <string name="cmd_gps_response_empty">Os serviços de localização estão %s.</string>
 </resources>
