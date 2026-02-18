@@ -79,7 +79,7 @@
     <string name="Settings_FMDServer_open_website">Ouvrir le site web du serveur FMD</string>
     <string name="OpenCellId_open_website">Ouvrir le site web de OpenCelliD</string>
     <string name="OpenCellId_test_no_connection">Aucune connection mobile</string>
-    <string name="about">A propos</string>
+    <string name="about">À propos</string>
     <string name="Notification_Security">Sécurité</string>
     <string name="request_failed_title">L\'accès au réseau a échoué</string>
     <string name="request_failed_status_code">Code d\'état</string>
@@ -225,7 +225,7 @@
     <string name="crashed_title">Rapport de plantage</string>
     <string name="crashed_open_issuetracker">Ouvrir le gestionnaire d’incidents</string>
     <string name="appearance_dynamic_colors">Couleurs dynamiques</string>
-    <string name="cmd_delete_response_failed">Impossible d’effacer l’appareil à cause d’une erreur.</string>
+    <string name="cmd_delete_response_failed">Impossible de réinitialiser l’appareil à cause d’une erreur.</string>
     <string name="perm_bluetooth_connect_name">Se connecter au Bluetooth</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Intervalle de vérification de connectivité</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD vérifie la connectivité au Serveur FMD toutes les X heures. Le réglage à 0 désactive la vérification de la connectivité.</string>
@@ -249,7 +249,7 @@
     <string name="appearance_theme">Thème</string>
     <string name="appearance_theme_choose">Choisir le thème</string>
     <string name="pin_match_command_keyword">Le code PIN doit être différent des commandes !</string>
-    <string name="cmd_delete_response_dry_run">Essai réussi, on passe le vrai effacement de l’appareil.</string>
+    <string name="cmd_delete_response_dry_run">Essai réussi, on passe la vraie réinitialisation de l’appareil.</string>
     <string name="server_login_attempts_title">Tentatives échouées de connexion au Serveur FMD</string>
     <string name="server_login_attempts_text">Quelqu’un a essayé de se connecter à votre compte Serveur FMD « %s ». À cause de plusieurs mauvais mots de passe, le compte est maintenant bloqué pour 10 minutes.</string>
     <string name="cmd_bluetooth_response_off">Bluetooth désactivé.</string>
@@ -290,4 +290,16 @@
     <string name="Notification_ExecutionService_Description">Notifications pour les commandes actuellement exécutées</string>
     <string name="executing_title">Commande en cours d\'exécution</string>
     <string name="executing_text">La commande \"%1$s\" est actuellement en train d\'être exécutée par \"%2$s\".</string>
+    <string name="dont_show_again">Ne plus afficher</string>
+    <string name="turned_on">actif</string>
+    <string name="turned_off">inactif</string>
+    <string name="delete_pw_warning_no_backup">Avertissement : le mot de passe n\'est pas inclus dans la sauvegarde de l\'application.</string>
+    <string name="delete_pw_warning_empty">Avertissement : la réinitialisation ne fonctionnera pas, car le mot de passe de réinitialisation est vide.</string>
+    <string name="password_set">Définir le mot de passe</string>
+    <string name="password_change">Modifier le mot de passe</string>
+    <string name="password_enter">Entrer le mot de passe</string>
+    <string name="password_match_command_keyword">Le mot de passe ne peut pas être identique à une des commandes !</string>
+    <string name="cmd_bluetooth_response_empty">Le Bluetooth est %s.</string>
+    <string name="cmd_gps_response_empty">Les services de localisation sont %ss.</string>
+    <string name="fmd_edge_info_message">Ceci est la variante \"expérimental\" de FMD. Ici, le mot-clé par défaut pour les commandes est \"fmde\" (au lieu de \"fmd\"). Par exemple, pour envoyer la commande de localisation, utilisez \" fmde locate\". Cela permet d\'avoir à la fois la variante expérimentale et de production sur le même appareil, et de cibler les commandes pour l\'une des deux.</string>
 </resources>
