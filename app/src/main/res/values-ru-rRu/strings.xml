@@ -104,7 +104,7 @@
     <string name="cmd_camera_description_long">Делает фотографию с помощью передней/задней камеры и загружает её на сервер FMD. В данный момент поддерживается загрузка лишь на сервер FMD. Вы можете отправить эту команду также и через другие транспортные каналы, после чего фотография будет загружена на сервер FMD (если у вас есть профиль).</string>
     <string name="cmd_delete_description_short">Сброс устройства до заводских настроек (dry run - пробный прогон)</string>
     <string name="cmd_delete_description_long">Это удалит все данные. После этого вы больше не сможете взаимодействовать с устройством. Чтобы предотвратить случайное, или злонамеренное использование, эта команда требует использования пароля который должен быть явно включён в настройках.</string>
-    <string name="cmd_locate_description_short">Определить местоположение устройства (последнее, все, сота, по GPS)</string>
+    <string name="cmd_locate_description_short">Определить местоположение устройства</string>
     <string name="cmd_locate_description_long">Определяет местоположение устройства с помощью одного или более провайдеров местоположения. GPS имеет самую высокую точность, но может не всегда работать. \"Комбинированный\" провайдер задаётся Android, и использует комбинацию источников (часто Wi-Fi или сотовые вышки). \"Сотовый\" провайдер запрашивает публичные сервисы OpenCelliD и BeaconDB для получения местоположения окружающих сотовых вышек.</string>
     <string name="perm_battery_optimizations_name">Игнорировать оптимизации аккумулятора</string>
     <string name="perm_unused_app_description">Android приостанавливает приложения, которые не запускались несколько месяцев, и отзывает их разрешения. Тем не менее, FMD должен работать в фоновом режиме. После его настройки, вам необходимо изредка открывать его. Таким образом, вы исключите FMD из автоматической приостановки приложений, в противном случае, он перестанет работать через несколько месяцев.</string>
@@ -147,10 +147,10 @@
     <string name="cmd_delete_response_pwd_missing">Невозможно удалить: отсутствует пароль. Использование: %s.</string>
     <string name="cmd_delete_response_pwd_wrong">Невозможно удалить: неверный пароль.</string>
     <string name="cmd_delete_response_success">Теперь устройство должно быть очищено. Прощайте!</string>
-    <string name="cmd_gps_response_on">GPS включён.</string>
-    <string name="cmd_gps_response_off">GPS выключен.</string>
+    <string name="cmd_gps_response_on">Сервисы Определения Местоположения включены.</string>
+    <string name="cmd_gps_response_off">Сервисы Определения Местоположения выключены.</string>
     <string name="cmd_help_description_short">Показать справку</string>
-    <string name="cmd_gps_description_short">Включение и выключение GPS</string>
+    <string name="cmd_gps_description_short">Включение и выключение Сервисов Определения Местоположения</string>
     <string name="cmd_stats_description_short">Получить статистику сети</string>
     <string name="cmd_stats_description_long">Получает статистику сети с устройства. Например, его IP адрес и список окружающих его Wi-Fi сетей.</string>
     <string name="cmd_stats_response">Статистика сети:
@@ -292,4 +292,16 @@
     <string name="executing_text">Команда \"%1$s\" сейчас выполняется \"%2$s\".</string>
     <string name="missing_push_title">Отсутствует UnifiedPush</string>
     <string name="missing_push_description">Без приложения распространителя UnifiedPush вы не можете получать команды от FMD Сервера.</string>
+    <string name="dont_show_again">Не показывать снова</string>
+    <string name="turned_on">включено</string>
+    <string name="turned_off">выключено</string>
+    <string name="delete_pw_warning_no_backup">Внимание: Пароль не включён в резервную копию приложения.</string>
+    <string name="delete_pw_warning_empty">Внимание: Удаление не сработает, потому что пароль удаления пустой. Вы должны включить функцию и установить пароль.</string>
+    <string name="password_set">Установить пароль</string>
+    <string name="password_change">Сменить пароль</string>
+    <string name="password_enter">Введите пароль</string>
+    <string name="password_match_command_keyword">Пароль не должен соответствовать одной из команд!</string>
+    <string name="fmd_edge_info_message">Это Edge вариант FMD. Здесь, стандартное ключевое слово команды это \"fmde\" (вместо \"fmd\"). Например, чтобы отправить команду locate, используйте \"fmde locate\". Это позволяет одновременно иметь и основную и Edge версию на одном устройстве, направляя команды в одну из них.</string>
+    <string name="cmd_bluetooth_response_empty">Bluetooth %s.</string>
+    <string name="cmd_gps_response_empty">Сервисы Определения Местоположения %s.</string>
 </resources>
