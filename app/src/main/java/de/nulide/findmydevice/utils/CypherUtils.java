@@ -13,6 +13,7 @@ import org.bouncycastle.util.io.pem.PemWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -26,6 +27,7 @@ import java.security.SecureRandom;
 import java.security.Signature;
 import java.security.SignatureException;
 import java.security.interfaces.RSAPrivateCrtKey;
+import java.security.interfaces.RSAPrivateKey;
 import java.security.spec.EncodedKeySpec;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.MGF1ParameterSpec;
@@ -276,8 +278,18 @@ public class CypherUtils {
             KeyFactory keyFactory = KeyFactory.getInstance("RSA");
             PrivateKey priv = keyFactory.generatePrivate(privKeySpec);
 
-            RSAPrivateCrtKey rsaPriv = (RSAPrivateCrtKey) priv;
-            RSAPublicKeySpec publicKeySpec = new RSAPublicKeySpec(rsaPriv.getModulus(), rsaPriv.getPublicExponent());
+            RSAPublicKeySpec publicKeySpec;
+            if (priv instanceof RSAPrivateCrtKey) {
+                RSAPrivateCrtKey rsaPriv = (RSAPrivateCrtKey) priv;
+                publicKeySpec = new RSAPublicKeySpec(rsaPriv.getModulus(), rsaPriv.getPublicExponent());
+            } else {
+                // Fallback for ROMs that return an OpenSSLRSAPrivateKey (which is not an instance of RSAPrivateCrtKey).
+                // Guessing the exponent is not great, but for RSA it should work in most cases.
+                // https://gitlab.com/fmd-foss/fmd-android/-/issues/389
+                // https://github.com/google/conscrypt/blob/master/common/src/main/java/org/conscrypt/OpenSSLRSAPrivateKey.java
+                RSAPrivateKey rsaPriv = (RSAPrivateKey) priv;
+                publicKeySpec = new RSAPublicKeySpec(rsaPriv.getModulus(), BigInteger.valueOf(65537));
+            }
             PublicKey pub = keyFactory.generatePublic(publicKeySpec);
 
             return new KeyPair(pub, priv);
