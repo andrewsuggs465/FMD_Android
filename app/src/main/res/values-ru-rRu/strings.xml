@@ -29,7 +29,6 @@
     <string name="Toast_Empty_FMDCommand">Пустая команда недопустима, используется команда по умолчанию.</string>
     <string name="Settings_Ringer_Tone_Description">Выберите рингтон, который будет воспроизводиться, когда команда \"fmd ring\" будет отправлена.</string>
     <string name="Settings_Select_Ringtone">Выберите рингтон</string>
-    <string name="WhiteList_Select_Number">Выберите один из мобильных номеров.</string>
     <string name="Settings_FMD_Server_User_ID">ID пользователя:</string>
     <string name="Settings_FMD_Server_ID_Desc">Вам необходим ID пользователя для нахождения вашего устройства с помощью Сервера FMD. Запишите его и храните в безопасности.</string>
     <string name="Settings_FMDServer_Change_Password_Button">Сменить пароль</string>
@@ -293,8 +292,6 @@
     <string name="missing_push_title">Отсутствует UnifiedPush</string>
     <string name="missing_push_description">Без приложения распространителя UnifiedPush вы не можете получать команды от FMD Сервера.</string>
     <string name="dont_show_again">Не показывать снова</string>
-    <string name="turned_on">включено</string>
-    <string name="turned_off">выключено</string>
     <string name="delete_pw_warning_no_backup">Внимание: Пароль не включён в резервную копию приложения.</string>
     <string name="delete_pw_warning_empty">Внимание: Удаление не сработает, потому что пароль удаления пустой. Вы должны включить функцию и установить пароль.</string>
     <string name="password_set">Установить пароль</string>
@@ -302,6 +299,4 @@
     <string name="password_enter">Введите пароль</string>
     <string name="password_match_command_keyword">Пароль не должен соответствовать одной из команд!</string>
     <string name="fmd_edge_info_message">Это Edge вариант FMD. Здесь, стандартное ключевое слово команды это \"fmde\" (вместо \"fmd\"). Например, чтобы отправить команду locate, используйте \"fmde locate\". Это позволяет одновременно иметь и основную и Edge версию на одном устройстве, направляя команды в одну из них.</string>
-    <string name="cmd_bluetooth_response_empty">Bluetooth %s.</string>
-    <string name="cmd_gps_response_empty">Сервисы Определения Местоположения %s.</string>
 </resources>

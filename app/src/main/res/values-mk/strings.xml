@@ -111,7 +111,6 @@
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Полиса за приватност</string>
     <string name="password">Лозинка</string>
     <string name="Whitelist_help">Контактите во оваа листа имаат дозвола да праќаат FMD наредби преку СМС. Командите од сите други ќе бидат игнорирани.</string>
-    <string name="WhiteList_Select_Number">Одбери еден од телефонските броеви.</string>
     <string name="Alert_First_Time_contact_added">Честитки. Го додаде својот прв контакт. Сега можеш да комуницираш со FMD преку СМС пораки кои содржат „fmd“, од дозволените телефонски броеви. Кога сѐ функционира, апликацијата ќе реагира.</string>
     <string name="allowlist_phone_number">Телефонски број</string>
     <string name="OpenCellId_help">FMD може да ја користи услугата OpenCelliD за да се стекне со приближна позиција базирана на телефонските кули до кои уредо е поврзан. Потребна е Интернет врска за секое барање за позиција. Потребно е, исто така, да создадеш сметка при OpenCelliD и да се стекнеш со свој API Access симбол (токен).</string>

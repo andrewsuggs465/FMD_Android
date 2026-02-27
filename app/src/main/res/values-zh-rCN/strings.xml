@@ -38,7 +38,6 @@
     <string name="password">密码</string>
     <string name="registration_token">注册密钥</string>
     <string name="registration_token_hint">私有实例可能需要一个私有密钥。如果为公有实例请留空。</string>
-    <string name="WhiteList_Select_Number">选择其中一个手机号码。</string>
     <string name="OpenCellId_privacy">隐私：请记住 OpenCelliD 了解您现在链接的信号塔，因此您的位置会随着每次 API 查询更新。</string>
     <string name="OpenCellId_open_website">打开 OpenCelliD 网站</string>
     <string name="OpenCellId_test_opencellid">测试 OpenCelliD 链接</string>
@@ -259,8 +258,6 @@
     <string name="cmd_ringermode_response_empty">当前响铃模式为“%s”。</string>
     <string name="cmd_ringermode_response">已从“%1$s”（原）更改为“%2$s”（新）。</string>
     <string name="dont_show_again">不再显示</string>
-    <string name="turned_on">开启</string>
-    <string name="turned_off">关闭</string>
     <string name="Settings_Set_Pin">设置 PIN</string>
     <string name="Settings_Change_Pin">更改 PIN</string>
     <string name="pin_min_length">PIN 必须至少包含 8 个字符，建议至少包含 16 个字符。</string>
@@ -272,9 +269,7 @@
     <string name="server_password_hint">请选择一个无法被猜出，但在设备丢失后可以恢复的密码。该密码会授予您在设备上远程运行命令的权限。服务器管理员无法访问或重置你的密码。</string>
     <string name="allowlist_invalid_number">此手机号不可用！</string>
     <string name="fmd_edge_info_message">这是 FMD 的测试版本，此版本默认命令关键词为“fmde”（而非正式版的“fmd”）。例如，发送定位命令需使用“fmde locate”。该设计允许在同一设备中同时安装测试版与正式版，并可向指定版本发送命令。</string>
-    <string name="cmd_bluetooth_response_empty">蓝牙：%s。</string>
     <string name="cmd_flash_description_short">开启闪光灯</string>
-    <string name="cmd_gps_response_empty">定位服务：%s。</string>
     <string name="cmd_locate_response_beacondb_failed">BeaconDB 定位失败。可能由于基站未录入数据库。\n\n%s</string>
     <string name="cmd_locate_provider_disabled">请求的定位服务“%s”已禁用。</string>
     <string name="cmd_ringermode_description_long">请注意，“silent”命令会同步激活勿扰模式，这是 Android 系统定义行为。</string>

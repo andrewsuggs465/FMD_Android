@@ -98,7 +98,6 @@
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Ochrana soukromí</string>
     <string name="registration_token_hint">Soukromé instance mohou vyžadovat tajný token. Ponechte prázdné, pokud se jedná o veřejnou instanci.</string>
     <string name="Whitelist_empty">Žádné povolené kontakty. Klepněte na tlačítko pro jejich přidání!</string>
-    <string name="WhiteList_Select_Number">Vyberte jedno z mobilních čísel.</string>
     <string name="Notification_Server_Description">Oznámení týkající se Serveru FMD</string>
     <string name="Settings_FMDServer_Server_Url">Adresa serveru</string>
     <string name="cmd_camera_response_no_fmd_server">Nepodařilo se pořídit obrázek: neexistuje účet na Serveru FMD.</string>
@@ -280,8 +279,6 @@
     <string name="executing_title">Vykonávání příkazu</string>
     <string name="executing_text">Příkaz „%1$s“ je vykonáván uživatelem „%2$s“.</string>
     <string name="dont_show_again">Již nezobrazovat</string>
-    <string name="turned_on">zapnut</string>
-    <string name="turned_off">vypnut</string>
     <string name="delete_pw_warning_no_backup">Varování: Záloha aplikace neobsahuje heslo.</string>
     <string name="delete_pw_warning_empty">Varování: Mazání nebude fungovat, protože heslo pro smazání je prázdné. Musíte povolit funkci a nastavit heslo.</string>
     <string name="password_set">Nastavit heslo</string>
@@ -289,6 +286,4 @@
     <string name="password_enter">Zadejte heslo</string>
     <string name="password_match_command_keyword">Heslo se nesmí rovnat jednomu z příkazů!</string>
     <string name="fmd_edge_info_message">Toto je vývojová varianta FMD. Zde je výchozí klíčové slovo příkazu „fmde“ (namísto „fmd“). Chcete-li například odeslat příkaz locate, použijte „fmde locate“. To umožňuje mít nainstalovanou jak vývojovou, tak produkční verzi na stejném zařízení a směrovat příkazy na jedno z nich.</string>
-    <string name="cmd_bluetooth_response_empty">Bluetooth je %s.</string>
-    <string name="cmd_gps_response_empty">Polohové služby jsou %s.</string>
 </resources>

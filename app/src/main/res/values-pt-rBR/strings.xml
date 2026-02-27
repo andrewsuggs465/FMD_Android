@@ -80,7 +80,6 @@
     <string name="registration_token_hint">Instâncias privadas podem solicitar um token secreto. Deixe em branco se a instância é pública.</string>
     <string name="Whitelist_help">Os contatos nesta lista podem enviar comandos do FMD por SMS. Comandos de outras pessoas serão ignorados.</string>
     <string name="WhiteList_Add_Contact">Adicionar contato</string>
-    <string name="WhiteList_Select_Number">Selecione um dos números de telefone.</string>
     <string name="Settings_FMD_Server_User_ID">ID do usuário:</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Isto apagará todos os seus dados do servidor! Você tem certeza?</string>
     <string name="OpenCellId_privacy">Privacidade: tenha em mente que o OpenCelliD aprende sobre a sua rede móvel atual e portanto sua localização com cada consulta na API.</string>
@@ -280,8 +279,6 @@
     <string name="executing_title">Executando comando</string>
     <string name="executing_text">O comando \"%1$s\" está sendo executado por \"%2$s\".</string>
     <string name="dont_show_again">Não mostrar de novo</string>
-    <string name="turned_on">ativado</string>
-    <string name="turned_off">desativado</string>
     <string name="delete_pw_warning_no_backup">Atenção: A senha não é inclusa no backup de apps.</string>
     <string name="delete_pw_warning_empty">Atenção: Apagar não funcionará pois a senha de apagar está vazia. Você deve tanto ativar o recurso como configurar uma senha.</string>
     <string name="password_set">Configurar senha</string>
@@ -289,6 +286,4 @@
     <string name="password_enter">Digite a senha</string>
     <string name="password_match_command_keyword">A senha não pode ser igual aos comandos!</string>
     <string name="fmd_edge_info_message">Essa é a variante edge do FMD. Aqui, o comando padrão é \"fmde\" (em vez de \"fmd\"). Por exemplo, para enviar um comando de localizar, use \"fmde locate\". Isso permite ter tanto o edge quanto o prod instalados no mesmo dispositivo, e especificar para qual vão os comandos.</string>
-    <string name="cmd_bluetooth_response_empty">O Bluetooth está %s.</string>
-    <string name="cmd_gps_response_empty">Os serviços de localização estão %s.</string>
 </resources>

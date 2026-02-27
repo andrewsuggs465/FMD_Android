@@ -36,7 +36,6 @@
     <string name="Toast_Empty_FMDCommand">No se permite el comando vacío; se utiliza el valor predeterminado.</string>
     <string name="Settings_Ringer_Tone_Description">Seleccione un tono de llamada que se reproducirá cuando se envíe fmd ring.</string>
     <string name="Settings_Select_Ringtone">Seleccionar Timbre</string>
-    <string name="WhiteList_Select_Number">Seleccione uno de los números de teléfono.</string>
     <string name="Settings_FMDServer_Update_Interval_Description">El tiempo en minutos en el que FMD debe enviar nuevos datos de ubicación al servidor.</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Política de Privacidad</string>
     <string name="accept">Aceptar</string>

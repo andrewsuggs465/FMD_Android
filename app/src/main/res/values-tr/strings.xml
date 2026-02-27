@@ -90,7 +90,6 @@
     <string name="server_fmd_id_hint">FMD ID hesabınızın FMD sunucusunda kimliğini belirler. Sunucunun ID üretmesi için bunu boş bırakın. FMD ID\'nin sunucuda düz yazı olarak depolandığını göz önünde bulundurun, örn. sunucu yöneticisi görebilir.</string>
     <string name="registration_token_hint">Özel instancelar gizli bir token gerektirebilir. Eğer instance halka açıksa bunu boş bırakın.</string>
     <string name="Whitelist_help">Bu listedeki kişiler SMS aracılığıyla FMD komutları gönderebilir. Diğer herkesten gelen komutlar görmezden gelinecektir.</string>
-    <string name="WhiteList_Select_Number">Telefon numaralarından birini seçiniz.</string>
     <string name="WhiteList_no_contact_picker">Rehber uygulaması bulunamadı!</string>
     <string name="allowlist_add_phone_number">Telefon Numarası Ekle</string>
     <string name="allowlist_phone_number_name">İsim</string>

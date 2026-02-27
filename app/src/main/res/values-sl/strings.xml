@@ -48,7 +48,6 @@
     <string name="registration_token">Registracijski žeton</string>
     <string name="Whitelist_empty">Ni zaupanja vrednih stikov. Pritisnite gumb za dodajanje!</string>
     <string name="WhiteList_Add_Contact">Dodaj stik</string>
-    <string name="WhiteList_Select_Number">Izberite eno izmed telefonskih številk.</string>
     <string name="Settings_FMDServer_Change_Password_Button">Sprememba gesla</string>
     <string name="Settings_FMDServer_Location_Type_Description">Vir(i) iz katerih se posodabljajo lokacijski podatki v ozadju v rednih intervalih.
 \nČe ni izbran niti en vir, se lokacija ne bo redno posodabljala. (Še vedno pa lahko uporabite spletni vmesnik, da vsilite posodobitev. Za slednje so sicer potrebna potisna obvestila.)</string>
@@ -295,8 +294,6 @@
     <string name="executing_title">Izvajanje ukaza</string>
     <string name="executing_text">\"%2$s\" izvaja ukaz \"%1$s\".</string>
     <string name="dont_show_again">Ne prikaži ponovno</string>
-    <string name="turned_off">izključeno</string>
-    <string name="turned_on">vključeno</string>
     <string name="delete_pw_warning_no_backup">Opozorilo: geslo ni vključeno v varnostno kopijo aplikacije.</string>
     <string name="delete_pw_warning_empty">Opozorilo: Brisanje ne bo delovalo, ker geslo za brisanje ni nastavljeno. Storiti morate oboje: funkcijo omogočiti in nastaviti geslo.</string>
     <string name="password_set">Nastavi geslo</string>
@@ -304,6 +301,4 @@
     <string name="password_enter">Vnesi geslo</string>
     <string name="password_match_command_keyword">Geslo ne sme biti enako kot katerikoli izmed ukazov!</string>
     <string name="fmd_edge_info_message">To je različica FMD Edge. Tu je privzeta ključna beseda ukaza \"fmde\" (namesto \"fmd\"). Na primer, za pošiljanje ukaza locate uporabite »fmde locate«. To omogoča, da sta tako Edge kot produkcijska različica nameščena na isti napravi, ukazi pa so ločeno usmerjeni na eno od njiju.</string>
-    <string name="cmd_bluetooth_response_empty">Bluetooth je %s.</string>
-    <string name="cmd_gps_response_empty">Lokacijske storitve so %s.</string>
 </resources>

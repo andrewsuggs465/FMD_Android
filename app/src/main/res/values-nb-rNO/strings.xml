@@ -47,7 +47,6 @@
     <string name="OpenCellId_test_no_connection">Ingen mobiltilkobling</string>
     <string name="notify_crypto_update_text">Du må oppdatere noen innstillinger for å fortsette å bruke FMD. Klikk for å åpne.</string>
     <string name="Alert_First_Time_contact_added">Du har lagt til din første kontakt. Du kan nå kommunisere med FMD ved å sende en melding som inneholder «fmd» fra det tillatte tilefonnummeret. Når alt virker vil programmet svare.</string>
-    <string name="WhiteList_Select_Number">Velg én av telefonnumrene.</string>
     <string name="Notification_Usage_Description">Merknad om tjenestebruk.</string>
     <string name="Notification_Security">Sikkerhet</string>
     <string name="Notification_Security_Description">Merknader om sikkerhetsoppgraderinger</string>

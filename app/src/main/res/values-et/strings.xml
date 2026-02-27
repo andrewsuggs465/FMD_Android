@@ -96,7 +96,6 @@
     <string name="Settings_FMDServer_Server_Url">Serveri võrguaadress</string>
     <string name="allowlist_phone_number_name">Nimi</string>
     <string name="registration_token">Registreerimise tunnusluba</string>
-    <string name="WhiteList_Select_Number">Vali üks telefoninumbritest.</string>
     <string name="Alert_First_Time_contact_added">Õnnitleme! Sa oled esimese kontakti lisanud. Saad nüüd FMD rakendusega tekstisõnumite vahendusel suhelda. Näiteks saada lubatud telefonilt sõnum „fmd“. Kui kõik on korras, siis saad vastuse.</string>
     <string name="Toast_Duplicate_contact">See kontakt on juba olemas.</string>
     <string name="WhiteList_no_contact_picker">Ei leidu rakendust, mis oskaks kontakte valida!</string>
@@ -280,8 +279,6 @@
     <string name="executing_title">Käsk on täitmisel</string>
     <string name="executing_text">„%2$s“ on hetkel täitmas „%1$s“ käsku.</string>
     <string name="dont_show_again">Ära näita enam uuesti</string>
-    <string name="turned_on">sees</string>
-    <string name="turned_off">väljas</string>
     <string name="delete_pw_warning_no_backup">Hoiatus: salasõna ei sisaldu rakenduse varukoopias.</string>
     <string name="delete_pw_warning_empty">Hoiatus: Kuna kustutamise salasõna on tühi, siis kustutamine tegelikult ei toimi. Sa pead lülitama sisse nii antud funktsionaalsuse, kui sellega seotud salasõna.</string>
     <string name="password_set">Võta salasõna kasutusele</string>
@@ -289,6 +286,4 @@
     <string name="password_enter">Sisesta salasõna</string>
     <string name="password_match_command_keyword">Salasõna ei saa olla sama, kui mõni käsk!</string>
     <string name="fmd_edge_info_message">See on FMD arendusversioon (edge). Sel puhul vaikimisi käsu märksõna on „fmde“ („fmd“ asemel). Näiteks asukoha tuvastamiskäsk on sel puhul „fmde locate“. Niisugune lahendus võimaldab samas seadmes kasutada nii arendus- kui tavaversiooni ja käsuga saad juhtida kummaga neist soovid suhelda.</string>
-    <string name="cmd_bluetooth_response_empty">Bluetooth on %s.</string>
-    <string name="cmd_gps_response_empty">Asukohateenused on %s.</string>
 </resources>

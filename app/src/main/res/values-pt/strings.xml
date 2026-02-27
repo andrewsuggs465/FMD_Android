@@ -101,7 +101,6 @@
     <string name="Whitelist_help">Os contatos nesta lista podem enviar comandos do FMD por SMS. Comandos de outras pessoas serão ignorados.</string>
     <string name="Whitelist_empty">Não há nenhum contato permitido! Clique no botão para adicionar alguns!</string>
     <string name="WhiteList_Add_Contact">Adicionar contato</string>
-    <string name="WhiteList_Select_Number">Selecione um dos números de telefone.</string>
     <string name="Alert_First_Time_contact_added">Parabéns. Adicionou o seu primeiro contato. Agora pode comunicar com o FMD através de uma mensagem SMS do número de telefone permitido que contenha \"fmd\". Se tudo funcionar, a app irá responder.</string>
     <string name="Toast_Duplicate_contact">Este contato já existe.</string>
     <string name="WhiteList_no_contact_picker">Nenhuma aplicação selecionadora de contato encontrada!</string>

@@ -53,7 +53,6 @@
     <string name="Toast_Empty_FMDCommand">Il comando vuoto non è consentito, si utilizza quello predefinito.</string>
     <string name="Settings_Ringer_Tone_Description">Seleziona una suoneria che verrà riprodotta quando viene inviato \"fmd ring\".</string>
     <string name="Settings_Select_Ringtone">Seleziona suono suoneria</string>
-    <string name="WhiteList_Select_Number">Seleziona uno dei numeri di telefono.</string>
     <string name="Settings_FMDServer_Update_Interval_Description">Il tempo in minuti in cui FMD deve inviare nuovi dati sulla posizione al server.</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Info privacy</string>
     <string name="accept">Accetta</string>

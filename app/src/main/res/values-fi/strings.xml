@@ -31,7 +31,6 @@
     <string name="Toast_Empty_FMDCommand">Tyhjää komentoa ei hyväksytä, käytetään oletusta.</string>
     <string name="Settings_Ringer_Tone_Description">Valitse soittoääni, joka soitetaan fmd ring-komennosta.</string>
     <string name="Settings_Select_Ringtone">Valitse soittoääni</string>
-    <string name="WhiteList_Select_Number">Valitse yksi puhelinnumeroista.</string>
     <string name="Settings_FMDServer_Update_Interval_Description">Aikaväli sijainnin lähettämiseen palvelimelle minuutteina.</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Tietosuojakäytäntö</string>
     <string name="accept">Hyväksy</string>

@@ -75,7 +75,6 @@
     <string name="about">Про</string>
     <string name="about_source_code">Вихідний код</string>
     <string name="WhiteList_Add_Contact">Додати контакт</string>
-    <string name="WhiteList_Select_Number">Виберіть один з телефонних номерів.</string>
     <string name="Toast_Duplicate_contact">Цей контакт вже існує.</string>
     <string name="allowlist_add_phone_number">Додати номер телефону</string>
     <string name="OpenCellId_tower_collector_download">Завантажити Tower Collector</string>

@@ -17,7 +17,6 @@
     <string name="Settings_FMDServer_AddAccount">FMD सर्वर: लॉगिन/रजिस्टर</string>
     <string name="Settings_FMDServer_open_website">FMD सर्वर वेबसाइट खोलें</string>
     <string name="WhiteList_Add_Contact">संपर्क जोड़ें</string>
-    <string name="WhiteList_Select_Number">किसी एक फोन नंबर का चयन करें।</string>
     <string name="OpenCellId_test_no_connection">कोई सेल कनेक्शन नहीं</string>
     <string name="about">ऐप के बारे में</string>
     <string name="about_source_code">सोर्स कोड</string>

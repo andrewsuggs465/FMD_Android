@@ -105,7 +105,6 @@
     <string name="Whitelist_help">Contactele din această listă au permisiunea de a trimite comenzi FMD prin SMS. Comenzile de la toți ceilalți vor fi ignorate.</string>
     <string name="Whitelist_empty">Nu există contacte permise. Apasă butonul pentru a adăuga unele!</string>
     <string name="WhiteList_Add_Contact">Adaugă contact</string>
-    <string name="WhiteList_Select_Number">Selectează unul dintre numerele de telefon.</string>
     <string name="Alert_First_Time_contact_added">Felicitări. Ai adăugat primul tău contact. Acum poți comunica cu FMD trimițând un SMS care conține „fmd” de pe numărul de telefon permis. Când totul funcționează, aplicația va răspunde.</string>
     <string name="Toast_Duplicate_contact">Acest contact a fost adăugat deja.</string>
     <string name="WhiteList_no_contact_picker">Nu a fost găsită nicio aplicație pentru selectarea contactelor!</string>
