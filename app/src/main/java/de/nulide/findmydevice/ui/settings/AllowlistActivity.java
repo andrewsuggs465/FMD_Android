@@ -180,8 +180,10 @@ public class AllowlistActivity extends FmdActivity {
                 updateScreen();
 
                 if (!(Boolean) settings.get(Settings.SET_FIRST_TIME_CONTACT_ADDED)) {
+                    String keyword = (String) settings.get(Settings.SET_FMD_COMMAND);
+                    String message = getString(R.string.tip_first_contact_added, keyword, keyword, keyword);
                     new MaterialAlertDialogBuilder(this)
-                            .setMessage(this.getString(R.string.Alert_First_Time_contact_added))
+                            .setMessage(message)
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
                                     settings.set(Settings.SET_FIRST_TIME_CONTACT_ADDED, true);

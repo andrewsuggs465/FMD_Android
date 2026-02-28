@@ -57,7 +57,7 @@
     <string name="pin_match_command_keyword">The PIN must not equal one of the commands!</string>
     <string name="Settings_FMDCommand_Description">The command used to communicate with the FMD.</string>
     <string name="Toast_Empty_FMDCommand">Empty command not allowed, using default.</string>
-    <string name="Settings_Ringer_Tone_Description">Select a ringtone that will be played when "fmd ring" is sent.</string>
+    <string name="Settings_Ringer_Tone_Description">Select a ringtone for the \"ring\" command.</string>
     <string name="Settings_Select_Ringtone">Select ringtone</string>
     <string name="Settings_no_ringtone_picker">No ringtone picker found!</string>
     <string name="Settings_Lockscreenmessage_Description">Lock screen message:\nWhen locking the device, this message will appear on the lock screen.</string>
@@ -144,7 +144,7 @@
     <string name="Whitelist_help">The contacts in this list are allowed to send FMD commands via SMS. Commands from everyone else will be ignored.</string>
     <string name="Whitelist_empty">No allowed contacts. Click the button to add some!</string>
     <string name="WhiteList_Add_Contact">Add contact</string>
-    <string name="Alert_First_Time_contact_added">Congratulations. You have added your first contact. You can now communicate with FMD by sending a SMS message that contains \"fmd\" from the allowed phone number. When everything works, the application will respond.</string>
+    <string name="tip_first_contact_added">Congratulations, you have added your first contact! You can now communicate with FMD by sending an SMS that starts with \"%1$s\" from the allowed phone number. For example, send \"%2$s help\" or \"%3$s flash\". When everything works, the app will respond.</string>
     <string name="Toast_Duplicate_contact">This contact already exists.</string>
     <string name="WhiteList_no_contact_picker">No contact picker application found!</string>
     <string name="allowlist_add_phone_number">Add phone number</string>
