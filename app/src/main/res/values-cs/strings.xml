@@ -81,7 +81,7 @@
     <string name="Settings_FMDServer_Update_Interval_Description">FMD bude nahrávat polohu zařízení každých X minut.</string>
     <string name="Settings_Select_Ringtone">Vybrat vyzvánění</string>
     <string name="Settings_FMDServer_Location_Type_Description">Zdroje, ze kterých budou data o poloze v pravidelných intervalech nahrávána na pozadí.\nPokud není vybrán žádný zdroj, nebude poloha automaticky nahrávána. (Stále můžete použít webové rozhraní pro vynucení nahrání. Tato akce vyžaduje push.)</string>
-    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Nahrávat polohu zařízení při nízké úrovni baterie. Tato akce vyžaduje přístup k oznámením.</string>
+    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Nahrát polohu zařízení při nízké úrovni baterie.</string>
     <string name="Settings_FMD_Server_General">Obecné</string>
     <string name="Settings_FMD_Server_Server_URL">Adresa serveru:</string>
     <string name="Settings_FMD_Server_User_ID">Uživatelské ID:</string>
@@ -286,4 +286,9 @@
     <string name="password_enter">Zadejte heslo</string>
     <string name="password_match_command_keyword">Heslo se nesmí rovnat jednomu z příkazů!</string>
     <string name="fmd_edge_info_message">Toto je vývojová varianta FMD. Zde je výchozí klíčové slovo příkazu „fmde“ (namísto „fmd“). Chcete-li například odeslat příkaz locate, použijte „fmde locate“. To umožňuje mít nainstalovanou jak vývojovou, tak produkční verzi na stejném zařízení a směrovat příkazy na jedno z nich.</string>
+    <string name="Fused">Sloučené</string>
+    <string name="cmd_bluetooth_response_is_on">Bluetooth je zapnutý.</string>
+    <string name="cmd_bluetooth_response_is_off">Bluetooth je vypnutý.</string>
+    <string name="cmd_gps_response_is_on">Polohové služby jsou zapnuty.</string>
+    <string name="cmd_gps_response_is_off">Polohové služby jsou vypnuty.</string>
 </resources>
