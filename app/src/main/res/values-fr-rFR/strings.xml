@@ -69,7 +69,7 @@
     <string name="copied">Copié</string>
     <string name="Settings_Logs">Journaux</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Intervalle d’envoi de localisation en arrière-plan</string>
-    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Envoi la localisation de l\'appareil lorsque le niveau de la batterie est faible. Cela nécessite l\'accès aux notifications.</string>
+    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Envoi la localisation de l\'appareil lorsque le niveau de la batterie est faible.</string>
     <string name="help">Aide</string>
     <string name="Settings_WhiteList">Contacts autorisés</string>
     <string name="pin">Code PIN</string>
@@ -297,4 +297,9 @@
     <string name="password_enter">Entrer le mot de passe</string>
     <string name="password_match_command_keyword">Le mot de passe ne peut pas être identique à une des commandes !</string>
     <string name="fmd_edge_info_message">Ceci est la variante \"expérimental\" de FMD. Ici, le mot-clé par défaut pour les commandes est \"fmde\" (au lieu de \"fmd\"). Par exemple, pour envoyer la commande de localisation, utilisez \" fmde locate\". Cela permet d\'avoir à la fois la variante expérimentale et de production sur le même appareil, et de cibler les commandes pour l\'une des deux.</string>
+    <string name="Fused">Fusionné</string>
+    <string name="cmd_bluetooth_response_is_on">Le Bluetooth est activé.</string>
+    <string name="cmd_bluetooth_response_is_off">Le Bluetooth est désactivé.</string>
+    <string name="cmd_gps_response_is_on">Les services de localisation sont activés.</string>
+    <string name="cmd_gps_response_is_off">Les services de localisation sont désactivés.</string>
 </resources>
