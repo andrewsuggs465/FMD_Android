@@ -34,8 +34,7 @@ class InAppTransport(
     @get:StringRes
     override val title = R.string.transport_inapp_title
 
-    @get:StringRes
-    override val description = R.string.transport_inapp_description
+    override val description = context.getString(R.string.transport_inapp_description)
 
     override val requiredPermissions = listOf(PostNotificationsPermission())
 

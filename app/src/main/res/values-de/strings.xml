@@ -189,14 +189,14 @@
     <string name="cmd_locate_last_known_location_text">Letzter bekannter Standort</string>
     <string name="Settings_Import_Success">Import erfolgreich</string>
     <string name="WhiteList_no_contact_picker">Keine Kontakt-Auswahl-App gefunden!</string>
-    <string name="transport_notification_reply_description">Du kannst FMD erlauben deine Benachrichtigungen zu lesen, um auf Befehle zu warten. FMD kann dann über die in Android integrierte Benachrichtigungsfunktion antworten. So kannst du FMD über eine Messaging-App deiner Wahl steuern, solange diese App Benachrichtigungen sendet, auf die man antworten kann. Du kannst z.B. eine Signal-Nachricht „fmd mypin help“ an dein Gerät senden.</string>
+    <string name="transport_notification_reply_description">Du kannst FMD erlauben deine Benachrichtigungen zu lesen, um auf Befehle zu warten. FMD kann dann über die in Android integrierte Benachrichtigungsfunktion antworten. So kannst du FMD über eine Messaging-App deiner Wahl steuern, solange diese App Benachrichtigungen sendet, auf die man antworten kann. Du kannst z.B. eine Signal-Nachricht „%s mypin help“ an dein Gerät senden.</string>
     <string name="bottom_nav_settings">Einstellungen</string>
     <string name="missing_permissions_title">Fehlende Berechtigungen</string>
     <string name="transport_sms_title">SMS</string>
     <string name="cmd_lock_description_long">Sperre das Gerät und zeige optional eine Nachricht auf dem Sperrbildschirm an. Danach ist die biometrische Sperre nicht verfügbar und dein Gerät kann nur mit dem Gerätepasswort entsperrt werden.</string>
     <string name="setup_warnings_title">Warnungen einrichten</string>
-    <string name="transport_sms_description">Schicke Befehle per SMS an dein Gerät. Schicke z.B. eine SMS mit \"fmd help\" an dein Gerät. FMD wird per SMS antworten.</string>
-    <string name="transport_sms_description_auth">Nur Telefonnummern, die in der Liste erlaubter Nummern sind, können Befehle senden. Um Befehle von einer Telefonnummer zu senden, die nicht in dieser Liste ist, muss die Nachricht die PIN enthalten: „fmd mypin help“. Damit du die PIN nicht jedes Mal neu eingeben musst, wird diese neue Telefonnummer für die nächsten 10 Minuten in eine temporäre Erlaubnisliste aufgenommen.</string>
+    <string name="transport_sms_description">Schicke Befehle per SMS an dein Gerät. Schicke z.B. eine SMS mit \"%s help\" an dein Gerät. FMD wird per SMS antworten.</string>
+    <string name="transport_sms_description_auth">Nur Telefonnummern, die in der Liste erlaubter Nummern sind, können Befehle senden. Um Befehle von einer Telefonnummer zu senden, die nicht in dieser Liste ist, muss die Nachricht die PIN enthalten: „%s mypin help“. Damit du die PIN nicht jedes Mal neu eingeben musst, wird diese neue Telefonnummer für die nächsten 10 Minuten in eine temporäre Erlaubnisliste aufgenommen.</string>
     <string name="add">Hinzufügen</string>
     <string name="crashed_text">FMD ist abgestürzt! Hier ist der Log:</string>
     <string name="crashed_continue_without">Ohne Meldung fortfahren</string>

@@ -232,11 +232,11 @@
     <string name="perm_root_denied">Root 存取被拒絕</string>
     <string name="perm_shizuku_failed">透過 Shizuku 授權失敗</string>
     <string name="transport_sms_title">簡訊</string>
-    <string name="transport_sms_description">透過簡訊向您的裝置傳送指令，例如向您的裝置傳送「fmd help」。FMD 會以簡訊回覆。</string>
-    <string name="transport_sms_description_auth">只有在允許清單中的電話號碼才能傳送指令。若要從未在允許清單中的號碼傳送指令，必須包含 PIN：「fmd mypin help」。為了方便起見，該新號碼會被加入臨時允許清單 10 分鐘，讓您不必每次重新輸入 PIN。</string>
+    <string name="transport_sms_description">透過簡訊向您的裝置傳送指令，例如向您的裝置傳送「%s help」。FMD 會以簡訊回覆。</string>
+    <string name="transport_sms_description_auth">只有在允許清單中的電話號碼才能傳送指令。若要從未在允許清單中的號碼傳送指令，必須包含 PIN：「%s mypin help」。為了方便起見，該新號碼會被加入臨時允許清單 10 分鐘，讓您不必每次重新輸入 PIN。</string>
     <string name="transport_sms_description_note">簡訊可能會對您與傳送簡訊的人產生費用。簡訊需要您的 SIM 卡處於已解鎖狀態（例如重新開機後）。</string>
     <string name="transport_notification_reply_title">通知回覆</string>
-    <string name="transport_notification_reply_description">您可以允許 FMD 讀取通知以接收指令。FMD 接著可透過 Android 內建的通知回覆功能進行回應。這可讓您使用任意支援通知回覆的即時通訊應用程式來控制 FMD，例如向手機傳送「fmd mypin help」的 Signal 訊息。</string>
+    <string name="transport_notification_reply_description">您可以允許 FMD 讀取通知以接收指令。FMD 接著可透過 Android 內建的通知回覆功能進行回應。這可讓您使用任意支援通知回覆的即時通訊應用程式來控制 FMD，例如向手機傳送「%s mypin help」的 Signal 訊息。</string>
     <string name="transport_notification_reply_description_auth">透過通知回覆控制 FMD 需要設定 FMD PIN。每則訊息都必須包含正確的 PIN。</string>
     <string name="transport_fmd_server_description">FMD 伺服器提供網頁介面，讓您控制裝置、查看其位置，以及檢視裝置所傳送的照片。您可以自行架設 FMD 伺服器，或使用提供的實例。資料會在伺服器上以加密方式儲存，並由您的密碼保護。</string>
     <string name="transport_fmd_server_description_auth">任何知道您的使用者名稱與密碼的人，都可以登入 FMD 伺服器並控制您的裝置。</string>

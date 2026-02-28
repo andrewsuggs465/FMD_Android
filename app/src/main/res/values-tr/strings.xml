@@ -240,12 +240,11 @@
     <string name="crashed_copy_log">Günlüğü kopyala</string>
     <string name="MH_Pin_Accepted">Pin kabul edildi!</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Bu uygulamanın arka planda çalışması lazım. Cihazınız beklemedeyken bile çalıştığından emin olmak için, bu uygulama için şarj optimizasyonunu devre dışı bırakmanız gerekli.</string>
-    <string name="transport_sms_description">Cihazınıza SMS üzerinden komutlar gönderin. Örn. \"fmd help\" diye cihazınıza mesaj atın. FMD,SMS ile yanıt verecektir.</string>
+    <string name="transport_sms_description">Cihazınıza SMS üzerinden komutlar gönderin. Örn. \"%s help\" diye cihazınıza mesaj atın. FMD,SMS ile yanıt verecektir.</string>
     <string name="transport_fmd_server_description">FMD Sunucusu cihazınızı kontrol etmek, konumunu görüntülemek ve gönderdiği fotoğrafları incelemek için bir web arayüzü sağlar. FMD Sunucusunu kendiniz sağlayabilirsiniz ya da çoktan sağlanan instance\'ı kullanabilirsiniz. Veri, sunucuda şifreniz ile şifrelenerek depolanır.</string>
     <string name="transport_notification_reply_description_auth">FMD\'yi Bildirim Yanıtı aracılığıyla kontrol etmek FMD PIN\'inin ayarlı olmasını gerektirir. Her mesaj doğru PIN\'i içermelidir.</string>
-    <string name="transport_sms_description_auth">Yalnızca izin listesinde olan telefon numaraları komut gönderebilir. İzin listesinde olmayan bir telefon numarasından komut göndermek için mesaja PIN\'i dahil etmeniz gerekli: \"fmd mypin help\". Kolaylık için, PIN\'i her seferinde yazmak zorunda kalmayasınız diye, 10 dakika boyunca bu yeni telefon numarası geçici bir izin listesine eklenir.</string>
+    <string name="transport_sms_description_auth">Yalnızca izin listesinde olan telefon numaraları komut gönderebilir. İzin listesinde olmayan bir telefon numarasından komut göndermek için mesaja PIN\'i dahil etmeniz gerekli: \"%s mypin help\". Kolaylık için, PIN\'i her seferinde yazmak zorunda kalmayasınız diye, 10 dakika boyunca bu yeni telefon numarası geçici bir izin listesine eklenir.</string>
     <string name="ringer_stop_ringing">ÇINLAMAYI DURDUR</string>
-    <string name="transport_notification_reply_description">FMD\'nin komut dinlemesi için bildirimlerinizi okumasına izin verebilirsiniz. Sonra FMD, Android ile beraber gelen yanıt özelliği ile cevap verebilir. Bu, FMD\'nin tercihinize kalmış bir mesajlaşma uygulaması ile, uygulama cevap verilebilecek bildirimler gönderdiği sürece, kontrol edilmesine olanak sağlar.</string>
     <string name="LockScreen_Backbutton_pressed">KilitEkranıMesajı: Geri butonuna basıldı.</string>
     <string name="Notification_InApp">Uygulama İçi Ulaşım Kanalı</string>
     <string name="usage_notification_text">\"%s\" komutu çalıştırıldı.</string>

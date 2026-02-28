@@ -210,7 +210,7 @@
     <string name="cmd_nodisturb_response_on">وضع عدم الإزعاج قيد التشغيل.</string>
     <string name="transport_fmd_server_description_note">يتطلب خادم FMD اتصالاً بالإنترنت. يمكن أن يكون ذلك عبر شبكة جوال (وبالتالي يجب إلغاء قفل بطاقة SIM) أو شبكة WiFi.</string>
     <string name="required_permissions_title">الأذونات المطلوبة</string>
-    <string name="transport_sms_description">أرسل الأوامر إلى جهازك عبر الرسائل القصيرة. على سبيل المثال، أرسل رسالة نصية تحتوي على \"fmd help\" إلى جهازك. سيرد FMD برسالة نصية قصيرة.</string>
+    <string name="transport_sms_description">أرسل الأوامر إلى جهازك عبر الرسائل القصيرة. على سبيل المثال، أرسل رسالة نصية تحتوي على \"%s help\" إلى جهازك. سيرد FMD برسالة نصية قصيرة.</string>
     <string name="perm_camera_name">كاميرا</string>
     <string name="grant">منح</string>
     <string name="grant_via_root">منح عبر Root</string>
@@ -218,5 +218,5 @@
     <string name="grant_via_shizuku">منح عبر Shizuku</string>
     <string name="transport_notification_reply_description_auth">يتطلب التحكم في FMD عبر الرد على الإشعارات تعيين الرقم السري الخاص بـ FMD. يجب أن تحتوي كل رسالة على الرقم السري الصحيح.</string>
     <string name="transport_notification_reply_title">الرد على الإشعار</string>
-    <string name="transport_sms_description_auth">لا يمكن إرسال الأوامر إلا لأرقام الهواتف الموجودة في القائمة المسموح بها. لإرسال أوامر من رقم هاتف غير موجود في القائمة المسموح بها، يجب عليك تضمين الرقم السري: \"fmd mypin help\". لتسهيل الأمر، حتى لا تضطر إلى إعادة كتابة الرقم السري في كل مرة، سيتم إضافة رقم الهاتف الجديد هذا إلى القائمة المسموح بها مؤقتًا لمدة 10 دقائق.</string>
+    <string name="transport_sms_description_auth">لا يمكن إرسال الأوامر إلا لأرقام الهواتف الموجودة في القائمة المسموح بها. لإرسال أوامر من رقم هاتف غير موجود في القائمة المسموح بها، يجب عليك تضمين الرقم السري: \"%s mypin help\". لتسهيل الأمر، حتى لا تضطر إلى إعادة كتابة الرقم السري في كل مرة، سيتم إضافة رقم الهاتف الجديد هذا إلى القائمة المسموح بها مؤقتًا لمدة 10 دقائق.</string>
 </resources>

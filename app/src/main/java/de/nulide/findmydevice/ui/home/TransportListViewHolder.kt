@@ -27,21 +27,21 @@ class TransportListViewHolder(
             setCompoundDrawablesRelativeWithIntrinsicBounds(drawable, null, null, null)
         }
 
-        itemView.findViewById<TextView>(R.id.description).text = context.getString(item.description)
+        itemView.findViewById<TextView>(R.id.description).text = item.description
 
-        val authRes = item.descriptionAuth
-        if (authRes == null) {
+        val authString = item.descriptionAuth
+        if (authString == null) {
             itemView.findViewById<View>(R.id.description_auth).visibility = View.GONE
         } else {
-            itemView.findViewById<TextView>(R.id.description_auth).text = context.getString(authRes)
+            itemView.findViewById<TextView>(R.id.description_auth).text = authString
             itemView.findViewById<View>(R.id.description_auth).visibility = View.VISIBLE
         }
 
-        val noteRes = item.descriptionNote
-        if (noteRes == null) {
+        val noteString = item.descriptionNote
+        if (noteString == null) {
             itemView.findViewById<View>(R.id.description_note).visibility = View.GONE
         } else {
-            itemView.findViewById<TextView>(R.id.description_note).text = context.getString(noteRes)
+            itemView.findViewById<TextView>(R.id.description_note).text = noteString
             itemView.findViewById<View>(R.id.description_note).visibility = View.VISIBLE
         }
 

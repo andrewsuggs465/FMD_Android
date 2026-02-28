@@ -129,8 +129,8 @@
     <string name="allowlist_add_phone_number">添加电话号码</string>
     <string name="perm_location_name">位置</string>
     <string name="perm_unused_app_description">安卓系统会暂停几个月未打开的应用程序并删除其权限，但 FMD 应该可以在后台运行。由于您在设置后基本不需要再次打开 FMD，所以您需要防止 FMD 被停用，否则它可能在几个月后失效。</string>
-    <string name="transport_sms_description_auth">仅授权名单中的号码可发送指令。若需通过未授权号码操作，必须在指令中包含 PIN：“fmd mypin help”。为简化操作流程，该新号码将被自动添加至有效期 10 分钟的临时授权名单——在此期间无需重复输入 PIN 码。</string>
-    <string name="transport_notification_reply_description">您可授权 FMD 系统读取手机通知栏以识别指令，系统将通过安卓内置通知回复功能进行响应。由此实现通过自选通讯应用控制 FMD——只要该应用支持通知栏快捷回复功能。例如：向您的设备发送 Signal 消息“fmd mypin help”即可触发操作。</string>
+    <string name="transport_sms_description_auth">仅授权名单中的号码可发送指令。若需通过未授权号码操作，必须在指令中包含 PIN：“%s mypin help”。为简化操作流程，该新号码将被自动添加至有效期 10 分钟的临时授权名单——在此期间无需重复输入 PIN 码。</string>
+    <string name="transport_notification_reply_description">您可授权 FMD 系统读取手机通知栏以识别指令，系统将通过安卓内置通知回复功能进行响应。由此实现通过自选通讯应用控制 FMD——只要该应用支持通知栏快捷回复功能。例如：向您的设备发送 Signal 消息“%s mypin help”即可触发操作。</string>
     <string name="transport_fmd_server_description_note">FMD 服务器需要连接互联网，可以是移动网络（因此需要解锁 SIM 卡）或 WiFi。</string>
     <string name="Locked_Lock_Screen">FMD\n此设备已锁定！\n来自机主的消息：</string>
     <string name="cmd_camera_response_no_fmd_server">无法拍照：不存在 FMD 服务器账户。</string>
@@ -235,7 +235,7 @@
     <string name="OpenCellId_tower_collector_download">下载 Tower Collector</string>
     <string name="log_view_clear_confirm">您真的要删除所有日志条目吗？</string>
     <string name="cmd_gps_description_short">打开和关闭定位服务</string>
-    <string name="transport_sms_description">通过短信向您的设备发送命令。例如，向设备发送文本“fmd help”，FMD 将通过短信回复。</string>
+    <string name="transport_sms_description">通过短信向您的设备发送命令。例如，向设备发送文本“%s help”，FMD 将通过短信回复。</string>
     <string name="transport_inapp_send_command_title">发送应用内命令</string>
     <string name="perm_sms_name">短信</string>
     <string name="cmd_locate_last_known_location_not_available">无最后已知的位置。请求最新位置以强制更新位置。</string>

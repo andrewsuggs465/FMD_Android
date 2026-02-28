@@ -308,12 +308,12 @@
     <!-- Transports -->
 
     <string name="transport_sms_title">SMS</string>
-    <string name="transport_sms_description">Send commands to your device over SMS. E.g., text \"fmd help\" to your device. FMD will reply with an SMS.</string>
-    <string name="transport_sms_description_auth">Only phone numbers that are in the allowlist can send commands. To send commands from a phone number that is not in the allowlist, you have to include the PIN: \"fmd mypin help\". For convenience, so that you don\'t have to re-type the PIN every time, this new phone number is added to a temporary allowlist for the next 10 minutes.</string>
+    <string name="transport_sms_description">Send commands to your device over SMS. E.g., text \"%s help\" to your device. FMD will reply with an SMS.</string>
+    <string name="transport_sms_description_auth">Only phone numbers that are in the allowlist can send commands. To send commands from a phone number that is not in the allowlist, you have to include the PIN: \"%s mypin help\". For convenience, so that you don\'t have to re-type the PIN every time, this new phone number is added to a temporary allowlist for the next 10 minutes.</string>
     <string name="transport_sms_description_note">SMS may incur costs for both you and the person texting you. SMS requires your SIM card to be unlocked (e.g., after a reboot).</string>
 
     <string name="transport_notification_reply_title">Notification reply</string>
-    <string name="transport_notification_reply_description">You can allow FMD to read your notifications to listen for commands. FMD can then reply via Android\'s built-in notification reply feature. This allows you to control FMD using a messaging application of your choice, as long as it posts notifications that can be replied to. E.g., you can send a Signal message \"fmd mypin help\" to your phone.</string>
+    <string name="transport_notification_reply_description">You can allow FMD to read your notifications to listen for commands. FMD can then reply via Android\'s built-in notification reply feature. This allows you to control FMD using a messaging application of your choice, as long as it posts notifications that can be replied to. E.g., you can send a Signal message \"%s mypin help\" to your phone.</string>
     <string name="transport_notification_reply_description_auth">Controlling FMD via notification reply requires the FMD PIN to be set. Every message must contain the correct PIN.</string>
 
     <string name="transport_fmd_server_title" translatable="false">FMD Server</string>

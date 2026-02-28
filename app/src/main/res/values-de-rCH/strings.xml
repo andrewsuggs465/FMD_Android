@@ -161,7 +161,7 @@
     <string name="cmd_locate_response_gps_will_follow">D GPS Koordinate werdet gad gschickt.</string>
     <string name="cmd_locate_last_known_location_text">Letzte bekannte Standort</string>
     <string name="transport_sms_title">SMS</string>
-    <string name="transport_sms_description_auth">Nume Telefonnummere, wo ide Lischte vode erlaubte Nummere sind, chönnt Befehl schicke. Zum Befehl vonere Telefonnummere z schicke, wo nöd in dere Lischte isch, muss d Nachricht d PIN enthalte: „fmd mypin help“. Damit du d PIN nöd jedes Mal neu musch iigäh, wird die neui Rufnummere für die nächschte 10 Minute i en temporäri Erlaubnisliste ufgno.</string>
+    <string name="transport_sms_description_auth">Nume Telefonnummere, wo ide Lischte vode erlaubte Nummere sind, chönnt Befehl schicke. Zum Befehl vonere Telefonnummere z schicke, wo nöd in dere Lischte isch, muss d Nachricht d PIN enthalte: „%s mypin help“. Damit du d PIN nöd jedes Mal neu musch iigäh, wird die neui Rufnummere für die nächschte 10 Minute i en temporäri Erlaubnisliste ufgno.</string>
     <string name="transport_sms_description_note">SMS chan Chöschte verursache, sowohl für dich als au für die Persone, wo dir SMS schicket. Für SMS muss dini SIM-Karte entsperrt sii (z. B. nacheme Neustart).</string>
     <string name="transport_notification_reply_title">Antworte uf Benachrichtigunge</string>
     <string name="LockScreen_Usage_detectd">LockScreenMessage: Verwendig erkannt.</string>
@@ -171,12 +171,12 @@
     <string name="cmd_locate_response_opencellid_failed">Fähler bim Finde vom Standort mit OpenCelliD. Das chan passiere wenn de Mobilfunkmast nöd ide Datebank isch.\n\nBitte probier de folgendi Link: %1$s\n\n%2$s</string>
     <string name="cmd_locate_last_known_location_not_available">Kein letzte bekannte Standort. Frög de aktuelli Standort aa zum es Standort-Update becho.</string>
     <string name="cmd_lock_description_long">Sperrs Gerät und zeig optional en Nachricht ufem Sperrbildschirm aa. Nachher isch d Biometrie nüme verfügbar und es brucht s Gerätepasswort zum entsperre.</string>
-    <string name="transport_sms_description">Schick Befehl per SMS a dis Gerät. Schick z.B. es SMS mit \"fmd help\" a dis Gerät. FMD wird per SMS antworte.</string>
+    <string name="transport_sms_description">Schick Befehl per SMS a dis Gerät. Schick z.B. es SMS mit \"%s help\" a dis Gerät. FMD wird per SMS antworte.</string>
     <string name="transport_fmd_server_description">FMD Server isch en Webschnittstell. Mit ihre chasch diis Gerät stüre, siin Standort aafröge und d Bilder wos gschickt het aaluege. Du chasch FMD Server selber hoste oder die bereitgstellti Instanz nutze. D Date werdet verschlüsselt ufem Server gspeichert und sind dur diis Passwort gschützt.</string>
     <string name="transport_fmd_server_description_note">FMD Server brucht en Internetverbindig. Das chan Mobilfunk sii (denn muss d SIM-Karte entsperrt sii) oder WLAN.</string>
     <string name="Settings_Import_Success">Import erfolgriich</string>
     <string name="Settings_Import_Failed">Import fehlgschlage</string>
-    <string name="transport_notification_reply_description">Du chasch FMD erlaube dini Benachrichtigunge zlese zum Befehl abzwarte. FMD chan denn über die in Android integrierti Benachrichtigungsfunktion antworte. So chasch du FMD über en Messaging-App vo dinere Wahl stüere, solang d App Benachrichtigungen sendet, womer druf chan antworte. Du chasch z.B. en Signal-Nachricht „fmd mypin help“ a diis Gerät schicke.</string>
+    <string name="transport_notification_reply_description">Du chasch FMD erlaube dini Benachrichtigunge zlese zum Befehl abzwarte. FMD chan denn über die in Android integrierti Benachrichtigungsfunktion antworte. So chasch du FMD über en Messaging-App vo dinere Wahl stüere, solang d App Benachrichtigungen sendet, womer druf chan antworte. Du chasch z.B. en Signal-Nachricht „%s mypin help“ a diis Gerät schicke.</string>
     <string name="add">Dezue tue</string>
     <string name="allowlist_add_phone_number">Telefonnummere dezue tue</string>
     <string name="allowlist_phone_number_name">Name</string>

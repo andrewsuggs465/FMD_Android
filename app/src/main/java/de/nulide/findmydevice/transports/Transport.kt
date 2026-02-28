@@ -32,14 +32,11 @@ abstract class Transport<DestinationType>(
     @get:StringRes
     abstract val title: Int
 
-    @get:StringRes
-    abstract val description: Int
+    abstract val description: String
 
-    @get:StringRes
-    open val descriptionAuth: Int? = null
+    open val descriptionAuth: String? = null
 
-    @get:StringRes
-    open val descriptionNote: Int? = null
+    open val descriptionNote: String? = null
 
     abstract val requiredPermissions: List<Permission>
 

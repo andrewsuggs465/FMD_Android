@@ -45,7 +45,7 @@
     <string name="perm_root_denied">Truy cập root bị từ chối</string>
     <string name="perm_shizuku_failed">Cấp quyền qua Shizuku thất bại</string>
     <string name="transport_sms_title">SMS</string>
-    <string name="transport_sms_description">Gửi lệnh đến thiết bị của bạn qua SMS. Ví dụ, nhắn tin \"fmd help\" đến thiết bị của bạn. FMD sẽ trả lời bằng một tin nhắn SMS.</string>
+    <string name="transport_sms_description">Gửi lệnh đến thiết bị của bạn qua SMS. Ví dụ, nhắn tin \"%s help\" đến thiết bị của bạn. FMD sẽ trả lời bằng một tin nhắn SMS.</string>
     <string name="transport_sms_description_note">SMS có thể phát sinh chi phí cho cả bạn và người nhắn tin cho bạn. SMS yêu cầu thẻ SIM của bạn phải được mở khóa (ví dụ, sau khi khởi động lại).</string>
     <string name="transport_notification_reply_title">Phản hồi Thông báo</string>
     <string name="transport_fmd_server_description_auth">Bất kỳ ai biết tên người dùng và mật khẩu của bạn đều có thể đăng nhập vào FMD Server và kiểm soát thiết bị của bạn.</string>
@@ -180,7 +180,7 @@
     <string name="missing_permissions_description">Các quyền sau đây là cần thiết để FMD hoạt động.</string>
     <string name="Locked_Lock_Screen">FMD\nThiết bị này đã bị khóa!\nTin nhắn từ chủ sở hữu:</string>
     <string name="usage_notification_pin_text">Mã PIN đã được sử dụng bởi số này: \"%s\". Khuyến nghị thay đổi mã PIN.</string>
-    <string name="transport_sms_description_auth">Chỉ những số điện thoại có trong danh sách cho phép mới có thể gửi lệnh. Để gửi lệnh từ một số điện thoại không có trong danh sách cho phép, bạn phải bao gồm mã PIN: \"fmd mypin help\". Để tiện lợi, để bạn không phải nhập lại mã PIN mỗi lần, số điện thoại mới này sẽ được thêm vào danh sách cho phép tạm thời trong 10 phút tới.</string>
+    <string name="transport_sms_description_auth">Chỉ những số điện thoại có trong danh sách cho phép mới có thể gửi lệnh. Để gửi lệnh từ một số điện thoại không có trong danh sách cho phép, bạn phải bao gồm mã PIN: \"%s mypin help\". Để tiện lợi, để bạn không phải nhập lại mã PIN mỗi lần, số điện thoại mới này sẽ được thêm vào danh sách cho phép tạm thời trong 10 phút tới.</string>
     <string name="transport_fmd_server_description">Máy chủ FMD cung cấp giao diện web để điều khiển thiết bị của bạn, xem vị trí của nó và xem các hình ảnh mà nó gửi. Bạn có thể tự lưu trữ Máy chủ FMD hoặc sử dụng phiên bản được cung cấp. Dữ liệu được lưu trữ mã hóa trên máy chủ, được bảo vệ bằng mật khẩu của bạn.</string>
     <string name="Settings_Export">Xuất cài đặt</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Khoảng thời gian kiểm tra kết nối</string>
@@ -222,7 +222,7 @@
     <string name="LockScreen_Backbutton_pressed">LockScreenMessage: Nút Quay lại đã được nhấn.</string>
     <string name="crashed_send_log">Gửi nhật ký</string>
     <string name="cmd_camera_response_no_fmd_server">Không thể chụp ảnh: không tồn tại tài khoản máy chủ FMD.</string>
-    <string name="transport_notification_reply_description">Bạn có thể cho phép FMD đọc thông báo của bạn để lắng nghe các lệnh. FMD sau đó có thể trả lời qua tính năng trả lời thông báo tích hợp sẵn của Android. Điều này cho phép bạn điều khiển FMD bằng một ứng dụng nhắn tin mà bạn chọn, miễn là nó gửi thông báo có thể trả lời. Ví dụ, bạn có thể gửi tin nhắn Signal \"fmd mypin help\" đến điện thoại của bạn.</string>
+    <string name="transport_notification_reply_description">Bạn có thể cho phép FMD đọc thông báo của bạn để lắng nghe các lệnh. FMD sau đó có thể trả lời qua tính năng trả lời thông báo tích hợp sẵn của Android. Điều này cho phép bạn điều khiển FMD bằng một ứng dụng nhắn tin mà bạn chọn, miễn là nó gửi thông báo có thể trả lời. Ví dụ, bạn có thể gửi tin nhắn Signal \"%s mypin help\" đến điện thoại của bạn.</string>
     <string name="server_unregister_failed_title">Hủy đăng ký không thành công</string>
     <string name="cmd_bluetooth_response_on">Bluetooth đã được bật.</string>
     <string name="log_view_clear">Xóa nhật ký</string>

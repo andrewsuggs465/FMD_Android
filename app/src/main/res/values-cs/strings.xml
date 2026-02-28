@@ -159,12 +159,12 @@
     <string name="perm_unused_app_name">Omezení nepoužívaných aplikací</string>
     <string name="bottom_nav_commands">Příkazy</string>
     <string name="cmd_lock_description_long">Uzamknout zařízení a volitelně zobrazit zprávu na zamykací obrazovce. Po této akci nebude dostupné odemčení biometrikou a pro odemčení zařízení bude vyžadováno vaše heslo zařízení.</string>
-    <string name="transport_sms_description">Posílejte příkazy do svého zařízení pomocí SMS. Například po odeslání „fmd help“ odpoví FMD SMS zprávou.</string>
+    <string name="transport_sms_description">Posílejte příkazy do svého zařízení pomocí SMS. Například po odeslání „%s help“ odpoví FMD SMS zprávou.</string>
     <string name="transport_fmd_server_description">Server FMD poskytuje webové rozhraní pro ovládání zařízení, zobrazení jeho polohy a prohlížení odeslaných snímků. Server FMD můžete hostovat sami nebo použít poskytnutou instanci. Data jsou na serveru uložena šifrovaně a chráněna vaším heslem.</string>
     <string name="transport_fmd_server_description_auth">Kdokoli, kdo zná vaše uživatelské jméno a heslo, se může přihlásit do Serveru FMD a ovládat vaše zařízení.</string>
     <string name="add">Přidat</string>
     <string name="Settings_Import_Success">Úspěšně importováno</string>
-    <string name="transport_sms_description_auth">Příkazy lze odesílat pouze z telefonních čísel, která jsou v seznamu povolených. Chcete-li odeslat příkaz z telefonního čísla, které není v seznamu povolených, musíte zadat i PIN: „fmd mypin help“. Abyste nemuseli pokaždé znovu zadávat kód PIN, bylo toto nové telefonní číslo pro pohodlí přidáno do dočasného seznamu povolených čísel na následujících 10 minut.</string>
+    <string name="transport_sms_description_auth">Příkazy lze odesílat pouze z telefonních čísel, která jsou v seznamu povolených. Chcete-li odeslat příkaz z telefonního čísla, které není v seznamu povolených, musíte zadat i PIN: „%s mypin help“. Abyste nemuseli pokaždé znovu zadávat kód PIN, bylo toto nové telefonní číslo pro pohodlí přidáno do dočasného seznamu povolených čísel na následujících 10 minut.</string>
     <string name="transport_notification_reply_title">Odpověď na oznámení</string>
     <string name="setup_warnings_title">Varování nastavení</string>
     <string name="missing_permissions_title">Chybějící oprávnění</string>
@@ -172,7 +172,7 @@
     <string name="perm_unused_app_description">Systém Android pozastavuje aplikace, které nebyly několik měsíců otevřeny, a odebírá jim oprávnění. Aplikace FMD byla ale vytvořena pro práci na pozadí. Po jejím nastavení ji budete otevírat jen zřídka. Z tohoto důvodu je nutné udělit FMD výjimku z pozastavení, jinak může za několik měsíců přestat fungovat.</string>
     <string name="transport_sms_title">SMS</string>
     <string name="transport_sms_description_note">SMS mohou způsobit náklady vám i osobě, která vám píše. Použití SMS vyžaduje odblokování vaší SIM karty (např. po restartu).</string>
-    <string name="transport_notification_reply_description">Můžete povolit, aby aplikace FMD četla oznámení a vyhledávala v nich příkazy. FMD pak může odpovídat prostřednictvím vestavěné funkce odpovědi na oznámení systému Android. To vám umožní ovládat FMD pomocí vámi zvolené aplikace pro zasílání zpráv, pokud odesílá oznámení, na která lze odpovědět. Např. můžete do telefonu odeslat zprávu „fmd mypin help“ pomocí aplikace Signal.</string>
+    <string name="transport_notification_reply_description">Můžete povolit, aby aplikace FMD četla oznámení a vyhledávala v nich příkazy. FMD pak může odpovídat prostřednictvím vestavěné funkce odpovědi na oznámení systému Android. To vám umožní ovládat FMD pomocí vámi zvolené aplikace pro zasílání zpráv, pokud odesílá oznámení, na která lze odpovědět. Např. můžete do telefonu odeslat zprávu „%s mypin help“ pomocí aplikace Signal.</string>
     <string name="transport_notification_reply_description_auth">Ovládání FMD prostřednictvím odpovědí na oznámení vyžaduje nastavení kódu PIN FMD. Každá zpráva musí obsahovat správný PIN.</string>
     <string name="transport_fmd_server_description_note">Server FMD vyžaduje internetové připojení. To může být internetová síť (je nutné mít odemčenou SIM kartu) nebo Wi-Fi.</string>
     <string name="crashed_send_log">Poslat protokol</string>

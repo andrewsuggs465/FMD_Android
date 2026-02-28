@@ -9,6 +9,8 @@ import androidx.annotation.StringRes
 import com.robj.notificationhelperlibrary.utils.NotificationUtils
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.commands.ParserResult
+import de.nulide.findmydevice.data.Settings
+import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.permissions.NotificationAccessPermission
 import de.nulide.findmydevice.utils.log
 
@@ -23,17 +25,20 @@ class NotificationReplyTransport(
         private val TAG = NotificationReplyTransport::class.simpleName
     }
 
+    private val settings = SettingsRepository.getInstance(context)
+
     @get:DrawableRes
     override val icon = R.drawable.ic_notifications
 
     @get:StringRes
     override val title = R.string.transport_notification_reply_title
 
-    @get:StringRes
-    override val description = R.string.transport_notification_reply_description
+    private val keyword = settings.get(Settings.SET_FMD_COMMAND) as String
+    override val description =
+        context.getString(R.string.transport_notification_reply_description, keyword)
 
-    @get:StringRes
-    override val descriptionAuth = R.string.transport_notification_reply_description_auth
+    override val descriptionAuth =
+        context.getString(R.string.transport_notification_reply_description_auth)
 
     override val requiredPermissions = listOf(NotificationAccessPermission())
 

@@ -30,30 +30,28 @@ class SmsTransport(
         private val TAG = SmsTransport::class.simpleName
     }
 
+    private val settings = SettingsRepository.getInstance(context)
+    private val allowlistRepo = AllowlistRepository.getInstance(context)
+    private val tempAllowlistRepo = TemporaryAllowlistRepository.getInstance(context)
+
     @get:DrawableRes
     override val icon = R.drawable.ic_sms
 
     @get:StringRes
     override val title = R.string.transport_sms_title
 
-    @get:StringRes
-    override val description = R.string.transport_sms_description
+    private val keyword = settings.get(Settings.SET_FMD_COMMAND) as String
+    override val description = context.getString(R.string.transport_sms_description, keyword)
 
-    @get:StringRes
-    override val descriptionAuth = R.string.transport_sms_description_auth
+    override val descriptionAuth = context.getString(R.string.transport_sms_description_auth, keyword)
 
-    @get:StringRes
-    override val descriptionNote = R.string.transport_sms_description_note
+    override val descriptionNote = context.getString(R.string.transport_sms_description_note)
 
     override val requiredPermissions = listOf(SmsPermission())
 
     override val actions = listOf(TransportAction(R.string.Settings_WhiteList) { activity ->
         activity.startActivity(Intent(context, AllowlistActivity::class.java))
     })
-
-    private val settings = SettingsRepository.getInstance(context)
-    private val allowlistRepo = AllowlistRepository.getInstance(context)
-    private val tempAllowlistRepo = TemporaryAllowlistRepository.getInstance(context)
 
     override fun getDestinationString() = phoneNumber
 

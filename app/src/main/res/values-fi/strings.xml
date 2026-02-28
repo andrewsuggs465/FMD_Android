@@ -144,7 +144,7 @@
     <string name="perm_location_name">Sijainti</string>
     <string name="perm_write_secure_settings_name">Kirjoita suojattuja asetuksia</string>
     <string name="perm_unused_app_description">Android tauottaa ja poistaa käyttöoikeuksia sovelluksilta, joita ei ole avattu muutamaan kuukauteen. FMD toimii taustalla eikä sitä tyypillisesti tarvitse avata asetusten asettamisen jälkeen. Tämän vuoksi sovelluksen tauotus tulee ohittaa, jotta se toimisi myös muutaman kuukauden jälkeen.</string>
-    <string name="transport_sms_description_auth">Vain valkoisella listalla olevista numeroista voidaan lähettää komentoja. Lähettääksesi komentoija muista numeroista, tulee viestiin sisällyttää PIN-koodi: \"fmd mypin help\". Käytettävyyden edistämiseksi puhelinnumero lisätään väliaikaisten numeroiden valkoiselle listalle 10 minuutiksi.</string>
+    <string name="transport_sms_description_auth">Vain valkoisella listalla olevista numeroista voidaan lähettää komentoja. Lähettääksesi komentoija muista numeroista, tulee viestiin sisällyttää PIN-koodi: \"%s mypin help\". Käytettävyyden edistämiseksi puhelinnumero lisätään väliaikaisten numeroiden valkoiselle listalle 10 minuutiksi.</string>
     <string name="cmd_stats_response">Verkon tilastot:\n\nLaitteen IP-osoitteet:\n%1$s\n\nWifi-verkot:\n%2$s</string>
     <string name="perm_overlay_name">Näy muiden sovellusten päällä</string>
     <string name="cmd_camera_response_success">Laite ottaa valokuvan ja lähettää sen FMD-palvelimelle. Näet sen pian täällä: %s</string>
@@ -186,7 +186,7 @@
     <string name="perm_camera_name">Kamera</string>
     <string name="perm_do_not_disturb_access_name">Älä häiritse-tilan käyttöoikeus</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Sovelluksen tulisi olla käynnissä taustalla. Jotta sen toiminta voidaan varmistaa myös laitteen ollessa lepotilassa, akun optimointi sovellukselle tulee kytkeä pois päältä.</string>
-    <string name="transport_sms_description">Lähetä komentoja laitteellesi tekstiviestitse. Lähetä esimerkiksi viesti: \"fmd help\" laitteellesi. FMD vastaa tekstiviestillä.</string>
+    <string name="transport_sms_description">Lähetä komentoja laitteellesi tekstiviestitse. Lähetä esimerkiksi viesti: \"%s help\" laitteellesi. FMD vastaa tekstiviestillä.</string>
     <string name="transport_fmd_server_description">FMD-palvelin tarjoaa verkkokäyttöliittymän laitteen ohjaamiseen, sijainnin näkemiseen ja FMD:n lähettämien valokuvien katsomiseen. Voit myös itse ylläpitää palvelinta. Tiedot on salattu palvelimella, salasanallasi suojattuja.</string>
     <string name="cmd_missing_permissions">Komentoa %1$s ei voitu suorittaa: Käyttöoikeus puuttuu %2$s.</string>
     <string name="grant">Myönnä</string>
@@ -200,7 +200,7 @@
     <string name="perm_sms_name">Tekstiviestit</string>
     <string name="required_permissions_title">Vaaditut käyttöoikeudet</string>
     <string name="optional_permissions_title">Valinnaiset käyttöoikeudet</string>
-    <string name="transport_notification_reply_description">Voit sallia FMD:n lukea sovellusten ilmoitukset komentojen lukemista varten. FMD voi silloin vastata Androidin sisäänrakennetun ilmoitusvastaustoiminnon kautta ja voit ohjata FMD:tä haluamallasi viestintäsovelluksella (kunhan se näyttää ilmoituksia, joihin voidaan vastata). Voit esimerkiksi lähettää Signal-viestin \"fmd mypin help\" laitteeseesi.</string>
+    <string name="transport_notification_reply_description">Voit sallia FMD:n lukea sovellusten ilmoitukset komentojen lukemista varten. FMD voi silloin vastata Androidin sisäänrakennetun ilmoitusvastaustoiminnon kautta ja voit ohjata FMD:tä haluamallasi viestintäsovelluksella (kunhan se näyttää ilmoituksia, joihin voidaan vastata). Voit esimerkiksi lähettää Signal-viestin \"%s mypin help\" laitteeseesi.</string>
     <string name="cmd_lock_description_short">Lukits laite</string>
     <string name="cmd_locate_last_known_location_not_available">Ei viimeisintä sijaintia tiedossa. Pyydä viimeisin sijainti pakottaaksesi sijainnin päivityksen.</string>
     <string name="cmd_delete_description_long">Pyyhkii kaikki tiedot laitteelta. Et pysty jälkikäteen enää saamaan yhteyttä laitteeseen. Salasana vaaditaan ilkeämielisen tai vahingossa suoritetun komennon haitan ehkäisemiseksi. Toiminto pitää olla erikseen otettu käyttöön asetuksissa.</string>

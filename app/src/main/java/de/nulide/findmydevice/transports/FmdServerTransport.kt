@@ -32,14 +32,11 @@ class FmdServerTransport(
     @get:StringRes
     override val title = R.string.transport_fmd_server_title
 
-    @get:StringRes
-    override val description = R.string.transport_fmd_server_description
+    override val description = context.getString(R.string.transport_fmd_server_description)
 
-    @get:StringRes
-    override val descriptionAuth = R.string.transport_fmd_server_description_auth
+    override val descriptionAuth = context.getString(R.string.transport_fmd_server_description_auth)
 
-    @get:StringRes
-    override val descriptionNote = R.string.transport_fmd_server_description_note
+    override val descriptionNote = context.getString(R.string.transport_fmd_server_description_note)
 
     override val requiredPermissions = emptyList<Permission>()
 
