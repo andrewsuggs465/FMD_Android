@@ -36,7 +36,7 @@
     <string name="Settings_FMD_via_Pin_Description">Umožňuje komunikovat s FMD pomocí kódu PIN. To vám umožní posílat příkazy z mobilního čísla, které se nenachází na seznamu povolených kontaktů.</string>
     <string name="Settings_Enter_Pin">Zadat PIN</string>
     <string name="pin">PIN</string>
-    <string name="Settings_Ringer_Tone_Description">Vyberte vyzvánění, které bude přehráno při použití fmd ring.</string>
+    <string name="Settings_Ringer_Tone_Description">Vyberte vyzvánění pro příkaz „ring“.</string>
     <string name="Settings_Lockscreenmessage_Description">Zpráva na zamykací obrazovce:\nPři uzamčení zařízení bude tato zpráva zobrazena na zamykací obrazovce.</string>
     <string name="Settings_FMD_Server_ID_Desc">Pro nalezení vašeho zařízení pomocí Serveru FMD potřebujete uživatelské ID. Zapište si jej a uschovejte jej na bezpečném místě.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Zdroj polohy</string>
@@ -290,4 +290,5 @@
     <string name="cmd_bluetooth_response_is_off">Bluetooth je vypnutý.</string>
     <string name="cmd_gps_response_is_on">Polohové služby jsou zapnuty.</string>
     <string name="cmd_gps_response_is_off">Polohové služby jsou vypnuty.</string>
+    <string name="tip_first_contact_added">Gratulujeme, přidali jste svůj první kontakt! Nyní můžete komunikovat s FMD odesláním SMS, která začíná textem „%1$s“, z povoleného telefonního čísla. Můžete odeslat například „%2$s help“ nebo „%3$s flash“. Pokud vše funguje správně, aplikace odpoví.</string>
 </resources>
