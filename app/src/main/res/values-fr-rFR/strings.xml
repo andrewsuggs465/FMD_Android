@@ -20,7 +20,7 @@
     <string name="Notification_Pin_Usage_Description">Notifications lorsque FMD est utilisé avec le code PIN</string>
     <string name="LockScreen_Usage_detectd">LockScreenMessage : Usage detecté.</string>
     <string name="LockScreen_Backbutton_pressed">LockScreenMessage : Bouton retour pressé.</string>
-    <string name="Settings_Ringer_Tone_Description">Sélectionnez une sonnerie qui sera jouée lors de l\'envoi de la commande fmd ring.</string>
+    <string name="Settings_Ringer_Tone_Description">Sélectionnez une sonnerie pour la commande \"ring\".</string>
     <string name="Settings_Select_Ringtone">Sélectionnez une sonnerie</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD envoi la localisation de l\'appareil toutes les X minutes.</string>
     <string name="accept">Accepter</string>
@@ -301,4 +301,5 @@
     <string name="cmd_bluetooth_response_is_off">Le Bluetooth est désactivé.</string>
     <string name="cmd_gps_response_is_on">Les services de localisation sont activés.</string>
     <string name="cmd_gps_response_is_off">Les services de localisation sont désactivés.</string>
+    <string name="tip_first_contact_added">Félicitations, vous avez ajouté votre premier contact ! Vous pouvez maintenant communiquer avec FMD en envoyant un SMS qui commence par \"%1$s\" depuis le numéro de téléphone autorisé. Par exemple, envoyez \"%2$s help\" ou \"%3$s flash\". Lorsque tout fonctionne, l\'application devrait répondre.</string>
 </resources>
