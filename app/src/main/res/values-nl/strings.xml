@@ -25,7 +25,7 @@
     <string name="pin">Pincode</string>
     <string name="Settings_FMDCommand_Description">De opdracht die wordt gebruikt om te communiceren met FMD.</string>
     <string name="Toast_Empty_FMDCommand">Lege opdracht niet toegestaan. Standaardopdracht wordt gebruikt.</string>
-    <string name="Settings_Ringer_Tone_Description">Selecteer de beltoon die wordt afgespeeld bij \"fmd ring\".</string>
+    <string name="Settings_Ringer_Tone_Description">Selecteer een beltoon voor de opdracht \"ring\".</string>
     <string name="Settings_Select_Ringtone">Beltoon selecteren</string>
     <string name="Settings_no_ringtone_picker">Geen beltoon-kiezer gevonden!</string>
     <string name="Settings_FMD_Server_General">Algemeen</string>
@@ -290,4 +290,5 @@
     <string name="cmd_bluetooth_response_is_off">Bluetooth is uit.</string>
     <string name="cmd_gps_response_is_on">Locatieservices staan aan.</string>
     <string name="cmd_gps_response_is_off">Locatieservices staan uit.</string>
+    <string name="tip_first_contact_added">Gefeliciteerd, je hebt je eerste contactpersoon toegevoegd! Je kunt nu vanaf het toegestane telefoonnummer met FMD communiceren door een sms te sturen die begint met \"%1$s\". Stuur bijvoorbeeld \"%2$s help\" of \"%3$s flash\". Als alles werkt, zal de app reageren.</string>
 </resources>
