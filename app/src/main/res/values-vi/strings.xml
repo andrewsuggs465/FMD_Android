@@ -137,7 +137,6 @@
     <string name="server_registration_token_error">Yêu cầu mạng thất bại với HTTP 401. Điều này có thể xảy ra nếu máy chủ yêu cầu một mã đăng ký và mã bạn cung cấp là sai.</string>
     <string name="Whitelist_empty">Không có liên hệ được phép. Nhấn nút để thêm một vài liên hệ!</string>
     <string name="WhiteList_Add_Contact">Thêm liên hệ</string>
-    <string name="Alert_First_Time_contact_added">Chúc mừng. Bạn đã thêm liên hệ đầu tiên của mình. Bây giờ bạn có thể liên lạc với FMD bằng cách gửi tin nhắn SMS chứa \"fmd\" từ số điện thoại được phép. Khi mọi thứ hoạt động, ứng dụng sẽ phản hồi.</string>
     <string name="WhiteList_no_contact_picker">Không tìm thấy ứng dụng chọn liên hệ!</string>
     <string name="allowlist_add_phone_number">Thêm số điện thoại</string>
     <string name="allowlist_phone_number_name">Tên</string>

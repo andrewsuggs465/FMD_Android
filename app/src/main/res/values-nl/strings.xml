@@ -44,7 +44,6 @@
     <string name="password_old">Oud wachtwoord</string>
     <string name="Settings_FMDServer_AddAccount">FMD Server: Inloggen</string>
     <string name="WhiteList_Add_Contact">Contact toevoegen</string>
-    <string name="Alert_First_Time_contact_added">Gefeliciteerd. De eerste contactpersoon is toegevoegd. Je kunt nu communiceren met FMD door vanaf het toegestane telefoonnummer een SMS-bericht te sturen dat \"fmd\" bevat. Als alles werkt, zal de applicatie reageren.</string>
     <string name="WhiteList_no_contact_picker">Geen contactkiezer applicatie gevonden!</string>
     <string name="allowlist_add_phone_number">Telefoonnummer toevoegen</string>
     <string name="allowlist_phone_number_name">Naam</string>

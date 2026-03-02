@@ -118,7 +118,6 @@
     <string name="Settings_FMDServer_Info">Mit FMD Server chasch Befehl übers Internet schicke, vom Server ad App. Du chasch au de Standort vom Gerät ufere Karte gse oder d Bilder wos Gerät gmacht het aaluege. En Self-Hosting-Aaleitig hets uf de Websiite.</string>
     <string name="Settings_FMDServer_Location_Type_Description">D Quell(e) vo wo de Standort regelmässig im Hintergrund ufeglade wird. \nFalls du keini uswählsch wird kein Standort ufeglade. (Du chasch wiiterhin en Upload übers Webinterface erzwinge. Dafür bruchts Push.)</string>
     <string name="Whitelist_empty">Kei Erlaubti Kontäkt. Druck de Chnopf zum neui dezue tue!</string>
-    <string name="Alert_First_Time_contact_added">Gratuliere! Du hesch din erschte Kontakt dezu tah. Du chasch jetzt mit de FMD-App kommuniziere indem du es SMS vonere erlaubte Telefonnumere schicksch wo \"fmd\" enthaltet. Falls alles klappet, wird d App antworte.</string>
     <string name="server_unregister_failed_body">D De-Registrierig isch fehlgschlage: {ERROR}
 \n
 \nDu chasch trotzdem wiiter mache, aber dis Konto isch viellicht nöd vom Server glöscht worde. Wenn du wiiter machsch wird dis Konto lokal vom Gerät glöscht.</string>

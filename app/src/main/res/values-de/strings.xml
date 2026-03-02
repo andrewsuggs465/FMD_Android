@@ -58,7 +58,6 @@
     <string name="Whitelist_help">Die Kontakte in dieser Liste dürfen dir FMD Befehle via SMS schicken. Befehle von allen anderen werden ignoriert.</string>
     <string name="Whitelist_empty">Keine erlaubten Kontakte. Klicke den Button, um Kontakte hinzuzufügen!</string>
     <string name="WhiteList_Add_Contact">Kontakt hinzufügen</string>
-    <string name="Alert_First_Time_contact_added">Herzlichen Glückwunsch! Du hast deinen ersten Kontakt hinzugefügt. Du kannst nun mit FMD kommunizieren, indem du eine SMS mit dem Inhalt \"fmd\" von der erlaubten Telefonnummer sendest. Wenn alles funktioniert, wird die Anwendung antworten.</string>
     <!-- Settings: OpenCelliD -->
     <string name="OpenCellId_help">FMD kann den Dienst OpenCelliD benutzen, um den ungefähren Standort zu bestimmen, basierend auf der Mobilfunkzelle mit der das Gerät verbunden ist. Eine Internetverbindung wird für jede Standortanfrage benötigt. Außerdem musst du ein OpenCelliD-Konto anlegen, um ein eigenes API Access Token zu bekommen.</string>
     <string name="OpenCellId_privacy">Privatsphäre: Bedenke, dass OpenCelliD mit jeder API-Anfrage deine aktuelle Mobilfunkzelle und somit auch deinen Standort erfährt.</string>

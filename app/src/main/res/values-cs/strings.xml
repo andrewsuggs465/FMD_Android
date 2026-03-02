@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Alert_First_Time_contact_added">Gratulujeme. Přidali jste svůj první kontakt. Nnyí můžete komunikovat s FMD odesláním SMS zprávy obsahující „fmd“ z povoleného telefonního čísla. Pokud vše funguje, aplikace by měla odpovědět.</string>
     <string name="OpenCellId_help">FMD může použít službu OpenCelliD pro získání přibližné polohy založené na mobilních věžích, ke kterým je zařízení připojeno. Pro každé dotázání se na polohu je vyžadován přístup k internetu. Také si budete muset vytvořit účet na OpenCelliD a získat svůj vlastní přístupový token k API.</string>
     <string name="OpenCellId_open_website">Otevřít web OpenCelliD</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Tato aplikace potřebuje pracovat na pozadí. Abyste zajistili, že bude fungovat i v pohotovostním režimu zařízení, musíte vypnout optimalizace baterie pro tuto aplikaci.</string>

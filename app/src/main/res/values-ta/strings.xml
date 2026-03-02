@@ -121,7 +121,6 @@
     <string name="Settings_FMDServer_use_default_server">நுலைட்டின் பொது சேவையகத்தைப் பயன்படுத்தவும்</string>
     <string name="Whitelist_help">இந்த பட்டியலில் உள்ள தொடர்புகள் எச்எம்எச் வழியாக எஃப்எம்டி கட்டளைகளை அனுப்ப அனுமதிக்கப்படுகின்றன. எல்லோரிடமிருந்தும் கட்டளைகள் புறக்கணிக்கப்படும்.</string>
     <string name="Settings_FMDServer_Server_Url">சேவையக முகவரி</string>
-    <string name="Alert_First_Time_contact_added">வாழ்த்துக்கள். உங்கள் முதல் தொடர்பைச் சேர்த்துள்ளீர்கள். அனுமதிக்கப்பட்ட தொலைபேசி எண்ணிலிருந்து \"எஃப்எம்டி\" கொண்ட எச்எம்எச் செய்தியை அனுப்புவதன் மூலம் நீங்கள் இப்போது எஃப்எம்டியுடன் தொடர்பு கொள்ளலாம். எல்லாம் செயல்படும்போது, பயன்பாடு பதிலளிக்கும்.</string>
     <string name="Toast_Duplicate_contact">இந்த தொடர்பு ஏற்கனவே உள்ளது.</string>
     <string name="WhiteList_no_contact_picker">தொடர்பு பிக்கர் பயன்பாடு இல்லை!</string>
     <string name="allowlist_add_phone_number">தொலைபேசி எண்ணைச் சேர்க்கவும்</string>

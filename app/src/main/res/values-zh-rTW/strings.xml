@@ -110,7 +110,6 @@
     <string name="Settings_FMDServer_Check_Notify_After_Title">未連線的最大允許時間</string>
     <string name="server_login_attempts_title">FMD 伺服器登入失敗嘗試</string>
     <string name="Settings_FMDServer_Error_id_or_pw_empty">FMD ID 以及密碼不得為空。</string>
-    <string name="Alert_First_Time_contact_added">恭喜！您已新增第一位聯絡人。現在可以從允許的電話號碼傳送包含「fmd」的簡訊來與 FMD 通訊。當一切運作正常時，應用程式將會回應。</string>
     <string name="allowlist_phone_number">手機號碼</string>
     <string name="Toast_Duplicate_contact">此聯絡人已存在。</string>
     <string name="bottom_nav_commands">命令</string>

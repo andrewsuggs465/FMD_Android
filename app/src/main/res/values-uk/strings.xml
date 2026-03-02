@@ -79,7 +79,6 @@
     <string name="allowlist_add_phone_number">Додати номер телефону</string>
     <string name="OpenCellId_tower_collector_download">Завантажити Tower Collector</string>
     <string name="about_wiki">Вікі</string>
-    <string name="Alert_First_Time_contact_added">Вітаю. Ви додали свій перший контакт. Тепер ви можете зв\'язатися з FMD, надіславши SMS-повідомлення з текстом \"fmd\" з дозволеного номера телефону. Коли все буде в порядку, додаток відповість.</string>
     <string name="allowlist_phone_number">Номер телефону</string>
     <string name="Cell">Мобільне зʼєднання</string>
     <string name="Settings_FMDConfig">Загальне</string>

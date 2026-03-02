@@ -12,7 +12,6 @@
     <string name="Settings_FMD_via_Pin_Description">Позволяет вам взаимодействовать с FMD через ПИН-код. Это позволяет вам отправлять команды с мобильного номера, не находящегося в списке разрешённых контактов.</string>
     <string name="Settings_Enter_Pin">Введите ПИН-код</string>
     <string name="MH_Pin_Accepted">ПИН-код принят!</string>
-    <string name="Alert_First_Time_contact_added">Поздравляем! Вы добавили ваш первый контакт. Теперь вы можете взаимодействовать с FMD через отправку SMS сообщений с разрешённых мобильных номеров, содержащих в себе нужные команды, например \"fmd lock\". Если всё будет работать, то приложение должно прислать вам ответ.</string>
     <string name="ringer_stop_ringing">ОСТАНОВИТЬ РИНГТОН</string>
     <string name="cmd_locate_response_location_off">Извините, определение местоположения отключено.</string>
     <string name="Settings_FMDConfig">Общие</string>

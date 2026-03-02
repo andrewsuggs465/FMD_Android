@@ -14,7 +14,6 @@
     <string name="Settings_FMD_via_Pin_Description">Kommunikoi FMD:n kanssa PIN-koodia käyttäen. Tämä mahdollistaa komentojen lähettämisen puhelinnunerosta, joka ei ole valkoisella listalla.</string>
     <string name="Settings_Enter_Pin">Syötä PIN-koodi</string>
     <string name="MH_Pin_Accepted">PIN-koodi hyväksytty!</string>
-    <string name="Alert_First_Time_contact_added">Onneksi olkoon, olet lisännyt ensimmäisen yhteystiedon! Voit nyt kommunikoida FMD:n kanssa lähettämällä yhteystiedon puhelinnumerosta SMS-viestin, joka sisältää komennon \"fmd\". Sovellus vastaa SMS-viestiin.</string>
     <string name="ringer_stop_ringing">PYSÄYTÄ SOITTO</string>
     <string name="cmd_locate_response_location_off">Pahoittelut, sijainti on poissa käytöstä.</string>
     <string name="Settings_FMDConfig">FMD-SMS</string>

@@ -38,7 +38,6 @@
     <string name="Settings_FMDServer_Register">Registracija</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Politika zasebnosti</string>
     <string name="password">Geslo</string>
-    <string name="Alert_First_Time_contact_added">Čestitamo. Dodali ste svoj prvi zaupanja vreden stik. Zdaj vam lahko ta stik pošilja FMD ukaze preko SMS sporočil. Če vse deluje kot je treba, mu bo aplikacija nazaj po SMS sporočilu posredovala odgovor.</string>
     <string name="Settings_Settings">Nastavitve</string>
     <string name="Settings_FMDConfig">Splošno</string>
     <string name="Settings_WhiteList">Zaupanja vredni stiki</string>

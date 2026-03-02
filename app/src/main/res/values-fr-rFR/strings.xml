@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="ringer_stop_ringing">ARRETER DE SONNER</string>
-    <string name="Alert_First_Time_contact_added">Félicitations. Vous avez ajouté votre premier contact. Vous pouvez maintenant communiquer avec FMD en envoyant un sms qui contient \"fmd\" à partir du numéro de téléphone autorisé. Quand tout marchera, l\'application répondra.</string>
     <string name="MH_Pin_Accepted">Code PIN accepté !</string>
     <string name="Settings_Enter_Pin">Entrer le code PIN</string>
     <string name="Settings_FMD_via_Pin_Description">Permet de communiquer avec FMD via un code PIN. Cela vous permet d\'envoyer des commandes à partir d\'un numéro de téléphone qui ne figure pas dans la liste des contacts autorisés.</string>

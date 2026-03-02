@@ -32,7 +32,6 @@
     <string name="password">Senha</string>
     <string name="registration_token">Token de cadastro</string>
     <string name="Whitelist_empty">Não há nenhum contato permitido! Clique no botão para adicionar alguns!</string>
-    <string name="Alert_First_Time_contact_added">Parabéns. Você adicionou o seu primeiro contato. Agora você pode se comunicar com o FMD através de uma mensagem SMS do número de telefone permitido que contenha \"fmd\". Se tudo estiver funcionando, o app irá responder.</string>
     <string name="OpenCellId_help">O FMD usa o serviço OpenCelliD para obter uma localização aproximada baseada na rede móvel que seu dispositivo está conectado. Uma conexão à internet é necessária para cada consulta de localização. Você também precisará criar uma conta no OpenCelliD e obter seu próprio API Access Token.</string>
     <string name="OpenCellId_open_website">Abrir site do OpenCelliD</string>
     <string name="OpenCellId_test_no_connection">Sem conexão à redes móveis</string>

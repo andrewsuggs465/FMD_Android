@@ -114,7 +114,6 @@
     <string name="registration_token">Kayıt Tokeni</string>
     <string name="Whitelist_empty">İzin verilen kişi yok. Eklemek için butona tıklayın!</string>
     <string name="WhiteList_Add_Contact">Kişi Ekle</string>
-    <string name="Alert_First_Time_contact_added">Tebrikler. İlk kişinizi eklediniz. Şimdi izin verilen telefon numarasından \"fmd\" içeren bir SMS mesajı göndererek FMD ile iletişime geçebilirsiniz. Her şey çalıştığında, uygulama cevap verecektir.</string>
     <string name="Toast_Duplicate_contact">Bu kişi zaten mevcut.</string>
     <string name="allowlist_phone_number">Telefon Numarası</string>
     <string name="temporary_allowlist_expired">Geçiçi FindMyDevice erişiminizin süresi doldu. FindMyDevice kullanmaya devam etmek için, PINi tekrar gönderin.</string>

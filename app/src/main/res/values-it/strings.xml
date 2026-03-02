@@ -35,7 +35,6 @@
     <string name="copied">Copiato</string>
     <string name="Whitelist_help">I contatti di questo elenco possono inviare comandi FMD via SMS. I comandi provenienti da tutti gli altri verranno ignorati.</string>
     <string name="Whitelist_empty">Nessun contatto fidato. Fare clic sul pulsante per aggiungerne alcuni!</string>
-    <string name="Alert_First_Time_contact_added">Congratulazioni. Avete aggiunto il vostro primo contatto. Ora è possibile comunicare con FMD inviando un messaggio SMS contenente fmd dal numero di telefono inserito nell\'elenco. Se tutto funziona, l\'applicazione risponderà.</string>
     <string name="ringer_stop_ringing">SMETTI DI SQUILLARE</string>
     <string name="cmd_locate_response_location_off">Spiacente, la posizione è disattivata.</string>
     <string name="Settings_FMDConfig">Generale</string>

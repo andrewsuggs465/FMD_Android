@@ -96,7 +96,6 @@
     <string name="Settings_FMDServer_Server_Url">Serveri võrguaadress</string>
     <string name="allowlist_phone_number_name">Nimi</string>
     <string name="registration_token">Registreerimise tunnusluba</string>
-    <string name="Alert_First_Time_contact_added">Õnnitleme! Sa oled esimese kontakti lisanud. Saad nüüd FMD rakendusega tekstisõnumite vahendusel suhelda. Näiteks saada lubatud telefonilt sõnum „fmd“. Kui kõik on korras, siis saad vastuse.</string>
     <string name="Toast_Duplicate_contact">See kontakt on juba olemas.</string>
     <string name="WhiteList_no_contact_picker">Ei leidu rakendust, mis oskaks kontakte valida!</string>
     <string name="OpenCellId_test_opencellid">Testi OpenCelliD ühendust</string>

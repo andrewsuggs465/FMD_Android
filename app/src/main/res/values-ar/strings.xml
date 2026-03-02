@@ -25,7 +25,6 @@
     <string name="Settings_FMDServer_Register">التسجيل</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">سياسة الخصوصية</string>
     <string name="Whitelist_empty">لا توجد جهات اتصال مسموح بها. انقر فوق الزر لإضافة البعض!</string>
-    <string name="Alert_First_Time_contact_added">تهانينا. لقد قمت بإضافة جهة الاتصال الأولى الخاصة بك. يمكنك الآن التواصل مع FMD عن طريق إرسال رسالة نصية تحتوي على \"fmd\" من رقم الهاتف المسموح به. عندما يعمل كل شيء، سوف يستجيب التطبيق.</string>
     <string name="notify_crypto_update_text">تحتاج إلى تحديث بعض الإعدادات لمواصلة استخدام FMD. انقر للفتح.</string>
     <string name="server_unregister_failed_title">فشل إلغاء التسجيل</string>
     <string name="server_unregister_continue_anyway">استمر على أي حال</string>

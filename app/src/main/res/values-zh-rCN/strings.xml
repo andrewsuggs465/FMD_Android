@@ -56,7 +56,6 @@
     <string name="Whitelist_help">本名单中的联系人具有通过短信发送FMD指令的权限。其余号码发送的指令系统将不予响应。</string>
     <string name="Whitelist_empty">无授权联系人。请点击这个按钮添加！</string>
     <string name="WhiteList_Add_Contact">添加联系人</string>
-    <string name="Alert_First_Time_contact_added">恭喜！您已成功添加首位联系人。现在可通过授权号码发送含特定指令“fmd”的短信与 FMD 系统通信。当系统正常运行时，您将收到应用响应。</string>
     <string name="OpenCellId_help">FMD 可以利用 OpenCelliD 服务根据设备连接到的信号塔获得其大致位置。每次位置查询都需要连接互联网。您还需要在 OpenCelliD 创建一个账号并且获取您的 API 访问令牌。</string>
     <string name="OpenCellId_test_no_connection">没有移动网络连接</string>
     <string name="about">关于</string>
