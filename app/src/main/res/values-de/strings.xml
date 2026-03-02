@@ -21,7 +21,7 @@
     <string name="Settings_Enter_Pin">PIN eingeben</string>
     <string name="pin">PIN</string>
     <string name="Settings_FMDCommand_Description">Der für die Kommunikation mit FMD verwendete Befehl.</string>
-    <string name="Settings_Ringer_Tone_Description">Wähle einen Klingelton aus, der beim Senden von \"fmd ring\" abgespielt werden soll.</string>
+    <string name="Settings_Ringer_Tone_Description">Wähle einen Klingelton für den\"ring\"-Befehl aus.</string>
     <string name="Settings_Select_Ringtone">Klingelton auswählen</string>
     <string name="Settings_Lockscreenmessage_Description">Sperrbildschirmnachricht: \nEine Nachricht, welche auf dem Sperrbildschirm angezeigt wird, wenn das Gerät gesperrt wird.</string>
     <!-- Settings: FMD Server -->
@@ -36,7 +36,7 @@
     <string name="Settings_FMDServer_Location_Type_Title">Standort-Quelle</string>
     <string name="Settings_FMDServer_Location_Type_Description">Die Quelle(n), deren Standort regelmäßig im Hintergrund hochgeladen werden soll. \nFalls keine ausgewählt ist, werden keine Standorte regelmäßig hochgeladen. (Du kannst das Standort-Hochladen weiterhin über das Webinterface erzwingen. Dies benötigt Push.)</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Bei niedrigem Akkustand hochladen</string>
-    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Standort hochladen, wenn der Akkustand niedrig wird. Dies benötigt Benachrichtigungszugriff.</string>
+    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Standort hochladen, wenn der Akkustand niedrig wird.</string>
     <string name="password_old">Altes Passwort</string>
     <string name="password_new">Neues Passwort</string>
     <string name="password_new_repeat">Neues Passwort wiederholen</string>
@@ -314,4 +314,10 @@
     <string name="password_enter">Passwort eingeben</string>
     <string name="password_match_command_keyword">Das Passwort darf nicht mit einem der Befehle übereinstimmen!</string>
     <string name="fmd_edge_info_message">Dies ist die Edge-Variante von FMD. Hier lautet das Standard-Befehlswort „fmde“ (anstelle von „fmd“). Um beispielsweise den „locate“-Befehl zu senden, verwende „fmde locate“. Auf diese Weise können sowohl Edge als auch Prod auf demselben Gerät installiert sein und Befehle an eines der beiden gerichtet werden.</string>
+    <string name="Fused">Zusammengefasst</string>
+    <string name="tip_first_contact_added">Glückwunsch, du hast deinen ersten Kontakt hinzugefügt! Du kannst nun mit FMD kommunizieren, indem du von einer erlaubten Telefonnummer aus eine SMS schickst, die mit \"%1$s\" anfängt. Schick zum Beispiel \"%2$s help\" oder \"%3$s flash\". Falls alles klappt, wird die App antworten.</string>
+    <string name="cmd_bluetooth_response_is_on">Bluetooth ist an.</string>
+    <string name="cmd_bluetooth_response_is_off">Bluetooth ist aus.</string>
+    <string name="cmd_gps_response_is_on">Die Standortdienste sind an.</string>
+    <string name="cmd_gps_response_is_off">Die Standortdienste sind aus.</string>
 </resources>
