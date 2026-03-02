@@ -50,7 +50,7 @@
     <string name="Settings_Enter_Pin">輸入 PIN 碼</string>
     <string name="pin">PIN</string>
     <string name="Settings_FMDCommand_Description">用於與 FMD 通訊的指令。</string>
-    <string name="Settings_Ringer_Tone_Description">選擇在傳送 fmd 響鈴指令時播放的鈴聲。</string>
+    <string name="Settings_Ringer_Tone_Description">選擇「ring」指令的鈴聲。</string>
     <string name="Settings_Select_Ringtone">選擇鈴聲</string>
     <string name="Settings_Lockscreenmessage_Description">鎖定畫面訊息：\n當裝置被鎖定時，此訊息會顯示在鎖定畫面上。</string>
     <string name="Settings_FMD_Server_Server_URL">伺服器網址：</string>
@@ -65,7 +65,7 @@
     <string name="password_new">新密碼</string>
     <string name="password_new_repeat">重複新密碼</string>
     <string name="Settings_FMDServer_Location_Type_Description">在背景中定期上傳位置資料時所使用的位置來源。\n若未選擇任何來源，將不會定期上傳位置資料。（您仍可透過網頁介面強制進行一次上傳，但這需要推送功能。）</string>
-    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">當電池電量過低時，上傳此裝置的位置。此功能需要存取通知權限。</string>
+    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">當電池電量過低時，上傳此裝置的位置。</string>
     <string name="server_version">伺服器版本</string>
     <string name="server_version_error">取得伺服器版本時發生錯誤</string>
     <string name="password">密碼</string>
@@ -285,4 +285,10 @@
     <string name="password_enter">輸入密碼</string>
     <string name="password_match_command_keyword">密碼不能與任何指令相同！</string>
     <string name="fmd_edge_info_message">這是 FMD 的 edge 版本。在此版本中，預設指令關鍵字為「fmde」（而非「fmd」）。例如，若要傳送定位（locate）指令，請使用「fmde locate」。這樣可在同一台裝置上同時安裝 edge 與正式版（prod），並分別將指令傳送至其中之一。</string>
+    <string name="Fused">融合位置</string>
+    <string name="tip_first_contact_added">恭喜，您已新增第一位聯絡人！您現在可以透過從允許的電話號碼傳送開頭為「%1$s」的簡訊來與 FMD 通訊。例如，傳送「%2$s help」或「%3$s flash」。當一切正常運作時，應用程式會回應。</string>
+    <string name="cmd_bluetooth_response_is_on">藍牙已開啟。</string>
+    <string name="cmd_bluetooth_response_is_off">藍牙已關閉。</string>
+    <string name="cmd_gps_response_is_on">定位服務已開啟。</string>
+    <string name="cmd_gps_response_is_off">定位服務已關閉。</string>
 </resources>
