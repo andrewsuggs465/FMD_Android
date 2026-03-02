@@ -25,7 +25,7 @@
     <string name="Settings_FMDServer_Update_Interval_Description">FMD posodobi lokacijo vaše naprave vsakih n minut.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Vir lokacije</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Posodobi lokacijo ob nizki ravni baterije</string>
-    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Posodobi lokacijo te naprave, ko je raven baterije nizka. Zahteva pravico za dostop do obvestil.</string>
+    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Posodobi lokacijo te naprave, ko je raven baterije nizka.</string>
     <string name="password_old">Staro geslo</string>
     <string name="password_new">Novo geslo</string>
     <string name="password_new_repeat">Ponovi novo geslo</string>
@@ -301,4 +301,9 @@
     <string name="password_enter">Vnesi geslo</string>
     <string name="password_match_command_keyword">Geslo ne sme biti enako kot katerikoli izmed ukazov!</string>
     <string name="fmd_edge_info_message">To je različica FMD Edge. Tu je privzeta ključna beseda ukaza \"fmde\" (namesto \"fmd\"). Na primer, za pošiljanje ukaza locate uporabite »fmde locate«. To omogoča, da sta tako Edge kot produkcijska različica nameščena na isti napravi, ukazi pa so ločeno usmerjeni na eno od njiju.</string>
+    <string name="Fused">Spojen</string>
+    <string name="cmd_bluetooth_response_is_on">Bluetooth je vključen.</string>
+    <string name="cmd_bluetooth_response_is_off">Bluetooth je izključen.</string>
+    <string name="cmd_gps_response_is_on">Lokacijske storitve so vključene.</string>
+    <string name="cmd_gps_response_is_off">Lokacijske storitve so izključene.</string>
 </resources>
