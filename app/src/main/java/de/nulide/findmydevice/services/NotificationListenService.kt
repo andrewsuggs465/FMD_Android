@@ -17,9 +17,25 @@ import kotlinx.coroutines.cancel
 
 class NotificationListenService : NotificationListenerService() {
 
+    companion object {
+        // Give other code in the FMD app access to this service via a static field,
+        // but only while the service is connected to the NotificationManager.
+        var instance: NotificationListenService? = null
+    }
+
     private lateinit var settings: SettingsRepository
 
     private val coroutineScope = CoroutineScope(Dispatchers.IO + Job())
+
+    override fun onListenerConnected() {
+        super.onListenerConnected()
+        instance = this
+    }
+
+    override fun onListenerDisconnected() {
+        super.onListenerDisconnected()
+        instance = null
+    }
 
     override fun onDestroy() {
         super.onDestroy()

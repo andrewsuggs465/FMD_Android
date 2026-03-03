@@ -1,8 +1,9 @@
 package de.nulide.findmydevice.transports
 
-import android.app.NotificationManager
+import android.app.Notification
 import android.app.PendingIntent.CanceledException
 import android.content.Context
+import android.os.Build
 import android.service.notification.StatusBarNotification
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -12,6 +13,7 @@ import de.nulide.findmydevice.commands.ParserResult
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.permissions.NotificationAccessPermission
+import de.nulide.findmydevice.services.NotificationListenService
 import de.nulide.findmydevice.utils.log
 
 
@@ -73,9 +75,26 @@ class NotificationReplyTransport(
     override fun closeChannel() {
         super.closeChannel()
 
-        destination?.id?.let { id ->
-            val notificationManager = context.getSystemService(NotificationManager::class.java)
-            notificationManager.cancel(id)
+        if (destination == null) {
+            return
+        }
+
+        // Only the NotificationListenService is allowed to dismiss another app's notification.
+        NotificationListenService.instance?.cancelNotification(destination.key)
+
+        // As an additional fallback:
+        // Try to dismiss the notification via a "mark as read" action, if it exists.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            for (action in destination.notification.actions) {
+                if (action.semanticAction == Notification.Action.SEMANTIC_ACTION_MARK_AS_READ) {
+                    try {
+                        action.actionIntent?.send()
+                    } catch (e: Exception) {
+                        context.log()
+                            .w(TAG, "Failed to mark_as_read: ${e.stackTraceToString()}")
+                    }
+                }
+            }
         }
     }
 }
