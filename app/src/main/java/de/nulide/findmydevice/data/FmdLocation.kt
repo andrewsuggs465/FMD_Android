@@ -50,16 +50,16 @@ data class FmdLocation(
             .append("Lon: $lon\n")
 
         if (accuracy != null) {
-            string.append("Accuracy: $accuracy m\n")
+            string.append("Accuracy: %.1f m\n".format(accuracy))
         }
         if (altitude != null) {
-            string.append("Altitude: $altitude m\n")
+            string.append("Altitude: %.1f m\n".format(altitude))
         }
         if (bearing != null) {
-            string.append("Bearing: $bearing\n")
+            string.append("Bearing: %.0f\n".format(bearing))
         }
         if (speed != null) {
-            string.append("Speed: $speed m/s = ${speed * 3.6} km/h\n")
+            string.append("Speed: %.1f m/s = %.1f km/h\n".format(speed, speed * 3.6))
         }
 
         string.append("Time: ${Date(timeMillis)}\n")
