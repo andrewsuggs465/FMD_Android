@@ -26,7 +26,7 @@
     <string name="LockScreen_Usage_detectd">Сообщение на экране блокировки: Обнаружено использование устройства.</string>
     <string name="LockScreen_Backbutton_pressed">Сообщение на экране блокировки: Нажата кнопка \"Назад\".</string>
     <string name="Toast_Empty_FMDCommand">Пустая команда недопустима, используется команда по умолчанию.</string>
-    <string name="Settings_Ringer_Tone_Description">Выберите рингтон, который будет воспроизводиться, когда команда \"fmd ring\" будет отправлена.</string>
+    <string name="Settings_Ringer_Tone_Description">Выберите рингтон для команды \"ring\".</string>
     <string name="Settings_Select_Ringtone">Выберите рингтон</string>
     <string name="Settings_FMD_Server_User_ID">ID пользователя:</string>
     <string name="Settings_FMD_Server_ID_Desc">Вам необходим ID пользователя для нахождения вашего устройства с помощью Сервера FMD. Запишите его и храните в безопасности.</string>
@@ -72,7 +72,7 @@
     <string name="Settings_FMDServer_Update_Interval_Description">FMD выгружает местоположение устройства каждые X минут.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Источник местоположения</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Выгружать при низком заряде аккумулятора</string>
-    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Выгружать местоположение этого устройства когда заряд аккумулятора становится низким. Это требует доступа к уведомлениям.</string>
+    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Выгружать местоположение этого устройства при низком заряде аккумулятора.</string>
     <string name="password_old">Старый пароль</string>
     <string name="password_new">Новый пароль</string>
     <string name="Settings_FMDServer_Register">Зарегистрироваться</string>
@@ -297,5 +297,11 @@
     <string name="password_change">Сменить пароль</string>
     <string name="password_enter">Введите пароль</string>
     <string name="password_match_command_keyword">Пароль не должен соответствовать одной из команд!</string>
-    <string name="fmd_edge_info_message">Это Edge вариант FMD. Здесь, стандартное ключевое слово команды это \"fmde\" (вместо \"fmd\"). Например, чтобы отправить команду locate, используйте \"fmde locate\". Это позволяет одновременно иметь и основную и Edge версию на одном устройстве, направляя команды в одну из них.</string>
+    <string name="fmd_edge_info_message">Это Edge вариант FMD. Здесь стандартное ключевое слово команды это \"fmde\" (вместо \"fmd\"). Например, чтобы отправить команду locate, используйте \"fmde locate\". Это позволяет одновременно иметь и основную и Edge версию на одном устройстве, направляя команды в одну из них.</string>
+    <string name="Fused">Комбинированный</string>
+    <string name="tip_first_contact_added">Поздравляем, вы добавили ваш первый контакт! Теперь вы можете взаимодействовать с FMD путём отправки SMS c разрешённого мобильного номера, которые начинаются с \"%1$s\". Например, отправьте \"%2$s help\" или \"%3$s flash\". Когда всё сработает, приложение отправит ответ.</string>
+    <string name="cmd_bluetooth_response_is_on">Bluetooth включён.</string>
+    <string name="cmd_bluetooth_response_is_off">Bluetooth выключен.</string>
+    <string name="cmd_gps_response_is_on">Сервисы Определения Местоположения включены.</string>
+    <string name="cmd_gps_response_is_off">Сервисы Определения Местоположения выключены.</string>
 </resources>
