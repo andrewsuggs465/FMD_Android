@@ -13,7 +13,7 @@
     <string name="pin">PIN</string>
     <string name="Settings_FMDCommand_Description">Ukaz, ki se uporablja za komunikacijo s FMD aplikacijo.</string>
     <string name="Settings_Select_Ringtone">Izberi melodijo zvonjenja</string>
-    <string name="Settings_Ringer_Tone_Description">Izberi melodijo zvonenja za predvajanje ob ukazu \"fmd ring\".</string>
+    <string name="Settings_Ringer_Tone_Description">Izberi melodijo zvonjenja za predvajanje ob ukazu \"ring\".</string>
     <string name="Settings_Lockscreenmessage_Description">Sporočilo na zaklenjenem zaslonu: \nKo boste napravo zaklenili, se bo na zaklenjenem zaslonu pokazalo to sporočilo.</string>
     <string name="Settings_FMD_Server_General">Splošno</string>
     <string name="Settings_FMD_Server_Server_URL">URL strežnika:</string>
@@ -305,4 +305,5 @@
     <string name="cmd_bluetooth_response_is_off">Bluetooth je izključen.</string>
     <string name="cmd_gps_response_is_on">Lokacijske storitve so vključene.</string>
     <string name="cmd_gps_response_is_off">Lokacijske storitve so izključene.</string>
+    <string name="tip_first_contact_added">Čestitamo, dodali ste svoj prvi stik! Zdaj lahko komunicirate s FMD tako, da iz dovoljene telefonske številke pošljete SMS, ki se začne z »%1$s«. Na primer, pošljete lahko »%2$s help« ali »%3$s flash«. Ko bo vse delovalo, se bo aplikacija odzvala.</string>
 </resources>
