@@ -63,7 +63,7 @@
     <string name="Settings_FMD_via_Pin_Description">Võimaldab sul FMD-ga suhelda käsule PIN-koodi lisamise abil. Seega saad telefonile käske saata ka numbrilt, mis pole lubatud telefoninumbrite loendis.</string>
     <string name="Settings_FMDCommand_Description">Käsk, millega juhid FMD-rakendust.</string>
     <string name="Toast_Empty_FMDCommand">Tühi käsk pole lubatud, kasutan vaikimisi valikut.</string>
-    <string name="Settings_Ringer_Tone_Description">Vali helin, mis kõlab siis, kui vastava FMD-käsu käivitad.</string>
+    <string name="Settings_Ringer_Tone_Description">Vali helin, mis kõlab siis, kui „ring“ käsu käivitad.</string>
     <string name="Settings_no_ringtone_picker">Ei leidnud ühtegi rakendust, mille abil helinaid valida!</string>
     <string name="Settings_FMD_Server_General">Üldseadistused</string>
     <string name="Settings_FMD_Server_Server_URL">Serveri võrguaadress:</string>
@@ -77,7 +77,7 @@
     <string name="Settings_FMDServer_Check_Notify_After_Title">Pikim lubatud aega ilma toimiva ühenduseta</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD laadib selle seadme asukoha serverisse iga x minuti järel.</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Laadi üles ka üsna tühja aku puhul</string>
-    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Laadi nutiseadme asukoht üles ka, siis kui aku on üsna tühi. Eeldab teavituste õigusi.</string>
+    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Laadi nutiseadme asukoht üles ka siis, kui aku on üsna tühi.</string>
     <string name="password_new_repeat">Korda uut salasõna</string>
     <string name="pw_change_success">Salasõna on muudetud</string>
     <string name="pw_change_empty">Salasõna ei saa olla tühi.</string>
@@ -262,7 +262,7 @@
     <string name="cmd_locate_response_opencellid_failed">Viga asukoha tuvastamisel OpenCelliD abil. See võib juhtuda, kui antud sidemast ei leidu andmebaasis.\n\nPalun proovi järgnevat linki: %1$s\n\n%2$s</string>
     <string name="cmd_lock_description_long">Võid nutiseadme eemalt lukustada ja soovi korral kuvada lukustusvaates täiendavat teadet. Seejärel biomeetriline lukustuse eemaldamine lülitub välja ja pead selleks kasutama nutiseadme salasõna.</string>
     <string name="perm_do_not_disturb_access_name">Ligipääs „Ära sega“ režiimile</string>
-    <string name="cmd_locate_description_long">Võid tuvastada seadme asukoha ühe või enama teenuse abil. Tüüpiliselt on GPS-i täpsus parim, aga ei pruugi alati toimida. Valik „fused“ on Androidipõhine ja kombineerib eri allikaid (tavaliselt WiFi ja sidevõrgu mastid). Valiku „cell“ puhul tehakse päringud OpenCelliD ja BeaconDB teenustesse, mis olemuselt on mobiilimastide asukohtade andmebaasid.</string>
+    <string name="cmd_locate_description_long">Võid tuvastada seadme asukoha ühe või enama teenuse abil. Tüüpiliselt on GPS-i täpsus parim, aga ei pruugi alati toimida. Valik „fused“ ehk kombineeritud on Androidipõhine ja ühendab eri allikaid (tavaliselt WiFi ja sidevõrgu mastid). Valiku „cell“ puhul tehakse päringud OpenCelliD ja BeaconDB teenustesse, mis olemuselt on mobiilimastide asukohtade andmebaasid.</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">See rakendus peaks olemuselt töötama taustal. Tagamaks, et töö jätkub ka siis, kui nutiseade on ooterežiimis, palun lülita akukasutuse optimeerimine selle seadme jaoks välja.</string>
     <string name="Permission_POST_NOTIFICATIONS">FMD võib sulle saata teavitusi, näiteks siis, kui keegi proovib sinu nutiseadme asukohta tuvastada.</string>
     <string name="perm_unused_app_description">Android peatab selliste rakendust tegevuse, mida pole paar kuud avatud ning lisaks eemaldab nende õigused. FMD aga peaks just töötama taustal. Peale esmast seadistamist pole suurt vajadust teda avada. Seetõtu pead sellise Androidi poolt tegevuse peatamise keelama. Vastasel juhul ta ilmselgelt paari kuu pärast enam ei toimi.</string>
@@ -285,4 +285,10 @@
     <string name="password_enter">Sisesta salasõna</string>
     <string name="password_match_command_keyword">Salasõna ei saa olla sama, kui mõni käsk!</string>
     <string name="fmd_edge_info_message">See on FMD arendusversioon (edge). Sel puhul vaikimisi käsu märksõna on „fmde“ („fmd“ asemel). Näiteks asukoha tuvastamiskäsk on sel puhul „fmde locate“. Niisugune lahendus võimaldab samas seadmes kasutada nii arendus- kui tavaversiooni ja käsuga saad juhtida kummaga neist soovid suhelda.</string>
+    <string name="Fused">Kombineeritud</string>
+    <string name="tip_first_contact_added">Õnnitleme, oled oma esimese kontakti lisanud! Saates lubatud telefoninumbrilt SMS-i , mille alguses on „%1$s“ saadki suhelda FMD-ga. Näiteks proovi käske „%2$s help“ või „%3$s flash“. Kui kõik toimib, siis rakendus reageerib vastavalt sinu käsule.</string>
+    <string name="cmd_bluetooth_response_is_on">Bluetooth on lülitatud sisse.</string>
+    <string name="cmd_bluetooth_response_is_off">Bluetooth on lülitatud välja.</string>
+    <string name="cmd_gps_response_is_on">Asukohateenused on lülitatud sisse.</string>
+    <string name="cmd_gps_response_is_off">Asukohateenused on lülitatud välja.</string>
 </resources>
