@@ -4,23 +4,23 @@ This document describes how to publish a new release for FMD.
 
 Preparation:
 
-1. Build the release flavour, sign it, and test it thoroughly.
-   (The release flavor has optimisations that the debug flavor does not have!)
 1. Update the `versionCode` and `versionName` in `app/build.gradle`.
 1. Write a changelog and put it in `metadata/en-US/changelogs/{versionCode}.txt`
 1. Commit and push
 
 Build the APK:
 
-1. Build the unsigned releases: `./gradlew assembleProdRelease` and `./gradlew assembleEdgeRelease`
+1. Build the unsigned releases: `./gradlew clean assembleProdRelease assembleEdgeRelease`
 1. Sign the the APKs.
 1. Test the signed APKs.
+   (The release flavor has optimisations that the debug flavor does not have!)
 1. Test that fdroidserver can build the commit.
 1. Verify that the APKs are reproducible.
 
 F-Droid repo:
 
 1. Copy the signed APKs into the F-Droid repo.
+1. Update the `CurrentVersionCode` in the repo metadata.
 1. Sign a new F-Droid repo index.
 1. Upload the new repo to <https://packages.fmd-foss.org>.
 
