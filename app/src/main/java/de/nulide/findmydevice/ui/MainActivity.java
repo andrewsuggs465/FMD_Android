@@ -192,6 +192,7 @@ public class MainActivity extends FmdActivity {
                         .setTitle(getString(R.string.server_version_upgrade_required_title))
                         .setMessage(text)
                         .setPositiveButton(getString(R.string.Ok), null)
+                        .setCancelable(false)
                         .show();
             }
             return Unit.INSTANCE;
@@ -207,6 +208,7 @@ public class MainActivity extends FmdActivity {
                     settings.set(Settings.SET_FMD_EDGE_INFO_SHOWN, true);
                     dialog.dismiss();
                 })
+                .setCancelable(false)
                 .show();
     }
 }

@@ -45,5 +45,6 @@ fun dialogWarnUnifiedPushRequired(context: Context) {
             openUrl(context, "https://fmd-foss.org/docs/fmd-android/push")
         })
         .setNegativeButton(android.R.string.cancel, { dialog, _ -> dialog.dismiss() })
+        .setCancelable(false)
         .show()
 }

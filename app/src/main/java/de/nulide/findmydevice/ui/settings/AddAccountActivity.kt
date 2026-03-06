@@ -127,6 +127,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         val registerDialog = MaterialAlertDialogBuilder(context)
             .setTitle(context.getString(R.string.Settings_FMDServer_Register))
             .setView(registerLayout)
+            .setCancelable(false)
             .setPositiveButton(getString(R.string.Ok)) { _, _ ->
                 showLoadingIndicator(context)
 
@@ -177,6 +178,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         val loginDialog = MaterialAlertDialogBuilder(context)
             .setTitle(context.getString(R.string.Settings_FMDServer_Login))
             .setView(loginLayout)
+            .setCancelable(false)
             .setPositiveButton(getString(R.string.Ok)) { _, _ ->
                 showLoadingIndicator(context)
 
@@ -225,6 +227,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
             .setView(webView)
             .setPositiveButton(getString(R.string.accept)) { _, _ -> dialogToShowAfterAccepting.show() }
             .setNegativeButton(getString(R.string.cancel), null)
+            .setCancelable(false)
             .show()
     }
 
