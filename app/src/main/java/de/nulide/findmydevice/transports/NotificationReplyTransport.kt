@@ -2,12 +2,14 @@ package de.nulide.findmydevice.transports
 
 import android.app.Notification
 import android.app.PendingIntent.CanceledException
+import android.app.RemoteInput
 import android.content.Context
+import android.content.Intent
 import android.os.Build
+import android.os.Bundle
 import android.service.notification.StatusBarNotification
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.robj.notificationhelperlibrary.utils.NotificationUtils
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.commands.ParserResult
 import de.nulide.findmydevice.data.Settings
@@ -57,15 +59,8 @@ class NotificationReplyTransport(
             return
         }
 
-        val action = NotificationUtils.getQuickReplyAction(
-            destination.notification, context.packageName
-        )
-        if (action == null) {
-            context.log().i(TAG, "Cannot send message: quick reply action was null")
-            return
-        }
         try {
-            action.sendReply(context, msg)
+            sendQuickReply(context, destination.notification, msg)
         } catch (e: CanceledException) {
             context.log().e(TAG, "Failed to send message via notification reply")
             e.printStackTrace()
@@ -96,5 +91,43 @@ class NotificationReplyTransport(
                 }
             }
         }
+    }
+
+    private fun sendQuickReply(context: Context, notification: Notification, message: String) {
+        for (action in notification.actions) {
+            // context.log().d(TAG, "Checking action ${action.title}")
+            var isReplyAction = false
+
+            val resultsBundle = Bundle()
+            val relevantRemoteInputs = mutableListOf<RemoteInput>()
+
+            var isSemanticQuickReply = false
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                isSemanticQuickReply =
+                    action.semanticAction == Notification.Action.SEMANTIC_ACTION_REPLY
+            }
+
+            val remoteInputs = action.remoteInputs ?: emptyArray<RemoteInput>()
+            for (input in remoteInputs) {
+                if (isSemanticQuickReply || input.resultKey.contains("reply")) {
+                    isReplyAction = true
+                    resultsBundle.putCharSequence(input.resultKey, message)
+                    relevantRemoteInputs.add(input)
+                }
+            }
+
+            if (isReplyAction) {
+                val intent = Intent()
+                RemoteInput.addResultsToIntent(
+                    relevantRemoteInputs.toTypedArray(),
+                    intent,
+                    resultsBundle
+                )
+                action.actionIntent.send(context, 0, intent)
+                return
+            }
+        }
+
+        context.log().w(TAG, "Could not sent reply, no suitable Action or RemoteInput found.")
     }
 }
