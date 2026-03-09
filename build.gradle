@@ -3,7 +3,7 @@
 buildscript {
 
     ext {
-        kotlin_version = '2.0.20'
+        kotlin_version = '2.2.21'
     }
 
     repositories {
@@ -19,7 +19,7 @@ buildscript {
 }
 
 plugins {
-    id "com.mikepenz.aboutlibraries.plugin" version "12.2.4" apply false
+    id "com.mikepenz.aboutlibraries.plugin.android" version "13.2.1" apply false
 }
 
 allprojects {

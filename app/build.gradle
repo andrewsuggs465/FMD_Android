@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'com.mikepenz.aboutlibraries.plugin'
+    id 'com.mikepenz.aboutlibraries.plugin.android'
     id "org.sonarqube" version "6.2.0.5505"
 }
 
@@ -141,7 +141,7 @@ dependencies {
     implementation 'com.github.iamrobj:NotificationHelperLibrary:2.0.5'
     implementation 'com.github.UnifiedPush:android-connector:2.1.1'
     implementation 'com.jakewharton:process-phoenix:3.0.0'
-    implementation "com.mikepenz:aboutlibraries:12.2.4"
+    implementation "com.mikepenz:aboutlibraries:13.2.1"
     implementation "org.apache.maven:maven-artifact:3.9.11" // for semantic versions
     implementation 'org.bouncycastle:bcprov-jdk18on:1.83'
 
