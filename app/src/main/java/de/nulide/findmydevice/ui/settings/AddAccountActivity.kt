@@ -281,6 +281,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
             ServerConnectivityCheckService.notifyAboutConnectivityCheck(context)
 
             val fmdServerActivityIntent = Intent(context, FMDServerActivity::class.java)
+            fmdServerActivityIntent.putExtra(FMDServerActivity.EXTRA_NEW_ACCOUNT, true)
             startActivity(fmdServerActivityIntent)
             finish()
         }

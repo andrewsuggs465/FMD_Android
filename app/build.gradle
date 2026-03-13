@@ -102,6 +102,20 @@ android {
     }
 }
 
+// These dependencies have conflicting versions of tink.
+// Thus force it to "tink-android:1.20.0" globally for the entire build.
+// org.unifiedpush.android:connector:3.3.2 --> com.google.crypto.tink:tink:1.20.0
+// androidx.security:security-crypto-ktx:1.1.0 --> com.google.crypto.tink:tink-android:1.8.0
+configurations.configureEach {
+    def tink = "com.google.crypto.tink:tink-android:1.20.0"
+    resolutionStrategy {
+        force(tink)
+        dependencySubstitution {
+            substitute module('com.google.crypto.tink:tink') using module(tink)
+        }
+    }
+}
+
 dependencies {
     // AndroidX
     implementation 'androidx.activity:activity-ktx:1.12.4'
@@ -138,8 +152,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.13.0'
     implementation 'com.google.code.gson:gson:2.13.2'
 
-    // https://gitlab.com/fmd-foss/fmd-android/-/issues/394
-    implementation 'org.unifiedpush.android:connector:2.5.0'
+    implementation 'org.unifiedpush.android:connector:3.3.2'
     implementation 'com.jakewharton:process-phoenix:3.0.0'
     implementation "com.mikepenz:aboutlibraries:13.2.1"
     implementation "org.apache.maven:maven-artifact:3.9.11" // for semantic versions

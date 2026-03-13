@@ -6,8 +6,8 @@ import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.VolleyError
 import de.nulide.findmydevice.data.EncryptedSettingsRepository
-import de.nulide.findmydevice.data.FmdLocation
 import de.nulide.findmydevice.data.FmdKeyPair
+import de.nulide.findmydevice.data.FmdLocation
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.utils.CypherUtils
@@ -450,7 +450,8 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             Method.PUT, baseUrl + URL_PUSH, jsonObject,
             { _ -> },
             { error ->
-                context.log().w(TAG, "registerPushEndpointInternal: ${error.stackTraceToString()}")
+                val msg = "Failed to send push URL to FMD Server:\n\n${error.stackTraceToString()}"
+                context.log().w(TAG, msg)
                 onError.onErrorResponse(error)
             }
         )

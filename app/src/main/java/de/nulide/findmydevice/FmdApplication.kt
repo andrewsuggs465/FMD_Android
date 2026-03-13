@@ -6,16 +6,18 @@ import android.service.notification.StatusBarNotification
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.data.UncaughtExceptionHandler.Companion.initUncaughtExceptionHandler
-import de.nulide.findmydevice.receiver.PushReceiver
 import de.nulide.findmydevice.services.FmdBatteryLowService
 import de.nulide.findmydevice.services.ServerConnectivityCheckService
 import de.nulide.findmydevice.services.ServerLocationUploadService
+import de.nulide.findmydevice.services.isRegisteredWithUnifiedPush
+import de.nulide.findmydevice.services.unregisterWithUnifiedPush
 import de.nulide.findmydevice.ui.onboarding.PinUpdate
 import de.nulide.findmydevice.ui.onboarding.UpdateboardingModernCryptoActivity
 import de.nulide.findmydevice.utils.Notifications
 import de.nulide.findmydevice.utils.log
 import de.nulide.findmydevice.warnings.notifyWarnUnifiedPushRequired
-import de.nulide.findmydevice.warnings.shouldWarnUnifiedPushRequired
+import org.unifiedpush.android.connector.INSTANCE_DEFAULT
+import org.unifiedpush.android.connector.UnifiedPush
 
 
 class FmdApplication : Application() {
@@ -61,7 +63,12 @@ class FmdApplication : Application() {
             ServerLocationUploadService.scheduleRecurring(this)
             ServerConnectivityCheckService.scheduleJob(this)
 
-            if (shouldWarnUnifiedPushRequired(this)) {
+            if (isRegisteredWithUnifiedPush(this)) {
+                // Re-register with the saved distributor, to keep the registration fresh.
+                // Doing this on each Application start is important, because e.g. UP library upgrades
+                // can reset internal state. A re-registration resolves this automatically.
+                UnifiedPush.register(this, INSTANCE_DEFAULT, null, null)
+            } else {
                 notifyWarnUnifiedPushRequired(this)
             }
 
@@ -72,7 +79,7 @@ class FmdApplication : Application() {
             ServerLocationUploadService.cancelJob(this)
             ServerConnectivityCheckService.cancelJob(this)
 
-            PushReceiver.unregisterWithUnifiedPush(this)
+            unregisterWithUnifiedPush(this)
         }
     }
 }

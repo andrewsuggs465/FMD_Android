@@ -14,6 +14,8 @@
     <string name="Edit">Edit</string>
     <string name="Enable">Enable</string>
     <string name="Delete">Delete</string>
+    <string name="select">Select</string>
+
     <string name="Fused">Fused</string>
     <string name="GPS">GPS</string>
     <string name="Cell">Cell</string>
@@ -357,6 +359,13 @@
     <string name="missing_permissions_description">The following permissions are needed for FMD to run.</string>
     <string name="missing_push_title">Missing UnifiedPush</string>
     <string name="missing_push_description">Without a UnifiedPush distributor app you cannot receive commands from FMD Server.</string>
+
+    <!-- Notifications-->
+    <string name="push_registration_failed_title">Push registration failed</string>
+    <string name="push_registration_upload_failed_text">The push URL could not be sent to FMD Server. Therefore, you are unable to receive commands from FMD Server. To fix this, please open the FMD Server settings and click \"Register again\" to manually renew the push registration.</string>
+
+    <string name="multiple_unified_push_distributors_title">Multiple UnifiedPush distributor apps</string>
+    <string name="multiple_unified_push_distributors_description">You have multiple UnifiedPush distributor apps installed. Please select which one you want to use for FMD.</string>
 
     <!-- Lock screen message-->
     <string name="Locked_Lock_Screen">FMD\nThis device is locked!\nMessage from the owner:</string>

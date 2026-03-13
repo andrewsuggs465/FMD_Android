@@ -1,5 +1,7 @@
 package de.nulide.findmydevice.ui.settings;
 
+import static org.unifiedpush.android.connector.ConstantsKt.INSTANCE_DEFAULT;
+import static de.nulide.findmydevice.services.UnifiedPushServiceKt.unregisterWithUnifiedPush;
 import static de.nulide.findmydevice.ui.UiUtil.setupEdgeToEdgeAppBar;
 import static de.nulide.findmydevice.ui.UiUtil.setupEdgeToEdgeScrollView;
 import static de.nulide.findmydevice.utils.CypherUtils.MIN_PASSWORD_LENGTH;
@@ -7,7 +9,10 @@ import static de.nulide.findmydevice.utils.CypherUtils.MIN_PASSWORD_LENGTH;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -26,6 +31,7 @@ import androidx.core.content.ContextCompat;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.unifiedpush.android.connector.UnifiedPush;
+import org.unifiedpush.android.connector.data.ResolvedDistributor;
 
 import java.security.KeyPair;
 
@@ -36,17 +42,25 @@ import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.net.FMDServerApiRepoSpec;
 import de.nulide.findmydevice.net.FMDServerApiRepository;
-import de.nulide.findmydevice.receiver.PushReceiver;
 import de.nulide.findmydevice.services.FmdBatteryLowService;
 import de.nulide.findmydevice.services.ServerCommandDownloadService;
 import de.nulide.findmydevice.services.ServerConnectivityCheckService;
 import de.nulide.findmydevice.services.ServerLocationUploadService;
 import de.nulide.findmydevice.ui.FmdActivity;
 import de.nulide.findmydevice.utils.CypherUtils;
+import de.nulide.findmydevice.utils.FmdLogKt;
 import de.nulide.findmydevice.utils.UnregisterUtil;
 import de.nulide.findmydevice.utils.Utils;
+import de.nulide.findmydevice.warnings.PushWarningsKt;
+import kotlin.Unit;
 
 public class FMDServerActivity extends FmdActivity implements CompoundButton.OnCheckedChangeListener, TextWatcher {
+
+    private static final String TAG = FMDServerActivity.class.getSimpleName();
+
+    public static final String EXTRA_NEW_ACCOUNT = "EXTRA_NEW_ACCOUNT";
+
+    private final Handler handler = new Handler(Looper.getMainLooper());
 
     private SettingsRepository settings;
     private FMDServerApiRepository fmdServerRepo;
@@ -136,8 +150,27 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         super.onResume();
 
         checkConnection();
-        checkPushRegistration();
+        updatePushSection();
         ServerCommandDownloadService.scheduleJobNow(this);
+
+        // If the user comes from the registration/login screen,
+        // try to register with UnifiedPush automatically, to complete the initial setup.
+        Intent intent = getIntent();
+        if (intent != null) {
+            boolean isNewAccount = intent.getBooleanExtra(EXTRA_NEW_ACCOUNT, false);
+            if (isNewAccount) {
+                registerWithUnifiedPush();
+
+                // Avoid re-consuming this intent
+                setIntent(null);
+            }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        handler.removeCallbacksAndMessages(null);
     }
 
     @Override
@@ -250,7 +283,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
                     encryptedSettingsRepo.setCachedAccessToken("");
                     ServerLocationUploadService.cancelJob(this);
                     ServerConnectivityCheckService.cancelJob(this);
-                    PushReceiver.unregisterWithUnifiedPush(this);
+                    unregisterWithUnifiedPush(this);
                     finish();
                 })
                 .setNegativeButton(getString(R.string.cancel), null)
@@ -291,12 +324,12 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     }
 
     private void onOpenPushDistributorClicked(View view) {
-        String packageName = UnifiedPush.getDistributor(this);
+        String packageName = UnifiedPush.getAckDistributor(this);
         Utils.openApp(this, packageName);
     }
 
     private void onCopyPushDistributorClicked(View view) {
-        String text = UnifiedPush.getDistributor(this);
+        String text = UnifiedPush.getAckDistributor(this);
         Utils.copyToClipboard(this, "Push Distributor", text);
     }
 
@@ -352,7 +385,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         showLoadingIndicator(context);
         ServerLocationUploadService.cancelJob(context);
         ServerConnectivityCheckService.cancelJob(context);
-        PushReceiver.unregisterWithUnifiedPush(context);
+        unregisterWithUnifiedPush(context);
         fmdServerRepo.unregister(
                 response -> {
                     loadingDialog.cancel();
@@ -404,11 +437,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         });
     }
 
-    private void checkPushRegistration() {
-        if (!PushReceiver.isRegisteredWithUnifiedPush(this)) {
-            PushReceiver.registerWithUnifiedPush(this);
-        }
-
+    private void updatePushSection() {
         LinearLayout sectionPushDistributor = findViewById(R.id.sectionPushDistributor);
         TextView textPushDistributor = findViewById(R.id.textPushDistributor);
         LinearLayout sectionPushUrl = findViewById(R.id.sectionPushUrl);
@@ -418,13 +447,14 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         TextView textInfoSunup = findViewById(R.id.textInfoSunup);
         Button buttonInstallSunup = findViewById(R.id.buttonInstallSunup);
 
-        String distributor = UnifiedPush.getDistributor(this);
-        if (!distributor.isEmpty()) {
+        String distributor = UnifiedPush.getAckDistributor(this);
+        String url = (String) settings.get(Settings.SET_FMDSERVER_PUSH_URL);
+
+        if (distributor != null && !distributor.isEmpty() && !url.isEmpty()) {
             sectionPushDistributor.setVisibility(View.VISIBLE);
             textPushDistributor.setText(getString(R.string.Settings_FMDServer_Push_Distributor, distributor));
 
             sectionPushUrl.setVisibility(View.VISIBLE);
-            String url = (String) settings.get(Settings.SET_FMDSERVER_PUSH_URL);
             textPushUrl.setText(getString(R.string.Settings_FMDServer_Push_Url, url));
 
             textInfoSunup.setVisibility(View.GONE);
@@ -443,11 +473,50 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     }
 
     private void onRegisterPushClicked(View view) {
-        PushReceiver.unregisterWithUnifiedPush(this);
-        checkPushRegistration();
-
-        // TODO: Hack to get the screen to refresh.
-        // The proper way to do this would be callbacks.
-        view.postDelayed(this::checkPushRegistration, 5 * 1000L);
+        registerWithUnifiedPush();
     }
+
+    private void registerWithUnifiedPush() {
+        Context context = this;
+        ResolvedDistributor res = UnifiedPush.resolveDefaultDistributor(context);
+
+        switch (res) {
+            case ResolvedDistributor.Found found:
+                // The user doesn't have to interact. Will be the case most of the time,
+                // if the user has a default or a single distributor installed
+                UnifiedPush.saveDistributor(context, found.getPackageName());
+                UnifiedPush.register(context, INSTANCE_DEFAULT, null, null);
+                handler.postDelayed(this::updatePushSection, 1500L);
+                break;
+
+            case ResolvedDistributor.ToSelect ignored:
+                // Always show this dialog, so that the user knows what to do in the OS picker
+                PushWarningsKt.showDialogMultipleUnifiedPushDistributorApps(context, () -> {
+                    registerWithUnifiedPushMultipleDistributors();
+                    return Unit.INSTANCE;
+                });
+                break;
+
+            case ResolvedDistributor.NoneAvailable ignored:
+                FmdLogKt.log(context).w(TAG, "No UnifiedPush distributor app found.");
+                PushWarningsKt.showDialogMissingUnifiedPush(context, null);
+                break;
+
+            default:
+                FmdLogKt.log(context).e(TAG, "Unknown ResolvedDistributor case: " + res);
+                break;
+        }
+    }
+
+    private void registerWithUnifiedPushMultipleDistributors() {
+        UnifiedPush.tryPickDistributor(this, (success) -> {
+            if (success) {
+                // No need to save the distributor
+                UnifiedPush.register(this, INSTANCE_DEFAULT, null, null);
+                handler.postDelayed(this::updatePushSection, 1500L);
+            }
+            return Unit.INSTANCE;
+        });
+    }
+
 }
