@@ -19,4 +19,15 @@
     <exclude
         domain="sharedpref"
         path="fmd_encrypted_settings.xml" />
+
+    <!-- UnifiedPush -->
+    <exclude
+        domain="database"
+        path="unifiedpush-connector" />
+    <exclude
+        domain="database"
+        path="unifiedpush-connector-journal" />
+    <exclude
+        domain="sharedpref"
+        path="unifiedpush.connector.xml" />
 </full-backup-content>
