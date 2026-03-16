@@ -10,7 +10,7 @@
     <string name="Settings_Enter_Pin">Digite o PIN</string>
     <string name="pin">PIN</string>
     <string name="Settings_FMDCommand_Description">O comando utilizado para se comunicar com o FMD.</string>
-    <string name="Settings_Ringer_Tone_Description">Selecione um som de toque que tocará quando o comando \'fmd ring\' é enviado.</string>
+    <string name="Settings_Ringer_Tone_Description">Selecione um som de toque para o comando \"ring\".</string>
     <string name="Settings_Select_Ringtone">Selecionar som de toque</string>
     <string name="Settings_Lockscreenmessage_Description">Mensagem da tela de bloqueio:\nAo bloquear o dispositivo, esta mensagem aparecerá na tela de bloqueio.</string>
     <string name="Settings_FMD_Server_General">Geral</string>
@@ -72,7 +72,7 @@
     <string name="Settings_FMD_Server_Server_URL">URL do servidor:</string>
     <string name="Settings_FMDServer_Change_Password_Button">Alterar senha</string>
     <string name="Settings_FMDServer_Location_Type_Title">Fonte da localização</string>
-    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Enviar a localização deste dispositivo no momento que o nível da bateria ficar baixo. Requer acesso às notificações.</string>
+    <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Enviar a localização deste dispositivo no momento que o nível da bateria ficar baixo.</string>
     <string name="Settings_FMDServer_Location_Type_Description">As fontes que são utilizadas para o envio da localização nos intervalos configurados em segundo plano.\nSe nenhuma está selecionada, o envio da localização não será feito regularmente. (Você ainda pode usar a interface web para forçar um envio. Requer push.)</string>
     <string name="password_new_repeat">Confirmar senha nova</string>
     <string name="Settings_FMDServer_Info">Com o FMD Server você pode enviar comandos pela internet, do servidor para o app. Você pode também ver a localização do dispositivo em um mapa, ou ver as fotos capturadas pelo dispositivo. Caso queira auto-hospedá-lo, visite o site.</string>
@@ -285,4 +285,10 @@
     <string name="password_enter">Digite a senha</string>
     <string name="password_match_command_keyword">A senha não pode ser igual aos comandos!</string>
     <string name="fmd_edge_info_message">Essa é a variante edge do FMD. Aqui, o comando padrão é \"fmde\" (em vez de \"fmd\"). Por exemplo, para enviar um comando de localizar, use \"fmde locate\". Isso permite ter tanto o edge quanto o prod instalados no mesmo dispositivo, e especificar para qual vão os comandos.</string>
+    <string name="Fused">Combinado</string>
+    <string name="tip_first_contact_added">Parabéns, você adicionou o seu primeiro contato! Agora você pode comunicar com o FMD enviando um SMS que começa com \"%1$s\" pelo número de telefone permitido. Por exemplo, envie \"%2$s help\" ou \"%3$s flash\". Se tudo funciona, o app será responder.</string>
+    <string name="cmd_bluetooth_response_is_on">O Bluetooth está ativado.</string>
+    <string name="cmd_bluetooth_response_is_off">O Bluetooth está desativado.</string>
+    <string name="cmd_gps_response_is_on">Os serviços de localização estão ativados.</string>
+    <string name="cmd_gps_response_is_off">Os serviços de localização estão desativados.</string>
 </resources>
