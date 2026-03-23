@@ -49,6 +49,10 @@ class NotificationReplyTransport(
     override fun getDestinationString() = destination?.packageName ?: "Notification Response"
 
     override fun isAllowed(parsed: ParserResult.Success): Boolean {
+        val pinAccessEnabled = settings.get(Settings.SET_ACCESS_VIA_PIN) as Boolean
+        if (!pinAccessEnabled) {
+            return false
+        }
         return parsed.pin != null
     }
 
