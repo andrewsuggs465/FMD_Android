@@ -74,9 +74,6 @@ class NotificationReplyTransport(
             return
         }
 
-        // Only the NotificationListenService is allowed to dismiss another app's notification.
-        NotificationListenService.instance?.cancelNotification(destination.key)
-
         // As an additional fallback:
         // Try to dismiss the notification via a "mark as read" action, if it exists.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -92,6 +89,9 @@ class NotificationReplyTransport(
                 }
             }
         }
+
+        // Only the NotificationListenService is allowed to dismiss another app's notification.
+        NotificationListenService.instance?.cancelNotification(destination.key)
     }
 
     private fun sendQuickReply(context: Context, notification: Notification, message: String) {
