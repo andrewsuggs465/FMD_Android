@@ -67,9 +67,7 @@ class NotificationReplyTransport(
         }
     }
 
-    override fun closeChannel() {
-        super.closeChannel()
-
+    private fun tryDismissNotification() {
         if (destination == null) {
             return
         }
@@ -125,6 +123,13 @@ class NotificationReplyTransport(
                     intent,
                     resultsBundle
                 )
+
+                // Dismiss the notification BEFORE sending the response.
+                // If we first send a response and then dismiss, the messenger app may post a NEW notification
+                // that includes the original message, causing infinite command execution loops.
+                // The pending intent to sent the response should still work, despite this ordering.
+                tryDismissNotification()
+
                 action.actionIntent.send(context, 0, intent)
                 return
             }
