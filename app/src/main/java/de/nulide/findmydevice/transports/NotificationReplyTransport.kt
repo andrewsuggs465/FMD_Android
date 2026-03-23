@@ -80,7 +80,8 @@ class NotificationReplyTransport(
         // As an additional fallback:
         // Try to dismiss the notification via a "mark as read" action, if it exists.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            for (action in destination.notification.actions) {
+            val actions = destination.notification.actions ?: emptyArray()
+            for (action in actions) {
                 if (action.semanticAction == Notification.Action.SEMANTIC_ACTION_MARK_AS_READ) {
                     try {
                         action.actionIntent?.send()
@@ -94,7 +95,8 @@ class NotificationReplyTransport(
     }
 
     private fun sendQuickReply(context: Context, notification: Notification, message: String) {
-        for (action in notification.actions) {
+        val actions = notification.actions ?: emptyArray()
+        for (action in actions) {
             // context.log().d(TAG, "Checking action ${action.title}")
             var isReplyAction = false
 
