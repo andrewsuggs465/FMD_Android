@@ -10,6 +10,7 @@ Preparation:
 
 Build the APK:
 
+1. Tag the new release: `git tag v0.0.0` and push the tag: `git push --tags`
 1. Build the unsigned releases: `./gradlew clean assembleProdRelease assembleEdgeRelease`
 1. Sign the the APKs.
 1. Test the signed APKs.
@@ -26,7 +27,6 @@ F-Droid repo:
 
 Publishing:
 
-3. Tag the new release: `git tag v0.0.0` and push the tag: `git push --tags`
 4. Create a new release on Gitlab: <https://gitlab.com/fmd-foss/fmd-android/-/releases>
 5. Wait for F-Droid to pick it up!
 
