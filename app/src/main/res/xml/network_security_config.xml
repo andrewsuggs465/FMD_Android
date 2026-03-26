@@ -14,6 +14,9 @@
             <!-- Many people use private CAs-->
             <certificates src="user" />
         </trust-anchors>
+
+        <!-- Private CAs may not write to CT logs -->
+        <certificateTransparency enabled="false" />
     </base-config>
 
     <!-- Lock down the domains that the maintainers control. -->
