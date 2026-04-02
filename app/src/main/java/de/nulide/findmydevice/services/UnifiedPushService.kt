@@ -7,6 +7,7 @@ import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.net.FMDServerApiRepoSpec
 import de.nulide.findmydevice.net.FMDServerApiRepository
+import de.nulide.findmydevice.net.ServerCommandDownloader
 import de.nulide.findmydevice.ui.settings.FMDServerActivity
 import de.nulide.findmydevice.utils.Notifications
 import de.nulide.findmydevice.utils.log
@@ -24,7 +25,7 @@ class UnifiedPushService : PushService() {
 
     override fun onMessage(message: PushMessage, instance: String) {
         log().i(TAG, "Received push message")
-        ServerCommandDownloadService.scheduleJobNow(this)
+        ServerCommandDownloader(this).download()
     }
 
     override fun onNewEndpoint(endpoint: PushEndpoint, instance: String) {

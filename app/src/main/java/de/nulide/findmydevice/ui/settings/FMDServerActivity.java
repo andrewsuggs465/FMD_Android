@@ -42,8 +42,8 @@ import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.net.FMDServerApiRepoSpec;
 import de.nulide.findmydevice.net.FMDServerApiRepository;
+import de.nulide.findmydevice.net.ServerCommandDownloader;
 import de.nulide.findmydevice.services.FmdBatteryLowService;
-import de.nulide.findmydevice.services.ServerCommandDownloadService;
 import de.nulide.findmydevice.services.ServerConnectivityCheckService;
 import de.nulide.findmydevice.services.ServerLocationUploadService;
 import de.nulide.findmydevice.ui.FmdActivity;
@@ -151,7 +151,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
         checkConnection();
         updatePushSection();
-        ServerCommandDownloadService.scheduleJobNow(this);
+        new ServerCommandDownloader(this).download();
 
         // If the user comes from the registration/login screen,
         // try to register with UnifiedPush automatically, to complete the initial setup.

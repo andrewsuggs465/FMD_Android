@@ -169,10 +169,6 @@
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE" />
         <service
-            android:name=".services.ServerCommandDownloadService"
-            android:exported="false"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-        <service
             android:name=".services.ServerVersionCheckService"
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE" />
