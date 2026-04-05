@@ -142,6 +142,10 @@ class SettingsRepository private constructor(private val context: Context) {
     fun importFromStream(inputStream: InputStream) {
         val reader = JsonReader(InputStreamReader(inputStream))
         settings = gson.fromJson(reader, Settings::class.java) ?: Settings()
+
+        // Migrate after import to bring them to the latest structure
+        migrateSettings()
+
         saveSettings()
     }
 
