@@ -19,7 +19,6 @@ import com.android.volley.VolleyError
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import de.nulide.findmydevice.BuildConfig
 import de.nulide.findmydevice.R
-import de.nulide.findmydevice.data.FmdKeyPair
 import de.nulide.findmydevice.data.RegistrationTokenRepository
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
@@ -32,7 +31,6 @@ import de.nulide.findmydevice.services.ServerLocationUploadService
 import de.nulide.findmydevice.ui.FmdActivity
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeAppBar
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdgeScrollView
-import de.nulide.findmydevice.utils.CypherUtils
 import de.nulide.findmydevice.utils.CypherUtils.MIN_PASSWORD_LENGTH
 import de.nulide.findmydevice.utils.Utils.Companion.copyToClipboard
 import de.nulide.findmydevice.utils.Utils.Companion.openUrl
@@ -147,16 +145,9 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                     // Key generation and password hashing is expensive-ish, so we don't want
                     // to do it on the UI thread (e.g., it would block the loading indicator).
                     lifecycleScope.launch(Dispatchers.IO) {
-                        val keys = FmdKeyPair.generateNewFmdKeyPair(password)
-                        settingsRepo.setKeys(keys)
-                        val hashedPW = CypherUtils.hashPasswordForLogin(password)
-                        settingsRepo.set(Settings.SET_FMD_CRYPT_HPW, hashedPW)
-
                         fmdServerRepo.registerAccount(
                             username,
-                            keys.encryptedPrivateKey,
-                            keys.base64PublicKey,
-                            hashedPW,
+                            password,
                             registrationToken,
                             this@AddAccountActivity::onRegisterOrLoginSuccess,
                             this@AddAccountActivity::onRegisterOrLoginError,

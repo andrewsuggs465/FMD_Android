@@ -91,22 +91,30 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         queue.add(request)
     }
 
+    /**
+     * This MUST be wrapped in a Thread() because it does password hashing.
+     */
     fun registerAccount(
-        username: String,
-        privKey: String,
-        pubKey: String,
-        hashedPW: String,
+        requestedUsername: String,
+        password: String,
         registrationToken: String,
         onResponse: Response.Listener<Unit>,
         onError: Response.ErrorListener,
     ) {
         loadBaseUrl()
+
+        val keys = FmdKeyPair.generateNewFmdKeyPair(password)
+        settingsRepo.setKeys(keys)
+
+        val hashedPW = CypherUtils.hashPasswordForLogin(password)
+        settingsRepo.set(Settings.SET_FMD_CRYPT_HPW, hashedPW)
+
         val jsonObject = JSONObject()
         try {
             jsonObject.put("hashedPassword", hashedPW)
-            jsonObject.put("pubkey", pubKey)
-            jsonObject.put("privkey", privKey)
-            jsonObject.put("requestedUsername", username)
+            jsonObject.put("pubkey", keys.base64PublicKey)
+            jsonObject.put("privkey", keys.encryptedPrivateKey)
+            jsonObject.put("requestedUsername", requestedUsername)
             jsonObject.put("registrationToken", registrationToken)
         } catch (e: JSONException) {
             e.printStackTrace()
