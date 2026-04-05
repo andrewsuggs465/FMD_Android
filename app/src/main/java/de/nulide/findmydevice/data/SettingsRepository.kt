@@ -190,8 +190,11 @@ class SettingsRepository private constructor(private val context: Context) {
 // ---------- Convenience helpers ----------
 
     fun serverAccountExists(): Boolean {
+        // The SET_FMDSERVER_ID is remembered during logout.
+        // Therefore, check both (to be sure).
         val id = get(Settings.SET_FMDSERVER_ID) as String
-        return id.isNotEmpty()
+        val pw = get(Settings.SET_FMD_CRYPT_HPW) as String
+        return id.isNotEmpty() && pw.isNotEmpty()
     }
 
     fun setKeys(keys: FmdKeyPair) {
@@ -224,8 +227,12 @@ class SettingsRepository private constructor(private val context: Context) {
         }
     }
 
-    fun removeServerAccount() {
-        set(Settings.SET_FMDSERVER_ID, "")
+    fun removeServerAccount(full: Boolean = true) {
+        // If not full removal, remember the user ID for autofill convenience.
+        if (full) {
+            set(Settings.SET_FMDSERVER_ID, "")
+        }
+
         set(Settings.SET_FMD_CRYPT_HPW, "")
         set(Settings.SET_FMD_CRYPT_PRIVKEY, "")
         set(Settings.SET_FMD_CRYPT_PUBKEY, "")

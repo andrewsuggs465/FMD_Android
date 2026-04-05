@@ -172,6 +172,8 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         val loginLayout = layoutInflater.inflate(R.layout.dialog_login, null)
 
         val idInput = loginLayout.findViewById<EditText>(R.id.editTextFMDID)
+        idInput.setText(settingsRepo.get(Settings.SET_FMDSERVER_ID) as String) // cached for convenience
+
         val passwordInput = loginLayout.findViewById<EditText>(R.id.editTextPassword)
 
         val loginDialog = MaterialAlertDialogBuilder(context)
