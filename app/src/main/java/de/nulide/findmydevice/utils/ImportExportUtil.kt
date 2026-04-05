@@ -65,39 +65,61 @@ class SettingsImportExporter(
     }
 
     @Throws(JsonIOException::class, JsonSyntaxException::class)
-    suspend fun importData(uri: Uri) = withContext(Dispatchers.IO) {
+    suspend fun importData(uri: Uri): Boolean = withContext(Dispatchers.IO) {
         // We cannot use the file ending (.zip/.json) to detect the file,
         // since the URI path may not have those (e.g. when the file comes from Nextcloud as a content provider).
         // Thus we just need to try one format, and if it fails, try the other.
 
-        // Old "settings.json"
+        var success = importV1SettingsJson(uri)
+        if (success) {
+            return@withContext true
+        }
+
+        success = importV2Zip(uri)
+        if (success) {
+            return@withContext true
+        }
+
+        return@withContext false
+    }
+
+    // Old "settings.json"
+    private fun importV1SettingsJson(uri: Uri): Boolean {
         var inputStream: InputStream? = null
         try {
             context.log().i(TAG, "Trying to import as JSON")
-            inputStream = context.contentResolver.openInputStream(uri) ?: return@withContext
+            inputStream = context.contentResolver.openInputStream(uri)
+            if (inputStream == null) {
+                context.log().i(TAG, "Failed to open InputStream from URI")
+                return false
+            }
 
             SettingsRepository.getInstance(context).importFromStream(inputStream)
 
-            withContext(Dispatchers.Main) {
-                val text = context.getString(R.string.Settings_Import_Success)
-                Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
-            }
-
             // Apparently the import was successful
-            return@withContext
+            context.log().i(TAG, "JSON import successful")
+            return true
         } catch (e: Exception) {
             // continue
         } finally {
             inputStream?.close()
         }
+        return false
+    }
 
-        // We need to open a new stream (or would need to reset the old stream).
-        // Otherwise the ZIP reader starts reading wherever the JSON reader stopped.
+    // We need to open a new stream (or would need to reset the old stream).
+    // Otherwise the ZIP reader starts reading wherever the JSON reader stopped.
 
-        // New format, "fmd-export.zip" (contains settings.json and other data)
+    // New format, "fmd-export.zip" (contains settings.json and other data)
+    private fun importV2Zip(uri: Uri): Boolean {
+        var inputStream: InputStream? = null
         try {
             context.log().i(TAG, "Trying to import ZIP")
-            inputStream = context.contentResolver.openInputStream(uri) ?: return@withContext
+            inputStream = context.contentResolver.openInputStream(uri)
+            if (inputStream == null) {
+                context.log().i(TAG, "Failed to open InputStream from URI")
+                return false
+            }
 
             val zipInputStream = ZipInputStream(inputStream)
             var settingsFound = false
@@ -127,11 +149,8 @@ class SettingsImportExporter(
             }
 
             if (settingsFound && allowlistFound) {
-                withContext(Dispatchers.Main) {
-                    val text = context.getString(R.string.Settings_Import_Success)
-                    Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
-                }
-                return@withContext
+                context.log().i(TAG, "ZIP import successful")
+                return true
             }
 
             // Consider this an import failure
@@ -144,10 +163,7 @@ class SettingsImportExporter(
             inputStream?.close()
         }
 
-        withContext(Dispatchers.Main) {
-            val text = context.getString(R.string.Settings_Import_Failed)
-            Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
-        }
+        return false
     }
 }
 

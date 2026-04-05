@@ -19,10 +19,6 @@
     <string name="Fused">Fused</string>
     <string name="GPS">GPS</string>
     <string name="Cell">Cell</string>
-    <string name="export_success">Export succeeded</string>
-    <string name="export_failed">Export failed</string>
-    <string name="Settings_Import_Success">Import successful</string>
-    <string name="Settings_Import_Failed">Import failed</string>
     <string name="dont_show_again">Don\'t show again</string>
 
     <!-- Generic errors -->
@@ -178,6 +174,15 @@
     <string name="appearance_theme_light">Light</string>
     <string name="appearance_theme_dark">Dark</string>
     <string name="appearance_dynamic_colors">Dynamic colors</string>
+
+    <!-- Settings: Import/export -->
+    <string name="export_success">Export successful</string>
+    <string name="export_failed">Export failed</string>
+    <string name="Settings_Import_Success">Import successful</string>
+    <string name="Settings_Import_Failed">Import failed</string>
+    <string name="import_success_message">The settings were successfully imported.</string>
+    <string name="import_success_message_warning">CAUTION: Sensitive values are not included in the backup file. Therefore, if you use the following features, please manually set them up again:\n\n1. Set the FMD PIN.\n2. Set the delete password.</string>
+    <string name="import_failed_message">The import failed or was only partially successful. Please check the logs for details.</string>
 
     <!-- Settings: Logs -->
     <string name="log_view_title">Logs</string>

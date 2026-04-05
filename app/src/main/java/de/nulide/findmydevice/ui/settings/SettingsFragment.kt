@@ -11,6 +11,7 @@ import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ListView
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mikepenz.aboutlibraries.LibsBuilder
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.SettingsRepository
@@ -102,16 +103,18 @@ class SettingsFragment : TaggedFragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        val context: Context? = activity
-        if (context == null) {
-            return
-        }
+        val context = activity ?: return
         if (requestCode == IMPORT_REQ_CODE && resultCode == Activity.RESULT_OK) {
             if (data != null) {
                 val uri = data.data
                 if (uri != null) {
                     lifecycleScope.launch {
-                        SettingsImportExporter(context).importData(uri)
+                        val isSuccessful = SettingsImportExporter(context).importData(uri)
+                        if (isSuccessful) {
+                            showImportSuccessDialog(context)
+                        } else {
+                            showImportFailedDialog(context)
+                        }
                     }
                 }
             }
@@ -125,5 +128,26 @@ class SettingsFragment : TaggedFragment() {
                 }
             }
         }
+    }
+
+    private fun showImportSuccessDialog(context: Context) {
+        // TODO: The message_warning is temporary. We should include these in the backup again.
+        val message =
+            getString(R.string.import_success_message) + "\n\n" + getString(R.string.import_success_message_warning)
+        MaterialAlertDialogBuilder(context)
+            .setTitle(getString(R.string.Settings_Import_Success))
+            .setMessage(message)
+            .setPositiveButton(getString(R.string.Ok)) { _, _ -> }
+            .setCancelable(false)
+            .show()
+    }
+
+    private fun showImportFailedDialog(context: Context) {
+        MaterialAlertDialogBuilder(context)
+            .setTitle(getString(R.string.Settings_Import_Failed))
+            .setMessage(R.string.import_failed_message)
+            .setPositiveButton(getString(R.string.Ok)) { _, _ -> }
+            .setCancelable(false)
+            .show()
     }
 }
