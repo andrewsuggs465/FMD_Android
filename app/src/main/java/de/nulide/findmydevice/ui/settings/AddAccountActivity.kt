@@ -151,7 +151,6 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                         settingsRepo.setKeys(keys)
                         val hashedPW = CypherUtils.hashPasswordForLogin(password)
                         settingsRepo.set(Settings.SET_FMD_CRYPT_HPW, hashedPW)
-                        settingsRepo.set(Settings.SET_FMDSERVER_PASSWORD_SET, true)
 
                         fmdServerRepo.registerAccount(
                             username,

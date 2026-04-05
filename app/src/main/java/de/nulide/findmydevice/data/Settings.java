@@ -28,7 +28,7 @@ public class Settings extends HashMap<Integer, Object> {
     public static final int SET_FMDSERVER_URL = 102;
     public static final int SET_FMDSERVER_UPDATE_TIME = 103;
     public static final int SET_FMDSERVER_ID = 104;
-    public static final int SET_FMDSERVER_PASSWORD_SET = 105;
+    //public static final int SET_FMDSERVER_PASSWORD_SET = 105;
     public static final int SET_FMDSERVER_LOCATION_TYPE = 106; // BackgroundLocationType
     //public static final int SET_FMDSERVER_AUTO_UPLOAD = 107;
     public static final int SET_FMD_CRYPT_PUBKEY = 108;
@@ -82,7 +82,7 @@ public class Settings extends HashMap<Integer, Object> {
                 case SET_FIRST_TIME_WHITELIST:
                 case SET_FIRST_TIME_CONTACT_ADDED:
                     //case SET_FIRST_TIME_FMD_SERVER:
-                case SET_FMDSERVER_PASSWORD_SET:
+                    //case SET_FMDSERVER_PASSWORD_SET:
                     //case SET_FMD_CRYPT_NEW_SALT:
                 case SET_UPDATEBOARDING_MODERN_CRYPTO_COMPLETED:
                 case SET_FMD_EDGE_INFO_SHOWN:
