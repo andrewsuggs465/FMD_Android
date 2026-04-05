@@ -466,12 +466,25 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         queue.add(request)
     }
 
+    /**
+     * This MUST be wrapped in a Thread() because it does password hashing.
+     */
     fun changePassword(
-        newHashedPW: String,
-        newPrivKey: String,
+        oldPassword: String,
+        newPassword: String,
         onResponse: Response.Listener<Unit>,
         onError: Response.ErrorListener,
     ) {
+        val encryptedPrivKey = settingsRepo.get(Settings.SET_FMD_CRYPT_PRIVKEY) as String
+        val keyPair = CypherUtils.decryptPrivateKeyWithPassword(encryptedPrivKey, oldPassword)
+        if (keyPair == null) {
+            onError.onErrorResponse(VolleyError("WRONG_PASSWORD"))
+            return
+        }
+
+        val newPrivKey = CypherUtils.encryptPrivateKeyWithPassword(keyPair.private, newPassword)
+        val newHashedPW = CypherUtils.hashPasswordForLogin(newPassword)
+
         doRequestWithCachedToken(
             doRequest = { accessToken, onResponse2, onError2 ->
                 changePasswordInternal(accessToken, newHashedPW, newPrivKey, onResponse2, onError2)
@@ -501,6 +514,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             Method.POST, baseUrl + URL_PASSWORD, jsonObject,
             { response ->
                 if (response.has("Data")) {
+                    // Save only once we know that server has accepted the change
                     settingsRepo.set(Settings.SET_FMD_CRYPT_PRIVKEY, newPrivKey)
                     settingsRepo.set(Settings.SET_FMD_CRYPT_HPW, newHashedPW)
                     onResponse.onResponse(Unit)
