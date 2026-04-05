@@ -265,19 +265,15 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         alert.setView(registerLayout);
         EditText oldPasswordInput = registerLayout.findViewById(R.id.editTextFMDOldPassword);
         EditText passwordInput = registerLayout.findViewById(R.id.editTextPassword);
-        EditText passwordInputCheck = registerLayout.findViewById(R.id.editTextFMDPasswordCheck);
         alert.setView(registerLayout);
 
         alert.setPositiveButton(getString(R.string.Ok), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 String oldPassword = oldPasswordInput.getText().toString();
                 String password = passwordInput.getText().toString();
-                String passwordCheck = passwordInputCheck.getText().toString();
 
                 if (password.isEmpty() || oldPassword.isEmpty()) {
                     Toast.makeText(view.getContext(), R.string.pw_change_empty, Toast.LENGTH_LONG).show();
-                } else if (!password.equals(passwordCheck)) {
-                    Toast.makeText(view.getContext(), R.string.pw_change_mismatch, Toast.LENGTH_LONG).show();
                 } else if (password.length() < MIN_PASSWORD_LENGTH) {
                     Toast.makeText(view.getContext(), R.string.password_min_length, Toast.LENGTH_LONG).show();
                 } else {

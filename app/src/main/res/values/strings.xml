@@ -102,12 +102,10 @@
     <string name="password_enter">Enter password</string>
     <string name="password_old">Old password</string>
     <string name="password_new">New password</string>
-    <string name="password_new_repeat">Repeat new password</string>
     <string name="password_min_length">The password must be at least 8 characters. 16 or more are recommended.</string>
     <string name="password_match_command_keyword">The password must not equal one of the commands!</string>
     <string name="pw_change_success">Password changed</string>
     <string name="pw_change_empty">Password must not be empty.</string>
-    <string name="pw_change_mismatch">The repeated passwords do not match.</string>
     <string name="pw_change_wrong_password">Wrong password</string>
     <string name="pw_change_network_failed">Password change failed due to a network error.</string>
     <string name="server_login_attempts_title">Failed login attempts to FMD Server</string>
