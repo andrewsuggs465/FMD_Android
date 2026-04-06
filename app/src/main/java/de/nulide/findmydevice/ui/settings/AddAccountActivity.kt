@@ -15,7 +15,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
-import com.android.volley.VolleyError
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import de.nulide.findmydevice.BuildConfig
 import de.nulide.findmydevice.R
@@ -25,6 +24,7 @@ import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.net.FMDServerApiRepoSpec
 import de.nulide.findmydevice.net.FMDServerApiRepository
 import de.nulide.findmydevice.net.MinRequiredVersionResult
+import de.nulide.findmydevice.net.ServerError
 import de.nulide.findmydevice.net.isMinRequiredVersion
 import de.nulide.findmydevice.services.ServerConnectivityCheckService
 import de.nulide.findmydevice.services.ServerLocationUploadService
@@ -145,7 +145,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                     // Key generation and password hashing is expensive-ish, so we don't want
                     // to do it on the UI thread (e.g., it would block the loading indicator).
                     lifecycleScope.launch(Dispatchers.IO) {
-                        fmdServerRepo.registerAccount(
+                        fmdServerRepo.register(
                             username,
                             password,
                             registrationToken,
@@ -279,21 +279,17 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         }
     }
 
-    private fun onRegisterOrLoginError(error: VolleyError) {
+    private fun onRegisterOrLoginError(error: ServerError) {
         runOnUiThread {
             loadingDialog?.cancel()
-            error.printStackTrace()
 
-            var message = ""
-            if (error.networkResponse != null) {
-                message = """
-                ${getString(R.string.request_failed_status_code)}: ${error.networkResponse.statusCode}
-                ${getString(R.string.request_failed_response_body)}: ${String(error.networkResponse.data)}
+            var message = """
+                ${getString(R.string.request_failed_status_code)}: ${error.statusCode}
+                ${getString(R.string.request_failed_response_body)}: ${error.body}
+                ${getString(R.string.request_failed_exception)}: ${error.message}
                 """.trimIndent()
-            }
-            message += getString(R.string.request_failed_exception) + ": " + error.message
 
-            if (error.networkResponse != null && error.networkResponse.statusCode == 401) {
+            if (error.statusCode == 401) {
                 message = getString(R.string.server_registration_token_error)
             }
 

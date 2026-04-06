@@ -1,13 +1,13 @@
 package de.nulide.findmydevice.services
 
 import android.content.Context
-import com.android.volley.VolleyError
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.net.FMDServerApiRepoSpec
 import de.nulide.findmydevice.net.FMDServerApiRepository
 import de.nulide.findmydevice.net.ServerCommandDownloader
+import de.nulide.findmydevice.net.ServerError
 import de.nulide.findmydevice.ui.settings.FMDServerActivity
 import de.nulide.findmydevice.utils.Notifications
 import de.nulide.findmydevice.utils.log
@@ -35,7 +35,7 @@ class UnifiedPushService : PushService() {
         settings.set(Settings.SET_FMDSERVER_PUSH_URL, endpoint.url)
 
         val repo = FMDServerApiRepository.getInstance(FMDServerApiRepoSpec(this))
-        repo.registerPushEndpoint(endpoint.url, { _: VolleyError ->
+        repo.registerPushEndpoint(endpoint.url, { _: ServerError ->
             val context = this
             Notifications.notify(
                 context,

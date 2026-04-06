@@ -108,7 +108,7 @@ class ServerConnectivityCheckService : FmdJobService() {
         val now: Long = System.currentTimeMillis()
 
         fmdServerRepo.checkConnection(
-            { response ->
+            { _ ->
                 context.log().i(TAG, "Successfully connected to FMD Server")
                 settings.set(Settings.SET_FMD_SERVER_LAST_CONNECTIVITY_UNIX_TIME, now)
                 jobFinished()

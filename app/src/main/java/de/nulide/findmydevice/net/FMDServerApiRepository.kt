@@ -19,7 +19,6 @@ import org.json.JSONObject
 import java.security.KeyPair
 import java.util.Date
 
-
 data class FMDServerApiRepoSpec(
     val context: Context,
 )
@@ -27,7 +26,7 @@ data class FMDServerApiRepoSpec(
 /**
  * All network requests run on a background thread. This is handled by Volley.
  */
-class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
+class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) : FmdServerApiService {
 
     companion object :
         SingletonHolder<FMDServerApiRepository, FMDServerApiRepoSpec>(::FMDServerApiRepository) {
@@ -94,12 +93,12 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
     /**
      * This MUST be wrapped in a Thread() because it does password hashing.
      */
-    fun registerAccount(
+    override fun register(
         requestedUsername: String,
         password: String,
         registrationToken: String,
-        onResponse: Response.Listener<Unit>,
-        onError: Response.ErrorListener,
+        listener: Listener<Unit>,
+        errorListener: ErrorListener,
     ) {
         loadBaseUrl()
 
@@ -126,21 +125,21 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             { response: JSONObject ->
                 try {
                     settingsRepo.set(Settings.SET_FMDSERVER_ID, response["DeviceId"])
-                    onResponse.onResponse(Unit)
+                    listener.onResponse(Unit)
                 } catch (e: JSONException) {
                     context.log().w(TAG, "registerAccount: ${e.stackTraceToString()}")
-                    onError.onErrorResponse(VolleyError("Response has no DeviceId field"))
+                    errorListener.onError("Response has no DeviceId field")
                 }
             },
-            onError,
+            errorListener.into(),
         )
         queue.add(request)
     }
 
     fun getSalt(
         userId: String,
-        onResponse: Response.Listener<String>,
-        onError: Response.ErrorListener,
+        listener: Listener<String>,
+        errorListener: ErrorListener,
     ) {
         val jsonObject = JSONObject()
         try {
@@ -156,34 +155,34 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             { response ->
                 try {
                     val salt = response["Data"] as String
-                    onResponse.onResponse(salt)
+                    listener.onResponse(salt)
                 } catch (e: JSONException) {
                     context.log().w(TAG, "getSalt: ${e.stackTraceToString()}")
-                    onError.onErrorResponse(VolleyError("Salt response has no Data field"))
+                    errorListener.onError("Salt response has no Data field")
                 }
             },
-            onError,
+            errorListener.into(),
         )
         queue.add(request)
     }
 
     fun getAccessToken(
-        onResponse: Response.Listener<String>,
-        onError: Response.ErrorListener,
+        listener: Listener<String>,
+        errorListener: ErrorListener,
     ) {
         getAccessToken(
             settingsRepo.get(Settings.SET_FMDSERVER_ID) as String,
             settingsRepo.get(Settings.SET_FMD_CRYPT_HPW) as String,
-            onResponse,
-            onError,
+            listener,
+            errorListener,
         )
     }
 
     fun getAccessToken(
         userId: String,
         hashedPW: String,
-        onResponse: Response.Listener<String>,
-        onError: Response.ErrorListener,
+        listener: Listener<String>,
+        errorListener: ErrorListener,
     ) {
         val jsonObject = JSONObject()
         try {
@@ -200,26 +199,26 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             { response ->
                 try {
                     val accessToken = response["Data"] as String
-                    onResponse.onResponse(accessToken)
+                    listener.onResponse(accessToken)
                 } catch (e: JSONException) {
                     context.log().w(TAG, "getAccessToken: ${e.stackTraceToString()}")
-                    onError.onErrorResponse(VolleyError("Access Token response has no Data field"))
+                    errorListener.onError("Access Token response has no Data field")
                 }
             },
-            onError,
+            errorListener.into(),
         )
         queue.add(request)
     }
 
     fun <T> doRequestWithCachedToken(
-        doRequest: (String, Response.Listener<T>, Response.ErrorListener) -> Unit,
-        onResponse: Response.Listener<T>,
-        onError: Response.ErrorListener,
+        doRequest: (String, Listener<T>, ErrorListener) -> Unit,
+        listener: Listener<T>,
+        errorListener: ErrorListener,
     ) {
         val accessToken = encryptedSettingsRepo.getCachedAccessToken()
         doRequest(
             accessToken,
-            onResponse,
+            listener,
             { error ->
                 // Try to refresh the access token
                 context.log().i(TAG, "Refreshing access token")
@@ -227,24 +226,28 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
                     { newAccessToken ->
                         // If refreshing succeeds, store it and retry the original request
                         encryptedSettingsRepo.setCachedAccessToken(newAccessToken)
-                        doRequest(newAccessToken, onResponse, onError)
+                        doRequest(newAccessToken, listener, errorListener)
                     },
                     // If refreshing fails, use the original error handler
-                    onError,
+                    errorListener,
                 )
             },
         )
     }
 
-    fun checkConnection(
-        onResponse: Response.Listener<String>,
-        onError: Response.ErrorListener,
+    override fun checkConnection(
+        listener: Listener<Unit>,
+        errorListener: ErrorListener,
     ) {
         // TODO: dedicated connectivity check endpoint that doesn't return data
         // Previously, we used getAccessToken for the connectivity check.
         // However, that doesn't work when the account is locked.
         // We need an endpoint that we can access with the cached access token.
-        doRequestWithCachedToken(this::getPrivateKeyRaw, onResponse, onError)
+        doRequestWithCachedToken(
+            this::getPrivateKeyRaw,
+            { _: String -> listener.onResponse(Unit) },
+            errorListener
+        )
     }
 
     /**
@@ -261,22 +264,22 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
     fun getPrivateKey(
         password: String,
         accessToken: String,
-        onResponse: Response.Listener<KeyPair>,
-        onError: Response.ErrorListener,
+        listener: Listener<KeyPair>,
+        errorListener: ErrorListener,
     ) {
         getPrivateKeyRaw(
             accessToken,
-            onResponse = { rawPrivateKey ->
+            listener = { rawPrivateKey ->
                 val keyPair: KeyPair? =
                     CypherUtils.decryptPrivateKeyWithPassword(rawPrivateKey, password)
                 if (keyPair == null) {
                     context.log().w(TAG, "getPrivateKey: Failed to decrypt private key")
-                    onError.onErrorResponse(VolleyError("Failed to decrypt private key"))
+                    errorListener.onError("Failed to decrypt private key")
                 } else {
-                    onResponse.onResponse(keyPair)
+                    listener.onResponse(keyPair)
                 }
             },
-            onError = onError,
+            errorListener,
         )
     }
 
@@ -286,8 +289,8 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
      */
     fun getPrivateKeyRaw(
         accessToken: String,
-        onResponse: Response.Listener<String>,
-        onError: Response.ErrorListener,
+        listener: Listener<String>,
+        errorListener: ErrorListener,
     ) {
         val jsonObject = JSONObject()
         try {
@@ -303,13 +306,13 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             { response ->
                 try {
                     val privateKey = response["Data"] as String
-                    onResponse.onResponse(privateKey)
+                    listener.onResponse(privateKey)
                 } catch (e: JSONException) {
                     context.log().w(TAG, "getPrivateKeyRaw: ${e.stackTraceToString()}")
-                    onError.onErrorResponse(VolleyError("Private Key response has no Data field"))
+                    errorListener.onError("Private Key response has no Data field")
                 }
             },
-            onError,
+            errorListener.into(),
         )
         queue.add(request)
     }
@@ -358,50 +361,53 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
      *
      * TODO: handled this internally in the repo.
      */
-    fun login(
-        userId: String,
+    override fun login(
+        username: String,
         password: String,
-        onResponse: Response.Listener<Unit>,
-        onError: Response.ErrorListener,
+        listener: Listener<Unit>,
+        errorListener: ErrorListener,
     ) {
         loadBaseUrl()
 
-        getSalt(userId, onError = onError, onResponse = { salt ->
+        getSalt(username, errorListener = errorListener, listener = { salt: String ->
             val authPassword = CypherUtils.hashPasswordForLogin(password, salt)
-            getAccessToken(userId, authPassword, onError = onError, onResponse = { accessToken ->
-                encryptedSettingsRepo.setCachedAccessToken(accessToken)
-
-                getPrivateKey(
-                    password,
-                    accessToken,
-                    onError = onError,
-                    onResponse = { keyPair ->
-                        // Security: don't store the private+public key PEM strings as received from the server.
-                        // Instead, decrypt and parse them to trusted, well-formed objects.
-                        // Then encode them again for storage.
-                        val fmdKeyPair = FmdKeyPair(keyPair, password)
-                        settingsRepo.apply {
-                            set(Settings.SET_FMD_CRYPT_HPW, authPassword)
-                            set(Settings.SET_FMDSERVER_ID, userId)
-                            setKeys(fmdKeyPair)
-                        }
-                        onResponse.onResponse(Unit)
-                    })
-            })
+            getAccessToken(
+                username,
+                authPassword,
+                errorListener = errorListener,
+                listener = { accessToken: String ->
+                    encryptedSettingsRepo.setCachedAccessToken(accessToken)
+                    getPrivateKey(
+                        password,
+                        accessToken,
+                        errorListener = errorListener,
+                        listener = { keyPair: KeyPair ->
+                            // Security: don't store the private+public key PEM strings as received from the server.
+                            // Instead, decrypt and parse them to trusted, well-formed objects.
+                            // Then encode them again for storage.
+                            val fmdKeyPair = FmdKeyPair(keyPair, password)
+                            settingsRepo.apply {
+                                set(Settings.SET_FMDSERVER_ID, username)
+                                set(Settings.SET_FMD_CRYPT_HPW, authPassword)
+                                setKeys(fmdKeyPair)
+                            }
+                            listener.onResponse(Unit)
+                        })
+                })
         })
     }
 
-    fun unregister(
-        onResponse: Response.Listener<Unit>,
-        onError: Response.ErrorListener,
+    override fun unregister(
+        listener: Listener<Unit>,
+        errorListener: ErrorListener,
     ) {
-        doRequestWithCachedToken(this::unregisterInternal, onResponse, onError)
+        doRequestWithCachedToken(this::unregisterInternal, listener, errorListener)
     }
 
     private fun unregisterInternal(
         accessToken: String,
-        onResponse: Response.Listener<Unit>,
-        onError: Response.ErrorListener,
+        listener: Listener<Unit>,
+        errorListener: ErrorListener,
     ) {
         val jsonObject = JSONObject()
         try {
@@ -417,39 +423,39 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             { _ ->
                 settingsRepo.removeServerAccount()
                 encryptedSettingsRepo.setCachedAccessToken("")
-                onResponse.onResponse(Unit)
+                listener.onResponse(Unit)
             },
             { error ->
                 context.log().w(TAG, "unregisterInternal: ${error.stackTraceToString()}")
-                onError.onErrorResponse(error)
+                errorListener.onError(error)
             },
         )
         queue.add(request)
     }
 
-    fun registerPushEndpoint(
-        endpoint: String,
-        onError: Response.ErrorListener,
+    override fun registerPushEndpoint(
+        url: String,
+        errorListener: ErrorListener,
     ) {
         doRequestWithCachedToken<Unit>(
             doRequest = { accessToken, _, onError2 ->
-                registerPushEndpointInternal(accessToken, endpoint, onError2)
+                registerPushEndpointInternal(accessToken, url, onError2)
             },
-            onResponse = { _ -> },
-            onError,
+            listener = { _ -> },
+            errorListener,
         )
     }
 
     fun registerPushEndpointInternal(
         accessToken: String,
-        endpoint: String,
-        onError: Response.ErrorListener,
+        url: String,
+        errorListener: ErrorListener,
     ) {
-        context.log().i(TAG, "Registering push endpoint $endpoint")
+        context.log().i(TAG, "Registering push endpoint $url")
         val jsonObject = JSONObject()
         try {
             jsonObject.put("IDT", accessToken)
-            jsonObject.put("Data", endpoint)
+            jsonObject.put("Data", url)
         } catch (e: JSONException) {
             e.printStackTrace()
         }
@@ -460,7 +466,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             { error ->
                 val msg = "Failed to send push URL to FMD Server:\n\n${error.stackTraceToString()}"
                 context.log().w(TAG, msg)
-                onError.onErrorResponse(error)
+                errorListener.onError(error)
             }
         )
         queue.add(request)
@@ -469,16 +475,16 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
     /**
      * This MUST be wrapped in a Thread() because it does password hashing.
      */
-    fun changePassword(
+    override fun changePassword(
         oldPassword: String,
         newPassword: String,
-        onResponse: Response.Listener<Unit>,
-        onError: Response.ErrorListener,
+        listener: Listener<Unit>,
+        errorListener: ErrorListener,
     ) {
         val encryptedPrivKey = settingsRepo.get(Settings.SET_FMD_CRYPT_PRIVKEY) as String
         val keyPair = CypherUtils.decryptPrivateKeyWithPassword(encryptedPrivKey, oldPassword)
         if (keyPair == null) {
-            onError.onErrorResponse(VolleyError("WRONG_PASSWORD"))
+            errorListener.onError("WRONG_PASSWORD")
             return
         }
 
@@ -489,8 +495,8 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
             doRequest = { accessToken, onResponse2, onError2 ->
                 changePasswordInternal(accessToken, newHashedPW, newPrivKey, onResponse2, onError2)
             },
-            onResponse,
-            onError,
+            listener,
+            errorListener,
         )
     }
 
@@ -498,8 +504,8 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         accessToken: String,
         newHashedPW: String,
         newPrivKey: String,
-        onResponse: Response.Listener<Unit>,
-        onError: Response.ErrorListener,
+        listener: Listener<Unit>,
+        errorListener: ErrorListener,
     ) {
         val jsonObject = JSONObject()
         try {
@@ -517,27 +523,27 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
                     // Save only once we know that server has accepted the change
                     settingsRepo.set(Settings.SET_FMD_CRYPT_PRIVKEY, newPrivKey)
                     settingsRepo.set(Settings.SET_FMD_CRYPT_HPW, newHashedPW)
-                    onResponse.onResponse(Unit)
+                    listener.onResponse(Unit)
                 } else {
-                    onError.onErrorResponse(VolleyError("change password response has no Data field"))
+                    errorListener.onError("change password response has no Data field")
                 }
             },
-            onError,
+            errorListener.into(),
         )
         queue.add(request)
     }
 
-    fun getCommand(
-        onResponse: Response.Listener<String>,
-        onError: Response.ErrorListener,
+    override fun getCommand(
+        listener: Listener<String>,
+        errorListener: ErrorListener,
     ) {
-        doRequestWithCachedToken<String>(this::getCommandInternal, onResponse, onError)
+        doRequestWithCachedToken<String>(this::getCommandInternal, listener, errorListener)
     }
 
     fun getCommandInternal(
         accessToken: String,
-        onResponse: Response.Listener<String>,
-        onError: Response.ErrorListener,
+        listener: Listener<String>,
+        errorListener: ErrorListener,
     ) {
         val jsonObject = JSONObject()
         try {
@@ -557,12 +563,12 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
                     val sig = response["CmdSig"] as String
 
                     if (command.isEmpty()) {
-                        return@JsonObjectRequest onResponse.onResponse("")
+                        return@JsonObjectRequest listener.onResponse("")
                     }
                     // Exception: this value does not need to be signed.
                     // The command field is abused to send this status notification.
                     if (command == "423") {
-                        return@JsonObjectRequest onResponse.onResponse("423")
+                        return@JsonObjectRequest listener.onResponse("423")
                     }
 
                     // This only needs to be strictly increasing, to prevent replay attacks.
@@ -572,24 +578,24 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
                     if (time <= lastCmdMillis) {
                         val errorMsg = "Timestamp is not increasing: $time <= $lastCmdMillis"
                         context.log().e(TAG, errorMsg)
-                        return@JsonObjectRequest onError.onErrorResponse(VolleyError(errorMsg))
+                        return@JsonObjectRequest errorListener.onError(errorMsg)
                     }
 
                     val publicKeyPem = settingsRepo.get(Settings.SET_FMD_CRYPT_PUBKEY) as String
                     if (!CypherUtils.verifySig(publicKeyPem, "$time:$command", sig)) {
                         val errorMsg = "Failed to verify the signature of command '$command'"
                         context.log().e(TAG, errorMsg)
-                        return@JsonObjectRequest onError.onErrorResponse(VolleyError(errorMsg))
+                        return@JsonObjectRequest errorListener.onError(errorMsg)
                     }
 
                     settingsRepo.set(Settings.SET_FMDSERVER_LAST_CMD_MILLIS, time)
-                    onResponse.onResponse(command)
+                    listener.onResponse(command)
                 } catch (e: JSONException) {
                     context.log().w(TAG, "getCommandInternal: ${e.stackTraceToString()}")
-                    onError.onErrorResponse(VolleyError("get command response has no Data field"))
+                    errorListener.onError("get command response has no Data field")
                 }
             },
-            onError,
+            errorListener.into(),
         )
         queue.add(request)
     }
@@ -599,7 +605,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
      *
      * TODO: handled this internally in the repo.
      */
-    fun sendPicture(
+    override fun sendPicture(
         picture: String,
     ) {
         val publicKey = settingsRepo.getKeys()?.publicKey
@@ -610,21 +616,23 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         val dataBytes = CypherUtils.encryptWithKey(publicKey, picture)
         val dataBase64 = CypherUtils.encodeBase64(dataBytes)
 
-        val onError = { error: VolleyError -> error.printStackTrace() }
+        val errorListener = { e: ServerError ->
+            context.log().e(TAG, "Error sending picture:\n\nHTTP=${e.statusCode}\nmsg=${e.message}")
+        }
 
         doRequestWithCachedToken<Unit>(
             doRequest = { accessToken, _, onError2 ->
                 sendPictureInternal(accessToken, dataBase64, onError2)
             },
             { _ -> },
-            onError,
+            errorListener,
         )
     }
 
     fun sendPictureInternal(
         accessToken: String,
         encryptedPicture: String,
-        onError: Response.ErrorListener,
+        errorListener: ErrorListener,
     ) {
         val jsonObject = JSONObject()
         try {
@@ -637,7 +645,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         val request = JsonPostRequest(
             Method.POST, baseUrl + URL_PICTURE, jsonObject,
             { _ -> },
-            onError,
+            errorListener.into(),
         )
         queue.add(request)
     }
@@ -647,7 +655,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
      *
      * TODO: handled this internally in the repo.
      */
-    fun sendLocation(location: FmdLocation) {
+    override fun sendLocation(location: FmdLocation) {
         // Prepare payload
         val publicKey = settingsRepo.getKeys()?.publicKey
         if (publicKey == null) {
@@ -677,7 +685,10 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         val encryptedLocationBytes = CypherUtils.encryptWithKey(publicKey, jsonSerialised)
         val encryptedLocation = CypherUtils.encodeBase64(encryptedLocationBytes)
 
-        val onError = { error: VolleyError -> error.printStackTrace() }
+        val errorListener = { e: ServerError ->
+            context.log()
+                .e(TAG, "Error sending location:\n\nHTTP=${e.statusCode}\nmsg=${e.message}")
+        }
 
         // Send payload
         doRequestWithCachedToken<Unit>(
@@ -685,14 +696,14 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
                 sendLocationInternal(accessToken, encryptedLocation, onError2)
             },
             { _ -> },
-            onError,
+            errorListener,
         )
     }
 
     fun sendLocationInternal(
         accessToken: String,
         encryptedLocation: String,
-        onError: Response.ErrorListener,
+        errorListener: ErrorListener,
     ) {
         val jsonObject = JSONObject()
         try {
@@ -705,7 +716,7 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
         val request = JsonPostRequest(
             Method.POST, baseUrl + URL_LOCATION, jsonObject,
             { _ -> },
-            onError,
+            errorListener.into(),
         )
         queue.add(request)
     }

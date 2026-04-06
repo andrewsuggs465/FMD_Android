@@ -3,16 +3,16 @@ package de.nulide.findmydevice.utils;
 import android.content.Context;
 import android.content.DialogInterface;
 
-import com.android.volley.VolleyError;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import de.nulide.findmydevice.R;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
+import de.nulide.findmydevice.net.ServerError;
 
 public class UnregisterUtil {
 
-    public static void showUnregisterFailedDialog(Context context, VolleyError error, OnContinueClickedListener onContinueClickedListener) {
+    public static void showUnregisterFailedDialog(Context context, ServerError error, OnContinueClickedListener onContinueClickedListener) {
 
         String message = context.getString(R.string.server_unregister_failed_body);
         if (error != null && error.getMessage() != null) {
