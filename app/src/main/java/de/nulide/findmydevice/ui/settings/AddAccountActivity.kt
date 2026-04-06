@@ -21,8 +21,8 @@ import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.RegistrationTokenRepository
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
-import de.nulide.findmydevice.net.FMDServerApiRepoSpec
-import de.nulide.findmydevice.net.FMDServerApiRepository
+import de.nulide.findmydevice.net.FmdServerApiService
+import de.nulide.findmydevice.net.FmdServerRepository
 import de.nulide.findmydevice.net.MinRequiredVersionResult
 import de.nulide.findmydevice.net.ServerError
 import de.nulide.findmydevice.net.isMinRequiredVersion
@@ -47,7 +47,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
     private lateinit var btnRegister: Button
 
     private lateinit var settingsRepo: SettingsRepository
-    private lateinit var fmdServerRepo: FMDServerApiRepository
+    private lateinit var fmdServerRepo: FmdServerApiService
     private lateinit var registrationTokensRepo: RegistrationTokenRepository
 
     private var loadingDialog: AlertDialog? = null
@@ -62,7 +62,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         setupEdgeToEdgeScrollView(findViewById(R.id.scrollView))
 
         settingsRepo = SettingsRepository.getInstance(this)
-        fmdServerRepo = FMDServerApiRepository.getInstance(FMDServerApiRepoSpec(this))
+        fmdServerRepo = FmdServerRepository(this).getApiService()
         registrationTokensRepo = RegistrationTokenRepository.getInstance(this)
 
         if (settingsRepo.serverAccountExists()) {

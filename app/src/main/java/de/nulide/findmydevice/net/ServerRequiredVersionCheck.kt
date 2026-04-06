@@ -1,7 +1,6 @@
 package de.nulide.findmydevice.net
 
 import android.content.Context
-import com.android.volley.VolleyError
 import de.nulide.findmydevice.data.Settings.SET_FMDSERVER_URL
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.net.FMDServerApiRepository.Companion.MIN_REQUIRED_SERVER_VERSION
@@ -30,18 +29,13 @@ fun isMinRequiredVersion(
 
 /**
  * Query if the server version is high enough, or if the server is outdated.
- *
- * This is not a suspend function (because it uses callbacks).
- * Still, it should be called on Dispatchers.IO because it does networking.
- *
- * TODO: handle this in the FMDServerApiRepository.
  */
 fun isMinRequiredVersion(
     context: Context,
     serverBaseUrl: String,
     onResult: (MinRequiredVersionResult) -> Unit,
 ) {
-    val repo = FMDServerApiRepository.getInstance(FMDServerApiRepoSpec(context))
+    val repo = FmdServerRepository(context)
 
     repo.getServerVersion(serverBaseUrl, { response: String ->
         var currentString = response
@@ -60,7 +54,7 @@ fun isMinRequiredVersion(
         } else {
             onResult(MinRequiredVersionResult.Success(currentString))
         }
-    }, { error: VolleyError ->
-        onResult(MinRequiredVersionResult.Error("[${error.networkResponse?.statusCode ?: 0}] ${error.message}"))
+    }, { error: ServerError ->
+        onResult(MinRequiredVersionResult.Error("[${error.statusCode ?: 0}] ${error.message}"))
     })
 }

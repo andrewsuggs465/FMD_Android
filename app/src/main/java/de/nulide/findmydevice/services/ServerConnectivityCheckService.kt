@@ -9,8 +9,7 @@ import android.os.Build
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
-import de.nulide.findmydevice.net.FMDServerApiRepoSpec
-import de.nulide.findmydevice.net.FMDServerApiRepository
+import de.nulide.findmydevice.net.FmdServerRepository
 import de.nulide.findmydevice.ui.settings.FMDServerActivity
 import de.nulide.findmydevice.utils.Notifications
 import de.nulide.findmydevice.utils.log
@@ -103,8 +102,8 @@ class ServerConnectivityCheckService : FmdJobService() {
     private fun doWork() {
         val context = this
 
-        val fmdServerRepo = FMDServerApiRepository.getInstance(FMDServerApiRepoSpec(context))
         val settings = SettingsRepository.getInstance(context)
+        val fmdServerRepo = FmdServerRepository(context).getApiService()
         val now: Long = System.currentTimeMillis()
 
         fmdServerRepo.checkConnection(

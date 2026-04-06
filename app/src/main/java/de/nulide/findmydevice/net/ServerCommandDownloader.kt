@@ -37,7 +37,7 @@ class ServerCommandDownloader(
             return
         }
 
-        val fmdServerRepo = FMDServerApiRepository.getInstance(FMDServerApiRepoSpec(context))
+        val fmdServerRepo = FmdServerRepository(context).getApiService()
         fmdServerRepo.getCommand(::onResponse, ::onError)
     }
 

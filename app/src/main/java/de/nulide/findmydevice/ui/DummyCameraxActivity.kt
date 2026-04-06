@@ -20,8 +20,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import de.nulide.findmydevice.databinding.ActivityDummyCameraxBinding
-import de.nulide.findmydevice.net.FMDServerApiRepoSpec
-import de.nulide.findmydevice.net.FMDServerApiRepository
+import de.nulide.findmydevice.net.FmdServerRepository
 import de.nulide.findmydevice.utils.CypherUtils
 import de.nulide.findmydevice.utils.imageToByteArray
 import de.nulide.findmydevice.utils.log
@@ -157,7 +156,7 @@ class DummyCameraxActivity : AppCompatActivity() {
         val picture = CypherUtils.encodeBase64(imgBytes)
 
         // TODO: upload in a background job so that the activity can finish fast
-        val repo = FMDServerApiRepository.getInstance(FMDServerApiRepoSpec(this))
+        val repo = FmdServerRepository(this).getApiService()
         repo.sendPicture(picture)
 
         finish()

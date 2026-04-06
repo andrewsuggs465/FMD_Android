@@ -40,8 +40,8 @@ import de.nulide.findmydevice.data.BackgroundLocationType;
 import de.nulide.findmydevice.data.EncryptedSettingsRepository;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
-import de.nulide.findmydevice.net.FMDServerApiRepoSpec;
-import de.nulide.findmydevice.net.FMDServerApiRepository;
+import de.nulide.findmydevice.net.FmdServerApiService;
+import de.nulide.findmydevice.net.FmdServerRepository;
 import de.nulide.findmydevice.net.ServerCommandDownloader;
 import de.nulide.findmydevice.services.FmdBatteryLowService;
 import de.nulide.findmydevice.services.ServerConnectivityCheckService;
@@ -62,7 +62,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     private final Handler handler = new Handler(Looper.getMainLooper());
 
     private SettingsRepository settings;
-    private FMDServerApiRepository fmdServerRepo;
+    private FmdServerApiService fmdServerRepo;
 
     private EditText editTextCheckInterval;
     private EditText editTextNotifyAfterTime;
@@ -85,7 +85,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         setupEdgeToEdgeScrollView(findViewById(R.id.scrollView));
 
         settings = SettingsRepository.Companion.getInstance(this);
-        fmdServerRepo = FMDServerApiRepository.Companion.getInstance(new FMDServerApiRepoSpec(this));
+        fmdServerRepo = new FmdServerRepository(this).getApiService();
 
         TextView textViewServerUrl = findViewById(R.id.textViewServerUrl);
         TextView textViewUserId = findViewById(R.id.textViewUserId);
@@ -421,7 +421,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         TextView serverVersion = findViewById(R.id.serverVersion);
 
         String baseUrl = (String) settings.get(Settings.SET_FMDSERVER_URL);
-        fmdServerRepo.getServerVersion(baseUrl, response -> {
+        new FmdServerRepository(this).getServerVersion(baseUrl, response -> {
             serverVersion.setText(getString(R.string.server_version) + ": " + response);
             serverVersion.setVisibility(View.VISIBLE);
         }, error -> {

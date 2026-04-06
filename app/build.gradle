@@ -153,6 +153,9 @@ dependencies {
     implementation 'com.google.android.material:material:1.13.0'
     implementation 'com.google.code.gson:gson:2.13.2'
 
+    // Networking
+    implementation "com.squareup.okhttp3:okhttp:5.3.2"
+
     implementation 'org.unifiedpush.android:connector:3.3.2'
     implementation 'com.jakewharton:process-phoenix:3.0.0'
     implementation "com.mikepenz:aboutlibraries:13.2.1"

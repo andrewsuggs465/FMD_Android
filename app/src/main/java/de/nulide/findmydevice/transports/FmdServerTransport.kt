@@ -10,8 +10,7 @@ import de.nulide.findmydevice.commands.ParserResult
 import de.nulide.findmydevice.data.FmdLocation
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
-import de.nulide.findmydevice.net.FMDServerApiRepoSpec
-import de.nulide.findmydevice.net.FMDServerApiRepository
+import de.nulide.findmydevice.net.FmdServerRepository
 import de.nulide.findmydevice.permissions.Permission
 import de.nulide.findmydevice.ui.settings.AddAccountActivity
 
@@ -23,7 +22,7 @@ class FmdServerTransport(
 
     constructor(context: Context) : this(context, "FMD Server")
 
-    private val repo = FMDServerApiRepository.getInstance(FMDServerApiRepoSpec(context))
+    private val repo = FmdServerRepository(context).getApiService()
     private val settings = SettingsRepository.getInstance(context)
 
     @get:DrawableRes

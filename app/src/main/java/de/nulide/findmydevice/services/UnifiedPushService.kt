@@ -4,8 +4,7 @@ import android.content.Context
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
-import de.nulide.findmydevice.net.FMDServerApiRepoSpec
-import de.nulide.findmydevice.net.FMDServerApiRepository
+import de.nulide.findmydevice.net.FmdServerRepository
 import de.nulide.findmydevice.net.ServerCommandDownloader
 import de.nulide.findmydevice.net.ServerError
 import de.nulide.findmydevice.ui.settings.FMDServerActivity
@@ -34,7 +33,7 @@ class UnifiedPushService : PushService() {
         val settings = SettingsRepository.getInstance(this)
         settings.set(Settings.SET_FMDSERVER_PUSH_URL, endpoint.url)
 
-        val repo = FMDServerApiRepository.getInstance(FMDServerApiRepoSpec(this))
+        val repo = FmdServerRepository(this).getApiService()
         repo.registerPushEndpoint(endpoint.url, { _: ServerError ->
             val context = this
             Notifications.notify(
@@ -83,7 +82,7 @@ private fun clearPushState(context: Context) {
     // or someone else (e.g., the distributor itself) has triggered the deregistration.
     // In the latter case, inform the server.
     if (settings.serverAccountExists()) {
-        val repo = FMDServerApiRepository.getInstance(FMDServerApiRepoSpec(context))
+        val repo = FmdServerRepository(context).getApiService()
         repo.registerPushEndpoint("", { _ -> /* noop */ })
     }
 }
