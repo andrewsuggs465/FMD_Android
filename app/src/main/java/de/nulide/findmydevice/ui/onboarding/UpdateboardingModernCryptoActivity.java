@@ -12,8 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import de.nulide.findmydevice.R;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
-import de.nulide.findmydevice.net.FMDServerApiRepoSpec;
-import de.nulide.findmydevice.net.FMDServerApiRepository;
+import de.nulide.findmydevice.net.FmdServerApiV1RepoSpec;
+import de.nulide.findmydevice.net.FmdServerApiV1Repository;
 import de.nulide.findmydevice.ui.MainActivity;
 import de.nulide.findmydevice.utils.Notifications;
 import de.nulide.findmydevice.utils.UnregisterUtil;
@@ -88,7 +88,7 @@ public class UpdateboardingModernCryptoActivity extends AppCompatActivity {
         if (isRegisteredWithServer) {
             // SET_FMD_CRYPT_HPW still contains the old-style hash.
             // Thus we can authenticate one last time using that hash, and this call should succeed.
-            FMDServerApiRepository repo = FMDServerApiRepository.Companion.getInstance(new FMDServerApiRepoSpec(this));
+            FmdServerApiV1Repository repo = FmdServerApiV1Repository.Companion.getInstance(new FmdServerApiV1RepoSpec(this));
             repo.unregister(response -> {
                 completeAndContinueToMain();
             }, error -> {

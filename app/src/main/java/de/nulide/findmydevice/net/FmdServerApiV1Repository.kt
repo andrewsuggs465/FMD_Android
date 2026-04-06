@@ -19,19 +19,20 @@ import org.json.JSONObject
 import java.security.KeyPair
 import java.util.Date
 
-data class FMDServerApiRepoSpec(
+data class FmdServerApiV1RepoSpec(
     val context: Context,
 )
 
 /**
  * All network requests run on a background thread. This is handled by Volley.
  */
-class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) : FmdServerApiService {
+class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec) :
+    FmdServerApiService {
 
     companion object :
-        SingletonHolder<FMDServerApiRepository, FMDServerApiRepoSpec>(::FMDServerApiRepository) {
+        SingletonHolder<FmdServerApiV1Repository, FmdServerApiV1RepoSpec>(::FmdServerApiV1Repository) {
 
-        val TAG = FMDServerApiRepository::class.simpleName
+        val TAG = FmdServerApiV1Repository::class.simpleName
 
         const val MIN_REQUIRED_SERVER_VERSION = "0.9.0"
 

@@ -17,8 +17,8 @@ class FmdServerRepository(
     // private val settingsRepo = SettingsRepository.getInstance(context)
 
     fun getApiService(): FmdServerApiService {
-        val spec = FMDServerApiRepoSpec(context)
-        return FMDServerApiRepository.getInstance(spec)
+        val spec = FmdServerApiV1RepoSpec(context)
+        return FmdServerApiV1Repository.getInstance(spec)
     }
 
     /*
@@ -27,8 +27,8 @@ class FmdServerRepository(
         val accountProtocolVersion = settingsRepo.get(Settings.SET_FMD_CRYPT_PROTO) as Int
 
         if (accountProtocolVersion == FMD_SERVER_PROTO_V1) {
-            val spec = FMDServerApiRepoSpec(context)
-            return FMDServerApiRepository.getInstance(spec)
+            val spec = FmdServerApiV1RepoSpec(context)
+            return FmdServerApiV1Repository.getInstance(spec)
         } else {
             val spec = FmdServerApiV2RepoSpec(context)
             return FmdServerApiV2Repository.getInstance(spec)
