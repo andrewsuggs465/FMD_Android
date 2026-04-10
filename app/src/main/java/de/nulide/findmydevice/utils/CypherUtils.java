@@ -249,6 +249,9 @@ public class CypherUtils {
         byte[] aesKey = result.hash;
 
         byte[] aesPlaintextBytes = decryptWithAes(ciphertextBytes, aesKey);
+        if (aesPlaintextBytes == null) {
+            return null;
+        }
         String pem = new String(aesPlaintextBytes, StandardCharsets.UTF_8);
         return pemDecodeRsaPrivateKey(pem);
     }
