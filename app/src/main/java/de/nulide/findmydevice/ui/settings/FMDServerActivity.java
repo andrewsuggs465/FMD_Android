@@ -407,7 +407,13 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
                     });
                 },
                 error -> {
-                    textViewConnectionStatus.setText(error.toString());
+                    String message = error.toString();
+                    if (error.getStatusCode() != null && error.getStatusCode() == 404) {
+                        String userName = (String) settings.get(Settings.SET_FMDSERVER_ID);
+                        message = getString(R.string.server_apparently_deleted_text, userName);
+                    }
+
+                    textViewConnectionStatus.setText(message);
                     textViewConnectionStatus.setTextColor(ContextCompat.getColor(this, R.color.md_theme_error));
                     textViewConnectionStatus.setOnClickListener(v -> {
                         Utils.copyToClipboard(this, "", error.toString());

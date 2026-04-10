@@ -114,6 +114,7 @@
     <string name="server_connectivity_lost_text">The FMD Server at %1$s can no longer be reached. The last successful connection was at %2$s.</string>
     <string name="server_connectivity_check_not_enabled_title">Enable the server connectivity check</string>
     <string name="server_connectivity_check_not_enabled_text">FMD can regularly check whether FMD Server is still reachable. For privacy reasons this is off by default. But for availability reasons we recommend enabling it.</string>
+    <string name="server_apparently_deleted_text">FMD cannot log in to your FMD Server account \"%s\". It looks like the account was deleted from the server.</string>
 
     <!-- FMD Server registration/login -->
     <string name="server_version">Server version</string>

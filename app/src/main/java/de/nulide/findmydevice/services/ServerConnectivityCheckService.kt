@@ -8,6 +8,7 @@ import android.content.Context
 import android.os.Build
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.Settings
+import de.nulide.findmydevice.data.Settings.SET_FMDSERVER_ID
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.net.FmdServerRepository
 import de.nulide.findmydevice.ui.settings.FMDServerActivity
@@ -114,6 +115,18 @@ class ServerConnectivityCheckService : FmdJobService() {
             },
             { error ->
                 context.log().e(TAG, "Failed to connect to FMD Server: ${error.message}")
+
+                if (error.statusCode == 404) {
+                    val userName = settings.get(SET_FMDSERVER_ID) as String
+                    Notifications.notify(
+                        context,
+                        getString(R.string.server_connectivity_lost_title),
+                        getString(R.string.server_apparently_deleted_text, userName),
+                        Notifications.CHANNEL_FAILED
+                    )
+                    jobFinished()
+                    return@checkConnection
+                }
 
                 val lastSuccessMillis =
                     (settings.get(Settings.SET_FMD_SERVER_LAST_CONNECTIVITY_UNIX_TIME) as Number).toLong()
