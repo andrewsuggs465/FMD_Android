@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="loading">Betöltés…</string>
+    <string name="about">Rólunk</string>
+    <string name="help">Súgó</string>
+    <string name="Edit">Szerkesztés</string>
+    <string name="Enable">Engedélyezés</string>
+</resources>
