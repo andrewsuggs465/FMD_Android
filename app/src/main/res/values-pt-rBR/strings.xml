@@ -97,7 +97,7 @@
     <string name="ringer_stop_ringing">PARAR DE TOCAR</string>
     <string name="Toast_Empty_FMDCommand">Comando vazio não permitido, usando o padrão.</string>
     <string name="cmd_missing_permissions">Não foi possível executar o comando %1$s: Faltando a(s) permissão(ões) %2$s.</string>
-    <string name="cmd_camera_description_long">Tira uma foto da câmera frontal/traseira e a envia para o FMD Server. Atualmente só é possível enviar para o FMD Server. Você pode enviar este comando atráves de outros canais de transporte, também, e a foto será enviada ao FMD Server (se uma conta existe).</string>
+    <string name="cmd_camera_description_long">Tira uma foto da câmera frontal/traseira e a envia para o FMD Server. Atualmente só é possível enviar para o FMD Server. Você pode enviar este comando através de outros canais de transporte, também, e a foto será enviada ao FMD Server (se uma conta existe).</string>
     <string name="cmd_delete_description_short">Apagar os dados do dispositivo</string>
     <string name="cmd_gps_description_short">Habilitar os serviços de localização</string>
     <string name="cmd_lock_response">O dispositivo deve estar bloqueado agora.</string>
@@ -108,7 +108,7 @@
     <string name="perm_sms_name">SMS</string>
     <string name="perm_write_secure_settings_name">Modificar configurações seguras</string>
     <string name="grant_write_secure_settings_title">Permitir modificação das configurações seguras</string>
-    <string name="grant_write_secure_settings_description">Esta permissão só pode ser concedida com a ferramenta \"pm grant\" de terminal do Android. Você pode executar este comando manualmente atráves do Android Debug Bridge (ADB) usando um computador. Você também pode executá-lo diretamente no seu dispositivo usando root ou o Shizuku.\n\nID do usuário: %d</string>
+    <string name="grant_write_secure_settings_description">Esta permissão só pode ser concedida com a ferramenta \"pm grant\" de terminal do Android. Você pode executar este comando manualmente através do Android Debug Bridge (ADB) usando um computador. Você também pode executá-lo diretamente no seu dispositivo usando root ou o Shizuku.\n\nID do usuário: %d</string>
     <string name="cmd_camera_description_short">Tirar uma foto</string>
     <string name="cmd_delete_response_pwd_wrong">Não foi possível executar o delete: senha errada.</string>
     <string name="cmd_camera_response_no_fmd_server">Não foi possível tirar foto: nenhum conta do FMD Server existe.</string>
@@ -241,7 +241,7 @@
     <string name="Settings_FMDServer_Check_Notify_After_Description">O FMD irá te notificar se a última conexão ao FMD Server foi a mais de X horas atrás. Isto não tem efeito se o teste de conectividade está desativado.</string>
     <string name="pin_match_command_keyword">O PIN não pode ser igual a um dos comandos!</string>
     <string name="usage_notification_pin_title">PIN do FMD utilizado</string>
-    <string name="server_fmd_id_hint">O FMD ID identifica sua conta no FMD Server. Deixe isso vazio para deixar que o servidor gere um ID. O administrador doservidor pode ver o FMD ID.</string>
+    <string name="server_fmd_id_hint">O FMD ID identifica sua conta no FMD Server. Deixe isso vazio para deixar que o servidor gere um ID. O administrador do servidor pode ver o FMD ID.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distribuidor: %s</string>
     <string name="Settings_FMDServer_Push_Url">URL do Push: %s</string>
     <string name="Settings_FMDServer_Push_Register">Cadastrar</string>
@@ -286,7 +286,7 @@
     <string name="password_match_command_keyword">A senha não pode ser igual aos comandos!</string>
     <string name="fmd_edge_info_message">Essa é a variante edge do FMD. Aqui, o comando padrão é \"fmde\" (em vez de \"fmd\"). Por exemplo, para enviar um comando de localizar, use \"fmde locate\". Isso permite ter tanto o edge quanto o prod instalados no mesmo dispositivo, e especificar para qual vão os comandos.</string>
     <string name="Fused">Combinado</string>
-    <string name="tip_first_contact_added">Parabéns, você adicionou o seu primeiro contato! Agora você pode comunicar com o FMD enviando um SMS que começa com \"%1$s\" pelo número de telefone permitido. Por exemplo, envie \"%2$s help\" ou \"%3$s flash\". Se tudo funciona, o app será responder.</string>
+    <string name="tip_first_contact_added">Parabéns, você adicionou o seu primeiro contato! Agora você pode comunicar com o FMD enviando um SMS que começa com \"%1$s\" pelo número de telefone permitido. Por exemplo, envie \"%2$s help\" ou \"%3$s flash\". Se tudo funciona, o app irá responder.</string>
     <string name="cmd_bluetooth_response_is_on">O Bluetooth está ativado.</string>
     <string name="cmd_bluetooth_response_is_off">O Bluetooth está desativado.</string>
     <string name="cmd_gps_response_is_on">Os serviços de localização estão ativados.</string>
