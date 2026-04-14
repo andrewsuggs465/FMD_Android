@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Settings_FMDServer_AddAccount">FMD serveris: Autorizēties/Reģistrēties</string>
+    <string name="Settings_FMDServer_Login">Autorizēties</string>
+    <string name="loading">Ielādē…</string>
+    <string name="about">Par lietotni</string>
+</resources>
