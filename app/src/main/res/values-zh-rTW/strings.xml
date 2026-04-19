@@ -63,7 +63,6 @@
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">在低電量時上傳</string>
     <string name="password_old">舊密碼</string>
     <string name="password_new">新密碼</string>
-    <string name="password_new_repeat">重複新密碼</string>
     <string name="Settings_FMDServer_Location_Type_Description">在背景中定期上傳位置資料時所使用的位置來源。\n若未選擇任何來源，將不會定期上傳位置資料。（您仍可透過網頁介面強制進行一次上傳，但這需要推送功能。）</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">當電池電量過低時，上傳此裝置的位置。</string>
     <string name="server_version">伺服器版本</string>
@@ -83,7 +82,6 @@
     <string name="Notification_Security">安全</string>
     <string name="Notification_FAIL">失敗</string>
     <string name="pw_change_success">密碼已變更</string>
-    <string name="pw_change_mismatch">重複的密碼不相符。</string>
     <string name="pin_match_command_keyword">PIN 不得與任何指令相同！</string>
     <string name="Settings_no_ringtone_picker">找不到鈴聲選擇器！</string>
     <string name="Settings_FMDServer_Logout_Text">您真的要登出您的 FMD 伺服器帳號嗎？</string>

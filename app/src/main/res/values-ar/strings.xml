@@ -17,7 +17,6 @@
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">تحميل على بطارية منخفضة</string>
     <string name="password_old">كلمة المرور القديمة</string>
     <string name="password_new">كلمة المرور الجديدة</string>
-    <string name="password_new_repeat">كرر كلمة المرور الجديدة</string>
     <string name="server_version">إصدار الخادم</string>
     <string name="server_version_error">حدث خطأ أثناء الحصول على إصدار الخادم</string>
     <string name="Settings_FMDServer_open_website">فتح موقع خادم FMD</string>
@@ -131,7 +130,6 @@
     <string name="Settings_no_ringtone_picker">لا وجود لمختار نغمات الهاتف!</string>
     <string name="Settings_FMDServer_Unregister_Success">تم مسح الحساب والبيانات بنجاح!</string>
     <string name="Settings_FMDServer_Location_Type_Description">المصدر أو المصادر التي يتم رفع بيانات الموقع إليها بانتظام في الخلفية.\nإن لم يتم إختيار أحدها، لن يتم رفع بيانات الموقع بانتظام. (بإمكانك استعمال واجهة الويب للقيام برفع إجباري، ما يتطلب إشعارات دفع مفعلة.)</string>
-    <string name="pw_change_mismatch">كلمات السر غير متطابقة.</string>
     <string name="temporary_allowlist_expired">انتهت صلاحية وصولك المؤقت إلى FMD. لمواصلة استخدام FMD، أرسل الرقم السري مرة أخرى.</string>
     <string name="allowlist_phone_number_name">إسم</string>
     <string name="OpenCellId_tower_collector_info">يمكنك المساهمة إلى OpenCelliD بتجميع ورفع معلومات الأبراج الخلوية. تحتاج تطبيقا خاصا لذلك، مثل \"Tower Collector\".</string>

@@ -73,9 +73,7 @@
     <string name="password_old">Eski Şifre</string>
     <string name="password_new">Yeni Şifre</string>
     <string name="pw_change_success">Şifre değiştirildi</string>
-    <string name="password_new_repeat">Yeni Şifreyi Tekrarla</string>
     <string name="pw_change_empty">Şifre boş olmamalıdır.</string>
-    <string name="pw_change_mismatch">Yinelenen şifreler eşleşmiyor.</string>
     <string name="server_login_attempts_text">Birisi FMD Sunucu hesabınız olan \"%s\"\'a giriş yapmayı denedi. Birden fazla başarısız şifreden dolayı, hesap şimdi 10 dakika boyunca kilitli.</string>
     <string name="appearance_theme">Tema</string>
     <string name="appearance_theme_choose">Tema seçiniz</string>

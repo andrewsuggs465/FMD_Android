@@ -33,7 +33,6 @@
     <string name="Settings_FMDServer_Change_Password_Button">Сменить пароль</string>
     <string name="Settings_FMDServer_Logout_Button">Выйти</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Это удалит все данные с сервера. Вы уверены?</string>
-    <string name="password_new_repeat">Повторите новый пароль</string>
     <string name="notify_crypto_update_text">Вам необходимо обновить некоторые настройки для продолжения использования FMD. Нажмите, чтобы открыть их.</string>
     <string name="Whitelist_help">Контактам в этом списке разрешено отправлять FMD команды через SMS сообщения. Команды от всех остальных контактов будут проигнорированы.</string>
     <string name="app_description">FMD (Find My Device) позволяет вам удалённо находить ваше устройство. Вы можете взаимодействовать с ним с помощью FMD через SMS сообщения, мессенджеры, или используя FMD Сервер. Находите ваше устройство, заставляйте его воспроизводить звук, блокируйте его, или удаляйте хранящиеся на нём данные - всё это можно сделать удалённо.</string>
@@ -219,7 +218,6 @@
     <string name="export_failed">Экспортирование не удалось</string>
     <string name="temporary_allowlist_expired">Ваш временный доступ к FMD истёк. Чтобы продолжить использовать FMD, отправьте ПИН-код снова.</string>
     <string name="pw_change_success">Пароль изменён</string>
-    <string name="pw_change_mismatch">Пароли не совпадают.</string>
     <string name="pw_change_wrong_password">Неверный пароль</string>
     <string name="cmd_bluetooth_response_off">Bluetooth выключен.</string>
     <string name="Settings_FMDServer_Delete_Account">Удалить профиль</string>

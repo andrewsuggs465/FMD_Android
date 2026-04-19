@@ -71,10 +71,8 @@
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Încarcă locația acestui dispozitiv atunci când nivelul bateriei scade. Aceasta necesită acces la notificări.</string>
     <string name="password_old">Parola veche</string>
     <string name="password_new">Parola nouă</string>
-    <string name="password_new_repeat">Repetă parola nouă</string>
     <string name="pw_change_success">Parola a fost schimbată</string>
     <string name="pw_change_empty">Parola nu trebuie să fie goală.</string>
-    <string name="pw_change_mismatch">Parolele repetate nu corespund.</string>
     <string name="pw_change_wrong_password">Parolă greșită</string>
     <string name="pw_change_network_failed">Modificarea parolei a eșuat din cauza unei erori de rețea.</string>
     <string name="server_login_attempts_title">Încercări eșuate de autentificare la serverul FMD</string>

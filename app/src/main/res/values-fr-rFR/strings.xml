@@ -44,7 +44,6 @@
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Envoyer lorsque la batterie est faible</string>
     <string name="password_old">Ancien mot de passe</string>
     <string name="password_new">Nouveau mot de passe</string>
-    <string name="password_new_repeat">Répétez le nouveau mot de passe</string>
     <string name="server_version">Version du serveur</string>
     <string name="server_version_error">Erreur lors de l\'obtention de la version du serveur</string>
     <string name="server_version_error_low_version">La version minimale requise du serveur est {MIN}, mais la version du serveur sélectionné est {CURRENT}. Poursuivre à vos risques et périls.</string>
@@ -201,7 +200,6 @@
     <string name="Settings_FMDServer_Unregister_Success">Désinscription et suppression des données réussis !</string>
     <string name="pw_change_empty">Le mot de passe ne peut pas être vide.</string>
     <string name="pw_change_success">Mot de passe changé</string>
-    <string name="pw_change_mismatch">Le mot de passe et sa vérification ne sont pas identiques.</string>
     <string name="pw_change_wrong_password">Mot de passe invalide</string>
     <string name="Settings_FMDServer_Delete_Account">Supprimer le compte</string>
     <string name="pw_change_network_failed">Changement du mot de passe échoué à cause d\'une erreur réseau.</string>

@@ -50,7 +50,6 @@
     <string name="Settings_FMDServer_Location_Type_Description">Джерело(-а), з якого(-их) дані про місцезнаходження завантажуються у фоновому режимі через певні проміжки часу.
 \nЯкщо не вибрано жодного, дані про місцезнаходження не будуть регулярно завантажуватися. (Ви все ще можете використовувати вебінтерфейс, щоб примусово завантажувати дані. Для цього потрібно натиснути кнопку.)</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Вивантажувати місцезнаходження цього пристрою при низькому заряді акумулятора.</string>
-    <string name="password_new_repeat">Повторіть новий пароль</string>
     <string name="server_version">Версія сервера</string>
     <string name="server_version_error_low_version">Мінімальна потрібна версія сервера {MIN}, але вибраний сервер використовує версію {CURRENT}. Продовжуйте на свій страх і ризик.</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD завантажує місцезнаходження пристрою кожні X хвилин.</string>
@@ -220,7 +219,6 @@
     <string name="Settings_FMDServer_Check_Interval_Title">Інтервал перевірки підключення</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD перевіряє підключення до сервера FMD кожні X годин. Встановіть значення 0, щоб вимкнути перевірку підключення.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD сповістить вас, якщо останнє успішне з\'єднання з сервером FMD відбулося більше X годин тому. Це не має ніякого ефекту, якщо перевірка підключення вимкнена.</string>
-    <string name="pw_change_mismatch">Повторні паролі не збігаються.</string>
     <string name="server_connectivity_lost_title">Втрачено з\'єднання з сервером FMD</string>
     <string name="server_connectivity_lost_text">Сервер FMD за адресою %1$s більше не доступний. Останнє успішне з\'єднання було за адресою %2$s.</string>
     <string name="cmd_bluetooth_response_no_bluetooth">Схоже цей пристрій не має Bluetooth.</string>

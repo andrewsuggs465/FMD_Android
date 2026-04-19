@@ -32,7 +32,6 @@
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Испраќај ја позицијата на уредов и кога батеријата е слаба. Ова бара пристап до известувања.</string>
     <string name="password_old">Стара лозинка</string>
     <string name="password_new">Нова лозинка</string>
-    <string name="password_new_repeat">Повтори ја новата лозинка</string>
     <string name="server_version">Верзија на серверот</string>
     <string name="server_version_error">Грешка при добивање на серверската верзија</string>
     <string name="Settings_FMDServer_AddAccount">FMD сервер: најави / регистрирај се</string>

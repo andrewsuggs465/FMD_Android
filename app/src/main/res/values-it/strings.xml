@@ -75,7 +75,6 @@
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Aggiorna con batteria scarica</string>
     <string name="password_old">Vecchia password</string>
     <string name="password_new">Nuova password</string>
-    <string name="password_new_repeat">Reinserisci nuova password</string>
     <string name="Settings_FMDServer_AddAccount">Server FMD: Accedi</string>
     <string name="password">Password</string>
     <string name="registration_token_hint">Le istanze private possono richiedere un token segreto. Lascia vuoto se l\'istanza è pubblica.</string>
@@ -203,7 +202,6 @@
     <string name="Settings_no_ringtone_picker">Non è stato trovato alcun selezionatore di suonerie!</string>
     <string name="pw_change_success">Password cambiata</string>
     <string name="pw_change_empty">La password non può essere vuota.</string>
-    <string name="pw_change_mismatch">Le password ripetute non corrispondono.</string>
     <string name="pw_change_wrong_password">Password errata</string>
     <string name="pw_change_network_failed">Cambio password non riuscito a causa di un errore di rete.</string>
     <string name="temporary_allowlist_expired">L\'accesso temporaneo di FMD è scaduto. Per continuare a utilizzare FMD, inviare nuovamente il PIN.</string>

@@ -98,10 +98,8 @@
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">பேட்டரி நிலை குறைவாக இருக்கும்போது இந்தச் சாதனத்தின் இருப்பிடத்தைப் பதிவேற்றவும்.</string>
     <string name="password_old">பழைய கடவுச்சொல்</string>
     <string name="password_new">புதிய கடவுச்சொல்</string>
-    <string name="password_new_repeat">புதிய கடவுச்சொல்லை மீண்டும் செய்யவும்</string>
     <string name="pw_change_success">கடவுச்சொல் மாற்றப்பட்டது</string>
     <string name="pw_change_empty">கடவுச்சொல் காலியாக இருக்கக்கூடாது.</string>
-    <string name="pw_change_mismatch">மறுநிகழ்வு கடவுச்சொற்கள் பொருந்தவில்லை.</string>
     <string name="pw_change_network_failed">பிணைய பிழை காரணமாக கடவுச்சொல் மாற்றம் தோல்வியடைந்தது.</string>
     <string name="server_login_attempts_title">தோல்வியுற்ற உள்நுழைவு FMD சேவையகத்திற்கு முயற்சிக்கிறது</string>
     <string name="pw_change_wrong_password">தவறான கடவுச்சொல்</string>

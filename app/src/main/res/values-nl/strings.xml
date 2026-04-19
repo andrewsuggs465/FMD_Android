@@ -102,13 +102,11 @@
     <string name="request_failed_response_body">Hoofdtekst van de reactie</string>
     <string name="Settings_FMDConfig">Algemeen</string>
     <string name="Settings_Export">Instellingen exporteren</string>
-    <string name="pw_change_mismatch">De wachtwoorden komen niet overeen.</string>
     <string name="Settings_Enter_Pin">Pincode invoeren</string>
     <string name="Settings_FMD_Server_Server_URL">Server-URL:</string>
     <string name="Settings_FMD_Server_ID_Desc">De User-ID is nodig om het apparaat met FMD Server te vinden. Noteer het en bewaar dit op een veilige plek.</string>
     <string name="Settings_FMDServer_Location_Type_Description">De bron(nen) van waaruit de locatiegegevens op regelmatige tijdstippen op de achtergrond worden geüpload.\nAls er geen is geselecteerd, worden er geen regelmatige locaties geüpload. (Je kunt nog wel de webinterface gebruiken om een upload te forceren. Dit vereist push.)</string>
     <string name="password_new">Nieuw wachtwoord</string>
-    <string name="password_new_repeat">Nieuw wachtwoord herhalen</string>
     <string name="pw_change_success">Wachtwoord gewijzigd</string>
     <string name="pw_change_empty">Wachtwoord mag niet leeg zijn.</string>
     <string name="pw_change_wrong_password">Incorrect wachtwoord</string>

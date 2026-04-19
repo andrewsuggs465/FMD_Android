@@ -26,7 +26,6 @@
     <string name="Settings_FMDServer_Location_Type_Title">Standort-Quelle</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Bi niedrigem Akkustand ufelade</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Laded de Standort vom Gerät ufe wenn de Akkustand tüüf isch.</string>
-    <string name="password_new_repeat">Neus Passwort wiederhole</string>
     <string name="password_new">Neus Passwort</string>
     <string name="password_old">Alts Passwort</string>
     <string name="server_version">Server-Version</string>
@@ -209,7 +208,6 @@
     <string name="Settings_no_ringtone_picker">Kei Klingelton-Uswahl-Aawendig gfunde!</string>
     <string name="Settings_FMDServer_Delete_Account">Konto lösche</string>
     <string name="Settings_FMDServer_Unregister_Success">De-registrierig und Datelöschig erfolgriich!</string>
-    <string name="pw_change_mismatch">D Passwörter stimmed nöd überii.</string>
     <string name="temporary_allowlist_expired">Diin temporäre FMD-Zuegang isch abgloffe. Send de PIN numal zum FMD wiiter nutze.</string>
     <string name="log_view_title">Logs</string>
     <string name="log_view_export">Logs exportiere</string>

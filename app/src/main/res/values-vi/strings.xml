@@ -121,7 +121,6 @@
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Tải lên khi pin yếu</string>
     <string name="password_old">Mật khẩu cũ</string>
     <string name="password_new">Mật khẩu mới</string>
-    <string name="password_new_repeat">Nhập lại mật khẩu mới</string>
     <string name="pw_change_wrong_password">Mật khẩu sai</string>
     <string name="server_login_attempts_title">Các lần đăng nhập không thành công vào máy chủ FMD</string>
     <string name="server_version_upgrade_required_title">Cần nâng cấp máy chủ FMD</string>
@@ -185,7 +184,6 @@
     <string name="Settings_FMDServer_Check_Interval_Title">Khoảng thời gian kiểm tra kết nối</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD kiểm tra kết nối đến máy chủ FMD mỗi X giờ. Đặt giá trị này thành 0 để vô hiệu hóa kiểm tra kết nối.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Thời gian tối đa cho phép không có kết nối</string>
-    <string name="pw_change_mismatch">Mật khẩu nhập lại không khớp.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD sẽ thông báo cho bạn nếu lần kết nối thành công cuối cùng đến máy chủ FMD đã hơn X giờ. Điều này không có tác dụng nếu kiểm tra kết nối bị vô hiệu hóa.</string>
     <string name="pw_change_network_failed">Thay đổi mật khẩu không thành công do lỗi mạng.</string>
     <string name="server_version_upgrade_required_text">Máy chủ FMD bạn đang sử dụng có phiên bản {CURRENT}, nhưng ứng dụng này yêu cầu ít nhất {MIN}. Việc điều khiển thiết bị của bạn qua máy chủ FMD có thể không còn hoạt động nữa. Vui lòng nâng cấp máy chủ của bạn.</string>

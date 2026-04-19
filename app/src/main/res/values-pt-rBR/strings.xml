@@ -74,7 +74,6 @@
     <string name="Settings_FMDServer_Location_Type_Title">Fonte da localização</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Enviar a localização deste dispositivo no momento que o nível da bateria ficar baixo.</string>
     <string name="Settings_FMDServer_Location_Type_Description">As fontes que são utilizadas para o envio da localização nos intervalos configurados em segundo plano.\nSe nenhuma está selecionada, o envio da localização não será feito regularmente. (Você ainda pode usar a interface web para forçar um envio. Requer push.)</string>
-    <string name="password_new_repeat">Confirmar senha nova</string>
     <string name="Settings_FMDServer_Info">Com o FMD Server você pode enviar comandos pela internet, do servidor para o app. Você pode também ver a localização do dispositivo em um mapa, ou ver as fotos capturadas pelo dispositivo. Caso queira auto-hospedá-lo, visite o site.</string>
     <string name="registration_token_hint">Instâncias privadas podem solicitar um token secreto. Deixe em branco se a instância é pública.</string>
     <string name="Whitelist_help">Os contatos nesta lista podem enviar comandos do FMD por SMS. Comandos de outras pessoas serão ignorados.</string>
@@ -196,7 +195,6 @@
     <string name="server_login_attempts_text">Alguém tentou entrar na sua conta do FMD Server \"%s\". Devido à várias tentativas falhas, a conta está bloqueada por 10 minutos.</string>
     <string name="cmd_locate_response_gps_fail">Falha ao obter uma nova localização de GPS. Talvez por causa de um atraso.</string>
     <string name="pw_change_empty">A senha não pode ser vazia.</string>
-    <string name="pw_change_mismatch">As senhas não se correspondem.</string>
     <string name="Settings_FMDServer_Unregister_Success">Descadastrado e dados apagados com sucesso!</string>
     <string name="pw_change_success">A senha foi alterada</string>
     <string name="pw_change_wrong_password">Senha errada</string>

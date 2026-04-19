@@ -29,7 +29,6 @@
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">此设备低电量时仍然更新位置信息。需要通知访问权限。</string>
     <string name="password_old">旧密码</string>
     <string name="password_new">新密码</string>
-    <string name="password_new_repeat">重复新密码</string>
     <string name="Settings_FMDServer_AddAccount">FMD 服务器：登录</string>
     <string name="Settings_FMDServer_Info">通过FMD服务器，您可经互联网从服务器向应用程序发送指令，同时支持在地图上查看设备位置或访问设备拍摄的图片。自主托管配置指南详见官方网站。</string>
     <string name="Settings_FMDServer_use_default_server">使用公共服务器</string>
@@ -103,7 +102,6 @@
     <string name="Settings_FMDServer_Check_Interval_Title">连接检查间隔</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD 每 X 小时检查一次与 FMD 服务器的连接。设置为 0 以禁用连接检查。</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">无连接的最大允许时间</string>
-    <string name="pw_change_mismatch">两次输入密码不匹配。</string>
     <string name="pw_change_wrong_password">密码错误</string>
     <string name="server_login_attempts_title">登录FMD服务器失败</string>
     <string name="server_login_attempts_text">有人试图登录您的 FMD 服务器账户“%s”。由于多次密码错误，此账户现已被锁定 10 分钟。</string>

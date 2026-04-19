@@ -20,7 +20,6 @@
     <string name="Settings_FMD_Server_Server_URL">Tjener-nettadresse:</string>
     <string name="Settings_FMD_Server_User_ID">Bruker-ID:</string>
     <string name="Settings_FMDServer_Logout_Button">Logg ut</string>
-    <string name="password_new_repeat">Gjenta nytt passord</string>
     <string name="server_version">Tjenerversjon</string>
     <string name="Settings_Lockscreenmessage_Description">Låseskjermsmelding. \nVises når enheten er låst.</string>
     <string name="Settings_FMD_Server_ID_Desc">Du trenger bruker-ID-en for å finne din enhet med FMD-tjeneren. Skriv den ned og oppbevar den trygt.</string>

@@ -12,7 +12,6 @@
     <string name="Settings_FMDServer_Location_Type_Title">स्थान स्रोत</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">बैटरी का स्तर कम होने पर इस डिवाइस का स्थान अपलोड करें। इसके लिए नोटिफिकेशन पहुंच की आवश्यकता है।</string>
     <string name="password_new">नया पासवर्ड</string>
-    <string name="password_new_repeat">नया पासवर्ड दोहराएं</string>
     <string name="server_version_error">सर्वर संस्करण प्राप्त करने में त्रुटि</string>
     <string name="Settings_FMDServer_AddAccount">FMD सर्वर: लॉगिन/रजिस्टर</string>
     <string name="Settings_FMDServer_open_website">FMD सर्वर वेबसाइट खोलें</string>

@@ -57,7 +57,6 @@
     <string name="Settings_FMDServer_Push_Distributor">ディストリビューター：%s</string>
     <string name="Settings_FMDServer_Push_Url">プッシュURL：%s</string>
     <string name="password_old">古いパスワード</string>
-    <string name="pw_change_mismatch">パスワードが一致しません。</string>
     <string name="Settings_FMDServer_Server_Url">サーバーのURL</string>
     <string name="Settings_FMDServer_Login">ログイン</string>
     <string name="allowlist_add_phone_number">電話番号を追加</string>
@@ -107,7 +106,6 @@
     <string name="Settings_FMDServer_Push_Description">FMDのサーバーから端末にコマンドを送信するには、UnifiedPushのディストリビューター用アプリが必要になります。</string>
     <string name="Settings_FMDServer_Update_Interval_Title">バックグラウンドで位置情報をアップロードする際の時間間隔</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMDが端末の位置情報をアップロードする時間（分）を設定。</string>
-    <string name="password_new_repeat">パスワードを再入力してください</string>
     <string name="pw_change_network_failed">ネットワークエラーのためパスワードを変更できませんでした。</string>
     <string name="server_connectivity_lost_title">FMDサーバーへの接続が切れました</string>
     <string name="Settings_Lockscreenmessage_Description">ロック画面に表示するメッセージ：\n端末をロックする際、ロック画面にこのメッセージを表示します。</string>

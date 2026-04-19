@@ -84,12 +84,10 @@
     <string name="password_enter">Εισάγεται κωδικό</string>
     <string name="password_old">Προηγούμενος κωδικός</string>
     <string name="password_new">Νέος κωδικός</string>
-    <string name="password_new_repeat">Επαναεισάγετε τον νέο κωδικό</string>
     <string name="password_min_length">Ο κωδικός πρέπει να έχει τουλάχιστον 8 χαρακτήρες. Συνιστάται να έχει 16 ή περισσότερους.</string>
     <string name="password_match_command_keyword">Ο κωδικός πρόσβασης δεν πρέπει να είναι ίδιος με κάποια από τις εντολές!</string>
     <string name="pw_change_success">Ο κωδικός άλλαξε</string>
     <string name="pw_change_empty">Ο κωδικός δεν πρέπει να είναι κενός.</string>
-    <string name="pw_change_mismatch">Ο κωδικός επιβεβαίωσης δεν ταιριάζει με τον κωδικό που ορίσατε.</string>
     <string name="pw_change_wrong_password">Λάθος κωδικός</string>
     <string name="pw_change_network_failed">Η αλλαγή κωδικού απέτυχε λόγω σφάλματος δικτύου.</string>
     <string name="server_login_attempts_title">Σημειώθηκαν αποτυχημένες απόπειρες σύνδεσης στον διακομιστή FMD</string>

@@ -69,10 +69,8 @@
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Enviar a localização deste dispositivo no momento que o nível da pilha ficar baixo. Requer acesso às notificações.</string>
     <string name="password_old">Palavra-passe antiga</string>
     <string name="password_new">Palavra-passe nova</string>
-    <string name="password_new_repeat">Confirmar palavra-passe nova</string>
     <string name="pw_change_success">A palavra-passe foi alterada</string>
     <string name="pw_change_empty">A palavra-passe não pode ser vazia.</string>
-    <string name="pw_change_mismatch">As palavras-passe não se correspondem.</string>
     <string name="pw_change_wrong_password">Palavra-passe errada</string>
     <string name="pw_change_network_failed">A alteração de palavra-passe falhou por causa de um erro de rede.</string>
     <string name="server_login_attempts_title">Tentativas falhas de entrada ao FMD Server</string>

@@ -28,7 +28,6 @@
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Posodobi lokacijo te naprave, ko je raven baterije nizka.</string>
     <string name="password_old">Staro geslo</string>
     <string name="password_new">Novo geslo</string>
-    <string name="password_new_repeat">Ponovi novo geslo</string>
     <string name="server_version">Različica strežnika</string>
     <string name="server_version_error">Napaka pri pridobivanju različice strežnika</string>
     <string name="Settings_FMDServer_AddAccount">FMD strežnik: Prijava</string>
@@ -228,7 +227,6 @@
     <string name="Settings_Appearance">Videz</string>
     <string name="Settings_no_ringtone_picker">Ne najdem izbirnika zvonjenja!</string>
     <string name="pw_change_success">Geslo uspešno spremenjeno</string>
-    <string name="pw_change_mismatch">Ponovljeno geslo se ne ujema.</string>
     <string name="pw_change_network_failed">Sprememba gesla ni uspela zaradi omrežne napake.</string>
     <string name="Settings_FMDServer_Unregister_Success">Odjava in brisanje podatkov uspešna!</string>
     <string name="pw_change_empty">Geslo ne sme biti prazno.</string>

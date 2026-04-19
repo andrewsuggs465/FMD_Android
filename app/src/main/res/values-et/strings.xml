@@ -78,10 +78,8 @@
     <string name="Settings_FMDServer_Update_Interval_Description">FMD laadib selle seadme asukoha serverisse iga x minuti järel.</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Laadi üles ka üsna tühja aku puhul</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Laadi nutiseadme asukoht üles ka siis, kui aku on üsna tühi.</string>
-    <string name="password_new_repeat">Korda uut salasõna</string>
     <string name="pw_change_success">Salasõna on muudetud</string>
     <string name="pw_change_empty">Salasõna ei saa olla tühi.</string>
-    <string name="pw_change_mismatch">Sisestatud salasõnad ei klapi.</string>
     <string name="pw_change_wrong_password">Vale salasõna</string>
     <string name="pw_change_network_failed">Võrguühenduse vea tõttu polnud võimalik salasõna muuta.</string>
     <string name="server_login_attempts_text">Keegi proovis logida sinu FMD serverisse „%s“ kasutajakontoga. Mitme vale salasõnasisestuse tõttu on kasutajakonto kümneks minutiks lukustatud.</string>

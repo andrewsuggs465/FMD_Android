@@ -133,9 +133,7 @@
     <string name="Settings_FMDServer_Push_Open_Help">Więcej informacji na temat push</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD powiadomi Cię jeśli ostatnie udane połączenie do serwera FMD było więcej niż X godzin temu. Ustawienie to nie będzie miało żadnego efektu, jeśli kontrola połączenia jest wyłączona.</string>
     <string name="Settings_FMDServer_Location_Type_Description">Źródła z których dane o lokalizacji są wysyłane w regularnych odstępach w tle.\nJeśli żadne nie est ustawione, lokalizacja nie będzie regularnie wysyłana. (Możesz w dalszym ciągu używać interfejsu web, aby wymusić wysłanie danych. To wymaga push.)</string>
-    <string name="password_new_repeat">Powtórz nowe hasło</string>
     <string name="pw_change_empty">Hasło nie może być puste.</string>
-    <string name="pw_change_mismatch">Hasła nie są takie same.</string>
     <string name="pw_change_network_failed">Zmiana hasła nie powiodła się z powodu błędu sieci.</string>
     <string name="server_login_attempts_title">Nieudane próby logowania do serwera FMD</string>
     <string name="server_login_attempts_text">Ktoś próbował zalogować się do Twojego konta na serwerze FMD \"%s\". Z powodu wielu błędnych haseł, konto zostało zablokowane na 10 minut.</string>

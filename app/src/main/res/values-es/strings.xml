@@ -85,7 +85,6 @@
     <string name="Settings_FMDServer_Change_Password_Button">Cambiar la contraseña</string>
     <string name="Settings_FMDServer_Logout_Button">Cerrar sesión</string>
     <string name="OpenCellId_test_opencellid">Probar la conexión a OpenCelliD</string>
-    <string name="password_new_repeat">Repita la nueva contraseña</string>
     <string name="OpenCellId_test_no_connection">Sin conexión móvil</string>
     <string name="server_version_error_low_version">Se requiere al menos la versión {MIN} del servidor, pero el servidor seleccionado tiene la versión {CURRENT}. Continúe bajo su propia responsabilidad.</string>
     <string name="Settings_FMDServer_Info">Con el servidor FMD puedes enviar comandos a través de Internet, desde el servidor a la aplicación. También puede ver la ubicación del dispositivo en un mapa o ver las fotos tomadas por el dispositivo. Para obtener instrucciones de autoalojamiento, consulta el sitio web.</string>
@@ -225,7 +224,6 @@
     <string name="cmd_bluetooth_response_on">Bluetooth activado.</string>
     <string name="Settings_no_ringtone_picker">¡No se ha encontrado ningún selector de tonos!</string>
     <string name="Settings_FMDServer_Unregister_Success">¡Registro y datos eliminados correctamente!</string>
-    <string name="pw_change_mismatch">Las contraseñas no coinciden.</string>
     <string name="pw_change_network_failed">No se pudo cambiar la contraseña, por un fallo en la conexión.</string>
     <string name="cmd_bluetooth_response_off">Bluetooth desactivado.</string>
     <string name="perm_bluetooth_connect_name">Conectar Bluetooth</string>

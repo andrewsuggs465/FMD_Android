@@ -48,7 +48,6 @@
     <string name="Settings_FMDServer_Change_Password_Button">Vaihda salasana</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Tämä poistaa kaikki tiedot palvelimelta! Haluatko varmasti jatkaa?</string>
     <string name="password_new">Uusi salasana</string>
-    <string name="password_new_repeat">Toista uusi salasana</string>
     <string name="server_version">Palvelimen versio</string>
     <string name="server_version_error">Virhe palvelimen versiotiedon haussa</string>
     <string name="Settings_FMDServer_AddAccount">FMD-palvelin: Kirjaudu/rekisteröidy</string>
@@ -77,7 +76,6 @@
     <string name="Settings_no_ringtone_picker">Soittoäänen valitsinta ei löytynyt!</string>
     <string name="pw_change_wrong_password">Väärä salasana</string>
     <string name="Settings_FMDServer_Delete_Account">Poista tili</string>
-    <string name="pw_change_mismatch">Salasanat eivät täsmää.</string>
     <string name="temporary_allowlist_expired">Väliaikainen FindMyDevive-käyttöoikeutesi on päättynyt. Jatkaaksesi käyttöä, lähetä PIN uudelleen.</string>
     <string name="OpenCellId_test_opencellid">Testaa OpenCelliD-yhteyttä</string>
     <string name="log_view_export">Vie lokit</string>

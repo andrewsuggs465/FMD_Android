@@ -39,7 +39,6 @@
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Standort hochladen, wenn der Akkustand niedrig wird.</string>
     <string name="password_old">Altes Passwort</string>
     <string name="password_new">Neues Passwort</string>
-    <string name="password_new_repeat">Neues Passwort wiederholen</string>
     <!-- FMD Server Registration/Login -->
     <string name="server_version">Server-Version</string>
     <string name="server_version_error">Laden der Server-Version fehlgeschlagen</string>
@@ -239,7 +238,6 @@
     <string name="temporary_allowlist_expired">Dein temporärer FMD-Zugang ist abgelaufen. Sende die PIN erneut, um FMD weiterzunutzen.</string>
     <string name="Settings_FMDServer_Unregister_Success">Erfolgreich de-registriert und Daten gelöscht!</string>
     <string name="pw_change_network_failed">Passwortänderung aufgrund eines Netzwerkfehlers fehlgeschlagen.</string>
-    <string name="pw_change_mismatch">Die Passwörter stimmen nicht überein.</string>
     <string name="cmd_bluetooth_description_short">Bluetooth ein- und ausschalten</string>
     <string name="cmd_bluetooth_response_no_bluetooth">Dieses Gerät scheint kein Bluetooth zu haben.</string>
     <string name="appearance_language_system_default">Systemsprache</string>
