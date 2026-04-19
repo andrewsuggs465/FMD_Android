@@ -473,6 +473,8 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     }
 
     private void onRegisterPushClicked(View view) {
+        // Force re-registration, to refresh the push URL
+        unregisterWithUnifiedPush(view.getContext());
         registerWithUnifiedPush();
     }
 
