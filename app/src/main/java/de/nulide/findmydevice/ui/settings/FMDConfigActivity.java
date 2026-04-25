@@ -172,7 +172,7 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
             encSettings.setDeletePassword(newPassword);
             updateDeletePasswordButton();
             return Unit.INSTANCE;
-        }).show();
+        }, R.string.password_enter, null, true).show();
     }
 
     private void onSelectRingtoneClicked(View v) {

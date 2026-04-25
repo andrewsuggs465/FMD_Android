@@ -4,7 +4,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import de.nulide.findmydevice.R
@@ -15,6 +17,9 @@ import de.nulide.findmydevice.utils.CypherUtils
 class PasswordSetDialog(
     val context: Context,
     val onSuccess: (String) -> Unit,
+    @StringRes val title: Int = R.string.password_enter,
+    val message: String? = null,
+    val forceMinLength: Boolean = true,
 ) {
 
     var dialog: AlertDialog
@@ -22,12 +27,17 @@ class PasswordSetDialog(
     init {
         val passwordLayout: View =
             LayoutInflater.from(context).inflate(R.layout.dialog_password_set, null)
-        val editTextPassword = passwordLayout.findViewById<EditText?>(R.id.editTextPassword)
+        val editTextPassword = passwordLayout.findViewById<EditText>(R.id.editTextPassword)
+
+        if (!message.isNullOrBlank()) {
+            val textView = passwordLayout.findViewById<TextView>(R.id.messagePassword)
+            textView.text = message
+        }
 
         dialog = MaterialAlertDialogBuilder(context)
-            .setTitle(R.string.password_enter)
+            .setTitle(title)
             .setView(passwordLayout)
-            .setPositiveButton(R.string.Ok) { _, _ ->
+            .setPositiveButton(R.string.Ok, { _, _ ->
                 val password = editTextPassword.getText().toString()
 
                 if (password.isBlank()) {
@@ -41,13 +51,15 @@ class PasswordSetDialog(
                         R.string.password_match_command_keyword,
                         Toast.LENGTH_LONG
                     ).show()
-                } else if (password.length < CypherUtils.MIN_PASSWORD_LENGTH) {
+                } else if (forceMinLength && password.length < CypherUtils.MIN_PASSWORD_LENGTH) {
                     Toast.makeText(context, R.string.password_min_length, Toast.LENGTH_LONG)
                         .show()
                 } else {
                     onSuccess(password)
                 }
-            }
+            })
+            .setNegativeButton(context.getString(R.string.cancel), { _, _ -> })
+            .setCancelable(false)
             .create()
     }
 
