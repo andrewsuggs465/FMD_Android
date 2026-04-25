@@ -155,6 +155,7 @@ dependencies {
     implementation 'org.unifiedpush.android:connector:3.3.2'
     implementation 'com.jakewharton:process-phoenix:3.0.0'
     implementation "com.mikepenz:aboutlibraries:13.2.1"
+    implementation 'net.lingala.zip4j:zip4j:2.11.6'
     implementation "org.apache.maven:maven-artifact:3.9.11" // for semantic versions
     implementation 'org.bouncycastle:bcprov-jdk18on:1.83'
 

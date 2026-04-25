@@ -15,14 +15,19 @@ import de.nulide.findmydevice.data.SETTINGS_FILENAME
 import de.nulide.findmydevice.data.SettingsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import net.lingala.zip4j.exception.ZipException
+import net.lingala.zip4j.io.inputstream.ZipInputStream
+import net.lingala.zip4j.io.outputstream.ZipOutputStream
+import net.lingala.zip4j.model.ZipParameters
+import net.lingala.zip4j.model.enums.AesKeyStrength
+import net.lingala.zip4j.model.enums.CompressionLevel
+import net.lingala.zip4j.model.enums.CompressionMethod
+import net.lingala.zip4j.model.enums.EncryptionMethod
 import java.io.InputStream
 import java.io.OutputStream
 import java.io.OutputStreamWriter
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.util.zip.ZipEntry
-import java.util.zip.ZipInputStream
-import java.util.zip.ZipOutputStream
 
 
 private const val TAG = "ImportExportUtil"
@@ -42,19 +47,33 @@ class SettingsImportExporter(
         }
     }
 
-    suspend fun exportData(uri: Uri) {
+    suspend fun exportData(uri: Uri, password: String) {
         writeToUri(context, uri) { outputStream ->
-            val zipOutputStream = ZipOutputStream(outputStream)
 
-            var entry = ZipEntry(SETTINGS_FILENAME)
-            zipOutputStream.putNextEntry(entry)
+            // https://github.com/srikanth-lingala/zip4j#working-with-streams
+            val zipParas = ZipParameters().apply {
+                compressionMethod = CompressionMethod.DEFLATE
+                compressionLevel = CompressionLevel.NORMAL
+
+                if (password.isNotBlank()) {
+                    isEncryptFiles = true
+                    encryptionMethod = EncryptionMethod.AES
+                    aesKeyStrength = AesKeyStrength.KEY_STRENGTH_256
+                }
+            }
+            val zipOutputStream = ZipOutputStream(outputStream, password.toCharArray())
+
+            // settings.json
+            zipParas.fileNameInZip = SETTINGS_FILENAME
+            zipOutputStream.putNextEntry(zipParas)
             var writer = zipOutputStream.writer()
             SettingsRepository.getInstance(context).writeAsJson(writer)
             writer.flush()
             zipOutputStream.closeEntry()
 
-            entry = ZipEntry(ALLOWLIST_FILENAME)
-            zipOutputStream.putNextEntry(entry)
+            // whitelist.json
+            zipParas.fileNameInZip = ALLOWLIST_FILENAME
+            zipOutputStream.putNextEntry(zipParas)
             writer = zipOutputStream.writer()
             AllowlistRepository.getInstance(context).writeAsJson(writer)
             writer.flush()
@@ -65,7 +84,10 @@ class SettingsImportExporter(
     }
 
     @Throws(JsonIOException::class, JsonSyntaxException::class)
-    suspend fun importData(uri: Uri): Boolean = withContext(Dispatchers.IO) {
+    suspend fun importData(
+        uri: Uri,
+        password: String?,
+    ): Boolean = withContext(Dispatchers.IO) {
         // We cannot use the file ending (.zip/.json) to detect the file,
         // since the URI path may not have those (e.g. when the file comes from Nextcloud as a content provider).
         // Thus we just need to try one format, and if it fails, try the other.
@@ -75,7 +97,7 @@ class SettingsImportExporter(
             return@withContext true
         }
 
-        success = importV2Zip(uri)
+        success = importV2Zip(uri, password)
         if (success) {
             return@withContext true
         }
@@ -111,7 +133,10 @@ class SettingsImportExporter(
     // Otherwise the ZIP reader starts reading wherever the JSON reader stopped.
 
     // New format, "fmd-export.zip" (contains settings.json and other data)
-    private fun importV2Zip(uri: Uri): Boolean {
+    private fun importV2Zip(
+        uri: Uri,
+        password: String?,
+    ): Boolean {
         var inputStream: InputStream? = null
         try {
             context.log().i(TAG, "Trying to import ZIP")
@@ -121,14 +146,14 @@ class SettingsImportExporter(
                 return false
             }
 
-            val zipInputStream = ZipInputStream(inputStream)
+            val zipInputStream = ZipInputStream(inputStream, password?.toCharArray())
             var settingsFound = false
             var allowlistFound = false
 
             while (true) {
                 val entry = zipInputStream.nextEntry ?: break
 
-                when (entry.name) {
+                when (entry.fileName) {
                     SETTINGS_FILENAME -> {
                         context.log().i(TAG, "Trying to import $SETTINGS_FILENAME")
                         SettingsRepository.getInstance(context).importFromStream(zipInputStream)
@@ -143,7 +168,7 @@ class SettingsImportExporter(
                     }
 
                     else -> {
-                        context.log().w(TAG, "Unknown entry '${entry.name}'")
+                        context.log().w(TAG, "Unknown entry '${entry.fileName}'")
                     }
                 }
             }

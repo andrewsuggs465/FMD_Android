@@ -176,6 +176,9 @@
     <string name="appearance_dynamic_colors">Dynamic colors</string>
 
     <!-- Settings: Import/export -->
+    <string name="export_password_enter_title">Enter encryption password</string>
+    <string name="export_password_message">Choose a password to encrypt the exported backup.</string>
+    <string name="import_password_message">Enter the password that was used to encrypt the backup.</string>
     <string name="export_success">Export successful</string>
     <string name="export_failed">Export failed</string>
     <string name="Settings_Import_Success">Import successful</string>
