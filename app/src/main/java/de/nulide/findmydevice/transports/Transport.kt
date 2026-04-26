@@ -51,7 +51,7 @@ abstract class Transport<DestinationType>(
     /**
      * Whether this transport instance is allowed to execute the command from the [ParserResult].
      */
-    abstract fun isAllowed(parsed: ParserResult.Success): Boolean
+    abstract suspend fun isAllowed(parsed: ParserResult.Success): Boolean
 
     @CallSuper
     open fun send(context: Context, msg: String) {

@@ -45,7 +45,7 @@ class InAppTransport(
 
     override fun getDestinationString(): String = context.getString(R.string.transport_inapp_title)
 
-    override fun isAllowed(parsed: ParserResult.Success): Boolean {
+    override suspend fun isAllowed(parsed: ParserResult.Success): Boolean {
         return true
     }
 

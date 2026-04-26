@@ -45,7 +45,7 @@ class FmdServerTransport(
 
     override fun getDestinationString() = destination
 
-    override fun isAllowed(parsed: ParserResult.Success): Boolean {
+    override suspend fun isAllowed(parsed: ParserResult.Success): Boolean {
         return true
     }
 

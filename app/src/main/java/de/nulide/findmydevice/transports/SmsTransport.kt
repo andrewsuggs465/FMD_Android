@@ -55,7 +55,7 @@ class SmsTransport(
 
     override fun getDestinationString() = phoneNumber
 
-    override fun isAllowed(parsed: ParserResult.Success): Boolean {
+    override suspend fun isAllowed(parsed: ParserResult.Success): Boolean {
         // Case 1: phone number in Allowed Contacts
         if (allowlistRepo.containsNumber(phoneNumber)) {
             context.log().i(TAG, "$phoneNumber used FMD via allowlist")
