@@ -15,7 +15,6 @@ import de.nulide.findmydevice.data.SETTINGS_FILENAME
 import de.nulide.findmydevice.data.SettingsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import net.lingala.zip4j.exception.ZipException
 import net.lingala.zip4j.io.inputstream.ZipInputStream
 import net.lingala.zip4j.io.outputstream.ZipOutputStream
 import net.lingala.zip4j.model.ZipParameters
@@ -23,6 +22,7 @@ import net.lingala.zip4j.model.enums.AesKeyStrength
 import net.lingala.zip4j.model.enums.CompressionLevel
 import net.lingala.zip4j.model.enums.CompressionMethod
 import net.lingala.zip4j.model.enums.EncryptionMethod
+import java.io.File
 import java.io.InputStream
 import java.io.OutputStream
 import java.io.OutputStreamWriter
@@ -63,21 +63,17 @@ class SettingsImportExporter(
             }
             val zipOutputStream = ZipOutputStream(outputStream, password.toCharArray())
 
-            // settings.json
-            zipParas.fileNameInZip = SETTINGS_FILENAME
-            zipOutputStream.putNextEntry(zipParas)
-            var writer = zipOutputStream.writer()
-            SettingsRepository.getInstance(context).writeAsJson(writer)
-            writer.flush()
-            zipOutputStream.closeEntry()
+            val filesToAdd = listOf(
+                File(context.filesDir, SETTINGS_FILENAME),
+                File(context.filesDir, ALLOWLIST_FILENAME),
+            )
 
-            // whitelist.json
-            zipParas.fileNameInZip = ALLOWLIST_FILENAME
-            zipOutputStream.putNextEntry(zipParas)
-            writer = zipOutputStream.writer()
-            AllowlistRepository.getInstance(context).writeAsJson(writer)
-            writer.flush()
-            zipOutputStream.closeEntry()
+            for (file in filesToAdd) {
+                zipParas.fileNameInZip = file.name
+                zipOutputStream.putNextEntry(zipParas)
+                file.inputStream().copyTo(zipOutputStream)
+                zipOutputStream.closeEntry()
+            }
 
             zipOutputStream.close()
         }
