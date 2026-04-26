@@ -2,10 +2,11 @@ package de.nulide.findmydevice.data;
 
 import android.content.Context;
 import android.telephony.PhoneNumberUtils;
-import android.telephony.TelephonyManager;
 
 import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
+
+import de.nulide.findmydevice.utils.PhoneUtilsKt;
 
 @Keep
 public class Contact {
@@ -20,23 +21,10 @@ public class Contact {
 
     @Nullable
     public static Contact from(Context context, String name, String number) {
-        TelephonyManager tm = context.getSystemService(TelephonyManager.class);
-        String iso = tm.getNetworkCountryIso();
-
-        String numberFormatted;
-        if (iso.isEmpty()) {
-            // iso is empty when the phone is in flight mode
-            // fall back to deprecated function
-            numberFormatted = PhoneNumberUtils.formatNumber(number);
-        } else {
-            // iso must be non-empty, else the number is treated as invalid
-            numberFormatted = PhoneNumberUtils.formatNumber(number, iso);
-        }
-
-        if (numberFormatted == null || numberFormatted.isBlank()) {
+        String numberFormatted = PhoneUtilsKt.normalizePhoneNumber(context, number);
+        if (numberFormatted == null) {
             return null;
         }
-
         return new Contact(name, numberFormatted);
     }
 
