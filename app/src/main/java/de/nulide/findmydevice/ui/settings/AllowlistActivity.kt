@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -80,36 +81,36 @@ class AllowlistActivity : FmdActivity() {
         var intent = Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI)
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
         try {
-            startActivityForResult(intent, REQUEST_CODE)
+            pickContactLauncher.launch(intent)
         } catch (e: ActivityNotFoundException) {
             intent = Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI)
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
             try {
-                startActivityForResult(intent, REQUEST_CODE)
+                pickContactLauncher.launch(intent)
             } catch (e2: ActivityNotFoundException) {
                 Toast.makeText(this, R.string.WhiteList_no_contact_picker, Toast.LENGTH_LONG).show()
             }
         }
     }
 
-    public override fun onActivityResult(reqCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(reqCode, resultCode, data)
-        when (reqCode) {
-            (REQUEST_CODE) -> if (resultCode == RESULT_OK) {
-                // Multiple items selected
-                val clipData = data?.clipData
-                if (clipData != null) {
-                    for (i in 0 until clipData.itemCount) {
-                        clipData.getItemAt(i).uri?.let { addContactFromUri(it) }
-                    }
-                }
-
-                // Single item selected
-                data?.data?.let { addContactFromUri(it) }
-            }
-
-            else -> throw IllegalStateException("Unexpected value: $reqCode")
+    private val pickContactLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode != RESULT_OK) {
+            return@registerForActivityResult
         }
+        val data = result.data ?: return@registerForActivityResult
+
+        // Multiple items selected
+        val clipData = data.clipData
+        if (clipData != null) {
+            for (i in 0 until clipData.itemCount) {
+                clipData.getItemAt(i).uri?.let { addContactFromUri(it) }
+            }
+        }
+
+        // Single item selected
+        data.data?.let { addContactFromUri(it) }
     }
 
     private fun addContactFromUri(uri: Uri) {
@@ -173,9 +174,5 @@ class AllowlistActivity : FmdActivity() {
     private fun onDeleteContact(phoneNumber: String) {
         allowlistRepository.remove(phoneNumber)
         updateScreen()
-    }
-
-    companion object {
-        private const val REQUEST_CODE = 6438
     }
 }
