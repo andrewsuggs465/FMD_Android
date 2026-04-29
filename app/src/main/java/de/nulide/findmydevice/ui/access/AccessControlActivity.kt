@@ -172,7 +172,17 @@ class AccessControlActivity : FmdActivity() {
     }
 
     private fun onDeleteContact(phoneNumber: String) {
-        allowlistRepository.remove(phoneNumber)
-        updateScreen()
+        val context = this
+        MaterialAlertDialogBuilder(context)
+            .setTitle(R.string.allowlist_delete_title_phone_number)
+            .setMessage(R.string.allowlist_delete_message)
+            .setPositiveButton(
+                R.string.Delete,
+                { _, _ ->
+                    allowlistRepository.remove(phoneNumber)
+                    updateScreen()
+                })
+            .setNegativeButton(R.string.cancel, null)
+            .show()
     }
 }

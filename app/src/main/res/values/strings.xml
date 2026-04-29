@@ -148,6 +148,8 @@
     <string name="allowlist_add_phone_number">Add phone number</string>
     <string name="allowlist_phone_number_name">Name</string>
     <string name="allowlist_phone_number">Phone number</string>
+    <string name="allowlist_delete_title_phone_number">Delete phone number?</string>
+    <string name="allowlist_delete_message">Once this entry is deleted, it will no longer be able to access FMD. You can re-add it later if you change your mind.</string>
     <string name="allowlist_reset_title">Allowed contacts reset</string>
     <string name="allowlist_reset_text">Due to a crash, the allowed contacts were reset. Please configure them again.</string>
     <string name="allowlist_invalid_number">This phone number is invalid!</string>
