@@ -1,4 +1,4 @@
-package de.nulide.findmydevice.ui.settings
+package de.nulide.findmydevice.ui.access
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -22,7 +22,7 @@ import de.nulide.findmydevice.ui.FmdActivity
 import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdge
 import de.nulide.findmydevice.ui.allowlist.AllowlistAdapter
 
-class AllowlistActivity : FmdActivity() {
+class AccessControlActivity : FmdActivity() {
     private lateinit var allowlistRepository: AllowlistRepository
     private lateinit var settings: SettingsRepository
 

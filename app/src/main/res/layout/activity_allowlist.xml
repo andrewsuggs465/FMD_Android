@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
-            app:title="@string/Settings_WhiteList" />
+            app:title="@string/Settings_Access_Control" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <TextView

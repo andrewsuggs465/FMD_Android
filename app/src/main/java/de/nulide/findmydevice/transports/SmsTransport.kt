@@ -15,7 +15,7 @@ import de.nulide.findmydevice.data.TEMP_USAGE_VALIDITY_MILLIS
 import de.nulide.findmydevice.data.TemporaryAllowlistRepository
 import de.nulide.findmydevice.permissions.SmsPermission
 import de.nulide.findmydevice.services.TempContactExpiredService
-import de.nulide.findmydevice.ui.settings.AllowlistActivity
+import de.nulide.findmydevice.ui.access.AccessControlActivity
 import de.nulide.findmydevice.utils.Notifications
 import de.nulide.findmydevice.utils.log
 
@@ -49,8 +49,8 @@ class SmsTransport(
 
     override val requiredPermissions = listOf(SmsPermission())
 
-    override val actions = listOf(TransportAction(R.string.Settings_WhiteList) { activity ->
-        activity.startActivity(Intent(context, AllowlistActivity::class.java))
+    override val actions = listOf(TransportAction(R.string.Settings_Access_Control) { activity ->
+        activity.startActivity(Intent(context, AccessControlActivity::class.java))
     })
 
     override fun getDestinationString() = phoneNumber

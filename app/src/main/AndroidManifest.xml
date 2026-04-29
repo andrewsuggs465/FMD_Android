@@ -78,6 +78,9 @@
             android:name=".ui.SetupWarningsActivity"
             android:label="@string/setup_warnings_title" />
         <activity
+            android:name=".ui.access.AccessControlActivity"
+            android:label="@string/Settings_Access_Control" />
+        <activity
             android:name=".ui.settings.AppearanceActivity"
             android:label="@string/Settings_Appearance" />
         <activity
@@ -92,9 +95,6 @@
         <activity
             android:name="com.mikepenz.aboutlibraries.ui.LibsActivity"
             android:theme="@style/CustomAboutLibrariesStyle" />
-        <activity
-            android:name=".ui.settings.AllowlistActivity"
-            android:label="@string/Settings_WhiteList" />
         <activity
             android:name=".ui.CrashedActivity"
             android:process=":bug_report" />

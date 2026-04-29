@@ -18,6 +18,7 @@ import com.mikepenz.aboutlibraries.LibsBuilder
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.ui.TaggedFragment
+import de.nulide.findmydevice.ui.access.AccessControlActivity
 import de.nulide.findmydevice.ui.common.PasswordSetDialog
 import de.nulide.findmydevice.ui.helper.SettingsEntry
 import de.nulide.findmydevice.ui.helper.SettingsViewAdapter
@@ -84,7 +85,7 @@ class SettingsFragment : TaggedFragment() {
                 Intent(context, FMDServerActivity::class.java)
             }
 
-            2 -> settingIntent = Intent(context, AllowlistActivity::class.java)
+            2 -> settingIntent = Intent(context, AccessControlActivity::class.java)
             3 -> settingIntent = Intent(context, OpenCellIdActivity::class.java)
             4 -> settingIntent = Intent(context, AppearanceActivity::class.java)
             5 -> {
