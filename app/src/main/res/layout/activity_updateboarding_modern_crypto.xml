@@ -29,7 +29,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
                     android:text="Changes to FMD Server"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="?attr/colorPrimary"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
                     android:text="Changes to FMD PIN"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="?attr/colorPrimary"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 

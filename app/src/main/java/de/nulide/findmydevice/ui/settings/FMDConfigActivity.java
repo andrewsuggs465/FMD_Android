@@ -76,7 +76,7 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
         editTextLockScreenMessage.setText((String) settings.get(Settings.SET_LOCKSCREEN_MESSAGE));
         editTextLockScreenMessage.addTextChangedListener(this);
 
-        colorEnabled = getColor(R.color.colorPrimary);
+        colorEnabled = getColor(R.color.md_theme_primary);
         colorDisabled = getColor(R.color.md_theme_error);
         textColorEnabled = getColor(R.color.md_theme_onPrimary);
         textColorDisabled = getColor(R.color.md_theme_onError);
