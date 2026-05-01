@@ -12,9 +12,14 @@ import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.utils.Notifications
 import de.nulide.findmydevice.utils.log
 import de.nulide.findmydevice.workers.CommandExecutionWorker
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 class ServerCommandDownloader(
-    private val context: Context,
+    private val context: Context
 ) {
 
     companion object {
@@ -48,8 +53,10 @@ class ServerCommandDownloader(
         context.log().e(TAG, msg)
 
         if (shouldRetry) {
-            // TODO: coroutine with basic backoff + sleep
-            download()
+            CoroutineScope(Dispatchers.IO).launch {
+                delay(1000L * tryCount)
+                download()
+            }
         }
     }
 
