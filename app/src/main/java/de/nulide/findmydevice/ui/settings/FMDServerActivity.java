@@ -293,8 +293,11 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         LayoutInflater inflater = getLayoutInflater();
         final AlertDialog.Builder alert = new MaterialAlertDialogBuilder(this);
         alert.setTitle(getString(R.string.Settings_FMDServer_Change_Password_Button));
+        alert.setCancelable(false);
+
         View registerLayout = inflater.inflate(R.layout.dialog_password_change, null);
         alert.setView(registerLayout);
+
         EditText oldPasswordInput = registerLayout.findViewById(R.id.editTextFMDOldPassword);
         EditText passwordInput = registerLayout.findViewById(R.id.editTextPassword);
         alert.setView(registerLayout);
@@ -312,6 +315,9 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
                     runChangePassword(oldPassword, password);
                 }
             }
+        });
+
+        alert.setNegativeButton(R.string.cancel, (dialog, whichButton) -> {
         });
         alert.show();
     }
