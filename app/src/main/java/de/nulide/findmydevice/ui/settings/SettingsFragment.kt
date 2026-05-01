@@ -139,8 +139,9 @@ class SettingsFragment : TaggedFragment() {
     }
 
     private fun showExportPasswordDialog(context: Context, uri: Uri) {
-        val message =
-            "${context.getString(R.string.export_password_message)}\n\n${context.getString(R.string.password_min_length)}"
+        val message = context.getString(R.string.export_password_message) +
+                "\n\n" + context.getString(R.string.password_min_length) +
+                "\n\n" + context.getString(R.string.export_password_message_empty_warning)
 
         PasswordSetDialog(
             context,
@@ -150,7 +151,8 @@ class SettingsFragment : TaggedFragment() {
                 }
             },
             R.string.export_password_enter_title,
-            message
+            message,
+            allowEmpty = true,
         ).show()
     }
 

@@ -20,6 +20,7 @@ class PasswordSetDialog(
     @StringRes val title: Int = R.string.password_enter,
     val message: String? = null,
     val forceMinLength: Boolean = true,
+    val allowEmpty: Boolean = false,
 ) {
 
     var dialog: AlertDialog
@@ -41,8 +42,11 @@ class PasswordSetDialog(
                 val password = editTextPassword.getText().toString()
 
                 if (password.isBlank()) {
-                    // an empty password should not trigger the min length check
-                    onSuccess("")
+                    if (allowEmpty) {
+                        onSuccess("")
+                    } else {
+                        Toast.makeText(context, R.string.pw_change_empty, Toast.LENGTH_LONG).show()
+                    }
                 } else if (availableCommands(context).stream()
                         .anyMatch { cmd: Command? -> cmd!!.keyword == password }
                 ) {
