@@ -289,4 +289,12 @@
     <string name="cmd_gps_response_is_on">Polohové služby jsou zapnuty.</string>
     <string name="cmd_gps_response_is_off">Polohové služby jsou vypnuty.</string>
     <string name="tip_first_contact_added">Gratulujeme, přidali jste svůj první kontakt! Nyní můžete komunikovat s FMD odesláním SMS, která začíná textem „%1$s“, z povoleného telefonního čísla. Můžete odeslat například „%2$s help“ nebo „%3$s flash“. Pokud vše funguje správně, aplikace odpoví.</string>
+    <string name="select">Vybrat</string>
+    <string name="import_success_message">Nastavení byla úspěšně importována.</string>
+    <string name="import_success_message_warning">UPOZORNĚNÍ: Soubor zálohy neobsahuje citlivé hodnoty. Pokud používáte následující funkce, nastavte si je prosím znovu ručně:\n\n1. Nastavte si FMD PIN.\n2. Nastavte si heslo pro smazání.</string>
+    <string name="import_failed_message">Import selhal nebo byl pouze částečně úspěšný. Pro více informací se podívejte do protokolů.</string>
+    <string name="push_registration_failed_title">Registrace push selhala</string>
+    <string name="push_registration_upload_failed_text">Adresu push se nepodařilo odeslat serveru FMD. Kvůli tomu nemůžete dostávat příkazy z FMD Serveru. Tento problém můžete opravit otevřením nastavení FMD Serveru a klepnutím na „Znovu registrovat“ pro ruční obnovení registrace do služby push.</string>
+    <string name="multiple_unified_push_distributors_title">Několik distribučních aplikací UnifiedPush</string>
+    <string name="multiple_unified_push_distributors_description">Máte nainstalovaných několik distribučních aplikací UnifiedPush. Vyberte prosím, kterou z nich chcete použít pro FMD.</string>
 </resources>
