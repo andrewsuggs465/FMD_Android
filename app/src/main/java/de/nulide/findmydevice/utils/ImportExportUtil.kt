@@ -69,6 +69,11 @@ class SettingsImportExporter(
             )
 
             for (file in filesToAdd) {
+                if (!file.exists()) {
+                    // For example, the whitelist.json may not exist if the user never configured it.
+                    context.log().i(TAG, "Skipping ${file.name} because it doesn't exist.")
+                    continue
+                }
                 zipParas.fileNameInZip = file.name
                 zipOutputStream.putNextEntry(zipParas)
                 file.inputStream().copyTo(zipOutputStream)
