@@ -19,11 +19,33 @@ class AccessRepository private constructor(private val context: Context) {
         val TAG = AccessRepository::class.simpleName
     }
 
-    private val db = Room.databaseBuilder(
-        context.applicationContext,
-        AccessDatabase::class.java,
-        ACCESS_DB_FILENAME,
-    ).build()
+    private var db = openDbInt()
+
+    private fun openDbInt(): AccessDatabase {
+        return Room.databaseBuilder(
+            context.applicationContext,
+            AccessDatabase::class.java,
+            ACCESS_DB_FILENAME,
+        ).build()
+    }
+
+    fun openDb() {
+        db = openDbInt()
+    }
+
+    fun closeDb() {
+        db.close()
+    }
+
+    /**
+     * Force the DB to write the WAL to the main DB file.
+     * This is useful before exports, because it means that we don't need to include the WAL in the export.
+     * See https://sqlite.org/wal.html.
+     */
+    fun forceWriteToDisk() {
+        db.openHelper.setWriteAheadLoggingEnabled(false)
+        db.openHelper.setWriteAheadLoggingEnabled(true)
+    }
 
     /* ------- Phone numbers ------- */
 

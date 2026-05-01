@@ -10,9 +10,11 @@ import com.google.gson.JsonSyntaxException
 import com.google.gson.stream.JsonWriter
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.ALLOWLIST_FILENAME
+import de.nulide.findmydevice.data.AccessRepository
 import de.nulide.findmydevice.data.AllowlistRepository
 import de.nulide.findmydevice.data.SETTINGS_FILENAME
 import de.nulide.findmydevice.data.SettingsRepository
+import de.nulide.findmydevice.database.ACCESS_DB_FILENAME
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import net.lingala.zip4j.io.inputstream.ZipInputStream
@@ -49,6 +51,7 @@ class SettingsImportExporter(
 
     suspend fun exportData(uri: Uri, password: String) {
         writeToUri(context, uri) { outputStream ->
+            AccessRepository.getInstance(context).forceWriteToDisk()
 
             // https://github.com/srikanth-lingala/zip4j#working-with-streams
             val zipParas = ZipParameters().apply {
@@ -65,12 +68,12 @@ class SettingsImportExporter(
 
             val filesToAdd = listOf(
                 File(context.filesDir, SETTINGS_FILENAME),
-                File(context.filesDir, ALLOWLIST_FILENAME),
+                context.getDatabasePath(ACCESS_DB_FILENAME),
             )
 
             for (file in filesToAdd) {
                 if (!file.exists()) {
-                    // For example, the whitelist.json may not exist if the user never configured it.
+                    // For example, the access.db may not exist if the user never configured it.
                     context.log().i(TAG, "Skipping ${file.name} because it doesn't exist.")
                     continue
                 }
@@ -147,40 +150,59 @@ class SettingsImportExporter(
                 return false
             }
 
+            // We need to close the DB file prior to import. Otherwise, if we copy the restored file
+            // in place, Room will just overwrite it with the DB cached in memory.
+            val accessRepo = AccessRepository.getInstance(context)
+            accessRepo.closeDb()
+
             val zipInputStream = ZipInputStream(inputStream, password?.toCharArray())
             var settingsFound = false
             var allowlistFound = false
+            var accessDbFound = false
 
             while (true) {
                 val entry = zipInputStream.nextEntry ?: break
-
                 when (entry.fileName) {
                     SETTINGS_FILENAME -> {
-                        context.log().i(TAG, "Trying to import $SETTINGS_FILENAME")
                         SettingsRepository.getInstance(context).importFromStream(zipInputStream)
                         settingsFound = true
                     }
 
                     ALLOWLIST_FILENAME -> {
-                        context.log().i(TAG, "Trying to import $ALLOWLIST_FILENAME")
                         AllowlistRepository.getInstance(context)
                             .importFromStreamToDb(zipInputStream)
                         allowlistFound = true
                     }
 
+                    ACCESS_DB_FILENAME -> {
+                        val outputFile = context.getDatabasePath(ACCESS_DB_FILENAME)
+                        // No zipInputStream.use{} because we don't yet want to close the stream.
+                        outputFile.outputStream().use { output ->
+                            zipInputStream.copyTo(output)
+                        }
+                        accessDbFound = true
+                    }
+
                     else -> {
                         context.log().w(TAG, "Unknown entry '${entry.fileName}'")
+                        continue
                     }
                 }
+                context.log().i(TAG, "Imported ${entry.fileName}")
             }
 
-            if (settingsFound && allowlistFound) {
+            accessRepo.openDb()
+
+            if (settingsFound && (allowlistFound || accessDbFound)) {
                 context.log().i(TAG, "ZIP import successful")
                 return true
             }
 
             // Consider this an import failure
-            context.log().w(TAG, "ZIP: settingsFound=$settingsFound allowlistFound=$allowlistFound")
+            context.log().w(
+                TAG,
+                "ZIP: settingsFound=$settingsFound allowlistFound=$allowlistFound accessDbFound=$accessDbFound"
+            )
 
         } catch (e: Exception) {
             context.log().e(TAG, "ZIP import failed:\n${e.stackTraceToString()}")
@@ -221,6 +243,7 @@ suspend fun writeToUri(
     try {
         outputStream = context.contentResolver.openOutputStream(uri) ?: return@withContext
         write(outputStream)
+        context.log().i(TAG, "Export successful")
         withContext(Dispatchers.Main) {
             Toast.makeText(context, R.string.export_success, Toast.LENGTH_LONG).show()
         }
