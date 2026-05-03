@@ -264,10 +264,10 @@
     <string name="allowlist_invalid_number">Dit telefoonnummer is ongeldig!</string>
     <string name="pin_min_length">De pincode moet minimaal 8 tekens lang zijn. 16 of meer wordt aangeraden.</string>
     <string name="password_min_length">Het wachtwoord moet minimaal 8 tekens lang zijn. 16 of meer wordt aangeraden.</string>
-    <string name="missing_push_description">Zonder UnifiedPush distributie-app kun je geen opdrachten van FMD Server ontvangen.</string>
+    <string name="missing_push_description">Zonder UnifiedPush-distributeur-app kun je geen opdrachten van FMD Server ontvangen.</string>
     <string name="missing_push_title">UnifiedPush ontbreekt</string>
     <string name="Settings_FMDServer_Push_Install_Sunup">Sunup installeren</string>
-    <string name="Settings_FMDServer_Push_Info_Sunup">De aanbevolen UnifiedPush distributie-app is Sunup. Sunup is eenvoudig in te stellen en maakt gebruik van pushservers van Mozilla.</string>
+    <string name="Settings_FMDServer_Push_Info_Sunup">De aanbevolen UnifiedPush-distributeur-app is Sunup. Sunup is eenvoudig in te stellen en maakt gebruik van pushservers van Mozilla.</string>
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Waarden onder de 15 minuten worden niet aanbevolen.</string>
     <string name="cmd_flash_description_short">Cameraflitser knipperen</string>
     <string name="cmd_locate_provider_disabled">De gevraagde locatieprovider \"%s\" is uitgeschakeld.</string>
@@ -289,4 +289,16 @@
     <string name="cmd_gps_response_is_on">Locatieservices staan aan.</string>
     <string name="cmd_gps_response_is_off">Locatieservices staan uit.</string>
     <string name="tip_first_contact_added">Gefeliciteerd, je hebt je eerste contactpersoon toegevoegd! Je kunt nu vanaf het toegestane telefoonnummer met FMD communiceren door een sms te sturen die begint met \"%1$s\". Stuur bijvoorbeeld \"%2$s help\" of \"%3$s flash\". Als alles werkt, zal de app reageren.</string>
+    <string name="select">Kiezen</string>
+    <string name="export_password_enter_title">Versleutelingswachtwoord invoeren</string>
+    <string name="export_password_message">Kies een wachtwoord om de geëxporteerde back-up te versleutelen.</string>
+    <string name="export_password_message_empty_warning">Als u het wachtwoord leeg laat, wordt de back-up niet gecodeerd. Hierdoor bestaat het risico dat gevoelige instellingenb gelezen kunnen worden.</string>
+    <string name="import_password_message">Voer het wachtwoord in dat is gebruikt om de back-up te versleutelen.</string>
+    <string name="import_success_message">De instellingen zijn succesvol geïmporteerd.</string>
+    <string name="import_success_message_warning">LET OP: Gevoelige waarden zijn niet opgenomen in het back-upbestand. Als u de volgende functies gebruikt, stel deze dan handmatig opnieuw in:\n\n1. Stel de FMD-pincode in.\n2. Stel het verwijderwachtwoord in.</string>
+    <string name="import_failed_message">De import is mislukt of was slechts gedeeltelijk succesvol. Controleer de logboeken voor details.</string>
+    <string name="push_registration_failed_title">Push-registratie mislukt</string>
+    <string name="push_registration_upload_failed_text">De push-URL kon niet naar FMD Server worden verzonden. Daarom kunt u geen opdrachten ontvangen van FMD Server. Om dit op te lossen, opent u de instellingen van de FMD Server en klikt u op \"Opnieuw registreren\" om de push-registratie handmatig te verlengen.</string>
+    <string name="multiple_unified_push_distributors_title">Meerdere UnifiedPush-distributeur-apps</string>
+    <string name="multiple_unified_push_distributors_description">U heeft meerdere UnifiedPush-distributeur-apps geïnstalleerd. Selecteer welke u voor MKZ wilt gebruiken.</string>
 </resources>
