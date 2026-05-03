@@ -135,8 +135,10 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
 
                 cacheRegistrationToken(registrationToken)
 
-                if (password.isEmpty()) {
-                    Toast.makeText(context, R.string.pw_change_empty, Toast.LENGTH_LONG).show()
+                if (username.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(
+                        context, R.string.Settings_FMDServer_Error_id_or_pw_empty, Toast.LENGTH_LONG
+                    ).show()
                     loadingDialog?.cancel()
                 } else if (password.length < MIN_PASSWORD_LENGTH) {
                     Toast.makeText(context, R.string.password_min_length, Toast.LENGTH_LONG).show()
