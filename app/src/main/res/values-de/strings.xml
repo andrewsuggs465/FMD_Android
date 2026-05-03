@@ -318,4 +318,16 @@
     <string name="cmd_bluetooth_response_is_off">Bluetooth ist aus.</string>
     <string name="cmd_gps_response_is_on">Die Standortdienste sind an.</string>
     <string name="cmd_gps_response_is_off">Die Standortdienste sind aus.</string>
+    <string name="select">Auswählen</string>
+    <string name="export_password_enter_title">Verschlüsselungspasswort eingeben</string>
+    <string name="export_password_message">Wähle ein Passwort um das exportierte Backup zu verschlüsseln.</string>
+    <string name="export_password_message_empty_warning">Wenn du das Passwort leer lässt, bleibt das Backup unverschlüsselt. Dadurch besteht die Gefahr, dass sensible Einstellungen offengelegt werden.</string>
+    <string name="import_password_message">Gib das Passwort ein, mit dem das Backup verschlüsselt wurde.</string>
+    <string name="import_success_message">Die Einstellungen wurden erfolgreich importiert.</string>
+    <string name="import_success_message_warning">Achtung: Sensible Werte sind nicht in der Backupdatei enthalten. Falls du die folgenden Features benutzt, konfiguriere sie bitte erneut:\n\n1. Konfiguriere die FMD PIN.\n2. Konfiguriere das Lösch-Passwort.</string>
+    <string name="import_failed_message">Der Import ist fehlgeschlagen oder war nur teilweise erfolgreich. Weitere Informationen findest du in den Logs.</string>
+    <string name="push_registration_failed_title">Push-Registrierung fehlgeschlagen</string>
+    <string name="push_registration_upload_failed_text">Die Push-URL konnte nicht an FMD Server geschickt werden. Deshalb wirst du keine Befehle von FMD Server empfangen können. Um dies zu beheben, öffne bitte die FMD-Server-Einstellungen und klicke auf \"Erneut registrieren\" um die Push-Registrierung manuell zu erneuern.</string>
+    <string name="multiple_unified_push_distributors_title">Mehrere UnifiedPush-Verteiler-Apps</string>
+    <string name="multiple_unified_push_distributors_description">Du hast mehrere UnifiedPush-Verteiler-Apps installiert. Bitte wähle, welche davon du für FMD verwenden möchtest.</string>
 </resources>
