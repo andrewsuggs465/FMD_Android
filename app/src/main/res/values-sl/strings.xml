@@ -212,7 +212,7 @@
     <string name="Settings_FMDServer_Error_id_or_pw_empty">FMD ID in geslo ne smeta biti prazna.</string>
     <string name="log_view_title">Dnevniški zapisi</string>
     <string name="cmd_bluetooth_description_short">Vključi ali izključi Bluetooth</string>
-    <string name="export_success">Izvoz uspešno zaključen</string>
+    <string name="export_success">Izvoz uspešen</string>
     <string name="export_failed">Izvoz ni uspel</string>
     <string name="temporary_allowlist_expired">Vaš začasni dostop do FMD je potekel. Če želite še naprej uporabljati FMD, znova pošljite PIN.</string>
     <string name="log_view_export">Izvozi dnevniške zapise</string>
@@ -304,4 +304,16 @@
     <string name="cmd_gps_response_is_on">Lokacijske storitve so vključene.</string>
     <string name="cmd_gps_response_is_off">Lokacijske storitve so izključene.</string>
     <string name="tip_first_contact_added">Čestitamo, dodali ste svoj prvi stik! Zdaj lahko komunicirate s FMD tako, da iz dovoljene telefonske številke pošljete SMS, ki se začne z »%1$s«. Na primer, pošljete lahko »%2$s help« ali »%3$s flash«. Ko bo vse delovalo, se bo aplikacija odzvala.</string>
+    <string name="select">Izberi</string>
+    <string name="export_password_enter_title">Vnesi šifrirno geslo</string>
+    <string name="export_password_message">Izberite geslo za šifriranje izvožene varnostne kopije.</string>
+    <string name="export_password_message_empty_warning">Če geslo pustite prazno, varnostna kopija ne bo šifrirana. S tem tvegate razkritje občutljivih nastavitev.</string>
+    <string name="import_password_message">Vnesite geslo, ki je bilo uporabljeno za šifriranje varnostne kopije.</string>
+    <string name="import_success_message">Nastavitve so bile uspešno uvožene.</string>
+    <string name="import_success_message_warning">POZOR: Občutljive vrednosti niso vključene v datoteko varnostne kopije. Če torej uporabljate naslednje funkcije, jih ponovno ročno nastavite:\n\n1. Nastavite PIN za FMD.\n2. Nastavite geslo za brisanje.</string>
+    <string name="import_failed_message">Uvoz ni uspel ali je bil le delno uspešen. Za podrobnosti preverite dnevniške zapise.</string>
+    <string name="push_registration_failed_title">Potisna registracija ni uspela</string>
+    <string name="push_registration_upload_failed_text">URL-ja za potisne sporočila ni bilo mogoče poslati strežniku FMD. Zato ne morete prejemati ukazov s strežnika FMD. Če želite to odpraviti, odprite nastavitve strežnika FMD in kliknite »Registriraj se znova«, da ročno obnovite registracijo za potisna sporočila.</string>
+    <string name="multiple_unified_push_distributors_title">Več aplikacij za distribucijo UnifiedPush</string>
+    <string name="multiple_unified_push_distributors_description">Nameščenih imate več aplikacij za distribucijo UnifiedPush. Izberite tisto, ki jo želite uporabiti za FMD.</string>
 </resources>
