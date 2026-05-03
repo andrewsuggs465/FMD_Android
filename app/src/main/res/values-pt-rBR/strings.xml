@@ -289,4 +289,16 @@
     <string name="cmd_bluetooth_response_is_off">O Bluetooth está desativado.</string>
     <string name="cmd_gps_response_is_on">Os serviços de localização estão ativados.</string>
     <string name="cmd_gps_response_is_off">Os serviços de localização estão desativados.</string>
+    <string name="select">Selecionar</string>
+    <string name="export_password_enter_title">Digitar senha de criptografia</string>
+    <string name="export_password_message">Escolha uma senha para criptografar o backup exportado.</string>
+    <string name="export_password_message_empty_warning">Se você deixar a senha vazia, o backup não será criptografado. Há o risco de expor configurações sensíveis.</string>
+    <string name="import_password_message">Digite a senha que foi usada para criptografar o backup.</string>
+    <string name="import_success_message">As configurações foram importadas com sucesso.</string>
+    <string name="import_success_message_warning">CUIDADO: Valores sensíveis não são inclusos no arquivo de backup. Então, se você usa um dos seguintes recursos, configure-os manualmente novamente:\n\n1. Configure o PIN do FMD.\n2. Configure a senha de apagar.</string>
+    <string name="import_failed_message">A importação falhou ou foi apenas parcialmente bem-sucedida. Confira os registros para mais detalhes.</string>
+    <string name="push_registration_failed_title">Falha de cadastro no push</string>
+    <string name="push_registration_upload_failed_text">A URL push não pôde ser enviada ao FMD Server. Então, você não poderá receber comandos pelo FMD Server. Para resolver isso, abra as configurações do FMD Server e clique em \"Cadastrar novamente\" para renovar o cadastro push manualmente.</string>
+    <string name="multiple_unified_push_distributors_title">Vários apps distribuidores do UnifiedPush</string>
+    <string name="multiple_unified_push_distributors_description">Você tem vários apps distribuidores do UnifiedPush instalados. Selecione qual você quer usar para o FMD.</string>
 </resources>
