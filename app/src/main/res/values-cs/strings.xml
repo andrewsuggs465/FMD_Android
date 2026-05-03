@@ -297,4 +297,8 @@
     <string name="push_registration_upload_failed_text">Adresu push se nepodařilo odeslat serveru FMD. Kvůli tomu nemůžete dostávat příkazy z FMD Serveru. Tento problém můžete opravit otevřením nastavení FMD Serveru a klepnutím na „Znovu registrovat“ pro ruční obnovení registrace do služby push.</string>
     <string name="multiple_unified_push_distributors_title">Několik distribučních aplikací UnifiedPush</string>
     <string name="multiple_unified_push_distributors_description">Máte nainstalovaných několik distribučních aplikací UnifiedPush. Vyberte prosím, kterou z nich chcete použít pro FMD.</string>
+    <string name="export_password_enter_title">Zadejte šifrovací heslo</string>
+    <string name="export_password_message">Zvolte si heslo pro zašifrování exportované databáze.</string>
+    <string name="export_password_message_empty_warning">Pokud ponecháte heslo prázdné, nebude záloha šifrovaná. Tím se vystavujete riziku vystavení citlivých nastavení.</string>
+    <string name="import_password_message">Zadejte heslo použité k zašifrování zálohy.</string>
 </resources>
