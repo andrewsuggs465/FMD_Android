@@ -258,7 +258,7 @@
     <string name="Settings_FMDServer_Push_Distributor">Publication : %s</string>
     <string name="Settings_FMDServer_Push_Url">URL de publication : %s</string>
     <string name="Settings_FMDServer_Push_Register">S\'enregistrer</string>
-    <string name="Settings_FMDServer_Push_Register_Again">S\'enregistrer à nouveau</string>
+    <string name="Settings_FMDServer_Push_Register_Again">Enregistrer à nouveau</string>
     <string name="server_fmd_id_hint">L\'identifiant (ID) FMD permet d\'identifier votre compte sur le serveur FMD. Laisser le champ vide pour permettre au serveur de générer un ID. L\'administrateur du serveur peut voir l\'ID FMD.</string>
     <string name="cmd_ringermode_description_short">Changer le mode de sonnerie</string>
     <string name="cmd_ringermode_response_empty">Le mode de sonnerie actuelle est \"%s\".</string>
@@ -300,4 +300,16 @@
     <string name="cmd_gps_response_is_on">Les services de localisation sont activés.</string>
     <string name="cmd_gps_response_is_off">Les services de localisation sont désactivés.</string>
     <string name="tip_first_contact_added">Félicitations, vous avez ajouté votre premier contact ! Vous pouvez maintenant communiquer avec FMD en envoyant un SMS qui commence par \"%1$s\" depuis le numéro de téléphone autorisé. Par exemple, envoyez \"%2$s help\" ou \"%3$s flash\". Lorsque tout fonctionne, l\'application devrait répondre.</string>
+    <string name="select">Sélectionnez</string>
+    <string name="export_password_enter_title">Saisissez le mot de passe de chiffrement</string>
+    <string name="export_password_message">Choisissez un mot de passe pour chiffrer l\'export de la sauvegarde.</string>
+    <string name="export_password_message_empty_warning">Si vous laissez le mot de passe vide, la sauvegarde ne sera pas chiffrée. Cela risque d\'exposer des paramètres sensibles.</string>
+    <string name="import_password_message">Saisissez le mot de passe utilisé pour chiffrer la sauvegarde.</string>
+    <string name="import_success_message">Les paramètres ont été exportés avec succès.</string>
+    <string name="import_success_message_warning">ATTENTION : les valeurs sensibles ne sont pas inclues dans le fichier de sauvegarde. De ce fait, si vous utilisez les fonctionnalités suivantes, veuillez les définir manuellement à nouveau :\n\n1. Saisissez le PIN de FMD.\n2. Saisissez le mot de passe de suppression.</string>
+    <string name="import_failed_message">L\'import a échoué ou n\'a que partiellement réussi. Veuillez vérifier les journaux pour plus de détails.</string>
+    <string name="multiple_unified_push_distributors_title">Plusieurs application de distribution UnifiedPush</string>
+    <string name="multiple_unified_push_distributors_description">Vous avez plusieurs applications de distribution UnifiedPush installées. Veuillez sélectionner laquelle vous voulez utiliser pour FMD.</string>
+    <string name="push_registration_failed_title">Enregistrement de la publication en échec</string>
+    <string name="push_registration_upload_failed_text">L\'URL de publication ne peut pas être envoyée au Serveur FMD. De ce fait, vous ne pouvez pas recevoir de commande depuis le Serveur FMD. Pour corriger cela, veuillez ouvrir les paramètres du Serveur FMD et cliquer sur \"Enregistrer à nouveau\" pour renouveler manuellement l\'enregistrement de la publication.</string>
 </resources>
