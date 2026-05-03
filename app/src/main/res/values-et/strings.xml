@@ -289,4 +289,16 @@
     <string name="cmd_bluetooth_response_is_off">Bluetooth on lülitatud välja.</string>
     <string name="cmd_gps_response_is_on">Asukohateenused on lülitatud sisse.</string>
     <string name="cmd_gps_response_is_off">Asukohateenused on lülitatud välja.</string>
+    <string name="select">Vali</string>
+    <string name="export_password_enter_title">Sisesta krüptimise salasõna</string>
+    <string name="export_password_message">Sisesta salasõna, millega sooviksid eksporditava varukoopia krüptida.</string>
+    <string name="export_password_message_empty_warning">Kui jätad salasõna sisestamata, siis varukoopia salvestub krüptimata kujul. Seetõttu on võimalik, et delikaatsed seadistused võivad saada teatavaks välistele osapooltele.</string>
+    <string name="import_password_message">Sisesta varukoopia krüptimisel kasutatud salasõna.</string>
+    <string name="import_success_message">Seadistuste importimine õnnestus.</string>
+    <string name="import_success_message_warning">HOIATUS: Selles varukoopias ei leidu delikaatseid andmeid. Seega, kui kasutad järgnevaid funktsionaalsusi, siis palun seadista nad uuesti:\n\n1. Lisa FMD PIN-kood.\n2. Lisa kustutamise salasõna.</string>
+    <string name="import_failed_message">Importimine ei õnnestunud või õnnestus osaliselt. Üksikasjalikku teavet leidad logidest.</string>
+    <string name="push_registration_failed_title">Tõuketeenuse registreerimine ei õnnestunud</string>
+    <string name="push_registration_upload_failed_text">Tõuketeenuse võrguaadressi saatmine FMD Serverile polnud võimalik. Seetõttu sinu nutiseade ei saa ka FMD Serverist käske vastu võtta. Vea parandamiseks ava FMD Serveri seadistused, klõpsa „Registreeri uuesti“ ja siis uuendatakse tõuketeenuse registreerimine käsitsi.</string>
+    <string name="multiple_unified_push_distributors_title">Mitu UnifiedPushi levitajat</string>
+    <string name="multiple_unified_push_distributors_description">Sinu nutiseaadmes leidub mitu UnifiedPushi levitajat. Palun vali, mida neist sa tahad FMD jaoks kasutada.</string>
 </resources>
