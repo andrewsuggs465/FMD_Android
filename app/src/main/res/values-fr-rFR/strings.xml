@@ -38,7 +38,7 @@
     <string name="Settings_FMD_Server_General">Général</string>
     <string name="Settings_FMD_Server_Server_URL">URL du serveur :</string>
     <string name="Settings_FMDServer_Change_Password_Button">Changer le mot de passe</string>
-    <string name="Settings_FMD_Server_ID_Desc">Vous avec besoin de l\'identifiant utilisateur pour trouver votre appareil avec le serveur FMD. Notez-le et gardez-le en lieu sûr.</string>
+    <string name="Settings_FMD_Server_ID_Desc">Vous avez besoin du nom d\'utilisateur pour trouver votre appareil avec le serveur FMD. Notez-le et gardez-le en lieu sûr.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Lieu source</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Cela supprimera toutes les données du serveur ! Êtes-vous sûr ?</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Envoyer lorsque la batterie est faible</string>
@@ -61,7 +61,7 @@
     <string name="Notification_FAIL">Échecs</string>
     <string name="Notification_Fail_Description">Notifications en cas d\'échec, comme la connexion au serveur FMD</string>
     <string name="notify_crypto_update_title">Action requise</string>
-    <string name="Settings_FMD_Server_User_ID">Identifiant utilisateur :</string>
+    <string name="Settings_FMD_Server_User_ID">Nom d\'utilisateur :</string>
     <string name="about_wiki">Wiki</string>
     <string name="Settings_FMDServer_use_default_server">Utiliser le serveur public</string>
     <string name="copied">Copié</string>
@@ -203,7 +203,7 @@
     <string name="pw_change_wrong_password">Mot de passe invalide</string>
     <string name="Settings_FMDServer_Delete_Account">Supprimer le compte</string>
     <string name="pw_change_network_failed">Changement du mot de passe échoué à cause d\'une erreur réseau.</string>
-    <string name="Settings_FMDServer_Error_id_or_pw_empty">L’ID FMD et le mot de passe ne peuvent pas être vides.</string>
+    <string name="Settings_FMDServer_Error_id_or_pw_empty">Le nom d\'utilisateur et le mot de passe ne peuvent pas être vides.</string>
     <string name="log_view_export">Exporter les journaux</string>
     <string name="Settings_Appearance">Apparence</string>
     <string name="appearance_language">Langue</string>
@@ -259,7 +259,7 @@
     <string name="Settings_FMDServer_Push_Url">URL de publication : %s</string>
     <string name="Settings_FMDServer_Push_Register">S\'enregistrer</string>
     <string name="Settings_FMDServer_Push_Register_Again">Enregistrer à nouveau</string>
-    <string name="server_fmd_id_hint">L\'identifiant (ID) FMD permet d\'identifier votre compte sur le serveur FMD. Laisser le champ vide pour permettre au serveur de générer un ID. L\'administrateur du serveur peut voir l\'ID FMD.</string>
+    <string name="server_fmd_id_hint">Le nom d\'utilisateur permet d\'identifier votre compte sur le serveur FMD. L\'administrateur du serveur peut voir le nom d\'utilisateur.</string>
     <string name="cmd_ringermode_description_short">Changer le mode de sonnerie</string>
     <string name="cmd_ringermode_response_empty">Le mode de sonnerie actuelle est \"%s\".</string>
     <string name="cmd_ringermode_response">Le mode de sonnerie a été modifié de \"%1$s\" (ancien) vers \"%2$s\" (nouveau).</string>
@@ -312,4 +312,5 @@
     <string name="multiple_unified_push_distributors_description">Vous avez plusieurs applications de distribution UnifiedPush installées. Veuillez sélectionner laquelle vous voulez utiliser pour FMD.</string>
     <string name="push_registration_failed_title">Enregistrement de la publication en échec</string>
     <string name="push_registration_upload_failed_text">L\'URL de publication ne peut pas être envoyée au Serveur FMD. De ce fait, vous ne pouvez pas recevoir de commande depuis le Serveur FMD. Pour corriger cela, veuillez ouvrir les paramètres du Serveur FMD et cliquer sur \"Enregistrer à nouveau\" pour renouveler manuellement l\'enregistrement de la publication.</string>
+    <string name="server_username">Nom d\'utilisateur</string>
 </resources>
