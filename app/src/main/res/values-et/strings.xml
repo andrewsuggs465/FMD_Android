@@ -51,7 +51,7 @@
     <string name="Settings_FMDServer_Push_Register_Again">Registreeri uuesti</string>
     <string name="appearance_theme_light">Hele kujundus</string>
     <string name="server_version">Serveri versioon</string>
-    <string name="Settings_FMDServer_Error_id_or_pw_empty">FMD tunnus ja salasõna ei saa jääda tühjaks.</string>
+    <string name="Settings_FMDServer_Error_id_or_pw_empty">FMD kasutajanimi ja salasõna ei saa jääda tühjaks.</string>
     <string name="Notification_FAIL">Vead</string>
     <string name="password_new">Uus salasõna</string>
     <string name="password_old">Vana salasõna</string>
@@ -67,8 +67,8 @@
     <string name="Settings_no_ringtone_picker">Ei leidnud ühtegi rakendust, mille abil helinaid valida!</string>
     <string name="Settings_FMD_Server_General">Üldseadistused</string>
     <string name="Settings_FMD_Server_Server_URL">Serveri võrguaadress:</string>
-    <string name="Settings_FMD_Server_User_ID">Kasutajatunnus:</string>
-    <string name="Settings_FMD_Server_ID_Desc">Leidmaks oma seadet FMD serveri abil vajad sa kasutajatunnust. Märgi see üles ja hoia turvaliselt kas moodsas salasõnalaekas või vana kooli seifis.</string>
+    <string name="Settings_FMD_Server_User_ID">Kasutajanimi:</string>
+    <string name="Settings_FMD_Server_ID_Desc">Leidmaks oma seadet FMD serveri abil vajad sa kasutajanime. Märgi see üles ja hoia turvaliselt kas moodsas salasõnalaekas või vana kooli seifis.</string>
     <string name="Settings_FMDServer_Logout_Text">Kas sa kindlasti soovid oma FMD serveri kasutajakonto siit seadmest välja logida?</string>
     <string name="Settings_FMDServer_Unregister_Success">Registreerimise eemaldamine ja andmete kustutamine õnnestus!</string>
     <string name="Settings_FMDServer_Push_Url">Tõuketeenuse võrguaadress: %s</string>
@@ -234,7 +234,7 @@
     <string name="Settings_FMDServer_Location_Type_Description">Allikas (allikad), mille alusel asukohaandmed laaditakse regulaarselt taustal serverisse.\nKui sa ühtegi ei vali, siis asukoha teavet ei laadita serverisse. (Küll aga saad kasutada veebiliidest üleslaadimise käivitamiseks ja see eeldab tõuketeenuste toimimist.)</string>
     <string name="Settings_FMDServer_AddAccount">FMD server: sisselogimine</string>
     <string name="Settings_FMDServer_Info">FMD serveri abil võid nutiseadmele saata käske, näha tema asukohta kaardil või vaadata üleslaaditud pilte. Kui tahad kasutada oma enda serverit, siis juhend leidub meie veebisaidis.</string>
-    <string name="server_fmd_id_hint">FMD tunnus tuvastab sinu kasutajakonto FMD serveris. Kui jätad ta tühjaks, siis tunnuse loob server ise. Serveri peakasutajal on FMD tunnust võimalik näha.</string>
+    <string name="server_fmd_id_hint">FMD kasutajanimi tuvastab sinu kasutajakonto FMD serveris. Serveri peakasutajal on võimalik näha FMD kasutajanime.</string>
     <string name="registration_token_hint">Privaatsed FMD-serverid võivad eeldada tunnusloa kasutamist. Kui server on avalik, siis jäta see väli tühjaks.</string>
     <string name="server_registration_token_error">Võrgupäring ei toiminud ja vastuseks oli HTTP olekuteade 401. See võib juhtuda, kui server eeldab tunnusloa kasutamist ja sinu sisestatud tunnusluba oli vale.</string>
     <string name="Whitelist_help">Selles loendis olevad kontaktid võivad saata FMD-käske SMS-iga. Kõikide teiste saatjate käsud ei kuulu täitmisele.</string>
@@ -301,4 +301,5 @@
     <string name="push_registration_upload_failed_text">Tõuketeenuse võrguaadressi saatmine FMD Serverile polnud võimalik. Seetõttu sinu nutiseade ei saa ka FMD Serverist käske vastu võtta. Vea parandamiseks ava FMD Serveri seadistused, klõpsa „Registreeri uuesti“ ja siis uuendatakse tõuketeenuse registreerimine käsitsi.</string>
     <string name="multiple_unified_push_distributors_title">Mitu UnifiedPushi levitajat</string>
     <string name="multiple_unified_push_distributors_description">Sinu nutiseaadmes leidub mitu UnifiedPushi levitajat. Palun vali, mida neist sa tahad FMD jaoks kasutada.</string>
+    <string name="server_username">Kasutajanimi</string>
 </resources>
