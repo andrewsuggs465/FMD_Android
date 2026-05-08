@@ -29,7 +29,7 @@
     <string name="Settings_Select_Ringtone">Beltoon selecteren</string>
     <string name="Settings_no_ringtone_picker">Geen beltoon-kiezer gevonden!</string>
     <string name="Settings_FMD_Server_General">Algemeen</string>
-    <string name="Settings_FMD_Server_User_ID">User-ID:</string>
+    <string name="Settings_FMD_Server_User_ID">Gebruikersnaam:</string>
     <string name="Settings_FMD_Server_Connection_Status">Verbindingsstatus:</string>
     <string name="Settings_FMD_Server_Connection_Status_Success">Succes</string>
     <string name="Settings_FMDServer_Change_Password_Button">Wachtwoord wijzigen</string>
@@ -104,7 +104,7 @@
     <string name="Settings_Export">Instellingen exporteren</string>
     <string name="Settings_Enter_Pin">Pincode invoeren</string>
     <string name="Settings_FMD_Server_Server_URL">Server-URL:</string>
-    <string name="Settings_FMD_Server_ID_Desc">De User-ID is nodig om het apparaat met FMD Server te vinden. Noteer het en bewaar dit op een veilige plek.</string>
+    <string name="Settings_FMD_Server_ID_Desc">De gebruikersnaam is nodig om je apparaat met FMD Server te vinden. Schrijf het op en bewaar het veilig.</string>
     <string name="Settings_FMDServer_Location_Type_Description">De bron(nen) van waaruit de locatiegegevens op regelmatige tijdstippen op de achtergrond worden geüpload.\nAls er geen is geselecteerd, worden er geen regelmatige locaties geüpload. (Je kunt nog wel de webinterface gebruiken om een upload te forceren. Dit vereist push.)</string>
     <string name="password_new">Nieuw wachtwoord</string>
     <string name="pw_change_success">Wachtwoord gewijzigd</string>
@@ -115,7 +115,7 @@
     <string name="server_version_error">Fout bij ophalen van server-versie</string>
     <string name="pw_change_network_failed">Het wijzigen van het wachtwoord is mislukt vanwege een netwerkfout.</string>
     <string name="server_version">Server-versie</string>
-    <string name="Settings_FMDServer_Error_id_or_pw_empty">De FMD-ID en het wachtwoord mogen niet leeg zijn.</string>
+    <string name="Settings_FMDServer_Error_id_or_pw_empty">De gebruikersnaam en het wachtwoord mogen niet leeg zijn.</string>
     <string name="server_version_error_low_version">Minimale server-versie {MIN} is vereist, maar de geselecteerde server heeft versie {CURRENT}. Doorgaan is op eigen risico.</string>
     <string name="Settings_FMDServer_open_website">FMD Server-website openen</string>
     <string name="Settings_FMDServer_use_default_server">De publieke server gebruiken</string>
@@ -239,7 +239,7 @@
     <string name="Settings_FMDServer_Check_Notify_After_Title">Maximaal toegestane tijd zonder verbinding</string>
     <string name="usage_notification_pin_text">De pincode werd gebruikt met dit nummer: \"%s\". Het wordt aanbevolen om de pincode te wijzigen.</string>
     <string name="pin_match_command_keyword">De pincode mag niet gelijk zijn aan een van de opdrachten!</string>
-    <string name="server_fmd_id_hint">De FMD-ID identificeert jouw account op de FMD Server. Laat dit leeg om de server een ID te laten genereren. De serverbeheerder kan de FMD-ID zien.</string>
+    <string name="server_fmd_id_hint">De gebruikersnaam identificeert jouw account op de FMD Server. De serverbeheerder kan de gebruikersnaam zien.</string>
     <string name="Settings_FMDServer_Push_Description">Om commando\'s van FMD Server naar je apparaat te sturen, heb je een UnifiedPush-distributeur-app nodig.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distributeur: %s</string>
     <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
@@ -301,4 +301,5 @@
     <string name="push_registration_upload_failed_text">De push-URL kon niet naar FMD Server worden verzonden. Daarom kunt u geen opdrachten ontvangen van FMD Server. Om dit op te lossen, opent u de instellingen van de FMD Server en klikt u op \"Opnieuw registreren\" om de push-registratie handmatig te verlengen.</string>
     <string name="multiple_unified_push_distributors_title">Meerdere UnifiedPush-distributeur-apps</string>
     <string name="multiple_unified_push_distributors_description">U heeft meerdere UnifiedPush-distributeur-apps geïnstalleerd. Selecteer welke u voor MKZ wilt gebruiken.</string>
+    <string name="server_username">Gebruikersnaam</string>
 </resources>
