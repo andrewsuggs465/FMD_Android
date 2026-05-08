@@ -27,8 +27,8 @@
     <!-- Settings: FMD Server -->
     <string name="Settings_FMD_Server_General">Allgemein</string>
     <string name="Settings_FMD_Server_Server_URL">Server-URL:</string>
-    <string name="Settings_FMD_Server_User_ID">User ID:</string>
-    <string name="Settings_FMD_Server_ID_Desc">Du benötigst deine Benutzer-ID, um dein Gerät mit dem FMD-Server zu finden. Notiere sie dir und bewahre sie sicher auf.</string>
+    <string name="Settings_FMD_Server_User_ID">Benutzername:</string>
+    <string name="Settings_FMD_Server_ID_Desc">Du benötigst deinen Benutzernamen, um dein Gerät mit FMD Server zu finden. Notiere ihn und bewahre ihn sicher auf.</string>
     <string name="Settings_FMDServer_Change_Password_Button">Password ändern</string>
     <string name="Settings_FMDServer_Logout_Button">Abmelden</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Dadurch werden alle Daten auf dem Server gelöscht. Bist du sicher?</string>
@@ -227,7 +227,7 @@
     <string name="pw_change_success">Passwort geändert</string>
     <string name="pw_change_empty">Das Passwort darf nicht leer sein.</string>
     <string name="pw_change_wrong_password">Falsches Passwort</string>
-    <string name="Settings_FMDServer_Error_id_or_pw_empty">Die FMD-ID und das Passwort dürfen nicht leer sein.</string>
+    <string name="Settings_FMDServer_Error_id_or_pw_empty">Der Benutzername und das Passwort dürfen nicht leer sein.</string>
     <string name="cmd_bluetooth_response_on">Bluetooth eingeschaltet.</string>
     <string name="cmd_bluetooth_response_off">Bluetooth ausgeschaltet.</string>
     <string name="perm_bluetooth_connect_name">Bluetooth verbinden</string>
@@ -268,7 +268,7 @@
     <string name="Settings_FMDServer_Update_Interval_Title">Intervall des Standortuploads im Hintergrund</string>
     <string name="usage_notification_pin_title">FMD-PIN benutzt</string>
     <string name="usage_notification_pin_text">Die PIN wurde von dieser Nummer verwendet: „%s“. Wir empfehlen, die PIN zu ändern.</string>
-    <string name="server_fmd_id_hint">Die FMD-ID identifiziert dein Konto auf dem FMD-Server. Wenn du dieses Feld leer lässt, generiert der Server eine ID für dich. Der Server-Administrator kann die FMD-ID sehen.</string>
+    <string name="server_fmd_id_hint">Der Benutzername identifiziert dein Konto auf FMD Server. Der Server-Administrator kann den Benutzernamen sehen.</string>
     <string name="Settings_FMDServer_Push_Url">Push-URL: %s</string>
     <string name="Settings_FMDServer_Push_Register_Again">Erneut registrieren</string>
     <string name="Settings_FMDServer_Push_Register">Registrieren</string>
@@ -330,4 +330,5 @@
     <string name="push_registration_upload_failed_text">Die Push-URL konnte nicht an FMD Server geschickt werden. Deshalb wirst du keine Befehle von FMD Server empfangen können. Um dies zu beheben, öffne bitte die FMD-Server-Einstellungen und klicke auf \"Erneut registrieren\" um die Push-Registrierung manuell zu erneuern.</string>
     <string name="multiple_unified_push_distributors_title">Mehrere UnifiedPush-Verteiler-Apps</string>
     <string name="multiple_unified_push_distributors_description">Du hast mehrere UnifiedPush-Verteiler-Apps installiert. Bitte wähle, welche davon du für FMD verwenden möchtest.</string>
+    <string name="server_username">Benutzername</string>
 </resources>
