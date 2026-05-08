@@ -17,8 +17,8 @@
     <string name="Settings_Lockscreenmessage_Description">Sporočilo na zaklenjenem zaslonu: \nKo boste napravo zaklenili, se bo na zaklenjenem zaslonu pokazalo to sporočilo.</string>
     <string name="Settings_FMD_Server_General">Splošno</string>
     <string name="Settings_FMD_Server_Server_URL">URL strežnika:</string>
-    <string name="Settings_FMD_Server_User_ID">ID naprave:</string>
-    <string name="Settings_FMD_Server_ID_Desc">Za iskanje naprave s FMD strežnikom, potrebujete ID naprave. Zapišite si ga, in ga shranite na varno mesto.</string>
+    <string name="Settings_FMD_Server_User_ID">Uporabniško ime:</string>
+    <string name="Settings_FMD_Server_ID_Desc">Za iskanje naprave s FMD strežnikom, potrebujete uporabniško ime. Zapišite si ga, in ga shranite na varno mesto.</string>
     <string name="Settings_FMDServer_Logout_Button">Odjava</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">To bo izbrisalo vse vaše podatke iz strežnika! Ste prepričani?</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Interval posodabljanja lokacije v ozadju</string>
@@ -209,7 +209,7 @@
 \n
 \n%2$s</string>
     <string name="cmd_locate_response_gps_fail">Pridobivanje nove lokacije GPS ni uspelo. Morda je pretekla časovna omejitev.</string>
-    <string name="Settings_FMDServer_Error_id_or_pw_empty">FMD ID in geslo ne smeta biti prazna.</string>
+    <string name="Settings_FMDServer_Error_id_or_pw_empty">Uporabniško ime in geslo ne smeta biti prazna.</string>
     <string name="log_view_title">Dnevniški zapisi</string>
     <string name="cmd_bluetooth_description_short">Vključi ali izključi Bluetooth</string>
     <string name="export_success">Izvoz uspešen</string>
@@ -254,7 +254,7 @@
     <string name="Settings_FMDServer_Check_Notify_After_Title">Največji dovoljeni čas brez povezljivosti</string>
     <string name="server_connectivity_lost_title">Povezava s FMD strežnikom je izgubljena</string>
     <string name="server_connectivity_lost_text">FMD strežnik od %1$s ni več dosegljiv. Zadnja uspešna povezava je bila ob %2$s.</string>
-    <string name="server_fmd_id_hint">FMD ID identificira vaš račun na FMD strežniku. To polje pustite prazno, če želite, da strežnik sam ustvari ID. Skrbnik strežnika lahko vidi FMD ID.</string>
+    <string name="server_fmd_id_hint">Uporabniško ime identificira vaš račun na FMD strežniku. To polje pustite prazno, če želite, da ga strežnik sam ustvari. Skrbnik strežnika lahko vidi vaše uporabniško ime.</string>
     <string name="Settings_FMDServer_Push_Url">Potisni URL: %s</string>
     <string name="Settings_FMDServer_Push_Register">Registracija</string>
     <string name="Settings_FMDServer_Push_Register_Again">Ponovna registracija</string>
@@ -316,4 +316,5 @@
     <string name="push_registration_upload_failed_text">URL-ja za potisne sporočila ni bilo mogoče poslati strežniku FMD. Zato ne morete prejemati ukazov s strežnika FMD. Če želite to odpraviti, odprite nastavitve strežnika FMD in kliknite »Registriraj se znova«, da ročno obnovite registracijo za potisna sporočila.</string>
     <string name="multiple_unified_push_distributors_title">Več aplikacij za distribucijo UnifiedPush</string>
     <string name="multiple_unified_push_distributors_description">Nameščenih imate več aplikacij za distribucijo UnifiedPush. Izberite tisto, ki jo želite uporabiti za FMD.</string>
+    <string name="server_username">Uporabniško ime</string>
 </resources>
