@@ -61,7 +61,7 @@
     <string name="Notification_FAIL">Échecs</string>
     <string name="Notification_Fail_Description">Notifications en cas d\'échec, comme la connexion au serveur FMD</string>
     <string name="notify_crypto_update_title">Action requise</string>
-    <string name="Settings_FMD_Server_User_ID">Identifiant utilisateur :</string>
+    <string name="Settings_FMD_Server_User_ID">Identifiant utilisateur :</string>
     <string name="about_wiki">Wiki</string>
     <string name="Settings_FMDServer_use_default_server">Utiliser le serveur public</string>
     <string name="copied">Copié</string>
