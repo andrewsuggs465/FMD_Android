@@ -1,0 +1,6 @@
+0.15.0:
+- Settings exports can be encrypted (#411).
+- Update UnifiedPush library to 3.x (#394).
+  This fixes push failing with Conversations (#404).
+- Better error message when FMD Server account was deleted via web interface (#396).
+- Internal refactoring
