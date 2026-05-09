@@ -12,7 +12,7 @@ Build the APK:
 
 1. Tag the new release: `git tag v0.0.0` and push the tag: `git push --tags`
 1. Build the unsigned releases: `./gradlew clean assembleProdRelease assembleEdgeRelease`
-1. Sign the the APKs.
+1. Sign the APKs.
 1. Test the signed APKs.
    (The release flavor has optimisations that the debug flavor does not have!)
 1. Test that fdroidserver can build the commit.
@@ -22,7 +22,8 @@ F-Droid repo:
 
 1. Copy the signed APKs into the F-Droid repo.
 1. Update the `CurrentVersionCode` in the repo metadata.
-1. Sign a new F-Droid repo index.
+1. ` export USER_PIN=1234` (note the leading space, to not have this in the shell history)
+1. Sign a new F-Droid repo index: `fdroid update`
 1. Upload the new repo to <https://packages.fmd-foss.org>.
 
 Publishing:
