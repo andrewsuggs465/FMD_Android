@@ -402,5 +402,6 @@
 
     <!-- Varia -->
     <string name="MH_Pin_Accepted">Pin accepted!</string>
+    <string name="invalid_url">Invalid URL</string>
 
 </resources>

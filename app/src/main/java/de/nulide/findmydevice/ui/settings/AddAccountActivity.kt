@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.webkit.URLUtil
 import android.webkit.WebView
 import android.widget.Button
 import android.widget.EditText
@@ -325,6 +326,11 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
     private fun getAndShowServerVersion(context: Context, serverBaseUrl: String) {
         if (serverBaseUrl.isEmpty()) {
             textViewServerVersion.text = ""
+            return
+        }
+
+        if (!URLUtil.isValidUrl(serverBaseUrl)){
+            textViewServerVersion.text = context.getString(R.string.invalid_url)
             return
         }
 
