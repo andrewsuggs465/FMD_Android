@@ -243,17 +243,27 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
 
     override fun afterTextChanged(editable: Editable) {
         if (editable === editTextServerUrl.text) {
-            val url = editTextServerUrl.text.toString().removeSuffix("/")
-            settingsRepo.set(Settings.SET_FMDSERVER_URL, url)
-            if (url.isEmpty()) {
-                btnRegister.isEnabled = false
-                btnLogin.isEnabled = false
-            } else {
-                btnRegister.isEnabled = true
-                btnLogin.isEnabled = true
-            }
-            getAndShowServerVersionWithDelay(this, url)
+            onNewUrlEntered(editTextServerUrl.text.toString().removeSuffix("/"))
         }
+    }
+
+    private fun onNewUrlEntered(url: String) {
+        if (!URLUtil.isValidUrl(url)) {
+            textViewServerVersion.text = getString(R.string.invalid_url)
+            btnRegister.isEnabled = false
+            btnLogin.isEnabled = false
+            return
+        }
+
+        settingsRepo.set(Settings.SET_FMDSERVER_URL, url)
+        if (url.isEmpty()) {
+            btnRegister.isEnabled = false
+            btnLogin.isEnabled = false
+        } else {
+            btnRegister.isEnabled = true
+            btnLogin.isEnabled = true
+        }
+        getAndShowServerVersionWithDelay(this, url)
     }
 
     private fun onRegisterOrLoginSuccess(unit: Unit) {
@@ -326,11 +336,6 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
     private fun getAndShowServerVersion(context: Context, serverBaseUrl: String) {
         if (serverBaseUrl.isEmpty()) {
             textViewServerVersion.text = ""
-            return
-        }
-
-        if (!URLUtil.isValidUrl(serverBaseUrl)){
-            textViewServerVersion.text = context.getString(R.string.invalid_url)
             return
         }
 
