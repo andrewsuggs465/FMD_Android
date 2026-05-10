@@ -123,7 +123,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         checkBoxFMDServerGPS = findViewById(R.id.checkBoxFMDServerGPS);
         checkBoxFMDServerCell = findViewById(R.id.checkBoxFMDServerCell);
 
-        int locTypeInt = (int) settings.get(Settings.SET_FMDSERVER_LOCATION_TYPE);
+        int locTypeInt = ((Number) settings.get(Settings.SET_FMDSERVER_LOCATION_TYPE)).intValue();
         BackgroundLocationType locType = new BackgroundLocationType(locTypeInt);
 
         checkBoxFMDServerFused.setChecked(locType.getFused());
@@ -235,12 +235,11 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         } else if (edited == editTextNotifyAfterTime.getText()) {
             settings.set(Settings.SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS, value);
         } else if (edited == editTextFMDServerUpdateTime.getText()) {
-            int interval = (int) value;
-            settings.set(Settings.SET_FMDSERVER_UPDATE_TIME, interval);
+            settings.set(Settings.SET_FMDSERVER_UPDATE_TIME, value);
 
             // Reschedule with new interval
             if (checkBoxFMDServerGPS.isChecked() || checkBoxFMDServerCell.isChecked()) {
-                ServerLocationUploadService.scheduleJob(this, interval);
+                ServerLocationUploadService.scheduleJob(this, value);
             }
         }
     }

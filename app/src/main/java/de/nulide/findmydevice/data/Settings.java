@@ -72,6 +72,8 @@ public class Settings extends HashMap<Integer, Object> {
     public Settings() {
     }
 
+    // Warning: for numbers, all default values must be either Long or Double!
+
     public Object get(int key) {
         if (super.containsKey(key)) {
             return super.get(key);
@@ -92,13 +94,13 @@ public class Settings extends HashMap<Integer, Object> {
                 case SET_FMD_COMMAND:
                     return BuildConfig.DEFAULT_FMD_COMMAND;
                 case SET_FMDSERVER_UPDATE_TIME:
-                    return 60;
+                    return 60L;
                 //case SET_INTRODUCTION_VERSION:
                 case SET_FMDSMS_COUNTER:
                 case SET_SET_VERSION:
-                    return 0;
+                    return 0L;
                 case SET_FMDSERVER_LOCATION_TYPE:
-                    return BackgroundLocationType.Companion.getEMPTY();
+                    return (long) BackgroundLocationType.Companion.getEMPTY();
                 case SET_RINGER_TONE:
                     return RingerUtils.getDefaultRingtoneAsString();
                 case SET_PIN:
@@ -112,11 +114,11 @@ public class Settings extends HashMap<Integer, Object> {
                 case SET_FMDSERVER_PUSH_URL:
                     return "";
                 case SET_FMDSERVER_LAST_CMD_MILLIS:
-                    return 0;
+                    return 0L;
                 //case SET_GPS_STATE:
                 //    return 1;
                 case SET_APP_CRASHED_LOG_ENTRY:
-                    return 0;
+                    return 0L;
                 case SET_LAST_KNOWN_LOCATION_TIME:
                 case SET_LAST_LOW_BAT_UPLOAD:
                 case SET_FMDSERVER_LAST_LOCATION_UPLOAD_TIME:
@@ -137,7 +139,7 @@ public class Settings extends HashMap<Integer, Object> {
                      SET_LAST_KNOWN_LOCATION_ALTITUDE,
                      SET_LAST_KNOWN_LOCATION_BEARING,
                      SET_LAST_KNOWN_LOCATION_SPEED:
-                    return Float.NaN;
+                    return Double.NaN;
             }
         }
         return "";

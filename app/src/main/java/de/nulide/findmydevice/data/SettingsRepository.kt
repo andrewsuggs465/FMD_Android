@@ -4,11 +4,9 @@ import android.content.Context
 import androidx.core.net.toUri
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonIOException
-import com.google.gson.JsonParseException
 import com.google.gson.JsonSyntaxException
-import com.google.gson.ToNumberStrategy
+import com.google.gson.ToNumberPolicy
 import com.google.gson.stream.JsonReader
-import com.google.gson.stream.MalformedJsonException
 import de.nulide.findmydevice.BuildConfig
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.utils.CypherUtils
@@ -18,7 +16,6 @@ import de.nulide.findmydevice.utils.log
 import java.io.File
 import java.io.FileReader
 import java.io.FileWriter
-import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
@@ -31,44 +28,6 @@ import java.security.spec.X509EncodedKeySpec
 
 
 const val SETTINGS_FILENAME = "settings.json"
-
-
-// Workaround for Gson defaulting to Long or Double instead of Int.
-// The underlying problem is that Settings is not a strongly typed map (it uses Object/Any)
-//
-// Inspired by/copied from ToNumberPolicy.LONG_OR_DOUBLE.
-//
-// We cannot use LONG_OR_DOUBLE because sometimes Gson does use Integers, and then our
-// code cannot handle both Long and Integer. So just deserialise as Int.
-object INT_OR_DOUBLE : ToNumberStrategy {
-    @Throws(IOException::class, JsonParseException::class)
-    override fun readNumber(`in`: JsonReader): Number {
-        val value = `in`.nextString()
-        return try {
-            value.toInt()
-        } catch (e: NumberFormatException) {
-            parseAsDouble(value, `in`)
-        }
-    }
-
-    @Throws(IOException::class)
-    private fun parseAsDouble(value: String, `in`: JsonReader): Number {
-        try {
-            val d = value.toDouble()
-            if ((d.isInfinite() || d.isNaN()) && !`in`.isLenient) {
-                throw MalformedJsonException(
-                    "JSON forbids NaN and infinities: " + d + "; at path " + `in`.previousPath
-                )
-            }
-            return d
-        } catch (e: java.lang.NumberFormatException) {
-            throw JsonParseException(
-                "Cannot parse " + value + "; at path " + `in`.previousPath, e
-            )
-        }
-    }
-}
-
 
 /**
  * Settings should be accessed through this repository.
@@ -84,7 +43,9 @@ class SettingsRepository private constructor(private val context: Context) {
     }
 
     private val gson = GsonBuilder()
-        .setObjectToNumberStrategy(INT_OR_DOUBLE) //(ToNumberPolicy.LONG_OR_DOUBLE)
+        // Force Gson to parse numbers as either Long or Double.
+        // When needed, we can cast Longs down to Ints.
+        .setObjectToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
         .serializeSpecialFloatingPointValues() // to allow NaN
         .create()
 
@@ -150,7 +111,7 @@ class SettingsRepository private constructor(private val context: Context) {
     }
 
     fun migrateSettings() {
-        val currentVersion = get(Settings.SET_SET_VERSION) as Int
+        val currentVersion = (get(Settings.SET_SET_VERSION) as Number).toInt()
 
         migrateServerUrl()
         if (currentVersion < 3) {
@@ -180,7 +141,7 @@ class SettingsRepository private constructor(private val context: Context) {
     }
 
     private fun migrateBackgroundLocationType() {
-        val oldType = get(Settings.SET_FMDSERVER_LOCATION_TYPE) as Int
+        val oldType = (get(Settings.SET_FMDSERVER_LOCATION_TYPE) as Number).toInt()
         if (oldType < BackgroundLocationType.BASE) {
             val newType = BackgroundLocationType.fromOldEncoding(oldType)
             set(Settings.SET_FMDSERVER_LOCATION_TYPE, newType.encode())

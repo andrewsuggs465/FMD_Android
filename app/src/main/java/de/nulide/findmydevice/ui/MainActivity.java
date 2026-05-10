@@ -81,7 +81,7 @@ public class MainActivity extends FmdActivity {
         // To make sure we load the status correctly, reload from disk.
         settings.load();
 
-        if (((Integer) settings.get(Settings.SET_APP_CRASHED_LOG_ENTRY)) == 1) {
+        if (((Number) settings.get(Settings.SET_APP_CRASHED_LOG_ENTRY)).intValue() == 1) {
             Intent intent = new Intent(this, CrashedActivity.class);
             startActivity(intent);
             finish();

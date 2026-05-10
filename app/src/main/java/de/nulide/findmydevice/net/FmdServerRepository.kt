@@ -24,7 +24,7 @@ class FmdServerRepository(
     /*
     fun getApiService(): FmdServerApiService {
         // TODO: Store proto version during register/login
-        val accountProtocolVersion = settingsRepo.get(Settings.SET_FMD_CRYPT_PROTO) as Int
+        val accountProtocolVersion = (settingsRepo.get(Settings.SET_FMD_CRYPT_PROTO) as Number).toLong()
 
         if (accountProtocolVersion == FMD_SERVER_PROTO_V1) {
             val spec = FmdServerApiV1RepoSpec(context)
