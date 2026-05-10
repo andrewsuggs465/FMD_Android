@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id "org.jetbrains.kotlin.plugin.compose"
     id 'com.mikepenz.aboutlibraries.plugin.android'
     id "org.sonarqube" version "6.2.0.5505"
 }
@@ -98,6 +99,7 @@ android {
 
     buildFeatures {
         buildConfig true
+        compose true
         viewBinding true
     }
 }
@@ -118,6 +120,7 @@ configurations.configureEach {
 
 dependencies {
     // AndroidX
+    implementation 'androidx.activity:activity-compose:1.13.0'
     implementation 'androidx.activity:activity-ktx:1.13.0'
     implementation 'androidx.annotation:annotation:1.10.0'
     implementation 'androidx.appcompat:appcompat:1.7.1'
@@ -127,6 +130,7 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:1.8.9"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-process:2.10.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-compose:2.10.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.10.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0'
     implementation 'androidx.preference:preference-ktx:1.2.1'
@@ -141,6 +145,15 @@ dependencies {
     implementation "androidx.camera:camera-video:${camerax_version}"
     implementation "androidx.camera:camera-view:${camerax_version}"
     implementation "androidx.camera:camera-extensions:${camerax_version}"
+
+    // Compose
+    def composeBom = platform('androidx.compose:compose-bom:2026.05.00')
+    implementation composeBom
+    androidTestImplementation composeBom
+    implementation 'androidx.compose.material3:material3'
+    // Android Studio previews
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
 
     // Testing
     testImplementation 'junit:junit:4.13.2'
