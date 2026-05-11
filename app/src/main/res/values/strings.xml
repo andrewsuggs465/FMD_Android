@@ -140,6 +140,7 @@
 
     <!-- Settings: Access control -->
     <string name="fmd_permission_allowed_commands_title">Choose allowed commands</string>
+    <string name="fmd_permission_allowed_commands_description_server">Decide which commands this server account is allowed to execute (and which not).</string>
 
     <!-- Settings: Allowed contacts -->
     <string name="Whitelist_help">The contacts in this list are allowed to send FMD commands via SMS. Commands from everyone else will be ignored.</string>

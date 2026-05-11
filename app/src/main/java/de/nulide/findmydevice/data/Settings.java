@@ -6,6 +6,7 @@ import androidx.annotation.Keep;
 import java.util.HashMap;
 
 import de.nulide.findmydevice.BuildConfig;
+import de.nulide.findmydevice.commands.FmdPermission;
 import de.nulide.findmydevice.utils.RingerUtils;
 
 
@@ -41,6 +42,7 @@ public class Settings extends HashMap<Integer, Object> {
     public static final int SET_FMDSERVER_LAST_LOCATION_UPLOAD_TIME = 115;
     public static final int SET_FMDSERVER_LAST_CMD_MILLIS = 116;
     public static final int SET_FMD_EDGE_INFO_SHOWN = 117;
+    public static final int SET_FMDSERVER_PERMISSIONS = 118;
 
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS = 201;
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS = 202;
@@ -115,6 +117,8 @@ public class Settings extends HashMap<Integer, Object> {
                     return "";
                 case SET_FMDSERVER_LAST_CMD_MILLIS:
                     return 0L;
+                case SET_FMDSERVER_PERMISSIONS:
+                    return FmdPermission.Companion.getALL();
                 //case SET_GPS_STATE:
                 //    return 1;
                 case SET_APP_CRASHED_LOG_ENTRY:

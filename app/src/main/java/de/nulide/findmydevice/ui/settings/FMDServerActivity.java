@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.DialogFragment;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -47,13 +48,14 @@ import de.nulide.findmydevice.services.FmdBatteryLowService;
 import de.nulide.findmydevice.services.ServerConnectivityCheckService;
 import de.nulide.findmydevice.services.ServerLocationUploadService;
 import de.nulide.findmydevice.ui.FmdActivity;
+import de.nulide.findmydevice.ui.access.FmdPermissionDialogFragment;
 import de.nulide.findmydevice.utils.FmdLogKt;
 import de.nulide.findmydevice.utils.UnregisterUtil;
 import de.nulide.findmydevice.utils.Utils;
 import de.nulide.findmydevice.warnings.PushWarningsKt;
 import kotlin.Unit;
 
-public class FMDServerActivity extends FmdActivity implements CompoundButton.OnCheckedChangeListener, TextWatcher {
+public class FMDServerActivity extends FmdActivity implements CompoundButton.OnCheckedChangeListener, TextWatcher, FmdPermissionDialogFragment.Listener {
 
     private static final String TAG = FMDServerActivity.class.getSimpleName();
 
@@ -75,6 +77,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     private CheckBox checkBoxLowBat;
 
     private AlertDialog loadingDialog;
+    private DialogFragment permissionDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +99,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         findViewById(R.id.buttonCopyServerUrl).setOnClickListener(this::onCopyServerUrlClicked);
         findViewById(R.id.buttonCopyUserId).setOnClickListener(this::onCopyUserIdClicked);
 
+        findViewById(R.id.buttonChangePermissions).setOnClickListener(this::onChangePermissionsClicked);
         findViewById(R.id.buttonChangePassword).setOnClickListener(this::onChangePasswordClicked);
         findViewById(R.id.buttonLogout).setOnClickListener(this::onLogoutClicked);
         findViewById(R.id.buttonDeleteData).setOnClickListener(this::onDeleteClicked);
@@ -286,6 +290,23 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
                 })
                 .setNegativeButton(getString(R.string.cancel), null)
                 .show();
+    }
+
+    private void onChangePermissionsClicked(View view) {
+        long initialPermission = (long) settings.get(Settings.SET_FMDSERVER_PERMISSIONS);
+        permissionDialog = FmdPermissionDialogFragment.Companion.newInstance(initialPermission);
+        permissionDialog.show(getSupportFragmentManager(), "FmdPermissionDialogFragment");
+    }
+
+    @Override
+    public void onPermissionCancelClicked() {
+        permissionDialog.dismiss();
+    }
+
+    @Override
+    public void onPermissionSaveClicked(long newValue) {
+        settings.set(Settings.SET_FMDSERVER_PERMISSIONS, newValue);
+        permissionDialog.dismiss();
     }
 
     private void onChangePasswordClicked(View view) {

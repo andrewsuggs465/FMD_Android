@@ -160,6 +160,10 @@
 
             <include layout="@layout/activity_f_m_d_server_section_push" />
 
+            <!-- Access control -->
+
+            <include layout="@layout/activity_f_m_d_server_section_access" />
+
             <!-- Connectivity Check -->
 
             <View

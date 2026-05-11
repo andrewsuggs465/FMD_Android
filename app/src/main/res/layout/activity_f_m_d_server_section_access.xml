@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="@dimen/margin_normal"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        style="@style/FMD.Text.SectionTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:text="@string/Settings_Access_Control" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_normal"
+        android:text="@string/fmd_permission_allowed_commands_description_server" />
+
+    <Button
+        android:id="@+id/buttonChangePermissions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_normal"
+        android:ems="10"
+        android:text="@string/fmd_permission_allowed_commands_title" />
+
+</LinearLayout>
