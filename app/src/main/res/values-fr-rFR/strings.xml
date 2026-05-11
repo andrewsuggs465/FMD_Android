@@ -313,4 +313,7 @@
     <string name="push_registration_failed_title">Enregistrement de la publication en échec</string>
     <string name="push_registration_upload_failed_text">L\'URL de publication ne peut pas être envoyée au Serveur FMD. De ce fait, vous ne pouvez pas recevoir de commande depuis le Serveur FMD. Pour corriger cela, veuillez ouvrir les paramètres du Serveur FMD et cliquer sur \"Enregistrer à nouveau\" pour renouveler manuellement l\'enregistrement de la publication.</string>
     <string name="server_username">Nom d\'utilisateur</string>
+    <string name="Settings_Debugging">Résolution de problèmes</string>
+    <string name="server_apparently_deleted_text">FMD ne peut pas se connecter à votre compte \"%s\" sur le serveur FMD. Il semble que le compte ait été supprimé du serveur.</string>
+    <string name="invalid_url">URL invalide</string>
 </resources>
