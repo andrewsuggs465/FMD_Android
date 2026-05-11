@@ -302,4 +302,7 @@
     <string name="multiple_unified_push_distributors_title">Mitu UnifiedPushi levitajat</string>
     <string name="multiple_unified_push_distributors_description">Sinu nutiseaadmes leidub mitu UnifiedPushi levitajat. Palun vali, mida neist sa tahad FMD jaoks kasutada.</string>
     <string name="server_username">Kasutajanimi</string>
+    <string name="Settings_Debugging">Veaotsing</string>
+    <string name="server_apparently_deleted_text">FMD ei suuda FMD serverisse logida sisse „%s“ kasutajakontoga. Tundub, et see konto on serverist kustutatud.</string>
+    <string name="invalid_url">Vigane võrguaadress</string>
 </resources>
