@@ -5,22 +5,29 @@ import android.content.Context
 import android.content.Intent
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.core.net.toUri
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.commands.ParserResult
+import de.nulide.findmydevice.commands.hasPermission
 import de.nulide.findmydevice.data.FmdLocation
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.net.FmdServerRepository
 import de.nulide.findmydevice.permissions.Permission
 import de.nulide.findmydevice.ui.settings.AddAccountActivity
+import de.nulide.findmydevice.utils.log
 
 
 class FmdServerTransport(
-    context: Context,
+    val context: Context,
     private val destination: String,
 ) : Transport<Unit>(Unit) {
 
     constructor(context: Context) : this(context, "FMD Server")
+
+    companion object {
+        private val TAG = FmdServerTransport::class.simpleName
+    }
 
     private val repo = FmdServerRepository(context).getApiService()
     private val settings = SettingsRepository.getInstance(context)
@@ -46,7 +53,16 @@ class FmdServerTransport(
     override fun getDestinationString() = destination
 
     override suspend fun isAllowed(parsed: ParserResult.Success): Boolean {
-        return true
+        val username = settings.get(Settings.SET_FMDSERVER_ID) as String
+        val url = (settings.get(Settings.SET_FMDSERVER_URL) as String).toUri()
+        val grantedPerms = (settings.get(Settings.SET_FMDSERVER_PERMISSIONS) as Number).toLong()
+
+        val hasPermission = grantedPerms.hasPermission(parsed.command.permission)
+        context.log().i(
+            TAG,
+            "Server account '$username@${url.host}' granted access to '${parsed.command.keyword}': $hasPermission"
+        )
+        return hasPermission
     }
 
     @SuppressLint("MissingSuperCall")
