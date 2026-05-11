@@ -22,6 +22,8 @@ class FlashCommand(context: Context) : Command(context) {
     override val keyword = "flash"
     override val usage = "flash"
 
+    override val permission = FmdPermission.FLASH
+
     @get:DrawableRes
     override val icon = R.drawable.ic_flashlight_on
 

@@ -18,6 +18,8 @@ class LockCommand(context: Context) : Command(context) {
     override val keyword = "lock"
     override val usage = "lock [msg]"
 
+    override val permission = FmdPermission.LOCK
+
     @get:DrawableRes
     override val icon = R.drawable.ic_phone_lock
 

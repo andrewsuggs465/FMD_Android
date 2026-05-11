@@ -16,6 +16,8 @@ class HelpCommand(
     override val keyword = "help"
     override val usage = "help"
 
+    override val permission = FmdPermission.HELP
+
     @get:DrawableRes
     override val icon = R.drawable.ic_help
 

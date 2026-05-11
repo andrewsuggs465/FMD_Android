@@ -15,6 +15,8 @@ class GpsCommand(context: Context) : Command(context) {
     override val keyword = "gps"
     override val usage = "gps [on | off]"
 
+    override val permission = FmdPermission.GPS
+
     @get:DrawableRes
     override val icon = R.drawable.ic_satellite
 
@@ -30,7 +32,7 @@ class GpsCommand(context: Context) : Command(context) {
         transport: Transport<T>,
     ) {
         if (args.isEmpty()) {
-            val msg = if (isLocationOn(context)){
+            val msg = if (isLocationOn(context)) {
                 context.getString(R.string.cmd_gps_response_is_on)
             } else {
                 context.getString(R.string.cmd_gps_response_is_off)

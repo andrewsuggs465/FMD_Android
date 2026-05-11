@@ -14,6 +14,8 @@ class NoDisturbCommand(context: Context) : Command(context) {
     override val keyword = "nodisturb"
     override val usage = "nodisturb [on | off]"
 
+    override val permission = FmdPermission.NO_DISTURB
+
     @get:DrawableRes
     override val icon = R.drawable.ic_do_not_disturb
 

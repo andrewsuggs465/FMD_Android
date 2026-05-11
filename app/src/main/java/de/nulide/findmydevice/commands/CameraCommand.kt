@@ -20,6 +20,8 @@ class CameraCommand(context: Context) : Command(context) {
     override val keyword = "camera"
     override val usage = "camera [front | back] [flash]"
 
+    override val permission = FmdPermission.CAMERA
+
     @get:DrawableRes
     override val icon = R.drawable.ic_camera
 

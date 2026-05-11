@@ -35,6 +35,8 @@ class LocateCommand(context: Context) : Command(context) {
     // you don't know a-priori what accuracy is possible.
     override val usage = "locate [last | all | cell | fused | gps]"
 
+    override val permission = FmdPermission.LOCATE
+
     @get:DrawableRes
     override val icon = R.drawable.ic_location
 

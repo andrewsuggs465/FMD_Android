@@ -18,6 +18,8 @@ class BluetoothCommand(context: Context) : Command(context) {
     override val keyword = "bluetooth"
     override val usage = "bluetooth [on | off]"
 
+    override val permission = FmdPermission.BLUETOOTH
+
     @get:DrawableRes
     override val icon = R.drawable.ic_bluetooth
 

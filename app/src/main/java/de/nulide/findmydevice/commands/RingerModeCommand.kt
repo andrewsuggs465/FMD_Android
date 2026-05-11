@@ -33,6 +33,8 @@ class RingerModeCommand(context: Context) : Command(context) {
     override val keyword = "ringermode"
     override val usage = "ringermode [normal | vibrate | silent]"
 
+    override val permission = FmdPermission.RINGER_MODE
+
     @get:DrawableRes
     override val icon = R.drawable.ic_vibration
 

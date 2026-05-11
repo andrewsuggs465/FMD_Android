@@ -23,6 +23,8 @@ class DeleteCommand(context: Context) : Command(context) {
     override val keyword = "delete"
     override val usage = "delete <password> [dryrun]"
 
+    override val permission = FmdPermission.DELETE
+
     @get:DrawableRes
     override val icon = R.drawable.ic_delete_outline
 

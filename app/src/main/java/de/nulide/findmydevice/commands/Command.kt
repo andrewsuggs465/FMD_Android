@@ -20,6 +20,8 @@ abstract class Command(val context: Context) {
     abstract val keyword: String
     abstract val usage: String
 
+    abstract val permission: FmdPermission
+
     @get:DrawableRes
     abstract val icon: Int
 

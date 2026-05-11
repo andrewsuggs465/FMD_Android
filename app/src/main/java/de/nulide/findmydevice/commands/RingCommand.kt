@@ -19,6 +19,8 @@ class RingCommand(context: Context) : Command(context) {
     override val keyword = "ring"
     override val usage = "ring [long]"
 
+    override val permission = FmdPermission.RING
+
     @get:DrawableRes
     override val icon = R.drawable.ic_volume_up
 

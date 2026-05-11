@@ -17,6 +17,8 @@ class StatsCommand(context: Context) : Command(context) {
     override val keyword = "stats"
     override val usage = "stats"
 
+    override val permission = FmdPermission.STATS
+
     @get:DrawableRes
     override val icon = R.drawable.ic_cell_wifi
 
