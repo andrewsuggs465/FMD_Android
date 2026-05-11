@@ -302,4 +302,7 @@
     <string name="export_password_message_empty_warning">Pokud ponecháte heslo prázdné, nebude záloha šifrovaná. Tím se vystavujete riziku vystavení citlivých nastavení.</string>
     <string name="import_password_message">Zadejte heslo použité k zašifrování zálohy.</string>
     <string name="server_username">Uživatelské jméno</string>
+    <string name="Settings_Debugging">Řešení chyb</string>
+    <string name="server_apparently_deleted_text">Aplikaci FMD se nepodařilo přihlásit do vašeho účtu „%s“ na FMD Serveru. Vypadá to, že účet byl ze serveru smazán.</string>
+    <string name="invalid_url">Neplatná adresa</string>
 </resources>
