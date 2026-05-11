@@ -317,4 +317,7 @@
     <string name="multiple_unified_push_distributors_title">Več aplikacij za distribucijo UnifiedPush</string>
     <string name="multiple_unified_push_distributors_description">Nameščenih imate več aplikacij za distribucijo UnifiedPush. Izberite tisto, ki jo želite uporabiti za FMD.</string>
     <string name="server_username">Uporabniško ime</string>
+    <string name="Settings_Debugging">Odpravljanje težav</string>
+    <string name="server_apparently_deleted_text">FMD se ne more prijaviti v vaš račun strežnika FMD \"%s\". Kot kaže, je bil račun izbrisan s strežnika.</string>
+    <string name="invalid_url">Napačen URL</string>
 </resources>
