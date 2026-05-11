@@ -302,4 +302,7 @@
     <string name="multiple_unified_push_distributors_title">Meerdere UnifiedPush-distributeur-apps</string>
     <string name="multiple_unified_push_distributors_description">U heeft meerdere UnifiedPush-distributeur-apps geïnstalleerd. Selecteer welke u voor MKZ wilt gebruiken.</string>
     <string name="server_username">Gebruikersnaam</string>
+    <string name="Settings_Debugging">Probleemoplossing</string>
+    <string name="server_apparently_deleted_text">FMD kan niet inloggen op uw FMD Server-account \"%s\". Het lijkt erop dat het account van de server is verwijderd.</string>
+    <string name="invalid_url">Ongeldige URL</string>
 </resources>
