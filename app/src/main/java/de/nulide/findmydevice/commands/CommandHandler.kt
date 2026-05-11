@@ -13,8 +13,8 @@ import kotlinx.coroutines.job
 
 
 // Order matters for the home screen
-fun availableCommands(context: Context): List<Command> {
-    val commands = mutableListOf(
+fun availableCommandsWithoutHelp(context: Context): List<Command> {
+    return mutableListOf(
         BluetoothCommand(context),
         CameraCommand(context),
         DeleteCommand(context),
@@ -28,7 +28,11 @@ fun availableCommands(context: Context): List<Command> {
         RingerModeCommand(context),
         StatsCommand(context),
     )
+}
+
+fun availableCommands(context: Context): List<Command> {
     // FIXME: The HelpCommand does not know about itself
+    val commands = availableCommandsWithoutHelp(context).toMutableList()
     commands.add(HelpCommand(commands, context))
     return commands
 }
