@@ -7,6 +7,7 @@ import android.telephony.SmsManager
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
+import de.nulide.findmydevice.commands.AccessResponse
 import de.nulide.findmydevice.commands.ParserResult
 import de.nulide.findmydevice.data.AllowlistRepository
 import de.nulide.findmydevice.data.Settings
@@ -43,7 +44,8 @@ class SmsTransport(
     private val keyword = settings.get(Settings.SET_FMD_COMMAND) as String
     override val description = context.getString(R.string.transport_sms_description, keyword)
 
-    override val descriptionAuth = context.getString(R.string.transport_sms_description_auth, keyword)
+    override val descriptionAuth =
+        context.getString(R.string.transport_sms_description_auth, keyword)
 
     override val descriptionNote = context.getString(R.string.transport_sms_description_note)
 
@@ -55,11 +57,11 @@ class SmsTransport(
 
     override fun getDestinationString() = phoneNumber
 
-    override suspend fun isAllowed(parsed: ParserResult.Success): Boolean {
+    override suspend fun isAllowed(parsed: ParserResult.Success): AccessResponse {
         // Case 1: phone number in Allowed Contacts
         if (allowlistRepo.containsNumber(phoneNumber)) {
             context.log().i(TAG, "$phoneNumber used FMD via allowlist")
-            return true
+            return AccessResponse.ALLOWED
         }
 
         // Case 2: phone number in temporary allowlist (i.e., it send the correct PIN earlier)
@@ -67,7 +69,7 @@ class SmsTransport(
         if (pinAccessEnabled) {
             if (tempAllowlistRepo.containsValidNumber(phoneNumber)) {
                 context.log().i(TAG, "$phoneNumber used FMD via temporary allowlist")
-                return true
+                return AccessResponse.ALLOWED
             }
 
             // Case 3: the message contains the correct PIN
@@ -84,12 +86,11 @@ class SmsTransport(
                 tempAllowlistRepo.add(phoneNumber, subscriptionId)
                 TempContactExpiredService.scheduleJob(context, TEMP_USAGE_VALIDITY_MILLIS + 1000)
 
-                return true
+                return AccessResponse.ALLOWED
             }
         }
 
-        // Not allowed
-        return false
+        return AccessResponse.DENIED_UNKNOWN
     }
 
     override fun send(context: Context, msg: String) {

@@ -14,6 +14,7 @@ import androidx.work.WorkManager
 import androidx.work.workDataOf
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import de.nulide.findmydevice.R
+import de.nulide.findmydevice.commands.AccessResponse
 import de.nulide.findmydevice.commands.ParserResult
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
@@ -45,8 +46,8 @@ class InAppTransport(
 
     override fun getDestinationString(): String = context.getString(R.string.transport_inapp_title)
 
-    override suspend fun isAllowed(parsed: ParserResult.Success): Boolean {
-        return true
+    override suspend fun isAllowed(parsed: ParserResult.Success): AccessResponse {
+        return AccessResponse.ALLOWED
     }
 
     override fun send(context: Context, msg: String) {

@@ -7,6 +7,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.core.net.toUri
 import de.nulide.findmydevice.R
+import de.nulide.findmydevice.commands.AccessResponse
 import de.nulide.findmydevice.commands.ParserResult
 import de.nulide.findmydevice.commands.hasPermission
 import de.nulide.findmydevice.data.FmdLocation
@@ -52,7 +53,7 @@ class FmdServerTransport(
 
     override fun getDestinationString() = destination
 
-    override suspend fun isAllowed(parsed: ParserResult.Success): Boolean {
+    override suspend fun isAllowed(parsed: ParserResult.Success): AccessResponse {
         val username = settings.get(Settings.SET_FMDSERVER_ID) as String
         val url = (settings.get(Settings.SET_FMDSERVER_URL) as String).toUri()
         val grantedPerms = (settings.get(Settings.SET_FMDSERVER_PERMISSIONS) as Number).toLong()
@@ -62,7 +63,7 @@ class FmdServerTransport(
             TAG,
             "Server account '$username@${url.host}' granted access to '${parsed.command.keyword}': $hasPermission"
         )
-        return hasPermission
+        return if (hasPermission) AccessResponse.ALLOWED else AccessResponse.DENIED_EXISTS
     }
 
     @SuppressLint("MissingSuperCall")

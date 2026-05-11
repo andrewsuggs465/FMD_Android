@@ -72,10 +72,32 @@ class CommandHandler<T>
         when (parsed) {
             is ParserResult.Success -> {
                 context.log().d(TAG, "Executing command: ${parsed.command.keyword}")
-                if (!transport.isAllowed(parsed)) {
-                    context.log().e(TAG, "Aborting, the transport denied the access.")
-                    return
+
+                when (transport.isAllowed(parsed)) {
+                    AccessResponse.ALLOWED -> {} /* continue */
+
+                    AccessResponse.DENIED_EXISTS -> {
+                        // If the requester is allowed to execute some commands but not this one, inform them about this fact.
+                        // If they have some access, then they are trusted enough that helpfulness outweighs the information leak.
+                        // TODO: Inform them which commands they are allowed to run
+                        // TODO: Show a usage-was-denied notification?
+                        context.log().e(TAG, "Aborting, the transport says DENIED_EXISTS.")
+                        val msg = context.getString(
+                            R.string.cmd_missing_fmd_permissions,
+                            parsed.command.keyword
+                        )
+                        transport.send(context, msg)
+                        return
+                    }
+
+                    AccessResponse.DENIED_UNKNOWN -> {
+                        // Don't inform the requester
+                        // TODO: Show a usage-was-denied notification?
+                        context.log().e(TAG, "Aborting, the transport says DENIED_UNKNOWN.")
+                        return
+                    }
                 }
+
                 if (showUsageNotification) {
                     showUsageNotification(context, rawCommand)
                 }

@@ -11,6 +11,7 @@ import android.service.notification.StatusBarNotification
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
+import de.nulide.findmydevice.commands.AccessResponse
 import de.nulide.findmydevice.commands.ParserResult
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
@@ -48,12 +49,13 @@ class NotificationReplyTransport(
 
     override fun getDestinationString() = destination?.packageName ?: "Notification Response"
 
-    override suspend fun isAllowed(parsed: ParserResult.Success): Boolean {
+    override suspend fun isAllowed(parsed: ParserResult.Success): AccessResponse {
         val pinAccessEnabled = settings.get(Settings.SET_ACCESS_VIA_PIN) as Boolean
         if (!pinAccessEnabled) {
-            return false
+            return AccessResponse.DENIED_UNKNOWN
         }
-        return parsed.pin != null
+        // The CommandParser ensured that the parsed.pin matches the settings.json.
+        return if (parsed.pin != null) AccessResponse.ALLOWED else AccessResponse.DENIED_UNKNOWN
     }
 
     override fun send(context: Context, msg: String) {

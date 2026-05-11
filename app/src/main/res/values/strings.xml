@@ -230,7 +230,8 @@
 
     <!-- Commands -->
 
-    <string name="cmd_missing_permissions">Cannot run command %1$s: Missing permission(s) %2$s.</string>
+    <string name="cmd_missing_fmd_permissions">Cannot execute command \"%s\": You are not allowed to execute this command.</string>
+    <string name="cmd_missing_android_permissions">Cannot execute command \"%1$s\": The following Android permission(s) are not granted to the FMD app: %2$s.</string>
 
     <string name="cmd_bluetooth_description_short">Toggle Bluetooth on and off</string>
     <string name="cmd_bluetooth_response_no_bluetooth">The device does not seem to have Bluetooth.</string>
