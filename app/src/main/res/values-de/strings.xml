@@ -43,8 +43,8 @@
     <string name="server_version">Server-Version</string>
     <string name="server_version_error">Laden der Server-Version fehlgeschlagen</string>
     <string name="server_version_error_low_version">Es wird mindestens die Server-Version {MIN} benötigt, aber der ausgewählte Server hat Version {CURRENT}. Fortsetzen auf eigene Gefahr.</string>
-    <string name="Settings_FMDServer_AddAccount">FMD-Server: Anmelden/Registrieren</string>
-    <string name="Settings_FMDServer_Info">Mit dem FMD-Server kannst du Befehle über das Internet vom Server an die App schicken. Außerdem kannst du den Gerätestandort auf der Karte verfolgen oder Bilder, die das Gerät aufgenommen hat, ansehen. Für eine Anleitung zum Selbsthosten siehe Webseite.</string>
+    <string name="Settings_FMDServer_AddAccount">FMD Server: Anmelden/Registrieren</string>
+    <string name="Settings_FMDServer_Info">Mit FMD Server kannst du Befehle über das Internet vom Server an die App schicken. Außerdem kannst du den Gerätestandort auf der Karte verfolgen oder Bilder, die das Gerät aufgenommen hat, ansehen. Für eine Anleitung zum Selbsthosten siehe Webseite.</string>
     <string name="Settings_FMDServer_open_website">FMD-Server-Webseite öffnen</string>
     <string name="Settings_FMDServer_use_default_server">Öffentlichen Server benutzen</string>
     <string name="Settings_FMDServer_Login">Einloggen</string>
@@ -219,7 +219,7 @@
     <string name="Settings_FMD_Server_Connection_Status">Verbindungsstatus:</string>
     <string name="Settings_FMD_Server_Connection_Status_Success">Erfolg</string>
     <string name="server_registration_token_error">Die Netzwerkanfrage ist mit HTTP 401 fehlgeschlagen. Dies kann passieren, wenn der Server ein Registrierungs-Token benötigt und das von dir angegebene Token falsch war.</string>
-    <string name="server_login_attempts_title">Fehlgeschlagene Anmeldeversuche am FMD-Server</string>
+    <string name="server_login_attempts_title">Fehlgeschlagene Anmeldeversuche bei FMD Server</string>
     <string name="server_login_attempts_text">Jemand hat versucht, sich mit deinem FMD-Server-Konto „%s“ anzumelden. Wegen mehrerer falscher Passwortversuche ist das Konto nun für 10 Minuten gesperrt.</string>
     <string name="cmd_locate_response_gps_fail">Das Finden einer neuen GPS-Position ist fehlgeschlagen, vielleicht wegen einer Zeitüberschreitung.</string>
     <string name="Settings_no_ringtone_picker">Keine Klingelton-Auswahl-App gefunden!</string>
@@ -253,17 +253,17 @@
     <string name="appearance_dynamic_colors">Dynamische Farben</string>
     <string name="Settings_FMDServer_Logout_Text">Möchtest du dich wirklich aus deinem FMD-Server-Konto abmelden?</string>
     <string name="crashed_title">Absturzbericht</string>
-    <string name="server_version_upgrade_required_title">FMD-Server muss aktualisiert werden</string>
+    <string name="server_version_upgrade_required_title">FMD Server muss aktualisiert werden</string>
     <string name="server_version_upgrade_required_text">Der genutzte FMD Server ist Version {CURRENT}, aber diese App benötigt mindestens {MIN}. Die Steuerung dieses Geräts mit diesem Server könnte beeinträchtigt sein. Bitte den Server updaten.</string>
     <string name="log_view_clear_confirm">Möchtest du wirklich alle Protokolleinträge löschen?</string>
     <string name="log_view_clear">Protokoll löschen</string>
     <string name="pin_match_command_keyword">Die PIN darf nicht mit einem der Befehle übereinstimmen!</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Verbindungsprüfung-Intervall</string>
-    <string name="Settings_FMDServer_Check_Interval_Description">FMD prüft die Verbindung zum FMD-Server alle X Stunden. Setze den Wert auf 0, um die Verbindungsprüfung zu deaktivieren.</string>
+    <string name="Settings_FMDServer_Check_Interval_Description">FMD prüft die Verbindung zu FMD Server alle X Stunden. Setze den Wert auf 0, um die Verbindungsprüfung zu deaktivieren.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Maximal zulässige Zeit ohne Verbindung</string>
-    <string name="Settings_FMDServer_Check_Notify_After_Description">FMD wird dich benachrichtigen, wenn die letzte erfolgreiche Verbindung zum FMD-Server mehr als X Stunden zurückliegt. Dies hat keine Auswirkungen, wenn die Verbindungsprüfung deaktiviert ist.</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Description">FMD wird dich benachrichtigen, wenn die letzte erfolgreiche Verbindung zu FMD Server mehr als X Stunden zurückliegt. Dies hat keine Auswirkungen, wenn die Verbindungsprüfung deaktiviert ist.</string>
     <string name="server_connectivity_lost_title">FMD-Server-Verbindung verloren</string>
-    <string name="server_connectivity_lost_text">Der FMD-Server bei %1$s kann nicht mehr erreicht werden. Die letzte erfolgreiche Verbindung war am %2$s.</string>
+    <string name="server_connectivity_lost_text">Der FMD Server bei %1$s kann nicht mehr erreicht werden. Die letzte erfolgreiche Verbindung war am %2$s.</string>
     <string name="cmd_delete_response_dry_run">Testlauf erfolgreich, die eigentliche Gerätelöschung wird übersprungen.</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Intervall des Standortuploads im Hintergrund</string>
     <string name="usage_notification_pin_title">FMD-PIN benutzt</string>
@@ -273,7 +273,7 @@
     <string name="Settings_FMDServer_Push_Register_Again">Erneut registrieren</string>
     <string name="Settings_FMDServer_Push_Register">Registrieren</string>
     <string name="Settings_FMDServer_Push_Distributor">Verteiler: %s</string>
-    <string name="Settings_FMDServer_Push_Description">Um Befehle vom FMD-Server an dein Gerät zu senden, wird eine UnifiedPush-Verteiler-App benötigt.</string>
+    <string name="Settings_FMDServer_Push_Description">Um Befehle von FMD Server an dein Gerät zu senden, wird eine UnifiedPush-Verteiler-App benötigt.</string>
     <string name="Settings_Pin_Not_Backed_Up">Achtung: Die PIN ist nicht im App-Backup enthalten.</string>
     <string name="allowlist_reset_text">Aufgrund eines Absturzes wurden die Erlaubten Kontakte zurückgesetzt. Bitte konfiguriere sie erneut.</string>
     <string name="allowlist_reset_title">Erlaubte Kontakte zurücksetzen</string>
@@ -286,7 +286,7 @@
     <string name="Settings_Set_Pin">PIN setzen</string>
     <string name="Settings_Change_Pin">PIN ändern</string>
     <string name="server_connectivity_check_not_enabled_title">Server-Erreichbarkeits-Prüfung aktivieren</string>
-    <string name="server_connectivity_check_not_enabled_text">FMD kann regelmäßig prüfen, ob der FMD-Server noch erreichbar ist. Aus Privatsphäre-Gründen ist dies standardmäßig deaktiviert. Um die Verfügbarkeit zu verbessern, empfehlen wir jedoch, dies zu aktivieren.</string>
+    <string name="server_connectivity_check_not_enabled_text">FMD kann regelmäßig prüfen, ob FMD Server noch erreichbar ist. Aus Privatsphäre-Gründen ist dies standardmäßig deaktiviert. Um die Verfügbarkeit zu verbessern, empfehlen wir jedoch, dies zu aktivieren.</string>
     <string name="setup_recommendations_title">Empfehlungen</string>
     <string name="Settings_FMDServer_Push_Open_Help">Mehr Informationen zu Push</string>
     <string name="server_password_hint">Wähle ein Passwort, das nicht erraten werden kann, das aber du wiederherstellen kannst, wenn du dein Gerät verlierst. Das Passwort gewährt Zugriff darauf, aus der Ferne Befehle auf deinem Gerät ausführen zu dürfen. Der Server-Administrator kann das Passwort nicht sehen oder es zurücksetzen.</string>
@@ -331,4 +331,7 @@
     <string name="multiple_unified_push_distributors_title">Mehrere UnifiedPush-Verteiler-Apps</string>
     <string name="multiple_unified_push_distributors_description">Du hast mehrere UnifiedPush-Verteiler-Apps installiert. Bitte wähle, welche davon du für FMD verwenden möchtest.</string>
     <string name="server_username">Benutzername</string>
+    <string name="Settings_Debugging">Fehlerbehebung</string>
+    <string name="server_apparently_deleted_text">FMD kann sich nicht in dein FMD-Server-Konto „%s“ einloggen. Es scheint, als wäre das Konto vom Server gelöscht worden.</string>
+    <string name="invalid_url">Ungültige URL</string>
 </resources>
