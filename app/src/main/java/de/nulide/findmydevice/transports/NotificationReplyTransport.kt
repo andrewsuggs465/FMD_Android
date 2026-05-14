@@ -17,6 +17,7 @@ import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.permissions.NotificationAccessPermission
 import de.nulide.findmydevice.services.NotificationListenService
+import de.nulide.findmydevice.ui.access.AccessControlActivity
 import de.nulide.findmydevice.utils.log
 
 
@@ -46,6 +47,12 @@ class NotificationReplyTransport(
         context.getString(R.string.transport_notification_reply_description_auth)
 
     override val requiredPermissions = listOf(NotificationAccessPermission())
+
+    override val actions = listOf(TransportAction(R.string.Settings_Access_Control) { activity ->
+        val intent = Intent(context, AccessControlActivity::class.java)
+        intent.putExtra(AccessControlActivity.EXTRA_NOTIF, true)
+        activity.startActivity(intent)
+    })
 
     override fun getDestinationString() = destination?.packageName ?: "Notification Response"
 
