@@ -13,6 +13,8 @@ import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.commands.AccessResponse
 import de.nulide.findmydevice.commands.ParserResult
+import de.nulide.findmydevice.commands.hasPermission
+import de.nulide.findmydevice.data.AccessRepository
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.permissions.NotificationAccessPermission
@@ -32,6 +34,7 @@ class NotificationReplyTransport(
     }
 
     private val settings = SettingsRepository.getInstance(context)
+    private val access = AccessRepository.getInstance(context)
 
     @get:DrawableRes
     override val icon = R.drawable.ic_notifications
@@ -57,12 +60,27 @@ class NotificationReplyTransport(
     override fun getDestinationString() = destination?.packageName ?: "Notification Response"
 
     override suspend fun isAllowed(parsed: ParserResult.Success): AccessResponse {
-        val pinAccessEnabled = settings.get(Settings.SET_ACCESS_VIA_PIN) as Boolean
-        if (!pinAccessEnabled) {
+        if (parsed.pin == null) {
             return AccessResponse.DENIED_UNKNOWN
         }
-        // The CommandParser ensured that the parsed.pin matches the settings.json.
-        return if (parsed.pin != null) AccessResponse.ALLOWED else AccessResponse.DENIED_UNKNOWN
+
+        val notifPass = access.getNotificationPassword(parsed.pin)
+        if (notifPass == null) {
+            context.log().i(TAG, "Notification password not found in database")
+            return AccessResponse.DENIED_UNKNOWN
+        }
+
+        val hasPermission = notifPass.permission.hasPermission(parsed.command.permission)
+        if (hasPermission) {
+            context.log().i(TAG, "Notification password ${notifPass.label} allowed.")
+            return AccessResponse.ALLOWED
+        } else {
+            context.log().i(
+                TAG,
+                "Notification password ${notifPass.label} denied access to ${parsed.command.keyword}."
+            )
+            return AccessResponse.DENIED_EXISTS
+        }
     }
 
     override fun send(context: Context, msg: String) {

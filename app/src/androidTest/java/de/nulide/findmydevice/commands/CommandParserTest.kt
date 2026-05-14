@@ -20,7 +20,7 @@ class CommandParserTest {
         val cmds = availableCommands(appContext)
         val helpCommand = HelpCommand(cmds, appContext)
 
-        val parser = CommandParser("fmd", "", helpCommand, availableCommands(appContext))
+        val parser = CommandParser("fmd", helpCommand, availableCommands(appContext))
         val actual = parser.parse("")
 
         assertTrue(actual is ParserResult.Empty)
@@ -33,7 +33,7 @@ class CommandParserTest {
         val cmds = availableCommands(appContext)
         val helpCommand = HelpCommand(cmds, appContext)
 
-        val parser = CommandParser("fmd", "", helpCommand, availableCommands(appContext))
+        val parser = CommandParser("fmd", helpCommand, availableCommands(appContext))
         val actual = parser.parse("fmdev locate")
         val expected = ParserResult.TriggerWordMismatch("fmdev", "fmd")
 
@@ -47,8 +47,8 @@ class CommandParserTest {
         val cmds = availableCommands(appContext)
         val helpCommand = HelpCommand(cmds, appContext)
 
-        val parser = CommandParser("fmd", "", helpCommand, availableCommands(appContext))
-        val actual = parser.parse("fmd nonexistent")
+        val parser = CommandParser("fmd", helpCommand, availableCommands(appContext))
+        val actual = parser.parse("fmd mypin nonexistent")
         val expected = ParserResult.UnknownCommand("nonexistent")
 
         assertEquals(expected, actual)
@@ -61,7 +61,7 @@ class CommandParserTest {
         val cmds = availableCommands(appContext)
         val helpCommand = HelpCommand(cmds, appContext)
 
-        val parser = CommandParser("fmd", "", helpCommand, availableCommands(appContext))
+        val parser = CommandParser("fmd", helpCommand, availableCommands(appContext))
         val actual = parser.parse("fmd locate gps")
 
         assertTrue(actual is ParserResult.Success)
@@ -79,9 +79,7 @@ class CommandParserTest {
         val cmds = availableCommands(appContext)
         val helpCommand = HelpCommand(cmds, appContext)
 
-        val expectedPin = "horse battery staple"
-        val parser =
-            CommandParser("fmd", expectedPin, helpCommand, availableCommands(appContext))
+        val parser = CommandParser("fmd", helpCommand, availableCommands(appContext))
         val actual = parser.parse("""fmd "horse battery staple" ring""")
 
         assertTrue(actual is ParserResult.Success)
@@ -99,7 +97,7 @@ class CommandParserTest {
         val cmds = availableCommands(appContext)
         val helpCommand = HelpCommand(cmds, appContext)
 
-        val parser = CommandParser("fmd", "", helpCommand, availableCommands(appContext))
+        val parser = CommandParser("fmd", helpCommand, availableCommands(appContext))
         val actual = parser.parse("fmd") // no command
 
         assertTrue(actual is ParserResult.Success)
@@ -117,9 +115,7 @@ class CommandParserTest {
         val cmds = availableCommands(appContext)
         val helpCommand = HelpCommand(cmds, appContext)
 
-        val expectedPin = "horse battery staple"
-        val parser =
-            CommandParser("fmd", expectedPin, helpCommand, availableCommands(appContext))
+        val parser = CommandParser("fmd", helpCommand, availableCommands(appContext))
         val actual = parser.parse("""fmd "horse battery staple" """) // no command, just pin
 
         assertTrue(actual is ParserResult.Success)
@@ -137,7 +133,7 @@ class CommandParserTest {
         val cmds = availableCommands(appContext)
         val helpCommand = HelpCommand(cmds, appContext)
 
-        val parser = CommandParser("fmd", "", helpCommand, availableCommands(appContext))
+        val parser = CommandParser("fmd", helpCommand, availableCommands(appContext))
         val actual = parser.parse("FMD LoCaTe gps")
 
         assertTrue(actual is ParserResult.Success)

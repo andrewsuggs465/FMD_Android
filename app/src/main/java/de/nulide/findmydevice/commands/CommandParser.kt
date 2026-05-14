@@ -32,7 +32,6 @@ sealed class ParserResult {
  */
 class CommandParser(
     val expectedTriggerWord: String,
-    val expectedPin: String?,
     val helpCommand: Command,
     val availableCommands: List<Command>,
 ) {
@@ -69,9 +68,9 @@ class CommandParser(
         }
         var pin: String? = null
         if (!matchesKnownCommand) {
-            if (!expectedPin.isNullOrBlank() && expectedPin == secondToken) {
-                pin = secondToken
-            }
+            // If the second token does not match any known command,
+            // then we assume that it is the access password.
+            pin = secondToken
         }
 
         val commandKeyword: String

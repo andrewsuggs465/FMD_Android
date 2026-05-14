@@ -2,7 +2,6 @@ package de.nulide.findmydevice.commands
 
 import android.content.Context
 import de.nulide.findmydevice.R
-import de.nulide.findmydevice.data.EncryptedSettingsRepository
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.transports.Transport
@@ -61,12 +60,9 @@ class CommandHandler<T>
         val settings = SettingsRepository.getInstance(context)
         val fmdTriggerWord = settings.get(Settings.SET_FMD_COMMAND) as String
 
-        val encSettings = EncryptedSettingsRepository.getInstance(context)
-        val expectedPin = encSettings.getFmdPin()
-
         val cmds = availableCommands(context)
         val parser =
-            CommandParser(fmdTriggerWord, expectedPin, HelpCommand(cmds, context), cmds)
+            CommandParser(fmdTriggerWord, HelpCommand(cmds, context), cmds)
         val parsed = parser.parse(rawCommand)
 
         when (parsed) {
@@ -81,6 +77,7 @@ class CommandHandler<T>
                         // If they have some access, then they are trusted enough that helpfulness outweighs the information leak.
                         // TODO: Inform them which commands they are allowed to run
                         // TODO: Show a usage-was-denied notification?
+
                         context.log().e(TAG, "Aborting, the transport says DENIED_EXISTS.")
                         val msg = context.getString(
                             R.string.cmd_missing_fmd_permissions,

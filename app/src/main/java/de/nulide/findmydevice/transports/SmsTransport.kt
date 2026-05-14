@@ -9,6 +9,7 @@ import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.commands.AccessResponse
 import de.nulide.findmydevice.commands.ParserResult
+import de.nulide.findmydevice.commands.hasPermission
 import de.nulide.findmydevice.data.AccessRepository
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
@@ -58,40 +59,63 @@ class SmsTransport(
     override fun getDestinationString() = phoneNumber
 
     override suspend fun isAllowed(parsed: ParserResult.Success): AccessResponse {
+        var isKnownButDenied = false
+
         // Case 1: phone number in Allowed Contacts
         val storedNumber = accessRepo.getPhoneNumber(phoneNumber)
         if (storedNumber != null) {
-            context.log().i(TAG, "${storedNumber.toDisplayLabel()} used FMD via allowlist")
-            return AccessResponse.ALLOWED
+            val hasPermission = storedNumber.permission.hasPermission(parsed.command.permission)
+            if (hasPermission) {
+                context.log().i(TAG, "${storedNumber.toDisplayLabel()} used FMD via allowlist")
+                return AccessResponse.ALLOWED
+            } else {
+                // Even if the number is in the list of phone numbers and is explicitly denied this command, continue anyway.
+                // Check below if there is a password that allows the command.
+                // As long as one element allows access, that is sufficient.
+                context.log().i(
+                    TAG,
+                    "${storedNumber.toDisplayLabel()} denied access to ${parsed.command.keyword}. Continuing to check for password."
+                )
+                isKnownButDenied = true
+            }
         }
 
         // Case 2: phone number in temporary allowlist (i.e., it send the correct PIN earlier)
-        val pinAccessEnabled = settings.get(Settings.SET_ACCESS_VIA_PIN) as Boolean
-        if (pinAccessEnabled) {
-            if (tempAllowlistRepo.containsValidNumber(phoneNumber)) {
-                context.log().i(TAG, "$phoneNumber used FMD via temporary allowlist")
-                return AccessResponse.ALLOWED
-            }
+        if (tempAllowlistRepo.containsValidNumber(phoneNumber)) {
+            context.log().i(TAG, "$phoneNumber used FMD via temporary allowlist")
+            return AccessResponse.ALLOWED
+        }
 
-            // Case 3: the message contains the correct PIN
-            if (parsed.pin != null) {
-                context.log().i(TAG, "$phoneNumber used FMD via PIN")
-                send(context, context.getString(R.string.MH_Pin_Accepted))
-                Notifications.notify(
-                    context,
-                    context.getString(R.string.usage_notification_pin_title),
-                    context.getString(R.string.usage_notification_pin_text, phoneNumber),
-                    Notifications.CHANNEL_PIN
-                )
+        // Case 3: the message contains the correct PIN
+        val pinAccessPossible = parsed.pin != null
+        if (pinAccessPossible) {
+            val smsPass = accessRepo.getSmsPassword(parsed.pin)
+            if (smsPass != null) {
+                val hasPermission = smsPass.permission.hasPermission(parsed.command.permission)
+                if (hasPermission) {
+                    context.log()
+                        .i(TAG, "$phoneNumber used FMD via SMS password '${smsPass.label}'")
+                    // TODO: update strings, remove PIN, add label
+                    send(context, context.getString(R.string.MH_Pin_Accepted))
+                    Notifications.notify(
+                        context,
+                        context.getString(R.string.usage_notification_pin_title),
+                        context.getString(R.string.usage_notification_pin_text, phoneNumber),
+                        Notifications.CHANNEL_PIN
+                    )
 
-                tempAllowlistRepo.add(phoneNumber, subscriptionId)
-                TempContactExpiredService.scheduleJob(context, TEMP_USAGE_VALIDITY_MILLIS + 1000)
+                    tempAllowlistRepo.add(phoneNumber, subscriptionId)
+                    TempContactExpiredService.scheduleJob(
+                        context,
+                        TEMP_USAGE_VALIDITY_MILLIS + 1000
+                    )
 
-                return AccessResponse.ALLOWED
+                    return AccessResponse.ALLOWED
+                }
             }
         }
 
-        return AccessResponse.DENIED_UNKNOWN
+        return if (isKnownButDenied) AccessResponse.DENIED_EXISTS else AccessResponse.DENIED_UNKNOWN
     }
 
     override fun send(context: Context, msg: String) {
