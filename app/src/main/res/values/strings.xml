@@ -14,6 +14,7 @@
     <string name="Edit">Edit</string>
     <string name="Enable">Enable</string>
     <string name="Delete">Delete</string>
+    <string name="label">Label</string>
     <string name="save">Save</string>
     <string name="select">Select</string>
 
@@ -21,6 +22,7 @@
     <string name="GPS">GPS</string>
     <string name="Cell">Cell</string>
     <string name="dont_show_again">Don\'t show again</string>
+    <string name="back">Back</string>
 
     <!-- Generic errors -->
     <string name="request_failed_title">Network request failed</string>
@@ -131,12 +133,27 @@
     <string name="server_registration_token_error">Network request failed with HTTP 401. This can happen if the server requires a registration token and the token you provided was wrong.</string>
 
     <!-- Settings: Access control -->
+    <string name="access_tab_phone_number">Phone numbers</string>
+    <string name="access_tab_sms_password">SMS passwords</string>
+    <string name="access_tab_notification_password">Notification passwords</string>
+
+    <string name="access_phone_number_hint">The phone numbers in this list are allowed to access FMD via SMS, by texting \"%s command\".</string>
+    <string name="access_phone_number_empty">No phone numbers. Click to the button below to add one!</string>
+
+    <string name="access_sms_password_hint">The passwords in this list can be used to access FMD from any phone number via SMS, by texting \"%s password command\".</string>
+    <string name="access_sms_password_add">Add SMS password</string>
+
+    <string name="access_notification_password_hint">The passwords in this list can be used to access FMD from any app that shows a notification with a \"reply\" quick action (such as messenger apps). The notification text should be \"%s password command\".</string>
+    <string name="access_notification_password_add">Add notification password</string>
+
+    <string name="access_password_empty">No passwords. Click to the button below to add one!</string>
+    <string name="access_password_exists">This password already exists: %s</string>
+    <string name="access_add_password_label_message">Choose a label so that you can identify the password. The password will not be shown again after you save this entry.</string>
+
     <string name="fmd_permission_allowed_commands_title">Choose allowed commands</string>
     <string name="fmd_permission_allowed_commands_description_server">Decide which commands this server account is allowed to execute (and which not).</string>
 
     <!-- Settings: Allowed contacts -->
-    <string name="Whitelist_help">The contacts in this list are allowed to send FMD commands via SMS. Commands from everyone else will be ignored.</string>
-    <string name="Whitelist_empty">No allowed contacts. Click the button to add some!</string>
     <string name="WhiteList_Add_Contact">Add contact</string>
     <string name="tip_first_contact_added">Congratulations, you have added your first contact! You can now communicate with FMD by sending an SMS that starts with \"%1$s\" from the allowed phone number. For example, send \"%2$s help\" or \"%3$s flash\". When everything works, the app will respond.</string>
     <string name="Toast_Duplicate_contact">This contact already exists.</string>
@@ -145,6 +162,7 @@
     <string name="allowlist_phone_number_name">Name</string>
     <string name="allowlist_phone_number">Phone number</string>
     <string name="allowlist_delete_title_phone_number">Delete phone number?</string>
+    <string name="allowlist_delete_title_password">Delete password?</string>
     <string name="allowlist_delete_message">Once this entry is deleted, it will no longer be able to access FMD. You can re-add it later if you change your mind.</string>
     <string name="allowlist_reset_title">Allowed contacts reset</string>
     <string name="allowlist_reset_text">Due to a crash, the allowed contacts were reset. Please configure them again.</string>

@@ -5,59 +5,59 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
-import android.view.View
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.view.isVisible
-import androidx.recyclerview.widget.RecyclerView
+import androidx.activity.viewModels
+import androidx.annotation.StringRes
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import de.nulide.findmydevice.R
-import de.nulide.findmydevice.data.AllowlistRepository
-import de.nulide.findmydevice.data.Contact
+import de.nulide.findmydevice.data.AccessRepository
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
+import de.nulide.findmydevice.database.NotificationPassword
+import de.nulide.findmydevice.database.PhoneNumber
+import de.nulide.findmydevice.database.SmsPassword
 import de.nulide.findmydevice.ui.FmdActivity
-import de.nulide.findmydevice.ui.UiUtil.Companion.setupEdgeToEdge
-import de.nulide.findmydevice.ui.allowlist.AllowlistAdapter
+import de.nulide.findmydevice.ui.common.validatePassword
+import de.nulide.findmydevice.utils.normalizePhoneNumber
+import kotlinx.coroutines.launch
 
-class AccessControlActivity : FmdActivity() {
-    private lateinit var allowlistRepository: AllowlistRepository
+class AccessControlActivity : FmdActivity(), AccessControlFuns {
+
+    companion object {
+        const val EXTRA_NOTIF = "EXTRA_NOTIF"
+    }
+
+    private lateinit var accessRepo: AccessRepository
     private lateinit var settings: SettingsRepository
 
-    private lateinit var allowlistAdapter: AllowlistAdapter
-
-    private lateinit var textWhitelistEmpty: TextView
+    private val viewModel: AccessControlViewModel by viewModels { AccessControlViewModel.Factory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_allowlist)
 
-        setupEdgeToEdge(findViewById(android.R.id.content))
-
-        allowlistRepository = AllowlistRepository.getInstance(this)
+        accessRepo = AccessRepository.getInstance(this)
         settings = SettingsRepository.getInstance(this)
 
-        allowlistAdapter = AllowlistAdapter(::onDeleteContact)
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler_allowlist)
-        recyclerView.setAdapter(allowlistAdapter)
+        val initialPage = if (intent.extras?.getInt(EXTRA_NOTIF) != null) 2 else 0
 
-        textWhitelistEmpty = findViewById(R.id.whitelistEmpty)
-        findViewById<View>(R.id.buttonAddContact).setOnClickListener(::onAddContactClicked)
-        findViewById<View>(R.id.buttonAddPhoneNumber).setOnClickListener(::onAddPhoneNumberClicked)
-
-        updateScreen()
+        setContent {
+            AccessControlTabsScreen(
+                onBackClicked = { finish() },
+                accessFuns = this,
+                initialPage,
+            )
+        }
     }
 
-    private fun updateScreen() {
-        textWhitelistEmpty.isVisible = allowlistRepository.list.isEmpty()
+    /* ------- Phone numbers ------- */
 
-        allowlistAdapter.submitContactList(allowlistRepository.list)
-    }
-
-    private fun onAddPhoneNumberClicked(v: View) {
-        val context = v.context
+    // XXX: Migrate these adding dialogs to Compose??
+    override fun onAddPhoneNumberClicked() {
+        val context = this
         val layout = layoutInflater.inflate(R.layout.dialog_phone_number, null)
         val nameInput = layout.findViewById<EditText>(R.id.editTextName)
         val phoneNumberInput = layout.findViewById<EditText>(R.id.editTextPhoneNumber)
@@ -70,14 +70,15 @@ class AccessControlActivity : FmdActivity() {
                 { _, _ ->
                     val name = nameInput.getText().toString()
                     val number = phoneNumberInput.getText().toString()
-                    val dummyContact = Contact.from(context, name, number)
-                    addContactToAllowList(dummyContact)
+                    lifecycleScope.launch {
+                        addContactToAllowList(number, name)
+                    }
                 })
             .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }
 
-    private fun onAddContactClicked(v: View) {
+    override fun onAddContactClicked() {
         var intent = Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI)
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
         try {
@@ -137,25 +138,25 @@ class AccessControlActivity : FmdActivity() {
                 cNumber = cursor.getString(numIdx)
             }
 
-            val contact = Contact.from(this, cName, cNumber)
-            if (contact != null) {
-                addContactToAllowList(contact)
+            lifecycleScope.launch {
+                addContactToAllowList(cNumber, cName)
             }
         } while (cursor.moveToNext())
     }
 
-    private fun addContactToAllowList(contact: Contact?) {
-        if (contact == null) {
+    private suspend fun addContactToAllowList(rawNumber: String, name: String) {
+        val normNumber = normalizePhoneNumber(this, rawNumber)
+        if (normNumber == null) {
             Toast.makeText(this, R.string.allowlist_invalid_number, Toast.LENGTH_LONG).show()
             return
         }
-        if (allowlistRepository.contains(contact)) {
+        if (accessRepo.getPhoneNumber(normNumber) != null) {
             Toast.makeText(this, R.string.Toast_Duplicate_contact, Toast.LENGTH_LONG).show()
             return
         }
 
-        allowlistRepository.add(contact)
-        updateScreen()
+        val newNumber = PhoneNumber(0, name, normNumber)
+        accessRepo.insertPhoneNumber(newNumber)
 
         if (!(settings.get(Settings.SET_FIRST_TIME_CONTACT_ADDED) as Boolean)) {
             val keyword = settings.get(Settings.SET_FMD_COMMAND) as String
@@ -171,18 +172,69 @@ class AccessControlActivity : FmdActivity() {
         }
     }
 
-    private fun onDeleteContact(phoneNumber: String) {
+    /* ------- SMS Passwords ------- */
+
+    private fun showAddPasswordDialog(
+        @StringRes title: Int,
+        onSaveClicked: suspend (label: String, password: String) -> Unit,
+    ) {
         val context = this
+        val layout = layoutInflater.inflate(R.layout.dialog_password_labelled, null)
+        val labelInput = layout.findViewById<EditText>(R.id.editTextLabel)
+        val passwordInput = layout.findViewById<EditText>(R.id.editTextPassword)
+
         MaterialAlertDialogBuilder(context)
-            .setTitle(R.string.allowlist_delete_title_phone_number)
-            .setMessage(R.string.allowlist_delete_message)
+            .setTitle(title)
+            .setView(layout)
+            .setCancelable(false)
             .setPositiveButton(
-                R.string.Delete,
+                getString(R.string.add),
                 { _, _ ->
-                    allowlistRepository.remove(phoneNumber)
-                    updateScreen()
+                    val label = labelInput.getText().toString()
+                    val password = passwordInput.getText().toString()
+
+                    validatePassword(context, password, forceMinLength = true, allowEmpty = false) {
+                        lifecycleScope.launch {
+                            onSaveClicked(label, password)
+                        }
+                    }
                 })
-            .setNegativeButton(R.string.cancel, null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }
+
+    override fun onAddSmsPasswordClicked() {
+        showAddPasswordDialog(R.string.access_sms_password_add, { label, password ->
+            onSubmitSmsPassword(SmsPassword(0, label, password))
+        })
+    }
+
+    private suspend fun onSubmitSmsPassword(password: SmsPassword) {
+        val old = accessRepo.getSmsPassword(password.password)
+        if (old != null) {
+            val msg = getString(R.string.access_password_exists, old.label)
+            Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+            return
+        }
+        accessRepo.insertSmsPassword(password)
+    }
+
+    /* ------- Notification Passwords ------- */
+
+    override fun onAddNotificationPasswordClicked() {
+        showAddPasswordDialog(R.string.access_notification_password_add, { label, password ->
+            onSubmitNotificationPassword(NotificationPassword(0, label, password))
+        })
+    }
+
+    private suspend fun onSubmitNotificationPassword(password: NotificationPassword) {
+        val old = accessRepo.getNotificationPassword(password.password)
+        if (old != null) {
+            val msg = getString(R.string.access_password_exists, old.label)
+            Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+            return
+        }
+        accessRepo.insertNotificationPassword(password)
+    }
+
 }
