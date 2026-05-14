@@ -40,27 +40,7 @@ class PasswordSetDialog(
             .setView(passwordLayout)
             .setPositiveButton(R.string.Ok, { _, _ ->
                 val password = editTextPassword.getText().toString()
-
-                if (password.isBlank()) {
-                    if (allowEmpty) {
-                        onSuccess("")
-                    } else {
-                        Toast.makeText(context, R.string.pw_change_empty, Toast.LENGTH_LONG).show()
-                    }
-                } else if (availableCommands(context).stream()
-                        .anyMatch { cmd: Command? -> cmd!!.keyword == password }
-                ) {
-                    Toast.makeText(
-                        context,
-                        R.string.password_match_command_keyword,
-                        Toast.LENGTH_LONG
-                    ).show()
-                } else if (forceMinLength && password.length < CypherUtils.MIN_PASSWORD_LENGTH) {
-                    Toast.makeText(context, R.string.password_min_length, Toast.LENGTH_LONG)
-                        .show()
-                } else {
-                    onSuccess(password)
-                }
+                validatePassword(context, password, forceMinLength, allowEmpty, onSuccess)
             })
             .setNegativeButton(context.getString(R.string.cancel), { _, _ -> })
             .setCancelable(false)
@@ -69,5 +49,34 @@ class PasswordSetDialog(
 
     fun show() {
         dialog.show();
+    }
+}
+
+fun validatePassword(
+    context: Context,
+    password: String,
+    forceMinLength: Boolean,
+    allowEmpty: Boolean,
+    onSuccess: (String) -> Unit,
+) {
+    if (password.isBlank()) {
+        if (allowEmpty) {
+            onSuccess("")
+        } else {
+            Toast.makeText(context, R.string.pw_change_empty, Toast.LENGTH_LONG).show()
+        }
+    } else if (availableCommands(context).stream()
+            .anyMatch { cmd: Command? -> cmd!!.keyword == password }
+    ) {
+        Toast.makeText(
+            context,
+            R.string.password_match_command_keyword,
+            Toast.LENGTH_LONG
+        ).show()
+    } else if (forceMinLength && password.length < CypherUtils.MIN_PASSWORD_LENGTH) {
+        Toast.makeText(context, R.string.password_min_length, Toast.LENGTH_LONG)
+            .show()
+    } else {
+        onSuccess(password)
     }
 }
