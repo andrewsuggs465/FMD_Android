@@ -13,10 +13,10 @@ import de.nulide.findmydevice.utils.RingerUtils;
 @Keep
 public class Settings extends HashMap<Integer, Object> {
 
-    public static final int SETTINGS_VERSION = 3;
+    public static final int SETTINGS_VERSION = 4;
 
     public static final int SET_WIPE_ENABLED = 0;
-    public static final int SET_ACCESS_VIA_PIN = 1;
+    // public static final int SET_ACCESS_VIA_PIN = 1;
     public static final int SET_LOCKSCREEN_MESSAGE = 2;
     public static final int SET_PIN = 3;
     public static final int SET_FMD_COMMAND = 4;
@@ -82,7 +82,7 @@ public class Settings extends HashMap<Integer, Object> {
         } else {
             switch (key) {
                 case SET_WIPE_ENABLED:
-                case SET_ACCESS_VIA_PIN:
+                    // case SET_ACCESS_VIA_PIN:
                 case SET_FIRST_TIME_WHITELIST:
                 case SET_FIRST_TIME_CONTACT_ADDED:
                     //case SET_FIRST_TIME_FMD_SERVER:

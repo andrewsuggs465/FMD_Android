@@ -9,10 +9,13 @@ import com.google.gson.ToNumberPolicy
 import com.google.gson.stream.JsonReader
 import de.nulide.findmydevice.BuildConfig
 import de.nulide.findmydevice.R
+import de.nulide.findmydevice.database.NotificationPassword
+import de.nulide.findmydevice.database.SmsPassword
 import de.nulide.findmydevice.utils.CypherUtils
 import de.nulide.findmydevice.utils.SingletonHolder
 import de.nulide.findmydevice.utils.Utils
 import de.nulide.findmydevice.utils.log
+import kotlinx.coroutines.runBlocking
 import java.io.File
 import java.io.FileReader
 import java.io.FileWriter
@@ -105,12 +108,12 @@ class SettingsRepository private constructor(private val context: Context) {
         settings = gson.fromJson(reader, Settings::class.java) ?: Settings()
 
         // Migrate after import to bring them to the latest structure
-        migrateSettings()
+        runBlocking { migrateSettings() }
 
         saveSettings()
     }
 
-    fun migrateSettings() {
+    suspend fun migrateSettings() {
         val currentVersion = (get(Settings.SET_SET_VERSION) as Number).toInt()
 
         migrateServerUrl()
@@ -118,6 +121,9 @@ class SettingsRepository private constructor(private val context: Context) {
             migrateDeletePassword()
         }
         migrateBackgroundLocationType()
+        if (currentVersion < 4) {
+            migrateFmdPinToDb()
+        }
 
         set(Settings.SET_SET_VERSION, Settings.SETTINGS_VERSION)
     }
@@ -145,6 +151,19 @@ class SettingsRepository private constructor(private val context: Context) {
         if (oldType < BackgroundLocationType.BASE) {
             val newType = BackgroundLocationType.fromOldEncoding(oldType)
             set(Settings.SET_FMDSERVER_LOCATION_TYPE, newType.encode())
+        }
+    }
+
+    suspend fun migrateFmdPinToDb() {
+        val encSettings = EncryptedSettingsRepository.getInstance(context)
+        val pin = encSettings.getFmdPin()
+        if (pin.isNotBlank()) {
+            context.log().i(TAG, "Migrating FMD PIN to database")
+            val accessRepo = AccessRepository.getInstance(context)
+            accessRepo.insertSmsPassword(SmsPassword(0, label = "FMD PIN", password = pin))
+            accessRepo.insertNotificationPassword(
+                NotificationPassword(0, label = "FMD PIN", password = pin)
+            )
         }
     }
 
