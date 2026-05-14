@@ -92,7 +92,15 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         btnRegister = findViewById(R.id.buttonRegister)
         btnRegister.setOnClickListener { view: View -> this.onRegisterClicked(view) }
 
-        val lastKnownServerUrl = settingsRepo.get(Settings.SET_FMDSERVER_URL) as String
+        var lastKnownServerUrl = settingsRepo.get(Settings.SET_FMDSERVER_URL) as String
+
+        // TODO Remove at some point
+        // Currently needed for devices that have saved an invalid url in 0.15.0
+        // and can't open AddAccount Activity
+        if (!URLUtil.isValidUrl(lastKnownServerUrl)) {
+            settingsRepo.remove(Settings.SET_FMDSERVER_URL)
+            lastKnownServerUrl = ""
+        }
 
         // This must be after btnRegister and btnLogin are assigned,
         // because it causes a call to afterTextChanged, which then accesses btnRegister.
@@ -336,14 +344,6 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
     private fun getAndShowServerVersion(context: Context, serverBaseUrl: String) {
         if (serverBaseUrl.isEmpty()) {
             textViewServerVersion.text = ""
-            return
-        }
-
-        // TODO Remove at some point
-        // Currently needed for devices that have saved an invalid url in 0.15.0
-        // and can't open AddAccount Activity
-        if (!URLUtil.isValidUrl(serverBaseUrl)) {
-            settingsRepo.remove(Settings.SET_FMDSERVER_URL)
             return
         }
 
