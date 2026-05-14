@@ -9,7 +9,7 @@ import androidx.annotation.StringRes
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.commands.AccessResponse
 import de.nulide.findmydevice.commands.ParserResult
-import de.nulide.findmydevice.data.AllowlistRepository
+import de.nulide.findmydevice.data.AccessRepository
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.data.TEMP_USAGE_VALIDITY_MILLIS
@@ -32,7 +32,7 @@ class SmsTransport(
     }
 
     private val settings = SettingsRepository.getInstance(context)
-    private val allowlistRepo = AllowlistRepository.getInstance(context)
+    private val accessRepo = AccessRepository.getInstance(context)
     private val tempAllowlistRepo = TemporaryAllowlistRepository.getInstance(context)
 
     @get:DrawableRes
@@ -59,8 +59,9 @@ class SmsTransport(
 
     override suspend fun isAllowed(parsed: ParserResult.Success): AccessResponse {
         // Case 1: phone number in Allowed Contacts
-        if (allowlistRepo.containsNumber(phoneNumber)) {
-            context.log().i(TAG, "$phoneNumber used FMD via allowlist")
+        val storedNumber = accessRepo.getPhoneNumber(phoneNumber)
+        if (storedNumber != null) {
+            context.log().i(TAG, "${storedNumber.toDisplayLabel()} used FMD via allowlist")
             return AccessResponse.ALLOWED
         }
 

@@ -52,6 +52,14 @@ class AccessRepository private constructor(private val context: Context) {
         db.phoneNumberDao().delete(phoneNumber)
     }
 
+    suspend fun migratePhoneAllowListToDb(oldList: AllowlistModel) {
+        for (old in oldList) {
+            val number = normalizePhoneNumber(context, old.number) ?: continue
+            val new = PhoneNumber(0, old.name, number)
+            db.phoneNumberDao().insert(new)
+        }
+    }
+
     /* ------- SMS Passwords ------- */
 
     fun getSmsPasswords(): Flow<List<SmsPassword>> {

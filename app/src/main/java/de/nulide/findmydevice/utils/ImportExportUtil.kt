@@ -134,7 +134,7 @@ class SettingsImportExporter(
     // Otherwise the ZIP reader starts reading wherever the JSON reader stopped.
 
     // New format, "fmd-export.zip" (contains settings.json and other data)
-    private fun importV2Zip(
+    private suspend fun importV2Zip(
         uri: Uri,
         password: String?,
     ): Boolean {
@@ -164,7 +164,7 @@ class SettingsImportExporter(
                     ALLOWLIST_FILENAME -> {
                         context.log().i(TAG, "Trying to import $ALLOWLIST_FILENAME")
                         AllowlistRepository.getInstance(context)
-                            .importFromStream(zipInputStream)
+                            .importFromStreamToDb(zipInputStream)
                         allowlistFound = true
                     }
 
