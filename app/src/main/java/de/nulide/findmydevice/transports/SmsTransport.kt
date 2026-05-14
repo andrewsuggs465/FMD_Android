@@ -81,10 +81,13 @@ class SmsTransport(
         }
 
         // Case 2: phone number in temporary allowlist (i.e., it send the correct PIN earlier)
+        // TODO: Check permission of the SMS password that added this number to the allowlist
+        /*
         if (tempAllowlistRepo.containsValidNumber(phoneNumber)) {
             context.log().i(TAG, "$phoneNumber used FMD via temporary allowlist")
             return AccessResponse.ALLOWED
         }
+         */
 
         // Case 3: the message contains the correct PIN
         val pinAccessPossible = parsed.pin != null
