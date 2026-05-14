@@ -339,6 +339,14 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
             return
         }
 
+        // TODO Remove at some point
+        // Currently needed for devices that have saved an invalid url in 0.15.0
+        // and can't open AddAccount Activity
+        if (!URLUtil.isValidUrl(serverBaseUrl)) {
+            settingsRepo.remove(Settings.SET_FMDSERVER_URL)
+            return
+        }
+
         lifecycleScope.launch(Dispatchers.IO) {
             isMinRequiredVersion(context, serverBaseUrl) { result ->
                 runOnUiThread {
