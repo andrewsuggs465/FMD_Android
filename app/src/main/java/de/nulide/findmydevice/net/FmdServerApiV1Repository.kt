@@ -582,6 +582,15 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
                         return@JsonObjectRequest errorListener.onError(errorMsg)
                     }
 
+                    // Enforce that clocks are roughly aligned. This prevents a denial-of-service from
+                    // a buggy/malicious client sending a validly signed command with an extremely high timestamp.
+                    val nowPlusOneDay = System.currentTimeMillis() + 24 * 60 * 60 * 1000L
+                    if (time >= nowPlusOneDay) {
+                        val errorMsg = "Timestamp is too far in the future: $time >= $nowPlusOneDay"
+                        context.log().e(TAG, errorMsg)
+                        return@JsonObjectRequest errorListener.onError(errorMsg)
+                    }
+
                     val publicKeyPem = settingsRepo.get(Settings.SET_FMD_CRYPT_PUBKEY) as String
                     if (!CypherUtils.verifySig(publicKeyPem, "$time:$command", sig)) {
                         val errorMsg = "Failed to verify the signature of command '$command'"
