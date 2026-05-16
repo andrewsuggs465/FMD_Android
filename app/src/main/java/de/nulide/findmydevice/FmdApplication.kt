@@ -30,6 +30,9 @@ class FmdApplication : Application() {
     // The problem is that we cannot pass objects between them directly.
     // But we also cannot retrieve the notification in the worker by ID,
     // because notificationManager.activeNotifications only returns the notifications posted by our own app.
+    //
+    // Mark this as @Volatile to ensure that other threads can see changes (such as potential worker threads).
+    @Volatile
     var latestStatusBarNotification: StatusBarNotification? = null
 
     override fun onCreate() {
