@@ -104,10 +104,7 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
         loadBaseUrl()
 
         val keys = FmdKeyPair.generateNewFmdKeyPair(password)
-        settingsRepo.setKeys(keys)
-
         val hashedPW = CypherUtils.hashPasswordForLogin(password)
-        settingsRepo.set(Settings.SET_FMD_CRYPT_HPW, hashedPW)
 
         val jsonObject = JSONObject()
         try {
@@ -126,6 +123,8 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
             { response: JSONObject ->
                 try {
                     settingsRepo.set(Settings.SET_FMDSERVER_ID, response["DeviceId"])
+                    settingsRepo.set(Settings.SET_FMD_CRYPT_HPW, hashedPW)
+                    settingsRepo.setKeys(keys)
                     listener.onResponse(Unit)
                 } catch (e: JSONException) {
                     context.log().w(TAG, "registerAccount: ${e.stackTraceToString()}")
