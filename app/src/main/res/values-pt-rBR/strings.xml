@@ -62,7 +62,7 @@
     <string name="request_failed_title">Solicitação de rede falhou</string>
     <string name="Settings_FMDConfig">Geral</string>
     <string name="Settings_WhiteList">Contatos permitidos</string>
-    <string name="Settings_FMD_Server_ID_Desc">Você precisará do ID do usuário para encontrar seu dispositivo com o FMD Server. Mantenha-o seguro.</string>
+    <string name="Settings_FMD_Server_ID_Desc">Você precisará do nome do usuário para encontrar seu dispositivo com o FMD Server. Mantenha-o seguro.</string>
     <string name="Settings_FMDServer_Logout_Button">Sair</string>
     <string name="accept">Aceitar</string>
     <string name="Edit">Editar</string>
@@ -78,7 +78,7 @@
     <string name="registration_token_hint">Instâncias privadas podem solicitar um token secreto. Deixe em branco se a instância é pública.</string>
     <string name="Whitelist_help">Os contatos nesta lista podem enviar comandos do FMD por SMS. Comandos de outras pessoas serão ignorados.</string>
     <string name="WhiteList_Add_Contact">Adicionar contato</string>
-    <string name="Settings_FMD_Server_User_ID">ID do usuário:</string>
+    <string name="Settings_FMD_Server_User_ID">Nome do usuário:</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Isto apagará todos os seus dados do servidor! Você tem certeza?</string>
     <string name="OpenCellId_privacy">Privacidade: tenha em mente que o OpenCelliD aprende sobre a sua rede móvel atual e portanto sua localização com cada consulta na API.</string>
     <string name="about_source_code">Código-fonte</string>
@@ -201,7 +201,7 @@
     <string name="Settings_no_ringtone_picker">Nenhum selecionador de toque encontrado!</string>
     <string name="Settings_FMDServer_Delete_Account">Apagar conta</string>
     <string name="pw_change_network_failed">A alteração de senha falhou por causa de um erro de rede.</string>
-    <string name="Settings_FMDServer_Error_id_or_pw_empty">O FMD ID e a senha não podem estar vazios.</string>
+    <string name="Settings_FMDServer_Error_id_or_pw_empty">O nome de usuário e a senha não podem estar vazios.</string>
     <string name="temporary_allowlist_expired">Seu acesso temporário ao FMD acabou. Para continuar usando o FMD, envie o PIN novamente.</string>
     <string name="cmd_bluetooth_description_short">Habilitar o Bluetooth</string>
     <string name="cmd_bluetooth_response_no_bluetooth">O dispositivo não parece ter Bluetooth.</string>
@@ -239,7 +239,7 @@
     <string name="Settings_FMDServer_Check_Notify_After_Description">O FMD irá te notificar se a última conexão ao FMD Server foi a mais de X horas atrás. Isto não tem efeito se o teste de conectividade está desativado.</string>
     <string name="pin_match_command_keyword">O PIN não pode ser igual a um dos comandos!</string>
     <string name="usage_notification_pin_title">PIN do FMD utilizado</string>
-    <string name="server_fmd_id_hint">O FMD ID identifica sua conta no FMD Server. Deixe isso vazio para deixar que o servidor gere um ID. O administrador do servidor pode ver o FMD ID.</string>
+    <string name="server_fmd_id_hint">O nome de usuário identifica sua conta no FMD Server. O administrador do servidor pode vê-lo.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distribuidor: %s</string>
     <string name="Settings_FMDServer_Push_Url">URL do Push: %s</string>
     <string name="Settings_FMDServer_Push_Register">Cadastrar</string>
@@ -301,4 +301,8 @@
     <string name="push_registration_upload_failed_text">A URL push não pôde ser enviada ao FMD Server. Então, você não poderá receber comandos pelo FMD Server. Para resolver isso, abra as configurações do FMD Server e clique em \"Cadastrar novamente\" para renovar o cadastro push manualmente.</string>
     <string name="multiple_unified_push_distributors_title">Vários apps distribuidores do UnifiedPush</string>
     <string name="multiple_unified_push_distributors_description">Você tem vários apps distribuidores do UnifiedPush instalados. Selecione qual você quer usar para o FMD.</string>
+    <string name="Settings_Debugging">Solução de problemas</string>
+    <string name="server_apparently_deleted_text">O FMD não pode se conectar à sua conta do FMD Server \"%s\". Parece que esta conta foi apagada do servidor.</string>
+    <string name="server_username">Nome do usuário</string>
+    <string name="invalid_url">URL inválida</string>
 </resources>
