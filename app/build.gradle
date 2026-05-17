@@ -7,6 +7,7 @@ plugins {
 
     // https://kotlinlang.org/docs/ksp-quickstart.html
     id 'com.google.devtools.ksp' version '2.3.6'
+    id 'androidx.room'
 }
 
 android {
@@ -141,7 +142,6 @@ dependencies {
     implementation 'androidx.security:security-crypto-ktx:1.1.0'
 
     // Room
-    def room_version = "2.8.4"
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
     ksp "androidx.room:room-compiler:$room_version"
@@ -192,6 +192,15 @@ dependencies {
     // com.google.crypto.tink uses javax.annotation.concurrent.GuardedBy
     // Without this dependency providing GuardedBy, R8 complains when minifying.
     implementation 'com.github.spotbugs:spotbugs-annotations:4.9.8'
+}
+
+// Despite what the docs say, both options appear to be required for the schema export to work.
+// https://developer.android.com/jetpack/androidx/releases/room#compiler-options
+ksp {
+    arg('room.schemaLocation', "$projectDir/schemas")
+}
+room {
+    schemaDirectory "$projectDir/schemas"
 }
 
 sonar {
