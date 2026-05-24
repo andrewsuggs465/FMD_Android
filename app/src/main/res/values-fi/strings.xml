@@ -17,7 +17,6 @@
     <string name="ringer_stop_ringing">PYSÄYTÄ SOITTO</string>
     <string name="cmd_locate_response_location_off">Pahoittelut, sijainti on poissa käytöstä.</string>
     <string name="Settings_FMDConfig">FMD-SMS</string>
-    <string name="Settings_WhiteList">Valkoinen lista</string>
     <string name="Settings_Logs">Lokit</string>
     <string name="Settings_About">Tietoa</string>
     <string name="Settings_Settings">Asetukset</string>
@@ -44,7 +43,6 @@
     <string name="Settings_FMD_Server_General">Yleinen</string>
     <string name="Settings_FMD_Server_Server_URL">Palvelimen URL:</string>
     <string name="Settings_FMD_Server_User_ID">Käyttäjän ID:</string>
-    <string name="Settings_FMD_Server_ID_Desc">Tarvitset käyttäjän ID: n löytääksesi laitteen FMD-palvelimella. Ota se talteen ja pidä turvassa.</string>
     <string name="Settings_FMDServer_Change_Password_Button">Vaihda salasana</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Tämä poistaa kaikki tiedot palvelimelta! Haluatko varmasti jatkaa?</string>
     <string name="password_new">Uusi salasana</string>

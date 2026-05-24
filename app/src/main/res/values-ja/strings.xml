@@ -46,7 +46,6 @@
     <string name="Settings_Export">設定をエクスポート</string>
     <string name="request_failed_exception">例外</string>
     <string name="Settings_FMDConfig">FMDの設定</string>
-    <string name="Settings_WhiteList">許可済の連絡先</string>
     <string name="Settings_Appearance">表示</string>
     <string name="pin">ピンコード</string>
     <string name="Settings_FMDServer_Change_Password_Button">パスワードを変更</string>
@@ -102,7 +101,6 @@
     <string name="Settings_Enter_Pin">ピンコードを入力</string>
     <string name="pin_match_command_keyword">コマンドと同じピンコードは設定できません！</string>
     <string name="Settings_FMDCommand_Description">FMDとの通信に使うコマンド。</string>
-    <string name="Settings_FMD_Server_ID_Desc">FMDのサーバーで端末を見つけるにはユーザーIDが必要となります。ユーザーIDは、記録して安全に保管してください。</string>
     <string name="Settings_FMDServer_Push_Description">FMDのサーバーから端末にコマンドを送信するには、UnifiedPushのディストリビューター用アプリが必要になります。</string>
     <string name="Settings_FMDServer_Update_Interval_Title">バックグラウンドで位置情報をアップロードする際の時間間隔</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMDが端末の位置情報をアップロードする時間（分）を設定。</string>

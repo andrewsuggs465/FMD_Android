@@ -18,7 +18,6 @@
     <string name="Settings_FMD_Server_General">Splošno</string>
     <string name="Settings_FMD_Server_Server_URL">URL strežnika:</string>
     <string name="Settings_FMD_Server_User_ID">Uporabniško ime:</string>
-    <string name="Settings_FMD_Server_ID_Desc">Za iskanje naprave s FMD strežnikom, potrebujete uporabniško ime. Zapišite si ga, in ga shranite na varno mesto.</string>
     <string name="Settings_FMDServer_Logout_Button">Odjava</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">To bo izbrisalo vse vaše podatke iz strežnika! Ste prepričani?</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Interval posodabljanja lokacije v ozadju</string>
@@ -39,7 +38,6 @@
     <string name="password">Geslo</string>
     <string name="Settings_Settings">Nastavitve</string>
     <string name="Settings_FMDConfig">Splošno</string>
-    <string name="Settings_WhiteList">Zaupanja vredni stiki</string>
     <string name="Settings_Export">Izvozi nastavitve</string>
     <string name="server_version_error_low_version">Potrebna je vsaj različica strežnika {MIN}, trenutno izbrani strežnik pa ima različico {CURRENT}. Nadaljujte na lastno odgovornost.</string>
     <string name="Settings_FMDServer_Info">S FMD strežnikom lahko vaši napravi pošiljate ukaze preko interneta (od strežnika v FMD aplikacijo). Na FMD strežniku lahko vidite lokacijo naprave na zemljevidu ter preko kamere zajamete fotografije. Navodila za postavitev lastnega FMD strežnika so na spletni strani projekta.</string>

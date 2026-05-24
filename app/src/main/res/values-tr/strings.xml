@@ -27,7 +27,6 @@
     <string name="bottom_nav_settings">Ayarlar</string>
     <string name="Settings_Settings">Ayarlar</string>
     <string name="Settings_FMDConfig">Genel</string>
-    <string name="Settings_WhiteList">İzin verilen kişiler</string>
     <string name="Settings_Appearance">Görünüm</string>
     <string name="Settings_Import">Ayarları İçe Aktar</string>
     <string name="Settings_Export">Ayarları Dışa Aktar</string>
@@ -39,7 +38,6 @@
     <string name="Settings_Lockscreenmessage_Description">Kilit ekranı mesajı:\nCihaz kilitlendiğinde, bu mesaj kilit ekranında gözükecektir.</string>
     <string name="Settings_FMD_Server_General">Genel</string>
     <string name="Settings_FMD_Server_Server_URL">Sunucu URL:</string>
-    <string name="Settings_FMD_Server_ID_Desc">Cihazınızı FMD Sunucusuyla bulmak için kullanıcı ID\'sine ihtiyacınız var. Bir yere yazınız ve güvenli tutunuz.</string>
     <string name="Settings_FMD_Server_Connection_Status">Bağlantı durumu:</string>
     <string name="Settings_FMDServer_Push_Description">FMD Sunucusundan cihazınıza komut göndermek UnifiedPush dağıtıcı uygulaması gerektirir.</string>
     <string name="Settings_FMDServer_Push_Distributor">Dağıtıcı: %s</string>

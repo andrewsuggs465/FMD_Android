@@ -7,7 +7,6 @@
     <string name="Edit">Rediger</string>
     <string name="GPS">GPS</string>
     <string name="Settings_Settings">Innstillinger</string>
-    <string name="Settings_WhiteList">Tillatte kontakter</string>
     <string name="Settings_Import">Importer innstillinger</string>
     <string name="Settings_Export">Eksporter innstillinger</string>
     <string name="Settings_FMD_via_Pin_Description">Lar deg kommunisere med FMD via en PIN. Du vil legges til på midlertidig hvitliste.</string>
@@ -22,7 +21,6 @@
     <string name="Settings_FMDServer_Logout_Button">Logg ut</string>
     <string name="server_version">Tjenerversjon</string>
     <string name="Settings_Lockscreenmessage_Description">Låseskjermsmelding. \nVises når enheten er låst.</string>
-    <string name="Settings_FMD_Server_ID_Desc">Du trenger bruker-ID-en for å finne din enhet med FMD-tjeneren. Skriv den ned og oppbevar den trygt.</string>
     <string name="Settings_FMDServer_Change_Password_Button">Endre passord</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Fortsett med sletting av all data fra tjeneren?</string>
     <string name="Settings_FMDServer_Location_Type_Title">Posisjoneringstjeneste</string>

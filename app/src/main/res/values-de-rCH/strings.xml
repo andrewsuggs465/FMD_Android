@@ -11,14 +11,12 @@
     <string name="request_failed_exception">Usnahmefehler</string>
     <string name="Settings_Settings">Iistellige</string>
     <string name="Settings_FMDConfig">Allgemein</string>
-    <string name="Settings_WhiteList">Erlaubti Kontäkt</string>
     <string name="Settings_Import">Iistellige importiere</string>
     <string name="Settings_FMD_via_Pin_Description">Machts dir möglich mit FMD via PIN zu kommuniziere. So chasch Befehl vonere Telefonnummer schicke wo nöd in dine erlaubte Kontäkt isch.</string>
     <string name="pin">PIN</string>
     <string name="Settings_FMDCommand_Description">De Befehl zum mit FMD kommuniziere.</string>
     <string name="Settings_Ringer_Tone_Description">Wähl en Klingelton für de \"ring\"-Befehl.</string>
     <string name="Settings_Select_Ringtone">Klingelton uswähle</string>
-    <string name="Settings_FMD_Server_ID_Desc">Du bruchsch d Benutzer ID zum dis Gerät mit FMD Server finde. Schrib sie uf und verlür sie nöd.</string>
     <string name="Settings_FMDServer_Change_Password_Button">Password ändere</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Alli Date werded vom Server glöscht. Bisch sicher?</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Intervall vom Standortupload im Hintergrund</string>

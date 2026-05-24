@@ -17,7 +17,6 @@
     <string name="OpenCellId_help">FMD può utilizzare il servizio OpenCelliD per ottenere una posizione approssimativa basata sulla torre cellulare a cui il dispositivo è collegato. Per ogni richiesta di localizzazione è necessaria una connessione a Internet. È inoltre necessario creare un account su OpenCelliD e ottenere il proprio token di accesso all\'API.</string>
     <string name="OpenCellId_open_website">Apri sito OpenCellId</string>
     <string name="Settings_FMD_Server_General">Generale</string>
-    <string name="Settings_FMD_Server_ID_Desc">L\'ID utente è necessario per trovare il dispositivo con FMD Server. Annotatelo e tenetelo al sicuro.</string>
     <string name="Settings_FMD_Server_Server_URL">Server URL:</string>
     <string name="Settings_FMD_Server_User_ID">User ID:</string>
     <string name="loading">Caricamento…</string>
@@ -38,7 +37,6 @@
     <string name="ringer_stop_ringing">SMETTI DI SQUILLARE</string>
     <string name="cmd_locate_response_location_off">Spiacente, la posizione è disattivata.</string>
     <string name="Settings_FMDConfig">Generale</string>
-    <string name="Settings_WhiteList">Contatti Ammessi</string>
     <string name="Settings_Logs">Registri</string>
     <string name="Settings_About">Info</string>
     <string name="Settings_Settings">Impostazioni</string>

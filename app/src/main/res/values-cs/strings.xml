@@ -38,7 +38,6 @@
     <string name="pin">PIN</string>
     <string name="Settings_Ringer_Tone_Description">Vyberte vyzvánění pro příkaz „ring“.</string>
     <string name="Settings_Lockscreenmessage_Description">Zpráva na zamykací obrazovce:\nPři uzamčení zařízení bude tato zpráva zobrazena na zamykací obrazovce.</string>
-    <string name="Settings_FMD_Server_ID_Desc">Pro nalezení vašeho zařízení pomocí FMD Serveru potřebujete uživatelské jméno. Zapište si jej a uschovejte jej na bezpečném místě.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Zdroj polohy</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Nahrávat při nízké baterii</string>
     <string name="password_old">Staré heslo</string>
@@ -70,7 +69,6 @@
     <string name="request_failed_response_body">Tělo odpovědi</string>
     <string name="Settings_Settings">Nastavení</string>
     <string name="Settings_FMDConfig">Obecné</string>
-    <string name="Settings_WhiteList">Povolené kontakty</string>
     <string name="Settings_Import">Importovat nastavení</string>
     <string name="Settings_Export">Exportovat nastavení</string>
     <string name="Settings_Logs">Protokoly</string>

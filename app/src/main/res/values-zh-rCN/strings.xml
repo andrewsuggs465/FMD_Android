@@ -18,7 +18,6 @@
     <string name="Settings_FMD_Server_General">常规</string>
     <string name="Settings_FMD_Server_Server_URL">服务器 URL：</string>
     <string name="Settings_FMD_Server_User_ID">用户 ID：</string>
-    <string name="Settings_FMD_Server_ID_Desc">您需要用户 ID 才能通过 FMD 服务器查找设备。请记录并妥善保管 ID。</string>
     <string name="Settings_FMDServer_Change_Password_Button">更改密码</string>
     <string name="Settings_FMDServer_Logout_Button">登出</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">这将会删除服务器上所有数据！您确定要这么做吗？</string>
@@ -43,7 +42,6 @@
     <string name="accept">允许</string>
     <string name="Settings_Settings">设置</string>
     <string name="Settings_FMDConfig">常规</string>
-    <string name="Settings_WhiteList">授权联系人</string>
     <string name="Settings_FMD_via_Pin_Description">允许您通过 PIN 与 FMD 交流。使可以您从“授权联系人”列表以外的电话号码发送命令。</string>
     <string name="Settings_FMDCommand_Description">用于与 FMD 通信的命令。</string>
     <string name="Settings_FMDServer_Location_Type_Description">后台定时上传位置数据的数据源配置项。\n若未选择任何数据源，系统将不会自动上传定位信息。（此时仍可通过网页端强制上传，但该操作需依赖推送功能支持。）</string>

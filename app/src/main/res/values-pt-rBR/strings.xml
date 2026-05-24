@@ -61,8 +61,6 @@
     <string name="Cell">Redes móveis</string>
     <string name="request_failed_title">Solicitação de rede falhou</string>
     <string name="Settings_FMDConfig">Geral</string>
-    <string name="Settings_WhiteList">Contatos permitidos</string>
-    <string name="Settings_FMD_Server_ID_Desc">Você precisará do nome do usuário para encontrar seu dispositivo com o FMD Server. Mantenha-o seguro.</string>
     <string name="Settings_FMDServer_Logout_Button">Sair</string>
     <string name="accept">Aceitar</string>
     <string name="Edit">Editar</string>

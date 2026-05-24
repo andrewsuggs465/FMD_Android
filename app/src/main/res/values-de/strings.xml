@@ -11,7 +11,6 @@
     <!-- Settings (main screen, with the list) -->
     <string name="Settings_Settings">Einstellungen</string>
     <string name="Settings_FMDConfig">Allgemein</string>
-    <string name="Settings_WhiteList">Erlaubte Kontakte</string>
     <string name="Settings_Import">Einstellungen importieren</string>
     <string name="Settings_Export">Einstellungen exportieren</string>
     <string name="Settings_Logs">Protokoll</string>
@@ -28,7 +27,6 @@
     <string name="Settings_FMD_Server_General">Allgemein</string>
     <string name="Settings_FMD_Server_Server_URL">Server-URL:</string>
     <string name="Settings_FMD_Server_User_ID">Benutzername:</string>
-    <string name="Settings_FMD_Server_ID_Desc">Du benötigst deinen Benutzernamen, um dein Gerät mit FMD Server zu finden. Notiere ihn und bewahre ihn sicher auf.</string>
     <string name="Settings_FMDServer_Change_Password_Button">Password ändern</string>
     <string name="Settings_FMDServer_Logout_Button">Abmelden</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Dadurch werden alle Daten auf dem Server gelöscht. Bist du sicher?</string>

@@ -19,7 +19,6 @@
     <string name="Settings_FMDConfig">一般</string>
     <string name="Settings_Settings">設定</string>
     <string name="Settings_Import">匯入設定</string>
-    <string name="Settings_WhiteList">允許的聯絡人</string>
     <string name="Settings_FMD_Server_General">一般</string>
     <string name="Settings_FMDServer_Location_Type_Title">位置來源</string>
     <string name="WhiteList_Add_Contact">新增聯絡人</string>
@@ -55,7 +54,6 @@
     <string name="Settings_Lockscreenmessage_Description">鎖定畫面訊息：\n當裝置被鎖定時，此訊息會顯示在鎖定畫面上。</string>
     <string name="Settings_FMD_Server_Server_URL">伺服器網址：</string>
     <string name="Settings_FMD_Server_User_ID">使用者 ID：</string>
-    <string name="Settings_FMD_Server_ID_Desc">您需要使用者 ID 才能透過 FMD 伺服器尋找您的裝置。請將它記錄下來並妥善保管。</string>
     <string name="Settings_FMDServer_Change_Password_Button">變更密碼</string>
     <string name="Settings_FMDServer_Logout_Button">登出</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">這將會從伺服器刪除所有資料！您確定要這麼做嗎？</string>

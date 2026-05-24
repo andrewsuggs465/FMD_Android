@@ -26,7 +26,6 @@
     <string name="bottom_nav_settings">Ρυθμίσεις</string>
     <string name="Settings_Settings">Ρυθμίσεις</string>
     <string name="Settings_FMDConfig">Γενικά</string>
-    <string name="Settings_WhiteList">Επιτρεπόμενες επαφές</string>
     <string name="Settings_Appearance">Εμφάνιση</string>
     <string name="Settings_Import">Ρυθμίσεις εισαγωγής</string>
     <string name="Settings_Export">Ρυθμίσεις εξαγωγής</string>
@@ -51,7 +50,6 @@
     <string name="Settings_FMD_Server_General">Γενικά</string>
     <string name="Settings_FMD_Server_Server_URL">Διεύθυνση URL διακομιστή:</string>
     <string name="Settings_FMD_Server_User_ID">Αναγνωριστικό χρήστη:</string>
-    <string name="Settings_FMD_Server_ID_Desc">Χρειάζεστε το αναγνωριστικό χρήστη για να βρείτε τη συσκευή σας με τον διακομιστή FMD. Σημειώστε το και φυλάξτε το σε ασφαλές μέρος.</string>
     <string name="Settings_FMD_Server_Connection_Status">Κατάσταση σύνδεσης:</string>
     <string name="Settings_FMD_Server_Connection_Status_Success">Επιτυχία</string>
     <string name="Settings_FMDServer_Change_Password_Button">Αλλαγή κωδικού</string>

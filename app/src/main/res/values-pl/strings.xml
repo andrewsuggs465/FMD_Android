@@ -10,7 +10,6 @@
     <string name="GPS">GPS</string>
     <string name="bottom_nav_transports">Kanały transportu</string>
     <string name="bottom_nav_settings">Ustawienia</string>
-    <string name="Settings_WhiteList">Dozwolone kontakty</string>
     <string name="Settings_Import_Success">Importowanie zakończone</string>
     <string name="Settings_Import_Failed">Importowanie nie powiodło się</string>
     <string name="Settings_About">O aplikacji</string>
@@ -95,7 +94,6 @@
     <string name="Toast_Empty_FMDCommand">Pusta komenda niedozwolona, użyto wartości domyślnej.</string>
     <string name="Settings_Lockscreenmessage_Description">Wiadomość na ekranie blokady:\nPo zablokowaniu urządzenia, ta wiadomość będzie widoczna na ekranie blokady.</string>
     <string name="Settings_Ringer_Tone_Description">Wybierz dzwonek używany do komendy fmd ring.</string>
-    <string name="Settings_FMD_Server_ID_Desc">Potrzebujesz identyfikatora użytkownika, aby znaleźć swoje urządzenie przy użyciu Serwera FMD. Zapisz go i przechowaj w bezpiecznym miejscu.</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">To usunie wszystkie dane z serwera! Jesteś pewien?</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD przesyłą lokalizację urządzenia co X minut.</string>
     <string name="Settings_Appearance">Wygląd</string>

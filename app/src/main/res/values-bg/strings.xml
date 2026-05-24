@@ -14,7 +14,6 @@
     <string name="bottom_nav_commands">Команди</string>
     <string name="bottom_nav_transports">Транспортни канали</string>
     <string name="Settings_FMDConfig">FMD-Конфигурация</string>
-    <string name="Settings_WhiteList">Разрешени контакти</string>
     <string name="Settings_Appearance">Външен вид</string>
     <string name="Settings_Import">Настройки за внасяне</string>
     <string name="Settings_Export">Настройки за изнасяне</string>

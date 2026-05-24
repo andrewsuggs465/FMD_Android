@@ -58,7 +58,6 @@
     <string name="bottom_nav_settings">அமைப்புகள்</string>
     <string name="Settings_Settings">அமைப்புகள்</string>
     <string name="Settings_FMDConfig">பொது</string>
-    <string name="Settings_WhiteList">அனுமதிக்கப்பட்ட தொடர்புகள்</string>
     <string name="Settings_Appearance">தோற்றம்</string>
     <string name="Settings_Import">அமைப்புகளை இறக்குமதி செய்யுங்கள்</string>
     <string name="Settings_Export">ஏற்றுமதி அமைப்புகள்</string>
@@ -80,7 +79,6 @@
     <string name="Settings_FMD_Server_General">பொது</string>
     <string name="Settings_FMD_Server_Server_URL">சேவையக URL:</string>
     <string name="Settings_FMD_Server_User_ID">பயனர் ஐடி:</string>
-    <string name="Settings_FMD_Server_ID_Desc">FMD சேவையகத்துடன் உங்கள் சாதனத்தைக் கண்டுபிடிக்க உங்களுக்கு பயனர் ஐடி தேவை. அதை எழுதி பாதுகாப்பாக வைத்திருங்கள்.</string>
     <string name="Settings_FMDServer_Logout_Button">விடுபதிகை</string>
     <string name="Settings_FMDServer_Logout_Text">உங்கள் FMD சேவையக கணக்கிலிருந்து வெளியேற விரும்புகிறீர்களா?</string>
     <string name="Settings_FMDServer_Delete_Account">கணக்கை நீக்கு</string>

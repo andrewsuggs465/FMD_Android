@@ -16,7 +16,6 @@
     <string name="bottom_nav_commands">פקודות</string>
     <string name="bottom_nav_transports">ערוצי מעבר</string>
     <string name="bottom_nav_settings">הגדרות</string>
-    <string name="Settings_WhiteList">אנשי קשר מורשים</string>
     <string name="Settings_Export">ייצא הגדרות</string>
     <string name="Settings_Logs">רישומים</string>
     <string name="Settings_About">אודות</string>

@@ -38,7 +38,6 @@
     <string name="Settings_FMD_Server_General">Général</string>
     <string name="Settings_FMD_Server_Server_URL">URL du serveur :</string>
     <string name="Settings_FMDServer_Change_Password_Button">Changer le mot de passe</string>
-    <string name="Settings_FMD_Server_ID_Desc">Vous avez besoin du nom d\'utilisateur pour trouver votre appareil avec le serveur FMD. Notez-le et gardez-le en lieu sûr.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Lieu source</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Cela supprimera toutes les données du serveur ! Êtes-vous sûr ?</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Envoyer lorsque la batterie est faible</string>
@@ -69,7 +68,6 @@
     <string name="Settings_FMDServer_Update_Interval_Title">Intervalle d’envoi de localisation en arrière-plan</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Envoi la localisation de l\'appareil lorsque le niveau de la batterie est faible.</string>
     <string name="help">Aide</string>
-    <string name="Settings_WhiteList">Contacts autorisés</string>
     <string name="pin">Code PIN</string>
     <string name="Settings_FMDServer_Login">Se connecter</string>
     <string name="Settings_FMDServer_AddAccount">Serveur FMD : Se connecter</string>

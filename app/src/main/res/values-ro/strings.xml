@@ -23,7 +23,6 @@
     <string name="bottom_nav_settings">Setări</string>
     <string name="Settings_Settings">Setări</string>
     <string name="Settings_FMDConfig">General</string>
-    <string name="Settings_WhiteList">Contacte permise</string>
     <string name="Settings_Appearance">Aspect</string>
     <string name="Settings_Import">Setări de import</string>
     <string name="Settings_Export">Setări de export</string>
@@ -45,7 +44,6 @@
     <string name="Settings_FMD_Server_General">General</string>
     <string name="Settings_FMD_Server_Server_URL">URL server:</string>
     <string name="Settings_FMD_Server_User_ID">ID utilizator:</string>
-    <string name="Settings_FMD_Server_ID_Desc">Ai nevoie de ID-ul utilizatorului pentru a găsi dispozitivul cu server FMD. Notează-l și păstrează-l în siguranță.</string>
     <string name="Settings_FMD_Server_Connection_Status">Status conexiune:</string>
     <string name="Settings_FMD_Server_Connection_Status_Success">Succes</string>
     <string name="Settings_FMDServer_Change_Password_Button">Schimbă parola</string>

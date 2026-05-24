@@ -15,7 +15,6 @@
     <string name="ringer_stop_ringing">ОСТАНОВИТЬ РИНГТОН</string>
     <string name="cmd_locate_response_location_off">Извините, определение местоположения отключено.</string>
     <string name="Settings_FMDConfig">Общие</string>
-    <string name="Settings_WhiteList">Разрешённые контакты</string>
     <string name="Settings_Logs">Журнал отладки</string>
     <string name="Settings_About">О приложении</string>
     <string name="Settings_Settings">Настройки</string>
@@ -29,7 +28,6 @@
     <string name="Settings_Ringer_Tone_Description">Выберите рингтон для команды \"ring\".</string>
     <string name="Settings_Select_Ringtone">Выберите рингтон</string>
     <string name="Settings_FMD_Server_User_ID">Имя пользователя:</string>
-    <string name="Settings_FMD_Server_ID_Desc">Вам необходимо имя пользователя, чтобы найти ваше устройство с помощью Сервера FMD. Запишите и надёжно храните его.</string>
     <string name="Settings_FMDServer_Change_Password_Button">Сменить пароль</string>
     <string name="Settings_FMDServer_Logout_Button">Выйти</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Это удалит все данные с сервера. Вы уверены?</string>
