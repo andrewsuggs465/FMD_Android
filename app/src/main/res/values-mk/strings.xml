@@ -13,7 +13,6 @@
     <string name="request_failed_exception">Исклучок</string>
     <string name="Settings_Settings">Местенки</string>
     <string name="Settings_FMDConfig">Нагодувања на FMD</string>
-    <string name="Settings_WhiteList">Дозволени контакти</string>
     <string name="Settings_Import_Success">Внесот е успешен</string>
     <string name="Settings_Import_Failed">Внесот не успеа</string>
     <string name="Settings_Export">Извади нагодувања</string>

@@ -58,7 +58,6 @@
     <string name="bottom_nav_settings">அமைப்புகள்</string>
     <string name="Settings_Settings">அமைப்புகள்</string>
     <string name="Settings_FMDConfig">பொது</string>
-    <string name="Settings_WhiteList">அனுமதிக்கப்பட்ட தொடர்புகள்</string>
     <string name="Settings_Appearance">தோற்றம்</string>
     <string name="Settings_Import">அமைப்புகளை இறக்குமதி செய்யுங்கள்</string>
     <string name="Settings_Export">ஏற்றுமதி அமைப்புகள்</string>

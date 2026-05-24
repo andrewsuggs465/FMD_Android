@@ -69,7 +69,6 @@
     <string name="Settings_FMDServer_Update_Interval_Title">Intervalle d’envoi de localisation en arrière-plan</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Envoi la localisation de l\'appareil lorsque le niveau de la batterie est faible.</string>
     <string name="help">Aide</string>
-    <string name="Settings_WhiteList">Contacts autorisés</string>
     <string name="pin">Code PIN</string>
     <string name="Settings_FMDServer_Login">Se connecter</string>
     <string name="Settings_FMDServer_AddAccount">Serveur FMD : Se connecter</string>

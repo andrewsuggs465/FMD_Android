@@ -17,7 +17,6 @@
     <string name="ringer_stop_ringing">DEJAR DE SONAR</string>
     <string name="cmd_locate_response_location_off">Lo sentimos, la ubicación está desactivada.</string>
     <string name="Settings_FMDConfig">General</string>
-    <string name="Settings_WhiteList">Contactos permitidos</string>
     <string name="Settings_Logs">Registros</string>
     <string name="Settings_About">Acerca de</string>
     <string name="Settings_Settings">Ajustes</string>

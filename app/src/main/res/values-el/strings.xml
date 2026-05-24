@@ -26,7 +26,6 @@
     <string name="bottom_nav_settings">Ρυθμίσεις</string>
     <string name="Settings_Settings">Ρυθμίσεις</string>
     <string name="Settings_FMDConfig">Γενικά</string>
-    <string name="Settings_WhiteList">Επιτρεπόμενες επαφές</string>
     <string name="Settings_Appearance">Εμφάνιση</string>
     <string name="Settings_Import">Ρυθμίσεις εισαγωγής</string>
     <string name="Settings_Export">Ρυθμίσεις εξαγωγής</string>

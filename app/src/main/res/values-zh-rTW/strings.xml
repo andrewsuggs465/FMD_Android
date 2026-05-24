@@ -19,7 +19,6 @@
     <string name="Settings_FMDConfig">一般</string>
     <string name="Settings_Settings">設定</string>
     <string name="Settings_Import">匯入設定</string>
-    <string name="Settings_WhiteList">允許的聯絡人</string>
     <string name="Settings_FMD_Server_General">一般</string>
     <string name="Settings_FMDServer_Location_Type_Title">位置來源</string>
     <string name="WhiteList_Add_Contact">新增聯絡人</string>

@@ -15,7 +15,6 @@
     <string name="ringer_stop_ringing">ОСТАНОВИТЬ РИНГТОН</string>
     <string name="cmd_locate_response_location_off">Извините, определение местоположения отключено.</string>
     <string name="Settings_FMDConfig">Общие</string>
-    <string name="Settings_WhiteList">Разрешённые контакты</string>
     <string name="Settings_Logs">Журнал отладки</string>
     <string name="Settings_About">О приложении</string>
     <string name="Settings_Settings">Настройки</string>

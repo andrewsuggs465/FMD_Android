@@ -18,7 +18,6 @@
     <string name="bottom_nav_settings">Seadistused</string>
     <string name="Settings_Settings">Seadistused</string>
     <string name="Settings_FMDConfig">Üldseadistused</string>
-    <string name="Settings_WhiteList">Lubatud kontaktid</string>
     <string name="Settings_Appearance">Välimus</string>
     <string name="Settings_Import">Impordi seadistused</string>
     <string name="Settings_Export">Ekspordi seadistused</string>

@@ -10,7 +10,6 @@
     <string name="GPS">GPS</string>
     <string name="bottom_nav_transports">Kanały transportu</string>
     <string name="bottom_nav_settings">Ustawienia</string>
-    <string name="Settings_WhiteList">Dozwolone kontakty</string>
     <string name="Settings_Import_Success">Importowanie zakończone</string>
     <string name="Settings_Import_Failed">Importowanie nie powiodło się</string>
     <string name="Settings_About">O aplikacji</string>

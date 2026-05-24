@@ -70,7 +70,6 @@
     <string name="request_failed_response_body">Tělo odpovědi</string>
     <string name="Settings_Settings">Nastavení</string>
     <string name="Settings_FMDConfig">Obecné</string>
-    <string name="Settings_WhiteList">Povolené kontakty</string>
     <string name="Settings_Import">Importovat nastavení</string>
     <string name="Settings_Export">Exportovat nastavení</string>
     <string name="Settings_Logs">Protokoly</string>

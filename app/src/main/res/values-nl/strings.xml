@@ -17,7 +17,6 @@
     <string name="bottom_nav_settings">Instellingen</string>
     <string name="Settings_Settings">Instellingen</string>
     <string name="request_failed_exception">Uitzondering</string>
-    <string name="Settings_WhiteList">Toegestane contacten</string>
     <string name="Settings_Appearance">Uiterlijk</string>
     <string name="Settings_Import">Instellingen importeren</string>
     <string name="Settings_Logs">Logboeken</string>

@@ -43,7 +43,6 @@
     <string name="accept">允许</string>
     <string name="Settings_Settings">设置</string>
     <string name="Settings_FMDConfig">常规</string>
-    <string name="Settings_WhiteList">授权联系人</string>
     <string name="Settings_FMD_via_Pin_Description">允许您通过 PIN 与 FMD 交流。使可以您从“授权联系人”列表以外的电话号码发送命令。</string>
     <string name="Settings_FMDCommand_Description">用于与 FMD 通信的命令。</string>
     <string name="Settings_FMDServer_Location_Type_Description">后台定时上传位置数据的数据源配置项。\n若未选择任何数据源，系统将不会自动上传定位信息。（此时仍可通过网页端强制上传，但该操作需依赖推送功能支持。）</string>

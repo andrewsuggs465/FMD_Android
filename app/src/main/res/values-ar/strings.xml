@@ -2,7 +2,6 @@
 <resources>
     <string name="help">مساعدة</string>
     <string name="Settings_Settings">الإعدادات</string>
-    <string name="Settings_WhiteList">جهات الإتصال المسموح بها</string>
     <string name="Settings_Import">إستيراد الإعدادات</string>
     <string name="Settings_Export">تصدير الإعدادات</string>
     <string name="Settings_Logs">السجلات</string>

@@ -13,7 +13,6 @@
     <string name="request_failed_status_code">Код статусу</string>
     <string name="bottom_nav_commands">Команди</string>
     <string name="Settings_Settings">Налаштування</string>
-    <string name="Settings_WhiteList">Дозволені контакти</string>
     <string name="Settings_Import_Success">Успішно імпортовано</string>
     <string name="Settings_Export">Експорт налаштувань</string>
     <string name="Settings_Logs">Журнал</string>
