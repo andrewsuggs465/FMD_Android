@@ -1,0 +1,8 @@
+{
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "kotlin.languageServer.enabled": true,
+  "editor.formatOnSave": true,
+  "[kotlin]": {
+    "editor.defaultFormatter": "mathiasfrohlich.Kotlin"
+  }
+}
