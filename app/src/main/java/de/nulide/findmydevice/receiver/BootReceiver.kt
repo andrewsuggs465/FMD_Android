@@ -4,6 +4,8 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import de.nulide.findmydevice.data.SettingsRepository
+import de.nulide.findmydevice.securepouch.BleTrackerRepository
+import de.nulide.findmydevice.services.BleTrackerScanService
 import de.nulide.findmydevice.services.ServerConnectivityCheckService
 import de.nulide.findmydevice.services.ServerVersionCheckService
 import de.nulide.findmydevice.services.TempContactExpiredService
@@ -33,6 +35,10 @@ class BootReceiver : BroadcastReceiver() {
 
                 // Don't notify about this on every boot. It is too intrusive/annoying if you don't want it.
                 // ServerConnectivityCheckService.notifyAboutConnectivityCheck(context)
+            }
+
+            if (BleTrackerRepository(context).hasPouches()) {
+                BleTrackerScanService.start(context)
             }
         }
     }

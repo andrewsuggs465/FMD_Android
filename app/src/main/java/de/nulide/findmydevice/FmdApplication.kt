@@ -9,6 +9,8 @@ import de.nulide.findmydevice.data.AllowlistRepository
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.data.UncaughtExceptionHandler.Companion.initUncaughtExceptionHandler
+import de.nulide.findmydevice.securepouch.BleTrackerRepository
+import de.nulide.findmydevice.services.BleTrackerScanService
 import de.nulide.findmydevice.services.FmdBatteryLowService
 import de.nulide.findmydevice.services.ServerConnectivityCheckService
 import de.nulide.findmydevice.services.ServerLocationUploadService
@@ -84,6 +86,10 @@ class FmdApplication : Application() {
 
             // Do NOT try to register with UnifiedPush.
             // This needs a UI context, and should thus happen in the MainActivity.
+
+            if (BleTrackerRepository(this).hasPouches()) {
+                BleTrackerScanService.start(this)
+            }
         } else {
             FmdBatteryLowService.cancelJob(this)
             ServerLocationUploadService.cancelJob(this)
