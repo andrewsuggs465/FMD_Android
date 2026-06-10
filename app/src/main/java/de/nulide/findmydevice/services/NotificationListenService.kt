@@ -3,7 +3,9 @@ package de.nulide.findmydevice.services
 import android.provider.Telephony
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
+import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.OutOfQuotaPolicy
 import androidx.work.WorkManager
 import androidx.work.workDataOf
 import de.nulide.findmydevice.FmdApplication
@@ -76,8 +78,16 @@ class NotificationListenService : NotificationListenerService() {
             CommandExecutionWorker.KEY_NOTIF_KEY to sbn.key,
         )
         val workRequest = OneTimeWorkRequestBuilder<CommandExecutionWorker>()
+            .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
             .setInputData(inputData)
             .build()
-        WorkManager.getInstance(this).enqueue(workRequest)
+        // Use the notification key as the unique work name so that rapid updates to the same
+        // notification (e.g. a messenger app amending its own notification after we reply)
+        // don't queue a second execution of the same command.
+        WorkManager.getInstance(this).enqueueUniqueWork(
+            sbn.key,
+            ExistingWorkPolicy.KEEP,
+            workRequest,
+        )
     }
 }

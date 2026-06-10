@@ -65,6 +65,12 @@ class RingerActivity : FmdActivity() {
             durationSec = RING_DURATION_MAX_SECS
         }
 
+        // Capture the current audio/DND state on the main thread before handing off to the
+        // background coroutine. If we let raiseVolume() save these values on Dispatchers.Default,
+        // onDestroy() can run concurrently and call resetVolume() before the saves complete,
+        // leaving DND permanently disabled.
+        saveVolumeState()
+
         lifecycleScope.launch(Dispatchers.Default) {
             startRinging(durationSec)
         }
@@ -78,7 +84,7 @@ class RingerActivity : FmdActivity() {
     }
 
     private suspend fun startRinging(durationSec: Int) {
-        raiseVolume()
+        applyRaisedVolume()
         ringtone?.play()
 
         delay(durationSec * 1000L)
@@ -86,19 +92,25 @@ class RingerActivity : FmdActivity() {
         finish()
     }
 
-    private fun raiseVolume() {
+    /** Save current audio/DND state. Must be called on the main thread before the coroutine starts. */
+    private fun saveVolumeState() {
         val audioManager = getSystemService(AudioManager::class.java)
         val notificationManager = getSystemService(NotificationManager::class.java)
 
         oldRingerMode = audioManager.ringerMode
         oldAlarmVolume = audioManager.getStreamVolume(AudioManager.STREAM_ALARM)
+        oldInterruptionFiler = notificationManager.currentInterruptionFilter
+        oldNotificationPolicy = notificationManager.notificationPolicy
+    }
+
+    /** Apply max-volume / all-notifications settings. Safe to call on any thread. */
+    private fun applyRaisedVolume() {
+        val audioManager = getSystemService(AudioManager::class.java)
+        val notificationManager = getSystemService(NotificationManager::class.java)
 
         audioManager.ringerMode = AudioManager.RINGER_MODE_NORMAL
         val maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_ALARM)
         audioManager.setStreamVolume(AudioManager.STREAM_ALARM, maxVolume, 0)
-
-        oldInterruptionFiler = notificationManager.currentInterruptionFilter
-        oldNotificationPolicy = notificationManager.notificationPolicy
 
         notificationManager.setInterruptionFilter(INTERRUPTION_FILTER_ALL)
     }

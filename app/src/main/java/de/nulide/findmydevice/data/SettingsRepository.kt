@@ -69,11 +69,29 @@ class SettingsRepository private constructor(private val context: Context) {
             file.createNewFile()
         }
 
-        // Better crash with a JsonSyntaxException than silently resetting the settings (they are important!).
-        // If a user is affected by a crash due to an invalid settings JSON, they can manually fix this
-        // by clearing the entire app storage.
-        FileReader(file).use { reader ->
-            return gson.fromJson(reader, Settings::class.java) ?: Settings()
+        // An empty or corrupt file must not crash the app on startup.
+        // Rename the broken file so the user can recover it manually, then start fresh.
+        return try {
+            FileReader(file).use { reader ->
+                gson.fromJson(reader, Settings::class.java) ?: Settings()
+            }
+        } catch (e: JsonSyntaxException) {
+            context.log().e(TAG, "settings.json is corrupt — resetting to defaults. Backup: ${backupCorruptSettings(file)}")
+            Settings()
+        } catch (e: JsonIOException) {
+            context.log().e(TAG, "settings.json could not be read — resetting to defaults. Backup: ${backupCorruptSettings(file)}")
+            Settings()
+        }
+    }
+
+    private fun backupCorruptSettings(file: File): String {
+        val backup = File(context.filesDir, "settings.json.corrupt")
+        return try {
+            file.copyTo(backup, overwrite = true)
+            file.delete()
+            backup.name
+        } catch (e: Exception) {
+            "(backup failed: ${e.message})"
         }
     }
 
