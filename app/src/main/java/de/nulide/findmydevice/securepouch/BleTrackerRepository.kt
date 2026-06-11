@@ -39,6 +39,7 @@ class BleTrackerRepository(private val context: Context) {
         private fun kHashedPw(uid: String) = "${uid}_hashed_pw"
         private fun kToken(uid: String) = "${uid}_access_token"
         private fun kPubKey(uid: String) = "${uid}_public_key"
+        private fun kLastSeen(uid: String) = "${uid}_last_seen_ms"
     }
 
     private val prefs: SharedPreferences by lazy {
@@ -71,6 +72,22 @@ class BleTrackerRepository(private val context: Context) {
 
     fun getAccessToken(bleUid: String): String? =
         prefs.getString(kToken(bleUid), null)
+
+    fun getLastSeen(bleUid: String): Long? =
+        prefs.getLong(kLastSeen(bleUid), -1L).takeIf { it >= 0 }
+
+    fun removePouch(bleUid: String) {
+        val all = (prefs.getStringSet(KEY_ALL_UIDS, emptySet()) ?: emptySet()).toMutableSet()
+        all.remove(bleUid)
+        prefs.edit()
+            .putStringSet(KEY_ALL_UIDS, all)
+            .remove(kServerId(bleUid))
+            .remove(kHashedPw(bleUid))
+            .remove(kToken(bleUid))
+            .remove(kPubKey(bleUid))
+            .remove(kLastSeen(bleUid))
+            .apply()
+    }
 
     // ---------- Registration ----------
 
@@ -205,6 +222,7 @@ class BleTrackerRepository(private val context: Context) {
         val request = JsonPostRequest(
             Request.Method.POST, "${serverBaseUrl()}/location", body,
             Response.Listener { _ ->
+                prefs.edit().putLong(kLastSeen(bleUid), System.currentTimeMillis()).apply()
                 context.log().i(TAG, "Location posted for pouch '$bleUid'")
             },
             Response.ErrorListener { error ->

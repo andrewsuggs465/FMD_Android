@@ -17,6 +17,7 @@ import android.bluetooth.le.ScanSettings
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.LocationManager
 import android.os.Build
 import android.os.Handler
 import android.os.IBinder
@@ -25,6 +26,7 @@ import android.os.ParcelUuid
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import de.nulide.findmydevice.R
+import de.nulide.findmydevice.data.FmdLocation
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.securepouch.BleTrackerRepository
 import de.nulide.findmydevice.utils.log
@@ -79,6 +81,7 @@ class BleTrackerScanService : Service() {
 
     // MAC addresses connected this scan window — prevents double-connect on same device
     private val activeGatts = mutableMapOf<String, BluetoothGatt>()
+    private var isScanning = false
 
     // ---------- Lifecycle ----------
 
@@ -137,7 +140,9 @@ class BleTrackerScanService : Service() {
             .setScanMode(ScanSettings.SCAN_MODE_LOW_POWER)
             .build()
 
+        if (isScanning) return
         scanner.startScan(listOf(filter), settings, scanCallback)
+        isScanning = true
         this.log().d(TAG, "Scan started")
 
         handler.postDelayed(::stopScan, SCAN_WINDOW_MS)
@@ -147,7 +152,9 @@ class BleTrackerScanService : Service() {
         if (hasScanPermission()) {
             btScanner.value?.stopScan(scanCallback)
         }
+        isScanning = false
         this.log().d(TAG, "Scan stopped")
+        activeGatts.clear()
         scheduleScan()
     }
 
@@ -258,12 +265,26 @@ class BleTrackerScanService : Service() {
             this.log().w(TAG, "Unknown pouch '$bleUid' — not registered, skipping")
             return
         }
-        val location = settingsRepo.getLastKnownLocation()
+        val location = getPhoneLocation()
         if (location == null) {
-            this.log().w(TAG, "No cached location yet for '$bleUid' — skipping post")
+            this.log().w(TAG, "No location available for '$bleUid' — skipping post")
             return
         }
         bleRepo.postLocation(bleUid, location)
+    }
+
+    @Suppress("MissingPermission")
+    private fun getPhoneLocation(): FmdLocation? {
+        val lm = getSystemService(LocationManager::class.java)
+        // Try GPS first, fall back to network, then to FMD's own settings cache
+        val providers = listOf(LocationManager.GPS_PROVIDER, LocationManager.NETWORK_PROVIDER)
+        for (provider in providers) {
+            val loc = lm?.getLastKnownLocation(provider)
+            if (loc != null) {
+                return FmdLocation.fromAndroidLocation(this, loc)
+            }
+        }
+        return settingsRepo.getLastKnownLocation()
     }
 
     // ---------- Permission helpers ----------

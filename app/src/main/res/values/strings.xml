@@ -418,4 +418,21 @@
     <string name="MH_Pin_Accepted">Pin accepted!</string>
     <string name="invalid_url">Invalid URL</string>
 
+    <!-- SecurePouch device management -->
+    <string name="sp_settings_entry" translatable="false">SecurePouch Devices</string>
+    <string name="sp_activity_title" translatable="false">SecurePouch Devices</string>
+    <string name="sp_no_devices">No devices paired yet.</string>
+    <string name="sp_pair_button">Pair New Device</string>
+    <string name="sp_pair_dialog_title">Pair SecurePouch</string>
+    <string name="sp_pair_hint_uid">Device ID (e.g. securepouch-001)</string>
+    <string name="sp_pair_hint_password">Password</string>
+    <string name="sp_pair_hint_token">Registration Token</string>
+    <string name="sp_pair_registering">Registering…</string>
+    <string name="sp_pair_success">Paired successfully!</string>
+    <string name="sp_pair_error_empty">All fields are required.</string>
+    <string name="sp_unpair_confirm_title">Remove device?</string>
+    <string name="sp_unpair_confirm_message">This will remove all local credentials for \'%1$s\'. The server account is not deleted.</string>
+    <string name="sp_last_seen_never">Last seen: never</string>
+    <string name="sp_last_seen_format">Last seen: %1$s ago</string>
+
 </resources>

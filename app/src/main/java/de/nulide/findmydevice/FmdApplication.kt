@@ -52,6 +52,7 @@ class FmdApplication : Application() {
 
         restartServices()
     }
+      
 
     private fun doUpdateMigrations(context: Context) {
         val settings = SettingsRepository.getInstance(context)

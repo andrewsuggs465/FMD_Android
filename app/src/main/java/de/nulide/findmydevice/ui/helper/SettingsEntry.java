@@ -30,6 +30,7 @@ public class SettingsEntry {
         entries.add(new SettingsEntry(context, R.string.Settings_Access_Control, R.drawable.ic_admin_panel_setting));
         entries.add(new SettingsEntry(context, R.string.Settings_OpenCellId, R.drawable.ic_cell_tower));
         entries.add(new SettingsEntry(context, R.string.Settings_Appearance, R.drawable.ic_palette));
+        entries.add(new SettingsEntry(context, R.string.sp_settings_entry, R.drawable.ic_bluetooth));
         entries.add(new SettingsEntry(context, R.string.Settings_Export, R.drawable.ic_import_export));
         entries.add(new SettingsEntry(context, R.string.Settings_Import, R.drawable.ic_import_export));
         entries.add(new SettingsEntry(context, R.string.Settings_Logs, R.drawable.ic_logs));

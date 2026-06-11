@@ -215,7 +215,12 @@
         <service
             android:name=".services.BleTrackerScanService"
             android:exported="false"
-            android:foregroundServiceType="connectedDevice" />
+            android:foregroundServiceType="connectedDevice|location" />
+
+        <activity
+            android:name=".ui.settings.PouchManagementActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.MainActivity" />
 
         <service
             android:name=".services.UnifiedPushService"

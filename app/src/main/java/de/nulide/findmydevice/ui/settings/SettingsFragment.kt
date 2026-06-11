@@ -88,27 +88,28 @@ class SettingsFragment : TaggedFragment() {
             2 -> settingIntent = Intent(context, AccessControlActivity::class.java)
             3 -> settingIntent = Intent(context, OpenCellIdActivity::class.java)
             4 -> settingIntent = Intent(context, AppearanceActivity::class.java)
-            5 -> {
+            5 -> settingIntent = Intent(context, PouchManagementActivity::class.java)
+            6 -> {
                 val intent = Intent(Intent.ACTION_CREATE_DOCUMENT)
                 intent.putExtra(Intent.EXTRA_TITLE, filenameForExport())
                 intent.setType("*/*")
                 startActivityForResult(intent, EXPORT_REQ_CODE)
             }
 
-            6 -> {
+            7 -> {
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
                 intent.setType("*/*")
                 startActivityForResult(intent, IMPORT_REQ_CODE)
             }
 
-            7 -> settingIntent = Intent(context, LogViewActivity::class.java)
-            8 -> {
+            8 -> settingIntent = Intent(context, LogViewActivity::class.java)
+            9 -> {
                 val activityTitle = getString(R.string.Settings_About)
                 settingIntent = LibsBuilder().withActivityTitle(activityTitle)
                     .withListener(AboutLibsListener.listener).intent(context)
             }
 
-            9 -> settingIntent = Intent(context, DebuggingActivity::class.java)
+            10 -> settingIntent = Intent(context, DebuggingActivity::class.java)
         }
 
         if (settingIntent != null) {
