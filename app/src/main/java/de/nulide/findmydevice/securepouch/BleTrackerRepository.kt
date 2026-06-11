@@ -6,6 +6,7 @@ import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import com.android.volley.Request
 import com.android.volley.Response
+import com.android.volley.VolleyError
 import de.nulide.findmydevice.data.FmdKeyPair
 import de.nulide.findmydevice.data.FmdLocation
 import de.nulide.findmydevice.data.Settings
@@ -128,10 +129,115 @@ class BleTrackerRepository(private val context: Context) {
                 fetchAndStoreToken(bleUid, serverDeviceId, hashedPw, keys.base64PublicKey, baseUrl, onSuccess, onError)
             },
             Response.ErrorListener { error ->
-                onError("Registration failed: ${error.message}")
+                val detail = errorText(error)
+                if (detail.contains("Failed to create username", ignoreCase = true)) {
+                    // Account already exists on the server (e.g. registered from another
+                    // phone or a previous install) — try logging in with the given password.
+                    context.log().i(TAG, "Account '$bleUid' exists, attempting login instead")
+                    loginPouch(bleUid, password, onSuccess) { loginErr ->
+                        onError("Device '$bleUid' is already registered, and login failed: $loginErr — wrong password?")
+                    }
+                } else {
+                    onError("Registration failed: $detail")
+                }
             },
         )
         queue.add(request)
+    }
+
+    /**
+     * Log in to an existing pouch account on the FMD server and cache its credentials.
+     * Used when the device ID is already registered (e.g. after app reinstall).
+     */
+    fun loginPouch(
+        bleUid: String,
+        password: String,
+        onSuccess: () -> Unit,
+        onError: (String) -> Unit,
+    ) {
+        val baseUrl = serverBaseUrl()
+
+        val saltBody = JSONObject().apply {
+            put("IDT", bleUid)
+            put("Data", "")
+        }
+        val saltRequest = JsonObjectRequest(
+            Request.Method.PUT, "$baseUrl/salt", saltBody,
+            Response.Listener { saltResponse ->
+                val salt = saltResponse.getString("Data")
+                // Volley callbacks run on the main thread; Argon2 must not
+                Thread {
+                    val hashedPw = CypherUtils.hashPasswordForLogin(password, salt)
+                    fetchTokenAndPubKey(bleUid, hashedPw, baseUrl, onSuccess, onError)
+                }.start()
+            },
+            Response.ErrorListener { error ->
+                onError("Salt fetch failed: ${errorText(error)}")
+            },
+        )
+        queue.add(saltRequest)
+    }
+
+    private fun fetchTokenAndPubKey(
+        bleUid: String,
+        hashedPw: String,
+        baseUrl: String,
+        onSuccess: () -> Unit,
+        onError: (String) -> Unit,
+    ) {
+        val body = JSONObject().apply {
+            put("IDT", bleUid)
+            put("Data", hashedPw)
+            put("SessionDurationSeconds", 7 * 24 * 60 * 60)
+        }
+        val request = JsonObjectRequest(
+            Request.Method.PUT, "$baseUrl/requestAccess", body,
+            Response.Listener { response ->
+                val token = response.getString("Data")
+                fetchPubKey(bleUid, hashedPw, token, baseUrl, onSuccess, onError)
+            },
+            Response.ErrorListener { error ->
+                onError("Login failed: ${errorText(error)}")
+            },
+        )
+        queue.add(request)
+    }
+
+    private fun fetchPubKey(
+        bleUid: String,
+        hashedPw: String,
+        token: String,
+        baseUrl: String,
+        onSuccess: () -> Unit,
+        onError: (String) -> Unit,
+    ) {
+        val body = JSONObject().apply {
+            put("IDT", token)
+            put("Data", "")
+        }
+        val request = JsonObjectRequest(
+            Request.Method.PUT, "$baseUrl/pubKey", body,
+            Response.Listener { response ->
+                val pubKeyBase64 = response.getString("Data")
+                saveCredentials(bleUid, bleUid, hashedPw, token, pubKeyBase64)
+                context.log().i(TAG, "Logged in to existing account for $bleUid")
+                onSuccess()
+            },
+            Response.ErrorListener { error ->
+                onError("Public key fetch failed: ${errorText(error)}")
+            },
+        )
+        queue.add(request)
+    }
+
+    /** Extract a human-readable message from a Volley error (HTTP status + server body). */
+    private fun errorText(error: VolleyError): String {
+        val net = error.networkResponse
+        if (net != null) {
+            val body = net.data?.toString(Charsets.UTF_8)?.trim()?.take(200) ?: ""
+            return "HTTP ${net.statusCode}${if (body.isNotEmpty()) ": $body" else ""}"
+        }
+        return error.message ?: error.javaClass.simpleName
     }
 
     private fun fetchAndStoreToken(

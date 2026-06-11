@@ -155,4 +155,11 @@
     <color name="md_theme_surfaceContainer_highContrast">#DFE4D8</color>
     <color name="md_theme_surfaceContainerHigh_highContrast">#D1D6CA</color>
     <color name="md_theme_surfaceContainerHighest_highContrast">#C3C8BD</color>
+
+    <!-- SecurePouch scan status indicators -->
+    <color name="sp_status_ready">#006C0F</color>
+    <color name="sp_status_connecting">#795600</color>
+    <color name="sp_status_success">#006C0F</color>
+    <color name="sp_status_error">#BA1A1A</color>
+    <color name="sp_status_neutral">#6F7A6A</color>
 </resources>

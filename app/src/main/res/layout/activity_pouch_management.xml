@@ -50,7 +50,7 @@
                 android:id="@+id/btnPair"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/sp_pair_button" />
+                android:text="@string/sp_pair_new" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

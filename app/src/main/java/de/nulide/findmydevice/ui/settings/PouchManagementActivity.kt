@@ -1,16 +1,13 @@
 package de.nulide.findmydevice.ui.settings
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.view.isVisible
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.textfield.TextInputEditText
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.databinding.ActivityPouchManagementBinding
 import de.nulide.findmydevice.securepouch.BleTrackerRepository
@@ -38,7 +35,10 @@ class PouchManagementActivity : FmdActivity() {
 
         bleRepo = BleTrackerRepository(this)
 
-        binding.btnPair.setOnClickListener { showPairDialog() }
+        binding.btnPair.text = getString(R.string.sp_pair_new)
+        binding.btnPair.setOnClickListener {
+            startActivity(Intent(this, BleScanActivity::class.java))
+        }
         refreshList()
     }
 
@@ -137,53 +137,4 @@ class PouchManagementActivity : FmdActivity() {
             .show()
     }
 
-    private fun showPairDialog() {
-        val view = LayoutInflater.from(this).inflate(R.layout.dialog_pair_pouch, null)
-        val etUid = view.findViewById<TextInputEditText>(R.id.editDeviceId)
-        val etPw = view.findViewById<TextInputEditText>(R.id.editPassword)
-        val etToken = view.findViewById<TextInputEditText>(R.id.editToken)
-
-        MaterialAlertDialogBuilder(this)
-            .setTitle(R.string.sp_pair_dialog_title)
-            .setView(view)
-            .setPositiveButton(R.string.sp_pair_button) { _, _ ->
-                val uid = etUid.text?.toString()?.trim() ?: ""
-                val pw = etPw.text?.toString() ?: ""
-                val token = etToken.text?.toString()?.trim() ?: ""
-                if (uid.isEmpty() || pw.isEmpty() || token.isEmpty()) {
-                    Toast.makeText(this, R.string.sp_pair_error_empty, Toast.LENGTH_SHORT).show()
-                    return@setPositiveButton
-                }
-                registerPouch(uid, pw, token)
-            }
-            .setNegativeButton(android.R.string.cancel, null)
-            .show()
-    }
-
-    private fun registerPouch(uid: String, password: String, token: String) {
-        val toast = Toast.makeText(this, R.string.sp_pair_registering, Toast.LENGTH_LONG)
-        toast.show()
-
-        Thread {
-            bleRepo.registerPouch(
-                bleUid = uid,
-                password = password,
-                registrationToken = token,
-                onSuccess = {
-                    runOnUiThread {
-                        toast.cancel()
-                        Toast.makeText(this, R.string.sp_pair_success, Toast.LENGTH_SHORT).show()
-                        BleTrackerScanService.start(this)
-                        refreshList()
-                    }
-                },
-                onError = { msg ->
-                    runOnUiThread {
-                        toast.cancel()
-                        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
-                    }
-                },
-            )
-        }.start()
-    }
 }

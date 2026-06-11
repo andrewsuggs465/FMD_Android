@@ -222,6 +222,11 @@
             android:exported="false"
             android:parentActivityName=".ui.MainActivity" />
 
+        <activity
+            android:name=".ui.settings.BleScanActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.settings.PouchManagementActivity" />
+
         <service
             android:name=".services.UnifiedPushService"
             android:exported="false">

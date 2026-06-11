@@ -435,4 +435,22 @@
     <string name="sp_last_seen_never">Last seen: never</string>
     <string name="sp_last_seen_format">Last seen: %1$s ago</string>
 
+    <!-- BLE scan screen -->
+    <string name="sp_scan_title">Scan for SecurePouch</string>
+    <string name="sp_scan_hint">Make sure your pouch is nearby and powered on. Tap a device to pair it.</string>
+    <string name="sp_scan_button">Scan</string>
+    <string name="sp_scan_scanning">Scanning…</string>
+    <string name="sp_scan_no_devices">No SecurePouch devices found.\nTap Scan to try again.</string>
+    <string name="sp_scan_tap_to_pair">Tap to pair</string>
+    <string name="sp_scan_tap_to_register">Tap to register</string>
+    <string name="sp_scan_reading_id">Reading device ID…</string>
+    <string name="sp_scan_already_added">Already added</string>
+    <string name="sp_scan_registering">Registering…</string>
+    <string name="sp_scan_added">Added ✓</string>
+    <string name="sp_scan_error_tap_retry">Error — tap to retry</string>
+    <string name="sp_scan_register_title">Register %1$s</string>
+    <string name="sp_scan_register_button">Register</string>
+    <string name="sp_scan_bt_off">Bluetooth is off. Please enable it and try again.</string>
+    <string name="sp_pair_new">Scan for Devices</string>
+
 </resources>
