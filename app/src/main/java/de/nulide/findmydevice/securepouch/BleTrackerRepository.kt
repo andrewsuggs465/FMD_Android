@@ -41,6 +41,23 @@ class BleTrackerRepository(private val context: Context) {
         private fun kToken(uid: String) = "${uid}_access_token"
         private fun kPubKey(uid: String) = "${uid}_public_key"
         private fun kLastSeen(uid: String) = "${uid}_last_seen_ms"
+        private fun kPending(uid: String) = "${uid}_pending_commands"
+
+        // SecurePouch BLE control opcodes — keep in sync with
+        // firmware/shared/ble_protocol.h (SP_CTRL_*) and the SP_CMD_* strings.
+        const val SP_CHAR_CONTROL_UUID = "af19b3e4-d279-4a2a-9d3f-2f5e8a6bc054"
+
+        /** Map an FMD command string to its BLE control opcode, or null if unknown. */
+        fun commandToOpcode(command: String): Byte? = when (command) {
+            "lock" -> 0x01
+            "unlock" -> 0x02
+            "arm" -> 0x03
+            "disarm" -> 0x04
+            "alarm" -> 0x05
+            "silence" -> 0x06
+            "locate" -> 0x07
+            else -> null
+        }
     }
 
     private val prefs: SharedPreferences by lazy {
@@ -336,6 +353,57 @@ class BleTrackerRepository(private val context: Context) {
             },
         )
         queue.add(request)
+    }
+
+    // ---------- Commands (pouch control) ----------
+
+    /**
+     * Poll the FMD server for a pending command for this pouch. The command
+     * channel is single-delivery: the server clears it once read. The result is
+     * delivered to [onCommand] (empty string => nothing pending) so the caller
+     * can relay it to the pouch over BLE.
+     */
+    fun pollServerCommand(bleUid: String, onCommand: (String) -> Unit) {
+        val accessToken = getAccessToken(bleUid) ?: return
+        val body = JSONObject().apply {
+            put("IDT", accessToken)
+            put("Data", "")
+        }
+        val request = JsonObjectRequest(
+            Request.Method.PUT, "${serverBaseUrl()}/command", body,
+            Response.Listener { response ->
+                val cmd = response.optString("Data", "").trim()
+                if (cmd.isNotEmpty()) {
+                    context.log().i(TAG, "Server command for '$bleUid': $cmd")
+                    onCommand(cmd)
+                }
+            },
+            Response.ErrorListener { error ->
+                context.log().w(TAG, "Command poll failed for '$bleUid': ${errorText(error)}")
+            },
+        )
+        queue.add(request)
+    }
+
+    /**
+     * Locally queue a command for a pouch (e.g. from the control UI). The scan
+     * service drains this queue and relays it over BLE next time it sees the
+     * pouch — same delivery path as a server command. Stored as a small set so
+     * multiple distinct commands survive until the pouch is next in range.
+     */
+    fun queueLocalCommand(bleUid: String, command: String) {
+        val pending = (prefs.getStringSet(kPending(bleUid), emptySet()) ?: emptySet()).toMutableSet()
+        pending.add(command)
+        prefs.edit().putStringSet(kPending(bleUid), pending).apply()
+    }
+
+    /** Atomically take and clear any locally-queued commands for a pouch. */
+    fun drainLocalCommands(bleUid: String): Set<String> {
+        val pending = prefs.getStringSet(kPending(bleUid), emptySet()) ?: emptySet()
+        if (pending.isNotEmpty()) {
+            prefs.edit().remove(kPending(bleUid)).apply()
+        }
+        return pending
     }
 
     // ---------- Helpers ----------

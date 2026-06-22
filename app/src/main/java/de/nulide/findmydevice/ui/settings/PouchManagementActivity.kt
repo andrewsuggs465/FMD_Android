@@ -95,18 +95,53 @@ class PouchManagementActivity : FmdActivity() {
             alpha = 0.7f
         }
 
+        val btnControls = MaterialButton(this, null, com.google.android.material.R.attr.materialButtonOutlinedStyle).apply {
+            text = "Controls"
+            setOnClickListener { showControls(uid) }
+        }
+
         val btnRemove = MaterialButton(this, null, com.google.android.material.R.attr.materialButtonOutlinedStyle).apply {
-            text = getString(android.R.string.cancel).replace("Cancel", "Remove")
             text = "Remove"
             setOnClickListener { confirmRemove(uid) }
         }
 
+        val actions = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+        }
+        actions.addView(btnControls)
+        actions.addView(btnRemove)
+
         textBlock.addView(tvName)
         textBlock.addView(tvLastSeen)
         inner.addView(textBlock)
-        inner.addView(btnRemove)
+        inner.addView(actions)
         card.addView(inner)
         parent.addView(card)
+    }
+
+    /**
+     * Show the SecurePouch command menu. Each command is queued locally and
+     * relayed to the pouch over BLE the next time the scan service sees it
+     * (typically within the 30 s scan cycle), then echoed to the FMD server.
+     */
+    private fun showControls(uid: String) {
+        // Labels paired with the FMD command strings (= firmware SP_CMD_*).
+        val labels = arrayOf("Lock", "Unlock", "Arm", "Disarm", "Alarm", "Silence", "Locate")
+        val commands = arrayOf("lock", "unlock", "arm", "disarm", "alarm", "silence", "locate")
+        MaterialAlertDialogBuilder(this)
+            .setTitle(uid)
+            .setItems(labels) { _, which ->
+                bleRepo.queueLocalCommand(uid, commands[which])
+                // Make sure the scanner is running so the command gets delivered.
+                BleTrackerScanService.start(this)
+                android.widget.Toast.makeText(
+                    this,
+                    "${labels[which]} queued — will relay when the pouch is in range",
+                    android.widget.Toast.LENGTH_SHORT,
+                ).show()
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
     }
 
     private fun formatLastSeen(timestampMs: Long?): String {

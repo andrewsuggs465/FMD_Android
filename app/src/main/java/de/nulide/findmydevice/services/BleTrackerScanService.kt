@@ -56,6 +56,7 @@ class BleTrackerScanService : Service() {
         // SecurePouch BLE UUIDs (must match firmware/shared/ble_protocol.h)
         private const val SP_SERVICE_UUID = "af19b3e4-d279-4a2a-9d3f-2f5e8a6bc051"
         private const val SP_CHAR_DEVICE_ID_UUID = "af19b3e4-d279-4a2a-9d3f-2f5e8a6bc052"
+        private const val SP_CHAR_CONTROL_UUID = "af19b3e4-d279-4a2a-9d3f-2f5e8a6bc054"
 
         fun start(context: Context) {
             val intent = Intent(context, BleTrackerScanService::class.java)
@@ -81,6 +82,8 @@ class BleTrackerScanService : Service() {
 
     // MAC addresses connected this scan window — prevents double-connect on same device
     private val activeGatts = mutableMapOf<String, BluetoothGatt>()
+    // Control opcodes still to be written to a connected pouch (keyed by MAC).
+    private val pendingOpcodes = mutableMapOf<String, ArrayDeque<Byte>>()
     private var isScanning = false
 
     // ---------- Lifecycle ----------
@@ -110,6 +113,7 @@ class BleTrackerScanService : Service() {
         }
         activeGatts.values.forEach { it.close() }
         activeGatts.clear()
+        pendingOpcodes.clear()
         super.onDestroy()
     }
 
@@ -199,6 +203,7 @@ class BleTrackerScanService : Service() {
                     BluetoothProfile.STATE_DISCONNECTED -> {
                         this@BleTrackerScanService.log().d(TAG, "GATT disconnected: $deviceAddress")
                         activeGatts.remove(deviceAddress)
+                        pendingOpcodes.remove(deviceAddress)
                         gatt.close()
                     }
                 }
@@ -249,12 +254,102 @@ class BleTrackerScanService : Service() {
         }
 
         private fun onCharRead(gatt: BluetoothGatt, uuid: UUID, value: ByteArray) {
-            gatt.disconnect()
-            if (uuid == UUID.fromString(SP_CHAR_DEVICE_ID_UUID)) {
-                val bleUid = String(value, Charsets.UTF_8).trim()
-                this@BleTrackerScanService.log().i(TAG, "Pouch detected: bleUid='$bleUid'")
-                postLocationForPouch(bleUid)
+            if (uuid != UUID.fromString(SP_CHAR_DEVICE_ID_UUID)) {
+                gatt.disconnect()
+                return
             }
+            val bleUid = String(value, Charsets.UTF_8).trim()
+            this@BleTrackerScanService.log().i(TAG, "Pouch detected: bleUid='$bleUid'")
+            postLocationForPouch(bleUid)
+
+            if (!bleRepo.getPouchUids().contains(bleUid)) {
+                gatt.disconnect()
+                return
+            }
+
+            // Relay any commands waiting for this pouch over BLE: locally-queued
+            // (from the control UI) plus whatever the server has pending. We
+            // disconnect once every opcode has been written.
+            val opcodes = ArrayDeque<Byte>()
+            bleRepo.drainLocalCommands(bleUid).forEach { cmd ->
+                BleTrackerRepository.commandToOpcode(cmd)?.let { opcodes.add(it) }
+            }
+            pendingOpcodes[gatt.device.address] = opcodes
+
+            bleRepo.pollServerCommand(bleUid) { cmd ->
+                BleTrackerRepository.commandToOpcode(cmd)?.let { op ->
+                    handler.post {
+                        // Server poll is async; if the GATT is still up, queue + kick.
+                        val q = pendingOpcodes[gatt.device.address]
+                        if (q != null) {
+                            q.add(op)
+                            if (q.size == 1) writeNextOpcode(gatt)
+                        }
+                    }
+                }
+            }
+
+            // Start writing immediately if local commands were queued; otherwise
+            // give the server poll a brief moment, then disconnect if still empty.
+            if (opcodes.isNotEmpty()) {
+                writeNextOpcode(gatt)
+            } else {
+                handler.postDelayed({
+                    if (pendingOpcodes[gatt.device.address]?.isEmpty() != false) {
+                        gatt.disconnect()
+                    }
+                }, 2_000)
+            }
+        }
+
+        override fun onCharacteristicWrite(
+            gatt: BluetoothGatt,
+            characteristic: BluetoothGattCharacteristic,
+            status: Int,
+        ) {
+            handler.post {
+                val q = pendingOpcodes[gatt.device.address]
+                if (q != null && q.isNotEmpty()) {
+                    q.removeFirst()
+                }
+                if (q != null && q.isNotEmpty()) {
+                    writeNextOpcode(gatt)
+                } else {
+                    gatt.disconnect()
+                }
+            }
+        }
+    }
+
+    /** Write the front opcode of the device's pending queue to the CONTROL char. */
+    @Suppress("DEPRECATION")
+    private fun writeNextOpcode(gatt: BluetoothGatt) {
+        if (!hasConnectPermission()) {
+            gatt.disconnect()
+            return
+        }
+        val opcode = pendingOpcodes[gatt.device.address]?.firstOrNull() ?: run {
+            gatt.disconnect()
+            return
+        }
+        val service = gatt.getService(UUID.fromString(SP_SERVICE_UUID))
+        val control = service?.getCharacteristic(UUID.fromString(SP_CHAR_CONTROL_UUID))
+        if (control == null) {
+            this.log().w(TAG, "CONTROL char not found — cannot relay command")
+            gatt.disconnect()
+            return
+        }
+        this.log().i(TAG, "Writing control opcode 0x%02x to pouch".format(opcode))
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            gatt.writeCharacteristic(
+                control,
+                byteArrayOf(opcode),
+                BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT,
+            )
+        } else {
+            control.value = byteArrayOf(opcode)
+            control.writeType = BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT
+            gatt.writeCharacteristic(control)
         }
     }
 
