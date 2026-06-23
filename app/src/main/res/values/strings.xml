@@ -434,6 +434,8 @@
     <string name="sp_unpair_confirm_message">This will remove all local credentials for \'%1$s\'. The server account is not deleted.</string>
     <string name="sp_last_seen_never">Last seen: never</string>
     <string name="sp_last_seen_format">Last seen: %1$s ago</string>
+    <string name="sp_left_behind_title">SecurePouch left behind</string>
+    <string name="sp_left_behind_text">%1$s has not been seen for over %2$d minutes.</string>
 
     <!-- BLE scan screen -->
     <string name="sp_scan_title">Scan for SecurePouch</string>

@@ -61,8 +61,18 @@ class FmdServerRepository(
             }
 
             override fun onResponse(call: Call, response: Response) {
-                val version = response.body.string()
-                listener.onResponse(version)
+                val body = response.body.string()
+                if (!response.isSuccessful) {
+                    errorListener.onError(
+                        ServerError(
+                            response.code,
+                            body,
+                            response.message.ifBlank { "Version check failed" },
+                        )
+                    )
+                    return
+                }
+                listener.onResponse(body)
             }
         }
 

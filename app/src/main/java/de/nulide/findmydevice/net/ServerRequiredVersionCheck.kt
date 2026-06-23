@@ -55,6 +55,10 @@ fun isMinRequiredVersion(
             onResult(MinRequiredVersionResult.Success(currentString))
         }
     }, { error: ServerError ->
-        onResult(MinRequiredVersionResult.Error("[${error.statusCode ?: 0}] ${error.message}"))
+        onResult(
+            MinRequiredVersionResult.Error(
+                error.diagnosticMessage("Version check", serverBaseUrl)
+            )
+        )
     })
 }

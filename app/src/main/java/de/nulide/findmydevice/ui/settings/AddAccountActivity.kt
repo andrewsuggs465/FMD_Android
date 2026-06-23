@@ -55,6 +55,11 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
 
     private var lastTextChangedMillis: Long = 0
 
+    override fun onDestroy() {
+        dismissLoadingIndicator()
+        super.onDestroy()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_account)
@@ -148,10 +153,10 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                     Toast.makeText(
                         context, R.string.Settings_FMDServer_Error_id_or_pw_empty, Toast.LENGTH_LONG
                     ).show()
-                    loadingDialog?.cancel()
+                    dismissLoadingIndicator()
                 } else if (password.length < MIN_PASSWORD_LENGTH) {
                     Toast.makeText(context, R.string.password_min_length, Toast.LENGTH_LONG).show()
-                    loadingDialog?.cancel()
+                    dismissLoadingIndicator()
                 } else {
                     // Key generation and password hashing is expensive-ish, so we don't want
                     // to do it on the UI thread (e.g., it would block the loading indicator).
@@ -161,7 +166,9 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                             password,
                             registrationToken,
                             this@AddAccountActivity::onRegisterOrLoginSuccess,
-                            this@AddAccountActivity::onRegisterOrLoginError,
+                            { error ->
+                                this@AddAccountActivity.onRegisterOrLoginError("Register", error)
+                            },
                         )
                     }
                 }
@@ -194,14 +201,16 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                             id,
                             password,
                             this@AddAccountActivity::onRegisterOrLoginSuccess,
-                            this@AddAccountActivity::onRegisterOrLoginError,
+                            { error ->
+                                this@AddAccountActivity.onRegisterOrLoginError("Login", error)
+                            },
                         )
                     }
                 } else {
                     Toast.makeText(
                         context, R.string.Settings_FMDServer_Error_id_or_pw_empty, Toast.LENGTH_LONG
                     ).show()
-                    loadingDialog?.cancel()
+                    dismissLoadingIndicator()
                 }
             }
         showPrivacyPolicyThenDialog(context, loginDialog)
@@ -225,20 +234,43 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         val url = editTextServerUrl.text.toString().removeSuffix("/") + "/privacy?embedded=true"
         webView.loadUrl(url)
 
+        if (cannotShowDialogs()) {
+            return
+        }
+
         MaterialAlertDialogBuilder(context)
             .setTitle(getString(R.string.Settings_FMDServer_Alert_PrivacyPolicy_Title))
             .setView(webView)
-            .setPositiveButton(getString(R.string.accept)) { _, _ -> dialogToShowAfterAccepting.show() }
+            .setPositiveButton(getString(R.string.accept)) { _, _ ->
+                if (!cannotShowDialogs()) {
+                    dialogToShowAfterAccepting.show()
+                }
+            }
             .setNegativeButton(getString(R.string.cancel), null)
             .setCancelable(false)
             .show()
     }
 
     private fun showLoadingIndicator(context: Context) {
+        if (cannotShowDialogs()) {
+            return
+        }
+
+        dismissLoadingIndicator()
+
         val loadingLayout = layoutInflater.inflate(R.layout.dialog_loading, null)
         loadingDialog =
             MaterialAlertDialogBuilder(context).setView(loadingLayout).setCancelable(false).create()
         loadingDialog?.show()
+    }
+
+    private fun dismissLoadingIndicator() {
+        loadingDialog?.dismiss()
+        loadingDialog = null
+    }
+
+    private fun cannotShowDialogs(): Boolean {
+        return isFinishing || isDestroyed
     }
 
     override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
@@ -276,8 +308,13 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
 
     private fun onRegisterOrLoginSuccess(unit: Unit) {
         runOnUiThread {
+            if (cannotShowDialogs()) {
+                dismissLoadingIndicator()
+                return@runOnUiThread
+            }
+
             val context = applicationContext
-            loadingDialog?.cancel()
+            dismissLoadingIndicator()
 
             if (!settingsRepo.serverAccountExists()) {
                 Toast.makeText(context, "Failed: no user id", Toast.LENGTH_LONG).show()
@@ -300,18 +337,24 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         }
     }
 
-    private fun onRegisterOrLoginError(error: ServerError) {
+    private fun onRegisterOrLoginError(operation: String, error: ServerError) {
         runOnUiThread {
-            loadingDialog?.cancel()
+            if (cannotShowDialogs()) {
+                dismissLoadingIndicator()
+                return@runOnUiThread
+            }
 
-            var message = """
-                ${getString(R.string.request_failed_status_code)}: ${error.statusCode}
-                ${getString(R.string.request_failed_response_body)}: ${error.body}
-                ${getString(R.string.request_failed_exception)}: ${error.message}
-                """.trimIndent()
+            dismissLoadingIndicator()
+
+            val serverUrl = settingsRepo.get(Settings.SET_FMDSERVER_URL) as String
+            var message = error.diagnosticMessage(operation, serverUrl)
 
             if (error.statusCode == 401) {
-                message = getString(R.string.server_registration_token_error)
+                message = """
+                    ${getString(R.string.server_registration_token_error)}
+
+                    ${error.diagnosticMessage(operation, serverUrl)}
+                    """.trimIndent()
             }
 
             val builder: AlertDialog.Builder = MaterialAlertDialogBuilder(this)

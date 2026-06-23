@@ -48,10 +48,14 @@ class BleTrackerScanService : Service() {
         private const val TAG = "BleTrackerScanService"
         private const val NOTIFICATION_ID = 1001
         private const val CHANNEL_ID = "sp_ble_tracker"
+        private const val ALERT_CHANNEL_ID = "sp_ble_alert"
 
         // 5 s active scan, then 25 s idle = 30 s between location updates
         private const val SCAN_WINDOW_MS = 5_000L
         private const val SCAN_INTERVAL_MS = 30_000L
+
+        // Fire a "left behind" alert when a pouch hasn't been seen for this long.
+        private const val LEFT_BEHIND_THRESHOLD_MS = 10 * 60 * 1000L  // 10 minutes
 
         // SecurePouch BLE UUIDs (must match firmware/shared/ble_protocol.h)
         private const val SP_SERVICE_UUID = "af19b3e4-d279-4a2a-9d3f-2f5e8a6bc051"
@@ -84,6 +88,8 @@ class BleTrackerScanService : Service() {
     private val activeGatts = mutableMapOf<String, BluetoothGatt>()
     // Control opcodes still to be written to a connected pouch (keyed by MAC).
     private val pendingOpcodes = mutableMapOf<String, ArrayDeque<Byte>>()
+    // Last RSSI seen per MAC address this scan window; forwarded to postLocation.
+    private val lastRssi = mutableMapOf<String, Int>()
     private var isScanning = false
 
     // ---------- Lifecycle ----------
@@ -159,7 +165,44 @@ class BleTrackerScanService : Service() {
         isScanning = false
         this.log().d(TAG, "Scan stopped")
         activeGatts.clear()
+        checkLeftBehind()
         scheduleScan()
+    }
+
+    private fun checkLeftBehind() {
+        val now = System.currentTimeMillis()
+        for (uid in bleRepo.getPouchUids()) {
+            val lastSeen = bleRepo.getLastSeen(uid) ?: continue
+            val elapsed = now - lastSeen
+            if (elapsed >= LEFT_BEHIND_THRESHOLD_MS) {
+                val minutes = (elapsed / 60_000).toInt()
+                fireLeftBehindAlert(uid, minutes)
+            }
+        }
+    }
+
+    private fun fireLeftBehindAlert(uid: String, minutesAgo: Int) {
+        val nm = getSystemService(NotificationManager::class.java)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val ch = NotificationChannel(
+                ALERT_CHANNEL_ID,
+                "SecurePouch Alerts",
+                NotificationManager.IMPORTANCE_HIGH,
+            ).apply { description = "Left-behind and tamper alerts for SecurePouch devices" }
+            nm.createNotificationChannel(ch)
+        }
+        val title = getString(R.string.sp_left_behind_title)
+        val text = getString(R.string.sp_left_behind_text, uid, minutesAgo)
+        val notification = NotificationCompat.Builder(this, ALERT_CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_notification)
+            .setContentTitle(title)
+            .setContentText(text)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setAutoCancel(true)
+            .build()
+        // Use a stable ID per uid so repeated firings update the same notification.
+        nm.notify(uid.hashCode(), notification)
+        this.log().i(TAG, "Left-behind alert fired for '$uid' ($minutesAgo min ago)")
     }
 
     // ---------- Scan callback ----------
@@ -177,6 +220,7 @@ class BleTrackerScanService : Service() {
 
     private fun handleScanResult(result: ScanResult) {
         val address = result.device.address
+        lastRssi[address] = result.rssi   // always capture latest RSSI even if already connected
         if (address in activeGatts) return // already connecting/connected this window
 
         if (!hasConnectPermission()) {
@@ -184,7 +228,7 @@ class BleTrackerScanService : Service() {
             return
         }
 
-        this.log().d(TAG, "SecurePouch device found: $address — connecting GATT")
+        this.log().d(TAG, "SecurePouch device found: $address rssi=${result.rssi} dBm — connecting GATT")
         val gatt = result.device.connectGatt(this, false, gattCallback(address))
         activeGatts[address] = gatt
     }
@@ -259,8 +303,10 @@ class BleTrackerScanService : Service() {
                 return
             }
             val bleUid = String(value, Charsets.UTF_8).trim()
-            this@BleTrackerScanService.log().i(TAG, "Pouch detected: bleUid='$bleUid'")
-            postLocationForPouch(bleUid)
+            val rssi = lastRssi[gatt.device.address]
+            this@BleTrackerScanService.log().i(TAG, "Pouch detected: bleUid='$bleUid' rssi=${rssi ?: "?"}dBm")
+            postLocationForPouch(bleUid, rssi)
+            rssi?.let { bleRepo.storeLastRssi(bleUid, it) }
 
             if (!bleRepo.getPouchUids().contains(bleUid)) {
                 gatt.disconnect()
@@ -355,7 +401,7 @@ class BleTrackerScanService : Service() {
 
     // ---------- Location posting ----------
 
-    private fun postLocationForPouch(bleUid: String) {
+    private fun postLocationForPouch(bleUid: String, rssi: Int? = null) {
         if (!bleRepo.getPouchUids().contains(bleUid)) {
             this.log().w(TAG, "Unknown pouch '$bleUid' — not registered, skipping")
             return
@@ -365,7 +411,7 @@ class BleTrackerScanService : Service() {
             this.log().w(TAG, "No location available for '$bleUid' — skipping post")
             return
         }
-        bleRepo.postLocation(bleUid, location)
+        bleRepo.postLocation(bleUid, location, rssi)
     }
 
     @Suppress("MissingPermission")

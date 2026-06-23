@@ -41,6 +41,7 @@ class BleTrackerRepository(private val context: Context) {
         private fun kToken(uid: String) = "${uid}_access_token"
         private fun kPubKey(uid: String) = "${uid}_public_key"
         private fun kLastSeen(uid: String) = "${uid}_last_seen_ms"
+        private fun kLastRssi(uid: String) = "${uid}_last_rssi"
         private fun kPending(uid: String) = "${uid}_pending_commands"
 
         // SecurePouch BLE control opcodes — keep in sync with
@@ -94,6 +95,13 @@ class BleTrackerRepository(private val context: Context) {
     fun getLastSeen(bleUid: String): Long? =
         prefs.getLong(kLastSeen(bleUid), -1L).takeIf { it >= 0 }
 
+    fun getLastRssi(bleUid: String): Int? =
+        prefs.getInt(kLastRssi(bleUid), Int.MIN_VALUE).takeIf { it != Int.MIN_VALUE }
+
+    fun storeLastRssi(bleUid: String, rssi: Int) {
+        prefs.edit().putInt(kLastRssi(bleUid), rssi).apply()
+    }
+
     fun removePouch(bleUid: String) {
         val all = (prefs.getStringSet(KEY_ALL_UIDS, emptySet()) ?: emptySet()).toMutableSet()
         all.remove(bleUid)
@@ -104,6 +112,8 @@ class BleTrackerRepository(private val context: Context) {
             .remove(kToken(bleUid))
             .remove(kPubKey(bleUid))
             .remove(kLastSeen(bleUid))
+            .remove(kLastRssi(bleUid))
+            .remove(kPending(bleUid))
             .apply()
     }
 
@@ -306,13 +316,54 @@ class BleTrackerRepository(private val context: Context) {
         prefs.edit().putStringSet(KEY_ALL_UIDS, all).apply()
     }
 
+    // ---------- Token refresh ----------
+
+    /**
+     * Re-run requestAccess using the stored hashed password and update the cached token.
+     * The [onRefreshed] callback fires on the main thread with the new token on success,
+     * or [onFail] fires if the server rejects the credentials (password changed / account
+     * deleted — user must re-pair in that case).
+     */
+    private fun refreshToken(
+        bleUid: String,
+        onRefreshed: (newToken: String) -> Unit,
+        onFail: () -> Unit,
+    ) {
+        val hashedPw = prefs.getString(kHashedPw(bleUid), null) ?: run {
+            context.log().e(TAG, "No stored password for '$bleUid' — cannot refresh token")
+            onFail()
+            return
+        }
+        val baseUrl = serverBaseUrl()
+        val body = JSONObject().apply {
+            put("IDT", bleUid)
+            put("Data", hashedPw)
+            put("SessionDurationSeconds", 7 * 24 * 60 * 60)
+        }
+        val request = JsonObjectRequest(
+            Request.Method.PUT, "$baseUrl/requestAccess", body,
+            Response.Listener { response ->
+                val newToken = response.getString("Data")
+                prefs.edit().putString(kToken(bleUid), newToken).apply()
+                context.log().i(TAG, "Token refreshed for '$bleUid'")
+                onRefreshed(newToken)
+            },
+            Response.ErrorListener { error ->
+                context.log().e(TAG, "Token refresh failed for '$bleUid': ${errorText(error)}")
+                onFail()
+            },
+        )
+        queue.add(request)
+    }
+
     // ---------- Location posting ----------
 
     /**
-     * Encrypt [location] with the pouch's RSA public key and POST it to the FMD server
-     * using the pouch's access token.
+     * Encrypt [location] with the pouch's RSA public key and POST it to the FMD server.
+     * [rssi] (dBm) is included in the encrypted payload for the dashboard distance ring.
+     * On a 401 the token is refreshed once automatically and the post retried.
      */
-    fun postLocation(bleUid: String, location: FmdLocation) {
+    fun postLocation(bleUid: String, location: FmdLocation, rssi: Int? = null) {
         val accessToken = getAccessToken(bleUid)
         val publicKey = getPublicKey(bleUid)
 
@@ -332,16 +383,20 @@ class BleTrackerRepository(private val context: Context) {
             put("bat", location.batteryLevel)
             put("date", location.timeMillis)
             put("time", Date(location.timeMillis).toString())
+            rssi?.let { put("rssi", it) }
         }
 
         val encryptedBytes = CypherUtils.encryptWithKey(publicKey, locationJson.toString())
         val encryptedBase64 = CypherUtils.encodeBase64(encryptedBytes)
 
+        doPostLocation(bleUid, accessToken, encryptedBase64, retried = false)
+    }
+
+    private fun doPostLocation(bleUid: String, token: String, encryptedBase64: String, retried: Boolean) {
         val body = JSONObject().apply {
-            put("IDT", accessToken)
+            put("IDT", token)
             put("Data", encryptedBase64)
         }
-
         val request = JsonPostRequest(
             Request.Method.POST, "${serverBaseUrl()}/location", body,
             Response.Listener { _ ->
@@ -349,7 +404,16 @@ class BleTrackerRepository(private val context: Context) {
                 context.log().i(TAG, "Location posted for pouch '$bleUid'")
             },
             Response.ErrorListener { error ->
-                context.log().e(TAG, "Location post failed for '$bleUid': ${error.message}")
+                val status = error.networkResponse?.statusCode
+                if (status == 401 && !retried) {
+                    context.log().w(TAG, "Location post 401 for '$bleUid' — refreshing token")
+                    refreshToken(bleUid,
+                        onRefreshed = { newToken -> doPostLocation(bleUid, newToken, encryptedBase64, retried = true) },
+                        onFail = { context.log().e(TAG, "Token refresh failed — location dropped for '$bleUid'") },
+                    )
+                } else {
+                    context.log().e(TAG, "Location post failed for '$bleUid': ${errorText(error)}")
+                }
             },
         )
         queue.add(request)
@@ -365,8 +429,12 @@ class BleTrackerRepository(private val context: Context) {
      */
     fun pollServerCommand(bleUid: String, onCommand: (String) -> Unit) {
         val accessToken = getAccessToken(bleUid) ?: return
+        doPollServerCommand(bleUid, accessToken, onCommand, retried = false)
+    }
+
+    private fun doPollServerCommand(bleUid: String, token: String, onCommand: (String) -> Unit, retried: Boolean) {
         val body = JSONObject().apply {
-            put("IDT", accessToken)
+            put("IDT", token)
             put("Data", "")
         }
         val request = JsonObjectRequest(
@@ -379,7 +447,16 @@ class BleTrackerRepository(private val context: Context) {
                 }
             },
             Response.ErrorListener { error ->
-                context.log().w(TAG, "Command poll failed for '$bleUid': ${errorText(error)}")
+                val status = error.networkResponse?.statusCode
+                if (status == 401 && !retried) {
+                    context.log().w(TAG, "Command poll 401 for '$bleUid' — refreshing token")
+                    refreshToken(bleUid,
+                        onRefreshed = { newToken -> doPollServerCommand(bleUid, newToken, onCommand, retried = true) },
+                        onFail = { context.log().e(TAG, "Token refresh failed — command poll skipped for '$bleUid'") },
+                    )
+                } else {
+                    context.log().w(TAG, "Command poll failed for '$bleUid': ${errorText(error)}")
+                }
             },
         )
         queue.add(request)

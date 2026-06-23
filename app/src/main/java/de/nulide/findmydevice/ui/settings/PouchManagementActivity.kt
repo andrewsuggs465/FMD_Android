@@ -96,7 +96,7 @@ class PouchManagementActivity : FmdActivity() {
         }
 
         val btnControls = MaterialButton(this, null, com.google.android.material.R.attr.materialButtonOutlinedStyle).apply {
-            text = "Controls"
+            text = "BLE relay"
             setOnClickListener { showControls(uid) }
         }
 
@@ -120,7 +120,7 @@ class PouchManagementActivity : FmdActivity() {
     }
 
     /**
-     * Show the SecurePouch command menu. Each command is queued locally and
+     * Show the SecurePouch BLE-relay command menu. Each command is queued locally and
      * relayed to the pouch over BLE the next time the scan service sees it
      * (typically within the 30 s scan cycle), then echoed to the FMD server.
      */
@@ -129,7 +129,7 @@ class PouchManagementActivity : FmdActivity() {
         val labels = arrayOf("Lock", "Unlock", "Arm", "Disarm", "Alarm", "Silence", "Locate")
         val commands = arrayOf("lock", "unlock", "arm", "disarm", "alarm", "silence", "locate")
         MaterialAlertDialogBuilder(this)
-            .setTitle(uid)
+            .setTitle("$uid · BLE relay")
             .setItems(labels) { _, which ->
                 bleRepo.queueLocalCommand(uid, commands[which])
                 // Make sure the scanner is running so the command gets delivered.
