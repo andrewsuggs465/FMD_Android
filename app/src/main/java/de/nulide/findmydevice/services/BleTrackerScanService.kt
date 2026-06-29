@@ -64,6 +64,19 @@ class BleTrackerScanService : Service() {
         private const val SP_STATUS_ARMED: Byte = 0x02
 
         fun start(context: Context) {
+            // Android 12+ requires BLUETOOTH_CONNECT; Android 6–11 requires FINE_LOCATION.
+            // Don't call startForegroundService if BT permissions aren't granted — the service
+            // cannot call startForeground() with connectedDevice type without them, causing
+            // ForegroundServiceDidNotStartInTimeException (crash visible as ANR on Pixel 9a).
+            val btConnectOk = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                ContextCompat.checkSelfPermission(context, Manifest.permission.BLUETOOTH_CONNECT) ==
+                    PackageManager.PERMISSION_GRANTED
+            } else true
+            val locationOk = ContextCompat.checkSelfPermission(
+                context, Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+            if (!btConnectOk || !locationOk) return  // caller must request permissions first
+
             val intent = Intent(context, BleTrackerScanService::class.java)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 context.startForegroundService(intent)
@@ -87,6 +100,10 @@ class BleTrackerScanService : Service() {
 
     private lateinit var scanScheduler: BleScanScheduler
 
+    // How long to wait for a GATT operation (connect → discover → read) before aborting.
+    // BLE can hang indefinitely on flaky connections; this prevents GATT leaks.
+    private val GATT_TIMEOUT_MS = 10_000L
+
     // MAC addresses connected this scan window — prevents double-connect on same device
     private val activeGatts = mutableMapOf<String, BluetoothGatt>()
     // Control opcodes still to be written to a connected pouch (keyed by MAC).
@@ -104,6 +121,8 @@ class BleTrackerScanService : Service() {
 
     override fun onCreate() {
         super.onCreate()
+        // Init fields first — startForeground() must come before any slow I/O but
+        // these constructors are synchronous and fast.
         bleRepo = BleTrackerRepository(this)
         settingsRepo = SettingsRepository.getInstance(this)
         scanScheduler = BleScanScheduler(
@@ -112,7 +131,16 @@ class BleTrackerScanService : Service() {
             doStopScan  = ::doStopScan,
             onWindowEnd = ::checkLeftBehind,
         )
-        startForeground(NOTIFICATION_ID, buildNotification())
+        // startForeground() MUST be called promptly — Android 14+ will kill the
+        // service with ForegroundServiceDidNotStartInTimeException otherwise.
+        // SecurityException is thrown on Android 14+ if the foreground-service-type
+        // permission is missing (connectedDevice requires BLUETOOTH_CONNECT + FINE_LOCATION).
+        try {
+            startForeground(NOTIFICATION_ID, buildNotification())
+        } catch (e: SecurityException) {
+            this.log().e(TAG, "startForeground failed — missing permission: ${e.message}")
+            stopSelf()
+        }
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -188,40 +216,33 @@ class BleTrackerScanService : Service() {
         }
     }
 
-    private fun fireLeftBehindAlert(uid: String, minutesAgo: Int) {
-        val nm = getSystemService(NotificationManager::class.java)
+    private fun ensureAlertChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val ch = NotificationChannel(
                 ALERT_CHANNEL_ID,
                 "SecurePouch Alerts",
                 NotificationManager.IMPORTANCE_HIGH,
             ).apply { description = "Left-behind and tamper alerts for SecurePouch devices" }
-            nm.createNotificationChannel(ch)
+            getSystemService(NotificationManager::class.java).createNotificationChannel(ch)
         }
-        val title = getString(R.string.sp_left_behind_title)
-        val text = getString(R.string.sp_left_behind_text, uid, minutesAgo)
+    }
+
+    private fun fireLeftBehindAlert(uid: String, minutesAgo: Int) {
+        ensureAlertChannel()
         val notification = NotificationCompat.Builder(this, ALERT_CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_notification)
-            .setContentTitle(title)
-            .setContentText(text)
+            .setContentTitle(getString(R.string.sp_left_behind_title))
+            .setContentText(getString(R.string.sp_left_behind_text, uid, minutesAgo))
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
             .build()
-        // Use a stable ID per uid so repeated firings update the same notification.
-        nm.notify(uid.hashCode(), notification)
+        // Stable ID per uid so repeated firings update the same notification.
+        getSystemService(NotificationManager::class.java).notify(uid.hashCode(), notification)
         this.log().i(TAG, "Left-behind alert fired for '$uid' ($minutesAgo min ago)")
     }
 
     private fun fireArmedDisconnectAlert(uid: String) {
-        val nm = getSystemService(NotificationManager::class.java)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val ch = NotificationChannel(
-                ALERT_CHANNEL_ID,
-                "SecurePouch Alerts",
-                NotificationManager.IMPORTANCE_HIGH,
-            ).apply { description = "Left-behind and tamper alerts for SecurePouch devices" }
-            nm.createNotificationChannel(ch)
-        }
+        ensureAlertChannel()
         val notification = NotificationCompat.Builder(this, ALERT_CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_notification)
             .setContentTitle("SecurePouch out of range")
@@ -229,7 +250,8 @@ class BleTrackerScanService : Service() {
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
             .build()
-        nm.notify("armed_disconnect_$uid".hashCode(), notification)
+        getSystemService(NotificationManager::class.java)
+            .notify("armed_disconnect_$uid".hashCode(), notification)
         this.log().w(TAG, "Armed-disconnect alert fired for '$uid'")
     }
 
@@ -284,6 +306,14 @@ class BleTrackerScanService : Service() {
         this.log().d(TAG, "SecurePouch device found: $address rssi=${result.rssi} dBm — connecting GATT")
         val gatt = result.device.connectGatt(this, false, gattCallback(address))
         activeGatts[address] = gatt
+        // Abort if the GATT flow doesn't complete within the timeout window.
+        // BLE can hang on connection or discovery; this prevents indefinite leaks.
+        handler.postDelayed({
+            if (address in activeGatts && address !in armedGatts) {
+                this.log().w(TAG, "GATT timeout for $address — closing stale connection")
+                activeGatts.remove(address)?.disconnect()
+            }
+        }, GATT_TIMEOUT_MS)
     }
 
     // ---------- GATT callback ----------
@@ -428,9 +458,7 @@ class BleTrackerScanService : Service() {
             val cccdUuid = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb")
             val cccd = statusChar.getDescriptor(cccdUuid) ?: return
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                gatt.writeDescriptor(cccd, BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT.let {
-                    byteArrayOf(0x01, 0x00)
-                })
+                gatt.writeDescriptor(cccd, byteArrayOf(0x01, 0x00))
             } else {
                 @Suppress("DEPRECATION")
                 cccd.value = byteArrayOf(0x01, 0x00)
